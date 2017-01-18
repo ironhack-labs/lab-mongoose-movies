@@ -11,9 +11,10 @@
 
 ## Exercise
 ## Requirements
-First, we'll have to create the project with the Express generator command.  
-Open your terminal, navigate to a place where you want your project saved and type ```express --git --ejs nameOfYourProject ```
-- The ```--git``` part tells express to create a git repository inside the project directory
+- [Fork this repo](https://guides.github.com/activities/forking/)
+- Clone your fork into your `~/code/labs` folder.
+- Navigate into the folder you just cloned and create the project with the Express generator command.  
+       ```express --ejs nameOfYourProject ```
 - The ```--ejs``` command tells express to use ejs files for the views
 
 
