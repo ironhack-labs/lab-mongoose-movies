@@ -28,13 +28,12 @@ $ git commit -m "done"
 $ git push origin master
 ```
 
-
-
 ## Introduction
 Everyone likes celebrities, right? Well, even if you don't, now is your chance to create your own, better, fictional celebrities! 
 Let's create an Express app with all the basic CRUD actions that will allow the user to create their own celebrities and edit them as they see fit. 
 
 The user should be able to:
+
 1. See the list of celebrities.
 2. See the details of a celebrity.
 3. Add new celebrities.
