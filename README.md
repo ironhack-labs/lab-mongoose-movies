@@ -1,5 +1,6 @@
 ![](https://i.imgur.com/1QgrNNw.png)
-# CRUD | Mongoose Movies
+
+# DE | Mongoose Movies
 
 ## Learning Goals
 
