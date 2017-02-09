@@ -13,6 +13,7 @@
 			<% celebs.forEach((fakeCeleb) => { %>
 				<li>
 					<a  href="/celebrities/<%= fakeCeleb._id%>"><%= fakeCeleb.name %></a>
+					<a href="/celebrities/<%= fakeCeleb._id%>/edit">Edit</a>
 					<a href="/celebrities/<%= fakeCeleb._id%>/delete">Delete</a>
 				</li>
 			<% }) %>

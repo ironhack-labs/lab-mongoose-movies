@@ -47,6 +47,34 @@ router.get('/:id', (req, res, next) => {
 	})
 });
 
+router.get('/:id/edit', (req, res, next) => {
+  const celebId = req.params.id;
+
+  Celebrity.findById(celebId, (err, celeb) => {
+    if (err) { return next(err); }
+    res.render('celebrities/edit', { celeb: celeb });
+  });
+});
+
+router.post('/:id', (req, res, next) => {
+  const celebId = req.params.id;
+
+  /*
+   * Create a new object with all of the information from the request body.
+   * This correlates directly with the schema of Product
+   */
+  const celebToUpdate = {
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase,
+  };
+
+  Celebrity.findByIdAndUpdate(celebId, celebToUpdate, (err, celeb) => {
+    if (err){ return next(err); }
+    return res.redirect('/celebrities');
+  });
+});
+
 router.get('/:id/delete', (req, res, next) => {
   const id = req.params.id;
 	console.log(req);
