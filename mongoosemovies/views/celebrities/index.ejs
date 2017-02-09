@@ -11,7 +11,10 @@
 
 		<ul>
 			<% celebs.forEach((fakeCeleb) => { %>
-				<li><a  href="/celebrities/<%= fakeCeleb._id%>"><%= fakeCeleb.name %></a></li>
+				<li>
+					<a  href="/celebrities/<%= fakeCeleb._id%>"><%= fakeCeleb.name %></a>
+					<a href="/celebrities/<%= fakeCeleb._id%>/delete">Delete</a>
+				</li>
 			<% }) %>
 		</ul>
 
