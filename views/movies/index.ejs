@@ -1,0 +1,18 @@
+<h2>Potato Films</h2>
+<ul>
+  <% movies.forEach((movie) => { %>
+    <li>
+      <a href="/movies/<%= movie._id %>"><%= movie.title %></a>
+      <p>
+      <button type="submit">
+        <a href="/movies/<%= movie._id %>/edit">Edit Potato Film</a>
+      </button>
+      <form action="/movies/<%= movie._id %>/delete" method="POST">
+      <button type="submit">Delete Potato Film</button></p>
+      </form>
+    </p>
+    </li>
+  <%  }) %>
+</ul>
+<p><a href="/movies/new">Add a Potato Film</a><p>
+<p><a href="/celebrities">Go to Celebotatos</a></p>
