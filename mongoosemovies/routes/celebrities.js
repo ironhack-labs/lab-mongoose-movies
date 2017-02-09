@@ -16,6 +16,26 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/new',(req, res) => {
+	res.render('celebrities/new')
+})
+
+router.post('/',(req,res,next) => {
+	let celeb = {
+		name: req.body.name,
+		occupation: req.body.occupation,
+		catchPhrase: req.body.catchPhrase,
+	}
+	Celebrity.create(celeb,(err,doc) =>{
+		if (err) {
+			next(err);
+		}	else {
+			res.redirect('/celebrities');
+		}
+	});
+})
+
+
 router.get('/:id', (req, res, next) => {
   let celebId = req.params.id;
 
@@ -26,5 +46,7 @@ router.get('/:id', (req, res, next) => {
 		});
 	})
 });
+
+
 
 module.exports = router;
