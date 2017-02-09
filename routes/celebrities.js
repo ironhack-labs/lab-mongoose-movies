@@ -19,20 +19,19 @@ router.post('/', (req, res, next) => {
       occupation: req.body.occupation,
       catchPhrase: req.body.catchPhrase
   };
-
-  const newCelebrity = new Celebrities(celebrityInfo);
-
-  newCelebrity.save( (err) => {
-    if (err) { return next(err); }
     return res.redirect('/celebrities');
-  });
 });
 
-// router.get('/celebrities', (req, res, next) => {
-//   console.log("entra");
-//   Celebrities.find({},function (err,celebrities){
-//     if(err) return next(err);
-//     res.render('celebrities/index',{celebrities});
-//   });
-// });
+// /celebrities está definido en app.js por eso capturamos solo la iD
+router.get('/:id', (req, res, next) => {
+  const id = req.params.id;
+  console.log("id"+id);
+  Celebrities.findById(id, function (err, celebrities) {
+  if (err) return next(err);
+  res.render('celebrities/show', { celebrities: celebrities });
+    }
+  );
+});
+
+
 module.exports = router;
