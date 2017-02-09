@@ -7,5 +7,12 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+		<ul>
+			<% celebs.forEach((fakeCeleb) => { %>
+				<li><%= fakeCeleb.name %></li>
+			<% }) %>
+		</ul>
+
   </body>
 </html>
