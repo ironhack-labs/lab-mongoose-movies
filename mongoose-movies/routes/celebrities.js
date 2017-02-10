@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/celebrities');
 
+//--Render the list of celebrities--//
 router.get('/', (req, res, next) => {
   Celebrity.find({}, (error, celebrities) => {
     if (error) {
@@ -12,10 +13,12 @@ router.get('/', (req, res, next) => {
   });
 });
 
+//--Render new celebrities--//
 router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
+//--Render each celebrity web page--//
 router.get('/:id', (req, res, next) => {
   Celebrity.findById(req.params.id, (error, celebrities) => {
     if(error) {
@@ -26,6 +29,7 @@ router.get('/:id', (req, res, next) => {
   });
 });
 
+//--Add new celebrities to the DB--//
 router.post('/', (req, res, next) => {
   const celebrityInfo = {
     name: req.body.name,
@@ -41,6 +45,7 @@ router.post('/', (req, res, next) => {
   });
 });
 
+//--Remove celebrities from the data base--//
 router.post('/:id/delete', (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id, (err, celebrity) => {
     if(err) {
@@ -51,7 +56,8 @@ router.post('/:id/delete', (req, res, next) => {
   });
 });
 
-router.get('/:id/edit', (req,res, next) => {
+//--Get the information from a celebrity and update it in the data base--//
+router.get('/:id/edit', (req, res, next) => {
   Celebrity.findById(req.params.id, (err, celebrity) => {
     if (err) {
       next(error);
