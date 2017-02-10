@@ -15,9 +15,15 @@ router.get('/', (req, res, next) =>{
 
 });
 
+//RENDER THE MAIN FORM
+router.get('/new', (req, res) => {
+  res.render('celebrities/new');
+});
 
-router.get("/:_id", (req, res, next) => {
-  let celebrityId = req.params._id;
+
+
+router.get("/:id", (req, res, next) => {
+  let celebrityId = req.params.id;
   Celebrity.findById(celebrityId, (err, celebrities) =>{
     if (err) {
       next(err);
@@ -25,8 +31,21 @@ router.get("/:_id", (req, res, next) => {
       res.render("celebrities/show", {celebrities});
     }
   });
-
 });
+
+router.get("/:id/edit", (req, res, next) => {
+  let celebrityId = req.params.id;
+  Celebrity.findById(celebrityId, (err, celebrity) =>{
+    if (err) {
+      next(err);
+    } else {
+
+      res.render("celebrities/edit", celebrity );
+    }
+  });
+});
+
+
 
 
 // ---------------------------------------------------------
@@ -53,15 +72,11 @@ router.post('/', (req, res, next)=>{
 
 });
 
-//RENDER THE MAIN FORM
-router.get('/new', (req, res) => {
-  res.render('celebrities/new');
-});
 
 // ---------------------------------------------------------
 
-//DELETE THE CELEBRITY POST ROUTE
-router.get("/:id/delete", (req, res, next) => {
+//DELETE THE CELEBRITY POST - ROUTE
+router.post("/:id/delete", (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id, (err, celebrities) => {
     if (err) {
       next(err);
@@ -70,6 +85,29 @@ router.get("/:id/delete", (req, res, next) => {
     }
   });
 });
+
+// router.get('/edit', (req, res) => {
+//   res.render('celebrities/edit');
+// });
+
+//EDIT POST ROUTE
+router.post("/:id/update", (req, res, next) => {
+  let newCeleb = {
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase
+  };
+  Celebrity.findByIdAndUpdate(req.params.id, newCeleb, (err, celebrities) => {
+    if (err) {
+      next(err);
+    }
+    else {
+      res.redirect('/celebrities');
+  }
+});
+});
+
+
 
 
 
