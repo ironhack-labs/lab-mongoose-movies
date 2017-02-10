@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
     if(error){
       next(error);
     }else{
-      console.log(movies);
+      // console.log(movies);
       res.render('movies/index', { movies } );
 
     }
@@ -38,8 +38,8 @@ router.get('/new',(req,res) =>
 });
 
 
-router.get('/:movieId', (req, res, next)=> {
-  let movieId = req.params.movieId;
+router.get('/:id', (req, res, next)=> {
+  let movieId = req.params.id;
 
   Movie.findById(movieId, (err, movie) => {
     if (err) {

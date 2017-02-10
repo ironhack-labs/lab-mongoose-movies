@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
     if(error){
       next(error);
     }else{
-      console.log(celebrities);
+      // console.log(celebrities);
       res.render('celebrities/index', { celebrities } );
 
     }
@@ -37,8 +37,8 @@ router.get('/new',(req,res) =>
   res.render('celebrities/new');
 });
 
-router.get('/:celebrityId', (req, res, next)=> {
-  let celebrityId = req.params.celebrityId;
+router.get('/:id', (req, res, next)=> {
+  let celebrityId = req.params.id;
 
   Celebrity.findById(celebrityId, (err, celebrity) => {
     if (err) {
