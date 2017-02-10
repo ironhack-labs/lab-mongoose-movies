@@ -77,9 +77,8 @@ router.post('/:id', (req, res, next) => {
 
 router.get('/:id/delete', (req, res, next) => {
   const id = req.params.id;
-	console.log(req);
 
-  Celebrity.findOneAndRemove(id, (err, celebs) => {
+  Celebrity.findByIdAndRemove(id, (err, celebs) => {
     if (err){ return next(err); }
     return res.redirect('/celebrities');
   });

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/mongooseMovies');
-// const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/celebrity');
 const Movie = require('../models/movie');
 
 const celebObj = [
@@ -39,20 +39,20 @@ const movieObj = [
   }
 ];
 
-// Celebrity.create(celebObj, (err, docs) => {
-//   if (err) { throw err };
-//
-//   docs.forEach( (fakeCeleb) => {
-//     console.log(fakeCeleb.name)
-//   })
-//   mongoose.connection.close();
-// });
+Celebrity.create(celebObj, (err, docs) => {
+  if (err) { throw err };
 
-// Movie.create(movieObj, (err, docs) => {
-//   if (err) { throw err };
-//
-//   docs.forEach( (fakeMovie) => {
-//     console.log(fakeMovie.title)
-//   })
-//   mongoose.connection.close();
-// });
+  docs.forEach( (fakeCeleb) => {
+    console.log(fakeCeleb.name)
+  })
+  mongoose.connection.close();
+});
+
+Movie.create(movieObj, (err, docs) => {
+  if (err) { throw err };
+
+  docs.forEach( (fakeMovie) => {
+    console.log(fakeMovie.title)
+  })
+  mongoose.connection.close();
+});

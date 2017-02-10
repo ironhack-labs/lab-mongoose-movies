@@ -77,9 +77,8 @@ router.post('/:id', (req, res, next) => {
 
 router.get('/:id/delete', (req, res, next) => {
   const id = req.params.id;
-	console.log(req);
 
-  Movie.findOneAndRemove(id, (err, movies) => {
+  Movie.findByIdAndRemove(id, (err, movies) => {
     if (err){ return next(err); }
     return res.redirect('/movies');
   });
