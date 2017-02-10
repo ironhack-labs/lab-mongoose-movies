@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/tachyons.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>
+        Celebrities
+    </title>
+</head>
+
+<body>
+  <main class="mw6 center">
+  <h1 class="f3 f2-m f1-l helvetica bb b--dark-gray pb2">Add New Celebrity</h1>
+  <div class="">
+    <form class="measure center" method="POST" action="/celebrities/new">
+      <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+        <div class="mt3">
+          <label class="db fw6 lh-copy f6" for="name">Name</label>
+          <input class="pa2 input-reset ba bg-transparent hover-bb-blue w-100" type="name" name="name"  id="name" required>
+        </div>
+        <div class="mv3">
+          <label class="db fw6 lh-copy f6" for="description">Ocupattion</label>
+          <input class="b pa2 input-reset ba bg-transparent hover-bb-blue w-100" type="description" name="ocupattion"  id="description" required>
+        </div>
+        <div class="mv3">
+          <label class="db fw6 lh-copy f6" for="imageUrl">Catch Phrase</label>
+          <input class="b pa2 input-reset ba bg-transparent hover-bb-blue w-100" type="name" name="catchPhrase"  id="imageUrl" required>
+        </div>
+      </fieldset>
+      <div class="">
+        <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Add Celebrity">
+      </div>
+    </form>
+  </div>
+</main>
+</body>
+
+</html>
