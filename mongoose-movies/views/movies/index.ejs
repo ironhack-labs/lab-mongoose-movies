@@ -1,17 +1,21 @@
 <h2> Movies </h2>
 <a href="/movies/new">Add A New Movie</a>
 
+
 <% movies.forEach((movie) => { %>
-  <h2>
-    <a href="movies/<%=movie.id%>">
-      <%= movie.title %>
-    </a>
-  </h2>
+  <div class="line">
+
+    <h2>
+      <a href="movies/<%=movie.id%>">
+        <%= movie.title %>
+      </a>
+    </h2>
 
     <a href="/movies/<%= movie.id %>/edit">Edit <%= movie.title %></a>
 
-  <form action="/movies/<%= movie.id %>/delete" method="POST">
-    <button type="submit" name="button">Delete <%= movie.title %></button>
-  </form>
+    <form action="/movies/<%= movie.id %>/delete" method="POST">
+      <button type="submit" name="button">Delete <%= movie.title %></button>
+    </form>
 
+  </div>
 <%  }) %>
