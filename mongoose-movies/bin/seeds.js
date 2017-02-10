@@ -1,31 +1,61 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/mongoose-movies');
 
-const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 
-const celebrities = [
+const movies = [
   {
-    name: 'Messi',
-    occupation: 'Futbol Player',
-    catchphrase: 'Sup Ladies',
+    title: 'Congo',
+    genre: 'Action',
+    plot: 'Apes',
   },
   {
-    name: 'Steve Urkel',
-    occupation: 'Nerd',
-    catchphrase: 'Did I do that?',
+    title: 'Congo 2',
+    genre: 'Drama',
+    plot: 'More Apes',
   },
   {
-    name: 'Peyton Manning',
-    occupation: 'Footbol Player',
-    catchphrase: 'Omaha',
+    title: 'Congo 3',
+    genre: 'Romance',
+    plot: 'Apes In Love',
   },
 ];
 
-Celebrity.create(celebrities, (err, docs) => {
+Movie.create(movies, (err, docs) => {
   if (err) { throw err };
 
-  docs.forEach( (celebrities) => {
-    console.log(celebrities.name)
+  docs.forEach( (movie) => {
+    console.log(movie.name)
   })
   mongoose.connection.close();
 });
+
+
+// const Celebrity = require('../models/celebrity');
+//
+// const celebrities = [
+//   {
+//     name: 'Messi',
+//     occupation: 'Futbol Player',
+//     catchphrase: 'Sup Ladies',
+//   },
+//   {
+//     name: 'Steve Urkel',
+//     occupation: 'Nerd',
+//     catchphrase: 'Did I do that?',
+//   },
+//   {
+//     name: 'Peyton Manning',
+//     occupation: 'Footbol Player',
+//     catchphrase: 'Omaha',
+//   },
+// ];
+//
+// Celebrity.create(celebrities, (err, docs) => {
+//   if (err) { throw err };
+//
+//   docs.forEach( (celebrities) => {
+//     console.log(celebrities.name)
+//   })
+//   mongoose.connection.close();
+// });

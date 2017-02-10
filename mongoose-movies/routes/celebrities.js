@@ -15,7 +15,6 @@ router.get('/', (req, res, next) => {
 });
 
 // NEW CELEBRITY page
-
 router.get('/new', (req, res) => {
   res.render('celebrities/new');
 })
@@ -65,20 +64,32 @@ router.post('/:celebrityId/delete', (req, res, next) => {
   })
 })
 
-// EDIT A CELEBRITY
+// PULL UP EDIT CELEBRITY FORM PAGE
 router.get('/:celebrityId/edit', (req, res, next) => {
   let celebId = req.params.celebrityId;
   Celebrity.findById(celebId, (err, celebrity)=>{
     if(err) {
       next(err)
     } else {
-      res.render('celebrity/edit', {celebrity: celebrity});
-      console.log("edit page works!");
+      res.render('celebrities/edit', {celebrity: celebrity});
     }
   })
 })
 
-
-
+// POST EDIT CELEBRITY INFORMATION TO CELEB
+router.post('/:celebrityId/update', (req, res, next) => {
+  let celebToUpdate = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchphrase: req.body.catchphrase
+  }
+  Celebrity.findByIdAndUpdate(req.params.celebrityId, celebToUpdate, (err, celebrity) => {
+    if (err) {
+      next(err)
+    } else {
+      res.redirect('/celebrities');
+    }
+  })
+});
 
 module.exports = router;
