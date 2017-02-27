@@ -17,4 +17,18 @@ router.get('/movies', (req, res, next) => {
   });
 });
 
+router.get('/movies/:id', (req, res, next) => {
+  const movieId = req.params.id;
+
+  MovieModel.findById(movieId, (err, movie) => {
+    if(err) {
+      next(err);
+      return;
+    }
+    res.render('movies/show', {
+      movie: movie
+    });
+  });
+});
+
 module.exports = router;
