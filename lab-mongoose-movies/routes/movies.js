@@ -17,6 +17,28 @@ router.get('/movies', (req, res, next) => {
   });
 });
 
+router.get('/movies/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
+router.post('/movies', (req, res, next) => {
+  const movieInfo = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
+  };
+
+  const newMovie = new MovieModel(movieInfo);
+
+  newMovie.save((err) => {
+    if (err) {
+      res.render('movies/new');
+    }
+
+    res.redirect('/movies');
+  });
+});
+
 router.get('/movies/:id', (req, res, next) => {
   const movieId = req.params.id;
 
