@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Celebrities </title>
+    <link rel='stylesheet' href='/stylesheets/style.min.css' />
+  </head>
+  <body>
+    <h1> Celebrities</h1>
+    <p class="add">Add your favorite Celebrity</p>
+    <a class="create" href="/celebrities/new">Create One</a>
+
+    <ul>
+      <% celebrities.forEach((celebrity) => { %>
+        <li>
+          <h2> Name: <span><%= celebrity.name %></span> </h2>
+          <h2>Ocupation: <span><%= celebrity.ocupation %></span> </h2>
+          <h2>Catch Phrase: <span>"<%= celebrity.catchPhrase %>"</span> </h2>
+          <a class="edit-btn" href="/celebrities/<%= celebrity._id %>/edit">Edit</a>
+          <a class="info-btn" href="/celebrities/<%= celebrity._id %>">Info</a>
+          <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+            <button class="delete-btn" tyle="margin-top: 15px;" type="submit">Delete</button>
+          </form>
+
+        </li>
+      <% }) %>
+    </ul>
+
+  </body>
+</html>
