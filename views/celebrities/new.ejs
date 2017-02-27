@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.min.css' />
+  </head>
+  <body>
+    <h1>Add your favorite celebrity!</h1>
+  <div class="container">
+
+    <form class="user-input" action="/newCelebrity" method="post">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name">
+
+      <label for="ocupation">Ocupation</label>
+      <input type="text" name="ocupation" id="ocupation">
+
+      <label for="imageUrl">Image URL</label>
+      <input type="text" name="imageUrl" id="imageUrl">
+
+      <label for="catchPhrase">Catch Phrase</label>
+      <input type="text" name="catchPhrase" id="catchPhrase">
+
+      <button class="create-btn" type="submit">Create New Celebrity</button>
+    </form>
+  </div>
+
+  </body>
+</html>
