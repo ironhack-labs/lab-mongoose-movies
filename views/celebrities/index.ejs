@@ -1,0 +1,20 @@
+<h2>Our Celebrity Roster</h2>
+
+<ul>
+  <% celebrities.forEach((oneCelebrity)=>{ %>
+
+    <li>
+      <a href="/celebrities/<%= oneCelebrity._id %>"> <%= oneCelebrity.name %> </a>
+
+      <p>
+        <a href="/celebrities/<%= oneCelebrity._id %>/delete">
+          <button type="button">Delete</button>
+        </a>
+      </p>
+    </li>
+  <% }); %>
+
+
+</ul>
+
+<a href="/celebrities/new" ><button type=button>Create a New Celebrity</button></a>
