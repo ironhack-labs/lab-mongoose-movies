@@ -1,0 +1,24 @@
+<h2>Update this Celebrity</h2>
+
+<form action="/celebrities/<%=celebrity._id%>" method="POST">
+  <ul>
+    <li>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" value="<%=celebrity.name%>">
+    </li>
+    <br>
+    <li>
+      <label for="occupation">Occupation: </label>
+      <input type="text" id="occupation" name="occupation" value="<%=celebrity.occupation%>">
+    </li>
+    <br>
+    <li>
+      <label for="catchPhrase">Catch-phrase: </label>
+      <input type="text" id="catchPhrase" name="catchPhrase" value="<%=celebrity.catchPhrase%>">
+    </li>
+    <br>
+    <li>
+      <button type="submit">Update</button>
+    </li>
+  </ul>
+</form>

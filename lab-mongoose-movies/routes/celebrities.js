@@ -35,12 +35,26 @@ router.post('/celebrities', (req, res, next) => {
   const newCelebrity = new CelebrityModel(celebrityInfo);
 
   newCelebrity.save((err) => {
-    console.log('in the save cb');
     if (err) {
       res.render('/celebrities/new');
     }
 
     res.redirect('/celebrities');
+  });
+});
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+
+  const celebrityId = req.params.id;
+
+  CelebrityModel.findById(celebrityId, (err, celebDoc) =>{
+    if (err) {
+      next(err);
+      return;
+    }
+    res.render('celebrities/edit', {
+      celebrity: celebDoc
+    });
   });
 });
 
@@ -61,6 +75,24 @@ router.get('/celebrities/:id', (req, res, next) => {
   });
 });
 
+router.post('/celebrities/:id', (req, res, next) => {
+  const celebrityId = req.params.id;
+  const celebrityUpdate = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+
+  CelebrityModel.findByIdAndUpdate(celebrityId, celebrityUpdate, (err, celebrity) => {
+    if (err) {
+      next(error);
+      return;
+    }
+
+    res.redirect('/celebrities');
+  });
+});
+
 router.post('/celebrities/:id/delete', (req, res, next) => {
   const celebrityId = req.params.id;
 
@@ -72,6 +104,5 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     res.redirect('/celebrities');
   });
 });
-
 
 module.exports = router;
