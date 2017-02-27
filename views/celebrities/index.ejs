@@ -7,9 +7,9 @@
       <a href="/celebrities/<%= oneCelebrity._id %>"> <%= oneCelebrity.name %> </a>
 
       <p>
-        <a href="/celebrities/<%= oneCelebrity._id %>/delete">
-          <button type="button">Delete</button>
-        </a>
+        <form action ="/celebrities/<%= oneCelebrity._id %>/delete" method="post">
+          <button type="submit">Delete</button>
+        </form>
       </p>
     </li>
   <% }); %>

@@ -3,6 +3,8 @@ const Celebrity = require('../models/celebrity.js');
 
 const router = express.Router();
 
+//Get route for the celebrities index page. that renders the
+// celebrites/index.ejs view.
 router.get('/celebrities', (req,res,next)=>{
   Celebrity.find((err, celebrities)=>{
     if (err){
@@ -15,6 +17,8 @@ router.get('/celebrities', (req,res,next)=>{
   });
 });
 
+//Post route for the celebrities index page that redirects
+// to the same index page
 router.post('/celebrities',(req,res,next)=>{
 
   const celebInfo = {
@@ -56,6 +60,9 @@ router.get('/celebrities/:id',(req,res,next)=>{
   });
 });
 
+//Post route for the views/celebrities/:id view that gets invoked
+// when user edits a celebrity
+//Takes advantage of generic routes.
 router.post('/celebrities/:id',(req,res,next)=>{
   const celebId = req.params.id;
 
@@ -75,6 +82,9 @@ router.post('/celebrities/:id',(req,res,next)=>{
   });
 });
 
+
+//Get route for the celebrities/edit view.
+//Takes advabtage of generic routes.
 router.get('/celebrities/:id/edit',(req,res,next)=>{
   const celebId = req.params.id;
 
@@ -89,9 +99,9 @@ router.get('/celebrities/:id/edit',(req,res,next)=>{
 
 });
 
-//Get route for delete page.
+//Post route for delete.
 //Takes advantage of generic routes.
-router.get('/celebrities/:id/delete',(req,res,next)=>{
+router.post('/celebrities/:id/delete',(req,res,next)=>{
   const celebId = req.params.id;
 
   Celebrity.findByIdAndRemove(celebId,(err, product)=>{

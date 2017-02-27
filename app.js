@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 var index = require('./routes/index');
 
 const celebrityRoutes = require('./routes/celebrities.js');
+const movieRoutes = require('./routes/movies.js');
 
 mongoose.connect('mongodb://localhost/mongooseMovies');
 var app = express();
@@ -30,6 +31,7 @@ app.use(expressLayouts);
 
 app.use('/', index);
 app.use('/', celebrityRoutes);
+app.use('/', movieRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

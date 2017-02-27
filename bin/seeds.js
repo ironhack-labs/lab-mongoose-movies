@@ -1,32 +1,64 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mongooseMovies');
 
-const Celebrity = require ('../models/celebrity.js');
+//Uncomment if this is first time running seeds.js
 
-const celebrities = [
+// const Celebrity = require ('../models/celebrity.js');
+//
+// const celebrities = [
+//   {
+//     name:'Matt Damon',
+//     occupation: "Jason Borne",
+//     catchPhrase: "Who am I?",
+//   },
+//   {
+//     name:'Tom Cruise',
+//     occupation: "Scientologist",
+//     catchPhrase: "Nothing is impossible.",
+//   },
+//   {
+//     name:'Jared Leto',
+//     occupation: "Jesus",
+//     catchPhrase: "Never playing The Joker agian.",
+//   },
+// ];
+//
+// Celebrity.create(celebrities, (err, docs)=>{
+//   if (err){
+//     throw err;
+//   }
+//   docs.forEach((oneCelebrity)=>{
+//     console.log(`${oneCelebrity.name} ${oneCelebrity._id}`);
+//   });
+//   mongoose.disconnect();
+// });
+
+const Movie = require('../models/movie.js');
+const movies = [
   {
-    name:'Matt Damon',
-    occupation: "Jason Borne",
-    catchPhrase: "Who am I?",
+     title: "Titanic",
+     genre: "Fictional Drama",
+     plot: "Doomed ship sailing"
   },
   {
-    name:'Tom Cruise',
-    occupation: "Scientologist",
-    catchPhrase: "Nothing is impossible.",
+     title: "Friday the 13th",
+     genre: "Horror",
+     plot: "Serial killer Jason Vorhees is a crazed maniac who preys on young kids camping."
   },
   {
-    name:'Jared Leto',
-    occupation: "Jesus",
-    catchPhrase: "Never playing The Joker agian.",
+     title: "My Big Fat Greek Wedding",
+     genre: "Comedy",
+     plot: "See what happens when the whole family tries to plan the wedding."
   },
 ];
 
-Celebrity.create(celebrities, (err, docs)=>{
-  if (err){
+Movie.create(movies, (err, docs)=>{
+  if(err){
     throw err;
   }
-  docs.forEach((oneCelebrity)=>{
-    console.log(`${oneCelebrity.name} ${oneCelebrity._id}`);
+
+  docs.forEach((oneMovie)=>{
+    console.log(`${oneMovie.title} ${oneMovie._id}`);
   });
   mongoose.disconnect();
 });
