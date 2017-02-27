@@ -5,14 +5,14 @@ const router = new Router();
 
 router.get('/celebrities', (req, res, next) => {
 
-  const celebs = Celebrity.find({}, (err, celebs) => {
+  Celebrity.find({}, (err, celebDocs) => {
     if (err) {
       next(err);
       return;
     }
 
     res.render('celebrities/index', {
-      celebs : celebs
+      celebs : celebDocs
     });
   });
 
@@ -44,14 +44,14 @@ router.get('/celebrities/:id', (req, res, next) => {
 
   const celebId = req.params.id;
 
-  const celebs = Celebrity.findOne({ _id : celebId }, (err, celeb) => {
+  Celebrity.findOne({ _id : celebId }, (err, celebDoc) => {
     if (err) {
       return next(err);
     }
 
     if (celeb) {
       res.render('celebrities/show', {
-        celeb : celeb
+        celeb : celebDoc
       });
     }
     else {
@@ -59,6 +59,33 @@ router.get('/celebrities/:id', (req, res, next) => {
     }
 
   });
+
+});
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+
+  //Get the id of celebrity to delete
+  const celebId = req.params.id;
+
+  //Find the celebrity...
+  Celebrity.findOne({ _id : celebId }, (err1, celebDoc) => {
+    if (err1) {
+      return next(err1);
+    }
+
+    //...and delete them from the database.
+    if (celebDoc) {
+      celebDoc.remove((err2) => {
+        if (err2) {
+          return next(err2);
+        }
+
+      });
+    }
+
+    res.redirect('/celebrities');
+  });
+
 
 });
 
