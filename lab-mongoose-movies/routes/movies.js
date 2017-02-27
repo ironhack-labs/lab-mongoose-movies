@@ -39,6 +39,18 @@ router.post('/movies', (req, res, next) => {
   });
 });
 
+router.post('/movies/:id/delete', (req, res, next) => {
+  const movieId = req.params.id;
+
+  MovieModel.findByIdAndRemove(movieId, (err) => {
+    if(err) {
+      next(err);
+      return;
+    }
+    res.redirect('/movies');
+  });
+});
+
 router.get('/movies/:id', (req, res, next) => {
   const movieId = req.params.id;
 
