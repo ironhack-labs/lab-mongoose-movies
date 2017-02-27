@@ -39,6 +39,39 @@ router.post('/movies', (req, res, next) => {
   });
 });
 
+router.get('/movies/:id/edit', (req, res, next) => {
+
+    const movieId = req.params.id;
+
+    MovieModel.findById(movieId, (err, movieDoc) =>{
+      if (err) {
+        next(err);
+        return;
+      }
+      res.render('movies/edit', {
+        movie: movieDoc
+      });
+    });
+});
+
+router.post('/movies/:id', (req, res, next) => {
+  const movieId = req.params.id;
+  const movieUpdate = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
+  };
+
+  MovieModel.findByIdAndUpdate(movieId, movieUpdate, (err, movie) => {
+    if (err) {
+      next(error);
+      return;
+    }
+
+    res.redirect('/movies');
+  });
+});
+
 router.post('/movies/:id/delete', (req, res, next) => {
   const movieId = req.params.id;
 
@@ -54,13 +87,13 @@ router.post('/movies/:id/delete', (req, res, next) => {
 router.get('/movies/:id', (req, res, next) => {
   const movieId = req.params.id;
 
-  MovieModel.findById(movieId, (err, movie) => {
+  MovieModel.findById(movieId, (err, movieDoc) => {
     if(err) {
       next(err);
       return;
     }
     res.render('movies/show', {
-      movie: movie
+      movie: movieDoc
     });
   });
 });

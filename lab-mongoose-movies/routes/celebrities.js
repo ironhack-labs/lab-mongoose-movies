@@ -25,7 +25,7 @@ router.get('/celebrities/new', (req, res, next) => {
 });
 
 router.post('/celebrities', (req, res, next) => {
-  console.log('In the post');
+  
   const celebrityInfo = {
     name: req.body.name,
     occupation: req.body.occupation,
