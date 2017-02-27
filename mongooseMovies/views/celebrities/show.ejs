@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Celebrities</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Celeb Details</h>
+
+    <h2> <%= celebrity.name %> </h2>
+
+    <p>$ <%= celebrity.occupation %> </p>
+
+    <!-- <img src="<%= celebrity.imageUrl %>"> -->
+
+    <p> <%= celebrity.catchPhrase %> </p>
+
+    <a href="/celebrities/<%= celebrity._id %>/edit">
+      Edit
+    </a>
+
+    <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+      <button type="submit"> Delete </button>
+    </form>
+  </body>
+</html>
