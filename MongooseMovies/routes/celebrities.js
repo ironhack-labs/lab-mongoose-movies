@@ -49,7 +49,7 @@ router.get('/celebrities/:id', (req, res, next) => {
       return next(err);
     }
 
-    if (celeb) {
+    if (celebDoc) {
       res.render('celebrities/show', {
         celeb : celebDoc
       });
@@ -86,6 +86,43 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     res.redirect('/celebrities');
   });
 
+
+});
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+
+  const celebId = req.params.id;
+
+  //Find the celebrity...
+  Celebrity.findOne({ _id : celebId }, (err1, celebDoc) => {
+    if (err1) {
+      return next(err1);
+    }
+
+    res.render('celebrities/edit', {
+      celeb : celebDoc
+    });
+  });
+
+});
+
+router.post('/celebrities/:id/edit', (req, res, next) => {
+
+  const celebId = req.params.id;
+  const updatedValues = {
+    name : req.body.name,
+    occupation : req.body.occupation,
+    catchPhrase : req.body.catchPhrase
+  };
+
+  Celebrity.findOneAndUpdate({ _id : celebId }, updatedValues, (err, celebDoc) => {
+    if (err) {
+      return next(err);
+    }
+    console.log('Hello World!');
+
+    res.redirect('/celebrities/' + celebId);
+  });
 
 });
 
