@@ -9,11 +9,11 @@
 <body>
 
   <h2>Celebrities:</h2>
-  
+
   <ul>
     <% celebs.forEach((celeb) => { %>
       <li>
-        <a href="/celebrity/<%= celeb.name %>">
+        <a href="/celebrities/<%= celeb._id %>">
           <%= celeb.name %>
         </a>
       </li>
