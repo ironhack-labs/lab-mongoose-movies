@@ -18,9 +18,29 @@ router.get('/celebrities', (req, res, next) => {
 
 });
 
-router.get('/celebrities/:id', (req, res, next) => {
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
 
-  console.log('here');
+router.post('/celebrities/new', (req, res, next) => {
+
+  const newCeleb = new Celebrity({
+    name : req.body.name,
+    occupation : req.body.occupation,
+    catchPhrase : req.body.catchPhrase
+  });
+
+  newCeleb.save((err, celebDoc) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.redirect('/celebrities');
+  });
+
+});
+
+router.get('/celebrities/:id', (req, res, next) => {
 
   const celebId = req.params.id;
 
@@ -41,6 +61,5 @@ router.get('/celebrities/:id', (req, res, next) => {
   });
 
 });
-
 
 module.exports = router;
