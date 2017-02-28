@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Welcome to the Movie section </title>
+  </head>
+  <body>
+
+    <h1>Click on the movie that you want to know more of: </h1> <br>
+
+    <ul>
+      <%  result.forEach((oneCeleb) => { %>
+        <a href="movies/<%= oneCeleb._id %>"> <%= oneCeleb.title %> </a> <br/>
+        <button type="button" name="button"><a href="/movies/<%= oneCeleb._id %>/edit"> Edit </a></button>
+        <button type="button" name="button"><a href="/movies/<%= oneCeleb._id %>/delete"> Delete </a></button>
+        <br/><br/><br/>
+      <% }); %>
+    </ul>
+
+    <button type="button" name="button"><a href="/movies/new">Add a celebrity</a></button>
+  </body>
+</html>

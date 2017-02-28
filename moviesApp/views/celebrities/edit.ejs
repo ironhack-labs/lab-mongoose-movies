@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Add a Celebrity </title>
+  </head>
+  <body>
+
+    <form class="newCeleb" action="/celebrities/<%= result._id %>/edit" method="post">
+      <label for="name">Name:</label> <br>
+      <input id="name" type="text" name="name" value="<%= result.name %>" placeholder=""> <br><br>
+
+      <label for="occupation">Occupation:</label> <br>
+      <input id="occupation" type="text" name="occupation" value="<%= result.occupation %>" placeholder=""> <br><br>
+
+      <label for="catchPhrase">Catch Phrase:</label> <br>
+      <input id="catchPhrase" type="text" name="catchPhrase" value="<%= result.catchPhrase %>" placeholder=""> <br><br>
+
+      <button type="submit" name="button">Edit</button>
+    </form>
+
+  </body>
+</html>
