@@ -4,10 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
 var index = require('./routes/index');
-var users = require('./routes/users');
+const celebrities = require('./routes/celebrities.js');
 
+mongoose.connect('mongodb://localhost/mongooseMovies');
 var app = express();
 
 // view engine setup
@@ -22,8 +23,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
-app.use('/users', users);
+app.use('/', celebrities);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
