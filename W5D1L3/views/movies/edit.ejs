@@ -1,0 +1,16 @@
+
+<h2>Update Movies Form</h2>
+<!-- This form MUST POST to specific ID of the item being updated -->
+<form action="/movies/<%= id %>" method="post">
+  <input type="text" name="title" value="<%= title %>">
+  <input type="text" name="genre" value="<%= genre %>">
+  <input type="text" name="plot" value="<%= plot %>">
+  <p></p>
+  <button type="submit" class="btn btn-primary">Update Celebrity</button>
+
+</form>
+
+<p></p>
+<form action="/movies/<%= item._id %>/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete Item</button>
+</form>

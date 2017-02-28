@@ -1,0 +1,16 @@
+
+<h2>Update Celebrity Form</h2>
+<!-- This form MUST POST to specific ID of the item being updated -->
+<form action="/celebrities/<%= id %>" method="post">
+  <input type="text" name="name" value="<%= name %>">
+  <input type="text" name="occupation" value="<%= occupation %>">
+  <input type="text" name="catchPhrase" value="<%= catchPhrase %>">
+  <p></p>
+  <button type="submit" class="btn btn-primary">Update Celebrity</button>
+
+</form>
+
+<p></p>
+<form action="/celebrities/<%= id %>/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete Item</button>
+</form>

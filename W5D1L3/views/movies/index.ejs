@@ -1,0 +1,8 @@
+<h2>List of Movies</h2>
+
+<% item.forEach((item) => {%>
+<%= item.title %>
+<br>
+<a href="/movies/<%= item._id %>">Detail Page</a>
+<p></p>
+<% }); %>
