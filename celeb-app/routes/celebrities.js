@@ -22,6 +22,23 @@ router.get('/celebs/new', (req, res, next) => {
 });
 });
 
+router.post('/celebs/new', (req, res, next) => {
+  const celebInfo = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  const theCeleb = new Celebrity(celebInfo);
+
+  theCeleb.save((err) => {
+    if (err) {
+    next(err);
+    return;
+  }
+  res.redirect('/celebs');
+  });
+});
+
 router.get('/celebs/:id/edit', (req, res, next) => {
   const celebId = req.params.id;
   Celebrity.findById(celebId, (err, celebs) => {

@@ -28,7 +28,7 @@ app.use(layout);
 
 const index = require('./routes/index');
 const celebrities = require('./routes/celebrities');
-const movies = require('./routes/movie');
+const movies = require('./routes/movies');
 
 app.use('/', index);
 app.use('/', celebrities);
