@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Movie</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Edit a Movie's Info</h2>
+    <form action="/movies/<%= movie._id %>" method="POST">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= movie.title %>">
+
+      <label for="genre">Genre</label>
+      <input type="text" name="genre" id="genre" value="<%= movie.genre %>">
+<!--
+      <label for="catchPhrase">catchPhrase</label>
+      <input type="text" name="catchPhrase" id="catchPhrase" value="<%= movie.catchPhrase %>"> -->
+
+      <label for="plot">Plot</label>
+      <textarea type="text" name="plot" id="plot"><%= movie.plot %></textarea>
+
+      <button type="submit">Update Movie Info</button>
+    </form>

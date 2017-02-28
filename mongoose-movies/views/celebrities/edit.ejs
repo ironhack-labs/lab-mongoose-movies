@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Celebrity</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Edit a Celeb's Info</h2>
+    <form action="/celebrities/<%= celebrity._id %>" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="<%= celebrity.name %>">
+
+      <label for="occupation">Occupation</label>
+      <input type="text" name="occupation" id="occupation" value="<%= celebrity.occupation %>">
+<!--
+      <label for="catchPhrase">catchPhrase</label>
+      <input type="text" name="catchPhrase" id="catchPhrase" value="<%= celebrity.catchPhrase %>"> -->
+
+      <label for="catchPhrase">Catch Phrase</label>
+      <textarea type="text" name="catchPhrase" id="catchPhrase"><%= celebrity.catchPhrase %></textarea>
+
+      <button type="submit">Update Celeb Info</button>
+    </form>
