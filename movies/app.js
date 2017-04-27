@@ -6,7 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var celebs = require('./routes/celebs');
+var movies = require('./routes/movies');
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/lab-celebrities');
 
 var app = express();
 
@@ -23,7 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/', celebs);
+app.use('/', movies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
