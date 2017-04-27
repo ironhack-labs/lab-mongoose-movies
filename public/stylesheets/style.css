@@ -14,3 +14,7 @@ h1 {
 span.required {
   color: red;
 }
+
+button {
+  margin-top: 20px;
+}

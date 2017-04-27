@@ -6,9 +6,8 @@
       <div class="col-xs-3"><strong>Occupation:</strong> <%= celebrity.occupation %></div>
       <div class="col-xs-3"><strong>Catch Phrase:</strong> <%= celebrity.catchPhrase %></div>
     </div>
-    <div class="row">
-      <form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
-            <button class="btn btn-danger" type="submit">Delete Product</button>
-          </form>
+        <a class="btn btn-danger" type="submit" href="/celebrities/<%= celebrity._id %>/delete">Delete Celebrity</a>
+        <a class="btn btn-warning" type="submit" href="/celebrities/<%= celebrity._id %>/edit">Edit Celebrity</a>
+        
     </div>
 <% include ../partials/footer %>

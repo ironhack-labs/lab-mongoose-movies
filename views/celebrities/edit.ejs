@@ -1,19 +1,19 @@
 <% include ../partials/header %>
-  <h1>Add a new Celebrity to the Database</h1>
-  <form action="/celebrities" method="post">
+  <h1>Edit a Celebrity</h1>
+  <form action="/celebrities/<%= celebrity._id %>" method="post">
     <div class="form-group">
       <label for="celebrityName">Celebrity Name <span class="required">*</span></label>
-      <input type="text" class="form-control" id="celebrityName" name="name" placeholder="Name">
+      <input type="text" class="form-control" id="celebrityName" value="<%= celebrity.name %>" name="name" placeholder="Name">
     </div>
     <div class="form-group">
       <label for="occupation">Occupation</label>
-      <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation">
+      <input type="text" class="form-control" id="occupation" value="<%= celebrity.occupation %>" name="occupation" placeholder="Occupation">
     </div>
     <div class="form-group">
       <label for="catchPhrase">Catch Phrase</label>
-      <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" placeholder="Catch Phrase">
+      <input type="text" class="form-control" id="catchPhrase" value="<%= celebrity.catchPhrase %>" name="catchPhrase" placeholder="Catch Phrase">
     </div>
-    <button type="submit" class="btn btn-success">Save Celebrity</button>
+    <button type="submit" class="btn btn-warning">Edit Celebrity</button>
   </form>
 
 <br />
