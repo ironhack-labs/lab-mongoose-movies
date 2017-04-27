@@ -1,9 +1,14 @@
 <% include ../partials/header %>
 <h1>Celebrity Details</h1>
-  <!--<pre><%= JSON.stringify(celebrity, null, 2) %></pre>-->
+<!--<pre><%= JSON.stringify(celebrity, null, 2) %></pre>-->
     <div class="row">
-      <div class="col-xs-4"><strong>Name:</strong> <%= celebrity.name %></div>
-      <div class="col-xs-4"><strong>Occupation:</strong> <%= celebrity.occupation %></div>
-      <div class="col-xs-4"><strong>Catch Phrase:</strong> <%= celebrity.catchPhrase %></div>
+      <div class="col-xs-3"><strong>Name:</strong> <%= celebrity.name %></div>
+      <div class="col-xs-3"><strong>Occupation:</strong> <%= celebrity.occupation %></div>
+      <div class="col-xs-3"><strong>Catch Phrase:</strong> <%= celebrity.catchPhrase %></div>
+    </div>
+    <div class="row">
+      <form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
+            <button class="btn btn-danger" type="submit">Delete Product</button>
+          </form>
     </div>
 <% include ../partials/footer %>

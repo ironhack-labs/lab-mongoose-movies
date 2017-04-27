@@ -20,9 +20,9 @@ router.post('/', (req, res, next) => {
   const newCelebrity = new Celebrity(celebrityInfo);
   newCelebrity.save((err) => {
     if (err) {
-      next(err);
+      return res.render('./celebrities/new', { errors: newCelebrity.errors });
     }
-    res.redirect('./celebrities');
+    return res.redirect('./celebrities');
   });
 });
 
@@ -46,5 +46,6 @@ router.get('/:celebrityId', (req, res, next) => {
     res.render('./celebrities/show', { celebrity });
   });
 });
+
 
 module.exports = router;

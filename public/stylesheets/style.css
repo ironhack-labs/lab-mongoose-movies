@@ -10,3 +10,7 @@ a {
 h1 {
   margin-bottom: 30px;
 }
+
+span.required {
+  color: red;
+}
