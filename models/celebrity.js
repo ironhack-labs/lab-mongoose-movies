@@ -3,13 +3,14 @@
 // Export the Celebrity model
 
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const CelebritySchema = new Schema({
-  name: String,
-  occupation: String,
-  catchPhrase: String,
+  name: { type: String, required: [true, 'Please enter the celebrity\'s name'] },
+  occupation: { type: String },
+  catchPhrase: { type: String },
 });
 
 const Celebrity = mongoose.model('Celebrity', CelebritySchema);
-module.exports = Product;
+module.exports = Celebrity;

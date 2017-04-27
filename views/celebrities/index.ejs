@@ -1,0 +1,9 @@
+<% include ../partials/header %>
+<h1>All Listed Celebrities</h1>
+<ul>
+  <!--<pre><%= JSON.stringify(celebrities, null, 2) %></pre>-->
+  <% celebrities.forEach(celebrity => { %>
+    <li><a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></a></li> 
+  <% }); %>
+</ul>
+<% include ../partials/footer %>

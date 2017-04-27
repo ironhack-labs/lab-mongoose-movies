@@ -7,27 +7,27 @@ const celebrities = [
   {
     name: 'Tom Cruise',
     occupation: 'actor',
-    catchPhrase: '',
+    catchPhrase: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula sapien et ante eleifend, eget egestas nulla feugiat.',
   },
   {
     name: 'Tom Hanks',
     occupation: 'actor',
-    catchPhrase: '',
+    catchPhrase: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula sapien et ante eleifend, eget egestas nulla feugiat.',
   },
   {
     name: 'Tom Hardy',
     occupation: 'actor',
-    catchPhrase: '',
+    catchPhrase: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula sapien et ante eleifend, eget egestas nulla feugiat.',
   },
   {
     name: 'Britney Spears',
     occupation: 'singer',
-    catchPhrase: '',
+    catchPhrase: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula sapien et ante eleifend, eget egestas nulla feugiat.',
   },
   {
     name: 'Shakira Mebarak',
-    occupation: '',
-    catchPhrase: '',
+    occupation: 'singer',
+    catchPhrase: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula sapien et ante eleifend, eget egestas nulla feugiat.',
   },
 ];
 
@@ -36,7 +36,7 @@ Celebrity.create(celebrities, (err, docs) => {
     throw err;
   }
   docs.forEach(celebrity => {
-    console.log(celebrity.name)
+    console.log(celebrity.name);
   });
   mongoose.connection.close();
 });
