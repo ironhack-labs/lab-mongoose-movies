@@ -1,0 +1,13 @@
+<% include ../partials/header %>
+<h1>Celebrity Details</h1>
+<!--<pre><%= JSON.stringify(celebrity, null, 2) %></pre>-->
+    <div class="row">
+      <div class="col-xs-3"><strong>Name:</strong> <%= celebrity.name %></div>
+      <div class="col-xs-3"><strong>Occupation:</strong> <%= celebrity.occupation %></div>
+      <div class="col-xs-3"><strong>Catch Phrase:</strong> <%= celebrity.catchPhrase %></div>
+    </div>
+        <a class="btn btn-danger" type="submit" href="/celebrities/<%= celebrity._id %>/delete">Delete Celebrity</a>
+        <a class="btn btn-warning" type="submit" href="/celebrities/<%= celebrity._id %>/edit">Edit Celebrity</a>
+        
+    </div>
+<% include ../partials/footer %>
