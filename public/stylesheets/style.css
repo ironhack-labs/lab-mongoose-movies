@@ -1,3 +1,7 @@
+*:focus {
+    outline: 0 !important;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -13,8 +17,4 @@ h1 {
 
 span.required {
   color: red;
-}
-
-button {
-  margin-top: 20px;
 }

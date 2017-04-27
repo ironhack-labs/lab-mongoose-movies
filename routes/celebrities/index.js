@@ -9,8 +9,6 @@ router.get('/new', (req, res) => {
   res.render('celebrities/new');
 });
 
-
-
 /* Show all celebrities */
 router.get('/', (req, res, next) => {
   Celebrity.find({}, (err, celebrities) => {
@@ -68,15 +66,20 @@ router.get('/:id/edit', (req, res, next) => {
 });
 
 router.post('/:id', (req, res, next) => {
-  const productId = req.params.id;
+  const celebrityId = req.params.id;
   const updates = {
     name: req.body.name,
     occupation: req.body.occupation,
     catchPhrase: req.body.catchPhrase,
   };
-  Celebrity.findByIdAndUpdate(productId, updates, (err, product) => {
-    if (err) { return next(err); }
-    return res.redirect('celebrities');
+
+  const updatedCelebrity = new Celebrity(updates);
+
+  Celebrity.findOneAndUpdate(celebrityId, updates, { runValidators: true }, (err) => {
+    if (err) {
+      return res.render('celebrities/edit', { errors: err.errors, celebrity: updatedCelebrity });
+    }
+    return res.redirect('/celebrities');
   });
 });
 
