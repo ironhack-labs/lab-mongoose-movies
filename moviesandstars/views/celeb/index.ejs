@@ -1,0 +1,10 @@
+<h2>List of Celebs</h2>
+
+
+<ul>
+  <% listofcelebs.forEach((celeb)=> { %>
+  <li> Name of the celeb <%= celeb.celebName %> occupation <%= celeb.celebOccup %> and phrase <%= celeb.celebPhrase %><a href='/<%=celeb._id%>/edit'> edit </a>
+<a href='/<%=celeb._id%>'> details </a><a href='/<%=celeb._id%>/delete'> delete </a>
+  </li>
+  <% }) %>
+</ul>
