@@ -7,10 +7,12 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var celeb = require('./routes/celeb');
+var movie = require('./routes/movie');
 var users = require('./routes/users');
 var mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/celeb-dev');
+mongoose.connect('mongodb://localhost:27017/celebmovie-dev');
+
 
 var app = express();
 
@@ -30,6 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/', celeb);
+app.use('/', movie);
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

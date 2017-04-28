@@ -43,7 +43,7 @@ router.post('/celeb', (req, res, next) => {
 
 
 
-router.get('/:id', (req, res, next) => {
+router.get('/celeb/:id', (req, res, next) => {
   const celebId = req.params.id;
 
    Celeb.findById(celebId, (err, celeb) => {
@@ -53,7 +53,8 @@ router.get('/:id', (req, res, next) => {
 
 });
 
-router.get('/:id/edit', (req, res, next) => {
+router.get('/celeb/:id/edit', (req, res, next) => {
+
   const celebId = req.params.id;
 
   Celeb.findById(celebId, (err, celeb) => {
@@ -62,22 +63,24 @@ router.get('/:id/edit', (req, res, next) => {
   });
 });
 
-router.post('/:id', (req, res, next) => {
-  // const celebId = req.params.id;
+router.post('/celeb/:id', (req, res, next) => {
+  const celebId = req.params.id;
+  console.log(req);
 
   const updates = {
-    celebName: req.body.Nameinput,
-    celebOccup: req.body.Occupinput,
-    celebPhrase: req.body.Phraseinput,
+    celebName: req.body.celebName,
+    celebOccup: req.body.celebOccup,
+    celebPhrase: req.body.celebPhrase,
 };
-
+console.log(updates);
 Celeb.findByIdAndUpdate(celebId, updates, (err, celeb) => {
   if (err){ return next(err); }
+  console.log(celeb);
   return res.redirect('/celeb');
 });
 });
 
-router.get('/:id/delete', (req, res, next) => {
+router.get('/celeb/:id/delete', (req, res, next) => {
   const id = req.params.id
   Celeb.deleteOne({ _id: id }, (err) => {
     if (err) { next(err) }

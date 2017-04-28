@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "celeb":  "node ./bin/seeds-celeb",
+    "movie" : "node ./bin/seeds-movie",
     "start": "nodemon ./bin/www"
   },
+
   "dependencies": {
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
