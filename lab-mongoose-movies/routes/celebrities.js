@@ -48,6 +48,7 @@ router.get('/:id' , (req, res, next)=>{
   })
 })
 
+// delete a celebrity from the celebrity list**********
 router.post('/:id/delete', (req, res, next) => {
   console.log(req);
   Celebrity.findByIdAndRemove(req.params.id, (err,celebrity) =>{
@@ -59,5 +60,33 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 
+// edit an existing celebrity page
+router.get('/:id/edit', (req, res, next) => {
+  console.log('editeditedit', req)
+  Celebrity.findById(req.params.id, (err, celebrity)=> { //params is a set var in every req, which
+    //contains the object Celebrity's data
+    if (err){
+      next (err)
+    }
+      res.render('celebrities/edit', {celebrity: celebrity});
+  })
+})
+
+
+
+router.post('/:id', (req, res, next) =>{
+  // console.log('postpostpost', req)
+  const celebrityModel = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  }
+
+  Celebrity.findByIdAndUpdate(req.params.id, celebrityModel, {new: true}, (err, newCelebrityModel)=> {
+    if (err){next (err)}
+    console.log(newCelebrityModel)
+      res.redirect('/celebrities')
+    })
+})
 
 module.exports = router;
