@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 var index = require('./routes/index');
 var users = require('./routes/users');
 const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 
 mongoose.connect('mongodb://localhost:27017/movies-dev');
 
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/celebrities', celebrities);
-
+app.use('/movies', movies);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
