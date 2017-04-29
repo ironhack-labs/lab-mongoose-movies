@@ -1,4 +1,3 @@
-// Iteration #1
 ///seeds is what saves the data into your database
 const mongoose = require('mongoose');
 
@@ -12,12 +11,12 @@ const celebrity = [
   {
     celebrityName: 'Selena Gomez',
     occupation: 'Actress and singer',
-    catchPhrase: {type: String}
+    catchPhrase: "People are so mean, it's exhausting."
   },
   {
     celebrityName: 'Cristiano Ronaldo',
     occupation: 'Soccer player',
-    catchPhrase: {type: String}
+    catchPhrase: 'Talent without working hard is nothing.'
   },
   {
     celebrityName: 'Beyoncé',
@@ -36,7 +35,7 @@ Celebrity.create(celebrity, (err, celebrityDoc) => {
     throw err;
   }
 
-  celebrityDoc.forEach((onecelebrity) => {
+  celebrityDoc.forEach((oneCelebrity) => {
     ///this gives you feedback if it works
     console.log(`NEW Celeb ${oneCelebrity.celebrityName} -> ${oneCelebrity._id}`);
   });

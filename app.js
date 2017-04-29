@@ -4,8 +4,10 @@ const favicon      = require('serve-favicon');
 const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
-const layouts      = require('express-ejs-layouts');
+const layouts    = require('express-ejs-layouts');
+const mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/lab-mongoose-movies');
 
 const app = express();
 
@@ -13,8 +15,9 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(layouts);
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Express - Movie Exercise';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -23,10 +26,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(layouts);
 
-const index = require('./routes/index');
+
+///////////////  ROUTES FROM HERE ///////////////////////
+/////////--------------------------------------------///////////
+var index = require('./routes/index');
 app.use('/', index);
+
+/////////--------------------------------------------///////////
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
