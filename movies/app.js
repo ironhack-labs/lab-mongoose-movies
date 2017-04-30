@@ -33,6 +33,9 @@ app.use('/', index);
 const celebritiesRoutes = require('./routes/celebrities-routes');
 app.use('/', celebritiesRoutes);
 
+const moviesRoutes = require('./routes/movies-routes');
+app.use('/', moviesRoutes);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
