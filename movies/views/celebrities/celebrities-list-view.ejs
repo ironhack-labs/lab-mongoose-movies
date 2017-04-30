@@ -7,6 +7,9 @@
   <strong>Name: <%= oneCelebrity.name %> </strong>
   <a href="/celebrities/<%= oneCelebrity._id %>">View Details</a>
   <br>
+  <form  action="/celebrities/<%= oneCelebrity._id %>/delete" method="post">
+  <button>Delete</button>
+  <br>
 
 <% }); %>
 

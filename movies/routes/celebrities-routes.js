@@ -38,7 +38,17 @@ celebritiesRoutes.post('/celebrities/new', (req, res, next) => {
   });
 });
 
+celebritiesRoutes.post('/celebrities/:id/delete', (req, res, next) => {
+  const theCelebrity = req.params.id;
 
+  Celebrity.findByIdAndRemove(theCelebrity, (err, theCelebrity) => {
+    if(err) {
+      next(err);
+      return;
+    }
+    res.redirect('/celebrities');
+  });
+});
 
 
 
