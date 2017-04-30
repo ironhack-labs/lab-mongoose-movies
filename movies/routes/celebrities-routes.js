@@ -50,7 +50,44 @@ celebritiesRoutes.post('/celebrities/:id/delete', (req, res, next) => {
   });
 });
 
+celebritiesRoutes.get('/celebrities/:id/edit', (req, res, next) => {
+  const celebrityId = req.params.id;
 
+  Celebrity.findById(celebrityId, (err, theCelebrity) => {
+    if(err) {
+      next(err);
+      return;
+    }
+
+  res.render('celebrities/celebrity-edit-view.ejs', {
+      celebrity: theCelebrity
+    });
+  });
+});
+
+celebritiesRoutes.post('/celebrities/:id', (req, res, next) => {
+  const celebrityId = req.params.id;
+
+  const celebrityChanges = {
+    name: req.body.celebrityName,
+    occupation: req.body.celebrityOccupation,
+    catchPhrase: req.body.celebrityCatchPhrase
+  };
+
+  Celebrity.findByIdAndUpdate(
+    celebrityId,
+    celebrityChanges,
+    (err, theCelebrity) => {
+      if(err) {
+        res.render('products/edit-product-view.ejs', {
+          product:theProduct,
+          validationErrors:theProduct.errors
+        });
+        return;
+      }
+      res.redirect('/celebrities');
+  });
+});
 
 
 
