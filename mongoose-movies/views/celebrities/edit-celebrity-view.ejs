@@ -1,0 +1,19 @@
+<h2>Edit celebrity information</h2>
+<form action="/celebrities/<%= celebrity._id %>" method="post">
+
+  <label for="celebrity-name-input">Celebrity name</label>
+  <input id="celebrity-name-input" type="text" name="celebrityName" value="<%= celebrity.name %>" onblur=“if (this.value == ‘’) {this.value = ‘Enter celebrity name’;}” onfocus=“if (this.value == ‘Enter celebrity name’) {this.value = ‘’;}“/>
+
+  <br><br>
+
+  <label for="celebrity-occupation-input">Celebrity occupation</label>
+  <input id="celebrity-occupation-input" type="text" name="celebrityOccupation" value="<%= celebrity.occupation %>">
+  <br><br>
+
+  <label for="celebrity-catchPhrase-input">Celebrity catch phrase</label>
+  <textarea id="celebrity-catchPhrase-input" type="text" name="celebrityCatchPhrase"><%= celebrity.catchPhrase %></textarea>
+
+  <br><br><br>
+  <button>Save changes</button>
+
+</form>
