@@ -7,7 +7,8 @@ const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
-mongoose.connect('mongodb://localhost/celebrities');
+// mongoose.connect('mongodb://localhost/celebrities');
+mongoose.connect('mongodb://localhost/movies');
 
 
 const app = express();
@@ -34,6 +35,9 @@ app.use('/', index);
 
 const celebRoutes = require('./routes/celebrities.js');
 app.use('/', celebRoutes);
+
+const movieRoutes = require('./routes/movies.js');
+app.use('/', movieRoutes);
 // ---------------------------------------------------
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

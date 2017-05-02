@@ -1,0 +1,17 @@
+<h2> Movies </h2>
+
+<ul>
+  <% movies.forEach((oneMovie) => { %>
+    <li>
+      <p>Name: <%= oneMovie.title %></p>
+      <p>Plot: <%= oneMovie.plot %></p>
+      <a href="/movies/<% oneMovie._id %>">
+        View details
+      </a>
+    </li>
+
+  <% }) %>
+
+
+
+<a href="/movies"> See all movies </a>
