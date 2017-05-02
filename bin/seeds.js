@@ -1,32 +1,32 @@
 const mongoose = require('mongoose');
-const Celebs = require('../models/celeb-models.js');
+const Movies = require('../models/movie-models.js');
 
 mongoose.connect('mongodb://localhost/lab-mongoose-movies');
 
-const celebrities = [{
-        name: "Mike",
-        occupation: "Dancer",
-        catchPhrase: "Dance till you dont feel your feet"
+const movieModels = [{
+        title: "Miky Mouse",
+        genre: "Kids Chanel",
+        plot:"Mini is lost"
 
     },
     {
-        name: "Jake",
-        occupation: "Comedian",
-        catchPhrase: "Laughter is the solution to all War"
+        title: "Spirits",
+        genre: "thriller",
+        plot: "kill them all"
 
     },
     {
-        name: "Jorge",
-        occupation: "Actor",
-        catchPhrase: "Together from the ashes we will raise"
+        title: "quija",
+        genre: "Thrillers",
+        plot: "Eat you all Alive"
 
     }
 ];
-Celebs.create(celebrities, (err, theCeleb) => {
+Movies.create(movieModels, (err, themovie) => {
     if (err) {
         throw (err);
     }
-    theCeleb.forEach((oneCeleb) => {
-        console.log(oneCeleb.name);
+    themovie.forEach((onemovie) => {
+        console.log(onemovie.title);
     });
 });

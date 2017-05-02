@@ -19,7 +19,7 @@
                     <% for (key in error) {%>
 
                       <script>
-                      document.getElementById("<%= key%>").innerText = "    <%= error[key].message%>"
+                      document.getElementById("<%= key%>").innerText = "<%= error[key].message%>"
 
                       </script>
 
