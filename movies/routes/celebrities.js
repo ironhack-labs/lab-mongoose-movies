@@ -56,4 +56,17 @@ celebrityModel.findById( myCelebrityId, (err, thatCelebrity) => {
   });
 });
 
+celebrityRoutes.post('/celebrities/:id/delete', (req,res, next) => {
+  const celebrityId= req.params.id;
+
+  celebrityModel.findByIdAndRemove(celebrityId, (err, thatCelebrity) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    res.redirect('/celebrities');
+  }
+  );
+});
+
 module.exports = celebrityRoutes;

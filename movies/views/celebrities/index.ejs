@@ -1,11 +1,13 @@
 <h2>Celebrity List</h2>
 
-<% console.log("hi"); %>
 <ul>
   <% celebrityRoutes.forEach((oneCelebrity) => { %>
     <li>
       <p>Name: <%=oneCelebrity.name%> <a href="celebrities/<%=oneCelebrity._id%>">More info</a></p>
     </li>
+    <form method="post" action="/celebrities/<%= oneCelebrity._id%>/delete">
+      <button> Delete </button>
+    </from>
 <%  }) %>
 </ul>
 
