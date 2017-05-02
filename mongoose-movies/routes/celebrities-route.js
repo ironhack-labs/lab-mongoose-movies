@@ -2,22 +2,38 @@ const express        = require('express');
 const Celebrity      = require('../models/celebrity-model.js');
 const router         = express.Router();
 
+///celebrities
 router.get('/celebrities',(req, res, next)=>{
   Celebrity.find((err, celebrityList)=>{
-    //is like a db.find
-    //.find will give you an array of objects even if theres only one thing in the database
-    //productList comes from the database
       if(err){
         next(err);
-        //delegating this to the error handler
         return;
-        //return to avoid doing an else
-        //next is a function that you can call to evoke the next middleware in line
-      }
+        }
     res.render('celebrities/celebrities-list-view.ejs',{
       celebrities: celebrityList
+      });
     });
   });
-});
+
+///celebrities/:id
+router.get('/celebrities/:id', (req, res, next) => {
+  const celebrityId = req.params.id;
+  Celebrity.findById(celebrityId, (err, theCelebrity) => {
+      if (err) {
+      next(err);
+      return;
+      }
+      //404 if no product was found
+      if (!theCelebrity) {
+        next();
+        return;
+      }
+    res.render('celebrities/celebrities-details-view.ejs', {
+      celebrities: theCelebrity
+      });
+    });
+  });
+
+
 
 module.exports = router;
