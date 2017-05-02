@@ -10,6 +10,7 @@ const mongoose     = require('mongoose');
 
 mongoose.connect('mongodb://localhost/ajmovies');
 
+
 const app = express();
 
 // view engine setup
@@ -32,6 +33,9 @@ app.use(layouts);
 // ----------------------------------------
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrityRoutes = require('./routes/celebrities.js');
+app.use('/', celebrityRoutes);
 
 
 

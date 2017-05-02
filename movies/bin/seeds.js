@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/ajmovies');
 
-const Celebrity = require('../models/product-model.js');
-
+const Celebrity = require('../models/celebrity.js');
 
 const celebrities = [
   {
@@ -25,15 +24,15 @@ const celebrities = [
   profileImage: 'https://randomuser.me/api/portraits/women/7.jpg',
   },
 ];
-
+console.log(celebrities);
 
   // db.celebrities.insertMany()
-Celebrity.create(celebrities, (err, productDocs) => {
+Celebrity.create(celebrities, (err, celebrityList) => {
   if (err) {
     throw err;
   }
 
-  productDocs.forEach((oneCelebrity) => {
-    console.log(`NEW PRODUCT ${oneCelebrity.name} -> ${oneCelebrity._id}`);
+  celebrityList.forEach((oneCelebrity) => {
+    console.log(`NEW CELEBRITY ${oneCelebrity.name} -> ${oneCelebrity._id}`);
   });
 });
