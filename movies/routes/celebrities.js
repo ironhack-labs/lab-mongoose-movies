@@ -5,7 +5,6 @@ const celebrityModel = require('../models/celebrity.js');
 
 const celebrityRoutes = express.Router();
 
-console.log('Hi');
 celebrityRoutes.get('/celebrities', (req, res, next) => {
   celebrityModel.find((err, celebrityList) => {
     if (err) {
@@ -17,6 +16,23 @@ celebrityRoutes.get('/celebrities', (req, res, next) => {
     });
   });
 });
+
+celebrityRoutes.get('/celebrities/:id/', (req, res, next) => {
+  const myCelebrityId = req.params.id;
+
+celebrityModel.findById( myCelebrityId, (err, thatCelebrity) => {
+  if (err) {
+    next(err);
+    return;
+  }
+    res.render('celebrities/show', {
+    celebrity: thatCelebrity
+    });
+  });
+});
+
+
+
 
 
 module.exports = celebrityRoutes;

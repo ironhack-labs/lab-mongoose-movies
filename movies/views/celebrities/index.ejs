@@ -2,9 +2,9 @@
 
 <% console.log("hi"); %>
 <ul>
-  <% celebrityRoutes.forEach((oneReview) => { %>
+  <% celebrityRoutes.forEach((oneCelebrity) => { %>
     <li>
-      <p>Name: <%=oneReview.name%></p>
+      <p>Name: <%=oneCelebrity.name%> <a href="celebrities/<%=oneCelebrity._id%>">More info</a></p>
     </li>
 <%  }) %>
 </ul>
