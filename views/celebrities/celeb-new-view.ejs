@@ -1,0 +1,28 @@
+<h1>Add a new Celebrity</h1>
+
+
+            <form class="" action="/celebrities/new" method="post">
+                <label for="name-Input">Name :</label>
+                <input id="name-Input" type="text" name="nameValue" value=""><label id="name"></label>
+                <br>
+                <label for="occupation-input">Occupation: </label>
+                <input id="occupation-input" type="text" name="occupationValue" value=""><label id="occupation"></label>
+                <br>
+                <label for="catchPhrase-Input">Catch Phrase: </label>
+                <input id="catchPhrase-Input" type="text" name="catchPhraseValue" value=""><label id="catchPhrase"></label>
+                <br>
+                <button>Add</button>
+            </form>
+
+            <% if (typeof error !== 'undefined') {%>
+
+                    <% for (key in error) {%>
+
+                      <script>
+                      document.getElementById("<%= key%>").innerText = "    <%= error[key].message%>"
+
+                      </script>
+
+                <%}%>
+
+                    <%}%>
