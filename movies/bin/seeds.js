@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/ajmovies');
 
 const Celebrity = require('../models/celebrity.js');
+const Movies = require('../models/movies.js');
+
 
 const celebrities = [
   {
@@ -33,6 +35,38 @@ Celebrity.create(celebrities, (err, celebrityList) => {
   }
 
   celebrityList.forEach((oneCelebrity) => {
+    console.log(`NEW CELEBRITY ${oneCelebrity.name} -> ${oneCelebrity._id}`);
+  });
+});
+
+
+const MovieList = [
+  {
+    name: 'Movie 1',
+    genre: "Genre 1",
+    plot: 'Plot 1',
+    movieImage: 'https://vignette1.wikia.nocookie.net/wowwiki/images/f/f8/Warcraft_movie_international_poster.jpg/revision/latest?cb=20160325190659',
+  },
+  {
+    name: 'Movie 2',
+    genre: "Genre 2",
+    plot: 'Plot 2',
+    movieImage: 'https://s-media-cache-ak0.pinimg.com/736x/c1/ab/78/c1ab782b93344350aa968604dbfdc9d8.jpg',
+  },
+  {
+    name: 'Movie 3',
+    genre: "Genre 3",
+    plot: 'Plot 3',
+    movieImage: 'https://s-media-cache-ak0.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02.jpg',
+  },
+];
+
+  // db.celebrities.insertMany()
+Movies.create(celebrities, (err, celebrityList) => {
+  if (err) {
+    throw err;
+  }
+  MovieList.forEach((oneCelebrity) => {
     console.log(`NEW CELEBRITY ${oneCelebrity.name} -> ${oneCelebrity._id}`);
   });
 });

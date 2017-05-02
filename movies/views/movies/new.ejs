@@ -1,0 +1,30 @@
+<h2>Add a new Celebrity</h2>
+
+
+<form method="post" action="/movies/new">
+  <label for="movie-name-input"> Celebrity Name </label>
+  <input  id="movie-name-input" type="text" name="movieName">
+  <br>
+
+  <label for="movie-ocupation-input"> Ocupation </label>
+  <input  id="movie-ocupation-input" type="text" name="movieOcupation">
+  <br>
+
+  <label for="movie-catchPhrase-input"> Catch Phrase </label>
+  <input  id="movie-catchPhrase-input" type="text" name="moviecatchPhrase">
+  <br>
+
+  <label for="movie-image-url-input"> Profile Picture </label>
+  <input  id="movie-image-url-input" type="url" name="movieImageUrl">
+  <br>
+
+  <button> Add a Movie </button>
+</form>
+
+<% if (typeof validationErrors !== 'undefined') { %>
+  <ul>
+    <% for (key in validationErrors) {  %>
+      <li> <%= validationErrors[key].message %> </li>
+  <% }  %>
+  </ul>
+ <% }  %>

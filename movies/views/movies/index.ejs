@@ -1,0 +1,14 @@
+<h2>Movie List</h2>
+
+<ul>
+  <% moviesRoutes.forEach((oneMovie) => { %>
+    <li>
+      <p>Name: <%=oneMovie.name%> <a href="movies/<%=oneMovie._id%>">More info</a></p>
+    </li>
+    <form method="post" action="/movies/<%= oneMovie._id%>/delete">
+      <button> Delete </button>
+    </from>
+<%  }) %>
+</ul>
+
+<a href="/movies/new"> Add a new movie</a>
