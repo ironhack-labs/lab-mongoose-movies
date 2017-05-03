@@ -6,9 +6,9 @@
 
 
 - Develop and understanding of the basic CRUD actions
-- Use Mongoose in an Express application 
+- Use Mongoose in an Express application
 - Implement the basic CRUD actions with 2 models in one application
- 
+
 
 ## Exercise
 ## Requirements
@@ -30,8 +30,8 @@ $ git push origin master
 ```
 
 ## Introduction
-Everyone likes celebrities, right? Well, even if you don't, now is your chance to create your own, better, fictional celebrities! 
-Let's create an Express app with all the basic CRUD actions that will allow the user to create their own celebrities and edit them as they see fit. 
+Everyone likes celebrities, right? Well, even if you don't, now is your chance to create your own, better, fictional celebrities!
+Let's create an Express app with all the basic CRUD actions that will allow the user to create their own celebrities and edit them as they see fit.
 
 The user should be able to:
 
@@ -43,7 +43,7 @@ The user should be able to:
 
 But wait! That's not all!
 
-Once we have our celebrities, we need something for them to do! 
+Once we have our celebrities, we need something for them to do!
 Let's make up some movie ideas for our celebrities to star in.  
 That means we'll need all the basic CRUD actions for movies as well.  
 
@@ -105,7 +105,7 @@ Here's the route we will be using:
     - Call the `Celebrity` model's `find` method to retrieve all the celebrities.
     - If there's an error, call the route's `next` function and return the error.
     - If there isn't an error, render the `celebrities/index` view.
-    - Pass the array of drones into the view as a variable. 
+    - Pass the array of drones into the view as a variable.
 3. Create the `celebrities/` folder inside `views/`.
 4. Create the `index.ejs` view file inside the `views/celebrities/` folder.
 5. In the `views/celebrities/index.ejs` view file:
@@ -117,7 +117,7 @@ Here's the route we will be using:
 
 ## Iteration #3: The Celebrity Details Page
 
-We've got a list of celebrities that displays each of their `name`, but what if we want to see the other details? In our `views/celebrities/index.ejs` view with our list of celebrities, let's add links so that the user can click on any celebrity's name, and go to a page specifically for that celebrity.  On this page, we will show all the details of that celebrity. 
+We've got a list of celebrities that displays each of their `name`, but what if we want to see the other details? In our `views/celebrities/index.ejs` view with our list of celebrities, let's add links so that the user can click on any celebrity's name, and go to a page specifically for that celebrity.  On this page, we will show all the details of that celebrity.
 
 
 
@@ -155,10 +155,10 @@ Now that we have a list of celebrities, as well as a personalized details page f
 ### Steps we will follow in this iteration:
 
 1. Locate the `/celebrities/new` GET route in `routes/celebrities.js`:
-2. In that route's callback: 
+2. In that route's callback:
   - Render the `celebrities/new` view.
 3. Create the `new.ejs` view file inside the `views/celebrities` folder
-4. In the `views/celebrities/new.ejs` view file: 
+4. In the `views/celebrities/new.ejs` view file:
    - Add an `<h2>` for the page's heading.
    - Add a `<form>` tag that makes a POST request to `/celebrities`.
    - Add `<input>` tags inside the form so the user can fill in values for each attribute of the celebrity.  Make an input for `name`, `occupation`, and `catchPhrase`
@@ -171,12 +171,12 @@ Now that we have a list of celebrities, as well as a personalized details page f
     - Call the `save` method to save the new celebrity to the database
     - If there is an error, render the `celebrities/new` view so the user can try again.
     - If there is no error, redirect to the page with the list of celebrities
-7. In the `views/celebrities/index.ejs` view file: 
-    - Add a link that goes to the page you just created with the form to create a new celebrity. 
+7. In the `views/celebrities/index.ejs` view file:
+    - Add a link that goes to the page you just created with the form to create a new celebrity.
 
 ## Iteration #5: Deleting Celebrities
 
-Now that we have a list of celebrities, a celebrity details page, and a page to create new celebrities, we only have 2 features left to implement: editing celebrities and deleting them.  Since deleting is simpler, let's start with that. 
+Now that we have a list of celebrities, a celebrity details page, and a page to create new celebrities, we only have 2 features left to implement: editing celebrities and deleting them.  Since deleting is simpler, let's start with that.
 
 |        Route         | HTTP Verb |       Description       |
 |----------------------|-----------|-------------------------|
@@ -184,11 +184,11 @@ Now that we have a list of celebrities, a celebrity details page, and a page to 
 
 ### Steps we will follow in this iteration:
 
-1. In the `views/celebrities/index.ejs` file: 
-    - As part of the loop, add a `<form>` tag that makes a POST request to `celebrities/:id/delete` where the `:id` is replaced by the actual `id` of each celebrity. 
+1. In the `views/celebrities/index.ejs` file:
+    - As part of the loop, add a `<form>` tag that makes a POST request to `celebrities/:id/delete` where the `:id` is replaced by the actual `id` of each celebrity.
     - Add a `<button>` tag inside the form so that it can be submitted.
 2. Create the `/celebrities/:id/delete` POST route in your `routes/celebrities.js` file
-3. In that route's callback: 
+3. In that route's callback:
     - Use the `Celebrity` model's `findByIdAndRemove` method to delete the celebrity by its `id`.
     - If there's an error, call the route's `next` function and return the error
     - If there is no error, redirect to the list of celebrities page.  
@@ -218,32 +218,32 @@ Here are the routes we will be using:
 4. In the `views/celebrities/edit.ejs` view file:
     - Add an `<h2>` tag for the page's heading.
     - Add a `<form>` tag that makes a POST request to `/celebrities/:id` with the `:id` replaced by the actual celebrity's id.
-    - Add `<input>` tags inside the form for each attirbute of the celebrity. 
+    - Add `<input>` tags inside the form for each attirbute of the celebrity.
       - Bonus: When you render the edit form, make sure each of the input fields is pre-filled with the current value of the attribute for that celebrity
     - Add a `<button>` tag inside the form so that the user can submit the form once they are done editing.
 5. Locate the `/celebrities/:id` POST route in the `routes/celebrities.js` file.
-6. In that route's callback: 
+6. In that route's callback:
     - Create an object with keys for each attribute of a celebrity (celebrity has 3 attributes. What were they again? Look back and review if you forgot.)
-    - Values for those keys should come from the form submission (`req.body`). 
+    - Values for those keys should come from the form submission (`req.body`).
     - Call the `Celebrity` model’s `update` method and use the celebrity's id to specify which celebrity we are updating. Also, use the object you just created with the updated attributes for the celebrity and pass this object into the `update` method as the second argument.
     - If there is an error retrieving that celebrity, call the route's `next` function and return the error
     - If there is no error, redirect back to the list of celebrities.
 
 ## Celebrities - Done!
-At this point, we have implemented all the basic CRUD actions for the Celebrity model in our app.  Nice work! 
+At this point, we have implemented all the basic CRUD actions for the Celebrity model in our app.  Nice work!
 
 Now that we've done all this good work, it's time to do it all over again, but for the Movie model.  After all, what's the point of having all these celebrities if we can't make up fake movies to cast them in?
 
 We are going to create a `Movie` model and implement all the same CRUD actions for this model as well.  Don't worry, it's really much easier the second time around.  
 
 ## Iteration #7: The `Movie` Model
-Let's jump right in. 
+Let's jump right in.
 
 First of all, we'll need to create the `Movie` model.
 
 The `Movie` model should have:
-- `title` - String 
-- `genre` - String 
+- `title` - String
+- `genre` - String
 - `plot` - String
 
 
@@ -251,15 +251,15 @@ The `Movie` model should have:
 
 Go back and review what you did to create the `Celebrity` model.  You'll need to create a file for the model, and in that file, you'll need to create a schema for the model as well.
 
-Once you've done that, go to your `seeds.js` file in the `bin/` folder and either delete or comment out the seeds you made before for your celebrities. 
-Replace these seeds with seeds for fake movies.  If you don't delete/comment what you had before, when you run the seeds file with the `node` command in the terminal, it will create duplicates of all your celebrities. 
+Once you've done that, go to your `seeds.js` file in the `bin/` folder and either delete or comment out the seeds you made before for your celebrities.
+Replace these seeds with seeds for fake movies.  If you don't delete/comment what you had before, when you run the seeds file with the `node` command in the terminal, it will create duplicates of all your celebrities.
 
 Afterward, check the database with the `mongo` command to confirm that your data was saved.
 
 
 ## Iteration #8: Listing Our Movies
 
-Now that we've got some movies in the database, let's make a page where we list all our movies, just like we did with the `Celebrity` model. 
+Now that we've got some movies in the database, let's make a page where we list all our movies, just like we did with the `Celebrity` model.
 
 
 ### Steps we will follow in this iteration:
@@ -297,7 +297,7 @@ Okay, the next step is to make it so the user can **add new movies to the databa
 ### Steps we will follow in this iteration:
 
 Review how you did this for the `Celebrity` model.
-  - Create 2 new routes, one to render page with the form on it, and one to send the data to after the form is filled out. 
+  - Create 2 new routes, one to render page with the form on it, and one to send the data to after the form is filled out.
   - Create a view file to render the form.
   - Make sure the form is making a POST request to the other route you just created.
   - In your post route, create an object with all the info you just received from the form. (Remember, `req.body`)
@@ -311,7 +311,7 @@ Okay, only 2 features left, deleting and editing.
 
 
 ### Steps we will follow in this iteration:
-Review how you did this with the `Celebrity` model. 
+Review how you did this with the `Celebrity` model.
 
   - Add a button (inside of a form) next to each movie in your movies index page.
   - Create a route
@@ -324,27 +324,18 @@ Final piece of our CRUD puzzle: **editing existing movies**.
 
 
 ### Steps we will follow in this iteration:
-Review how you did this for the `Celebrity` model. 
+Review how you did this for the `Celebrity` model.
 
-  - Create 2 routes, one to display a form, and another to receive the data from that form. 
+  - Create 2 routes, one to display a form, and another to receive the data from that form.
   - Create a view file to display the edit form.
   - Use a databse query to retrieve one movie from the database and pass that movie into the page with the form on it.
   - Render the view with the form, and pre-fill all the input fields with the current info about that movie.
   - Make sure your form is submitting a POST request to the other route you just created.
   - When the form is submitted, receive the data from the form and create an object with all the info.
-  - Make a databse query to retrieve the movie from the database and update the movie with the object you just created with all the info from the form. 
+  - Make a databse query to retrieve the movie from the database and update the movie with the object you just created with all the info from the form.
   - Make sure you add a link to the edit page on your movies index page.
 
 
 # That's it!
 
-
-
-
-
-
-
-
-
-
-
+[v0.01 - v0.02] - Set up File Structure
