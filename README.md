@@ -315,7 +315,7 @@ Review how you did this with the `Celebrity` model.
 
   - Add a button (inside of a form) next to each movie in your movies index page.
   - Create a route
-  - Use a databse query to retrieve the Movie that was just clicked, and delete it from the database.
+  - Use a database query to retrieve the Movie that was just clicked, and delete it from the database.
 
 
 ## Iteration #12 (Bonus): Editing Movies
@@ -328,14 +328,15 @@ Review how you did this for the `Celebrity` model.
 
   - Create 2 routes, one to display a form, and another to receive the data from that form.
   - Create a view file to display the edit form.
-  - Use a databse query to retrieve one movie from the database and pass that movie into the page with the form on it.
+  - Use a database query to retrieve one movie from the database and pass that movie into the page with the form on it.
   - Render the view with the form, and pre-fill all the input fields with the current info about that movie.
   - Make sure your form is submitting a POST request to the other route you just created.
   - When the form is submitted, receive the data from the form and create an object with all the info.
-  - Make a databse query to retrieve the movie from the database and update the movie with the object you just created with all the info from the form.
+  - Make a database query to retrieve the movie from the database and update the movie with the object you just created with all the info from the form.
   - Make sure you add a link to the edit page on your movies index page.
 
 
 # That's it!
 
 [v0.01 - v0.02] - Set up File Structure
+[v0.021] - Small Typos in Readme (https://i.gyazo.com/cf05b90f4a076c3a5787c7f81760fc89.png)
