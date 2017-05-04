@@ -4,8 +4,12 @@
     <% celebrities.forEach((oneCelebrity)=> { %>
       <li> <%=oneCelebrity.name %>
         <a href="/celebrities/<%= oneCelebrity._id %>"> View Details </a>
-          <!-- this makes for a better route address ^ -->
-          <br>
+        <br>
       </li>
-  <% }) %>
-</ul>
+      <% }) %>
+  </ul>
+
+
+  <a href="/celebrities/new">
+    Add a Celebrity
+  </a>

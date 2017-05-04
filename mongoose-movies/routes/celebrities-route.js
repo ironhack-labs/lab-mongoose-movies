@@ -2,7 +2,7 @@ const express        = require('express');
 const Celebrity      = require('../models/celebrity-model.js');
 const router         = express.Router();
 
-///celebrities
+///celebrities get
 router.get('/celebrities',(req, res, next)=>{
   Celebrity.find((err, celebrityList)=>{
       if(err){
@@ -12,6 +12,28 @@ router.get('/celebrities',(req, res, next)=>{
     res.render('celebrities/celebrities-list-view.ejs',{
       celebrities: celebrityList
       });
+    });
+  });
+
+//celebrity/new get
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new-celebrities-view.ejs');
+  });
+//celebrity/new post
+router.post('/celebrities/new', (req, res, next)=>{
+    const theCelebrity= new Celebrity({
+      name: req.body.celebrityName,
+      occupation: req.body.celebrityOccupation,
+      catchPhrase: req.body.celebrityCatchPhrase
+    });
+    theCelebrity.save((err)=>{
+      if(err){
+        res.render('celebrities/new-celebrities-view.ejs', {
+          validationErrors: theCelebrity.errors
+        });
+        return;
+      }
+      res.redirect('/celebrities');
     });
   });
 
@@ -33,6 +55,9 @@ router.get('/celebrities/:id', (req, res, next) => {
       });
     });
   });
+
+
+
 
 
 
