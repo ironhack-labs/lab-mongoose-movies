@@ -5,7 +5,10 @@ const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
+const mongoose     = require('mongoose'); //don't forget to add mongoose to the app
 
+
+mongoose.connect('mongodb://localhost/mongoose-movies');
 
 const app = express();
 
@@ -25,8 +28,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
-const index = require('./routes/index');
+//this is where all of my new routes go -----------------
+const index = require('./routes/index'); //you don't have to put js ext
 app.use('/', index);
+
+const celebRoutes = require('./routes/celebrities.js');  //for every external route file you use you will need to import into the app
+app.use('/', celebRoutes);
+
+
+//---------------------------------------------------------
+
+
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
