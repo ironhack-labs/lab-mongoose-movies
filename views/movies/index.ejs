@@ -1,17 +1,25 @@
-<h2> Movies </h2>
+<center><h2> Movies </h2></center>
 
 <ul>
   <% movies.forEach((oneMovie) => { %>
     <li>
-      <p>Name: <%= oneMovie.title %></p>
+      <p>Name:<b> <%= oneMovie.title %></b></p>
       <p>Plot: <%= oneMovie.plot %></p>
-      <a href="/movies/<% oneMovie._id %>">
+      <a href="/movies/<%= oneMovie._id %>">
         View details
       </a>
+      <br>
+      <a href="/movies/<%= oneMovie._id %>/edit">
+        Edit
+      </a>
+      <form method="post" action="/movies/<%= oneMovie._id %>/delete">
+        <button> Delete </button>
+      </form>
     </li>
 
   <% }) %>
+</ul>
 
-
-
-<a href="/movies"> See all movies </a>
+<a href="/movies/new"> Add a movie </a>
+<br>
+<a href='/'> Back to home page </a>
