@@ -11,7 +11,7 @@ const Schema = mongoose.Schema;
 //in other examples I would include additional Schemas/Models needed in this onError
 //so in this case I am going to have celebrities, I should have their movies
 //this is the movies model found in the same folder of the celebrities model
-const Movies = require('./movie');
+// const Movies = require('./movie');
 
 // here is where I construct a new celeb
 const celebSchema = new Schema ({
@@ -32,13 +32,13 @@ const celebSchema = new Schema ({
 
   bio: {
     type: String,
-    default: `Not to be confused the congressman ${name}` //not sure this will work yet
+    default: `Not to be confused with the congressman` //not sure this will work yet
   },
 
 // The occupation field should be something like...a dropdown menu, and the last field will be
 // an array that pulls a certain array/model based on the dropdown's selection
   //------------------------------but for now we will use movies --------------------
-  movies: [ Movies.schema ],
+  // movies: [ Movies.schema ],
 
   celebImg: {
     type: String,

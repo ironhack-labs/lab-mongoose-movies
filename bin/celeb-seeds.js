@@ -22,7 +22,10 @@ const celebsSeed = [
 name: "Rick Sanchez",
 occupation: "Scientist",
 catchPhrase: "wubalubadubdub",
-bio: "",
+bio: `A scientist, inventor, arms salesman, and a grandpa extrodinaire.
+      He has a very pessimistic worldview. He spends most of his time
+      working in the garage in his daughters garage. He also enjoys
+      interdimensional travel.`,
 celebImg: "https://media4.giphy.com/media/QNDDOIJ3oTFYI/giphy.gif"
 },
 
@@ -30,7 +33,9 @@ celebImg: "https://media4.giphy.com/media/QNDDOIJ3oTFYI/giphy.gif"
 name: "Lucas Bros",
 occupation: "Bros",
 catchPhrase: "Vampire in Brooklyn is an undeniable classic",
-bio: "",
+bio: `Just a bunch of bros, hanging out. That decided to open a moving company
+      somehow, they get themselves into weird situations, but it's part of the job.
+      A bunch of 90s kids eating fruit loops, and stuff.`,
 celebImg: "https://i.imgur.com/8ZWljxb.gif"
 },
 
@@ -38,7 +43,9 @@ celebImg: "https://i.imgur.com/8ZWljxb.gif"
 name: "Patrick Star",
 occupation: "Starfish",
 catchPhrase: "Is mayonnaise an instrument?",
-bio: "",
+bio: `Genius starfish posing as a dumbstarfish. He lives under the sea, and
+      he likes to have a good time. He lives under a rock because he is a modest
+      starfish, while his friend, the sponge, lives in a luxurious pineapple.`,
 celebImg: "https://media1.giphy.com/media/l46CyJmS9KUbokzsI/giphy.gif"
 }
 
@@ -47,10 +54,14 @@ celebImg: "https://media1.giphy.com/media/l46CyJmS9KUbokzsI/giphy.gif"
 //at this point of the seed file the documents are created and saved into the db
 Celebs.create(celebsSeed, (err, celebDocs) => {
   if (err) {
-    throw err; //do I went to throw the seeds script? Probably, yes.
+    console.log('There was an error importing your celebrities');
 
   }
+  //go throught all of the docs that we are creating and pass them to this loop
   celebDocs.forEach(( unCeleb ) => {
     console.log(`You have successfully added ${ unCeleb.name } ID# ${ unCeleb._id }`);
+
+    //you want to close the connection to the db so that it doesn't hang on the process
+    mongoose.connection.close();
   }); //end of the forEach loop
 }); //end of the doc creation
