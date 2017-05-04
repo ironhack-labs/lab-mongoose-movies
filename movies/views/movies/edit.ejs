@@ -1,27 +1,27 @@
-<h2>Update <%= movies.name %> Info</h2>
+<h2>Update <%= movie.name %> Info</h2>
 
-<img src="<%= movies.profileImage %>">
+<img src="<%= movie.profileImage %>">
 
 
-<form method="post" action="/celebrities/<%= movies._id%>">
-  <label for="movies-name-input">Product Name </label>
-  <input  id="movies-name-input" type="text"
-      name="moviesName" value="<%= movies.name %>">
+<form method="post" action="/celebrities/<%= movie._id%>">
+  <label for="movie-name-input">Product Name </label>
+  <input  id="movie-name-input" type="text"
+      name="movieName" value="<%= movie.name %>">
   <br>
 
-  <label for="movies-ocupation-input">Ocupation </label>
-  <input  id="movies-ocupation-input" type="text"
-      name="moviesOcupation" value="<%= movies.ocupation %>">
+  <label for="movie-genre-input">Genre </label>
+  <input  id="movie-genre-input" type="text"
+      name="movieOcupation" value="<%= movie.genre %>">
   <br>
 
-  <label for="movies-phrase-input">Catch Phrase </label>
-  <input  id="movies-phrase-input" type="text"
-      name="moviescatchPhrase" value="<%= movies.catchPhrase %>">
+  <label for="movie-phrase-input">Plot </label>
+  <input  id="movie-phrase-input" type="text"
+      name="moviecatchPhrase" value="<%= movie.plot %>">
   <br>
 
-  <label for="movies-image-url-input">Profile Image </label>
-  <input  id="movies-image-url-input" type="text"
-      name="moviesImageUrl" value="<%= movies.profileImage %>">
+  <label for="movie-image-url-input">Movie Image </label>
+  <input  id="movie-image-url-input" type="text"
+      name="movieImageUrl" value="<%= movie.profileImage %>">
   <br>
 
 

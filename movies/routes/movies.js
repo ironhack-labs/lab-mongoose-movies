@@ -24,8 +24,8 @@ moviesRoutes.get('/movies/new', (req, res, next) => {
 moviesRoutes.post('/movies/new', (req, res, next) => {
 const thatMovie = new moviesModel ({
     name: req.body.movieName,
-    genr: req.body.movieOcupation,
-    plot: req.body.moviecatchPhrase,
+    genre: req.body.movieGenre,
+    plot: req.body.moviePlot,
     profileImage: req.body.movieImageUrl
   });
 
@@ -79,8 +79,8 @@ moviesRoutes.post('/movies/:id', (req, res, next) => {
     // gather the form values into an object
   const movieChanges = {
     name: req.body.movieName,
-    grnre: req.body.movieOcupation,
-    plot: req.body.moviecatchPhrase,
+    genre: req.body.movieGenre,
+    plot: req.body.moviePlot,
     profileImage: req.body.movieImageUrl
   };
 
