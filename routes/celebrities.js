@@ -26,12 +26,12 @@ celebRoutes.get('/celebrities', (req, res, next) => {
     { celebs: celebList });
   });
 });
-//
-// celebRoutes.get('/celebrities/new', (req, res, next) => {
-//   res.render('celebrities/new-celeb-view.ejs');
-// });
-//
-//
+
+celebRoutes.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new-celeb-view.ejs');
+});
+
+
 // celebRoutes.get('/celebrities/az', (req, res, next) => {
 //   Celebs
 //   .find()

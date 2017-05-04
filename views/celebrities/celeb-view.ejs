@@ -1,1 +1,27 @@
 <h2> THIS IS WHERE ALL THE CELEBS GO </h2>
+
+<ul>
+  <% celebs.forEach((celeb) => { %>
+    <li>
+      <div class="celebImg">
+        <img src="<%= celeb.celebImg %>">
+      </div>
+
+      <p class="nome"><%= celeb.name %></p>
+      <p class="nome"><%= celeb.occupation %></p>
+
+      <div class="catchPhrase">
+        <pre><span>" <%= celeb.catchPhrase %> "</span></pre>
+        <br>
+        <br>
+
+      <div class ="bio">
+        <span><%= celeb.bio %></span>
+        </div>
+    </li>
+    <% }) %>
+  </ul>
+
+  <div class="btn">
+    <a href ="/celebrities/new">Add Another Celebrity</a>
+</div>

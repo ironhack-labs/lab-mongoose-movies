@@ -1,0 +1,38 @@
+<h2>Add a new celebrity</h2>
+
+<div class="divider"></div>
+
+<!-- name / occupation / catchPhrase / bio / movies / celebImg  -->
+
+<section = "content">
+  <form method="post" action="/celebrities/new">
+    <label for="celeb-name-form">Celebrity's Name: </label>
+    <input id="celeb-name-form" type="text" name="celebName">
+    <br>
+    <label for="celeb-occupation-form">Celebrity's Occupation: </label>
+    <input id="celeb-occupation-form" type="text" name="celebOccupation">
+    <br>
+
+    <label for="celeb-catchphrase-form"> Celebrity's Catchphrase: </label>
+    <input id="celeb-catchphrase-form" type="text" name="celebCatchphrase">
+    <br>
+
+    <label for ="celeb-bio-form"> Celebrity's Bio: </label>
+    <input id="celeb-bio-form" type="text" name="celebBio">
+    <br>
+
+    <label for="drone-prop-input">Propellers </label>
+    <input id="drone-prop-input" type="number" name="droneProp">
+    <br>
+
+    <label for="drone-speed-input">Speed </label>
+    <input id="drone-speed-input" type="number" name="droneSpeed">
+    <br>
+
+    <label for="drone-description-input"> Description </label>
+    <textarea id="drone-description-input" name="droneDescription"></textarea>
+
+    <button class="newDrone">CREATE DRONE</button>
+  </form>
+<div class="divider"></div>
+</section>
