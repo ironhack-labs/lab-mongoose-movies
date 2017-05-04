@@ -1,0 +1,32 @@
+<!-- Views/detailsOfMoviePage  -->
+
+<h2> <%= movie.name %> </h2>
+<br>
+
+<div>
+  <div>
+    <p>Genre:
+      <%= movie.genre %>
+    </p>
+  </div>
+
+  <br>
+  <div>
+    <p> Plot:
+      <%= movie.plot %>
+    </p>
+
+  </div>
+</div>
+<div>
+  <img src="<%= movie.imageUrl %>" width="100%">
+</div>
+
+<br>
+<a href="/movies">Check out the List of Movies we have!</a>
+<br>
+
+<br>
+<strong><p> Or </p></strong>
+
+<a href="/celebrities">Check out the list of Celebrities we have!</a>

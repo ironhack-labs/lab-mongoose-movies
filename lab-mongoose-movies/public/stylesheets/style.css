@@ -1,0 +1,41 @@
+body {
+  padding: 50px;
+  font-family: 14px 'Quicksand', sans-serif;
+}
+
+a {
+  color: #2b8243;
+  font-size: 15px;
+}
+a:hover{
+  color: #3fb53c;
+}
+
+p{
+  color: black;
+  font-size: 20px;
+}
+
+h2, h3, h1{
+color: black;
+}
+
+#movie-plot-input{
+  height: 90px;
+}
+
+.footer{
+  color: green;
+  padding-top: 20px;
+
+}
+
+nav{
+  padding-top: 15px;
+
+}
+
+img{
+  border: 1px solid;
+  padding: 10px;
+}

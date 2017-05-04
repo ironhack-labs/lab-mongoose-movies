@@ -1,0 +1,32 @@
+<!-- Views/editCelebrityPage -->
+<center>
+  <h2>Editing your Celebrity</h2>
+  <br>
+
+  <form class="form-horizontal" action="/celebrities/<%= celebrity._id %>" method="post">
+
+    <label for="celebrity-name-input" class="col-sm-2 control-label"> Celebrity Name: </label>
+    <div class="col-sm-10">
+      <input id="celebrity-name-input" type="text" name="celebrityName" value="<%= celebrity.name %>" class="form-control">
+      <br>
+    </div>
+
+    <label for="celebrity-occupation-input" class="col-sm-2 control-label"> <p>Occupation:</P> </label>
+    <div class="col-sm-10">
+      <input id="celebrity-occupation-input" type="text" name="celebrityOccupation" value="<%= celebrity.occupation %>" class="form-control">
+      <br>
+    </div>
+    <br>
+
+    <label for="celebrity-catch-phrase-input" class="col-sm-2 control-label"> Catch Pharse: </label>
+    <div class="col-sm-10">
+      <input id="celebrity-catch-phrase-input" type="text" name="celebrityCatchPhrase" value="<%= celebrity.catchPhrase %>" class="form-control">
+      <br>
+    </div>
+
+
+    <br>
+    <button class="btn btn-default"> Save</button>
+
+  </form>
+</center>
