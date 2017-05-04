@@ -1,0 +1,15 @@
+<h2>Celebrity Details</h2>
+
+
+
+<ul class="celeb-container">
+  <li class="celeb-name"><%= celebrity.name %></li>
+  <li class="celeb-occ"><%= celebrity.occupation %></li>
+  <li class="celeb-catch">"<%= celebrity.catchPhrase %>"</li>
+  <li><a href="/celebrities/edit/<%= celebrity._id %>">Edit</a></li>
+  <li>
+    <form class="delete-button" action="/celebrities/delete/<%= celebrity._id %>" method="post">
+      <button type="submit">Delete</button>
+    </form>
+  </li>
+</ul>

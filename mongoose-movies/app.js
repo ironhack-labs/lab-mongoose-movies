@@ -7,7 +7,7 @@ const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
-mongoose.connect
+mongoose.connect('mongodb://localhost/mongoose-movie');
 
 
 const app = express();
@@ -28,12 +28,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+
+
 // START ROUTES
 // ----------------------------------------
 
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrityRoute = require('./routes/celebrity-routes');
+app.use(celebrityRoute);
 
 
 // ----------------------------------------
