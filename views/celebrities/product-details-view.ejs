@@ -1,0 +1,21 @@
+<h2> <%= product.name %> </h2>
+
+<img src="<%= product.imageUrl %>" width="100%">
+
+<h3> Price: $<%= product.price %> </h3>
+
+<p> <%= product.description %> </p>
+<p> <% product.reviews.forEach((oneReview) => { %>
+  <p> Review: <%= oneReview.content %><br>
+  Stars: <%= oneReview.stars %><br>
+  Author: <strong><%= oneReview.author %> </strong></p>
+<% }) %>
+<a href="/products/<%= product._id %>/reviews/new">
+  Review this product
+</a>
+<a href="/products/<%= product._id %>/edit">
+  Edit
+</a>
+<form method="post" action="/products/<%= product._id %>/delete">
+  <button class="btn btn-primary">Delete</button>
+</form>

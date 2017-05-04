@@ -1,0 +1,23 @@
+<h2> Product Reviews</h2>
+
+<center><p>You are writing a review for:</p>
+<h3> <%- product.name %> </h3><br>
+<img src="<%= product.imageUrl %>" width="400px"><br></center>
+<form method="post" action="/products/<%= product._id %>/reviews">
+  <div class="form-group">
+  <label for="content-input"> What did you think about the product? </label>
+  <textarea  id="content-input" type="text" name="reviewContent" class="form-control"></textarea>
+  </div>
+  <br>
+  <div class="form-group">
+  <label for="author-input"> Your Name </label>
+  <input  id="author-input" type="text" name="reviewAuthor" class="form-control">
+  <br>
+  </div>
+  <div class="form-group">
+  <label   for="stars-input"> Rating (1-5) </label>
+  <input id="stars-input" type="number" name="reviewStars" class="form-control">
+  <br>
+</div>
+<button class="btn btn-primary"> Submit </button>
+</form>

@@ -1,0 +1,12 @@
+<!-- views/products/products-list-view.ejs -->
+
+<h2> Celebrity List </h2>
+<div class="row">
+  <% celebrities.forEach((oneCelebrity) => { %>
+    <div class="col-md-5 celebs">
+      <p>Name: <%= oneCelebrity.name %></p>
+      <p>Occupation: <%= oneCelebrity.occupation %></p>
+      <p>Catch Phrase: <%= oneCelebrity.catchPhrase %></p>
+    </div>
+  <% }) %>
+</div>
