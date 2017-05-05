@@ -24,7 +24,7 @@ movieRoutes.post('/movies/new', (req, res, next) => {
   const theMovie = new Movie({
     name: req.body.movieName,
     genre: req.body.movieGenre,
-    plot: req.body.moviePlotPhrase
+    plot: req.body.moviePlot
   });
   theMovie.save((err) => {
     if(err){

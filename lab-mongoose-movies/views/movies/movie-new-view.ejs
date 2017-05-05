@@ -1,6 +1,6 @@
 <!-- Adding a new Movie View -->
 <center>
-  <h2>Add New Celebrity</h2>
+  <h2>Add New Movie</h2>
   <br>
 
   <% if(typeof errors !== 'undefined') { %>
@@ -28,8 +28,9 @@
         <br>
         <label for="movie-plot-input">Movie Plot: </label>
         <br>
-        <input id="movie-plot-input" type="text" name="moviePlot" class="form-control">
-        <br>
+        <textarea id="movie-plot-input" class="form-control" name="moviePlot">
+        </textarea>      
+          <br>
 
         <br>
         <button class="btn btn-default">Submit</button>
