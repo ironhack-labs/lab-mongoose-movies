@@ -4,9 +4,11 @@
 <div class="row">
   <% celebrities.forEach((oneCelebrity) => { %>
     <div class="col-md-5 celebs">
+      <center><img src=<%= oneCelebrity.imageUrl %> width="250px"></center>
       <p>Name: <%= oneCelebrity.name %></p>
       <p>Occupation: <%= oneCelebrity.occupation %></p>
       <p>Catch Phrase: <%= oneCelebrity.catchPhrase %></p>
+      <a href="/celebrities/<%= oneCelebrity._id %>"> See Details </a>
     </div>
   <% }) %>
 </div>

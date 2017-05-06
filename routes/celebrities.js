@@ -78,46 +78,46 @@ celebrityRoutes.get('/celebrities', (req, res, next) => {
 //       }
 //     );
 // });
-//
-//
-// // OLD VERSION ===> using query strings
-// // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// //                    /celebrity-details?id=1788
-// //                    /celebrity-details?id=9999
-// //                    /celebrity-details?id=5577
-// // celebrityRoutes.get('/celebrity-details', (req, res, next) => {
-// //             /celebrity-details? id =777777777
-// //                                |
-// //   const celebrityId = req.query.id;
-// // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//
-//
-//   //               /celebrities/1788
-//   //               /celebrities/9999
-//   //               /celebrities/5577
-// celebrityRoutes.get('/celebrities/:id', (req, res, next) => {
-//     //                         |
-//   const celebrityId = req.params.id;
-//
-//   Celebrity.findById(celebrityId, (err, theCelebrity) => {
-//     if (err) {                        // |
-//       next(err);                      // =====================                                         // |
-//       return;                                             // |
-//     }                                                     // |
-//                                                           // |
-//     // DOESN'T WORK                                       // |
-//     // // 404 if no celebrity was found (i.e. bullshit id)  // |
-//     // if (!theCelebrity) {                                 // |
-//     //   next();                                          // |
-//     //   return;                                          // |
-//     // }                                                  // |
-//                                                           // |
-//     res.render('celebrities/celebrity-details-view.ejs', {     // |
-//       celebrity: theCelebrity                                 // |
-//     });          // |                                     // |
-//   });            // ==========================================
-// });
-//
+
+
+// OLD VERSION ===> using query strings
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//                    /celebrity-details?id=1788
+//                    /celebrity-details?id=9999
+//                    /celebrity-details?id=5577
+// celebrityRoutes.get('/celebrity-details', (req, res, next) => {
+//             /celebrity-details? id =777777777
+//                                |
+//   const celebrityId = req.query.id;
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  //               /celebrities/1788
+  //               /celebrities/9999
+  //               /celebrities/5577
+celebrityRoutes.get('/celebrities/:id', (req, res, next) => {
+    //                         |
+  const celebrityId = req.params.id;
+
+  Celebrity.findById(celebrityId, (err, theCelebrity) => {
+    if (err) {                        // |
+      next(err);                      // =====================                                         // |
+      return;                                             // |
+    }                                                     // |
+                                                          // |
+    // DOESN'T WORK                                       // |
+    // // 404 if no celebrity was found (i.e. bullshit id)  // |
+    // if (!theCelebrity) {                                 // |
+    //   next();                                          // |
+    //   return;                                          // |
+    // }                                                  // |
+                                                          // |
+    res.render('celebrities/celebrity-details-view.ejs', {     // |
+      celebrity: theCelebrity                                 // |
+    });          // |                                     // |
+  });            // ==========================================
+});
+
 //   //               /celebrities/444/edit
 //   //               /celebrities/123/edit
 //   //               /celebrities/20/edit
