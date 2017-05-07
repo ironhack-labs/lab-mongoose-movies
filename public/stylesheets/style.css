@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+.indented-menu #indented-menu {
+    padding-left: 100px;
+}
