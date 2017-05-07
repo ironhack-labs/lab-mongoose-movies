@@ -1,0 +1,30 @@
+<!--*************************************************** 
+* Link using object query string
+*******************************************************-->
+<!--
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h2>List of Celebrities</h2>
+  </a>
+  <% celebrities.forEach((oneCelebrity, index) => { %>
+    <a href="/show?id=<%= oneCelebrity._id %>" class="list-group-item list-group-item-action"><%= oneCelebrity.name %></a>  
+  <%  }) %>
+</div>
+-->
+<!--*************************************************** 
+* Link using object Id parameter
+we remove the ? denoting the query string and pass the 
+product’s id through a URL parameter instead.
+*******************************************************-->
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h2>List of Celebrities</h2>
+  </a>
+  <% celebrities.forEach((oneCelebrity, index) => { %>
+    <a href="/<%= oneCelebrity._id %>" class="list-group-item list-group-item-action"><%= oneCelebrity.name %></a>  
+  <%  }) %>
+</div>
+<br>
+<nav class="breadcrumb">
+  <a class="breadcrumb-item" href="/celebrities/new">Add Celebrity</a>
+</nav>
