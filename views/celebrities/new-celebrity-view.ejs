@@ -1,0 +1,31 @@
+<a href="#" class="list-group-item active">
+    <h2>New Celebrity</h2>
+</a>
+<br>
+<div class="container">
+  <form method="post" action="/celebrities/new">
+    <div class="form-group row">
+      <label for="inputName" class="col-sm-2 col-form-label">Celebrity Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputName" name="celebrityName" placeholder="Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputOccupation" class="col-sm-2 col-form-label">Celebrity Occupation:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputOccupation" name="celebrityOccupation" placeholder="Occupation">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputCatchPhrase" class="col-sm-2 col-form-label">Catch Phrase:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputCatchPhrase" name="celebrityPhrase" placeholder="Catch Phrase">
+      </div>
+    </div>   
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </form>
+</div>

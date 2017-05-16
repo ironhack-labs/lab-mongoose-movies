@@ -1,0 +1,18 @@
+<div class="card card-inverse card-primary" >
+  <div class="card-block">
+    <h2 class="card-title"><%= celebrity.name %></h2>
+    <p class="card-text">
+      <h4>Occupation:  <span><%= celebrity.occupation  %></span></h4>
+      <h4>Catch Phrase: <span>" <%= celebrity.catchPhrase %> "</span></h4>
+    </p>    
+  </div>
+</div>
+<br>
+<nav class="breadcrumb">
+  <a class="breadcrumb-item pull-right" href="/celebrities">Back to Celebrities List</a>
+  <a class="breadcrumb-item" href="<%= celebrity._id %>/edit">Edit</a>
+  <form class="breadcrumb-item" id="deleteCelebrity" method="post" action="/<%= celebrity._id %>/delete">
+    <input type="hidden" name="name" value="value" /> 
+    <a id="deleteButton" onclick="document.getElementById('deleteCelebrity').submit();">Delete</a>
+  </form>  
+</nav>
