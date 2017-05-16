@@ -1,0 +1,12 @@
+<form method="POST" action="/movies/<%=movie.id%>/edit">
+<label>Title</label>
+<input type='text' name='title' value="<%=movie.title%>"/>
+<p>
+<label>Genre</label>
+<input type='text' name='genre' value="<%=movie.genre%>"/>
+<p>
+<label>Plot</label>
+<input type='textarea' name='plot'value="<%=movie.plot%>" />
+<p>
+<button type="submit">Save Movie</button>
+</form>
