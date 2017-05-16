@@ -1,0 +1,17 @@
+<h2> Celebotato</h2>
+<ul>
+  <% celebrities.forEach((celebrity) => { %>
+    <li>
+      <a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></a>
+      <p>
+        <button type="submit">
+          <a href="/celebrities/<%= celebrity._id %>/edit">Edit Potato</a>
+        </button>
+        <form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
+        <button type="submit">Delete Potato</button></p>
+      </form>
+    </li>
+  <%  }) %>
+</ul>
+<p><a href="/celebrities/new">Add Celebotato</a><p>
+<p><a href="/movies">Go to Potato Films</a></p>
