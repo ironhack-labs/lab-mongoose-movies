@@ -1,0 +1,35 @@
+{
+  "name": "lab-mongoose-movies",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "ejs": "~2.5.5",
+    "express": "^4.14.1",
+    "express-ejs-layouts": "^2.2.0",
+    "mongoose": "^4.8.5",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.2"
+  },
+  "description": "![](https://i.imgur.com/1QgrNNw.png)",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsoraluz/lab-mongoose-movies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dsoraluz/lab-mongoose-movies/issues"
+  },
+  "homepage": "https://github.com/dsoraluz/lab-mongoose-movies#readme",
+  "bin": {
+    "lab-mongoose-movies": "seeds.js"
+  },
+  "devDependencies": {}
+}
