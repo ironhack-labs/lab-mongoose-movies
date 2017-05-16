@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Our celebrities:</h2>
+    <ul>
+        <% celebs.forEach((celeb) => {   %>
+            <li>
+                <a href="/celebrities/<%=celeb._id%>"><%=celeb.name%></a>
+            </li>
+            <% })                            %>
+    </ul>
+    <a href="/celebrities/new">Create new celebrity</a>
+</body>
+
+</html>
