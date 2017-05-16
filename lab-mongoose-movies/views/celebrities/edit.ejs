@@ -1,0 +1,20 @@
+<h2> Edit <%= celebrity.name%>'s details'</h2>
+
+<form method="post" action="/celebrities/<%=celebrity._id%>">
+  <div>
+    <label for="name"> Celebrity Name: </label>
+    <input type="text" name="name" id="name" placeholder="<%= celebrity.name %>">
+  </div>
+
+  <div>
+    <label for="occupation"> Occupation: </label>
+    <input type="text" name="occupation" id="occupation" placeholder="<%= celebrity.occupation%>">
+  </div>
+
+  <div>
+    <label for="catchPhrase"> Catchphrase: </label>
+    <input type="text" name="catchPhrase" id="catchPhrase" placeholder="<%= celebrity.catchPhrase%>">
+  </div>
+
+  <button> Edit this celebrity </button>
+</form>

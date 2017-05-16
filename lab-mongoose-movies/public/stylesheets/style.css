@@ -1,0 +1,29 @@
+body {
+  text-align: center;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: beige;
+}
+
+
+h2, h1{
+  margin: 10% 5%;
+  font-weight: bolder;
+}
+
+.list{
+  list-style: none;
+  margin: 10% 10% 0 0;
+}
+
+
+
+.btn-list{
+  margin: 5% 2%;
+}
+
+.a-btn {
+  color: #00B7FF;
+  font-size: 20px;
+  margin: 10% 0 0 5%;
+}
