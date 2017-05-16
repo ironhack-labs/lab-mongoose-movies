@@ -1,0 +1,22 @@
+<h1>Add a Movie</h1>
+<form class="" action="/movies/add" method="post">
+    <label for="title-Input">title :</label>
+    <input id="title-Input" type="text" name="titleValue" value=""><label id="title"></label>
+    <br>
+    <label for="genre-input">Genre: </label>
+    <input id="genre-input" type="text" name="genreValue" value=""><label id="genre"></label>
+    <br>
+    <label for="plot-Input">Plot: </label>
+    <input id="plot-Input" type="text" name="plotValue" value=""><label id="plot"></label>
+    <br>
+    <button>Add</button>
+</form>
+
+<% if (typeof error !=="undefined") {%>
+  <%for (key in error) {%>
+    <script>
+    document.getElementById('<%=key%>').innerText= "<%=error[key].message%>"
+    </script>
+
+<%}%>
+<%}%>
