@@ -1,0 +1,17 @@
+<h2>Edit movie</h2>
+<form action="/movies/<%= movie._id %>/update" method="POST">
+
+<label for="name">Title</label>
+<input type="text" id="title" name="title" value="<%= movie.title %>">
+
+<label for="name">genre</label>
+<input type="text" id="genre" name="genre" value="<%= movie.genre %>">
+
+<label for="name">Plot</label>
+<input type="text" id="plot" name="plot" value="<%= movie.plot %>">
+
+<button type="submit">Edit movie</button>
+
+</form>
+
+<a href="/movies">Back</a>
