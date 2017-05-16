@@ -1,0 +1,46 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-top: 50px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 50px;
+  color: white;
+  background: #00B7FF;
+}
+
+header a {
+  color: white;
+  margin-left: 50px;
+}
+
+button {
+  border: none;
+  border-radius: none;
+  color: white;
+  background: #00B7FF;
+  padding: 10px;
+}
+
+.line {
+  display: flex;
+  margin-bottom: 30px;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.line * {
+  margin-right: 15px;
+}
