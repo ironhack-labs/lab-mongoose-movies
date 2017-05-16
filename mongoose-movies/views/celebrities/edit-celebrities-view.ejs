@@ -1,0 +1,26 @@
+<h2> Edit Celebrity </h2>
+
+<% if (typeof validationErrors !== 'undefined') { %>
+  <ul>
+    <% for (key in validationErrors) { %>
+    <li>  <%= validationErrors[key].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+<br>
+
+<form method="post" action="/celebrities/<%= celebrities._id %>">
+  <label for="celebrity-name-input"> Name </label>
+  <input id="celebrity-name-input" type="text"
+        name="celebrityName" value="<%= celebrities.name %>">
+    <br>
+    <label for="celebrity-occupation-input"> Occupation </label>
+    <input id="celebrity-occupation-input" type="text"
+          name="celebrityOccupation" value="<%= celebrities.occupation %>">
+    <br>
+  <label for="celebrity-catchPhrase-input"> Catch Phrase </label>
+    <textarea id="celebrity-catchPhrase-input"
+          name="celebrityCatchPhrase"> <%= celebrities.catchPhrase %> </textarea>
+    <br>
+  <button> Save </button>
+</form>

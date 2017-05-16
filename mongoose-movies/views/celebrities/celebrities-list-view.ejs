@@ -1,0 +1,20 @@
+<h2> List of Celebrities </h2>
+
+<ul>
+    <% celebrities.forEach((oneCelebrity)=> { %>
+      <li> <%=oneCelebrity.name %>
+        <a href="/celebrities/<%= oneCelebrity._id %>"> View Details </a>
+          <br>
+        <a href="/celebrities/<%= oneCelebrity._id %>/edit"> Edit </a>
+          <br>
+        <form method="post" action="/celebrities/<%= oneCelebrity._id %>/delete">
+            <button> Delete </button>
+        </form>
+      </li>
+      <% }) %>
+</ul>
+
+
+  <a href="/celebrities/new">
+    Add a Celebrity
+  </a>

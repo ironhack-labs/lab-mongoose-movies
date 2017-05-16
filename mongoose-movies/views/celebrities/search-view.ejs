@@ -1,0 +1,27 @@
+<h2>Search Celebrities</h2>
+
+<form action="/search" method="get">
+  <label for="search-term-input"> Search by Name</label>
+  <input id="search-term-input" name="celebritySearchTerm" type="search" value="Search Here...">
+    <br>
+  <button>Search</button>
+</form>
+
+<!-- <a href="/products/expensive"> D List Celebrities </a>
+  <br> <br>
+<a href="/products/value"> A List Celebrities </a> -->
+
+<% if (typeof celebrities !== 'undefined') { %>
+  <h2> Results </h2>
+  <ul>
+    <% celebrities.forEach((oneCelebrity) => { %>
+      <li>
+        <h3> <%= oneCelebrity.name %> </h3>
+        <p> Occupation: $<%= oneCelebrity.occupation %> </p>
+        <a href="/celebrities/<%= oneCelebrity._id %>">
+          View Details
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>

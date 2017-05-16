@@ -1,0 +1,24 @@
+<h2> Add a Celebrity </h2>
+
+<% if (typeof validationErrors !== 'undefined') { %>
+  <ul>
+    <% for (key in validationErrors) { %>
+    <li>  <%= validationErrors[key].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+<br>
+
+<form method="post" action="/celebrities/new">
+  <label for="celebrity-name-input">Celebrity Name</label>
+    <input id="celebrity-name-input" type="text" name="celebrityName" value="Enter Name Here" onblur="if (this.value == '') {this.value = 'Enter Name Here';}"
+      onfocus="if (this.value == 'Enter name here') {this.value = '';}">
+    <br>
+  <label for="celebrity-occupation-input"> Occupation </label>
+    <input id="celebrity-occupation-input" type="text" name="celebrityOccupation">
+    <br>
+  <label for="celebrity-catchPhrase-input"> Catch Phrase</label>
+    <textarea id="celebrity-catchPhrase-input" name="celebrityCatchPhrase"></textarea>
+    <br>
+  <button>  Add Celebrity </button>
+</form>
