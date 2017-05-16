@@ -1,0 +1,29 @@
+<h2>Update <%= movie.name %> Info</h2>
+
+<img src="<%= movie.profileImage %>">
+
+
+<form method="post" action="/celebrities/<%= movie._id%>">
+  <label for="movie-name-input">Product Name </label>
+  <input  id="movie-name-input" type="text"
+      name="movieName" value="<%= movie.name %>">
+  <br>
+
+  <label for="movie-genre-input">Genre </label>
+  <input  id="movie-genre-input" type="text"
+      name="movieOcupation" value="<%= movie.genre %>">
+  <br>
+
+  <label for="movie-phrase-input">Plot </label>
+  <input  id="movie-phrase-input" type="text"
+      name="moviecatchPhrase" value="<%= movie.plot %>">
+  <br>
+
+  <label for="movie-image-url-input">Movie Image </label>
+  <input  id="movie-image-url-input" type="text"
+      name="movieImageUrl" value="<%= movie.profileImage %>">
+  <br>
+
+
+  <button> Save </button>
+</form>

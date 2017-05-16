@@ -1,0 +1,30 @@
+<h2>Add a new Celebrity</h2>
+
+
+<form method="post" action="/celebrities/new">
+  <label for="celebrity-name-input"> Celebrity Name </label>
+  <input  id="celebrity-name-input" type="text" name="celebrityName">
+  <br>
+
+  <label for="celebrity-ocupation-input"> Ocupation </label>
+  <input  id="celebrity-ocupation-input" type="text" name="celebrityOcupation">
+  <br>
+
+  <label for="celebrity-catchPhrase-input"> Catch Phrase </label>
+  <input  id="celebrity-catchPhrase-input" type="text" name="celebritycatchPhrase">
+  <br>
+
+  <label for="celebrity-image-url-input"> Profile Picture </label>
+  <input  id="celebrity-image-url-input" type="url" name="celebrityImageUrl">
+  <br>
+
+  <button> Add Celebrity </button>
+</form>
+
+<% if (typeof validationErrors !== 'undefined') { %>
+  <ul>
+    <% for (key in validationErrors) {  %>
+      <li> <%= validationErrors[key].message %> </li>
+  <% }  %>
+  </ul>
+ <% }  %>

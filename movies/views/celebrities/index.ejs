@@ -1,0 +1,14 @@
+<h2>Celebrity List</h2>
+
+<ul>
+  <% celebrityRoutes.forEach((oneCelebrity) => { %>
+    <li>
+      <p>Name: <%=oneCelebrity.name%> <a href="celebrities/<%=oneCelebrity._id%>">More info</a></p>
+    </li>
+    <form method="post" action="/celebrities/<%= oneCelebrity._id%>/delete">
+      <button> Delete </button>
+    </from>
+<%  }) %>
+</ul>
+
+<a href="/celebrities/new"> Add a new celebrity</a>

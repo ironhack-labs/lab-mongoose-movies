@@ -1,0 +1,29 @@
+<h2>Update <%= celebrity.name %> Info</h2>
+
+<img src="<%= celebrity.profileImage %>">
+
+
+<form method="post" action="/celebrities/<%= celebrity._id%>">
+  <label for="celebrity-name-input">Product Name </label>
+  <input  id="celebrity-name-input" type="text"
+      name="celebrityName" value="<%= celebrity.name %>">
+  <br>
+
+  <label for="celebrity-ocupation-input">Ocupation </label>
+  <input  id="celebrity-ocupation-input" type="text"
+      name="celebrityOcupation" value="<%= celebrity.ocupation %>">
+  <br>
+
+  <label for="celebrity-phrase-input">Catch Phrase </label>
+  <input  id="celebrity-phrase-input" type="text"
+      name="celebritycatchPhrase" value="<%= celebrity.catchPhrase %>">
+  <br>
+
+  <label for="celebrity-image-url-input">Profile Image </label>
+  <input  id="celebrity-image-url-input" type="text"
+      name="celebrityImageUrl" value="<%= celebrity.profileImage %>">
+  <br>
+
+
+  <button> Save </button>
+</form>

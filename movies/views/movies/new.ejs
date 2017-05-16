@@ -1,0 +1,30 @@
+<h2>Add a new Movie</h2>
+
+
+<form method="post" action="/movies/new">
+  <label for="movie-name-input"> Movie Name </label>
+  <input  id="movie-name-input" type="text" name="movieName">
+  <br>
+
+  <label for="movie-genre-input"> Genre </label>
+  <input  id="movie-genre-input" type="text" name="movieGenre">
+  <br>
+
+  <label for="movie-plot-input"> Plot </label>
+  <input  id="movie-plot-input" type="text" name="moviePlot">
+  <br>
+
+  <label for="movie-image-url-input">  Cover Image Url </label>
+  <input  id="movie-image-url-input" type="url" name="movieImageUrl">
+  <br>
+
+  <button> Add a Movie </button>
+</form>
+
+<% if (typeof validationErrors !== 'undefined') { %>
+  <ul>
+    <% for (key in validationErrors) {  %>
+      <li> <%= validationErrors[key].message %> </li>
+  <% }  %>
+  </ul>
+ <% }  %>
