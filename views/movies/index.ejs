@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/movies/new">New movie</a>
+    <ul>
+      <% movies.forEach((movie)=> { %>
+    <li>
+     <a href="movies/<%= movie._id%>"><%= movie.title %></a>
+     <a href="/movies/<%= movie._id %>/edit">Edit</a>
+     <a href="/movies/<%= movie._id %>/delete">Delete</a>
+    </li>
+    <% }) %></ul>
+
+
+  </body>
+</html>
