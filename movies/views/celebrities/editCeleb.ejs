@@ -1,0 +1,19 @@
+<h2>Editing <%= theCeleb.nameCelebrity %></h2>
+<form method="post" action="/celebrities/<%= theCeleb._id %>">
+  <div>
+    <label for="nameCelebrity"> Name: </label>
+    <input type="text" name="nameCelebrity" id="nameCelebrity">
+  </div>
+
+  <div>
+    <label for="occupation"> Occupation: </label>
+    <input type="text" name="occupation" id="occupation">
+  </div>
+
+  <div>
+    <label for="catchPhrase"> Catch Phrase:  </label>
+    <input type="text" name="catchPhrase" id="catchPhrase">
+  </div>
+
+  <button type="submit"> Submit your edition</button>
+</form>

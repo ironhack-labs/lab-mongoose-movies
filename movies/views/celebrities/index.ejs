@@ -1,0 +1,38 @@
+<h2>The Celebrity List</h2>
+<div>
+<h3>  
+  <a href="/celebrities/new">Add a new celebrity</a>
+  </h3>
+</div>
+<% celebList.forEach((oneCeleb) => { %>
+ <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><i class="fa fa-fw fa-check"></i> <%= oneCeleb.nameCelebrity%></h4>
+          </div>
+          <div class="col-md-12 col-sm-6">
+              
+                  <div class="panel-body">
+                      <p> Occupation: <%= oneCeleb.occupation %></p>
+                      <p>Phrase: <%= oneCeleb.catchPhrase %></p>
+                       
+                      <a href="/celebrities/<%= oneCeleb._id %>" class="btn btn-default"><button>see details</button></a>
+                      <br>
+                     <a href="/celebrities/<%= oneCeleb._id %>/edit" class="btn btn-default"><button>Edit</button></a>
+
+                      <br>
+
+       
+                  </div>
+          </div>
+              <form method="post" action="/celebrities/<%= oneCeleb._id %>/delete">
+                <button>Delete</button>
+              </form>
+
+        </div>
+</div>
+  <% }) %>
+<h3>  
+  <a href="/celebrities/new">Add a new celebrity</a>
+</h3>
+
