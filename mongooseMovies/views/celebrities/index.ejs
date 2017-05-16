@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Celebs Page</title>
+  </head>
+  <body>
+    <h2>Celebrities</h2>
+
+    <a href="/celebrities/new"> Add a New Celebrity </a>
+
+      <ul>
+        <% celebritys.forEach((oneCelebrity) => { %>
+          <li>
+            <h2> <%= oneCelebrity.name %> </h2>
+            <p>$ <%= oneCelebrity.occupation %> </p>
+
+            <a href="/celebrities/<%= oneCelebrity._id %>">
+              See Celebrity Details
+            </a>
+
+            <a href="/celebrities/<%= oneCelebrity._id %>/edit">
+              Edit
+            </a>
+
+            <form action="/celebrities/<%= oneCelebrity._id %>/delete" method="post">
+              <button type="submit"> Delete </button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+
+  </body>
+</html>
