@@ -1,0 +1,18 @@
+<h2>Celebrity Detail Page</h2>
+
+<%= celeb.name %>
+<br>
+<%= celeb.occupation %>
+<br>
+<%= celeb.catchPhrase %>
+<br>
+<p></p>
+<p></p>
+<p></p>
+
+<form action="/celebrities/<%= celeb._id %>/edit" method="post">
+  <button type="submit" class="btn btn-warning">Update</button>
+</form>
+<form action="/celebrities/<%= celeb._id %>/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>

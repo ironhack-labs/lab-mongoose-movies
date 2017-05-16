@@ -1,0 +1,18 @@
+<h2>Movie Detail Page</h2>
+
+<%= item.title %>
+<br>
+<%= item.genre %>
+<br>
+<%= item.plot %>
+<br>
+<p></p>
+<p></p>
+<p></p>
+
+<form action="/celebrities/<%= celeb._id %>/edit" method="post">
+  <button type="submit" class="btn btn-warning">Update</button>
+</form>
+<form action="/celebrities/<%= celeb._id %>/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
