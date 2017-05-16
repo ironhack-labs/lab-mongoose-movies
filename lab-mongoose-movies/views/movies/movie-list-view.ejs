@@ -1,0 +1,37 @@
+<!-- views/movie-list-view.ejs -> Lists all the movies-->
+<center>
+  <h1> Movies List </h1>
+  <br>
+
+  <div class="moviesList">
+     <% movies.forEach((oneMovie) => { %>
+      <div>
+        <p><strong>Name: <%= oneMovie.name %> </strong></p>
+
+        <a href="/movies/<%= oneMovie._id %>">
+        View Details
+      </a>
+        <br>
+
+        <a href="/movies/<%= oneMovie._id %>/edit">
+        Edit
+      </a>
+
+        <br>
+        <form method="post" action="/movies/<%= oneMovie._id %>/delete">
+          <button class="btn btn-default">Delete</button>
+          <br>
+          <br>
+          <br>
+        </form>
+      </div>
+
+      <% }); %>
+  </div>
+
+
+  <a href="/movies/new"> Add A New Movie </a>
+
+
+
+</center>

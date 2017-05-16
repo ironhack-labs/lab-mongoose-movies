@@ -1,0 +1,37 @@
+<!-- Adding a new Movie View -->
+<center>
+  <h2>Add New Movie</h2>
+  <br>
+
+  <% if(typeof errors !== 'undefined') { %>
+    <ul>
+      <% for(key in errors) { %>
+        <li>
+          <%= errors[key].message %>
+        </li>
+        <% } %>
+    </ul>
+    <% } %>
+
+      <form class="navbar-form navbar-center" action="/movies/new" method="post">
+        <label for="movie-name-input"> Movie Name: </label>
+        <br>
+        <input id="movie-name-input" type="text" name="movieName" class="form-control">
+        <br>
+
+        <br>
+        <label for="movie-genre-input"> Movie Genre: </label>
+        <br>
+        <input id="movie-genre-input" type="text" name="movieGenre" class="form-control">
+        <br>
+
+        <br>
+        <label for="movie-plot-input">Movie Plot: </label>
+        <br>
+        <textarea id="movie-plot-input" class="form-control" name="moviePlot">
+        </textarea>      
+          <br>
+
+        <br>
+        <button class="btn btn-default">Submit</button>
+</center>

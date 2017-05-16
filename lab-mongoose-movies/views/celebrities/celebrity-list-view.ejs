@@ -1,0 +1,38 @@
+<!-- views/celebrity-list-view.ejs -> Lists all the celebs-->
+<center>
+  <h1> Celebrity List </h1>
+  <br>
+
+  <div class="elebritiesList">
+     <% celebrities.forEach((oneCelebrity) => { %>
+      <div>
+        <p><strong>Name: <%= oneCelebrity.name %> </strong></p>
+        <p><strong>occupation: <%= oneCelebrity.occupation %> </strong></p>
+
+        <a href="/celebrities/<%= oneCelebrity._id %>">
+        View Details
+      </a>
+        <br>
+
+        <a href="/celebrities/<%= oneCelebrity._id %>/edit">
+        Edit
+      </a>
+
+        <br>
+        <form method="post" action="/celebrities/<%= oneCelebrity._id %>/delete">
+          <button class="btn btn-default">Delete</button>
+          <br>
+          <br>
+          <br>
+        </form>
+      </div>
+
+      <% }); %>
+  </div>
+
+
+  <a href="/celebrities/new">
+            Add New Celebrity
+          </a>
+
+</center>

@@ -1,0 +1,32 @@
+<!-- Views/editMoviePage -->
+<center>
+  <h2>Editing your Celebrity</h2>
+  <br>
+
+  <form class="form-horizontal" action="/celebrities/<%= movie._id %>" method="post">
+
+    <label for="movie-name-input" class="col-sm-2 control-label"> Movie Name: </label>
+    <div class="col-sm-10">
+      <input id="movie-name-input" type="text" name="movieName" value="<%= movie.name %>" class="form-control">
+      <br>
+    </div>
+
+    <label for="movie-genre-input" class="col-sm-2 control-label"> Genre: </label>
+    <div class="col-sm-10">
+      <input id="movie-genre-input" type="text" name="movieGenre" value="<%= movie.genre %>" class="form-control">
+      <br>
+    </div>
+    <br>
+
+    <label for="movie-plot-input" class="col-sm-2 control-label"> Movie Plot: </label>
+    <div class="col-sm-10">
+      <textarea id="movie-plot-input" class="form-control" name="moviePlot">
+    </textarea>
+      <br>
+    </div>
+
+    <br>
+    <button class="btn btn-default"> Save</button>
+
+  </form>
+</center>
