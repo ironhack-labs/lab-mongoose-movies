@@ -1,0 +1,18 @@
+<h2>Add new celebrity</h2>
+
+<form action="/celebrities/new" method="post">
+  <label for="celebrity-name-input">Celebrity name</label>
+  <input id="celebrity-name-input" type="text" name="celebrityName" value="Enter celebrity name" onblur=“if (this.value == ‘’) {this.value = ‘Enter celebrity name’;}” onfocus=“if (this.value == ‘Enter celebrity name’) {this.value = ‘’;}“/>
+
+  <br><br>
+
+  <label for="celebrity-occupation-input">Celebrity occupation</label>
+  <input id="celebrity-occupation-input" type="text" name="celebrityOccupation" value="Celebrity occupation">
+  <br><br>
+
+  <label for="celebrity-catchPhrase-input">Celebrity catch phrase</label>
+  <textarea id="celebrity-catchPhrase-input" type="text" name="celebrityCatchPhrase" value="Celebrity phrase"></textarea>
+
+  <br><br><br>
+  <button>Add celebrity</button>
+</form>

@@ -1,0 +1,18 @@
+<h2>Add new movie</h2>
+
+<form action="/movies/new" method="post">
+  <label for="movie-title-input">Movie title</label>
+  <input id="movie-title-input" type="text" name="movieTitle" value="Enter movie title" onblur=“if (this.value == ‘’) {this.value = ‘Enter celebrity name’;}” onfocus=“if (this.value == ‘Enter celebrity name’) {this.value = ‘’;}“/>
+
+  <br><br>
+
+  <label for="movie-genre-input">Movie genre</label>
+  <input id="movie-genre-input" type="text" name="movieGenre" value="Movie genre">
+  <br><br>
+
+  <label for="movie-plot-input">Movie plot</label>
+  <textarea id="movie-plot-input" type="text" name="moviePlot" value="Movie plot"></textarea>
+
+  <br><br><br>
+  <button>Add movie</button>
+</form>
