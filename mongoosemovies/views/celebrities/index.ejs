@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+		<a href="/celebrities/new">Add a celeb!</a>
+
+		<ul>
+			<% celebs.forEach((fakeCeleb) => { %>
+				<li>
+					<a  href="/celebrities/<%= fakeCeleb._id%>"><%= fakeCeleb.name %></a>
+					<a href="/celebrities/<%= fakeCeleb._id%>/edit">Edit</a>
+					<a href="/celebrities/<%= fakeCeleb._id%>/delete">Delete</a>
+				</li>
+			<% }) %>
+		</ul>
+
+  </body>
+</html>
