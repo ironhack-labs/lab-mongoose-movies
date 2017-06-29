@@ -1,0 +1,13 @@
+<h2> All the celebrities in DB </h2>
+<ul>
+<% celebrityList.forEach((oneCelebrity) => { %>
+    <li> <p><b><%= oneCelebrity.name %> </p>
+        <a href="/celebrities/<%=oneCelebrity._id%>/show">View Details</a>
+         </li>
+         <a href="/celebrities/<%=oneCelebrity._id%>/edit">Edit his ass</a>
+         <form method="post" action="/celebrities/<%=oneCelebrity._id%>/delete">
+           <button class="delete-btn"> Delete his ass </button>
+         </form>
+         <hr>
+<% }); %>
+</ul>

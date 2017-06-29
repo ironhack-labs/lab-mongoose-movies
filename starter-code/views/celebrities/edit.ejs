@@ -1,0 +1,11 @@
+<h2> Edit Celebrity </h2>
+
+<form method="post" action="/celebrities/<%=daCelebrity._id%>/update">
+  <input type="text" name="celebrityName" placeholder="<%=daCelebrity.name%>">
+  <br>
+  <input type="text" name="celebrityOccupation" placeholder="<%=daCelebrity.occupation%>">
+  <br>
+  <input type="text" name="celebrityPhrase" placeholder="<%=daCelebrity.catchPhrase%>">
+  <br>
+  <button> Edit! </button>
+</form>
