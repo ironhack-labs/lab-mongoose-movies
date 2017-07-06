@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const CelebritySchema = new Schema({
   name: String,
   occupation: String,
-  cathFrase: String,
+  catchFrase: String,
 });
 
 const Celebrity = mongoose.model('Celebrity', CelebritySchema);

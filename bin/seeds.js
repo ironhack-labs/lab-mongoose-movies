@@ -6,17 +6,17 @@ mongoose.connect('mongodb://localhost/lab-mongoose-movies')
     let celebritiesArray = [{
         name: 'Lila',
         occupation: 'Corner singer',
-        cathFrase: 'you better not take my spot',
+        catchFrase: 'you better not take my spot',
       },
       {
         name: 'Melina',
         occupation: 'porn star',
-        cathFrase: 'better inside than out',
+        catchFrase: 'better inside than out',
       },
       {
         name: 'Luke',
         occupation: 'celebrity clown',
-        cathFrase: 'partys make me sad',
+        catchFrase: 'partys make me sad',
       },
     ];
 

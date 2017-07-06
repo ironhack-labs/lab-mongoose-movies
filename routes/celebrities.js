@@ -13,4 +13,24 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/new', (req, res, next) => {
+    res.render('celebrities/new');
+});
+
+router.post('/new', (req, res, next) => {
+    let celebrityNew = new Celebrity({
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchFrase: req.body.catchFrase
+    });
+
+    celebrityNew.save( (err, obj) => {
+      if (err) {
+        res.render('celebrities/new');
+      } else {
+        res.redirect('/celebrities');
+      }
+    });
+});
+
 module.exports = router;
