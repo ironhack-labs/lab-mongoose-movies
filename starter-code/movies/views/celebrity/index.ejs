@@ -1,0 +1,11 @@
+<h2><%= title %></h2>
+<a href="celebrities"> go to celebrities </a>
+<ul>
+  <% celebrities.forEach((celebrity) => { %>
+    <li>
+      <a href="celebrity/<%= celebrity._id%>">Nombre del celebrity: <%=celebrity.name %><br/>
+      <a>Numero de elices: <%=celebrity.occupation %><br/>
+      <a>Velocidad máxma: <%=celebrity.catchPhrase %><br/>
+    </li>
+  <% }) %>
+</ul>

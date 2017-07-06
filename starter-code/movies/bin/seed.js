@@ -1,7 +1,7 @@
 const Celebrity = require('../models/Celebrity');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/drones-dev')
+mongoose.connect('mongodb://localhost/celebrities')
     .then(() => {
         const CelebrityData = [{
             name  : 'Frangular',
