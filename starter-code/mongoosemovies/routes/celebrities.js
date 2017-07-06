@@ -17,7 +17,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  
+  console.log(req.params.id);
+  Celebrity.findById(req.params.id, (err, c) => {
+    console.log(c);
+    if (err) {
+      next();
+      console.log(err);
+    }
+      res.render('celebrities/show', {
+        title: 'Celebrity Profile',
+        celebrities: c
+      });
+  });
 });
 
 
