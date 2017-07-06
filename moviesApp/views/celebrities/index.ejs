@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <% celebrities.forEach((c) => { %>
+      <li>
+        <%= c.name %>
+        <a href="/celebrities/<%=c._id %>"> View details</a>
+        <a href=""> Delete</a>
+      </li>
+      <%  }) %>
+  </ul>
+  <a href="/celebrities/new"> Create a new celebrity</a>
+</body>
