@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <h3>List of celebrities</h3>
+    <a href="/">Back</a>
+    <a href="/celebrities/new">New celebrity</a>
+    <ul>
+      <%- celebs.map((c)=> `<li>
+      <a href="/celebrities/${c._id}">${c.name}</a>
+      <form action="/celebrities/${c._id}/delete">
+        <button type="submit">Delete</button>
+      </form>
+      </li>`).join(''); %>
+    </ul>
+  </body>
+</html>
