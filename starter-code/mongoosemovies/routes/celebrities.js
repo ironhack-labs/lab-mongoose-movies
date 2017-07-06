@@ -36,13 +36,11 @@ router.post('/', function(req, res, next) {
   });
   c.save((err, obj) => {
     if (err) {
-      console.log("errror!!!!!");
       res.render('celebrities/new', {
         title: 'Listado de cantamañanas',
         celebrities: c
       });
     } else {
-      console.log("hola estoy e redirect");
       res.redirect('celebrities/new');
     }});
 });
@@ -62,6 +60,16 @@ router.get('/:id', function(req, res, next) {
       });
   });
 });
+
+
+router.post('/:id/delete', function(req, res, next) {
+  let id = req.params.id;
+  Celebrity.findByIdAndRemove(id, (err, obj) => {
+    if (err){ return next(err); }
+    res.redirect("/celebrities");
+  });
+});
+
 
 
 module.exports = router;
