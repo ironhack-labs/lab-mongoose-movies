@@ -5,10 +5,14 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+
     <h2><%= title %></h2>
-    <a href="/celebrities"> Go back </a>
+    <div><a href="/celebrities/"> Go back </a></div>
+
     <p><b>Name:</b> <%= celeb.name %></p>
     <p><b>Ocuppation:</b> <%= celeb.occupation %></p>
     <p><b>Catch Phrase:</b> <%= celeb.catchPhrase %></p>
+
+    <div><a href="/celebrities/<%= celeb._id%>/edit">Update</a></div>
 </body>
 </html>

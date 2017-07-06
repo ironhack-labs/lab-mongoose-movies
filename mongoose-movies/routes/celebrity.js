@@ -47,7 +47,37 @@ router.get('/:id', function(req, res, next) {
 });
 
 
-// CRUD => D: Delete a product
+// Update a product
+router.post('/:id', function(req, res, next) {
+
+  let updates = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  console.log(updates);
+  Celebrity.findByIdAndUpdate(req.params.id, updates, (err, celeb) => {
+    if(err){
+      console.log(err);
+    }
+    res.redirect(`/celebrities/${celeb._id}`);
+  });
+});
+
+// Update Celebrity detail template form
+router.get('/:id/edit', function(req, res, next) {
+  Celebrity.findById(req.params.id, (err, celeb) => {
+    if(err){
+      console.log(err);
+    }
+    res.render('edit', {
+      title: 'Update Celebrity',
+      celeb: celeb
+    });
+  });
+});
+
+// Delete a product
 router.get('/:id/delete', function(req, res, next) {
   let id = req.params.id;
   Celebrity.findByIdAndRemove(id, (err, obj) => {
@@ -55,6 +85,8 @@ router.get('/:id/delete', function(req, res, next) {
     res.redirect("/celebrities");
   });
 });
+
+
 
 
 
