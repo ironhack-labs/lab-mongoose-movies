@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/new', function(req, res, next) {
 
-    res.render('celebrities/new');
+  res.render('celebrities/new');
 
 });
 router.post('/', function(req, res, next) {
@@ -29,40 +29,61 @@ router.post('/', function(req, res, next) {
   c.save((err, obj) => {
     if (err) {
       res.redirect('celebrities/new');
-    }else {
-          res.redirect('/celebrities/');
+    } else {
+      res.redirect('/celebrities/');
     }
 
   });
 });
 
 router.post('/:id/delete', function(req, res, next) {
-console.log("delete");
-let id = req.params.id;
+  console.log("delete");
+  let id = req.params.id;
   Celebrity.findByIdAndRemove(id, (err, obj) => {
-    if (err){ return next(err); }
-      res.redirect('/celebrities/');
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/celebrities/');
   });
 
 });
+// Edita una celebrity y pasa los parametros a la ruta post:id
 router.get('/:id/edit', function(req, res, next) {
-
-console.log(req.params);
   Celebrity.findById(req.params.id, (err, c) => {
-    if(err){
+    if (err) {
       console.log(err);
     }
-    res.render('celebrities/show', {
+    res.render('celebrities/edit', {
       title: 'Full info',
       celebrity: c
     });
   });
+
 });
 
+router.post('/:id', function(req, res, next) {
+  console.log(req.params);
+  let {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body;
+  let edit = {
+    name,
+    occupation,
+    catchPhrase
+  };
+  Celebrity.findByIdAndUpdate(req.params.id, edit, (err, c) => {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect(`/celebrities/`);
+  });
+});
 router.get('/:id', function(req, res, next) {
-console.log(req.params);
+  console.log(req.params);
   Celebrity.findById(req.params.id, (err, c) => {
-    if(err){
+    if (err) {
       console.log(err);
     }
     res.render('celebrities/show', {
