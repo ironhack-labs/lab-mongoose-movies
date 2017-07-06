@@ -28,15 +28,38 @@ router.post('/', function(req, res, next) {
   });
   c.save((err, obj) => {
     if (err) {
-      res.render('celebrities/new');
+      res.redirect('celebrities/new');
     }else {
           res.redirect('/celebrities/');
     }
 
   });
 });
-router.get('/:id', function(req, res, next) {
 
+router.post('/:id/delete', function(req, res, next) {
+console.log("delete");
+let id = req.params.id;
+  Celebrity.findByIdAndRemove(id, (err, obj) => {
+    if (err){ return next(err); }
+      res.redirect('/celebrities/');
+  });
+
+});
+router.get('/:id/edit', function(req, res, next) {
+
+console.log(req.params);
+  Celebrity.findById(req.params.id, (err, c) => {
+    if(err){
+      console.log(err);
+    }
+    res.render('celebrities/show', {
+      title: 'Full info',
+      celebrity: c
+    });
+  });
+});
+
+router.get('/:id', function(req, res, next) {
 console.log(req.params);
   Celebrity.findById(req.params.id, (err, c) => {
     if(err){
