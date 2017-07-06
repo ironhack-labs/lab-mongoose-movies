@@ -6,6 +6,12 @@
       <a href="/celebrities/<%= celebrity._id%>">Nombre del celebrity: <%=celebrity.name %><br/>
       <a href="/celebrities/<%= celebrity._id%>">Ocupacion: <%=celebrity.occupation %><br/>
       <a href="/celebrities/<%= celebrity._id%>">Catch Phase: <%=celebrity.catchPhrase %><br/>
+
+      <form action="/celebrities/<%= celebrity._id%>/delete" method="post">
+        <button type="submit"> delete celebrity </button>
+      </form>
+      <a href="/celebrities/<%= celebrity._id%>/edit">edit celebrity</a><br/>
+
     </li>
   <% }) %>
 </ul>
