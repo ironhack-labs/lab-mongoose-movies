@@ -1,0 +1,18 @@
+<form method="<%= method %>" action="<%= action %>">
+  <div>
+    <label for="name">  Title: </label>
+    <input type="text" name="title" id="name" value="<%=movie.title || '' %>">
+  </div>
+
+  <div>
+    <label for="occupation"> Gerne: </label>
+    <input type="text" name="gerne" id="occupation" value="<%=movie.gerne || '' %>">
+  </div>
+
+  <div>
+    <label for="catchPhrase"> Plot: </label>
+    <input type="text" name="plot" id="catchPhrase" value="<%=movie.plot || '' %>">
+  </div>
+
+  <button> Add movie <cele></cele> </button>
+</form>
