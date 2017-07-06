@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <form action="/celebrities?e=<%= celebrities._id %>" method="POST">
+    <button type="submit">Button</button>
+  </form>
+  <h2>Welcome to <%= title %></h2>
+
+  <%= celebrity.celebrityName %>
+    Number of propellers:
+    <%= celebrity.occuptation %>
+      Max Speed:
+      <%= celebrity.maxSpeed %>
+
+
+</body>
+
+</html>

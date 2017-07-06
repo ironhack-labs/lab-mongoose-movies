@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <h2>Welcome to <%= title %></h2>
+      <a href="/celebrities/<%= celebrities._id %>/delete"> Delete that product</a>
+    <a href="/celebrities/new">Add new celebrities</a>
+    <ul>
+      <% celebrities.forEach((celebrities) => { %>
+        <li>
+          Name: <%= celebrities.celebrityName %>
+          Number of propellers: <%= celebrities.occupation %>
+          Max Speed: <%= celebrities.catchPhrase %>
+        </li>
+        <% }) %>
+    </ul>
+  </body>
+</html>
