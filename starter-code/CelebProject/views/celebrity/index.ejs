@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <p>Welcome to
+    <%= title %>
+  </p>
+  <h2>List of celebrities</h2>
+
+<a href="/">Back</a>
+
+<ul>
+  <% celebrities.forEach((c) => { %>
+    <li><a><%=c.name %></a> <a><%=c.occupation %></a> <a><%=c.catchPhrase%></a></li>
+  <% }) %>
+</ul>
+</body>
+
+</html>
