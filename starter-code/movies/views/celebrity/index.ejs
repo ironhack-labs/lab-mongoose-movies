@@ -3,9 +3,9 @@
 <ul>
   <% celebrities.forEach((celebrity) => { %>
     <li>
-      <a href="celebrity/<%= celebrity._id%>">Nombre del celebrity: <%=celebrity.name %><br/>
-      <a>Numero de elices: <%=celebrity.occupation %><br/>
-      <a>Velocidad máxma: <%=celebrity.catchPhrase %><br/>
+      <a href="/celebrities/<%= celebrity._id%>">Nombre del celebrity: <%=celebrity.name %><br/>
+      <a href="/celebrities/<%= celebrity._id%>">Ocupacion: <%=celebrity.occupation %><br/>
+      <a href="/celebrities/<%= celebrity._id%>">Catch Phase: <%=celebrity.catchPhrase %><br/>
     </li>
   <% }) %>
 </ul>

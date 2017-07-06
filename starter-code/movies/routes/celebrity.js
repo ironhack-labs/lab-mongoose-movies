@@ -3,9 +3,18 @@ const router  = express.Router()
 
 const Celebrity = require('../models/Celebrity')
 
+/* GET home page. */
+router.get('/new', (req, res, next) => {
+  Celebrity.find({}, (err, celebrity) => {
+
+    res.render('celebrity/new', {
+      title: 'CELEBRITIES',
+      celebrity: celebrity
+    })
+  })
+})
 
 router.get('/:id', (req, res, next) => {
-  console.log('celeb')
   Celebrity.findById(req.params.id, (err, celebrity) => {
 
     if(err){
@@ -19,6 +28,8 @@ router.get('/:id', (req, res, next) => {
   })
 })
 
+
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
 
@@ -28,6 +39,24 @@ router.get('/', (req, res, next) => {
       celebrities: celebrities
     })
   })
+})
+
+/* GET home page. */
+router.post('/', (req, res, next) => {
+  let {name, occupation, catchPhrase} = req.body;
+
+  let celebrity = new Celebrity({
+    name,
+    occupation,
+    catchPhrase
+  });
+  celebrity.save((err, obj) => {
+    if(err){
+      res.redirect('/celebrities/new');
+    }
+   res.redirect('/celebrities');
+  });
+
 })
 
 module.exports = router

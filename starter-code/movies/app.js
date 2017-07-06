@@ -10,7 +10,7 @@ const mongoose     = require('mongoose')
 
 const app = express()
 
-mongoose.connect('mongodb://localhost/drones-dev');
+mongoose.connect('mongodb://localhost/celebrities');
 
 
 // view engine setup
@@ -33,7 +33,7 @@ const index = require('./routes/index')
 const celebrity = require('./routes/celebrity')
 
 app.use('/', index)
-app.use('/celebrity', celebrity)
+app.use('/celebrities', celebrity)
 
 
 // catch 404 and forward to error handler
