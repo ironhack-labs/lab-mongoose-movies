@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Celebrity</title>
+  </head>
+  <body>
+    <h2>Celebrities</h2>
+    <!-- Lets call the celebrities and do a for each -->
+    <% celebrities.forEach((celebrity) => { %>
+    <!-- we need to use = to print -->
+      <p>Name: <%= celebrity.name %> | Occupation: <%= celebrity.occupation%> | Catche Phrase: <% celebrity.catchPhrase %> </p>
+    <% }) %>
+  </body>
+</html>
