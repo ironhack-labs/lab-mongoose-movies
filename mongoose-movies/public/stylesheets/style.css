@@ -1,0 +1,28 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.link{
+  margin:10px 0;
+}
+a {
+  color: #00B7FF;
+  margin-top: 10px;
+}
+
+th{
+  text-align: center;
+}
+td, th {
+  margin: 0;
+  padding: 5px 10px;
+}
+
+input, label{
+  display: block;
+  margin:10px 0 3px 0;
+}
+button{
+  margin:10px 0;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2><%= title %></h2>
+    <div>
+      <form action="/celebrities" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+
+        <label for="occupation">Ocuppation</label>
+        <input type="text" name="occupation" id="occupation">
+
+        <label for="catchPhrase">catch Phrase</label>
+        <input type="text" name="catchPhrase" id="catchPhrase">
+
+        <button type="submit">Create Celebrity</button>
+      </form>
+    </div>
+  </body>
+</html>
