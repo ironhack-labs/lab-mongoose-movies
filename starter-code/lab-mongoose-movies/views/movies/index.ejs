@@ -1,0 +1,12 @@
+<h2>Movies</h2>
+<ul>
+  <% data.forEach( (item) => { %>
+    <li> <a href="/movies/<%=item._id%>"> <%= item.title %> </li>
+    <form action="http://localhost:3000/movies/<%=item._id%>/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
+    <form action="http://localhost:3000/movies/<%=item._id%>/edit" method="get">
+      <button type="submit">Edit</button>
+    </form>
+  <% }) %>
+</ul>
