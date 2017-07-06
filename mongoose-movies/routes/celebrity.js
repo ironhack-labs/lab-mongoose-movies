@@ -47,6 +47,16 @@ router.get('/:id', function(req, res, next) {
 });
 
 
+// CRUD => D: Delete a product
+router.get('/:id/delete', function(req, res, next) {
+  let id = req.params.id;
+  Celebrity.findByIdAndRemove(id, (err, obj) => {
+    if (err){ return next(err); }
+    res.redirect("/celebrities");
+  });
+});
+
+
 
 
 
