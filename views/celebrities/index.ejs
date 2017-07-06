@@ -1,0 +1,14 @@
+<h2>Celebrities Webpage</h2>
+
+<a href="/">Go Back!</a>
+
+<ul>
+  <% celebrities.forEach( aCeleb => { %>
+    <p><%= aCeleb.name %></p>
+    <a href="/celebrities/<%= aCeleb._id %>"> View details</a>
+    <a href="/celebrities/<%= aCeleb._id %>/edit"> Edit Celebrity</a>
+    <a href="/celebrities/<%= aCeleb._id %>/delete"> Delete</a>
+  <% }) %>
+</ul>
+
+<a href="celebrities/new">Add a new Celebrity</a>

@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #FABADA;
+  display: block;
+  padding: 10px 0 3px 0;
+}
+
+label{
+  color: darkblue;
+  padding: 10px 0 3px 0;
+}
