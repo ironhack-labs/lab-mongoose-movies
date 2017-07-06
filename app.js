@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Celebs & Movies';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -32,8 +32,10 @@ app.use(layouts);
 
 const index = require('./routes/index');
 const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 app.use('/', index);
 app.use('/celebrities', celebrities);
+app.use('/movies', movies);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

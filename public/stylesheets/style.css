@@ -4,5 +4,12 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #FABADA;
+  display: block;
+  padding: 10px 0 3px 0;
+}
+
+label{
+  color: darkblue;
+  padding: 10px 0 3px 0;
 }
