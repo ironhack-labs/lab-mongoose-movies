@@ -31,9 +31,11 @@ app.use(layouts)
 
 const index = require('./routes/index')
 const celebrity = require('./routes/celebrity')
+const movie = require('./routes/movie')
 
 app.use('/', index)
 app.use('/celebrities', celebrity)
+app.use('/movies', movie)
 
 
 // catch 404 and forward to error handler
