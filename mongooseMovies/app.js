@@ -8,6 +8,8 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 const Celebrity = require ('./routes/celebrities');
 
+
+
 mongoose.connect('mongodb://localhost/mongoosemovies');
 
 const app = express();
@@ -31,6 +33,8 @@ app.use(layouts);
 const index = require('./routes/index');
 app.use('/', index);
 app.use('/', Celebrity);
+app.use('/celebrities', Celebrity);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

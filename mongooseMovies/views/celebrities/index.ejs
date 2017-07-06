@@ -1,16 +1,10 @@
-<h2>Celebrities List</h2>
+<h2>Celebrities</h2>
 
 <% celebridades.forEach( celeb => { %>
 
     <li>
-      VIP name:<%= celeb.name %>
+      <%= celeb.name %>
+ <a href="/celebrities/><%= celeb._id %>">show</a>
     </li>
-    <li>
-      Occupation:  <%= celeb.occupation %>
-    </li>
-    <li>
-    Favourite Phrase:  <%= celeb.catchPhrase %>
-    </li>
-    <br>
   <% }) %>
 </ul>
