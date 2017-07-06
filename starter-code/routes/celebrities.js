@@ -61,7 +61,7 @@ router.post('/', function(req, res, next) {
   })
 });
 
-router.post('/:id/delete', function(req, res, next) {
+router.get('/:id/delete', function(req, res, next) {
   let id = req.params.id;
   console.log(id);
   Celebrity.findByIdAndRemove(id, (err, p) => {

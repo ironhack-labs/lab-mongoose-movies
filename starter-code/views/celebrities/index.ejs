@@ -13,9 +13,7 @@
     <ul>
       <%- celebs.map((c)=> `<li>
       <a href="/celebrities/${c._id}">${c.name}</a>
-      <form action="/celebrities/${c._id}/delete">
-        <button type="submit">Delete</button>
-      </form>
+      <a href="/celebrities/${c._id}/delete">Delete</a>
       </li>`).join(''); %>
     </ul>
   </body>
