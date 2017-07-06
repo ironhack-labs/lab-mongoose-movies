@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2><%= title %></h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Ocuppation</th>
+        <th>Catch Phrase</th>
+        <th></th>
+      </tr>
+      <% celebrities.forEach((celeb) => { %>
+        <tr>
+          <td><%= celeb.name %></td>
+          <td><%= celeb.occupation %></td>
+          <td> <%= celeb.catchPhrase %></td>
+          <td><a href="/celebrities/<%= celeb._id %>">View</a></td>
+          <td><a href="/celebrities/<%= celeb._id %>/delete">Delete</a></td>
+        </tr>
+      <% }) %>
+    </table>
+
+    <div class="link"><a href="/celebrities/new">Add New</a></div>
+
+  </body>
+</html>
