@@ -21,7 +21,7 @@ router.get('/celebrities', (req, res, next) => {
 
 router.get('/celebrities/:id', function(req, res, next) {
   let id = req.params.id;
-  Product.findById(id, (err, e) => {
+  Celebrity.findById(id, (err, e) => {
     if (err) {
       return next(err);
     }
