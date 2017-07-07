@@ -63,7 +63,6 @@ router.post('/', function(req, res, next) {
 
 router.get('/:id/delete', function(req, res, next) {
   let id = req.params.id;
-  console.log(id);
   Celebrity.findByIdAndRemove(id, (err, p) => {
     if (err) {
       console.log(err);
@@ -72,6 +71,45 @@ router.get('/:id/delete', function(req, res, next) {
     }
     res.redirect('/celebrities');
   })
+});
+
+router.get('/:id/edit', function(req, res, next) {
+  let id = req.params.id;
+  Celebrity.findById(req.params.id, (err, p) => {
+    if (err) {
+      next();
+      return;
+    }
+    let args = {
+      celeb: p
+    }
+    res.render('celebrities/edit', args);
+  })
+});
+
+router.post('/:id', function(req, res, next) {
+  let id = req.params.id;
+  let {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body;
+  Celebrity.findById(id, (err, p) => {
+    if (err) {
+      next();
+      return;
+    }
+    p.name = name;
+    p.occupation = occupation;
+    p.catchPhrase = catchPhrase;
+    p.save((err, obj) => {
+      if (err) {
+        next();
+        return;
+      };
+      res.redirect('/celebrities/' + id);
+    });
+  });
 });
 
 module.exports = router;
