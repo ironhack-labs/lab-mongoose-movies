@@ -7,7 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   Celebrity.find({}, (err, c) => {
     if (err) {
-      next();
+      return next(err);
     } else {
     res.render('celebrities/index', {
       title: 'Listado de cantamañanas',
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 router.get('/new', function(req, res, next) {
   Celebrity.find({}, (err, c) => {
     if (err) {
-      next();
+      return next(err);
     } else {
     res.render('celebrities/new', {
       title: 'Create a new celebrity',
@@ -47,12 +47,10 @@ router.post('/', function(req, res, next) {
 
 
 router.get('/:id', function(req, res, next) {
-  console.log(req.params.id);
-  Celebrity.findById(req.params.id, (err, c) => {
-    console.log(c);
+  let id = req.params.id;
+  Celebrity.findById(id, (err, c) => {
     if (err) {
-      next();
-      console.log(err);
+      return next(err);
     }
       res.render('celebrities/show', {
         title: 'Celebrity Profile',
@@ -70,6 +68,33 @@ router.post('/:id/delete', function(req, res, next) {
   });
 });
 
+router.post('/:id', (req, res, next) => {
+  let updates = {
+    name: req.body.name,
+    ocupation: req.body.ocupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  Celebrity.findByIdAndUpdate(req.params.id, updates, (err, c) => {
+    if(err){
+      return next(err);
+    }
+    res.redirect('/celebrities');
+  });
+});
+
+
+router.get('/:id/edit',(req, res, next) => {
+  let id = req.params.id;
+  Celebrity.findById(id, (err,c) => {
+    if (err) {
+      return next(err);
+    }
+    res.render('celebrities/edit', {
+      title: "Celebrity edit",
+      celebrities: c
+    });
+  });
+});
 
 
 module.exports = router;
