@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Celebrity</title>
+  </head>
+  <body>
+    <h2>Celebrities</h2>
+  <ul>
+    <!-- Lets call the celebrities and do a for each -->
+    <% celebrities.forEach((celebrity) => { %>
+    <!-- we need to use = to print -->
+      <li><a href="/celebrities/<%= celebrity._id %>"> Name: <%= celebrity.name %></a></li>
+    <% }) %>
+  </ul>
+  </body>
+</html>
