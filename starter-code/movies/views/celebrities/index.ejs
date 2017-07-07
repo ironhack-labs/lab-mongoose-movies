@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <h2>Welcome to celebritiesDB!</h2>
+    <ul>
+      <% celebrities.forEach((celeb) => { %>
+        <li><a href="/celebrities/<%= celeb._id%>"><%= celeb.name %></a></li>
+        <%  }) %>
+    </ul>
+    <a href="/celebrities/new">Create new celebrities here!</a>
+  </body>
+</html>
