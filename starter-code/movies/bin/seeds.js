@@ -4,19 +4,19 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/celebrities').then(()=> {
   let celebrities = [
     {
-      name: 'Samuel',
+      name: 'Salvatore',
       occupation: 'Student & ad actor',
-      catchPhrase: 'La inteligencia artificial nos ataca'
+      catchPhrase: 'Me puedes llamar salvo o salva... pero nunca Salvatore'
     },
     {
-      name: 'Daniele',
-      occupation: 'Partipante en actuando por una pizza',
-      catchPhrase: 'Si, si, si es connect porque...'
+      name: 'Daniel',
+      occupation: 'Partipante en IronHack',
+      catchPhrase: 'inshi pendejo!!!! weyyy!!!!!!'
     },
     {
-      name: 'Miguel',
-      occupation: 'Teacher actor',
-      catchPhrase: 'Holliiiii'
+      name: 'Ferndanda',
+      occupation: 'TA',
+      catchPhrase: 'Hola ... me puedes ayudar porfavor!!!'
     }
   ];
   Celebrity.create(celebrities, (err, obj)=>{
