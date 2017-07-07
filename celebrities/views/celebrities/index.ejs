@@ -6,10 +6,12 @@
   </head>
   <body>
     <h2>Celebrities</h2>
+  <ul>
     <!-- Lets call the celebrities and do a for each -->
     <% celebrities.forEach((celebrity) => { %>
     <!-- we need to use = to print -->
-      <p>Name: <%= celebrity.name %> | Occupation: <%= celebrity.occupation%> | Catche Phrase: <% celebrity.catchPhrase %> </p>
+      <li><a href="/celebrities/<%= celebrity._id %>"> Name: <%= celebrity.name %></a></li>
     <% }) %>
+  </ul>
   </body>
 </html>
