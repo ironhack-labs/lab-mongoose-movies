@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit <%= celeb.name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2> Edit <%= celeb.name %></h2>
+    <form action="/celebrities/<%=celeb._id%>" method="post">
+      <label for="name">Name: </label>
+      <input type="text" name="name" value="<%= celeb.name %>">
+      <label for="occupation">Occupation: </label>
+      <input type="text" name="occupation" value="<%= celeb.occupation %>">
+      <label for="catchPhrase">Catch phrase: </label>
+      <input type="text" name="catchPhrase" value="<%= celeb.catchPhrase %>">
+      <input type="submit" name="submit" value="Submit">
+    </form>
+  </body>
+</html>

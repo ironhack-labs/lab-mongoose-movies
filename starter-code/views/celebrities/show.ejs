@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= celeb.name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Celebrity details</h2>
+    <h1><%= celeb.name %></h1>
+    <h2><%= celeb.occupation%></h2>
+    <p><em><%= celeb.catchPhrase %></em></p>
+    <a href="/celebrities/<%=celeb._id%>/edit">Edit</a>
+    <a href="/celebrities">Back</a>
+  </body>
+</html>
