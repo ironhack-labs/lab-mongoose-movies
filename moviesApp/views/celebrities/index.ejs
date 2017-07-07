@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <% celebrities.forEach((c) => { %>
+      <li>
+        <%= c.name %>
+        <a href="/celebrities/<%=c._id %>"> View details</a>
+        <form action="/celebrities/<%=c._id%>/delete" method="POST">
+          <button type="submit">Delete Celebrity</button>
+        </form>
+      </li>
+      <%  }) %>
+  </ul>
+  <a href="/celebrities/new"> Create a new celebrity</a>
+</body>
