@@ -1,0 +1,24 @@
+<h2>Celebrities details:</h2>
+<ul>
+  <% celebrities.forEach((aCelebrity) => { %>
+    <li>
+      <%= aCelebrity.name %> - $<%= aCelebrity.occupation %> - $<%= aCelebrity.catchPhrase %>
+      <a href="/celebrities/show?id=<%= celebrities._id %>">View Details</a>
+    </li>
+  <%  }) %>
+</ul>
+
+<div>
+  <form action="/celebrities/:id/delete" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name">
+
+    <label for="occupation">Occupation</label>
+    <input type="text" name="occupation" id="occupation">
+
+    <label for="catchPhrase">Image URL</label>
+    <input type="text" name="catchPhrasel" id="catchPhrase">
+
+    <button type="submit">Delete Product</button>
+  </form>
+</div>
