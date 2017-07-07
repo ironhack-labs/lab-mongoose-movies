@@ -1,0 +1,12 @@
+<h2>The Ultimate Celebrities Page</h2>
+
+<a href="/">Back</a>
+
+<ul>
+  <%celebrities.forEach((celeb)=>{%>
+    <li>
+      <%= `${celeb.name} - occupation: ${celeb.occupation} - catch phrase: «${celeb.catchPhrase}»` %>
+    </li>
+    <a href="/:id<%= celebrities._id %>"> View details</a>
+    <%})%>
+</ul>
