@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <h2>Welcome to <%= title %></h2>
+
+    <div>
+      <form action="/celebrities" method="POST">
+        <label for="drone-name">Drone name</label>
+        <input type="text" name="celebrityName">
+
+        <label for="occupation">Propellers</label>
+        <input type="text" name="occupation">
+
+        <label for="catchPhrase">Max speed</label>
+        <input type="text" name="catchPhrase">
+
+        <button type="submit">Create Celebrity</button>
+      </form>
+    </div>
+    <a href="views/celebrities/index.ejs ">Return</a>
+
+  </body>
+</html>
