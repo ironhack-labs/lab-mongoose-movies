@@ -17,6 +17,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
+ 
 router.get('/:id', (req, res, next) => {
   Celebrity.findById(req.params.id, (err, celebrity) => {
 
