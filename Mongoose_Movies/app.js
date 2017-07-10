@@ -1,22 +1,26 @@
-let express = require('express');
-let path = require('path');
-let favicon = require('serve-favicon');
-let logger = require('morgan');
-let cookieParser = require('cookie-parser');
-let bodyParser = require('body-parser');
-let mongoose = require('mongoose');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/MongoMovies');
 
-// let users = require('./routes/users');    /// ** No se requiere users **
-let index = require('./routes/index');
-let celebrities = require('./routes/celebrities');
-let movies = require('./routes/movies');
+// const users = require('./routes/users');    /// ** No se requiere users **
+const index = require('./routes/index');
+const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 
-let app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(expressLayouts); // El use para layauts "ANTES"
+app.set('layout', 'layouts/main');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -33,9 +37,10 @@ app.use('/celebrities', celebrities);
 app.use('/movies', movies);
 
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  let err = new Error('Not Found 😞');
+  const err = new Error('Not Found 😞');
   err.status = 404;
   next(err);
 });
