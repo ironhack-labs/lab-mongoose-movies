@@ -1,0 +1,7 @@
+<h2> Details about this movie. </h2>
+<h3> Movie Title: <%= movieInfo.title %></h3>
+<h4> Genre: <%= movieInfo.genre %></h4>
+<h5> Plot: <%= movieInfo.plot %></h5>
+<form action="/movies/<%= movieInfo._id%>/delete" method="post">
+  <button> Delete this film. </button>
+</form>

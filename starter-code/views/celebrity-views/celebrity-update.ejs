@@ -1,0 +1,13 @@
+<h2> Edit <%=celebrityInfo.name%> </h2>
+<form action="/celebrities/<%=celebrityInfo._id%>/update" method="post">
+  <label for="name-input"> Name of Celebrity: </label>
+  <input type="text" name="celebrityName" id="name-input" value="<%=celebrityInfo.name%>"><br><br>
+
+  <label for="occupation-input"> Occupation of Celebrity: </label>
+  <input type="text" name="celebrityOccupation" id="occupation-input" value="<%=celebrityInfo.occupation%>"><br><br>
+
+  <label for="catchphrase-input"> Catch Phrase of Celebrity: </label>
+  <textarea name="celebrityCatchPhrase" id="catchphrase-input"><%=celebrityInfo.catchPhrase%></textarea><br><br>
+
+  <button> Add this Celebrity </button>
+</form>
