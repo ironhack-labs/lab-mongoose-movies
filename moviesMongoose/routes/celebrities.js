@@ -4,7 +4,7 @@ const router = express.Router();
 const Celebrity = require('../models/celebrity')
 
 
-router.get('/celebrities', (req, res, next) =>{
+router.get('/', (req, res, next) =>{
     Celebrity.find({}, (err, celebrities) => {
         if (err) {
             next(err);
@@ -14,5 +14,17 @@ router.get('/celebrities', (req, res, next) =>{
         }
     })
 });
+
+router.get('/:id', (req, res, next) => {
+    const celebrityID = req.params.id;
+    Celebrity.findById(celebrityID, (err, celebDetail) => {
+        if (err) {
+            next(err)
+        } else  {
+            res.render('celebrities/show', { celebDetail });
+        }
+    })
+})
+
 
 module.exports = router;
