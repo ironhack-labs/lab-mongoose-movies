@@ -15,17 +15,6 @@ router.get('/', (req, res, next) =>{
     })
 });
 
-router.get('/:id', (req, res, next) => {
-    const celebrityID = req.params.id;
-    Celebrity.findById(celebrityID, (err, celebDetail) => {
-        if (err) {
-            next(err)
-        } else  {
-            res.render('celebrities/show', { celebDetail });
-        }
-    })
-});
-
 router.get('/new', (req, res, next) => {
     res.render('celebrities/new');
 });
@@ -46,5 +35,18 @@ router.post('/', (req, res, next) => {
         }
     });
 });
+
+router.get('/:id', (req, res, next) => {
+    const celebrityID = req.params.id;
+    Celebrity.findById(celebrityID, (err, celebDetail) => {
+        if (err) {
+            next(err)
+        } else  {
+            res.render('celebrities/show', { celebDetail });
+        }
+    })
+});
+
+
 
 module.exports = router;
