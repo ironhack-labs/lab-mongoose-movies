@@ -24,7 +24,27 @@ router.get('/:id', (req, res, next) => {
             res.render('celebrities/show', { celebDetail });
         }
     })
-})
+});
 
+router.get('/new', (req, res, next) => {
+    res.render('celebrities/new');
+});
+
+router.post('/', (req, res, next) => {
+    const celebInfo = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase,
+    }
+
+    const newCeleb = new Celebrity(celebInfo);
+    newCeleb.save((err) => {
+        if (err) {
+            return next(err) 
+        } else {
+            res.redirect('/celebrities/new');
+        }
+    });
+});
 
 module.exports = router;
