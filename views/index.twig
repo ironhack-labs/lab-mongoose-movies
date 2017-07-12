@@ -1,0 +1,14 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <h1>{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+
+  <a href="/celebrities/new" class="btn btn-primary">New Celebrity</a>
+  <br>
+  <a href="/movies/new" class="btn btn-primary">New Movie</a>
+  <br>
+  <a href="/celebrities"> View All Celebrities</a>
+  <br>
+  <a href="/movies"> View All Movies</a>
+{% endblock %}
