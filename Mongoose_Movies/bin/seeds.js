@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/MongoMovies');
 
-const Celebrity = require('../models/celebrity')
+const Celebrity = require('../models/celebrity');
 
 let seeds = [
   {
@@ -17,7 +17,7 @@ let seeds = [
   {
     name: "Ringo Star",
     ocupation: "Musician",
-    catchPhrase: "You life look like a yellow submarine",
+    catchPhrase: "Your life looks like a yellow submarine",
   },
 
 ];
@@ -29,7 +29,7 @@ Celebrity.create(seeds, (err, docs) => {
   }
 
   docs.forEach((product) => {
-    console.log(product.name)
+    console.log(product.name);
   });
   mongoose.connection.close();
 });

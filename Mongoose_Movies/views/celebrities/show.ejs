@@ -1,0 +1,17 @@
+
+
+<ul class="list-group">
+  <li class="list-group-item active"><%= celebs.name %></li>
+  <li class="list-group-item"><%= celebs.ocupation %></li>
+  <li class="list-group-item"><q><%= celebs.catchPhrase %></q></li>
+</ul>
+
+
+<a href="/celebrities/<%= celebs._id%>/edit" role="button" class="btn btn-success btn-lg">Update</a>
+
+
+<form action="/celebrities/<%= celebs._id%>/delete" method="POST"> 
+  
+  <button role="button" type="submit" class="btn btn-sm btn-danger">Delete this Celebrity</button>
+  
+</form>
