@@ -1,0 +1,8 @@
+<h2><%= movie.title %><h2>
+
+  <form action="/movies/<%= movie._id%>/edit" method="POST">
+    <input type="text" name="title" value="<%= movie.title %>">
+    <input type="text" name="genre" value="<%= movie.genre %>">
+    <input type="text" name="plot" value="<%= movie.plot %>">
+    <button type="submit">SEND CHANGES</button>
+</form>

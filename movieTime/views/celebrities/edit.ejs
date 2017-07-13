@@ -1,0 +1,8 @@
+<h2><%= celebrity.name %><h2>
+
+  <form action="/celebrities/<%= celebrity._id%>/edit" method="POST">
+    <input type="text" name="name" value="<%= celebrity.name %>">
+    <input type="text" name="occupation" value="<%= celebrity.occupation %>">
+    <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>">
+    <button type="submit">SEND CHANGES</button>
+</form>
