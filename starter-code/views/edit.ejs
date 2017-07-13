@@ -1,0 +1,14 @@
+<h2> Edit This Movie </h2>
+
+<form action="/movies/<%=movie._id%>/update" method="POST">
+  <label for="title">Name</label>
+  <input type="text" id="title" name="title" value="<%= movie.title %>">
+
+ <label for="genre">Occupation</label>
+  <input type="text" name="genre" id="genre" value="<%= movie.genre %>">
+
+ <label for="year">maxSpeed</label>
+  <input type="number" name="year" id="catch" value="<%= movie.year %>">
+
+ <button class="btn btn-default" type="submit">Save This Movie</button>
+</form>
