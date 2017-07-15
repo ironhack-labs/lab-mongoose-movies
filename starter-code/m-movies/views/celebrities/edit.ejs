@@ -1,5 +1,6 @@
 <h2>Edit <%= celeb.name %></h2>
 
+<!--bug fixed: form action pointing to the right url -->
 <form action="/celebrities/<%= celeb.id %>" method="POST">
   <label for="name">EDIT Name: </label>
   <input type="text" id="name" name="name">
