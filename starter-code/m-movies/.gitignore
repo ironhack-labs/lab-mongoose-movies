@@ -1,0 +1,99 @@
+# Dependency directories
+bower_components/
+node_modules/
+jspm_packages/
+develop-eggs/
+downloads/
+lib64/
+libs/
+sdist/
+wheels
+
+
+# Logs
+logs
+*.log
+*.logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pip-log.txt
+pip-delete-this-directory.txt
+/var/logs/*
+
+# Numerous always-ignore extensions
+.eslintcache           ## Optional eslint cache
+.grunt                 ## Grunt intermediate storage
+.ipynb_checkpoints     ## Jupyter Notebook
+.lock-wscript          ## node-waf configuration
+.node_repl_history     ## Optional REPL history
+.npm
+.nyc_output            ## nyc test coverage
+.python-version        ## pyenv
+.rvmrc
+.ropeproject           ## Rope project settings
+.scrapy                ## Scrapy tool
+.spyderproject         ## Spyder project settings
+.spyproject            ## Spyder project settings
+.tgz                   ## Output of 'npm pack'
+.webassets-cache       ## Flask Cache
+.yarn-integrity        ## Yarn Integrity file
+local_settings.py      ## Django setup
+install-log.txt
+.rspec
+.coverage.*
+nosetests.*
+.Python
+rerun.txt
+.installed.cfg
+*.css.map
+*.diff
+*.dll
+*.DS_Store
+*.egg
+*.err
+*.idea
+*.iml
+*.manifest
+*.node
+*.orig
+*.rar
+*.rbc
+*.rej
+*.so
+*.spec
+*.sage.py              ## SageMath parsed files
+*.skb                  ## SketchUp
+*.swo
+*.swp
+*.temp
+*.tmp
+*.tmproj
+*.vi
+*.zip
+*~
+capybara-*.html
+pickle-email-*.html
+
+
+# OS or Editor folders
+._*
+.cache
+.Cache
+.DS_Store
+.idea
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+nbproject
+Thumbs.db
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+*RECYCLE.BIN/
+config.codekit
+prepros.cfg
