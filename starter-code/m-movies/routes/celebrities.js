@@ -78,15 +78,14 @@ router.get("/:id/edit", (req, res, next) => {
 });
 
 router.post("/:id", (req, res, next) => {
-    const celebEdit = req.params.id;
+    const celebId = req.params.id;
     const updates = {
         name: req.body.name,
         occupation: req.body.occupation,
         catchPhrase: req.body.catchPhrase
     };
-
-    Celebrity.update(celebEdit, updates, (err, celebUpdated) => {
-        console.log(celebEdit);
+    Celebrity.findByIdAndUpdate(celebId, updates, false, (err, celebUpdated) => {
+        console.log("The id to be edited is:::: ", celebId);
         if(err){
             return next(err);
         }
