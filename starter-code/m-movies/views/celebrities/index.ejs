@@ -1,5 +1,5 @@
 <h2>The list of our celebs!</h2>
 <ul><% theCelebritiesRetrieved.forEach((element) => { %>
-    <li><%= element.name %></li>
+    <li><a href="/celebrities/<%= element.id %>"><%= element.name %></a></li>
 <% }); %>
 </ul>

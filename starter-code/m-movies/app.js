@@ -21,6 +21,7 @@ mongoose.connect("mongodb://localhost/mongoose-movies")
 //require the relevant routes for our app
 var index = require('./routes/index');
 var celebrities = require("./routes/celebrities");
+var profile = require("./routes/celebrities/profile");
 
 //finally assign our server app to express!
 var app = express();
@@ -41,7 +42,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //USE THE ROUTES TO FINALISE REQUESTS
 app.use('/', index);
-app.use("/", celebrities);
+app.use("/celebrities/", celebrities, profile);
+
 
 //CATCH & RENDER ERRORS!
 // catch 404 and forward to error handler
