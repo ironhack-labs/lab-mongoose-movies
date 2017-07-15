@@ -53,6 +53,47 @@ router.get("/:id", (req, res, next) => {
     })
 });
 
-//Always export the module VARIABLE from each route. In this case it's the router!
 
+//delete celebrity
+router.post("/:id/delete", (req, res, next) => {
+    const celebId = req.params.id;
+
+    Celebrity.findByIdAndRemove(celebId, (err) => {
+        if(err){
+            return next(err);
+        }
+        res.redirect("/celebrities");
+    })
+});
+
+router.get("/:id/edit", (req, res, next) => { 
+    const celebId = req.params.id;
+
+    Celebrity.findById(celebId, (err, celeb) => {
+    if(err){
+        return next(err);
+    }
+    res.render("celebrities/edit", {celeb});
+    });
+});
+
+router.post("/:id", (req, res, next) => {
+    const celebEdit = req.params.id;
+    const updates = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+    };
+
+    Celebrity.update(celebEdit, updates, (err, celebUpdated) => {
+        console.log(celebEdit);
+        if(err){
+            return next(err);
+        }
+        return res.redirect("/celebrities");
+    });
+});
+
+
+//Always export the module VARIABLE from each route. In this case it's the router!
 module.exports = router;
