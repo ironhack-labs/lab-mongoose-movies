@@ -19,33 +19,11 @@ router.get('/new', (req, res, next) => {
     res.render('celebrities/new');
 });
 
-router.get('/:id', (req, res, next) => {
-    const celebrityID = req.params.id;
-    Celebrity.findById(celebrityID, (err, celebDetail) => {
-        if (err) {
-            next(err)
-        } else  {
-            res.render('celebrities/show', { celebDetail });
-        }
-    })
-});
-
-router.get('/:id/edit', (req, res, next) => {
-    const celebrityID = req.params.id;
-    Celebrity.findById(celebrityID, (err, editCeleb) => {
-        if (err) {
-            next(err)
-        } else  {
-            res.render('celebrities/edit', {editCeleb});
-        }
-    })
-})
-
 router.post('/', (req, res, next) => {
     const celebInfo = {
         name: req.body.name,
         occupation: req.body.occupation,
-        catchPhrase: req.body.catchPhrase,
+        catchPhrase: req.body.catchPhrase
     }
 
     const newCeleb = new Celebrity(celebInfo);
@@ -58,23 +36,6 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.post('/:id', (req, res, next) => {
-    const celebrityID = req.params.id;
-    const updates = {
-        name: req.body.name,
-        occupation: req.body.occupation,
-        catchPhrase: req.body.catchPhrase,
-  };
-    Celebrity.update({ _id: celebrityID}, updates, (err) => {
-        if (err) {
-            next(err)
-        } else {
-            res.redirect('/celebrities');
-        }
-    })
-});
-
-
 router.post('/:id/delete', (req, res, next) => {
     const celebrityID = req.params.id;
     Celebrity.findByIdAndRemove(celebrityID, (err, deleteCeleb) => {
@@ -85,5 +46,45 @@ router.post('/:id/delete', (req, res, next) => {
         }
   });
 })
+
+
+router.get('/:id/edit', (req, res, next) => {
+    const celebrityID = req.params.id;
+    Celebrity.findById(celebrityID, (err, editCeleb) => {
+        if (err) {
+            next(err)
+        } else  {
+            res.render('celebrities/edit', {editCeleb});
+        }
+    })
+})
+
+router.post('/:id/edit', (req, res, next) => {
+    const celebrityID = req.params.id;
+    const updates = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+  };
+    Celebrity.findByIdAndUpdate(celebrityID, updates, (err, celeb) => {
+        if (err) {
+            next(err)
+        } else {
+            res.redirect(`/celebrities/${celebrityID}`);
+        }
+    })
+});
+
+router.get('/:id', (req, res, next) => {
+    const celebrityID = req.params.id;
+    Celebrity.findById(celebrityID, (err, celebDetail) => {
+        if (err) {
+            next(err)
+        } else  {
+            res.render('celebrities/show', { celebDetail });
+        }
+    })
+});
+
 
 module.exports = router;
