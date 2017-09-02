@@ -20,4 +20,26 @@ router.get('/celebrities',(req,res,next) => {
 
 });
 
+router.get('/celebrities/:id', (req,res,next) => {
+
+    const id = req.params.id;
+
+    CelebrityModel.findById(id, (err, info) => {
+
+        if (err) {
+          console.log("Error!");
+          next(err);
+
+        }
+        console.log(info);
+
+        res.locals.celebInfo = info;
+
+        res.render('celebrities/show.ejs');
+
+    });
+
+});
+
+
 module.exports = router;
