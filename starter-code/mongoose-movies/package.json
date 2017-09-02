@@ -7,14 +7,14 @@
     "reload": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.16.0",
-    "cookie-parser": "~1.4.3",
+    "body-parser": "^1.16.1",
+    "cookie-parser": "^1.4.3",
     "debug": "~2.6.0",
     "ejs": "~2.5.5",
     "express": "~4.14.1",
-    "express-ejs-layouts": "~2.2.0",
+    "express-ejs-layouts": "^2.2.0",
     "mongoose": "^4.11.9",
-    "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.2"
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.2"
   }
 }

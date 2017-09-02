@@ -28,8 +28,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+
+
+
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebritiesRouter = require('./routes/celebrities.js');
+app.use(celebritiesRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
