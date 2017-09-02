@@ -3,5 +3,13 @@
   <% listOfCelebrities.forEach(celebrity => { %>
     <a href="/celebrities/<%=celebrity._id%>"> <%= celebrity.name %> </a>
     <br>
+
+    <form action="celebrities/<%=celebrity._id%>/delete" method="post">
+
+      <button> Delete </button>
+
+    </form>
+    <br>
+
   <% }); %>
 </ul>
