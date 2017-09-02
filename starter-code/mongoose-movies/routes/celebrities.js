@@ -77,6 +77,46 @@ router.get('/celebrities/:id', (req,res,next) => {
 
 });
 
+router.get('/celebrities/:id3/edit', (req,res,next) => {
+
+    const id = req.params.id3;
+
+    CelebrityModel.findById(id, (err, info) => {
+
+        if(err) {
+          next(err);
+        }
+
+        res.locals.celebInfo = info;
+
+        res.render('celebrities/edit.ejs');
+
+    });
+
+});
+
+router.post('/celebrities/:id4', (req,res,next) => {
+
+    const id = req.params.id4;
+
+    const celebrity = new CelebrityModel({
+        name: req.body.celebName,
+        occupation: req.body.celebOccupation,
+        catchPhrase: req.body.celebPhrase
+    });
+
+    CelebrityModel.update({ _id: id }, celebrity, (err, todo) => {
+
+        if (err) {
+          next(err);
+        }
+
+        res.redirect('/celebrities');
+
+    });
+
+});
+
 router.post('/celebrities/:id2/delete', (req,res,next) => {
 
     const id = req.params.id2;
