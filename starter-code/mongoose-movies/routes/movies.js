@@ -76,4 +76,70 @@ router.get('/movies/:id', (req,res,next) => {
 });
 
 
+
+
+router.get('/movies/:id3/edit', (req,res,next) => {
+
+    const id = req.params.id3;
+
+    MovieModel.findById(id, (err, info) => {
+
+        if(err) {
+          next(err);
+        }
+
+        res.locals.id = id;
+        res.locals.movieInfo = info;
+
+        res.render('movies/edit.ejs');
+
+    });
+
+});
+
+router.post('/celebrities/:id4', (req,res,next) => {
+
+    const id = req.params.id4;
+
+    console.log(id);
+
+    const movie = new MovieModel({
+        _id: id,
+        title: req.body.movieTitle,
+        genre: req.body.movieGenre,
+        plot: req.body.moviePlot
+    });
+
+    MovieModel.update({ "_id": id }, celebrity, {}, (err) => {
+
+        if (err) {
+          next(err);
+        }
+
+        res.redirect('/movies');
+
+    });
+
+});
+
+
+
+
+router.post('/movies/:id2/delete', (req,res,next) => {
+
+    const id = req.params.id2;
+
+    MovieModel.findByIdAndRemove(id, (err,todo) => {
+
+      if (err) {
+        next(err);
+      }
+
+      res.redirect('/movies');
+
+    });
+
+});
+
+
 module.exports = router;

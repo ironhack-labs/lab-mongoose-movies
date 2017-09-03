@@ -1,0 +1,22 @@
+<h2> Edit <%= movieInfo.title %> </h2>
+
+<form action="/movies/<%=id%>" method="post">
+
+  <label for="movieTitle"> Title </label>
+  <input  id="movieTitle" type="text" name="movieTitle"
+   placeholder="<%=movieInfo.title%>">
+  <br>
+
+  <label for="movieGenre"> Genre </label>
+  <input  id="movieGenre" type="text" name="movieGenre"
+   placeholder="<%=movieInfo.genre%>">
+  <br>
+
+  <label   for="moviePlot"> Plot</label>
+  <textarea id="moviePlot" name="moviePlot"> <%=movieInfo.plot%> </textarea
+   placeholder="<%=movieInfo.plot%>">
+  <br>
+
+  <button> Update </button>
+
+</form>
