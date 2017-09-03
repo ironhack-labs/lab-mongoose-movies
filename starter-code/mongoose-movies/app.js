@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
 
-
+// ------> Routs go here! -----
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -37,6 +37,11 @@ app.use('/', index);
 const celebritiesRouter = require('./routes/celebrities.js');
 app.use(celebritiesRouter);
 
+const moviesRouter = require('./routes/movies.js');
+app.use(moviesRouter);
+
+
+// ----------------------------
 
 
 // catch 404 and forward to error handler
