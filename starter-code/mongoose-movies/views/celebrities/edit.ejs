@@ -1,19 +1,19 @@
 <h2> Edit <%= celebInfo.name %> </h2>
 
-<form action="/celebrities/<%=celebInfo._id%>" method="post">
+<form action="/celebrities/<%=id%>" method="post">
 
   <label for="celebName"> Name </label>
-  <input  id="celebName" type="text" name="celebName"
+  <input  id="celebName" type="text" name="celeb_Name"
    placeholder="<%=celebInfo.name%>">
   <br>
 
   <label for="celebOccupation"> Occupation </label>
-  <input  id="celebOccupation" type="text" name="celebOccupation"
+  <input  id="celebOccupation" type="text" name="celeb_Occupation"
    placeholder="<%=celebInfo.occupation%>">
   <br>
 
   <label   for="celebPhrase"></label>
-  <textarea id="celebPhrase" name="celebPhrase"> Catch Phrase</textarea
+  <textarea id="celebPhrase" name="celeb_Phrase"> <%=celebInfo.catchPhrase%></textarea
    placeholder="<%=celebInfo.catchPhrase%>">
   <br>
 

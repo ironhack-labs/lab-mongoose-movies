@@ -77,6 +77,7 @@ router.get('/celebrities/:id', (req,res,next) => {
 
 });
 
+
 router.get('/celebrities/:id3/edit', (req,res,next) => {
 
     const id = req.params.id3;
@@ -87,6 +88,7 @@ router.get('/celebrities/:id3/edit', (req,res,next) => {
           next(err);
         }
 
+        res.locals.id = id;
         res.locals.celebInfo = info;
 
         res.render('celebrities/edit.ejs');
@@ -99,13 +101,16 @@ router.post('/celebrities/:id4', (req,res,next) => {
 
     const id = req.params.id4;
 
+    console.log(id);
+
     const celebrity = new CelebrityModel({
-        name: req.body.celebName,
-        occupation: req.body.celebOccupation,
-        catchPhrase: req.body.celebPhrase
+        _id: id,
+        name: req.body.celeb_Name,
+        occupation: req.body.celeb_Occupation,
+        catchPhrase: req.body.celeb_Phrase
     });
 
-    CelebrityModel.update({ _id: id }, celebrity, (err, todo) => {
+    CelebrityModel.update({ "_id": id }, celebrity, {}, (err) => {
 
         if (err) {
           next(err);
@@ -116,6 +121,7 @@ router.post('/celebrities/:id4', (req,res,next) => {
     });
 
 });
+
 
 router.post('/celebrities/:id2/delete', (req,res,next) => {
 
