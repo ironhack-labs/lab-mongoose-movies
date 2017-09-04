@@ -8,7 +8,7 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/starter-code');
+mongoose.connect('mongodb://localhost/celebrity');
 
 const app = express();
 
@@ -28,8 +28,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+// ROUTES GO HERE ----------------------------------------------------
+
 const index = require('./routes/index');
 app.use('/', index);
+
+const myCelebRouter = require('./routes/celebrity-router.js');
+app.use(myCelebRouter);
+
+// ROUTES END ------------------------------------------------------
+
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
