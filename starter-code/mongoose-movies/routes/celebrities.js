@@ -103,20 +103,35 @@ router.post('/celebrities/:id4', (req,res,next) => {
 
     console.log(id);
 
-    const celebrity = new CelebrityModel({
-        _id: id,
-        name: req.body.celeb_Name,
-        occupation: req.body.celeb_Occupation,
-        catchPhrase: req.body.celeb_Phrase
-    });
 
-    CelebrityModel.update({ "_id": id }, celebrity, {}, (err) => {
+    CelebrityModel.findById(id, (err, celebrity) => {
+
+      if (err) {
+      next(err);
+      return;
+    }
+
+    // update the product's fields to the ones from the form
+    celebrity.name = req.body.name;
+    celebrity.occupation = req.body.name;
+    celebrity.phrase = req.body.phrase;
+
+
+    // save the updates
+    celebrity.save((err) => {
 
         if (err) {
-          next(err);
+
+            next(err);
+
+            return;
+
         }
 
+        // redirect
         res.redirect('/celebrities');
+
+    });
 
     });
 

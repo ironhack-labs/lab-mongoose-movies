@@ -97,28 +97,41 @@ router.get('/movies/:id3/edit', (req,res,next) => {
 
 });
 
-router.post('/celebrities/:id4', (req,res,next) => {
+router.post('/movies/:id4', (req,res,next) => {
 
     const id = req.params.id4;
 
-    console.log(id);
+    MovieModel.findById(id, (err, movie) => {
 
-    const movie = new MovieModel({
-        _id: id,
-        title: req.body.movieTitle,
-        genre: req.body.movieGenre,
-        plot: req.body.moviePlot
-    });
+      if (err) {
+      next(err);
+      return;
+    }
 
-    MovieModel.update({ "_id": id }, celebrity, {}, (err) => {
+    // update the product's fields to the ones from the form
+    movie.title = req.body.title;
+    movie.genre = req.body.genre;
+    movie.plot = req.body.plot;
+
+
+    // save the updates
+    movie.save((err) => {
 
         if (err) {
-          next(err);
+
+            next(err);
+
+            return;
+
         }
 
+        // redirect
         res.redirect('/movies');
 
     });
+
+    });
+
 
 });
 
