@@ -8,7 +8,8 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/celebrity');
+mongoose.connect('mongodb://localhost/movie');
+
 
 const app = express();
 
@@ -35,6 +36,9 @@ app.use('/', index);
 
 const myCelebRouter = require('./routes/celebrity-router.js');
 app.use(myCelebRouter);
+
+const myMovieRouter = require('./routes/movie-router.js');
+app.use(myMovieRouter);
 
 // ROUTES END ------------------------------------------------------
 

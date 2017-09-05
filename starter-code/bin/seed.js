@@ -1,43 +1,43 @@
 const mongoose = require('mongoose');
 
-const CelebrityModel = require('../models/celebrity-model.js');
+const MovieModel = require('../models/movie-model.js');
 
 
-mongoose.connect('mongodb://localhost/celebrity');
+mongoose.connect('mongodb://localhost/movie');
 
 
-const celebrityArray = [
+const movieArray = [
     {
-      name: 'John Cena',
-      occupation: 'Wrestler',
-      catchPhrase: `You can't see me`
+      title: 'American Pie',
+      genre: 'Comedy',
+      plot: `Hoping to be young again`
     },
     {
-      name: 'DJ Khaled',
-      occupation: 'DJ',
-      catchPhrase: 'Anotha one'
+      title: 'Alien',
+      genre: 'Thriller',
+      plot: 'Hunt or be hunted'
     },
     {
-      name: 'Amy Schumer',
-      occupation: 'Comedian',
-      catchPhrase: 'My vagina'
+      title: 'Pokemon',
+      genre: 'Anime',
+      plot: 'Enslave the animals'
     }
 ];
 
-CelebrityModel.create(
+MovieModel.create(
   // 1st argument -> array of products to save
-  celebrityArray,
+  movieArray,
 
   // 2nd argument -> callback
-  (err, celebrityAfterSave) => {
+  (err, movieAfterSave) => {
       if (err) {
           console.log('Create error 😅');
           console.log(err);
           return;
       }
 
-      celebrityAfterSave.forEach((celebrity) => {
-          console.log('New Celeb ---> ' + celebrity.name);
+      movieAfterSave.forEach((movie) => {
+          console.log('New Movie ---> ' + movie.title);
       });
   }
-); 
+);
