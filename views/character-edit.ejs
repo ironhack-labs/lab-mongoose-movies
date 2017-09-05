@@ -1,0 +1,19 @@
+<h2> Edit Character | <%= characterInfo.name %></h2>
+
+<form method="post" action="/characters/<%= characterInfo._id %>">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" value="<%=characterInfo.name%>"><br>
+
+  <label for="species">Species</label>
+  <input id="species"type="text" name="species" value="<%=characterInfo.species%>"><br>
+
+  <label for="imgUrl">Image URL</label>
+  <input id="imgUrl" type="text" name="imgUrl" value="<%=characterInfo.imgUrl%>"><br>
+
+  <label for="powerLevel">Power Level</label>
+  <input id="powerLevel"type="text" name="powerLevel" value="<%=characterInfo.powerLevel%>"><br>
+
+  <label for="catchPhrase">Catch Phrase</label>
+  <textarea id="catchPhrase" type="text" name="catchPhrase"><%=characterInfo.catchPhrase%></textarea><br>
+  <button>Submit</button>
+</form>

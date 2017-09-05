@@ -1,0 +1,16 @@
+<h2>Favorite Characters</h2>
+<ul>
+  <%listOfCharacters.forEach((oneCharacter)=>{%>
+    <li>
+      <img src="<%= oneCharacter.imgUrl %>" alt="">
+      <h3><%= oneCharacter.name%>(<%=oneCharacter.species%>)</h3>
+      <h4><%= oneCharacter.powerLevel %></h4>
+      <p><%= oneCharacter.catchPhrase %></p>
+      <a href="/character-details/<%= oneCharacter._id %>">Details</a>
+      <a href="/characters/<%= oneCharacter._id %>/edit">Edit</a>
+      <form method="post" action="/characters/<%=oneCharacter._id%>/delete">
+        <button>Delete</button>
+      </form>
+    </li>
+  <%});%>
+</ul>
