@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const MovieModel = require('../models/movie-model.js');
 
 
-mongoose.connect('mongodb://localhost/movie');
+mongoose.connect('mongodb://localhost/celebrity/movies');
 
 
 const movieArray = [

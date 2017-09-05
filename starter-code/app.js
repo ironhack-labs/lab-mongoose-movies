@@ -8,7 +8,7 @@ const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/movie');
+mongoose.connect('mongodb://localhost/celebrity');
 
 
 const app = express();
