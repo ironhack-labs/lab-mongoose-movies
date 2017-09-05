@@ -6,5 +6,12 @@
       <h3> <%= oneCeleb.name %> </h3>
       <a href="/celebrities/<%=oneCeleb._id%>">Details</a>
     </li>
+      <a href="/celebrities/<%= oneCeleb._id %>/edit">
+        Edit
+      </a>
+
+      <form method="post" action="/celebrities/<%= oneCeleb._id %>/delete">
+        <button> Delete </button>
+      </form>
   <% }) %>
 </ul>
