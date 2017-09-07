@@ -14,6 +14,20 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.post('/', (req, res, next) => {
+  const celebrityInfo = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.phrase
+  }
+
+  const newCelebrity = new Celebrity(celebrityInfo)
+  newCelebrity.save(err => {
+    if (err) { return next(err) }
+    return res.redirect('/celebrities')
+  })
+});
+
 router.get('/new', function(req, res, next) {
   res.render('celebrities/new', {
     title:'New celebrity'
@@ -33,19 +47,15 @@ router.get('/:id', function(req, res, next) {
   })
 });
 
-router.post('/', (req, res, next) => {
-  const celebrityInfo = {
-    name: req.body.name,
-    occupation: req.body.occupation,
-    catchPhrase: req.body.phrase
-  }
+router.post('/:id/delete', function(req, res, next) {
+  const celebrityId = req.params.id
 
-  const newCelebrity = new Celebrity(celebrityInfo)
-  newCelebrity.save(err => {
-    if (err) { return next(err) }
-    return res.redirect('/celebrities')
-  })
+  Celebrity.findByIdAndRemove(celebrityId, (err, celebri) => {
+    if (err){ return next(err); }
+    return res.redirect('/celebrities');
+  });
 });
+
 
 
 module.exports = router;
