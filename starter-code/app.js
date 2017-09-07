@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const {dbURL} = require('./config/db');
 
-const productsRouter = require('./routes/products');
+const productsRouter = require('./routes/celebrities');
 
 const app = express();
 
