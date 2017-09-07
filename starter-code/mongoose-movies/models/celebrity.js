@@ -3,15 +3,15 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const CelebritySchema = new Schema({
+const CelebritySchema = new Schema ({
   name        : {
-    String,
+    type: String,
   },
   occupation  : {
-    String,
+    type: String,
   },
   catchPhrase : {
-    String,
+    type: String,
   }
 });
 
