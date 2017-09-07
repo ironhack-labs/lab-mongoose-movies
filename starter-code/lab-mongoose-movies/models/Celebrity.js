@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema   = mongoose.Schema
 
 const CelebritySchema = new Schema({
   name        : String,
@@ -7,4 +7,4 @@ const CelebritySchema = new Schema({
   catchPhrase : String
 })
 
-module.exports = mongoose.model('Celebrity', CelebritySchema);
+module.exports = mongoose.model('Celebrity', CelebritySchema)
