@@ -1,0 +1,7 @@
+<h2>Edit <%= celebrities.name %></h2>
+<form method="post" action="/celebrities/<%= celebrities._id %>/">
+        <input type="text" name="name" placeholder="<%= celebrities.name %>"> 
+        <input type="text" name="occupation" placeholder="<%= celebrities.occupation %>"> 
+        <input type="text" name="catchPhrase" placeholder="<%= celebrities.catchPhrase %>"> 
+        <button type=submit>Submit Celebrity Edit</button>
+</form>
