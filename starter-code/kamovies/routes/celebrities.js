@@ -56,6 +56,28 @@ router.post('/:id/delete', function(req, res, next) {
   });
 });
 
+router.get('/:id/edit', (req, res, next) => {
+  const celebrityId = req.params.id;
+  Celebrity.findById(celebrityId, (err, celebri) => {
+    if (err) { return next(err); }
+    res.render('celebrities/edit', { title:'Edit form', celebrity: celebri });
+  });
+});
+
+router.post('/:id/edit', (req, res, next) => {
+  const celebrityId = req.params.id;
+
+  const updates = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.phrase
+  };
+  Celebrity.findByIdAndUpdate(celebrityId, updates, (err, product) => {
+    if (err){ return next(err); }
+    return res.redirect(`/celebrities/${celebrityId}`);
+  });
+});
+
 
 
 module.exports = router;
