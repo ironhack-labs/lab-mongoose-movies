@@ -4,6 +4,7 @@
   <% celebrities.forEach((celebrity) => { %>
     <li>
       <%= celebrity.name %> - $<%= celebrity.price %>
+      <a href="/celebrities/<%= celebrity.id %>">View</a>
     </li>
   <%  }) %>
 </ul>
