@@ -6,17 +6,17 @@ mongoose.connect(dbURL);
 
 const celebrities = [
   {
-    celebrityName : 'Tom Hanks',
+    name : 'Tom Hanks',
     occupation: 'Actor',
     catchPhrase: 'Hey ho!'
   },
   {
-    celebrityName : 'Jhonny Deep',
+    name : 'Jhonny Deep',
     occupation: 'Actor',
     catchPhrase: 'Lets go for some ladies!'
   },
   {
-    celebrityName : 'Penelope Cruz',
+    name : 'Penelope Cruz',
     occupation: 'Actrice',
     catchPhrase: 'Bla bla bla'
 
