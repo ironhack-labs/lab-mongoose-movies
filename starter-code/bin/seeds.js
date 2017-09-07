@@ -6,18 +6,18 @@ mongoose.connect(dbURL);
 
 const celebrities = [
   {
-    movieName : 'Scary Movie',
-    occupation: 'Terror',
+    celebrityName : 'Tom Hanks',
+    occupation: 'Actor',
     catchPhrase: 'Hey ho!'
   },
   {
-    movieName : 'American Pie',
-    occupation: 'Comedy',
+    celebrityName : 'Jhonny Deep',
+    occupation: 'Actor',
     catchPhrase: 'Lets go for some ladies!'
   },
   {
-    movieName : 'Star Wars',
-    occupation: 'Drama',
+    celebrityName : 'Penelope Cruz',
+    occupation: 'Actrice',
     catchPhrase: 'Bla bla bla'
 
   }
@@ -27,6 +27,6 @@ Celebrity.create(celebrities,(err,docs)=>{
   if(err){
     throw err;
   }
-  docs.forEach(c=> console.log(c.movieName));
+  docs.forEach(c=> console.log(c.celebrityName));
   mongoose.connection.close();
 });
