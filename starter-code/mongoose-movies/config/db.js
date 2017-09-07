@@ -1,3 +1,3 @@
 module.exports = {
-  dbURL:'mongodb://localhost/product-example-development'
+  dbURL:'mongodb://localhost/mongoose-movies'
 };

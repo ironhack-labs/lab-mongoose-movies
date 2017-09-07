@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 const {dbURL} = require('../config/db');
 
-mongoose.connect(dbURL, {useMongoClient: true});
+mongoose.connect(dbURL, {useMongoClient: true})
+        .then(() => console.log('Conectado al a BBDD'));
 
 const celebrities = [
   {
