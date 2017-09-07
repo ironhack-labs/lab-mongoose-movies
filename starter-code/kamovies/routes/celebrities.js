@@ -1,10 +1,17 @@
 var express = require('express');
-const Celebrity = require('../models/Celebrity')
+const Celebrities = require('../models/Celebrity')
 var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  Celebrities.find({}, (err, celebrities) => {
+    if (err) { return next(err) }
+    
+    res.render('celebrities/index', {
+      title:'Celebrities List',
+      celebrities: celebrities
+    })
+  })
 });
 
 module.exports = router;
