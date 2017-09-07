@@ -1,0 +1,12 @@
+<h2>Celebrities</h2>
+<% celebrities.forEach((celeb) => { %>
+    <div class="items-box-vertical">
+    <h4><a href="/celebrities/<%=celeb._id %>"><%= celeb.name %></a></h4><br>
+            <form action="/celebrities/<%=celeb._id %>/delete" method="post">
+                <button type="submit">Delete Me</button>
+                <button><a href="/celebrities/<%=celeb._id %>/edit">Edit Me</a></button><br>
+            </form>
+    </div>  
+
+<% }) %>
+<button><a href="/celebrities/new">Create new celebrity</a></button>
