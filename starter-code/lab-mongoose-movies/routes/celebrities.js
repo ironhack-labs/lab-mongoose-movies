@@ -31,6 +31,15 @@ router.get('/celebrities/new', (req, res, next) => {
   res.render('celebrities/new', {title: 'Add Celebrity'})
 })
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  const celebrityId = req.params.id
+
+  Celebrity.findByIdAndRemove(celebrityId, (err, celebrity) => {
+    if (err){ return next(err) }
+    return res.redirect('/celebrities')
+  })
+})
+
 router.get('/celebrities/:id', (req, res, next) => {
   const celebrityId = req.params.id
 
