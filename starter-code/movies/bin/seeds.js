@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/movies');
+mongoose.connect('mongodb://localhost/movies',  {useMongoClient: true});
 
 const Celebrity = require('../models/celebrity');
 

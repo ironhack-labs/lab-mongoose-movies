@@ -2,10 +2,11 @@
 
 <div class="celeb-list">
   <ul>
-    <% res.forEach((item) => { %>
+    <% celebrities.forEach((item) => { %>
     <li class="celebrity">
       <p class="name"><%= item.name %></p>
-  
+      <a class="view-more" href="celebrities/show/<%= item._id %>">View More</a>
+
     </li>
     <% }) %>
   </ul>
