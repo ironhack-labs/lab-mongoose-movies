@@ -2,13 +2,13 @@
 
 <form action="/celebrities" method="POST">
   <label for="name">Name</label>
-  <input type="text" id="name" name="name">
+  <input type="text" id="name" name="<%= name %>">
 
   <label for="occupation">Occupation</label>
-  <input type="text" name="occupation" id="occupation">
+  <input type="text" name="occupation" id="<%= occupation %>">
 
   <label for="catch-phrase">Catch Phrase</label>
-  <input type="text" name="catch-phrase" id="catch-phrase">
+  <input type="text" name="catch-phrase" id="<%= catchPhrase %>">
 
   <button type="submit">Add Celebrity</button>
 </form>

@@ -1,0 +1,30 @@
+{
+  "name": "lab-mongoose-movies",
+  "version": "1.0.0",
+  "description": "![](https://i.imgur.com/1QgrNNw.png)",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luquifb/lab-mongoose-movies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luquifb/lab-mongoose-movies/issues"
+  },
+  "homepage": "https://github.com/luquifb/lab-mongoose-movies#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-ejs-layouts": "^2.3.1",
+    "express-generator": "^4.15.0",
+    "mongoose": "^4.11.10",
+    "morgan": "^1.8.2",
+    "serve-favicon": "^2.4.3"
+  }
+}
