@@ -15,11 +15,14 @@ var app = express();
 mongoose.connect('mongodb://localhost/mongoose-movies', {useMongoClient: true})
         .then(() => console.log('Conectado al a BBDD'));
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('layout','layout');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(expressLayouts);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

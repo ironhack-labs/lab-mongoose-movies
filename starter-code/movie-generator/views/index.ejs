@@ -1,7 +1,10 @@
 <h2>HERE THE CELEBRITIES LIST</h2>
 
-<ul>
+
   <% celebrities.forEach((c)=>{ %>
-    <li><%=c.name%></li>
-<%  })%>
-</ul>
+    <div>
+    <h3><%= c.name %></h3>
+    <p><%= c.occupation%></p>
+    <p><i><%= c.catchPhrase%></i></p>
+  </div>
+  <%})%>

@@ -12,7 +12,8 @@ router.get('/celebrities',(req,res,next) =>{
     if(err){
       next(err);
     }
-    res.render('index',{celebrities: celebrities, title: "My celebrities"});
+    res.render('index',{celebrities: celebrities,
+      title: "My celebrities"});
   });
 
 });
