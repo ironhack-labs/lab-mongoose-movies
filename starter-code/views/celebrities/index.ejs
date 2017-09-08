@@ -1,0 +1,17 @@
+<h2>List of Celebrities</h2>
+<ul>
+  <% celebrities.forEach((celebrities) => { %>
+    <li>
+      <%= celebrities.name  %> - <%= celebrities.occupation %> - <%= celebrities.catchPhrase %>
+    </li>
+    <% }) %>
+</ul>
+
+<a href="/celebrities">Meet the celebrities</a>
+
+<form action="/celebrities/:id/delete" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="<%= name %>">
+
+  <button type="submit">Delete Celebrity</button>
+</form>
