@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const Celebrity = require('../models/celebrity');
 
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Celebrity.find({}, (err, products) => {
     if (err) { return next(err); }
 
