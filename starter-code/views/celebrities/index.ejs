@@ -1,0 +1,16 @@
+<h2><%= title %></h2>
+<ul>
+  <%= celebs.forEach((c)=>{%>
+    <li>
+      <%= c.name%>
+    </li>
+    <a href="/:id">
+      <%= c._id%>
+    </a>
+    <form action="/delete" method="post">
+      <a href="/<%=c._id%>/delete/">Delete</a>
+      <button type="submit">Submit</button>
+    </form>
+      })
+</ul>
+<a href="/new">Add new product</a>
