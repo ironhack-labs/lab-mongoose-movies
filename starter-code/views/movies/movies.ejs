@@ -1,0 +1,12 @@
+<h1>Movies List</h1>
+<% movies.forEach(function(element){%>
+  <p>
+    <%= element.title %> |
+      <a href="movies/<%= element._id %>">Edit</a> |
+      <a href="movies/delete/<%= element._id %>">Delete</a>
+  </p>
+  <%})%>
+
+    <br>
+    <a href="movies/new">New movies</a>|
+    <a href="/">Mongoose Movies</a>
