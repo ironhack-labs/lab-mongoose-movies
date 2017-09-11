@@ -2,10 +2,19 @@
 
 <div class="celeb-list">
   <ul>
-    <% celebrities.forEach((item) => { %>
+    <% celebrities.forEach((celeb) => { %>
     <li class="celebrity">
-      <p class="name"><%= item.name %></p>
-      <a class="view-more" href="celebrities/show/<%= item._id %>">View More</a>
+      <p class="name"><%= celeb.name %></p>
+      <a class="view-more" href="/celebrities/show/<%= celeb._id %>">View More</a>
+      <a class="view-more" href="/celebrities/edit/<%= celeb._id %>">Edit Celeb</a>
+
+
+
+      <form action="/celebrities/<%= celeb._id %>/delete" method="POST">
+         <button type="submit">DELETE</button>
+      </form>
+
+
 
     </li>
     <% }) %>
