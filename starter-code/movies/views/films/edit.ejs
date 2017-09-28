@@ -1,0 +1,9 @@
+<h2>Celebrities List</h2>
+
+<form action="/films/<%=mov._id%>" method="post" accept-charset="utf-8">
+	<%=mov.name%><br>
+	<input type="text" name="name" value="<%=mov.name%>" placeholder="Enter the name"><br>
+	<input type="text" name="genre" value="<%=mov.genre%>" placeholder="Enter the genre"><br>
+	<input type="text" name="plot" value="<%=mov.plot%>" placeholder="Enter the plot"><br>
+	<button type="submit">Submit</button>
+</form>

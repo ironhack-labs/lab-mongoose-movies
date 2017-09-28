@@ -1,0 +1,9 @@
+<h2>Celebrities List</h2>
+
+<form action="/celebs/<%=celeb._id%>" method="post" accept-charset="utf-8">
+	<%=celeb.name%><br>
+	<input type="text" name="name" value="<%=celeb.name%>" placeholder="Enter the name"><br>
+	<input type="text" name="occupation" value="<%=celeb.occupation%>" placeholder="Enter the occupation"><br>
+	<input type="text" name="catchPhrase" value="<%=celeb.catchPhrase%>" placeholder="Enter the catchphrase"><br>
+	<button type="submit">Submit</button>
+</form>

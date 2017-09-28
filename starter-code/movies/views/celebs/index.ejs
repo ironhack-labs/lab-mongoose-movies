@@ -1,0 +1,19 @@
+<h2>Celebrities List</h2>
+
+<ul>
+	<% celebs.forEach(el => {%>
+<li>
+	<a href="/celebs/<%= el._id%>/show"> <%= el.name%></a> 
+	<form action="/celebs/<%= el._id%>/delete" method="post" accept-charset="utf-8">		
+	<button type="submit">REMOVE</button><br>
+	</form>
+	<form action="/celebs/<%= el._id%>/edit" method="get" accept-charset="utf-8">		
+	<button type="submit">EDIT</button><br>
+	</form>
+	Occupation: <%=el.occupation%><br>
+	"<%= el.catchPhrase%>"<br>
+	<%= el._id%>
+</li>
+<%})%>
+</ul>
+<a href="/celebs/new"><button>Add New Celeb</button></a>
