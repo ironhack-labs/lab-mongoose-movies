@@ -1,0 +1,13 @@
+<link rel='stylesheet' href='/stylesheets/style.css' />
+
+<h2>List of Celebs!</h2>
+
+<ul>
+  <% celebrities.forEach((celeb) => { %>
+    <li>
+      <a href="/celebrities/<%= celeb.id %>">Name: <%= celeb.name %></a>
+    </li>
+
+<% }) %>
+
+</ul>
