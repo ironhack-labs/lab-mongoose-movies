@@ -1,0 +1,15 @@
+<h2>Let's edit a celeb</h2>
+
+<form class="" action="/celebrities/<%= celebrity.id %>" method="post">
+  <label for="name">Celebrity name</label>
+  <input type="text" name="name" id="name" value="<%= celebrity.name %>">
+
+  <label for="occupation">Celebrity occupation</label>
+  <input type="text" name="occupation" id="occupation" value="<%= celebrity.occupation %>">
+
+  <label for="catchphrase">Celebrity catchphrase</label>
+  <input type="text" name="catchphrase" id="catchphrase" value="<%= celebrity.catchphrase %>">
+
+  <button type="submit" name="button">Edit the celeb</button>
+
+</form>
