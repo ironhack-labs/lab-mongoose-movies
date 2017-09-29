@@ -25,9 +25,8 @@ router.post('/', (req,res,next) => {
 	});
 	celebrity.save((err, celebrity) => {
 		if (err) { res.render('celebrities/new'); }
-		//Iteration #4: ////there is a bug because of the ID key
-		//If there is no error, redirect to the page with the list of celebrities
-    	res.redirect('celebrities/index');
+		
+    	res.redirect('celebrities');
 	});
 	
   });
@@ -71,9 +70,8 @@ router.post('/:id', (req,res,next) => {
 	
 	Celebrity.findByIdAndUpdate(id, celebrity, (err, celebrity) => {
 		if (err) { return next(err); }
-		//Iteration #4: ////there is a bug because of the ID key
-		//If there is no error, redirect to the page with the list of celebrities
-    	return res.redirect('/celebrities/index');
+		
+    	return res.redirect('/celebrities');
 	});
   });
 
@@ -84,9 +82,8 @@ router.post('/:id/delete', (req,res,next) => {
 	
 	Celebrity.findByIdAndRemove(id, (err, celebrity) => {
 		if (err) { return next(err); }
-		//Iteration #4: ////there is a bug because of the ID key
-		//If there is no error, redirect to the page with the list of celebrities
-    	return res.redirect('/celebrities/index');
+		
+    	return res.redirect('/celebrities');
 	});
   });
 
