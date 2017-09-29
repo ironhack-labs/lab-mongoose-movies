@@ -1,0 +1,18 @@
+<h1>Movie Details Page</h1>
+<h2>
+  <%= movie.title %> Page
+</h2>
+<ul>
+  <li>
+    Title: <%= movie.title %>
+  </li>
+  <li>
+    Genre: <%= movie.genre %>
+  </li>
+  <li>
+    Plot: <%= movie.plot %>
+  </li>
+</ul>
+
+<a href="/movies">Back</a>
+<a href="/movies/<%=movie.id%>/edit">Edit movie!</a>
