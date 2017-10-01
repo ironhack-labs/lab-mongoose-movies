@@ -16,4 +16,14 @@ router.get('/', (req, res, next) => {
 
 });
 
+router.get('/:id', (req, res, next) => {
+  Celebrity.find({}, (err, celebrities) =>{
+    if(err) {return next(err)}
+
+    res.render('celebrities/index',{
+      celebrities: celebrities
+    });
+  });
+});
+
 module.exports = router;
