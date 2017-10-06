@@ -1,0 +1,82 @@
+<!-- <form action="/celebrities" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name">
+
+  <label for="occupation">Occupation</label>
+  <input type="text" name="occupation" id="occupation">
+
+  <label for="catchPhrase">catchPhrase</label>
+  <input type="text" name="catchPhrase" id="catchPhrase">
+
+  <label for="image-url">Image URL</label>
+  <input type="text" name="imageUrl" id="image-url">
+
+  <button type="submit">Create Celeb!</button>
+</form> -->
+
+
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+<h2>Add a Movie here!</h2>
+
+<div class="container makeCeleb">
+  <div class="row">
+
+
+
+<form  action="/movies" method="POST">
+<div class="form-group row">
+
+  <label class="col-sm-2 col-form-label" for="title"> Enter Movie Title </label>
+  <div class="col-sm-10">
+  <input type="text" id="title" name="title">
+  </div>
+
+</div>
+
+<div class="form-group row">
+
+  <label class="col-sm-2 col-form-label" for="plot"> Enter Movie Plot </label>
+
+  <div class="col-sm-10">
+  <input type="text" name="plot" id="plot">
+  </div>
+
+</div>
+
+<div class="form-group row">
+
+  <label class="col-sm-2 col-form-label" for="genre"> Enter Movie Genre </label>
+
+  <div class="col-sm-10">
+  <input type="text" name="genre" id="genre">
+  </div>
+
+</div>
+
+
+  <button class="btn btn-success"type="submit">Create the Movie</button>
+
+    </form>
+  </div>
+  <div class="col-xs-3">
+  <% if (typeof(errors) !== "undefined"){ %>
+    <% for (let error in errors){ %>
+    <div class="error-message">
+      <li><%= errors[error].message %></li>
+      </div>
+    <% } %>
+  <% } %>
+  </div>
+
+</div>
+<!-- <% if (typeof(errorMessage) != "undefined") { %>
+    <div class="error-message"><%= errorMessage %></div>
+  <% } %> -->
+
+</body>

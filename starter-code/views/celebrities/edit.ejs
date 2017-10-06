@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<h2>Edit the Celebrity</h2>
+
+<form action="/celebrities/<%= celebrity._id %>" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="<%= celebrity.name %>">
+
+  <label for="occupation">Occupation</label>
+  <input type="text" name="occupation" id="occupation" value="<%= celebrity.occupation %>">
+
+  <label for="catchPhrase">Catch Phrase</label>
+  <input type="text" name="catchPhrase" id="catchPhrase" value="<%= celebrity.catchPhrase %>">
+
+    <button class="btn btn-success" type="submit">Update Celeb</button>
+</form>

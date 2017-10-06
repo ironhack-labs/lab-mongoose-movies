@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+  <!-- <a class="btn btn-primary" href="../celebrities/new" role="button">New Celeb</a> -->
+  <!-- <br>
+  <div class="container">
+  <div class="row">
+    <div class="xs-6-sm">
+  <a class="btn btn-info" href="/movies/new" role="button">New Movie</a>
+  </div>
+  </div>
+</div> -->
+
+<body>
+
+<h1><%= movie.title %></h1>
+
+<h2><%= movie.plot %></h2>
+
+<h3><%= movie.genre %></h3>
+
+<a class="btn btn-info" href="/movies/<%= movie._id %>/edit" role="button">Edit the Movie</a>
+<form  action="/movies/<%= movie._id %>/delete" method="post">
+  <button type="submit" name="delete" class="btn btn-danger">Delete <%= movie.title %></button>
+</form>
+
+</body>
