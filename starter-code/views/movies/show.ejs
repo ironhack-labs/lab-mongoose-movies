@@ -4,28 +4,26 @@
 
 </head>
   <!-- <a class="btn btn-primary" href="../celebrities/new" role="button">New Celeb</a> -->
-  <br>
+  <!-- <br>
   <div class="container">
   <div class="row">
     <div class="xs-6-sm">
   <a class="btn btn-info" href="/movies/new" role="button">New Movie</a>
   </div>
   </div>
-</div>
+</div> -->
 
-<ul>
-  <% movie.forEach((movie) => { %>
+<body>
 
-    <div class="row">
-      <div class = "xs-4-sm">
-      <h2><%= movie.title %></h2>
-      <a class="btn btn-info" href="/movies/<%= movie._id %>" role="button">View Details</a>
-      <form  action="/movies/<%= movie._id %>/delete" method="post">
-        <button type="submit" name="delete" class="btn btn-danger">Delete <%= movie.title %></button>
-      </form>
-      <br>
-      </div>
-  </div>
+<h1><%= movie.title %></h1>
 
-  <%  }) %>
-</ul>
+<h2><%= movie.plot %></h2>
+
+<h3><%= movie.genre %></h3>
+
+<a class="btn btn-info" href="/movies/<%= movie._id %>/edit" role="button">Edit the Movie</a>
+<form  action="/movies/<%= movie._id %>/delete" method="post">
+  <button type="submit" name="delete" class="btn btn-danger">Delete <%= movie.title %></button>
+</form>
+
+</body>
