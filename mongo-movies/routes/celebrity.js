@@ -18,8 +18,8 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/:id", function(req, res, next) {
-  const id = req.query.id;
-  Celebrity.findById(id, function(err, result) {
+  const id = req.params.id;
+  Celebrity.findById(id, (err, result) => {
     if (err) {
       console.log("ERRRRROORR", err);
       next(err);
@@ -28,6 +28,7 @@ router.get("/:id", function(req, res, next) {
         celebrities: result
       };
       res.render("celebrity/show", data);
+      console.log(data);
     }
   });
 });
