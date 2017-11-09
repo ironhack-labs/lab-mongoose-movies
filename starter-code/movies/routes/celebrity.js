@@ -13,9 +13,14 @@ router.get('/celebrity', (req, res, next) => {
 
     res.render('celebrity/index', {
       //foo es el nombre de la colección
-      foo: celebrityPerson,
+      celebrityList: celebrityPerson,
     });
   });
+});
+
+router.get('/', (req, res, next) => {
+  res.render('/celebrity')
+
 });
 
 
