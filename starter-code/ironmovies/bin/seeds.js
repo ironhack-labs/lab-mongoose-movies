@@ -29,6 +29,8 @@ const movieData = [
   { title: 'Spiderman', genre: 'Superhero', plot: "Weird half human half spider" }
 ];
 
+Movie.collection.drop();
+
 Movie.create(movieData, (err, docs) => {
   if (err) {
     throw err;
