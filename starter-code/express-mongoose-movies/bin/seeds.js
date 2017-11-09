@@ -31,7 +31,7 @@ Celebrity.create(celebrityData, (err, docs) => {
   }
 
   docs.forEach((celebrity) => {
-    console.log(celebrity.name)
+    console.log(celebrity.name);
   });
   mongoose.connection.close();
 });

@@ -1,0 +1,16 @@
+<h2><%= title %></h2>
+<div class="grid">
+<% celebrities.forEach((celebrity) => { %>
+<div class="celebrity">
+  <h3 class="name"><%= celebrity.name %></h3>
+  <p class="occupation"><%= celebrity.occupation %></p>
+  <div class="image">
+    <img src="<%= celebrity.imgUrl %>" alt="<%= celebrity.name %>">
+    </div>
+  <p class="quote">
+    <blockquote>
+    <%= celebrity.catchPhrase %>
+    </blockquote>
+  </p>
+</div>
+<%})-%>
