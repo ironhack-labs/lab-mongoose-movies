@@ -40,13 +40,13 @@ router.get('/movies/:id', (req, res, next) => {
   });
 });
 
-router.post('/celebrities/:id/delete', (req, res, next) => {
+router.post('/movies/:id/delete', (req, res, next) => {
   let id = req.params.id;
 
-  Celebrity.findByIdAndRemove(id, (err, celebrity) => {
+  Movie.findByIdAndRemove(id, (err, movie) => {
     if (err){ return next(err); }
 
-    return res.redirect('/celebrities');
+    return res.redirect('/movies');
   });
 });
 
