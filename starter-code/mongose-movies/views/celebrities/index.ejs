@@ -1,6 +1,6 @@
 <h2> Celebrities list</h2>
 <ul>
   <% data.forEach((e)=>{%>
-    <li> Name : <%=e.name%> </li>
+    <li> Name : <%=e.name%> <a href="/celebrities/<%=e._id%>">Details</a> </li>
     <%});%>
 </ul>
