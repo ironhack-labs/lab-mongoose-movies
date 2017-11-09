@@ -8,7 +8,7 @@
     <h2>Celebrities</h2>
     <ul>
       <% celebrities.forEach((celebrity) => { %>
-        <li><%= celebrity.name%> - <%= celebrity.occupation%> - <%=celebrity.catchPhrase%></li>
+        <li><a href="celebrities/<%=celebrity._id%>"><%= celebrity.name%></a></li>
       <% })%>
     </ul>
   </body>

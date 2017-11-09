@@ -13,9 +13,17 @@ router.get('/', (req, res, next) => {
   });
 });
 
-// router.get('/new', (req, res, next) => {
-//   res.render('products/new');
-// });
+router.get('/:id', (req, res, next) => {
+  Celebrity.findById(req.params.id, (err, celebrity) => {
+    if (err) { return next(err); }
+
+    res.render('celebrities/show', {
+      celebrity: celebrity
+    });
+  });
+});
+
+
 //
 // router.post('/', (req, res, next) => {
 //   const productInfo = {
