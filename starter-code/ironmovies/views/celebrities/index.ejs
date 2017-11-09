@@ -3,5 +3,6 @@
 <ul>
   <%celebrities.forEach((c) => {%>
     <li><%= c.name %></li>
+      <a href="/celebrities/<%= c._id %>">DETAILS</a>
   <% }) %>
 </ul>
