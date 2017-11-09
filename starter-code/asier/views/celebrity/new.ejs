@@ -1,0 +1,21 @@
+
+<h2>Add celebrity</h2>
+
+    <% if(celebrity.isNew) { %>
+      <form action="/celebrity" method="POST">
+    <% } else { %>
+      <form action="/celebrity/<%= celebrity._id %>" method="POST">
+    <% }%>
+
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name">
+
+      <label for="occupation">occupation</label>
+      <input type="text" name="occupation" id="occupation">
+
+      <label for="catchPhrase">catchPhrase</label>
+      <input type="text" name="catchPhrase" id="catchPhrase">
+
+      <button type="submit">Create</button>
+    </form>
