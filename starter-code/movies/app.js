@@ -10,6 +10,8 @@ mongoose.connect('mongodb://localhost/celebrity-movie', {useMongoClient: true});
 
 var index = require('./routes/index');
 const celebrityRoutes = require('./routes/celebrities');
+const movieRoutes = require('./routes/movies');
+
 // var users = require('./routes/users');
 
 var app = express();
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/celebrities',celebrityRoutes);
+app.use('/movies',movieRoutes);
+
 // app.use('/users', users);
 
 // catch 404 and forward to error handler
