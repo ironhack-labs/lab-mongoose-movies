@@ -6,11 +6,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var celebritiesRoutes = require('./routes/celebrities')
+var app = express();
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/famous-people');
 
-var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/celebrities', celebritiesRoutes);
 
 
 // catch 404 and forward to error handler
