@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/tachyons.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>
+        Index
+    </title>
+</head>
+
+<body>
+
+    <h1>All Celebrities</h1>
+  <% celebrities.forEach((celebrity) => { %>
+
+      <div>
+        <h1><%=celebrity.name%></h1>
+        <h2><%=celebrity.ocupattion%></h2>
+        <h3><%=celebrity.catchPhrase%></h3>
+      </div>
+      <div>
+        <div>
+          <a href="/celebrities/info/<%=celebrity._id%>">Information</a>
+        </div>
+        <div>
+          <a href="/celebrities/edit/<%=celebrity._id%>">Edit</a>
+        </div>
+        <div>
+          <a href="/celebrities/delete/<%=celebrity._id%>">Delete</a>
+        </div>
+      </div>
+  <%  }) %>
+</body>
+
+</html>
