@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 
-const celebrities = require('./routes/celebrities');
+var celebrities = require('./routes/celebrities');
 var index = require('./routes/index');
 
 mongoose.connect('mongodb://localhost/ironmovies');
