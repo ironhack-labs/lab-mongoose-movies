@@ -17,7 +17,7 @@ router.get('/celebrities/new', (req, res, next)=> {
       res.render('celebrities/new');
 });
 
-
+// Add new item
 router.post('/celebrities', (req, res, next)=> {
   const data ={
     name:req.body.name,
@@ -33,6 +33,17 @@ router.post('/celebrities', (req, res, next)=> {
   });
 });
 
+// Delete item
+router.post('/celebrities/:id/delete', (req, res, next)=> {
+  const productId=req.params.id;
+  Celebrity.findByIdAndRemove(productId,(err,data)=>{
+    if(err){
+      return next(err);
+    }
+    console.log("/celebrities GET"+ data);
+    return res.redirect('/celebrities');
+  });
+});
 
 // This in last possition
 router.get('/celebrities/:id', (req, res, next)=> {
