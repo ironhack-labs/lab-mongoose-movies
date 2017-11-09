@@ -1,18 +1,24 @@
-<h2>Celebrities</h2>
+<head>
+  <title>Celebrities-Movies</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1>Celebrities</h1>
 
 <ul>
   <% celebs.forEach((celeb) => { %>
     <li>
-      <%= celeb.name %>
-      <a href="/celebrities/<%= celeb._id %>">Details</a>
-      |
-      <a href="/celebrities/<%= celeb._id %>/edit">Edit</a>
-      |
-      <form action="/celebrities/<%= celeb._id %>/delete" method="POST">
-        <button type="submit">Delete</button>
-      </form>
+      <h2><%= celeb.name %></h2>
+      <div class="links2">
+        <a href="/celebrities/<%= celeb._id %>"><button type="button" name="button">Details</button></a>
+        <a href="/celebrities/<%= celeb._id %>/edit"><button type="button" name="button">Edit</button></a>
+        <form action="/celebrities/<%= celeb._id %>/delete" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
     </li>
   <% })%>
 </ul>
 
-<a href="/celebrities/new">New Celebrity!</a>
+<a href="/celebrities/new"><button class="newone" type="button" name="button">New Celebrity!</button></a>
+</body>

@@ -1,5 +1,12 @@
-<h1><%= celeb.name %></h1>
-<h3>Occupation: <span><%= celeb.occupation %></span></h3>
-<p><%= celeb.catchPhrase %></p>
-
-<a href="/celebrities">Back to list</a>
+<head>
+  <title>Celebrities-Movies</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <div class="mainbody">
+    <h1><%= celeb.name %></h1>
+    <h3>Occupation: <span><%= celeb.occupation %></span></h3>
+    <p><%= celeb.catchPhrase %></p>
+  </div>
+  <a href="/celebrities"><button type="button" name="button">Back to list</button></a>
+</body>

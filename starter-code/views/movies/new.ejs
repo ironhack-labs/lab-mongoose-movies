@@ -1,13 +1,21 @@
-<form action="/movies" method="POST">
-
-  <label for="title">Title</label>
-  <input type="text" id="title" name="title" value="<%= movie.title %>">
-
-  <label for="genre">Genre</label>
-  <input type="text" name="genre" id="genre" value="<%= movie.genre %>">
-
-  <label for="plot">Plot</label>
-  <input type="text" name="plot" id="plot" value="<%= movie.plot %>">
-
-  <button type="submit">Save</button>
-</form>
+<head>
+  <title>Celebrities-Movies</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <form action="/movies" method="POST">
+    <div class="display">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= movie.title %>">
+    </div>
+    <div class="display">
+      <label for="genre">Genre</label>
+      <input type="text" name="genre" id="genre" value="<%= movie.genre %>">
+    </div>
+    <div class="display">
+      <label for="plot">Plot</label>
+      <input type="text" name="plot" id="plot" value="<%= movie.plot %>">
+    </div>
+    <button type="submit">Save</button>
+  </form>
+</body>
