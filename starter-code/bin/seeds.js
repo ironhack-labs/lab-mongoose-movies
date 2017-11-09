@@ -6,20 +6,17 @@ const celebrities = [
   {
     name: 'Ewan Mcgregor',
     occupation: 'Actor',
-    catchPhrase: 'May the force be with you',
-
+    catchPhrase: 'May the force be with you'
   },
   {
     name: 'Chesire',
     occupation: 'Cat',
-    catchPhrase: 'We are all mad here',
-
+    catchPhrase: 'We are all mad here'
   },
   {
     name: 'Elon Musk',
     occupation: 'Entrepreneur',
-    catchPhrase: 'I would like to die on Mars, just not on impact',
-
+    catchPhrase: 'I would like to die on Mars, just not on impact'
   },
 ];
 

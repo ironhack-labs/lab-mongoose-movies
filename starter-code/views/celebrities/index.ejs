@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Celebrities </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Celebrities</h2>
+    <ul>
+      <% celebrities.forEach((celebrity) => { %>
+        <li><%= celebrity.name%> - <%= celebrity.occupation%> - <%=celebrity.catchPhrase%></li>
+      <% })%>
+    </ul>
+  </body>
+</html>
