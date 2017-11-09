@@ -1,0 +1,13 @@
+<h2>Movies Detail of <%=data.title%> </h2>
+
+<form action="/movies/<%=data._id%>" method="POST">
+  <label for="name">title</label>
+  <input type="text" id="title" name="title" value="<%=data.title%>" required="required">
+
+  <label for="genre">genre</label>
+  <input type="text" name="genre" id="genre" value="<%=data.genre%>" required="required">
+
+  <label for="plot">plot</label>
+  <input type="text" name="plot" id="plot" value="<%=data.plot%>" required="required">
+ <button type="submit">Apply changes</button>
+</form>
