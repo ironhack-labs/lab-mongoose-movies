@@ -12,23 +12,23 @@ router.get('/movies', (req, res, next) => {
   });
 });
 
-router.get('/celebrities/new', (req, res, next) => {
-  res.render('celebrities/new');
+router.get('/movies/new', (req, res, next) => {
+  res.render('movies/new');
 });
 
-router.post('/celebrities', (req, res, next) => {
-  let celebrityInfo = {
-    name: req.body._name,
-    occupation: req.body._occupation,
-    catchPhrase: req.body._catchPhrase};
+router.post('/movies', (req, res, next) => {
+  let movieInfo = {
+    title: req.body._title,
+    genre: req.body._genre,
+    plot: req.body._plot};
 
-  const newCelebrity = new Celebrity(celebrityInfo);
+  const newMovie = new Movie(movieInfo);
 
-  newCelebrity.save( (err) => {
+  newMovie.save( (err) => {
     if (err) {
-      return res.render('celebrities/new', {celebrity: newCelebrity});
+      return res.render('movies/new', {movie: newMovie});
     }
-    return res.redirect('/celebrities');
+    return res.redirect('/movies');
   });
 });
 
