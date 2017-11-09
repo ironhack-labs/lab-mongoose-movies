@@ -16,9 +16,9 @@ router.get('/new', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   let celebrityId = req.params.id;
+
   Celebrity.findById(celebrityId, (err, celebrity) => {
     if (err) { return next(err); }
-    console.log(celebrity);
     res.render('celebrities/show', celebrity);
   });
 });
@@ -42,6 +42,29 @@ router.post('/:id/delete', (req, res, next) => {
   let celebrityId = req.params.id;
 
   Celebrity.findByIdAndRemove(celebrityId, (err, celebrity) => {
+    if (err) { return next(err); }
+    return res.redirect('/celebrities');
+  });
+});
+
+router.get('/:id/edit', (req, res, next) => {
+  let celebrityId = req.params.id;
+
+  Celebrity.findById(celebrityId, (err, celebrity) => {
+    if (err) { return next(err); }
+    res.render('celebrities/edit', {celebrity});
+  });
+});
+
+router.post('/:id', (req, res, next) => {
+  let celebrityId = req.params.id;
+  let celebrityInfo = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  }
+
+  Celebrity.findByIdAndUpdate(celebrityId ,celebrityInfo, (err, celebrity) => {
     if (err) { return next(err); }
     return res.redirect('/celebrities');
   });
