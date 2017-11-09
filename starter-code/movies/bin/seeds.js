@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/movies', {useMongoClient: true});
 
-const Celebrity = require('../models/celebrity');
+const Celebrity = require('../model/celebrity');
 
 // bin/seeds.js
 
