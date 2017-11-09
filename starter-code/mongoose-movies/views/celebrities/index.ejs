@@ -2,10 +2,8 @@
 <h2>Celebrities</h2>
 <% celebrities.forEach((person) => { %>
 <ul>
-    <li><%= person.name %></li>
+    <li><%= person.name %> <a href="/celebrities/<%= person._id %>">View</a></li>
 </ul>
 <% }) %>
 
-
-
-<!-- <button type="button" name="button"><a href="">View Artist</a></button> -->
+<a href="/">Back to Home</a>
