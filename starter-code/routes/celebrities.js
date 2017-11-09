@@ -3,18 +3,15 @@ const Celebrities = require('../models/celebrity');
 
 const router  = express.Router();
 
-// router.get('/', (req, res, next) => {
-//   const Celebrity = {
-//     price: { $lte: req.query.price || 1000 }
-//   };
+  router.get('/', (req, res, next) => {
 
-  Celebrities.find(Celebrities, (err, Celebrities) => {
-    if (err) { return next(err); }
-    console.log(Celebrities);
-    res.render('index', {
-      Celebrities: Celebrities
+    Celebrities.find((err, celebrities) => {
+      if (err) { return next(err); }
+
+      res.render('celebrities/index', {
+        celebrities: celebrities
+      });
     });
   });
-//});
 
 module.exports = router;
