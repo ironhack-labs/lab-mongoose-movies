@@ -10,6 +10,7 @@ mongoose.connect('mongodb://localhost/mongoose-movies', {useMongoClient: true});
 
 var index = require('./routes/index');
 var celebritiesRoutes = require('./routes/celebrities');
+var moviesRoutes = require('./routes/movies');
 
 var app = express();
 
@@ -27,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/celebrities', celebritiesRoutes);
-
+app.use('/movies', moviesRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
