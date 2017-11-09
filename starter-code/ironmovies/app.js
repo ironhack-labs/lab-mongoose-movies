@@ -7,11 +7,12 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var celebritiesRoutes = require('./routes/celebrities')
+var movieRoutes = require('./routes/movies')
 var app = express();
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/famous-people');
-
+// mongoose.connect('mongodb://localhost/famous-people');
+mongoose.connect('mongodb://localhost/movies');
 
 
 // view engine setup
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/celebrities', celebritiesRoutes);
+app.use('/movies', movieRoutes);
 
 
 // catch 404 and forward to error handler
