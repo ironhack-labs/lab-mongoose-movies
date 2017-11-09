@@ -4,6 +4,11 @@
     <li class="list-group-item">
       <%= `Name: ${celebrity.name}, Ocupation: ${celebrity.occupation}, Catch Phrase:${celebrity.catchPhrase}` %>
     </li>
+    <a href="/celebrities/<%= celebrity._id %>">Details</a>
+    <a href="/celebrities/<%= celebrity._id %>/edit">Edit</a>
+    <form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
+      <button type="submit">Delete</button>
+    </form>
   <%  }) %>
 </ul>
-// <a href="/celebrities/new">Create new celebrity</a>
+<a href="/celebrities/new">Create new celebrity</a>

@@ -12,6 +12,16 @@ router.get('/celebrities', (req, res, next) => {
   });
 });
 
+// router.get('/celebrities:id', (req, res, next) => {
+//   let id = req.params.id;
+//
+//   Celebrity.findById(id, (err, celebrity) => {
+//     res.render('celebrities/show', {
+//       celebrity: celebrity
+//     });
+//   });
+// });
+
 router.get('/celebrities/new', (req, res, next) => {
   res.render('celebrities/new', {celebrity: new Celebrity()});
 });
@@ -35,14 +45,14 @@ router.post('/celebrities', (req, res, next) => {
   });
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  console.log('ok');
+  let id = req.params.id;
+  Celebrity.findByIdAndRemove(id, (err, celebrity) => {
+    if (err){ return next(err); }
 
-// router.get('celebrities/:id', (req, res, next) => {
-//   let celebrityId = req.params.id;
-//   Celebrity.findById(celebrityId, (err, celebrity) => {
-//     if (err) { return next(err); }
-//     console.log(celebrity);
-//     res.render('celebrities/show', celebrity);
-//   });
-// });
+    return res.redirect('/celebrities');
+  });
+});
 
 module.exports = router;
