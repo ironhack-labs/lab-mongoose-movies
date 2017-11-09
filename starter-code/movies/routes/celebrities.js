@@ -1,9 +1,11 @@
 const express = require('express');
-const Product = require('../models/celebrity');
+const Celebrity = require('../models/celebrity');
 const router  = express.Router();
 
-router.get('/celebrities', (req,res) => {
-  console.log(req);
+router.get('/', (req ,res, next) => {
+  Celebrity.find({}, (err, celebrities) =>{
+    return  err ? next(err) : res.render('celebrities/index', { celebrities: celebrities });
+  })
 });
 
 module.exports = router;
