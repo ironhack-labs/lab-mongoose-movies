@@ -38,4 +38,13 @@ router.post('/', (req, res, next) => {
   });
 });
 
+router.post('/:id/delete', (req, res, next) => {
+  let movieId = req.params.id;
+
+  Movie.findByIdAndRemove(movieId, (err, movie) => {
+    if (err) { return next(err); }
+    return res.redirect('/movies');
+  });
+});
+
 module.exports = router;
