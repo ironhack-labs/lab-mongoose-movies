@@ -6,17 +6,17 @@ const celebrity = [
   {
     name: 'Angel',
     occupation: 'Mucha',
-    catchPhrase: 'Cosas',
+    catchPhrase: '¿Yo amarte? JAJAJAJAJAJAJAJAJAJAJAJAJAJAJA … ok si te amo.',
   },
   {
     name: 'Sirodey',
     occupation: 'Ironhacker',
-    catchPhrase: 'Cosas',
+    catchPhrase: 'Dios creó el Wi-Fi y el diablo las contraseñas.',
   },
   {
     name: 'Alonso',
     occupation: 'Vago',
-    catchPhrase: 'Cosas',
+    catchPhrase: 'Situación Sentimental: Engordando, preparandome para hibernar',
   }
 ];
 
