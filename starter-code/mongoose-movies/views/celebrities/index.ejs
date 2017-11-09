@@ -1,5 +1,7 @@
 
 <h2>Celebrities</h2>
+<a href="/celebrities/new"><button type="button" name="button">Add Celebrity</button></a>
+
 <% celebrities.forEach((person) => { %>
 <ul>
     <li><%= person.name %> <a href="/celebrities/<%= person._id %>">View</a></li>
