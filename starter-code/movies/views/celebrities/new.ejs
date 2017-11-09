@@ -1,0 +1,29 @@
+<h2>Insert the following values</h2>
+
+<% if(celebrity.isNew) { %>
+  <form action="/celebrities" method="POST">
+<% } else { %>
+
+<form action="/celebrities/<%= celebrity._id %>" method="POST">
+<% }%>
+
+
+<label for="name">Name</label>
+<input type="text" id="name" name="name" value="<%= celebrity.name %>">
+
+<label for="occupation">Occupation</label>
+<input type="text" name="occupation" id="occupation" value="<%= celebrity.occupation %>">
+
+<label for="catchPhrase">Catch Phrase URL</label>
+<input type="text" name="phrase" id="catch-phrase" value="<%= celebrity.catchPhrase %>">
+
+
+
+<button type="submit">Save</button>
+</form>
+
+<% if(celebrity.errors) { %>
+  <% for (let error in celebrity.errors){ %>
+      <p class="error"><%= celebrity.errors[error].message %></p>
+  <% } %>
+<% } %>
