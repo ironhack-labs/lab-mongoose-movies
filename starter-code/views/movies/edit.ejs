@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/tachyons.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>
+        Edit
+    </title>
+</head>
+
+<body>
+
+    <h1>All Movies</h1>
+  <% movies.forEach((celebrity) => { %>
+
+      <div>
+        <h1><%=movie.tittle%></h1>
+        <h2><%=movie.genre%></h2>
+        <h3><%=movie.plot%></h3>
+      </div>
+      <div>
+        <div>
+          <a href="/movies/info/<%=movie._id%>">Information</a>
+        </div>
+        <div>
+          <a href="/movies/edit/<%=movie._id%>">Edit</a>
+        </div>
+        <div>
+          <a href="/movies/delete/<%=movie._id%>">Delete</a>
+        </div>
+      </div>
+  <%  }) %>
+</body>
+
+</html>
