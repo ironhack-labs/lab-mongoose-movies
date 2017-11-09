@@ -1,15 +1,13 @@
-
 <h2>Celebrities</h2>
+    
 
 <ul>
-  <% celebrities.forEach((celebrity) => { %>
-    <li>
-      <%= celebrity.name %> (<%= celebrity.occupation %>) (<%= celebrity.catchPhrase %>)
-     
-    </li>
-  <% })%>
+    <% celebrities.forEach((celebrity) => { %>
+        <li>
+
+            <%= celebrity.name %>
+            (<a href="celebrities/<%= celebrity.id%>">Details</a>)
+
+        </li>
+        <% })%>
 </ul>
-
-<a href="/celebrity">back</a>
-
-
