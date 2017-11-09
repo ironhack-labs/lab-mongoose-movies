@@ -1,0 +1,14 @@
+<h2>Movies Info</h2>
+<ul>
+<% moviesArray.forEach((movie) =>{ %>
+
+<li>
+<%= movie.title %> (<a href="movies/<%= movie.id%>">details</a>)
+</li>
+<form action="/movies/<%= movie._id %>/delete" method="POST">
+<button type="submit">Delete</button>
+</form>
+<% }) %>
+</ul>
+<button><a href="/movies/new">Add new</a></button>
+<button><a href="/">Back to start</a></button>

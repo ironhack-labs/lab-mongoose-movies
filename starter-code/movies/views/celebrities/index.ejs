@@ -3,14 +3,14 @@
 <% celebritiesArray.forEach((celebrity) =>{ %>
 
 <li>
-<%= celebrity.name %> (<a href="celebrities/<%= celebrity.id%>">details</a>)
+<%= celebrity.name %> <button><a href="celebrities/<%= celebrity.id%>">details</a></button> 
 </li>
 <form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
 <button type="submit">Delete</button>
 </form>
 <% }) %>
 </ul>
-<a href="/celebrities/new">Add new</a>
-<br>
-<a href="/">Back to start</a>
+<button><a href="/celebrities/new">Add new</a></button>
+
+<button><a href="/">Back to start</a></button>
 <br>
