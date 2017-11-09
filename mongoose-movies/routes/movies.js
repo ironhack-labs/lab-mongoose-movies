@@ -47,4 +47,27 @@ router.post('/:id/delete', (req, res, next) => {
   });
 });
 
+router.get('/:id/edit', (req, res, next) => {
+  let movieId = req.params.id;
+
+  Movie.findById(movieId, (err, movie) => {
+    if (err) { return next(err); }
+    res.render('movies/edit', {movie});
+  });
+});
+
+router.post('/:id', (req, res, next) => {
+  let movieId = req.params.id;
+  let movieInfo = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
+  }
+
+  Movie.findByIdAndUpdate(movieId ,movieInfo, (err, movie) => {
+    if (err) { return next(err); }
+    return res.redirect('/movies');
+  });
+});
+
 module.exports = router;
