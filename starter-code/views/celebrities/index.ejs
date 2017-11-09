@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Celebrities</h2>
+
+    <% celebrities.forEach(celebrity => { %>
+      <a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a>
+    <% }); %>
+
+    <a href="/celebrities/new">Create new celebrity</a>
+
+  </body>
+</html>
