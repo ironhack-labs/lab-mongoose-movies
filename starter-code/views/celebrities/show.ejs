@@ -10,5 +10,9 @@
         <li><%= celebrity.occupation%></li>
         <li><%= celebrity.catchPhrase%></li>
     </ul>
+
+    <form action="/celebrities/<%=celebrity._id%>/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
   </body>
 </html>
