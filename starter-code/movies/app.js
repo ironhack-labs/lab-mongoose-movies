@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-const celebrity = require('./model/celebrity');
+const celebrity = require('./routes/celebrity');
 var app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/movies', {useMongoClient:true});
