@@ -2,6 +2,7 @@
 
 <ol>
   <% celebrityList.forEach((eachCelebrity)=>{ %>
-    <li>Name: <%= eachCelebrity.celebrityName %></li>
+    <li>Name: <%= eachCelebrity.celebrityName %>
+    <a href="/celebrity/<%= eachCelebrity._id %>">View more details</a></li>
   <% }) %>
 </ol>
