@@ -1,0 +1,9 @@
+<h2>Celebrities</h2>
+<ul class="list-group">
+  <% celebrities.forEach((celebrity) => { %>
+    <li class="list-group-item">
+      <%= `Name: ${celebrity.name}, Ocupation: ${celebrity.occupation}, Catch Phrase:${celebrity.catchPhrase}` %>
+    </li>
+  <%  }) %>
+</ul>
+// <a href="/drones/new">Create new drone</a>
