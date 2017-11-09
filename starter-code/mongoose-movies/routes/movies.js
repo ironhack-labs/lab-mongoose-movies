@@ -32,11 +32,11 @@ router.post('/celebrities', (req, res, next) => {
   });
 });
 
-router.get('/celebrities/:id', (req, res, next) => {
-  const celebrityId = req.params.id;
-  Celebrity.findById(celebrityId, (err, celebrity) => {
+router.get('/movies/:id', (req, res, next) => {
+  const movieId = req.params.id;
+  Movie.findById(movieId, (err, movie) => {
     if (err) {return next(err);}
-    res.render('celebrities/show', {celebrity: celebrity});
+    res.render('movies/show', {movie: movie});
   });
 });
 
