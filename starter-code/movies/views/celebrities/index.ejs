@@ -1,0 +1,12 @@
+<h2>Celebrities Info</h2>
+<ul>
+<% celebritiesArray.forEach((celebrity) =>{ %>
+
+<li>
+<%= celebrity.name %> (<%= celebrity.occupation%>) (<%= celebrity.catchPhrase%>)
+</li>
+
+<% }) %>
+</ul>
+
+<a href="/celebrities">Go to celebrities</a>
