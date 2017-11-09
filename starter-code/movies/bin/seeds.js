@@ -23,13 +23,13 @@ const celebrities = [
     catchPhrase: 'No me simpatizas'
   },
 ]
-Celebrities.collection.drop();
+//Celebrities.collection.drop();
 
 Celebrities.create(celebrities, (err, docs) => {
   if (err) {
     throw err;
   }
-  docs.forEach(celebrities => {
+  docs.forEach((celebrities) => {
     console.log(Celebrities);
   });
 
