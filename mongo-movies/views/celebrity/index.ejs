@@ -7,7 +7,12 @@
       <a href="/celebrity/<%=celebrity._id%>">
         <%=celebrity.name %>
       </a>
+      <form method="POST" action="/celebrity/<%=celebrity._id%>/delete">
+        <button type="submit">Delete</button>
+      </form>
 
     </li>
   </ul>
   <% }) %>
+
+    <a href="../">Back home</a>

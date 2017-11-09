@@ -31,6 +31,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", index);
 app.use("/celebrity", celebrity);
+// app.use("/celebrity/show", celebrity);
+app.use("/celebrity/new", celebrity);
+app.use("/celebrity/:id/delete", celebrity);
 app.use("/celebrity/:id", celebrity);
 
 // catch 404 and forward to error handler
