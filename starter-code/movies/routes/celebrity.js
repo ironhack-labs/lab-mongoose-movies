@@ -54,4 +54,45 @@ router.get('/:id', (req, res, next) => {
   })
 });
 
+
+
+router.get('/:id/edit', (req, res, next) => {
+  let id = req.params.id
+
+  Celebrity.findById(id, (err, celebrity) => {
+    res.render('celebrity/edit', {
+      celebrity: celebrity
+    })
+  })
+});
+
+router.post('/:id', (req, res, next) => {
+  let id = req.params.id
+
+  const updates = {
+    name: req.body.name,
+    price: req.body.price,
+    imageUrl: req.body.imageUrl,
+    description: req.body.description
+  };
+
+  Celebrity.findByIdAndUpdate(id, updates, (err, product) => {
+    if (err){ return next(err); }
+
+    return res.redirect(`/celebrity/${celebrity._id}`);
+  });
+});
+
+
+router.post('/:id/delete', (req, res, next) => {
+  let id = req.params.id
+
+  Celebrity.findByIdAndRemove(id, (err, celebrity) => {
+    if (err){ return next(err); }
+
+    return res.redirect('/celebrity');
+  });
+});
+
+
   module.exports = router;
