@@ -10,6 +10,13 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/:id', (req, res, next) => {
+  let movieId = req.params.id;
 
+  Movie.findById(movieId, (err, movie) => {
+    if (err) { return next(err); }
+    res.render('movies/show', movie);
+  });
+});
 
 module.exports = router;
