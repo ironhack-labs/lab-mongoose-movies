@@ -3,8 +3,8 @@
 <ul>
   <%movies.forEach((c) => {%>
     <li><%= c.title %></li>
-      <!-- <a href="/movies/<%= c._id %>">DETAILS</a> -->
-      <!-- <form action="celebrities/<%= c._id %>/delete" method="POST">
+      <a href="/movies/<%= c._id %>">DETAILS</a>
+    <!-- <form action="movies/<%= c._id %>/delete" method="POST">
       <button type="submit">DELETE</button>
       </form> -->
   <% }) %>
