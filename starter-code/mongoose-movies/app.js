@@ -8,7 +8,7 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 
 var index = require('./routes/index');
-const celebritiesRoutes = require('./routes/celebrities');
+const celebrities = require('./routes/celebrities');
 
 mongoose.connect('mongodb://localhost/movies-dev');
 
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/celebrities', celebritiesRoutes);
+app.use('/', celebrities);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,22 +1,45 @@
 var express = require('express');
 const Celebrity = require('../models/celebrity');
+
 var router = express.Router();
 
 /* GET celebrities listing. */
-router.get('/', function(req, res, next) {
+router.get('/celebrities', (req, res, next) => {
   Celebrity.find({}, (err, celebrities) => {
     if (err) {return next(err);}
+
     res.render('celebrities/index', {celebrities: celebrities});
   });
 });
 
-router.get('/:id', function(req, res, next) {
-  const celebrityId = req.params.id;
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
 
+router.post('/celebrities', (req, res, next) => {
+  let celebrityInfo = {
+    name: req.body._name,
+    occupation: req.body._occupation,
+    catchPhrase: req.body._catchPhrase};
+
+  const newCelebrity = new Celebrity(celebrityInfo);
+
+  newCelebrity.save( (err) => {
+    if (err) {
+      return res.render('celebrities/new', {celebrity: newCelebrity});
+    }
+    return res.redirect('/celebrities');
+  });
+});
+
+router.get('/celebrities/:id', (req, res, next) => {
+  const celebrityId = req.params.id;
   Celebrity.findById(celebrityId, (err, celebrity) => {
     if (err) {return next(err);}
     res.render('celebrities/show', {celebrity: celebrity});
   });
 });
+
+
 
 module.exports = router;
