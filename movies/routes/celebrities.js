@@ -1,10 +1,3 @@
-// Locate the /celebrities GET route in routes/celebrities.js.
-// In the route callback:
-// Call the Celebrity model's find method to retrieve all the celebrities.
-// If there's an error, call the route's next function and return the error.
-// If there isn't an error, render the celebrities/index view.
-// Pass the array of celebrities into the view as a variable.
-
 const express = require('express');
 const Celebrity = require('../models/celebrity');
 
@@ -21,6 +14,57 @@ console.log(result);
   });
 
 });
+
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new', {
+    celebrity: new Celebrity()
+  });
+});
+
+router.get('/:id', (req, res, next) => {
+  let id = req.params.id
+  Celebrity.findById(id, (err, celebrities) => {
+    if (err) { return next(err) }
+    res.render('celebrities/show', {
+      celebrities: celebrities
+    })
+  })
+});
+
+router.post('/', (req, res, next) => {
+  const celebrityInfo = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+    };
+
+  // Create a new Product with the params
+  const newCelebrity = new Celebrity(celebrityInfo);
+
+  newCelebrity.save((err) => {
+    if (err) {
+      return res.render('celebrities/new', {
+        celebrity: newCelebrity
+      })
+    }
+
+    return res.redirect('/celebrities');
+  });
+});
+
+
+router.post('/:id/delete', (req, res, next) => {
+  let id = req.params.id
+
+  Celebrity.findByIdAndRemove(id, (err, product) => {
+    if (err){ return next(err); }
+
+    return res.redirect('/celebrities');
+  });
+});
+
+
+
 
 
 module.exports = router;
