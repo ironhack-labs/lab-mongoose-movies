@@ -12,16 +12,6 @@ router.get('/celebrities', (req, res, next) => {
   });
 });
 
-// router.get('/celebrities:id', (req, res, next) => {
-//   let id = req.params.id;
-//
-//   Celebrity.findById(id, (err, celebrity) => {
-//     res.render('celebrities/show', {
-//       celebrity: celebrity
-//     });
-//   });
-// });
-
 router.get('/celebrities/new', (req, res, next) => {
   res.render('celebrities/new', {celebrity: new Celebrity()});
 });
