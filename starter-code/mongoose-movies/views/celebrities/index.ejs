@@ -4,6 +4,7 @@
   <% celebrities.forEach((celebrity) => { %>
     <li>
       <%= celebrity.name %>
+      <a href="/celebrities/<%= celebrity._id %>">View Details</a>
     </li>
   <%  }) %>
 </ul>
