@@ -43,6 +43,17 @@ router.get('/', (req, res, next) => {
     });
   });
 
+  router.post('/:id/delete', (req, res, next) => {
+    let id = req.params.id
+  
+    Celebrity.findByIdAndRemove(id, (err, celebrities) => {
+      if (err){ return next(err); }
+  
+      return res.redirect('/celebrities');
+    });
+  });
+  
+
   router.get('/:id', (req, res, next) => {
     let id = req.params.id
   
