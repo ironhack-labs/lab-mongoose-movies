@@ -1,0 +1,14 @@
+<h2>form</h2>
+<form action="/celebrities" method="POST">
+
+<label for="name">Name</label>
+<input type="text" id="name" name="name" value="<%= celebrities.name %>">
+
+<label for="price">Occupation</label>
+<input type="text" name="occupation" id="occupation" value="<%= celebrities.price %>">
+
+<label for="image-url">CatchPhrase</label>
+<input type="text" name="catchPhrase" id="catchPhrase" value="<%= celebrities.imageUrl %>">
+
+<button type="submit">Save</button>
+</form>
