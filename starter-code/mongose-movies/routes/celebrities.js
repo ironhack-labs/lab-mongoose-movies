@@ -13,6 +13,7 @@ router.get('/celebrities', (req, res, next)=> {
   });
 });
 
+// New item
 router.get('/celebrities/new', (req, res, next)=> {
       res.render('celebrities/new');
 });
@@ -33,18 +34,6 @@ router.post('/celebrities', (req, res, next)=> {
   });
 });
 
-// Delete item
-router.post('/celebrities/:id/delete', (req, res, next)=> {
-  const productId=req.params.id;
-  Celebrity.findByIdAndRemove(productId,(err,data)=>{
-    if(err){
-      return next(err);
-    }
-    console.log("/celebrities GET"+ data);
-    return res.redirect('/celebrities');
-  });
-});
-
 // This in last possition
 router.get('/celebrities/:id', (req, res, next)=> {
   const productId=req.params.id;
@@ -56,6 +45,48 @@ router.get('/celebrities/:id', (req, res, next)=> {
     res.render('celebrities/show',{data : data});
   });
 });
+
+// Edit item
+router.get('/celebrities/:id/edit', (req, res, next)=> {
+  const productId=req.params.id;
+  Celebrity.findById(productId,(err,data)=>{
+    if(err){
+      return next(err);
+    }
+    res.render('celebrities/edit', {data: data});
+  });
+});
+
+
+// Update item
+router.post('/celebrities/:id', (req, res, next)=> {
+  const productId=req.params.id;
+  let dataUpdate ={
+    name:req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  Celebrity.findByIdAndUpdate(productId,dataUpdate,(err,data)=>{
+    if(err){
+      return next(err);
+    }
+    return res.redirect('/celebrities');
+  });
+});
+
+// Delete item
+router.post('/celebrities/:id/delete', (req, res, next)=> {
+  const productId=req.params.id;
+  Celebrity.findByIdAndRemove(productId,(err,data)=>{
+    if(err){
+      return next(err);
+    }
+    return res.redirect('/celebrities');
+  });
+});
+
+
+
 
 
 
