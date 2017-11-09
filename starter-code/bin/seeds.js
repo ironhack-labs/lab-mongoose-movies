@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/movies-celebrities', {useMongoClient: true});
 const Celebrity = require('../models/celebrities');
+const Movie = require('../models/movies');
 
 const celebrities = [
   {
@@ -20,8 +21,27 @@ const celebrities = [
   }
 ];
 
+const movies = [
+  {
+    title: "Saber & Ganar",
+    genre: "Ultimate Knowledge",
+    plot : "An inmortal being questions genius people intelligence",
+  },
+  {
+    title: "Lord of War",
+    genre: "Action & Drama",
+    plot : "Nicolas Cage is acting, is really a necessity to know the plot?",
+  },
+  {
+    title: "Rick & Morty",
+    genre: "Crazy",
+    plot : "Awesome things happening...",
+  }
+];
+
 
 Celebrity.collection.drop();
+Movie.collection.drop();
 
 Celebrity.create(celebrities, (err, docs) => {
   if (err) {
@@ -29,6 +49,16 @@ Celebrity.create(celebrities, (err, docs) => {
   }
   docs.forEach((celeb) => {
     console.log(celeb.name)
+  });
+  mongoose.connection.close();
+});
+
+Movie.create(movies, (err, docs) => {
+  if (err) {
+    throw err;
+  }
+  docs.forEach((movie) => {
+    console.log(movie.title)
   });
   mongoose.connection.close();
 });
