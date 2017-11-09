@@ -4,7 +4,24 @@ mongoose.connect('mongodb://localhost/celebritiesMovies', {
   useMongoClient: true
 });
 const Celebrity = require('../models/celebrity.js');
+const Movie = require('../models/movie.js');
 
+movies = [{
+    title: "Matrix",
+    genre: "Scifi",
+    plot: "Numeros en la pantalla"
+  },
+  {
+    title: "Origen",
+    genre: "scifi",
+    plot: "La pantalla del reves"
+  },
+  {
+    title: "Pantalla",
+    genre: "scifi",
+    plot: "la enemiga de los de arriba"
+  }
+];
 celebrities = [{
     name: "Tom Cruise",
     occupation: "Ganadero",
@@ -31,6 +48,18 @@ Celebrity.create(celebrities, (err, celebrity) => {
 
   celebrity.forEach((author) => {
     console.log(author.name);
+  });
+  mongoose.connection.close();
+
+});
+
+Movie.create(movies, (err, movie) => {
+  if (err) {
+    throw err;
+  }
+
+  movie.forEach((mymovie) => {
+    console.log(mymovie.title);
   });
   mongoose.connection.close();
 
