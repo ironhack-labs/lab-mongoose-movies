@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="stylesheets/style.css">
+<div>
+    <% celebrities.forEach((celebrity) => { %>
+      <div class="celebrity">
+        <b><p><%= celebrity.name %></p></b>
+        <p><%= celebrity.occupation %></p>
+        <p><%= celebrity.catchPhrase %></p>
+        <button><a href="/celebrities/<%= celebrity._id %>">Details</a></button>
+        |
+        <button><a href="/celebrities/<%= celebrity._id %>/edit">Edit</a></button>
+        |
+        <form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    <% })%>
+  </ul>
+</div>
+
+<button><a href="/celebrities/new">New Celebrity</a></button> <button><a href="/">Main menu</a></button>

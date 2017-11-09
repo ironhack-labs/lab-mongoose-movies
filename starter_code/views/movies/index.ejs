@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<% movies.forEach((movie) => { %>
+  <div class="movies">
+    <b><p><%= movie.title %></p></b>
+    <p class="genre">
+      <%= movie.genre %>
+    </p>
+    <p>
+      <%= movie.plot %>
+    </p>
+    <button><a href="/movies/<%= movie._id %>">Details</a></button> |
+    <button><a href="/movies/<%= movie._id %>/edit">Edit</a></button> |
+    <form action="/movies/<%= movie._id %>/delete" method="POST">
+      <button type="submit" style="">Delete</button>
+    </form>
+  </div>
+  <% })%>
+
+  <button><a href="/movies/new">New Movie</a></button> <button><a href="/">Main menu</a></button>
