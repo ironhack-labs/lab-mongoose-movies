@@ -1,0 +1,21 @@
+<head>
+  <title>Celebrities-Movies</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<form action="/celebrities/<%= celeb._id %>" method="POST">
+  <div class="display2">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="<%= celeb.name %>">
+  </div>
+  <div class="display2">
+    <label for="price">Occupation</label>
+    <input type="text" name="occupation" id="occupation" value="<%= celeb.occupation %>">
+  </div>
+  <div class="display2">
+    <label for="catchPhrase">Catch Phrase</label>
+    <input type="text" name="catchPhrase" id="catchPhrase" value="<%= celeb.catchPhrase %>">
+  </div>
+  <button type="submit">Save</button>
+</form>
+</body>
