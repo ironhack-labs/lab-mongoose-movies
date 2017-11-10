@@ -27,18 +27,16 @@ console.log("entro por get id")
 
 router.get('/new', (req, res, next) => {
   res.render('celebrities/new', {
-    celebrity: new Celebrity()
+
   });
 });
 
-router.post('/', (req, res, next) => {
+router.post('/new', (req, res, next) => {
   const celebrityInfo = {
     name: req.body.name,
     occupation: req.body.occupation,
     catchPhrase: req.body.catchPhrase
   };
-});
-
 
 // Create a new Product with the params
   const newCeleb = new Celebrity(celebrityInfo);
@@ -46,23 +44,12 @@ router.post('/', (req, res, next) => {
   newCeleb.save((err) => {
     if (err) {
       return res.render('celebrities/new', {
-        celebrity: newCeleb
+
       })
     }
-
     return res.redirect('/celebrities');
   });
 });
-
-router.get('/:id', (req, res, next) => {
-  let id = req.params.id
-
-//   Celebrity.findById(id, (err, product) => {
-//     res.render('products/show', {
-//       product: product
-//     })
-//   })
-// });
 
 
 module.exports = router;
