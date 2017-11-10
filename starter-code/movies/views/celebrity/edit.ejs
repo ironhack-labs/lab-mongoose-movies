@@ -1,0 +1,16 @@
+
+<% celebrity.forEach((eachCelebrity)=>{ %>
+  <form action="/celebrity/<%= ._id %>" method="POST">
+
+  <label for="name">celebrityName</label>
+  <input type="text" id="name" name="celebrityName" value="<%= celebrityName %>">
+
+  <label for="price">occupation</label>
+  <input type="text" name="occupation" id="price" value="<%= occupation %>">
+
+  <label for="image-url">catchPhrase URL</label>
+  <input type="text" name="catchPhrase" id="image-url" value="<%= catchPhrase %>">
+
+  <button type="submit">Edit</button>
+</form>
+<% %>
