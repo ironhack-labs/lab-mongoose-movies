@@ -7,7 +7,7 @@ router.get("/", function(req, res, next) {
   Celebrity.find({}, (err, result) => {
     if (err) {
       console.log("ERRRRROORR", err);
-      next(err);
+      return next(err);
     } else {
       const data = {
         celebrities: result
@@ -26,7 +26,7 @@ router.get("/:id", function(req, res, next) {
   Celebrity.findById(id, (err, result) => {
     if (err) {
       console.log("ERRRRROORR", err);
-      next(err);
+      return next(err);
     } else {
       const data = {
         celebrities: result
@@ -59,24 +59,12 @@ router.post("/", (req, res, next) => {
   Celebrity.findByIdAndRemove(id, (err, result) => {
     if (err) {
       console.log("could not remove", err);
-      next(err);
+      return next(err);
     } else {
       console.log(result);
       res.render("../");
     }
   });
 });
-
-// router.post("/:id/delete", req, res, next) => {
-//   const id = req.params.id;
-//   Celebrity.findByIdAndRemove(id, (err, result) => {
-//     if(err) {
-//       console.log("COULD NOT DELETE", err);
-//       next(err);
-//     } else {
-//       res.render("celebrity/index");
-//     }
-//   })
-// };
 
 module.exports = router;
