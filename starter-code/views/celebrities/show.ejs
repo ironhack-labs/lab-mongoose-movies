@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Celebrity </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2><%=celebrity.name%></h2>
+    <ul>
+        <li><%= celebrity.occupation%></li>
+        <li><%= celebrity.catchPhrase%></li>
+    </ul>
+
+    <form action="/celebrities/<%=celebrity._id%>/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
+  </body>
+</html>
