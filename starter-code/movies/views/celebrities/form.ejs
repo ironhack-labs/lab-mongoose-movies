@@ -1,0 +1,20 @@
+<% if(celebrity.isNew) { %>
+  <form action="/celebrities" method="POST">
+<% } else { %>
+  <form action="/celebrities/<%= celebrity._id %>" method="POST">
+<% }%>
+
+  <label for="name">Name</label>
+  <input type="text" name="name" value="">
+  <label for="ocupation">Ocupation</label>
+  <input type="text" name="ocupation" value="">
+  <label for="catchPhrase">Catch Phrase</label>
+  <input type="text" name="catchPhrase" value="">
+  <input type="submit" name="" value="">
+</form>
+
+<% if(celebrity.errors) { %>
+  <% for (let error in celebrity.errors){ %>
+      <p class="error"><%= celebrity.errors[error].message %></p>
+  <% } %>
+<% } %>
