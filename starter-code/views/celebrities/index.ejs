@@ -1,0 +1,7 @@
+<h1>Celebrities</h1>
+<% celebritiesArray.forEach((celebrity)=>{ %>
+<p> <%= celebrity.name %> </p>
+<a href="/celebrities/<%= celebrity._id%>">Celebrity Id</a>
+<% }) %>
+<br>
+<a href="/celebrities/create/new">New celebrity</a>
