@@ -44,7 +44,6 @@ Celebrity.create(celebrityData, (err, docs) => {
   if (err) {
     throw err;
   }
-
   docs.forEach((celebrity) => {
     console.log(celebrity.catchPhrase)
   });
@@ -56,5 +55,7 @@ Celebrity.create(celebrityData, (err, docs) => {
    docs.forEach((movie) => {
      console.log(movie.name)
    });
+
   mongoose.connection.close();
+}
 });
