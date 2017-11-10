@@ -1,10 +1,10 @@
 const express = require("express");
-const Celebrities = require("../model/celebrities");
+const celebrities = require("../model/celebrities");
 const router = express.Router();
 
 router.get("/celebrities", (req, res, next) => {
   // Iteration #2
-  Celebrities.find({}, (err, celebrities) => {
+  celebrities.find({}, (err, celebrities) => {
      console.log('celebrities');
      if(err){
          return next(err);
@@ -13,5 +13,15 @@ router.get("/celebrities", (req, res, next) => {
   });
 });
 
+router.get("/celebrities/:id", (req, res, next) => {
+  let celebritiesId = req.params.id;
+
+  celebrities.findById(celebritiesId, (err, celebrities) => {
+    if (err) {
+      return next(err);
+    }
+    res.render("celebrities/show", { celebrities: celebrities });
+  });
+});
 
 module.exports = router;

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/farandula", {
   useMongoClient: true
 });
-const Celebrities = require("../model/celebrities");
+const celebrities = require("../model/celebrities");
 
 const celebrities = [
   {
@@ -25,12 +25,12 @@ const celebrities = [
 ]
 //Celebrities.collection.drop();
 
-Celebrities.create(celebrities, (err, docs) => {
+celebrities.create(celebrities, (err, docs) => {
   if (err) {
     throw err;
   }
   docs.forEach((celebrities) => {
-    console.log(Celebrities);
+    console.log(celebrities);
   });
 
   mongoose.connection.close();
