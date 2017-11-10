@@ -5,6 +5,10 @@
     <li>
       <%= e.name %>
         <a href="/celebrity/<%= e._id %>">View more details</a>
+        <a href="/celebrity/<%= e._id %>/edit">Edit</a>
+        <form action="/celebrity/<%= e._id %>/delete" method="POST">
+          <button type="submit">Delete celebrity</button>
+        </form>
     </li>
     <%})%>
 </ul>

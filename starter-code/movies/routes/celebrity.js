@@ -48,7 +48,6 @@ router.post('/', (req, res, next) => {
         celebrity: newCelebrity
       })
     }
-
     return res.redirect('/celebrity');
   });
 });
@@ -61,6 +60,43 @@ router.get('/:id', (req, res, next) => {
       Bio: detail
     })
   })
+});
+
+// router.get('/:id/edit', (req, res, next) => {
+//   let id = req.params.id
+//
+//   Celebrity.findById(id, (err, celebrity) => {
+//     res.render('celebrity/:id/edit', {
+//       celebrity: celebrity
+//     })
+//   })
+// });
+
+// router.post('/:id', (req, res, next) => {
+//   let id = req.params.id
+//
+//   const updates = {
+//     name: req.body.name,
+//     occupation: req.body.occupation,
+//     catchPhrase: req.body.catchPhrase,
+//   };
+//
+//   Celebrity.findByIdAndUpdate(id, updates, (err, celebrity) => {
+//     if (err){ return next(err); }
+//
+//     return res.redirect(`/celebrity/${celebrity._id}`);
+//   });
+// });
+
+
+router.post('/:id/delete', (req, res, next) => {
+  let id = req.params.id
+
+  Celebrity.findByIdAndRemove(id, (err, celebrity) => {
+    if (err){ return next(err); }
+
+    return res.redirect('/celebrity');
+  });
 });
 
 
