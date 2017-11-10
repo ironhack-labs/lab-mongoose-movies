@@ -1,0 +1,17 @@
+<h2>Edit Celebrity</h2>
+
+<% celebrities.forEach((person) => { %>
+
+<form action="/celebrities/<%= person._id %>" method="POST">
+
+<label for="name">Name</label>
+<input type="text" id="name" name="name" value="<%= person.name %>">
+
+<label for="price">Occupation</label>
+<input type="text" name="occupation" id="occupation" value="<%= person.occupation %>">
+
+<label for="description">catch Phrase</label>
+<textarea type="text" name="phrase" id="phrase" value="<%= person.catchPhrase %>"></textarea>
+<% }) %>
+<button type="submit">Save</button>
+</form>

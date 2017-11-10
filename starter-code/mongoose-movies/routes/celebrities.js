@@ -52,4 +52,43 @@ const router  = express.Router();
   });
 
 
+  router.post('/:id/delete', (req, res, next) => {
+    let id = req.params.id
+
+    Celebrity.findByIdAndRemove(id, (err, celebrities) => {
+      if (err){ return next(err); }
+
+      return res.redirect('/celebrities');
+    });
+  });
+
+
+
+  router.get('/:id/edit', (req, res, next) => {
+    let id = req.params.id
+
+    Celebrity.findById(id, (err, celebrities) => {
+      res.render('celebrities/edit', {
+        celebrities: celebrities
+      })
+    })
+  });
+
+  router.post('/:id', (req, res, next) => {
+    let id = req.params.id
+
+    const updates = {
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.phrase
+    };
+
+    Celebrity.findByIdAndUpdate(id, updates, (err, celebrities) => {
+      if (err){ return next(err); }
+
+      return res.redirect(`/celebrities/${celebrities._id}`);
+    });
+  });
+
+
 module.exports = router;

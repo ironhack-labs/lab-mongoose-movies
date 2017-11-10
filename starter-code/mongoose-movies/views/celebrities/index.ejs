@@ -4,7 +4,12 @@
 
 <% celebrities.forEach((person) => { %>
 <ul>
-    <li><%= person.name %> <a href="/celebrities/<%= person._id %>">View</a></li>
+    <li><%= person.name %> <a href="/celebrities/<%= person._id %>">View</a>
+      | <a href="/celebrities/<%= person._id %>/edit">Edit</a>
+    |  <form action="/celebrities/<%= person._id %>/delete" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+  </li>
 </ul>
 <% }) %>
 
