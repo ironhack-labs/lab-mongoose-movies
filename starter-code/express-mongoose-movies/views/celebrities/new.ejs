@@ -1,0 +1,27 @@
+<h3>Create a celebrity</h3>
+<form action="/celebrities" method="post">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name">
+  </div>
+  <div>
+    <label for="occupation">Occupation</label>
+    <input type="text" name="occupation">
+  </div>
+  <div>
+    <label for="imgUrl">Image URL</label>
+    <input type="text" name="imgUrl">
+  </div>
+  <div>
+    <label for="alive">Alive?</label>
+    <select name="alive">
+      <option value="true" selected>Yes</option>
+      <option value="false">No</option>
+    </select>
+  </div>
+  <div>
+    <label for="catchPhrase">Catchphrase</label>
+    <textarea name="catchPhrase" rows="3" cols="40"></textarea>
+  </div>
+  <button type="submit">Save</button>
+</form>
