@@ -38,8 +38,6 @@ router.post('/', (req, res, next) => {
 });
 
 
-
-
 router.get('/:id', (req, res, next) => {
   let celebId = req.params.id;
   Celeb.findById(celebId, (err, celeb) => {
@@ -49,5 +47,16 @@ router.get('/:id', (req, res, next) => {
     res.render('celebrities/show', {celeb : celeb});
   });
 });
+
+router.post('/:id/delete', (req, res, next) => {
+    let id = req.params.id;
+
+   Celeb.findByIdAndRemove(id, (err, celeb) => {
+     if (err){
+        return next(err);
+      }
+     return res.redirect('/celeb');
+   });
+ });
 
 module.exports = router;
