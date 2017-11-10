@@ -3,6 +3,7 @@ const Movie = require('../models/movie');
 
 const router  = express.Router();
 
+
 router.get('/movies', (req, res, next) => {
   Movie.find({}, (err, movies) => {
    if (err) { return next(err) }
@@ -34,7 +35,8 @@ router.post('/movies', (req, res, next) => {
     plot: req.body._plot
   };
 
-  const newMovie = new Movie(movieInfo);
+  const newMovie = new Movie(movieInfo)
+
 
   newMovie.save( (err) => {
     if (err) {

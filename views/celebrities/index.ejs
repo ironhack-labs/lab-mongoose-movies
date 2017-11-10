@@ -8,6 +8,9 @@
     <form action="/celebrities/<%= celeb._id %>/delete" method="POST">
       <button type="submit">Delete</button>
     </form>
+    <form action="/celebrities/<%= celeb._id %>/edit" method="GET">
+      <button type="submit">Update</button>
+    </form>
     </li>
 <% }) %>
 </ul>
