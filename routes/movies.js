@@ -60,4 +60,30 @@ router.post('/movies/:id/delete', (req, res, next) => {
   });
 });
 
+router.get('/movies/:id/edit', (req, res, next) => {
+  let id = req.params.id
+
+  Movie.findById(id, (err, movie) => {
+    res.render('movies/edit', {
+      movie: movie
+    })
+  })
+});
+
+router.post('/movies/:id', (req, res, next) => {
+  let id = req.params.id
+
+  const updates = {
+    title: req.body._title,
+    genre: req.body._genre,
+    plot: req.body._plot
+  };
+
+  Movie.findByIdAndUpdate(id, updates, (err, movie) => {
+    if (err){ return next(err); }
+
+    return res.redirect('/movies');
+  });
+});
+
 module.exports = router;
