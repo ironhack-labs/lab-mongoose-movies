@@ -6,20 +6,20 @@ const Celebrity = require('../models/celebrity');
 
 const celebrities = [
   {
-    name: "sfwe",
-    ocupation: "asdasd",
-    catchPhrase: "asdasdasd"
+    name: "celebrity_1",
+    ocupation: "ocupation_1",
+    catchPhrase: "catchPhrase_1"
 
   },
   {
-    name: "sfwe",
-    ocupation: "asdasd",
-    catchPhrase: "asdasdasd"
+    name: "celebrity_2",
+    ocupation: "ocupation_2",
+    catchPhrase: "catchPhrase_2"
   },
   {
-    name: "sfwe",
-    ocupation: "asdasd",
-    catchPhrase: "asdasdasd"
+    name: "celebrity_3",
+    ocupation: "ocupation_3",
+    catchPhrase: "catchPhrase_3"
   }
 ];
 
