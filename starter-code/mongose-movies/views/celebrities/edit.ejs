@@ -1,0 +1,13 @@
+<h2>Celebrities Detail of <%=data.name%> </h2>
+
+<form action="/celebrities/<%=data._id%>" method="POST">
+  <label for="name">name</label>
+  <input type="text" id="name" name="name" value="<%=data.name%>" required="required">
+
+  <label for="occupation">occupation</label>
+  <input type="text" name="occupation" id="occupation" value="<%=data.occupation%>" required="required">
+
+  <label for="catchPhrase">catchPhrase</label>
+  <input type="text" name="catchPhrase" id="catchPhrase" value="<%=data.catchPhrase%>" required="required">
+ <button type="submit">Apply changes</button>
+</form>
