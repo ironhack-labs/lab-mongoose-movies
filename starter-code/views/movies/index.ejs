@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <h2>Movies</h2>
+
+    <% movies.forEach(movie => { %>
+        <a href="/movies/<%= movie.id %>">
+            <%= movie.title %>
+        </a>
+        <form action="/movies/<%= movie.id %>/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/movies/<%= movie.id %>/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <% }); %>
+
+            <a href="/movies/new">Create new movie</a>
+
+</body>
+
+</html>

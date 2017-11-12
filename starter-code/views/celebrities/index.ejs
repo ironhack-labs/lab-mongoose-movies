@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h2>Celebrities</h2>
 
     <% celebrities.forEach(celebrity => { %>
-      <a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a>
-    <% }); %>
+        <a href="/celebrities/<%= celebrity.id %>">
+            <%= celebrity.name %>
+        </a>
+        <form action="/celebrities/<%=celebrity.id%>/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/celebrities/<%=celebrity.id%>/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <% }); %>
 
-    <a href="/celebrities/new">Create new celebrity</a>
+            <a href="/celebrities/new">Create new celebrity</a>
 
-  </body>
+</body>
+
 </html>

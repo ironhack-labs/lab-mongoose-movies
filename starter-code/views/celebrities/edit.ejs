@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <h2>Edit celebrity</h2>
+
+    <form action="/celebrities/<%= celebrity.id %>" method="POST">
+        <label for="name">Celebrity name</label>
+        <input type="text" name="name" value="<%= celebrity.name %>" />
+
+        <label for="occupation">Occupation</label>
+        <input type="text" name="occupation" value="<%= celebrity.occupation %>" />
+
+        <label for="catchPhrase">Catch phrase</label>
+        <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>" />
+
+        <button type="submit">Edit</button>
+    </form>
+</body>
+
+</html>
