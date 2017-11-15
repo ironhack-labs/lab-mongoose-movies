@@ -1,0 +1,11 @@
+<h2> Celebrities </h2>
+
+<ul>
+  <% listOfCelebrities.forEach((oneCelebrity) => { %>
+    <li>
+      <h3> <%= oneCelebrity.name %> </h3>
+      <p> <%= oneCelebrity.occupation %> </p>
+      <p> "<%= oneCelebrity.catchPhrase %>" </p>
+    </li>
+  <% }) %>
+</ul>
