@@ -1,0 +1,16 @@
+<h2>Add a Movie</h2>
+<%if(typeof validationErrors !== "undefined"){%>
+  <ul class='error'>
+    <%for(let field in validationErrors) {%>
+      <li>
+      <%=validationErrors[field].message%>
+      </li>
+    <%}%>
+  </ul>
+<%}%>
+<form  action="/movies" method="post">
+<input type="text" name="movieTitle" placeholder="Enter a title">
+<input type="text" name="movieGenre" placeholder="Enter a genre">
+<input type="text" name="moviePlot" placeholder="Enter a plot">
+<button>Submit</button>
+</form>

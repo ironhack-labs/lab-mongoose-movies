@@ -1,0 +1,16 @@
+<h2>Add a Celebrity</h2>
+<%if(typeof validationErrors !== "undefined"){%>
+  <ul class='error'>
+    <%for(let field in validationErrors) {%>
+      <li>
+      <%=validationErrors[field].message%>
+      </li>
+    <%}%>
+  </ul>
+<%}%>
+<form  action="/celebrities" method="post">
+<input type="text" name="celebName" placeholder="Enter a Name">
+<input type="text" name="celebOccupation" placeholder="Enter an occupation">
+<input type="text" name="celebCatchPhrase" placeholder="Enter a catch phrase">
+<button>Submit</button>
+</form>
