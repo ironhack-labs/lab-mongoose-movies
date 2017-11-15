@@ -12,6 +12,9 @@ const celebritySchema = new Schema({
 
     // Celebrity catchphrase
     catchPhrase: {type: String},
+
+    // Celebrity gif
+    imageUrl: {type: String}
 });
 
 // the model has the methods to make database queries

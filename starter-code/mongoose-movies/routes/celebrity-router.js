@@ -18,4 +18,20 @@ router.get("/celebrities", (req, res, next) => {
   });
 });
 
+
+router.get("/celebrities/:celebId", (req, res, next) => {
+  CelebrityModel.findById(req.params.celebId)
+
+  .then( (celebrityFromDb) => {
+      res.locals.celebrityDetails = celebrityFromDb;
+      res.render("celebrity-views/celebrity-details");
+
+  })
+  .catch( (err) => {
+      next(err);
+  });
+});
+
+
+
 module.exports = router;

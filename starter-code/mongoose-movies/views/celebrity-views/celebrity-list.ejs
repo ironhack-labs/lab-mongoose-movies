@@ -4,8 +4,13 @@
   <% listOfCelebrities.forEach((oneCelebrity) => { %>
     <li>
       <h3> <%= oneCelebrity.name %> </h3>
-      <p> <%= oneCelebrity.occupation %> </p>
-      <p> "<%= oneCelebrity.catchPhrase %>" </p>
+      <a href
+    </li>
+
+    <li>
+      <a href="/celebrities/<%= oneCelebrity._id %>">
+        View Details
+      </a>
     </li>
   <% }) %>
 </ul>
