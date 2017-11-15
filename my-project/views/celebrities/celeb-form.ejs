@@ -1,0 +1,30 @@
+<h2> Add a Celeberty </h2>
+
+<!-- weird if statement with "typeof" to avoid an error -->
+<% if (typeof validationErrors !== "undefined") { %>
+  <ul class="error">
+    <!-- we cant do a forEach loop because "validationErrors" is an object -->
+    <% for (let field in validationErrors) { %>
+      <li> <%= validationErrors[field].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+
+<form method="post" action="/products">
+  <label for="celebrity-name-input"> Celeberty Name </label>
+  <input  id="celebrity-name-input" type="text" placeholder="e.g. Any Name"
+      name="celebrityName" />
+  <br />
+
+  <label for="celebrity-occupation-input"> Celeberty Occupation </label>
+  <input  id="celebrity-occupation-input" type="text"
+      placeholder="e.g. Job Description" name="celebrityOccupation" />
+  <br />
+
+  <label   for="celebrity-catchPhrase-input"> Celeberty Catch Phrase </label>
+  <textarea id="celebrity-catchPhrase-input" placeholder="e.g. Catch Phrase"
+      name="clebertyCatchPhrase"></textarea>
+  <br />
+
+  <button> Save This Celeberty </button>
+</form>
