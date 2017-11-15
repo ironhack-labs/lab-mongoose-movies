@@ -11,7 +11,12 @@ router.get('/celebrities', (req, res, next) => {
   });
 });
 
-router.get('/celebtrities/:id', (req, res, next) => {
+
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
+router.get('/celebrities/:id', (req, res, next) => {
   CelebrityModel.findById(req.params.id).then(celebFromDb => {
     res.locals.celeb = celebFromDb;
     res.render('celebrities/show');
@@ -38,11 +43,8 @@ router.post('/celebrities', (req, res, next) => {
   });
 });
 
-router.get('/celebrities/new', (req, res, next) => {
-  res.render('celebrities/new');
-});
 
-router.post('celebrities/:id/delete', (req, res, next) =>{
+router.post('/celebrities/:id/delete', (req, res, next) =>{
   CelebrityModel.findByIdAndRemove(req.params.id).then(removed => {
     res.redirect('/celebrities');
   }).catch(error =>{
@@ -50,7 +52,7 @@ router.post('celebrities/:id/delete', (req, res, next) =>{
   });
 });
 
-router.get('celebrities/:id/edit', (req, res, next) => {
+router.get('/celebrities/:id/edit', (req, res, next) => {
   CelebrityModel.findById(req.params.id).then(results => {
     res.locals.celeb = results;
     res.render('celebrities/edit');
@@ -59,7 +61,7 @@ router.get('celebrities/:id/edit', (req, res, next) => {
   });
 });
 
-router.post('celebrities/:id', (req, res, next) =>{
+router.post('/celebrities/:id', (req, res, next) =>{
   CelebrityModel.findById(req.params.id).then(celebToUpdate => {
     celebToUpdate.set({
       name: req.body.celebName,

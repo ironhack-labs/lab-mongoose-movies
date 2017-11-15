@@ -11,6 +11,10 @@ router.get('/movies', (req, res, next) => {
   });
 });
 
+router.get('/movies/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
 router.get('/movies/:id', (req, res, next) => {
   MovieModel.findById(req.params.id).then(movieFromDb => {
     res.locals.movie = movieFromDb;
@@ -18,10 +22,6 @@ router.get('/movies/:id', (req, res, next) => {
   }).catch(error => {
     next(error);
   });
-});
-
-router.get('/movies/new', (req, res, next) => {
-  res.render('movies/new');
 });
 
 router.post('/movies', (req, res, next) => {
@@ -42,7 +42,7 @@ router.post('/movies', (req, res, next) => {
   });
 });
 
-router.post('movies/:id/delete', (req, res, next) =>{
+router.post('/movies/:id/delete', (req, res, next) =>{
   MovieModel.findByIdAndRemove(req.params.id).then(removed => {
     res.redirect('/movies');
   }).catch(error =>{
@@ -50,7 +50,7 @@ router.post('movies/:id/delete', (req, res, next) =>{
   });
 });
 
-router.get('movies/:id/edit', (req, res, next) => {
+router.get('/movies/:id/edit', (req, res, next) => {
   MovieModel.findById(req.params.id).then(results => {
     res.locals.movie = results;
     res.render('movies/edit');
@@ -59,7 +59,7 @@ router.get('movies/:id/edit', (req, res, next) => {
   });
 });
 
-router.post('movies/:id', (req, res, next) =>{
+router.post('/movies/:id', (req, res, next) =>{
   MovieModel.findById(req.params.id).then(movieToUpdate => {
     movieToUpdate.set({
       title: req.body.movieTitle,
