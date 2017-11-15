@@ -82,7 +82,7 @@ router.get("/celebrities/:id/edit", (req, res, next) => {
 
 
 router.post("/celebrities/:id", (req, res, next ) => {
-  
+
   celebrityModel.findById(req.params.id)
 
   .then((celebrityFromDb) => {
@@ -97,7 +97,7 @@ router.post("/celebrities/:id", (req, res, next ) => {
     return celebrityFromDb.save();
   })
   .then(() => {
-    res.redirect(`celebrities/${req.params.id}`);
+    res.redirect(`/celebrities/${req.params.id}`);
   })
   .catch((err) => {
     next(err);
