@@ -1,0 +1,24 @@
+<h2> Edit This Celebrity</h2>
+
+
+
+<form  action="celebrities/<%= celebrityDetails._id %>" method="post">
+
+  <label for="celebrity-name-input"> Name </label>
+  <input id="celebrity-name-input" type="text" name="celebrityName" placeholder="e.g Some dude"
+  value="<%= celebrityDetails.name %>" />
+  <br/>
+
+  <label for="celebrity-ocupation">  Ocupation </label>
+  <input id="celebrity-ocupation" type="text" name="celebrityOcupation" placeholder="e.g Breakdancer"
+  value="<%= celebrityDetails.ocupation %>" />
+  <br/>
+
+  <label for="celebrity-catchphrase"> Catchphrase </label>
+  <input id="celebrity-catchphrase" type="text" name="celebrityCatchphrase" placeholder=" e.g Wooooah"
+  value="<%= celebrityDetails.catchPhrase %>" /><br/>
+
+
+  <button > Submit Changes </button>
+
+</form>
