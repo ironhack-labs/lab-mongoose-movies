@@ -10,21 +10,21 @@
   </ul>
 <% } %>
 
-<form method="post" action="/products">
-  <label for="celebrity-name-input"> Celebrity Name </label>
-  <input  id="celebrity-name-input" type="text" placeholder="e.g. Any Name"
+<form method="post" action="/celebrities">
+  <label for="celebrity-name-input"> Celebrity Name: </label> <br />
+  <input  id="celebrity-name-input" class="input" type="text" placeholder="e.g. Any Name"
       name="celebrityName" />
   <br />
-
-  <label for="celebrity-occupation-input"> Celebrity Occupation </label>
-  <input  id="celebrity-occupation-input" type="text"
+  <br />
+  <label for="celebrity-occupation-input"> Celebrity Occupation: </label> <br />
+  <input  id="celebrity-occupation-input" class="input" type="text"
       placeholder="e.g. Job Description" name="celebrityOccupation" />
   <br />
-
-  <label   for="celebrity-catchPhrase-input"> Celebrity Catch Phrase </label>
-  <textarea id="celebrity-catchPhrase-input" placeholder="e.g. Catch Phrase"
+  <br />
+  <label   for="celebrity-catchPhrase-input"> Celebrity Catch Phrase: </label> <br />
+  <textarea id="celebrity-catchPhrase-input" class="input" placeholder="e.g. Catch Phrase"
       name="clebrityCatchPhrase"></textarea>
   <br />
-
+  <br />
   <button> Save This Celebrity </button>
 </form>

@@ -7,7 +7,7 @@ require("../config/mongoose-setup");
 
 
 // import the product model to do product queries
-const CelebirtyModel = require("../models/celebrity.js");
+const CelebrityModel = require("../models/celebrity.js");
 
 const celebrityInfo = [
   {
@@ -28,7 +28,7 @@ const celebrityInfo = [
 ];
 
 // db.celebrity.insertMany(celebrityInfo)
-CelebirtyModel.create(celebrityInfo)
+CelebrityModel.create(celebrityInfo)
     .then((celebResults) => {
       console.log(`Inserted ${celebResults.length} celebrities`);
     })

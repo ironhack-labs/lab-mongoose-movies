@@ -21,6 +21,6 @@ const celebritySchema = new Schema({
 });
 
 // the model has the methods to make database queries
-const CelebirtyModel = mongoose.model("Celebrity", celebritySchema);
+const CelebrityModel = mongoose.model("Celebrity", celebritySchema);
 
-module.exports = CelebirtyModel;
+module.exports = CelebrityModel;

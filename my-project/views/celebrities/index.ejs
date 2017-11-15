@@ -1,18 +1,24 @@
 <h2> Check out our Celebrities! </h2>
 
-<a href="/celebrities/new"> Add a New Celeberty </a>
+<a href="/celebrities/new"> Add a New Celebrity </a>
 
 <ul>
   <% listOfCelebrities.forEach((oneCelebrity) => { %>
     <li>
       <h3> <%= oneCelebrity.name %> </h3>
-
       <ul>
         <li>
-          <a href="/celebrities/<%= oneCelebrity._id %>"> WOW! More Info!</a>
+          <a href="/celebrities/<%= oneCelebrity._id %>"> More Info!</a>
         </li>
+        <li>
+          <a href="/celebrities/<%= oneCelebrity._id %>/edit">
+            Edit
+          </a>
+        </li>
+          <form method="post" action="/celebrities/<%= oneCelebrity._id %>/delete">
+            <button> Delete </button>
+          </form>
       </ul>
-
     </li>
   <% }) %>
 </ul>

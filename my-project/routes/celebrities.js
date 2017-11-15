@@ -1,11 +1,11 @@
 const express = require("express");
 
-const CelebirtyModel = require("../models/celebrity.js");
+const CelebrityModel = require("../models/celebrity.js");
 
 const router = express.Router();
 
 router.get("/celebrities", (req, res, next) => {
-  CelebirtyModel
+  CelebrityModel
     .find()
     .exec()
     .then((celebResults) => {
@@ -29,14 +29,13 @@ router.get("/celebrities/new", (req, res, next) => {
 
 // STEP #2: process the new product submission
 router.post("/celebrities", (req, res, next) => {
-    const theCeleberty = new CelebirtyModel({
+    const theCelebrity = new CelebrityModel({
         name:           req.body.celebrityName,
         occupation:     req.body.celebrityOccupation,
         catchPhrase:    req.body.celebrityCatchPhrase,
     });
 
-
-    theCeleberty.save()
+    theCelebrity.save()
       .then(() => {
         res.redirect("/celebrities");
       })
@@ -52,12 +51,39 @@ router.post("/celebrities", (req, res, next) => {
     });
 });
 
+// STEP #1: show edit form
+router.get("/celebrities/:id/edit", (req, res, next) => {
+  CelebrityModel.findById(req.params.id)
+    .then((celebrityFromDB) => {
+      res.locals.celebrityDetails = celebrityFromDB;
+
+      res.render("celebrities/celeb-edit");
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.post("/celebrities/:id/delete", (req, res, next) => {
+    CelebrityModel.findByIdAndRemove(req.params.id)
+      .then((celebrityFromDB) => {
+        // redirect to the list of products page
+        // (you can't see the details of a product that isn't in the DB)
+        res.redirect("/celebrities");
+          // you CAN'T redirect to an EJS file
+          // you can ONLY redirect to a URL
+      })
+      .catch((err) => {
+          next(err);
+      });
+});
+
 router.get("/celebrities/:id", (req, res, next) => {
-    CelebirtyModel.findById(req.params.id)
+    CelebrityModel.findById(req.params.id)
       .then((celebrityFromDB) => {
         res.locals.celebrityDetails = celebrityFromDB;
 
-        return CelebirtyModel.find({ celebrity: req.params.id }).exec();
+        return CelebrityModel.find({ celebrity: req.params.id }).exec();
       })
       .then((celebResults) => {
         res.locals.listOfCelebrities = celebResults;
