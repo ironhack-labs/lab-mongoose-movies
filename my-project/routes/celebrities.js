@@ -57,7 +57,7 @@ router.get("/celebrities/:id/edit", (req, res, next) => {
     .then((celebrityFromDB) => {
       res.locals.celebrityDetails = celebrityFromDB;
 
-      res.render("celebrities/celeb-edit");
+      res.render("celebrities/edit");
     })
     .catch((err) => {
       next(err);
@@ -94,5 +94,49 @@ router.get("/celebrities/:id", (req, res, next) => {
         next(err);
       });
 }); // GET /celebrities/:id
+
+router.post("/celebrities/:id", (req, res, next) => {
+    // retrieve the document from the database
+    CelebrityModel.findById(req.params.id)
+      .then((celebrityFromDB) => {
+          // update the document
+          celebrityFromDB.set({
+              name:         req.body.celebrityName,
+              occupation:   req.body.celebrityOccupation,
+              catchPhrase:  req.body.celebrityCatchPhrase
+          }); // |                        |
+              // fields from         names of the
+              // model's schema      input tags
+
+          // set up the "productDetails" local variable in case
+          // we get validation errors and need to display the form again
+          res.locals.celebrityDetails = celebrityFromDB;
+
+          // and then save the updates
+          // (return the promise of the next database operation)
+          return celebrityFromDB.save();
+      })
+      .then(() => {
+          // STEP #3: redirect after a SUCCESSFUL save
+          // redirect to the product details page
+          res.redirect(`/celebrities/${req.params.id}`);
+            // you CAN'T redirect to an EJS file
+            // you can ONLY redirect to a URL
+      })
+      .catch((err) => {
+          // is this a validation error?
+          // if it is then display the form with the error messages
+          if (err.errors) {
+              res.locals.validationErrors = err.errors;
+              res.render("celebrities/edit");
+          }
+          // if it isn't then render the error page with our error
+          else {
+              next(err);
+          }
+      });
+});
+
+
 
 module.exports = router;
