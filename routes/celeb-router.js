@@ -37,32 +37,19 @@ router.get('/celebrities', (req, res, next) => {
    });
    });
 
-   router.get("/celebrities/:id", (req, res, next) => {
-     MovieModel.findById(req.params.celebrityId)
-     .then((celebrityFromDb) => {
-         // create a local variable for the view to access the DB result
-         res.locals.celebrityDetails = celebrityFromDb;
 
-
-             res.render("celebrities-views/show");
-
-     }).catch((err) => {
-         // render the error page with our error
-         next(err);
-     });
-   }); // GET /products/details
-
-
+   //
    router.get("/celebrities/new", (req, res, next) => {
        res.render("celebrities-views/new");
    }); // GET /products/new
-
+   //
    // STEP #2: process the new product submission
-   router.post("/celebrities/show", (req, res, next) => {
+   router.get("/celebrities/show", (req, res, next) => {
        const thecelebrity = new movieModel({
-           name:        req.body.name,
-           occupation:       req.body.occupation,
-           catchPhrase:    req.body.catchPhrase, // |
+
+           name:req.body.name,
+           occupation:req.body.occupation,
+           catchPhrase:req.body.catchPhrase, // |
        }); // |                     // |
            // fields from         names of the
            // model's schema      input tags
@@ -80,7 +67,7 @@ router.get('/celebrities', (req, res, next) => {
              // if it is then display the form with the error messages
              if (err.errors) {
                  res.locals.validationErrors = err.errors;
-                 res.render("celebrities-views/celebrity-form");
+                 //res.render("celebrities-views/celebrity-form");
              }
              // if it isn't then render the error page with our error
              else {
@@ -88,6 +75,20 @@ router.get('/celebrities', (req, res, next) => {
              }
          });
    }); // POST /products
+
+   router.get('/celebrities/:id', (req, res, next) => {
+     MovieModel.findById(req.params.id)
+     .then((celebrityFromDb) => {
+         // create a local variable for the view to access the DB result
+             res.locals.celebrityDetails = celebrityFromDb;
+             res.render("celebrities-views/show");
+             console.log('Created the show parameters to pass in');
+      }).catch((err) => {
+         // render the error page with our error
+         next(err);
+     });
+   }); // GET /products/details
+
 
 
 

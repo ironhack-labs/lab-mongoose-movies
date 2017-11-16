@@ -6,8 +6,9 @@
   <% listOfcelebrities.forEach((oneCelebrity) => { %>
     <li>
       <h3> <%= oneCelebrity.name %> </h3>
-      <p> $<%= oneCelebrity.occupation%> </p>
-        <p> $<%= oneCelebrity.catchPhrase%> </p>
+    <a href='/celebrities/<%=oneCelebrity._id%>'>Go to the specific celbrity</a>
+      <p> <%= oneCelebrity.occupation%> </p>
+        <p> <%= oneCelebrity.catchPhrase%> </p>
 
     </li>
   <% }) %>
