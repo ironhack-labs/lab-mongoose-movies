@@ -73,6 +73,47 @@ router.get("/celebrities/:celebId/delete", (req, res, next) => {
   });
 });
 //-------------------------------------------------------------
+// EDIT CELEBRITY FORM ----------------------------------------
+router.get("/celebrities/:celebId/edit", (req, res, next) => {
+  CelebrityModel.findById(req.params.celebId)
+  .then( (celebrityFromDb) => {
+      // create a local variable for the view to access the DB results
+      res.locals.celebrityDetails = celebrityFromDb;
+      res.render("celebrity-views/celebrity-edit");
+  })
+  .catch( (err) => {
+      next(err);
+  });
+});
+//-------------------------------------------------------------
+// POST CELEBRITY EDITS TO CELEBRITY DETAILS PAGE -------------
+router.post("/celebrities/:celebId", (req, res, next) => {
+  CelebrityModel.findById(req.params.celebId)
+    .then((celebrityFromDb) => {
+      celebrityFromDb.set({
+        name: req.body.celebrityName,
+        occupation: req.body. celebrityOccupation,
+        catchPhrase: req.body.celebrityCatchPhrase,
+        imageUrl: req.body.celebrityImageUrl
+    });
+
+    res.locals.celebrityDetails = celebrityFromDb;
+
+    return celebrityFromDb.save();
+  })
+  .then( () => {
+    res.redirect(`/celebrities/${req.params.celebId}`);
+  })
+  .catch( (err) => {
+    if (err.errors) {
+      res.locals.validationErrors = err.errors;
+      res.render("celebrity-views/celebrity-edit");
+    }
+    else {
+      next(err);
+    }
+  });
+});
 
 
 module.exports = router;
