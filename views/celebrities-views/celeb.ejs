@@ -9,7 +9,9 @@
     <a href='/celebrities/<%=oneCelebrity._id%>'>Go to the specific celbrity</a>
       <p> <%= oneCelebrity.occupation%> </p>
         <p> <%= oneCelebrity.catchPhrase%> </p>
-
+        <a href="/celebrities/<%=oneCelebrity._id%>/delete">
+          Delete (GET)
+        </a>
     </li>
   <% }) %>
 </ul>

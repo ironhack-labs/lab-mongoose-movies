@@ -1,11 +1,27 @@
-<nav>
-      <a href="/">Home</a>
-      <a href="/celebrities"> Celebrities </a>
-
-    <%celebrityDetails.forEach((oneCelebrity) => { %>
-        <a href=`/celebrities/<%=oneCelebrity._id%>/edit`>Go to the specific celbrity</a>
-
-        <%})%>
 
 
-  </nav>
+
+
+
+<h2>Celebrity View New Page</h2>
+<form method ="/post" action = "/celebrities">
+Celebrity name
+<label for="Celebrity name"> Celebrity Name</label>
+<input id="celebrityName" type= "text" placeholder = "e.g. Rick James"
+    name= "name" placeholder = "e.g. luigi@nintendo.com" />
+<br/>
+
+<label for="Celebrity occupation"> Occupation </label>
+<input id="celebrityOccupation" type= "text" placeholder = "eg. musician"
+    name= "occupation" placeholder = "eg. musician" />
+<br/>
+
+<label for="Celebrity catchPhrase">CatchPhrase</label>
+<input id="celebrityCatchPhrase" type= "text" placeholder = "eg. catchPhrase"
+    name= "catchPhrase" placeholder ="eg. catchPhrase" />
+<br/>
+<button>Submit form</button>
+celebrity
+occupation
+catchPhrase
+</form>
