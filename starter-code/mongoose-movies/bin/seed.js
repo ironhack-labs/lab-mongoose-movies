@@ -1,8 +1,6 @@
 require("../config/mongoose-setup");
 
-// import the product model to do product queries
 const CelebrityModel = require("../models/celebrity-model");
-
 
 const celebrityInfo = [
   {
