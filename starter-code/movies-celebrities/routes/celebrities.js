@@ -64,7 +64,59 @@ router.get("/celebrities/:id", (req, res, next) => {
   });
 });
 
-router.post("/celebrities/:id/delete")
-// Continue Here!!!!
+// Edit Step 1
+router.get("/celebrities/:id/edit", (req, res, next) => {
+  CelebrityModel.findById( req.params.id )
+  .then((celebrityFromDb) => {
+    res.locals.celebrityDetails = celebrityFromDb;
+    res.render("celebrities/edit");
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
+// Edit Step 2
+
+router.post("/celebrities/:id",  (req, res, next ) => {
+  CelebrityModel.findById(req.params.id)
+  .then((celebrityFromDb) => {
+    celebrityFromDb.set({
+      name: req.body.celebrityName,
+      occupation: req.body.celebrityOccupation,
+      catchPhrase: req.body.celebrityCatchPhrase
+    });
+    res.locals.celebrityDetails = celebrityFromDb;
+
+    return celebrityFromDb.save();
+  })
+  .then(() => {
+    res.redirect(`/celebrities/${req.params.id}`);
+  })
+  .catch((err) => {
+    if(err.errors) {
+      res.locals.validationErrors = err.errors;
+      res.render("celebrities/edit");
+    }
+    else {
+    next(err);
+  }
+  });
+});
+
+
+
+router.post("/celebrities/:id/delete", (req, res, next) => {
+
+    CelebrityModel.findByIdAndRemove(req.params.id)
+
+    .then((celebrityFromDb) => {
+        res.redirect("/celebrities");
+    })
+
+    .catch((err) => {
+      next(err);
+    });
+});
 
 module.exports = router;

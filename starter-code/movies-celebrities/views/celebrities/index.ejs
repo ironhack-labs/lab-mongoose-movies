@@ -5,9 +5,15 @@
 <ul>
   <%  listOfCelebrities.forEach((oneCelebrity) => { %>
       <li>
-        <h3><a href="celebrities/<%= oneCelebrity._id %>">
+        <h3>
+        <a href="celebrities/<%= oneCelebrity._id %>">
         <%= oneCelebrity.name %>
-        </a></h3>
+        </a>
+        </h3>
+
+        <form action="/celebrities/<%= oneCelebrity._id %>/delete" method="post">
+        <button> Delete </button>
+        </form>
       </li>
    <% }) %>
 </ul>

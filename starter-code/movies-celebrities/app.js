@@ -34,8 +34,10 @@ app.use('/', index);
 const myCelebrityRouter = require("./routes/celebrities");
 app.use(myCelebrityRouter);
 
+const myMovieRouter = require("./routes/movies");
+app.use(myMovieRouter);
 
-
+// The ERROR is some place near here
 // -----------------------------
 
 // catch 404 and forward to error handler

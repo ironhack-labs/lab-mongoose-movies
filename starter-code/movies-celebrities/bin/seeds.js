@@ -1,33 +1,31 @@
 require("../config/mongoose-setup");
 
 
-const CelebrityModel = require("../models/celebrity");
+const MovieModel = require("../models/movies");
 
-const celebrityInfo = [
+const movieInfo = [
     {
-      name: "Samuel L. Jackson",
-      occupation: "Actor",
-      catchPhrase:"English motherf*cker, do you speak it?"
+      title: "Crazy Driver",
+      genre: "Comedy",
+      plot:"A taxi driver that kidnapps poor people for fun and takes them to live a luxury week"
     },
     {
-      name: "Seth Rogen",
-      occupation: "Actor",
-      catchPhrase: "Couscous, the food that's so nice, they named it twice"
+      title: "Fake Spy",
+      genre: "Action, Fiction",
+      plot: "A mercenary that steals a spy identity for killing the Cuba President"
     },
     {
-      name: "Leonardo DiCaprio",
-      occupation: "Actor",
-      catchPhrase: "The only thing standing between you and your goal is the bullshit story you keep telling yourself as to why you can’t achieve it."
+      title: "Bye Baby",
+      genre: "Drama",
+      plot: "A girl who loses the love of her life"
     }
 ];
 
-CelebrityModel.create(celebrityInfo)
-    .then((celebrityResults) => {
-        console.log(`Inserted ${celebrityResults.length} celebrities`);
+MovieModel.create(movieInfo)
+    .then((movieResults) => {
+        console.log(`Inserted ${movieResults.length} movies`);
     })
     .catch((err) => {
       console.log("Product insert error!");
       console.log(err);
     });
-
-    
