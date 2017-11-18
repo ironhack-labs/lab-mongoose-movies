@@ -1,0 +1,25 @@
+<h2> Edit <%= celebrityDetails.name %> </h2>
+
+<form method="post" action="/celebrities/<%= celebrityDetails._id %>">
+  <label for="celebrity-name-input"> Celebrity Name </label>
+  <input id="celebrity-name-input" type="text" placeholder="e.g. Madonna" name="celebrityName" value="<%= celebrityDetails.name %>" />
+  <br />
+
+  <label for="celebrity-occupation-input"> Occupation </label>
+  <input id="celebrity-occupation-input" type="text" placeholder="e.g. Singer" name="celebrityOccupation" value="<%= celebrityDetails.occupation %>" />
+  <br />
+
+  <label for="celebrity-catchphrase-input"> Catch Phrase </label>
+  <textarea id="celebrity-catchphrase-input" placeholder="e.g. Never forget to dream." name="celebrityCatchPhrase"><%= celebrityDetails.catchPhrase %></textarea>
+  <br />
+
+  <label for="celebrity-image-input"> Image URL </label>
+  <input id="celebrity-image-input" type="text" placeholder="e.g. http://example.com/madonna.gif" name="celebrityImageUrl" value="<%= celebrityDetails.imageUrl %>" />
+  <br />
+
+  <h3> Current Image </h3>
+  <img src="<%= celebrityDetails.imageUrl %>" />
+  <br />
+
+  <button> Save Changes </button>
+</form>
