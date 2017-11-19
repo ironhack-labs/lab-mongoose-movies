@@ -1,5 +1,5 @@
-<h2>form</h2>
-<form action="/celebrities" method="POST">
+<h2>Edit</h2>
+<form action="/celebrities/<%= celebrities._id %>" method="POST">
 <p>
 <label for="name">Name:</label>
 <input type="text" id="name" name="name" value="<%= celebrities.name %>">
