@@ -62,4 +62,30 @@ const router  = express.Router();
 
   });
 
+    router.get('/:id/edit', (req, res, next) => {
+      const id = req.params.id;
+      console.log("entra en get edit id");
+      Movies.findById(id, (err, movies) => {
+        res.render('movies/edit', {
+          movies: movies
+        });
+      });
+    });
+
+    router.post('/:id', (req, res, next) => {
+      let id = req.params.id;
+      const updates = {
+        title: req.body.title,
+        genre : req.body.genre,
+        plot: req.body.plot,
+      };
+
+      Movies.findByIdAndUpdate(id, updates, (err, movies) => {
+        if (err){ return next(err); }
+
+        return res.redirect(`/movies/${movies._id}`);
+      });
+    });
+
+
 module.exports = router;
