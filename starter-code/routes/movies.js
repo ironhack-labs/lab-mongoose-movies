@@ -12,4 +12,13 @@ const router  = express.Router();
       });
     });
   });
+  router.get('/:id', (req, res, next) => {
+    const id = req.params.id;
+
+    Movies.findById(id, (err, movies) => {
+      res.render('movies/show', {
+        movies: movies
+      });
+    });
+  });
 module.exports = router;
