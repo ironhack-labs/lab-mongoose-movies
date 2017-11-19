@@ -50,6 +50,13 @@ const router  = express.Router();
     });
   });
 
+  router.post('/:id/delete', (req, res, next) => {
+    let id = req.params.id;
 
+    Celebrities.findByIdAndRemove(id, (err, celebrities) => {
+      if (err){ return next(err); }
+      return res.redirect('/celebrities');
+    });
 
+  });
 module.exports = router;
