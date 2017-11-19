@@ -52,6 +52,14 @@ const router  = express.Router();
   });
   });
 
+  router.post('/:id/delete', (req, res, next) => {
+    const id = req.params.id;
 
+    Movies.findByIdAndRemove(id, (err, movies) => {
+      if (err){ return next(err); }
+      return res.redirect('/movies');
+    });
+
+  });
 
 module.exports = router;
