@@ -12,6 +12,14 @@ const router  = express.Router();
       });
     });
   });
+
+  router.get('/new', (req, res, next) => {
+    res.render('movies/new', {
+      movies: new Movies()
+    });
+  });
+
+//cuidado con el orden en las rutas ^
   router.get('/:id', (req, res, next) => {
     const id = req.params.id;
 
@@ -21,4 +29,29 @@ const router  = express.Router();
       });
     });
   });
+
+
+  router.post('/', (req, res, next) => {
+    const MoviesInfo = {
+      title: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot
+    };
+
+  // Crea instancia
+  const newMovies = new Movies(MoviesInfo);
+
+//método
+  newMovies.save((err) => {
+    if (err) {
+      return res.render('movies/new', {
+        movies: newMovies
+      });
+    }
+    return res.redirect('/movies');
+  });
+  });
+
+
+
 module.exports = router;
