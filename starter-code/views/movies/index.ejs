@@ -1,0 +1,13 @@
+<h1>celebrities</h1>
+<% movies.forEach((movies) => { %>
+  <p><%= movies.title %></p>
+  <a href="/movies/<%= movies._id %>"> Profile</a>
+    <a href="/movies/<%= movies._id %>/edit"> Edit</a>
+  <form class="" action="/movies/<%= movies._id %>/delete" method="POST">
+  <button type="submit" name="button">delete</button>
+</form>
+<% }) %>
+<br>
+<br>
+<br>
+<a href="/movies/new">New movies</a>
