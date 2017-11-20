@@ -88,19 +88,22 @@ router.get('/celebrities', (req, res, next) => {
    }); // GET /products/details
    router.post("/celebrities", (req, res, next) => {
        const theCelebrity = new MovieModel({
-           name:req.body.celebrityName,
-           occupation:req.body.celebrityOccupation,
-           catchPhrase:req.body.celebrityCatchPhrase// |
+           name:req.body.name,
+           occupation:req.body.occupation,
+           catchPhrase:req.body.catchPhrase// |
 
        }); // |                     // |
 
-             theCelebrity.save().then(() => {
-             res.redirect("/celebrities/show");
+          console.log(req.body.celebrityName);
 
-         })
-         .catch((err) => {
+             theCelebrity.save().then(() => {
+
+
+          res.redirect('/celebrities');
+
+         }).catch((err) => {
            if (err.errors){
-             res.render("celebrities-views/new");
+             res.render('celebrities-views/new');
              console.log(err);
           }else{
              next(err);}
