@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let CelebritySchema = new Schema({
-    name : String,
-    occupation : String,
-    catchPhrase : String
+    name: String,
+    occupation: String,
+    catchPhrase: String
 });
 
 const Celebrity = mongoose.model('Celebrity', CelebritySchema);
