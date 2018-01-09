@@ -14,4 +14,17 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/celebrities/:id', (req, res, next) => {
+  let id = req.params.id
+
+  Celebrity.findById(id, (err, celeb) => {
+    if (err) {
+      next(err);
+    }
+    res.render('celebrities/show', {
+      celeb,
+    });
+  });
+});
+
 module.exports = router;
