@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 
 mongoose.connect('mongodb://localhost/celebrity');
 
@@ -29,8 +30,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/', users);
 app.use('/', celebrities);
+app.use('/', movies);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
