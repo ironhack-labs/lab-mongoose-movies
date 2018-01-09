@@ -1,0 +1,21 @@
+<h2>All Celebs</h2>
+
+
+<ol>
+    
+    <% results.forEach(celeb => { %>
+        <li>
+            <a href="http://localhost:3000/celebrities/find/<%= celeb._id %>"><%= celeb.name %></a>
+            <form method="POST" action="/celebrities/<%= celeb._id %>/delete">
+                <button type="submit">Delete Me</button>
+            </form>
+            
+        </li>
+        
+        <% }); %>
+    </ol>
+    
+    <a href="/celebrities/new">Add a Celebrity</a>
+    <br>
+    
+    

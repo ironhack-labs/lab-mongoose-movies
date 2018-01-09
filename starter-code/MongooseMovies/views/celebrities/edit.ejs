@@ -1,0 +1,11 @@
+<h2>Edit Information About <%= result.name %></h2>
+
+<form method="POST" action="/celebrities/<%= result._id %>">
+    <label>Name: </label>
+    <input type="text" name="name" value="<%= result.name %>" >
+    <label>Occupation: </label>
+    <input type="text" name="occupation" value="<%= result.occupation %>" >
+    <label>Catch Phrase: </label>
+    <input type="text" name="catchPhrase" value="<%= result.catchPhrase %>" >
+    <button type="submit">Edit</button>
+</form>
