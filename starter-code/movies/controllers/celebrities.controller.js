@@ -24,14 +24,14 @@ module.exports.new = (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-  res.send("asasdasdasdas");
+  // res.send("asasdasdasdas");
   
   
-  // const celebrityData = req.body;
+  const celebrityData = req.body;
 
-  // const newCelebrity = new Celebrity(celebrityData);
+  const newCelebrity = new Celebrity(celebrityData);
 
-  // newCelebrity.save().then((celebrity) => {
-  //   res.redirect('/celebrities/index');
-  // })
+  newCelebrity.save().then(() => {
+    res.redirect('/celebrities');
+  })
 };
