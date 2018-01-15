@@ -39,14 +39,22 @@ module.exports.edit = (req, res, next) => {
 };
 
 module.exports.update = (req, res, next) => {
-  const clebrityId = req.params.id;
+  const celebrityId = req.params.id;
   const updates = {
       name: req.body.name,
       occupation: req.body.occupation,
       catchPhrase: req.body.catchPhrase
   };
 
-  Celebrity.findByIdAndUpdate(clebrityId, updates).then((clebrity) => {
+  Celebrity.findByIdAndUpdate(celebrityId, updates).then((clebrity) => {
     res.redirect('/celebrities');
+  });
+};
+
+module.exports.delete = (req, res, next) => {
+  const celebrityId = req.params.id;
+
+  Celebrity.findByIdAndRemove(celebrityId).then((product) => {
+    return res.redirect('/celebrities');
   });
 };

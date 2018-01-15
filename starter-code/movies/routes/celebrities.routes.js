@@ -12,11 +12,6 @@ router.get('/:id', celebritiesController.show);
 router.get('/:id/edit', celebritiesController.edit);
 router.post('/:id', celebritiesController.update);
 
-// router.post('/', celebritiesController.create);
-
-
-// router.get('/:id', celebritiesController.show);
-
-// router.post('/:id/delete', celebritiesController.delete);
+router.post('/:id/delete', celebritiesController.delete);
 
 module.exports = router;
