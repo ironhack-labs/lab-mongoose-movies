@@ -1,0 +1,20 @@
+{
+  "name": "express-generator",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "ejs-layouts": "0.0.1",
+    "express": "^4.15.5",
+    "express-ejs-layouts": "^2.3.1",
+    "mongoose": "^4.13.9",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
+  }
+}
