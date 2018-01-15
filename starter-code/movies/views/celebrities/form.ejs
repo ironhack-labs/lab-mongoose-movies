@@ -1,0 +1,15 @@
+<% if (celebrity.isNew) { %>
+  <form action="/celebrities" method="post" class="form-group">
+  <h2>Create a celebrity</h2>
+<% } else { %>
+  <h2>Update a celebrity</h2>
+  <form action="/celebrities/<%= celebrity.id %>" method="post" class="form-group">
+<% } %>
+    Name:
+    <input type="text" name="name" value="<%= celebrity.name %>" class="form-control"> 
+     Ocuupation:
+     <input type="text" name="occupation" value="<%= celebrity.occupation %>" class="form-control"> 
+     Catch Phrase:
+     <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>" class="form-control">
+     <input type="submit" value="Continue" class="btn btn-primary">
+  </form>

@@ -4,35 +4,21 @@
 <table id="celebrities-list" class="table table-striped">
   <thead>
     <tr>
-      <th></th>
       <th>Name</th>
-      <th>Desc</th>
-      <th>Price</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% celebrities.forEach((celebrity) => { %>
       <tr>
         <td>
-          <img src="<%= celebrity.imageUrl %>"/>
-        </td>
-
-        <td>
           <a href="/celebrities/<%=celebrity._id%>">
             <%= celebrity.name %>
           </a>
-        </td>
-        <td><%= celebrity.occupation%></td>
-        <td><%= celebrity.catchPhrase %></td>
-        <td>
-          <a href="/celebrities/<%= celebrity._id %>/edit">Edit</a>
-
-          <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
-            <input type="submit" value="Delete">
-          </form>
         </td>
       </tr>
   <% }) %>
   </tbody>
 </table>
+<a href="/celebrities/new">
+  Add new celebrity
+</a>

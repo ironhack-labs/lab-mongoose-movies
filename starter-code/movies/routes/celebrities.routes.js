@@ -4,7 +4,11 @@ const celebritiesController = require('../controllers/celebrities.controller');
 
 router.get('/', celebritiesController.index);
 
-// router.get('/new', celebritiesController.new);
+router.get('/new', celebritiesController.new);
+router.post('/', celebritiesController.create);
+
+router.get('/:id', celebritiesController.show);
+
 // router.post('/', celebritiesController.create);
 
 // router.get('/:id/edit', celebritiesController.edit);
