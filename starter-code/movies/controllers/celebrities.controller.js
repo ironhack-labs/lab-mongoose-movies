@@ -16,22 +16,37 @@ module.exports.show = (req, res, next) => {
   });
 };
 
-module.exports.new = (req, res, next) => {
-  
+module.exports.new = (req, res, next) => {  
   res.render('celebrities/form', {
     celebrity: new Celebrity()
   });
 };
 
 module.exports.create = (req, res, next) => {
-  // res.send("asasdasdasdas");
-  
-  
   const celebrityData = req.body;
-
   const newCelebrity = new Celebrity(celebrityData);
-
   newCelebrity.save().then(() => {
     res.redirect('/celebrities');
-  })
+  });
+};
+
+module.exports.edit = (req, res, next) => {
+  Celebrity.findById(req.params.id).then((celebrity) => {
+    res.render('celebrities/form', {
+      celebrity: celebrity
+    });
+  });
+};
+
+module.exports.update = (req, res, next) => {
+  const clebrityId = req.params.id;
+  const updates = {
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase
+  };
+
+  Celebrity.findByIdAndUpdate(clebrityId, updates).then((clebrity) => {
+    res.redirect('/celebrities');
+  });
 };

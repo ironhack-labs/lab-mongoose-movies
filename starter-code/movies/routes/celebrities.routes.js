@@ -9,10 +9,11 @@ router.post('/', celebritiesController.create);
 
 router.get('/:id', celebritiesController.show);
 
+router.get('/:id/edit', celebritiesController.edit);
+router.post('/:id', celebritiesController.update);
+
 // router.post('/', celebritiesController.create);
 
-// router.get('/:id/edit', celebritiesController.edit);
-// router.post('/:id', celebritiesController.update);
 
 // router.get('/:id', celebritiesController.show);
 
