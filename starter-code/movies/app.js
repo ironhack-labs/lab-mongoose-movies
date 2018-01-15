@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var moviesRoute = require('./routes/movies.routes');
+var celebritiesRoute = require('./routes/celebrities.routes');
 const expressLayout = require('express-ejs-layouts');
 
 // Import DB config
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/celebrities', celebritiesRoute);
 app.use('/movies', moviesRoute);
 
 
