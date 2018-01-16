@@ -15,3 +15,17 @@ module.exports.show = (req, res, next) => {
     });
   });
 };
+
+module.exports.new = (req, res, next) => {  
+  res.render('movies/form', {
+    movie: new Movie()
+  });
+};
+
+module.exports.create = (req, res, next) => {
+  const movie = req.body;
+  const newMovie = new Movie(movie);
+  newMovie.save().then(() => {
+    res.redirect('/movies');
+  });
+};
