@@ -50,3 +50,11 @@ module.exports.update = (req, res, next) => {
     res.redirect('/movies');
   });
 };
+
+module.exports.delete = (req, res, next) => {
+  const movieId = req.params.id;
+
+  Movie.findByIdAndRemove(movieId).then((movie) => {
+    return res.redirect('/movies');
+  });
+};
