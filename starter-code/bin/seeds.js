@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 require('../config/db.config');
 
-const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/celebrity.model');
 
 const celebrities = [
     {
@@ -23,8 +23,8 @@ const celebrities = [
 ]
 
 Celebrity.create(celebrities).then( (data) => {
-    data.forEach( (product) => {
-        console.log(product);
+    data.forEach( (celebrity) => {
+        console.log(celebrity);
     });
     mongoose.connection.close();
 });
