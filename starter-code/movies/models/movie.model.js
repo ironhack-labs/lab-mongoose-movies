@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const ProductSchema = new Schema({
-  name       : String,
-  price      : Number,
-  imageUrl   : String,
-  description: String,
+const MovieSchema = new Schema({
+  title: String,
+  genre: String,
+  plot: String,
 });
 
-const Product = mongoose.model('Product', ProductSchema);
+const Movie = mongoose.model('Movie', MovieSchema);
 
-module.exports = Product;
+module.exports = Movie;
