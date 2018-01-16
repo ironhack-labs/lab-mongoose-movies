@@ -29,3 +29,24 @@ module.exports.create = (req, res, next) => {
     res.redirect('/movies');
   });
 };
+
+module.exports.edit = (req, res, next) => {
+  Movie.findById(req.params.id).then((movie) => {
+    res.render('movies/form', {
+      movie: movie
+    });
+  });
+};
+
+module.exports.update = (req, res, next) => {
+  const movieId = req.params.id;
+  const updates = {
+      title: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot
+  };
+
+  Movie.findByIdAndUpdate(movieId, updates).then((movie) => {
+    res.redirect('/movies');
+  });
+};

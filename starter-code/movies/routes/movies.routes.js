@@ -9,8 +9,8 @@ router.post('/', moviesController.create);
 
 router.get('/:id', moviesController.show);
 
-// router.get('/:id/edit', moviesController.edit);
-// router.post('/:id', moviesController.update);
+router.get('/:id/edit', moviesController.edit);
+router.post('/:id', moviesController.update);
 
 // router.post('/:id/delete', moviesController.delete);
 
