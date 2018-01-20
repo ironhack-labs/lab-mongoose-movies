@@ -1,0 +1,24 @@
+<h1>You are in celebrities INDEX</h1>
+
+
+<table id="celebrities-list" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% celebrities.forEach((celebrity) => { %>
+      <tr>
+        <td>
+          <a href="/celebrities/<%=celebrity._id%>">
+            <%= celebrity.name %>
+          </a>
+        </td>
+      </tr>
+  <% }) %>
+  </tbody>
+</table>
+<a href="/celebrities/new">
+  Add new celebrity
+</a>

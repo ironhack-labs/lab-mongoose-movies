@@ -1,0 +1,31 @@
+<table id="movies-list" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Plot</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>
+          <%= movie.title %>
+        </td>
+
+        <td>
+            <%= movie.genre%>
+        </td>
+        <td><%= movie.plot %></td>
+        <td></td>
+        <td>
+          <a href="/movies/<%= movie._id %>/edit">Edit</a>
+
+          <form action="/movies/<%= movie._id %>/delete" method="post">
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+      </tr>
+  </tbody>
+</table>

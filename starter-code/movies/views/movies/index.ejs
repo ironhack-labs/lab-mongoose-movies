@@ -1,0 +1,24 @@
+<h1>You are in movies INDEX</h1>
+
+
+<table id="movies-list" class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% movies.forEach((movie) => { %>
+      <tr>
+        <td>
+          <a href="/movies/<%=movie._id%>">
+            <%= movie.title %>
+          </a>
+        </td>
+      </tr>
+  <% }) %>
+  </tbody>
+</table>
+<a href="/movies/new">
+  Add new movie
+</a>
