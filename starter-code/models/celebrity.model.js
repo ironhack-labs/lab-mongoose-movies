@@ -2,10 +2,13 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const CelebritySchema = new Schema({
-    name        : String,
+    name: {
+      type: String,
+      unique: true
+    }, 
     occupation  : String,
     catchPhrase : String
-  });
+  }, { timestamps: true });
 
 const Celebrity = mongoose.model('Celebrity', CelebritySchema);
 

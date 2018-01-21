@@ -28,3 +28,14 @@ module.exports.celebrityDetails = (req, res, next) => {
             next(error);
         })
 }
+
+module.exports.new = (req, res, next) => {
+    res.render('celebrities/new');
+};
+
+module.exports.doNew = (req, res, next) => {
+    const newCelebrity = new Celebrity(req.body);
+    newCelebrity.save()
+        .then(res.redirect('/celebrities'))
+        .catch((error) => next(error))
+};
