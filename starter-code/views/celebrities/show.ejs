@@ -1,0 +1,26 @@
+<h2>GET /celebrities/<%= celebrity._id %></h2>
+<ul>
+    <li>
+        <a href="/">Index</a>
+    </li>
+    <li>
+        <a href="/celebrities">Celebrities</a>
+    </li>
+</ul>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Occupation</th>
+        <th scope="col">Catch Phrase</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= celebrity.name %></td>
+            <td><%= celebrity.occupation %></td>
+            <td><%= celebrity.catchPhrase %></td>
+        </tr>
+    </tbody>
+</table>

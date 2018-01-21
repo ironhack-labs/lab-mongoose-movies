@@ -15,3 +15,16 @@ module.exports.indexCelebrities = (req, res, next) => {
         });
     });
 };
+
+module.exports.celebrityDetails = (req, res, next) => {
+    console.log(req.params.id);
+    Celebrity.findOne({_id: req.params.id})
+        .then((celebrity) => {
+            res.render('celebrities/show', {
+                celebrity: celebrity
+            });
+        })
+        .catch((error) => {
+            next(error);
+        })
+}

@@ -1,19 +1,24 @@
 <h2>GET /celebrities</h2>
-<a href="/">Index</a>
+<ul>
+    <li>
+        <a href="/">Index</a>
+    </li>
+</ul>
+
 <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Name</th>
-        <th scope="col">Occupation</th>
-        <th scope="col">Catch Phrase</th>
+        <!-- <th scope="col">Occupation</th>
+        <th scope="col">Catch Phrase</th> -->
       </tr>
     </thead>
     <tbody>
     <% celebrities.forEach( (celebrity) => { %>
         <tr>
-            <td><%= celebrity.name %></td>
-            <td><%= celebrity.occupation %></td>
-            <td><%= celebrity.catchPhrase %></td>
+            <td><a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></td>
+            <!-- <td><%= celebrity.occupation %></td>
+            <td><%= celebrity.catchPhrase %></td> -->
         </tr>
     <% }) %>
     </tbody>
