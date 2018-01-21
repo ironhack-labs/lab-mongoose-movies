@@ -30,11 +30,17 @@ module.exports.celebrityDetails = (req, res, next) => {
 }
 
 module.exports.new = (req, res, next) => {
-    res.render('celebrities/new');
+    res.render('celebrities/form', {
+        celebrity: new Celebrity()
+    });
 };
 
 module.exports.doNew = (req, res, next) => {
-    const newCelebrity = new Celebrity(req.body);
+    const newCelebrity = new Celebrity({
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+    });
     newCelebrity.save()
         .then(res.redirect('/celebrities'))
         .catch((error) => next(error))
@@ -42,6 +48,27 @@ module.exports.doNew = (req, res, next) => {
 
 module.exports.delete = (req, res, next) => {
     Celebrity.findByIdAndRemove(req.params.id)
+        .then(res.redirect('/celebrities'))
+        .catch((error) => next(error));
+};
+
+module.exports.edit = (req, res, next) => {
+    Celebrity.findById(req.params.id)
+        .then((celebrity) => {
+            res.render('celebrities/form', {
+                celebrity: celebrity
+            })
+        })
+        .catch((error) => next(error));
+};
+
+module.exports.doEdit = (req, res, next) => {
+    const update = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+    };
+    Celebrity.findByIdAndUpdate(req.params.id, update)
         .then(res.redirect('/celebrities'))
         .catch((error) => next(error));
 };

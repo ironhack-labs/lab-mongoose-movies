@@ -24,6 +24,16 @@
             <td><%= celebrity.name %></td>
             <td><%= celebrity.occupation %></td>
             <td><%= celebrity.catchPhrase %></td>
+            <td>
+                <form action="/celebrities/<%= celebrity._id %>/edit" method="get">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
     </tbody>
 </table>

@@ -20,6 +20,11 @@
     <% celebrities.forEach( (celebrity) => { %>
         <tr>
             <td><a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></td>
+                <td>
+                    <form action="/celebrities/<%= celebrity._id %>/edit" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
             <td>
                 <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
                     <button type="submit">Delete</button>
