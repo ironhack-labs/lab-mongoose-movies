@@ -39,3 +39,9 @@ module.exports.doNew = (req, res, next) => {
         .then(res.redirect('/celebrities'))
         .catch((error) => next(error))
 };
+
+module.exports.delete = (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+        .then(res.redirect('/celebrities'))
+        .catch((error) => next(error));
+};

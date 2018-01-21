@@ -20,7 +20,12 @@
     <% celebrities.forEach( (celebrity) => { %>
         <tr>
             <td><a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></td>
-            <!-- <td><%= celebrity.occupation %></td>
+            <td>
+                <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+                <!-- <td><%= celebrity.occupation %></td>
             <td><%= celebrity.catchPhrase %></td> -->
         </tr>
     <% }) %>
