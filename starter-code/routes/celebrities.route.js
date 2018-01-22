@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const celebritiesController = require('../controllers/celebrities.controller');
 
-router.get('/', celebritiesController.index);
-router.get('/celebrities', celebritiesController.indexCelebrities);
-router.get('/celebrities/new', celebritiesController.new);
-router.get('/celebrities/:id', celebritiesController.celebrityDetails);
-router.get('/celebrities/:id/edit', celebritiesController.edit);
+//router.get('/', celebritiesController.index);
+router.get('/', celebritiesController.indexCelebrities);
+router.get('/new', celebritiesController.new);
+router.get('/:id', celebritiesController.celebrityDetails);
+router.get('/:id/edit', celebritiesController.edit);
 
-router.post('/celebrities', celebritiesController.doNew);
-router.post('/celebrities/:id', celebritiesController.doEdit);
-router.post('/celebrities/:id/delete', celebritiesController.delete);
+router.post('/', celebritiesController.doNew);
+router.post('/:id', celebritiesController.doEdit);
+router.post('/:id/delete', celebritiesController.delete);
 
 module.exports = router;

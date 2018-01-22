@@ -1,0 +1,39 @@
+<h2>Movie details</h2>
+<ul>
+    <li>
+        <a href="/">Index</a>
+    </li>
+    <li>
+        <a href="/movies">Celebrities</a>
+    </li>
+    <li>
+        <a href="/movies/new">New celebrity</a>
+    </li>
+</ul>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Plot</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= movie.title %></td>
+            <td><%= movie.genre %></td>
+            <td><%= movie.plot %></td>
+            <td>
+                <form action="/movies/<%= movie._id %>/edit" method="get">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form action="/movies/<%= movie._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>

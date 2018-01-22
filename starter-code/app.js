@@ -3,7 +3,9 @@ const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const expressLayout = require('express-ejs-layouts');
+const mainRoute = require('./routes/main.route');
 const celebritiesRoute = require('./routes/celebrities.route');
+const moviesRoute = require('./routes/movies.route');
 
 // Import DB config
 require('./config/db.config');
@@ -23,8 +25,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.use('/', celebritiesRoute);
+app.use('/', mainRoute);
 app.use('/celebrities', celebritiesRoute);
+app.use('/movies', moviesRoute);
 //app.use('/', (_, res) => res.redirect('/celebrities'));
 
 module.exports = app;
