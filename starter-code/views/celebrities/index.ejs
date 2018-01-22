@@ -1,0 +1,38 @@
+<h2>Celebrities index</h2>
+<ul>
+    <li>
+        <a href="/">Index</a>
+    </li>
+    <li>
+        <a href="/celebrities/new">New celebrity</a>
+    </li>
+</ul>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <!-- <th scope="col">Occupation</th>
+        <th scope="col">Catch Phrase</th> -->
+      </tr>
+    </thead>
+    <tbody>
+    <% celebrities.forEach( (celebrity) => { %>
+        <tr>
+            <td><a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></td>
+                <td>
+                    <form action="/celebrities/<%= celebrity._id %>/edit" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+            <td>
+                <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+                <!-- <td><%= celebrity.occupation %></td>
+            <td><%= celebrity.catchPhrase %></td> -->
+        </tr>
+    <% }) %>
+    </tbody>
+</table>

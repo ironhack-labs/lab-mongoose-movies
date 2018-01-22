@@ -1,0 +1,24 @@
+<h2>Celebrity form</h2>
+
+<ul>
+    <li>
+        <a href="/">Index</a>
+    </li>
+    <li>
+        <a href="/celebrities">Celebrities</a>
+    </li>
+    <li>
+        <a href="/celebrities/new">New celebrity</a>
+    </li>
+</ul>
+
+<% if (celebrity.isNew) { %>
+    <form action="/celebrities" method="post">
+  <% } else { %>
+    <form action="/celebrities/<%= celebrity._id %>" method="post">
+  <% } %>
+    <input type="text" name="name" value="<%= celebrity.name %>">
+    <input type="text" name="occupation" value="<%= celebrity.occupation %>">
+    <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>">
+    <button type="submit">Submit</button>
+</form>
