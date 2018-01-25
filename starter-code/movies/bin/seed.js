@@ -4,9 +4,9 @@ mongoose.connect('mongodb://localhost/mongoose-movie');
 const Celebrity = require('../models/celebrity');
 
 const celebrities = [
-  { name: 'Manu', occupation: 'actor', catchPhrase: 'Gotta Catch Em All' },
-  { name: 'Lidia', occupation: 'singer', catchPhrase: 'Living la vida loca' },
-  { name: 'Cova', occupation: 'comedian', catchPhrase: 'Guau!' },
+  { name: 'Manu', occupation: 'actor', catchPharse: 'Gotta Catch Em All' },
+  { name: 'Lidia', occupation: 'singer', catchPharse: 'Living la vida loca' },
+  { name: 'Cova', occupation: 'comedian', catchPharse: 'Guau!' },
 ];
 
 Celebrity.create(celebrities, (err, docs) => {
