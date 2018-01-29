@@ -1,0 +1,16 @@
+<h2>
+  <%= title %>
+</h2>
+
+<form action="/movies" method="post" id="movieform">
+  <label for="name">Title
+    <input type="text" name="title" id="title">
+  </label>
+  <label for="genre">Genre
+    <input type="text" name="genre" id="genre">
+  </label>
+  <label for="plot">Plot
+    <input type="textarea" name="plot" id="plot">
+  </label>
+  <button type="submit">Add movie</button>
+</form>
