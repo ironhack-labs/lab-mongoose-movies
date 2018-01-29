@@ -1,0 +1,24 @@
+<a href="/">Home</a>
+<a href="/celebrities">Celebrities</a>
+<a href="/movies">Movies</a>
+
+<h2>
+  <%= title %>
+</h2>
+
+<ul>
+  <li>
+    Title:
+    <%= aMovie.title %>
+  </li>
+  <li>
+    Genre:
+    <%= aMovie.genre %>
+  </li>
+  <li>
+    Plot:
+    <%= aMovie.plot %>
+  </li>
+</ul>
+
+<a href="/movies/<%=aMovie._id%>/edit">edit the information</a>

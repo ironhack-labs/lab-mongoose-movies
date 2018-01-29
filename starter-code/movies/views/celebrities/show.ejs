@@ -1,0 +1,20 @@
+<a href="/">Home</a>
+<a href="/celebrities">Celebrities</a>
+
+<h2>
+  <%= title %>
+</h2>
+
+<ul>
+  <li>
+    Name: <%= celebrity.name %>
+  </li>
+  <li>
+    Occupation: <%= celebrity.occupation %>
+  </li>
+  <li>
+    CatchPhrase: <%= celebrity.catchPhrase %>
+  </li>
+</ul>
+
+<a href="/celebrities/<%=celebrity._id%>/edit">edit the information</a>

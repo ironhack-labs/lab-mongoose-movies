@@ -1,0 +1,18 @@
+<a href="/">Home</a>
+
+<h2>
+  <%= title %>
+</h2>
+
+<form action="/celebrities/<%=celebrity._id%>" method="post" id="editform">
+  <label for="name">Name
+    <input type="text" name="name" id="name" value="<%=celebrity.name%>">
+  </label>
+  <label for="occupation">Occupation
+    <input type="text" name="occupation" id="occupation" value="<%=celebrity.occupation%>">
+  </label>
+  <label for="catchPhrase">CatchPhrase
+    <input type="textarea" name="catchPhrase" id="catchPhrase" value="<%=celebrity.catchPhrase%>">
+  </label>
+  <button type="submit">Update Celebrity</button>
+</form>

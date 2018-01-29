@@ -1,0 +1,18 @@
+<a href="/">Home</a>
+
+<h2>
+  <%= title %>
+</h2>
+
+<form action="/movies/<%=aMovie._id%>" method="post" id="editform">
+  <label for="title">Title
+    <input type="text" name="title" id="title" value="<%=aMovie.title%>">
+  </label>
+  <label for="genre">Genre
+    <input type="text" name="genre" id="genre" value="<%=aMovie.genre%>">
+  </label>
+  <label for="plot">Plot
+    <input type="textarea" name="plot" id="plot" value="<%=aMovie.plot%>">
+  </label>
+  <button type="submit">Update Movie</button>
+</form>
