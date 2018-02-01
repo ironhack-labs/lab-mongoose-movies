@@ -5,34 +5,34 @@ mongoose.connect('mongodb://localhost/celebrity-dev').then(() => console.log("Co
 
 const celebrities = [
     {
-        name : "Tom Cruise",
-        occupation : "actor",
-        catchPhrase : "yeah",
+        name: "Tom Cruise",
+        occupation: "actor",
+        catchPhrase: "yeah",
     },
     {
-        name : "Beyonce",
-        occupation : "singer",
-        catchPhrase : "fuck",
+        name: "Beyonce",
+        occupation: "singer",
+        catchPhrase: "fuck",
     },
     {
-        name : "Daffy Duck",
-        occupation : "comedian",
-        catchPhrase : "shit",
+        name: "Daffy Duck",
+        occupation: "comedian",
+        catchPhrase: "shit",
     }
 ];
 
 Celebrity.collection.drop();
 
-celebrities.forEach( p => {
+celebrities.forEach(p => {
     let cel = new Celebrity(p);
-    cel.save((err,cele) =>{
-        if (err){
+    cel.save((err, cele) => {
+        if (err) {
             throw err;
         }
-        console.log (`Celebrity guardada ${cele.name}`)
+        console.log(`Celebrity guardada ${cele.name}`)
     })
 });
 
 setTimeout(() => {
     mongoose.disconnect();
-  }, 2000);
+}, 2000);

@@ -5,12 +5,13 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 // const expressLayouts = require('express-ejs-layouts');
-const mongoose = require('mongoose');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const mongoose = require('mongoose');
+const celebrities = require('./routes/celebrities');
 
-mongoose.connect('mongodb://localhost/celebrity-dev').then( () => { console.log("Conectado a BBDD")});
+mongoose.connect('mongodb://localhost/celebrity-dev').then(() => { console.log("Conectado a BBDD") });
 
 
 const app = express();
@@ -29,16 +30,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/celebrities', celebrities);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
