@@ -18,7 +18,7 @@ const celebData = [
     reconnectTries: Number.MAX_VALUE
   });
 
-// apply celebrity data to model in order to
+// apply celebrity data to model
   Celebrity.create(celebData, (err, docs) => {
     if (err) {
       throw err;
