@@ -1,14 +1,23 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const index = require('./routes/index');
+const users = require('./routes/users');
+const mongoose = require('mongoose');
+const celebrities = require('./routes/celebrities');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+//AQUI LOS MODELOS QUE NECESITAREMOS
 
-var app = express();
+
+//CONEXION A LA BBDD
+mongoose.connect('mongodb://localhost/mongoose-movies').then( () => {
+  console.log("CONECTADO SURMANITO A LAS PELIS TO RESHULAS");
+})
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/celebrities',celebrities);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,5 +52,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
