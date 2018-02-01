@@ -1,0 +1,17 @@
+<h2> Celebrity List </h2>
+
+<!--<a href="/products/new"> Add a New Product </a>-->
+
+<ul>
+  <% listOfcelebrities.forEach((oneCelebrity) => { %>
+    <li>
+      <h3> <%= oneCelebrity.name %> </h3>
+    <a href='/celebrities/<%=oneCelebrity._id%>'>Go to the specific celbrity</a>
+      <p> <%= oneCelebrity.occupation%> </p>
+        <p> <%= oneCelebrity.catchPhrase%> </p>
+        <a href="/celebrities/<%=oneCelebrity._id%>/delete">
+          Delete (GET)
+        </a>
+    </li>
+  <% }) %>
+</ul>
