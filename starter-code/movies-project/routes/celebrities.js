@@ -22,4 +22,26 @@ router.get('/show/:id', (req, res, next) => {
   });
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
+router.post('/', (req, res, next) => {
+  const newCelebrity = {
+    name: req.body.newcelebrity,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  }
+
+  const freshCelebrity = new Celebrity(newCelebrity);
+
+  freshCelebrity.save((err) => {
+    if (err){
+      return next(err);
+    } else {
+      res.redirect('/celebrities');
+    }
+  })
+});
+
 module.exports = router;
