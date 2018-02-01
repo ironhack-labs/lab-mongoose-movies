@@ -11,12 +11,12 @@ const celebrities = [
     catchPhrase: "En PS Management buscamos a la actriz 360"
   },
   {
-    name: "Paquita Salas",
+    name: "Paquita Salas 2",
     occupation: "representante de actores",
     catchPhrase: "En PS Management buscamos a la actriz 360"
   },
   {
-    name: "Paquita Salas",
+    name: "Paquita Salas 3",
     occupation: "representante de actores",
     catchPhrase: "En PS Management buscamos a la actriz 360"
   }
@@ -30,6 +30,5 @@ celebrities.forEach(p => {
     if (err) {
       throw err;
     }
-    console.log(`Producto guardado ${prod.name}`);
   });
 });
