@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movies</title>
+</head>
+
+<body>
+<h2> Voici la liste des acteurs à succès </h2>
+
+<ul>
+<% celebrities.forEach((celebrities) => { %>
+    <li>
+        <%=celebrities.name %> </br>
+        <a href="/celebrities/show?id=<%= celebrities._id%>"> see more </a> 
+    </li>
+<% }) %>
+</ul>
+</body>
+
+</html>
+

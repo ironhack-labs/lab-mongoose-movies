@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movies</title>
+</head>
+
+<body>
+<h1> Plus d'info sur : </h1>
+
+<form action="/celebrities/<%=celebrities._id %>" method="POST">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" value="<%= celebrities.name %>">
+<label for="occupation">Occupation</label>
+<input type="text" id="occupation" name="occupation" value="<%= product.occupation %>">
+<label for="punchline">Catch Phrase </label>
+<input type="text" id="punchline" name="punchline" value="<%= product.catchPhrase %>">
+
+<button type="submit">Add new character</button>
+</form>
+  
+
+
+<p> Occupation : <%= celebritiyId.occupation %> </p>
+<p> Favorite punchline : <%= celebritiyId.catchPhrase %></p>
+
+</body>
+
+</html>
