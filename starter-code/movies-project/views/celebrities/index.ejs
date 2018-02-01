@@ -3,4 +3,7 @@
 <% portfolio.forEach(function (celebrity){%>
     <p><%= celebrity.name %></p>
     <p><a href='/celebrities/show/<%= celebrity._id%>'>Check it out!</a></p>
+    <form method="POST" action="/celebrities/<%= celebrity._id%>/delete">
+      <button type="submit">Send this guy to hell</button>
+    </form>
     <%})%>
