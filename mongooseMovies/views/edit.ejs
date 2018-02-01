@@ -1,0 +1,19 @@
+<h2>Edit celebrity</h2>
+<form method="post" action="/celebrities/<%= celebData.id%>">
+    <div>
+        <label for="celebrity-name"> Celebrity Name: </label>
+        <input type="text" name="name" value="<%= celebData.name%>">
+    </div>
+
+    <div>
+        <label for="occupation"> Occupation: </label>
+        <input type="text" name="occupation" value="<%= celebData.occupation%>">
+    </div>
+
+    <div>
+        <label for="catch-phrase"> Catch Phrase: </label>
+        <input type="text" name="catchPhrase" value="<%= celebData.catchPhrase%>">
+    </div>
+
+    <button> Add this celebrity </button>
+</form>
