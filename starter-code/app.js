@@ -4,9 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+const celebrities = require('./routes/celebrities');
 
 var app = express();
 
@@ -24,6 +26,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/celebrities', celebrities);
+
+mongoose.Promise = Promise;
+mongoose.connect('mongodb://localhost/celebrities', {
+  keepAlive: true,
+  reconnectTries: Number.MAX_VALUE,
+  useMongoClient: true
+});
 
 // -- 404 and error handler
 
