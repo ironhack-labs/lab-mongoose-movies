@@ -2,4 +2,5 @@
 
 <% portfolio.forEach(function (celebrity){%>
     <p><%= celebrity.name %></p>
+    <p><a href='/celebrities/show/<%= celebrity._id%>'>Check it out!</a></p>
     <%})%>
