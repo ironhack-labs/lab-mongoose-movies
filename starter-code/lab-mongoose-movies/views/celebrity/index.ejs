@@ -1,0 +1,12 @@
+<h2>HALL OF FAME OF CELEBRITIES!</h2>
+<ul>
+    <% celebrity.forEach((c) => { %>
+        <li>
+        <%= c.name %>  
+        <a href="celebrity/<%= c._id %>">View Details</a> 
+        <a href="celebrity/<%= c._id %>/delete">Delete Celebrity</a> 
+        </li>
+    <%  }) %>
+</ul>
+
+<a href="celebrity/new">Agrega una Celebrity nueva!</a>
