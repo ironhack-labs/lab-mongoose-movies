@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
   })
 });
 
-router.get('/show/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   const celebId = req.params.id;
 
   Celebrity.findById(celebId, (err, famous) => {
