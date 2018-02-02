@@ -3,6 +3,7 @@
     <% celebrities.forEach((celebrity)=> { %>
         <li>
             <%= celebrity.name %> - <%= celebrity.occupation %> - <%= celebrity.catchPhrase %>
+            <a href="/celebrities/<%= celebrity._id %>">Details</a>
         </li>
     <% }) %>
 </ul>

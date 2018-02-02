@@ -13,17 +13,13 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.get('/new', (req, res, next) => {
-  res.render('celebrities/new');
-});
+router.get('/celebrities/:id', (req,res) => {
+  const celebrityId = req.params.id;
 
-router.post('/', (req, res, next) => {
-  const {name, proppellers, maxSpeed} = req.body;
-  const drone = new Drone({name, proppellers, maxSpeed});
-  drone.save( err =>{
-    if(err){return next(err)}
-    res.redirect('/');
-  })
+  Celebrity.findById(celebrityId, (err, Celebrity) => {
+    if (err) { return next(err); }
+      res.render('celebrities/show', { Celebrity: Celebrity});
+    });
 });
 
 module.exports = router;
