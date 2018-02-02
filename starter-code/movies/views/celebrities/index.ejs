@@ -1,0 +1,10 @@
+<h2></h2>
+<ul>
+  <% celebrities.forEach((celebrity) => { %>
+    <li>
+      Celebrity's name: <%= celebrity.name %> - Celebrity's occupation: <%= celebrity.occupation %> - Celebrity's catchphrase: <%= celebrity.catchPhrase %>
+      <a href="/celebrities/<%= celebrity._id %>">Find out more</a>
+    </li>
+  <%  }) %>
+</ul>
+<a href="/celebrities/new">Create a new celebrity</a>
