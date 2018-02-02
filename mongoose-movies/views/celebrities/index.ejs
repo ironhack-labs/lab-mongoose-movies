@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <ul>
+      <% celebrities.forEach( (theCelebrity) => { %>
+        <li>
+          <a href="/celebrities/<%= theCelebrity._id %>">
+            <%= theCelebrity.name %>
+          </a>
+          - <%= theCelebrity.occupation %>
+          <a href="/celebrities/<%= theCelebrity._id %>/edit">
+            Edit
+          </a>
+          <form action="/celebrities/<%= theCelebrity._id %>/delete" method="POST">
+            <button> Delete </button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+
+    <a href = "/celebrities/new">
+      Click here to add a new celebrity
+    </a>
+  </body>
+</html>
+
+<!-- don't put buttons in the body, use a form -->
