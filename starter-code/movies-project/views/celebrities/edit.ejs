@@ -1,0 +1,17 @@
+<h2>Was something wrong with this piece of meat?</h2>
+
+<form action="/celebrities/<%= famous._id %>" method="POST">
+    <p>
+        <label for="name">Actual name</label>
+        <input type="text" name="name" value="<%= famous.name %>">
+    </p>
+    <p>
+        <label for="occupation">Actual occupation</label>
+        <input type="text" name="occupation" value="<%= famous.occupation %>">
+    </p>
+    <p>
+        <label for="catchphrase">Actual catch Phrase</label>
+        <input type="text" name="catchphrase" value="<%= famous.catchPhrase %>">
+    </p>
+    <button type="submit">Update information</button>
+  </form>
