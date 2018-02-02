@@ -1,17 +1,29 @@
-const express = require('express');
+const express = require("express");
 
 // require the Celebrity model here
 
 const router = express.Router();
-const Celebrity = require("../models/celebrity")
+const Celebrity = require("../models/celebrity");
 
-// CRUD -> READ CELEBRITIES
-router.get('/', (req, res) => {
-  Celebrity.find().exec((err,celebrities) => {
-    res.render("celebrities/index" , {
-      celebrities:celebrities
-    })
-  })
+// CRUD -> READ LIST OF CELEBRITIES
+router.get("/", (req, res) => {
+  Celebrity.find().exec((err, celebrities) => {
+    res.render("celebrities/index", {
+      celebrities: celebrities
+    });
+  });
+});
+
+/* CRUD -> READ DETAIL OF CELEBRITIES. AQUI VENÍA TAMBIEN EL EJEMPLO DE MARC CON LAS ESTRELLAS */
+router.get("/celebrities/:id", (req, res) => {
+  const celebId = req.params.id;
+
+  Celebrity.findById(celebId).exec((err, celebrity) => {
+    if (err) {
+      return next(err);
+    }
+    res.render("celebrities/show", { celebrity: celebrity });
+  });
 });
 
 /*
