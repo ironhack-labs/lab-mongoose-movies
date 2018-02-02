@@ -9,7 +9,9 @@ const mongoose = require('mongoose');
 var index = require('./routes/index');
 var users = require('./routes/users');
 const celebrities = require('./routes/celebrities');
-mongoose.connect('mongodb://localhost/celebrities-dev');
+mongoose.connect('mongodb://localhost/celebrities-dev', () => {
+  console.log('Connected to mongodb!!');
+});
 
 var app = express();
 
