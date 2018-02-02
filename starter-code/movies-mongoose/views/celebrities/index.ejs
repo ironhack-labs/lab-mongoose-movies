@@ -5,6 +5,10 @@
         <li>
             <%= aCelebrity.name %>
         </li>
+        <a href="/celebrities/<%= aCelebrity._id %>">Full info</a>
+        <form action="/celebrities/<%= aCelebrity._id %>/delete" method="POST">
+            <button type="delete">Delete</button>
+        </form>
     <% }); %>
 </ul>
 
