@@ -2,9 +2,9 @@
 <ul>
     <% celebrities.forEach((celeb) => { %>
         <li>
-         <%= celeb.name %> -
+         <%= celeb.name %> - <a href="/celebrities/<%= celeb._id %>">Details</a>
         </li>
     <%  }) %>
 </ul>
 
-<a href="/">Back to Pool</a>
+<a href="/">Back to Main</a>
