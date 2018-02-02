@@ -19,8 +19,8 @@ router.get('/', (req, res, next) => {
   });
 });
 
-router.get('/celebrities-details', (req, res, next) => {
-  const celebrityId = req.query.id;
+router.get('/:id', (req, res, next) => {
+  const celebrityId = req.params.id;
 
   Celebrity.findById(celebrityId, (err, celebrities) => {
     if (err) { return next(err); }

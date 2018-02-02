@@ -7,3 +7,12 @@
       </li>
     <% }) %>
   </ul></h2>
+
+  <ul>
+    <% celebrities.forEach((celebrities) => { %>
+      <li>
+        <%= celebrities.name %> - <%= celebrities.occupation %>
+        <a href="/celebrities/<%= celebrities._id %>">View Details</a>
+      </li>
+    <%  }) %>
+  </ul>
