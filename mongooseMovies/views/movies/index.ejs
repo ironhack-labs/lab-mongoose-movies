@@ -1,0 +1,17 @@
+<h1> Movie List </h1>
+<ul>
+    <% movies.forEach((movie) => { %>
+        <li>
+            <b>Movie Title:</b>
+            <a href="/movies/<%= movie.id%>"><%= movie.title%></a>
+            <form action="movies/<%= movie.id%>/delete" method="post">
+                <button>Delete Movie</button>
+            </form>
+            <form action="movies/<%= movie.id%>/edit" method="get">
+                <button>Edit Movie</button>
+            </form>
+        </li>
+        <% }) %>
+</ul>
+
+<a href="/movies/new">Add New Movie</a>
