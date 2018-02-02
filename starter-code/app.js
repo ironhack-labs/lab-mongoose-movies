@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose       = require('mongoose');
+
 const celebrities  = require('./routes/celebrities');
 const movies  = require('./routes/movies');
 const index = require('./routes/index');
@@ -32,8 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/celebrities', users);
-app.use('/movies', users);
+app.use('/celebrities', celebrities);
+app.use('/movies', movies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,7 +56,7 @@ app.use(function(err, req, res, next) {
 
 // Server Started
 app.listen(3000, () => {
-  console.log('My first app drones listening on port 3001!');
+  console.log('My first app drones listening on port 3000!');
 });
 
 
