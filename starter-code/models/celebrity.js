@@ -1,15 +1,13 @@
 
-
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-const celebritySchema = new Schema({
+const CelebritySchema = new Schema({
     name: String,
     ocupation: String,
     catchPhrase: String
 });
 
-const celebrity = mongoose.model('celebrity', celebritySchema);
+const Celebrity = mongoose.model('Celebrity', CelebritySchema);
 
-module.exports = celebrity;
+module.exports = Celebrity;

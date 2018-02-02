@@ -2,10 +2,7 @@
 const mongoose = require('mongoose');
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/myCelebrity', {
-    keepAlive: true,
-    reconnectTries: Number.MAX_VALUE
-});
+mongoose.connect('mongodb://localhost/myCelebrity');
 
 const Celebrity = require('../models/celebrity');
 
@@ -30,15 +27,13 @@ const celebrities = [
 ]
 
 
-celebrity.create(celebrities, (err, docs) => {
+Celebrity.create(celebrities, (err, savedCelebrities) => {
     if (err) {
         console.log('err: err');
     }
 
-    docs.forEach((celebrities) => {
-        console.log(celebrities.name);
+    savedCelebrities.forEach((theCelebrity) => {
+        console.log(`${theCelebrity.name} - ${theCelebrity._id}`);
     });
-    mongoose.connection.close();
+    mongoose.disconnect();
 });
-
-celebs.export = celebrity;

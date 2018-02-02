@@ -1,14 +1,13 @@
 
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-const droneSchema = new Schema({
+const movieSchema = new Schema({
     name: String,
     propellers: Number,
     maxSpeed: Number
 });
 
-const Drone = mongoose.model('Drone', droneSchema);
+const Movie = mongoose.model('Movie', droneSchema);
 
-module.exports = Drone;
+module.exports = Movie;
