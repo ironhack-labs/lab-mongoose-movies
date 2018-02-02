@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font: 14px sans-serif;
+  text-align: left;
+}
+
+a {
+  color: #00B7FF;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li{
+  margin: 10px 0;
+}
