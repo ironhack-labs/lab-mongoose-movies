@@ -7,9 +7,9 @@ mongoose.connect('mongodb://localhost/myCelebrity', {
     reconnectTries: Number.MAX_VALUE
 });
 
-const celebrity = require('../models/celebrity');
+const Celebrity = require('../models/celebrity');
 
-const celebs = [
+const celebrities = [
     {
         name: 'Sheng',
         ocupation: 'Business',
@@ -30,13 +30,13 @@ const celebs = [
 ]
 
 
-celebrity.create(celebs, (err, docs) => {
+celebrity.create(celebrities, (err, docs) => {
     if (err) {
-        throw err;
+        console.log('err: err');
     }
 
-    docs.forEach((celebs) => {
-        console.log(celebs.name)
+    docs.forEach((celebrities) => {
+        console.log(celebrities.name);
     });
     mongoose.connection.close();
 });

@@ -4,16 +4,19 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const { check, validationResult } = require('express-validator/check');
+const mongoose = require('mongoose');
+
 const index = require('./routes/index');
-const users = require('./routes/users');
+const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
+
+mongoose.connect('mongodb://localhost/myCelebrity');
 
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -22,24 +25,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/celebrities', celebrities);
 
-// NOTE: requires a views/not-found.ejs template
+
+// catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  res.status(404);
-  res.render('not-found');
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-// NOTE: requires a views/error.ejs template
 app.use(function (err, req, res, next) {
-  // always log the error
-  console.error('ERROR', req.method, req.path, err);
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // only render if the error ocurred before sending the response
-  if (!res.headersSent) {
-    res.status(500);
-    res.render('error');
-  }
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 module.exports = app;
