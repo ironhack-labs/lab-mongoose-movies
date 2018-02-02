@@ -1,0 +1,12 @@
+<h2> CELEBRITIES INDEX </h2>
+<ul>
+    <% celebrities.forEach((celebrity) => { %>
+        <li>
+        <%= celebrities.name %> - $<%= celebrities.price %>
+        <!-- <img src="<%= celebrity.imageUrl %>" width=100/>
+        <a href="/detail/<%= celebrity._id %>">View Details</a>
+        <a href="/detail/<%= celebrity._id %>/edit">Edit Details</a>
+        <a href="/delete/<%= celebrity._id %>">Delete Celebrity</a> -->
+        </li>
+    <%  }) %>
+</ul>
