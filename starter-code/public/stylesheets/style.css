@@ -33,6 +33,10 @@ a:hover {
   color: rgb(0, 116, 161);
 }
 
+.block {
+  display: block;
+}
+
 a:hover:after,
 a:hover:before {
   opacity: 1;
@@ -69,11 +73,11 @@ label {
 input {
   width: 300px;
   max-width: 100%;
-  height: 40px;
+  height: 50px;
   border-radius: 4px;
   margin: 0 auto;
   border: none;
-  font-size: 1em;
+  font-size: .7em;
   color: rgb(107, 107, 107);
   text-align: center;
 }
@@ -101,6 +105,7 @@ li span {
   display: block;
 }
 
+.blue-btn,
 button,
 .delete,
 .update {
@@ -133,6 +138,7 @@ button,
   color: #00b64c !important;
 }
 
+.blue-btn:hover,
 button:hover,
 .delete:hover,
 .update:hover {
@@ -188,4 +194,23 @@ header small {
 
 .inline {
   display: inline-block;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(216, 216, 216);
+}
+
+::-moz-placeholder {
+  color: rgb(216, 216, 216);
+  ;
+}
+
+:-ms-input-placeholder {
+  color: rgb(216, 216, 216);
+  ;
+}
+
+:-moz-placeholder {
+  color: rgb(216, 216, 216);
+  ;
 }

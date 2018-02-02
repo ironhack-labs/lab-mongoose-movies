@@ -2,16 +2,14 @@
 <div class="new-celeb">
     <form action="/celebrities/new" method="POST">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name">
+        <input placeholder="20 characters max" required maxlength="20" type="text" id="name" name="name">
         <label for="price">Occupation</label>
-        <input type="text" name="occupation">
+        <input placeholder="20 characters max" required maxlength="20" type="text" name="occupation">
         <label for="image-url">Catch phrase</label>
-        <input type="text" name="catchPhrase">
-        <button type="submit" class="update">Add celeb</button>
-    </form>
-</div>
-<div class="margin-above">
-    <form action="/celebrities">
-        <button type="submit" value="home">Go back</button>
+        <input placeholder="100 characters max" required maxlength="100" type="text" name="catchPhrase">
+        <button class="update inline" type="submit" class="update">Add celeb</button>
+        <div class="inline">
+                <a class="blue-btn a-button" href="/celebrities">Go back</a>
+        </div>
     </form>
 </div>
