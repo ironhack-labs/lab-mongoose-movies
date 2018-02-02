@@ -1,0 +1,20 @@
+<h1>The very flama pipel</h1>
+<div class="listing-celebs">
+    <% celebrities.forEach((c)=>{%>
+        <div class="celeb">
+            <h3>
+                <a href="/celebrities/detail/<%= c._id %>">
+                    <%= c.name%>
+                </a>
+            </h3>
+        </div>
+        <%});%>
+</div>
+<div>
+    <form action="/" class="inline">
+        <button type="submit" value="home">Go home</button>
+    </form>
+    <form action="/celebrities/new" class="inline">
+        <button class="update" type="submit" value="home">Add new</button>
+    </form>
+</div>

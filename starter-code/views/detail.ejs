@@ -1,0 +1,23 @@
+<h1>
+    <span>Name</span>
+    <%= celebrity.name%>
+</h1>
+<ul>
+    <li>
+        <span>Occupation</span> <%= celebrity.occupation%>
+    </li>
+    <li>
+        <span>Da phrase</span> <%= celebrity.catchPhrase%>
+    </li>
+</ul>
+<div class="inline">
+        <a class="update a-button" href="./<%= celebrity._id %>/edit">Update this muddafukka</a>
+</div>
+<div class="inline">
+        <a class="delete a-button" href="./delete/<%= celebrity._id %>">Delete this muddafukka</a>
+</div>
+<div>
+    <form action="/celebrities">
+        <button type="submit" value="home">Go back</button>
+    </form>
+</div>

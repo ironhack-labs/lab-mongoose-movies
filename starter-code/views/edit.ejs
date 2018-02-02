@@ -1,0 +1,17 @@
+<h1>Editing <%= celebrity.name%></h1>
+<div class="new-celeb">
+    <form action="/celebrities/detail/<%= celebrity._id%>" method="POST">
+        <label for="name">Name</label>
+        <input value="<%= celebrity.name%>" type="text" id="name" name="name">
+        <label for="price">Occupation</label>
+        <input value="<%= celebrity.occupation%>" type="text" name="occupation">
+        <label for="image-url">Catch phrase</label>
+        <input value="<%= celebrity.catchPhrase%>" type="text" name="catchPhrase">
+        <button class="update" type="submit">Update celeb</button>
+    </form>
+</div>
+<div class="margin-above">
+    <form action="/celebrities">
+        <button type="submit" value="home">Go back</button>
+    </form>
+</div>
