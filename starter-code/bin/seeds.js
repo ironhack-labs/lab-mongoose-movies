@@ -28,8 +28,8 @@ const celebrity_seed = [
 ]
 Celebrity.collection.drop()
 celebrity_seed.forEach(p => {
-    let pr = new Celebrity(p);
-    pr.save((err, prod) => {
+    let celeb = new Celebrity(p);
+    celeb.save((err, prod) => {
         if (err) {
             throw err;
         }
