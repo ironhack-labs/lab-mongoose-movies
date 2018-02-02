@@ -1,0 +1,8 @@
+<h2><%= title %></h2>
+
+<p>  Celebrity's name: <%= celebrity.name %> - Celebrity's occupation: <%= celebrity.occupation %> - Celebrity's catchphrase: <%= celebrity.catchPhrase %></p>
+<a href="/celebrities/<%= celebrity._id %>/edit">Update celebrity</a>
+<form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
+<button type="submit">Delete celebrity</button>
+</form>
+<a href="/celebrities">back to celebrities</a>
