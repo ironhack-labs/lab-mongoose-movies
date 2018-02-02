@@ -14,14 +14,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/show/:id', (req, res) => {
-    const productId = req.params.id;
+    const celeId = req.params.id;
 
-    Product.findById(productId, (err, cele) => {
+    Celebrity.findById(celeId, (err, cele) => {
         if (err) { return next(err); }
-        Celebrity.find({ cele: productId }, (err) => {
-            
-            res.render('celebrities/show', { celebrities: celebrities});
-        })
+        console.log("CELE :", cele)
+            res.render('celebrities/show', { celebrities: cele});
+     
     });
 })
 
