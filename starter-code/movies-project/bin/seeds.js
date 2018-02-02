@@ -24,7 +24,7 @@ Celebrity.create(celebrityInfo, (err, docs) => {
         throw err;
     }
 
-    docs.forEach((celebrity) => {
+    docs.forEach(celebrity => {
         console.log(celebrity.name)
     });
 

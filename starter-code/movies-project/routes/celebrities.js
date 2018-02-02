@@ -13,6 +13,10 @@ router.get('/', (req, res, next) => {
   })
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
 router.get('/:id', (req, res, next) => {
   const celebId = req.params.id;
 
@@ -20,10 +24,6 @@ router.get('/:id', (req, res, next) => {
     if (err) { return next(err); }
     res.render('celebrities/show', { famous: famous });
   });
-});
-
-router.get('/new', (req, res, next) => {
-  res.render('celebrities/new');
 });
 
 router.post('/', (req, res, next) => {
@@ -37,7 +37,7 @@ router.post('/', (req, res, next) => {
 
   freshCelebrity.save((err) => {
     if (err){
-      return next(err);
+      res.render('celebrities/new');
     } else {
       res.redirect('/celebrities');
     }
