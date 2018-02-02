@@ -2,18 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity');
 
-
-router.get('/', (req, res, next) => {
-  console.log('entra aqui')
-  Celebrity.find().exec((err, celebrity) => {
-    res.render('celebrities/index', {
-      celebrity: celebrity
-    });
-  });
-});
-
 /* CRUD -> READ ALL */
 router.get('/', (req, res, next) => {
+  console.log('entra aqui')
   Celebrity.find().exec((err, celebrity) => {
     res.render('celebrities/index', {
       celebrity: celebrity
