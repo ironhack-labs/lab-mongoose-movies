@@ -29,6 +29,7 @@ const celebrities = [
 
 Celebrity.create(celebrities, (err, savedCelebrities) => {
     if (err) {
+        throw Error;
         console.log('err: err');
     }
 

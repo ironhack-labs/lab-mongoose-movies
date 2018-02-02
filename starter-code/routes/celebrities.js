@@ -5,18 +5,17 @@ const router = express.Router();
 const celebrity = require('../models/celebrity');
 
 /* GET home page. */
-router.get('/celebrities', function (req, res, next) {
-    celebrity.find({}, (err, result) => {
+router.get('/', (req, res, next) => {
+    Celebrity.find({}, (err, celebritiesArray) => {
         if (err) {
             console.log('error');
-            next(err);
+            return next(err);
         }
-        else {
-            // let celebArr = [{
-            //     celebs: name
-            // }];
-            res.render('index', { celebs: name});
-        }
+        
+        res.render('/celebrities/index', {
+            tittle: 'Celebrity Inventory',
+            celebrities: celebritiesArray
+        });
     });
 });
 
