@@ -1,9 +1,9 @@
 'use-strict';
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/celebrity', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/celebrities', {useMongoClient: true});
 
-const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/celebrities');
 
 const celebrity = [{
   name: 'Ryan Reynolds',
