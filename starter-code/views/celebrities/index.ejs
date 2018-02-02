@@ -1,0 +1,8 @@
+<ul>
+  <% products.forEach((celebrity) => { %>
+      <li>
+      <%= celebrity.name %>
+      <a href="/show/<%= celebrity._id %>">View Details</a>
+      </li>
+  <%  }) %>
+</ul>
