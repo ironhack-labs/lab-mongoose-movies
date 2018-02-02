@@ -1,9 +1,17 @@
-<h2>Celebrities</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2>Celebrities</h2>
 <ul>
     <% celebrities.forEach((celebrity)=> { %>
         <li>
-            <%= celebrity.name %> - <%= celebrity.occupation %> - <%= celebrity.catchPhrase %>
+            <%= celebrity.name %>
             <a href="/celebrities/<%= celebrity._id %>">Details</a>
         </li>
     <% }) %>
 </ul>
+  </body>
+</html>

@@ -31,6 +31,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/celebrities', celebrities);
 app.use('/',celebrities);
+app.use('celebrities/new',celebrities);
 
 
 // catch 404 and forward to error handler
