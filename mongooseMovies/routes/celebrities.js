@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
     const celebrities = {
       celebrities: data
     }
-    res.render('celebrities', celebrities)
+    res.render('celebrities/index', celebrities)
   })
 })
 
@@ -25,12 +25,12 @@ router.get('/:id', (req, res, next) => {
       return
     }
     const celebData = { celebData: data }
-    res.render('show', celebData)
+    res.render('celebrities/show', celebData)
   })
 })
 
 router.get('/new', (req, res, next) => {
-  res.render('new')
+  res.render('celebrities/new')
 })
 
 router.post('/', (req, res, next) => {
@@ -59,27 +59,30 @@ router.post('/:id/delete', (req, res, next) => {
 
 router.get('/:id/edit', (req, res, next) => {
   const celebIDToEdit = req.params.id
-  Celebrity.findById(celebID, (err, data) => {
+  Celebrity.findById(celebIDToEdit, (err, data) => {
     if (err) {
       next()
       return
     }
-    const celebData = { celebData: data }
-    res.render('edit', celebData)
+    res.render('celebrities/edit', { celebData: data })
   })
 })
 
 router.post('/:id', (req, res, next) => {
-  let celebUpdatedInfo = { name: req.body.name, occupation: req.body.occupation, catchPhrase: req.body.catchPhrase }
-
+  const celebUpdatedInfo = { name: req.body.name, occupation: req.body.occupation, catchPhrase: req.body.catchPhrase }
   const celebIDToUpdate = req.params.id
-  Celebrity.update(celebID, celebUpdatedInfo, (err, data) => {
-    if (err) {
-      next()
-      return
+  console.log(celebIDToUpdate)
+  Celebrity.findByIdAndUpdate(
+    celebIDToUpdate,
+    celebUpdatedInfo,
+    (err, data) => {
+      if (err) {
+        next()
+        return
+      }
+      res.redirect('/celebrities')
     }
-    res.redirect('/celebrities')
-  })
+  )
 })
 
 module.exports = router
