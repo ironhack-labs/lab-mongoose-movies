@@ -19,6 +19,10 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
 router.get('/:id', (req, res, next) => {
   const celebrityId = req.params.id;
 
@@ -27,10 +31,6 @@ router.get('/:id', (req, res, next) => {
 
     res.render('celebrities/show', {celebrities: celebrities});
   });
-});
-
-router.get('/new', (req, res, next) => {
-  res.render('celebrities/new');
 });
 
 router.post('/', (req, res, next) => {
