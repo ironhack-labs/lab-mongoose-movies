@@ -3,15 +3,13 @@
     <% movies.forEach((movie) => { %>
         <li>
             <b>Movie Title:</b>
-            <a href="/movies/<%= movie.id%>">
-                <%= movie.title%>
-            </a>
+            <a href="/movies/<%= movie.id%>"><%= movie.title%></a>
             <form action="movies/<%= movie.id%>/delete" method="post">
                 <button>Delete Movie</button>
             </form>
-            <a href="movies/<%= movie.id%>/edit">
+            <form action="movies/<%= movie.id%>/edit" method="get">
                 <button>Edit Movie</button>
-            </a>
+            </form>
         </li>
         <% }) %>
 </ul>
