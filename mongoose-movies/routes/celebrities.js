@@ -1,24 +1,32 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-const Celebrity = require('../models/celebrity')
+const Celebrity = require('../models/celebrity');
 
-router.get('../routes/celebrities', function(req, res, next) {
-  celebrity.find({}, (err, result) => {
-    if (err) {
-      console.log('error')
-      return next(err);
-    }
-    else {
-      let celebArr = {
-        celebs: name
-      }
-      res.render('index', celebArr);
-    }
+router.get('/', function (req, res, next) {
+  Celebrity.find({}, (err, celebritiesArray) => {
+    if (err) { return next(err); }
+
+    // celebrities can be named whatever
+    // celebrities Array has to be the same bc it is passed as an argument
+    res.render('celebrities/index', {
+      title: 'Celebrity Inventory',
+      celebrities: celebritiesArray
+    });
   });
 });
-// res.send('this would be the product list');
-// });
 
-module.exports = router
+router.get('/:id', function (req, res, next) {
+  Celebrity.findOne({celebs: '_id'}, (err, celebritiesArray) => {
+    if (err) { return next(err); }
 
+    // celebrities can be named whatever
+    // celebrities Array has to be the same bc it is passed as an argument
+    res.render('celebrities/show', {
+      title: 'Celebrity Inventory',
+      celebrities: celebritiesArray
+    });
+  });
+});
+
+module.exports = router;

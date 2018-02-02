@@ -4,12 +4,14 @@ const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/myCelebs', {
   keepAlive: true,
-  reconnectTries: Number.MAX_VALUE,
+  reconnectTries: Number.MAX_VALUE
 });
 
-const Celebrity = require('../models/celebrity')
+const Celebrity = require('../models/celebrity');
 
 // bin/seeds.js
+// array of objects
+
 const celebs = [
   {
     name: 'Dr. Jean',
@@ -25,17 +27,19 @@ const celebs = [
     name: 'Max Mustermann',
     occupation: 'Mustermann',
     catchPhrase: 'Ich bin ein Muster'
-  },
+  }
 ];
 
-Celebrity.create(celebs, (err, docs) => {
+// if outside of callback, code would be run,
+// after the error it would stop
+Celebrity.create(celebs, (err, savedCelebrities) => {
   if (err) {
     throw err;
   }
-  docs.forEach((celebs) => {
-    console.log(celebs.name)
+  savedCelebrities.forEach((theCelebrity) => {
+    console.log(`${theCelebrity.name} ${theCelebrity._id}`);
   });
-  mongoose.connection.close();
+  mongoose.disconnect();
 });
 
-celebs.export = Celebrity
+celebs.export = Celebrity;
