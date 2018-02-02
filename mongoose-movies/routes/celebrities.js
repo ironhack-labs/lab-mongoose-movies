@@ -16,11 +16,13 @@ router.get('/celebrities', (req, res, next) => {
 router.get('/celebrities/new', (req, res, next) => {
       res.render('celebrities/new');
 });
+
 router.get('/celebrities/:id/edit', (req, res, next) => {
   const celebrityId = req.params.id
   Celebrity.findById(celebrityId, (err, celebrities) => {
-    if (err) { return next(err); }
-
+    if (err) { 
+      return next(err); 
+    }
     res.render('celebrities/edit', {
       celebrities: celebrities
     });
@@ -31,7 +33,9 @@ router.get('/celebrities/:id', (req, res, next) => {
   const celebrityId = req.params.id
 
   Celebrity.findById(celebrityId, (err, celebrities) => {
-      if (err) { return next(err); }
+      if (err) { 
+        return next(err); 
+      }
 
       res.render('celebrities/show', {
         celebrities: celebrities
@@ -52,19 +56,20 @@ router.post('/celebrities', (req, res, next) => {
   let celeb = new Celebrity(newCeleb)
   celeb.save((err, docs) => {
     if (err) {
-      console.log(err)
+     next(err)
     }
     else {
-      console.log(docs)
+      res.redirect('/celebrities')
     }
-    res.redirect('/celebrities')
   })
 });
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
   const celebrityId = req.params.id
   Celebrity.findByIdAndRemove(celebrityId, (err, celebrities) => {
-    if (err) { return next(err); }
+    if (err) {
+      return next(err);
+    }
 
     res.redirect('/celebrities');
   });

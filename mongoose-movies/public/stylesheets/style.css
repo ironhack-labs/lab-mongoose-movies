@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+ margin: 10px;
+ padding: 7px;
+}
