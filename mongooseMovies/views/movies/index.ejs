@@ -1,0 +1,19 @@
+<h1> Celebrities List </h1>
+<ul>
+    <% movies.forEach((movie) => { %>
+        <li>
+            <b>Movie Title:</b>
+            <a href="/movies/<%= movie.id%>">
+                <%= movie.title%>
+            </a>
+            <form action="movie/<%= movie.id%>/delete" method="post">
+                <button>Delete Movie</button>
+            </form>
+            <a href="movies/<%= movie.id%>/edit" </a>
+                <button>Edit Movie</button>
+            </a>
+        </li>
+        <% }) %>
+</ul>
+
+<a href="/movies/new">Add New Movie</a>
