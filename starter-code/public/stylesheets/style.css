@@ -1,0 +1,33 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+li {
+  list-style: none;
+  font-size: 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+button {
+  font-size: 20px;
+  border-radius: 200px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin-top: 10px;
+}
+
+label{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+form{
+  width: 150px
+}
