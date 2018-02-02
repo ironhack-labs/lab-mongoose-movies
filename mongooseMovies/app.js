@@ -1,15 +1,15 @@
-var express = require('express')
-var path = require('path')
-var favicon = require('serve-favicon')
-var logger = require('morgan')
-var cookieParser = require('cookie-parser')
-var bodyParser = require('body-parser')
+const express = require('express')
+const path = require('path')
+const favicon = require('serve-favicon')
+const logger = require('morgan')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-var expressLayouts = require('express-ejs-layouts')
+const expressLayouts = require('express-ejs-layouts')
 
-var index = require('./routes/index')
-var celebrities = require('./routes/celebrities')
-var movies = require('./routes/movies')
+const index = require('./routes/index')
+const celebrities = require('./routes/celebrities')
+const movies = require('./routes/movies')
 
 mongoose.Promise = Promise
 mongoose.connect('mongodb://localhost/celebrities', {
@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost/celebrities', {
   reconnectTries: Number.MAX_VALUE
 })
 
-var app = express()
+const app = express()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
