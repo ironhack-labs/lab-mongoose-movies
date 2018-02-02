@@ -1,18 +1,29 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const mongoose = require('mongoose');
 
-var app = express();
+mongoose.connect('mongodb://localhost/celebrity-db', {
+    keepAlive: true,
+    reconnectTries: Number.MAX_VALUE,
+});
+
+const index = require('./routes/index');
+const users = require('./routes/users');
+const celebrities = require('./routes/celebrities');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(expressLayouts);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/celebrities', celebrities);
 
 // NOTE: requires a views/not-found.ejs template
 app.use(function (req, res, next) {
