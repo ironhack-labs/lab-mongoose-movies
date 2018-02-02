@@ -1,0 +1,12 @@
+<h2>YOUR OWN CELEBRITIES!!</h2>
+
+<% portfolio.forEach(function (celebrity){%>
+    <p><%= celebrity.name %></p>
+    <p><a href='/celebrities/<%= celebrity._id%>'>Check it out!</a></p>
+    <form method="POST" action="/celebrities/<%= celebrity._id%>/delete">
+      <button type="submit">Send this guy to hell</button>
+    </form>
+    <p><a href='/celebrities/<%= celebrity._id%>/edit'>TYPO ALERT!!</a></p>
+    <%})%>
+    <h3><a href='/celebrities/new'>Create your profile now</a></h3>
+    <h3><a href='/'>Or go home already</a></h3>
