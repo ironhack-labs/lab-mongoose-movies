@@ -1,18 +1,20 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const celebrities = require('./routes/celebrities');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+const expressLayouts = require('express-ejs-layouts');
+
+const index = require('./routes/index');
+const users = require('./routes/users');
 
 mongoose.connect('mongodb://localhost/celebrities-dev');
 
-var app = express();
+const app = express();
 
 mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/celebrities', {
@@ -36,6 +38,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/celebrities', celebrities);
+app.use(express.static('public'));
+
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
+app.set('views', __dirname + '/views');
 
 // -- 404 and error handler
 
