@@ -1,0 +1,26 @@
+<h2>Add a new celebrity</h2>
+
+<!-- <% if (typeof(errors) !== "undefined"){ %>
+    <ul>
+        <% for (let error in errors){ %>
+            <li>
+                <%= errors[error].message %>
+            </li>
+            <% } %>
+                <% } %> -->
+
+<form action="/celebrities" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <br>
+
+    <label for="occupation">Occupation:</label>
+    <input type="text" id="occupation" name="occupation">
+    <br>
+
+    <label for="catchPhrase">CatchPhrase.</label>
+    <textarea type="text" id="catchPhrase" name="catchPhrase"></textarea>
+    <br>
+
+    <button type="submit">Create Calebrity</button>
+</form>
