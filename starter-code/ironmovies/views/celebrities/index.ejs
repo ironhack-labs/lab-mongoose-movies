@@ -1,0 +1,9 @@
+<h2>Your favorite celebs:</h2>
+
+<% celebArray.forEach((celeb) => { %>
+    <h2><a href="celebrities/<%= celeb._id %>"><b><%= celeb.name %></b</a></h2>
+        <form action="celebrities/" method="post">
+            <button type="submit">Delete celeb</button>
+          </form>
+  
+<% }); %>
