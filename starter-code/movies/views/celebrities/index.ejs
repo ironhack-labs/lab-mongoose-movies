@@ -1,0 +1,8 @@
+<h2>Celebridades</h2>
+<ul>
+    <%celebridades.forEach(function(celebridad){%>
+    <li>
+        <h2><a href="celebrities/details/<%=celebridad._id%>"> <%=celebridad.name%> </h2></a>
+    </li>
+    <%})%>
+</ul>
