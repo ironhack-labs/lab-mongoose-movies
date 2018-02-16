@@ -1,0 +1,19 @@
+
+<form action="/celebrities/<%= celebrity._id %>" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="<%= celebrity.name %>">
+  
+    <label for="occupation">Occupation</label>
+    <input type="text" name="occupation" id="occupation" value="<%= celebrity.occupation %>">
+  
+    <label for="image-url">Image URL</label>
+    <input type="text" name="imageUrl" id="image-url" value="<%= celebrity.imageUrl %>">
+  
+    <label for="catch-phrase">Catchphrase</label>
+    <textarea type="text" name="catchPhrase" id="catch-phrase"><%= celebrity.catchPhrase %></textarea>
+  
+    <button class="btn btn-success" type="submit">Update Celebrity</button>
+   
+  </form>
+
+  <button class="btn btn-lg btn-primary"><a href="/celebrities/">Back to Celebrities</a></button>
