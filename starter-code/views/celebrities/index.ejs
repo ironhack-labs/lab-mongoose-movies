@@ -1,0 +1,21 @@
+<h2>CelebrityTracker</h2>
+<small>Stalk all of your favorite celebrities!</small>
+
+<% if (celebrities.length === 0) { %>
+  <h4>You're not stalking any celebrities!
+    <a href='/celebrities/new'>Add some now!</a>
+  </h4>
+  <% } else { %>
+    <h3>Celebrity List</h3>
+    <ul>
+      <% celebrities.forEach(celebrity => { %>
+        <li>
+          <p>
+            <a href='/celebrities/<%= celebrity._id %>'>
+              <%= celebrity.name %>
+            </a>
+          </p>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
