@@ -30,15 +30,6 @@ router.post("/new", (req, res, next) => {
   });
 });
 
-router.get('/:id/edit', (req, res, next) => {  
-  
-  var id = req.params.id;
-  console.log(id);
-  Celebrity.findById(id,(err, doc) => {
-    res.render("celebrities/edit", {celeb:doc});
-  });
-});
-
 router.get("/:id", (req,res)=>{
   const id = req.params.id;
   Celebrity.findById(id, (err,doc) => {
@@ -58,7 +49,13 @@ router.post("/:id/delete", (req, res) => {
   });
 });
 
-
+router.get('/:id/edit', (req, res, next) => {  
+  var id = req.params.id;
+  console.log(id);
+  Celebrity.findById(id,(err, doc) => {
+    res.render("celebrities/edit", {celeb:doc});
+  });
+});
 
 router.post('/:id', (req, res, next) => {  
   var id = req.params.id;
