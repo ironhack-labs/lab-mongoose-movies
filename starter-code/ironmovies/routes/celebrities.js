@@ -12,4 +12,32 @@ router.get("/", (req,res)=>{
   });
 });
 
+
+
+//
+router.get('/new', (req, res, next) => {
+
+    res.render("celebrities/new");
+   })
+   .post('/', (req, res, next) => {
+    // Iteration #3
+    if(err) return next;
+    console.log(req.body)
+      const celeb = new Celebrity({
+          name:req.body.name,
+          occupation:req.body.occupation,
+          catchPhrase:req.body.catchPhrase,
+      });
+      celeb.save();
+      res.render("celebrities/new");
+   });
+
+   router.get("/:id", (req,res)=>{
+    const id = req.params.id;
+    Celebrity.findById(id, (err,doc) => {
+        console.log(doc)
+      res.render("celebrities/show", {celebs:doc});
+    });
+   });
+
 module.exports = router;
