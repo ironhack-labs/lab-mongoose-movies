@@ -1,0 +1,14 @@
+<h2> PAGE NAME</h2>
+
+<ul>
+    <% celebrities.forEach((famous) => { %>
+        <li>
+            <%= famous.name %><br>
+            <%= famous.occupation %><br>
+            <%= famous.catchPhrase %><br>
+            <br>
+        </li>
+    <% }) %>
+</ul>
+
+<button type="button"><a href ='/'>Back</a></button>
