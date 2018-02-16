@@ -42,7 +42,7 @@ router.get(`/:id/edit`, (req, res, next) => {
   Celebrity.findById(celebrityId, (err, celebrity) => {
     if (err) { return next(err); }
     res.render(`celebrities/edit`, { celebrity: celebrity })
-  })
+  });
 });
 
 router.post(`/`, (req, res, next) => {
@@ -76,5 +76,7 @@ router.post(`/:id`, (req, res, next) => {
     return res.redirect(`/celebrities`);
   });
 });
+
+
 
 module.exports = router;
