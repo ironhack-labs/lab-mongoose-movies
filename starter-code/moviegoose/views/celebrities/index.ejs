@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="estilos.css">
+    </head>
+    <body>
+        <a href="/celebrities/new">Agrega tu celebridad</a>
+
+        <h2>Celebridades</h2>
+       <%celebrities.forEach(function(element, index){%>
+        <br />
+            <p>Name: <%=element.name%></p>
+            <p>Occupation: <%=element.occupation%></p>
+            <p>Catch Phrase: <%=element.catchPhrase%></p>
+            <% }) %>
+    </body>
+</html>
