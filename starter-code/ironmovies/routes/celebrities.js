@@ -19,18 +19,13 @@ router.get('/new', (req, res, next) => {
     res.render("celebrities/new");
 
    });
-   router.post('/', (req, res, next) => {
-    console.log(req.body)
-   })
-   router.post('/', (req, res, next) => {
-    // Iteration #3
-    
+   router.post('/new', (req, res, next) => {
     console.log(req.body)
     const celeb = new Celebrity({
         name:req.body.name,
         occupation:req.body.occupation,
         catchPhrase:req.body.catchPhrase,
-    });
+    })
     celeb.save((err)=>{
         if (err) {
           res.render("celebrities/new")    
@@ -46,7 +41,7 @@ router.get('/new', (req, res, next) => {
     const id = req.params.id;
     Celebrity.findById(id, (err,doc) => {
         console.log(doc)
-      res.render("celebrities/show", {celebs:doc});
+      res.render("celebrities/show", {celeb:doc});
     });
    });
 

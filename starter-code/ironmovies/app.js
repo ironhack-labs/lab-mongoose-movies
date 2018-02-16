@@ -10,8 +10,10 @@ var users = require('./routes/users');
 var celebrities = require('./routes/celebrities');
 
 const mongoose = require('mongoose');
+//hay que conectarse directamente a la coleccion
 
 mongoose.connect("mongodb://localhost/mongooseMovies");
+
 
 var app = express();
 
