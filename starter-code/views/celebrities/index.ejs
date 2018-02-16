@@ -1,0 +1,5 @@
+<h2>Your favorite celebs:</h2>
+
+<% celebArray.forEach((celeb) => { %>
+    <p><b> <a href="/celebrities/<%= celeb._id %>"><%= celeb.name %></a></b></p>
+<% }); %>
