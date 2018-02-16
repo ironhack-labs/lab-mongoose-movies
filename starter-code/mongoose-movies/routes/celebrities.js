@@ -1,6 +1,5 @@
 const express   = require('express');
 const Celebrety = require('../models/celebrity')
-
 const router    = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -15,7 +14,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/new' ,(req, res, next) => {
-  res.render('celebrities/new')
+  res.render('celebrities/new');
 });
 
 router.post('/', (req, res, next) => {
@@ -39,9 +38,7 @@ router.get('/:id/delete', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    console.log('data');
   })
-  
   return res.redirect('/celebrities')
 })
 
