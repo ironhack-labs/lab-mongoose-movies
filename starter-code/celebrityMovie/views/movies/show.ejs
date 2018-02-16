@@ -1,0 +1,20 @@
+<h2>Current Movie</h2>
+
+
+<ul>
+        <li>
+            This movie is called <%=movData.name%>
+        </li>
+        <li>
+            Its genre is <%=movData.genre%>
+        </li>
+        <li>
+            And the plot is : <%=movData.plot%>"
+        </li>
+</ul>
+
+<a href=<%="/movies/"+movData.id+"/edit"%>>
+            
+    <button>Edit</button>
+
+</a>

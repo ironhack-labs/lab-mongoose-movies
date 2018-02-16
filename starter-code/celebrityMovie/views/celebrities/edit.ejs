@@ -1,0 +1,12 @@
+<h2>Edit <%=editCel.name%></h2>
+
+    <form action=<%="/celebrities/"+editCel.id%> method="POST">
+        <input id="name" name="name" type="text" value=<%=editCel.name%> >
+    
+        <input id="occupation" name="occupation" type="text" value=<%=editCel.occupation%>>
+    
+        <input id="catchPhrase" name="catchPhrase" type="text" value=<%=editCel.catchPhrase%>>
+    
+        <button type="submit">Submit</button>
+
+        </form>

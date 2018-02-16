@@ -1,0 +1,20 @@
+<h2>Current Celebrity</h2>
+
+
+<ul>
+        <li>
+            They are called <%=celData.name%>
+        </li>
+        <li>
+            Their occupation is <%=celData.occupation%>
+        </li>
+        <li>
+            "<%=celData.catchPhrase%>" 
+        </li>
+</ul>
+
+<a href=<%="/celebrities/"+celData.id+"/edit"%>>
+            
+    <button>Edit</button>
+
+</a>

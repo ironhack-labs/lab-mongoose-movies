@@ -1,0 +1,12 @@
+<h2>Edit <%=editMov.name%></h2>
+
+    <form action=<%="/movies/"+editMov.id%> method="POST">
+        <input id="name" name="name" type="text" value=<%=editMov.name%> >
+    
+        <input id="genre" name="genre" type="text" value=<%=editMov.genre%>>
+    
+        <input id="plot" name="plot" type="text" value=<%=editMov.plot%>>
+    
+        <button type="submit">Submit</button>
+
+        </form>
