@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+    <H2>WOW! Celebrities of the World</H2>
+    <ul>
+      <%celebrities.forEach(function(celebrity){%>
+      <li>
+      <a href="/celebrities/<%=celebrity._id%>"><%=celebrity.name%></a>
+      </li>
+      <%})%>
+    </ul>
+  </body>
+</html>
