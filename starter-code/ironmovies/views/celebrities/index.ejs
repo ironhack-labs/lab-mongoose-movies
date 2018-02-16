@@ -1,0 +1,9 @@
+<h2>Your favorite celebs:</h2>
+
+<% celebArray.forEach((celeb) => { %>
+   <p><b><%= celeb.name %></b>:</p>
+   <ul>
+       <li><b>Occupation: </b> <%= celeb.occupation %></li>
+       <li><b>Catch Phrase: </b> <%= celeb.catchPhrase %></li>
+   </ul>
+<% }); %>
