@@ -14,7 +14,7 @@ router.get("/", (req,res)=>{
 
 
 
-//
+//itineration 4
 router.get('/new', (req, res, next) => {
     res.render("celebrities/new");
 
@@ -33,9 +33,19 @@ router.get('/new', (req, res, next) => {
           res.redirect("/celebrities")
         }
         });
-    // celeb.save();
-    // res.render("celebrities/new");
     });
+
+    //itinerstion 5
+    router.post('/', (req, res, next) => {
+      const id = req.params.id;
+      Celebrity.findByIdAndRemove(id, (err, celeb) => {
+        if (err){ return next(err); }
+        return res.redirect('/');
+      });
+    
+    });
+
+    //itinerationº 3
 
    router.get("/:id", (req,res)=>{
     const id = req.params.id;

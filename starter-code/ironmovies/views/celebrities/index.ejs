@@ -2,9 +2,8 @@
 
 <% celebArray.forEach((celeb) => { %>
     <h2><a href="celebrities/<%= celeb._id %>"><b><%= celeb.name %></b</a></h2>
- 
-   <!-- <ul>
-       <li><b>Occupation: </b> <%= celeb.occupation %></li>
-       <li><b>Catch Phrase: </b> <%= celeb.catchPhrase %></li>
-   </ul> -->
+        <form action="celebrities/" method="post">
+            <button type="submit">Delete celeb</button>
+          </form>
+  
 <% }); %>
