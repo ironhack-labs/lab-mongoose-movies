@@ -1,0 +1,17 @@
+<h2>MOVIES</h2>
+
+
+<%mov.forEach((c)=>{%>
+    
+    <a href="/movies/<%=c._id%>"><h3><%=c.title%></h3></a>
+  <form action="/movies/<%=c._id%>/delete" method="POST">
+     <button type="submit">Delete Movie</button>
+     <a href="/movies/<%=c._id%>/edit/">Edit Movie</a>
+</form>
+
+    <%})%>
+
+
+    <a href="/movies/new">Add a new movie</a>
+
+   
