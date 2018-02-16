@@ -1,0 +1,12 @@
+<h2>Update this movie</h2>
+
+<form action="/movies/<%=movie._id%>" method="post">
+
+    <textarea type="text" id="name" name="title"><%=movie.title%></textarea>
+    <textarea type="text" id="genre" name="genre" ><%=movie.genre%></textarea>
+
+    <textarea type="text" name="plot" id="plot"><%=movie.plot%></textarea>
+
+    <button type="submit">UPDATE</button> 
+
+</form>

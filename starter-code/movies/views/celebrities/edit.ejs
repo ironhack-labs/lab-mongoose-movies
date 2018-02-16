@@ -1,0 +1,12 @@
+    <h2>Update this celebrity</h2>
+
+    <form action="/celebrities/<%=celeb._id%>" method="post">
+
+        <textarea type="text" id="name" name="name"><%=celeb.name%></textarea>
+        <textarea type="text" id="occupation" name="occupation" ><%=celeb.occupation%></textarea>
+
+        <textarea type="text" name="catchPhrase" id="catchPhrase"><%=celeb.catchPhrase%></textarea>
+    
+        <button type="submit">UPDATE</button> 
+    
+    </form>
