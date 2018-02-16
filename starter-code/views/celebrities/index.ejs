@@ -2,4 +2,9 @@
 
 <% celebArray.forEach((celeb) => { %>
     <p><b> <a href="/celebrities/<%= celeb._id %>"><%= celeb.name %></a></b></p>
+    <form action="/celebrities/<%= celeb._id %>/delete" method="post">
+        <button type="submit">Delete</button>
+    </form>
+ 
+    <a href="/celebrities/<%= celeb._id%>/edit">Go to Edit </a>
 <% }); %>

@@ -1,0 +1,16 @@
+<h2>Edit celebrity</h2>
+<form action="/celebrities/<%= celeb._id %>" method="post">
+    <label>
+        Celeb name:
+        <input placeholder="Write name" type="text" name="name" value="<%= celeb.name %>">
+    </label>
+    <label>
+        Occupation:
+        <input placeholder="Write occupation" type="text" name="occupation" value="<%= celeb.occupation %>">
+    </label>
+    <label>
+        Catch Phrase:
+        <input placeholder="Write catch phrase" type="text" name="catchPhrase" value="<%= celeb.catchPhrase %>">
+    </label>
+    <input type="submit">
+</form>
