@@ -3,6 +3,7 @@ const Celebrity = require('../models/celebrity');
 
 const router = express.Router();
 
+//route LIST OF ALL CELEBRITIES
 router.get('/celebrities', (req, res, next) => {
    Celebrity.find({}, (err, celebrities) => {
        if (err) {return next(err) }
@@ -12,31 +13,44 @@ router.get('/celebrities', (req, res, next) => {
        });
    });
 });
-   
 
+//route CELEBRITY DETAILS 
+router.get("/celebrities/:id", (req,res,next) => {
+    const celebrityId = req.params.id;
+
+    Celebrity.findById(celebrityId, (err, celebrity) =>{
+        if(err) {next(err)}
+        res.render("celebrities/show", {
+            celebrity: celebrity
+        });
+    })
+ });
+
+//route GET CREATE A NEW CELEBRITY
 router.get("/celebrities/new", (req,res,next) => {
    res.render("celebrities/new");
 });
 
+//route POST SAVE A NEW CELEBRITY
+router.post('/celebrities', (req, res, next) => {
 
-router.post('/celebrities/new', (req, res, next) => {
-   const productId = req.params.id;
- 
-   /*
-    * Create a new object with all of the information from the request body.
-    * This correlates directly with the schema of Product
-    */
-   const updates = {
+    //Create a new object with all of the information from the request body.
+   const celebrityInfo = {
        name: req.body.name,
-       price: req.body.price,
-       imageUrl: req.body.imageUrl,
-       description: req.body.description
+       occupation: req.body.occupation,
+       catchPhrase: req.body.catchPhrase,
    };
  
-   Product.findByIdAndUpdate(productId, updates, (err, product) => {
-     if (err){ return next(err); }
-     return res.redirect('/products');
+   const newCelebrity = new Celebrity(celebrityInfo);
+
+   newCelebrity.save( (err) => {
+       // Error Handling
+       if (err) { return next(err) }
+
+       // Redirect to the List of Celebrities
+       // if it saves.
+       return res.redirect('/celebrities');
    });
  });
 
-module.exports = router;
+module.exports = router; 
