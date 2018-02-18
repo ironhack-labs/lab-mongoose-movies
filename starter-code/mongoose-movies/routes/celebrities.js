@@ -30,5 +30,4 @@ router.get('/celebrities/:id/show', (req, res, next) => {
 
 
 
-
 module.exports = router;
