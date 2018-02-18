@@ -1,0 +1,11 @@
+
+<h2>List of all celebrities:</h2>
+<ul>
+    <% celebrities.forEach((celebrity) => { %>
+        <li style="margin-bottom: 2em">
+          <b>Name: </b><%= celebrity.name %> <br>
+          <br><a href="/celebrities/<%=celebrity._id %>">View details</a>
+          <a href="/celebrities/<%= celebrity._id %>/edit/">Edit celebrity</a>
+        </li>
+    <% }) %>
+</ul>
