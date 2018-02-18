@@ -53,12 +53,42 @@ router.post('/', (req, res, next) => {
     })
  });
 
+  //route UPDATE CELEBRITY FORM  
+  router.get("/:id/edit", (req,res,next) => {
+    let celebrityId = req.params.id;
+
+    Celebrity.findById(celebrityId, (err, celebrity) =>{
+        if(err) {next(err)}
+        res.render("celebrities/edit", {
+            celebrity: celebrity
+        });
+    })
+ });
+
+ //route SAVE UPDATED CELEBRITY FORM  
+ router.post("/:id", (req,res,next) => {
+    let celebrityId = req.params.id;
+
+    const updatedCelebrityInfo = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+    }
+
+    const updatedCelebrity = new Celebrity (updatedCelebrityInfo);
+
+    Celebrity.findByIdAndUpdate({_id: celebrityId}, updatedCelebrityInfo, (err, celebrity) => {
+        if(err) {return next(err)}
+        return res.redirect('/celebrities/'+ celebrityId);
+    })
+
+ });
+
   //route DELETE CELEBRITY
 router.post("/:id/delete", (req, res, next) =>{
 
     let celebrityId = req.params.id;
-    console.log(celebrityId + " test");
-
+    
     Celebrity.findByIdAndRemove(celebrityId, (err, celebrity) => {
         if(err) {return next(err)}
         return res.redirect('/celebrities');

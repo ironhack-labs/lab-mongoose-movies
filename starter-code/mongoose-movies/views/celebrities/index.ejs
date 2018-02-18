@@ -6,7 +6,7 @@
         <li style="margin-bottom: 1em">
           <b>Name: </b><%= celebrity.name %> <br>
           <br><a href="/celebrities/<%=celebrity._id %>">View details</a>
-          <a style="margin-left: 1em" href="/celebrities/<%= celebrity._id %>/edit/">Edit</a>
+          <a style="margin-left: 1em" href="/celebrities/<%= celebrity.id %>/edit/">Edit</a>
           <form style="margin-left: 1em; display: inline-block" action="/celebrities/<%=celebrity.id%>/delete" method="POST">
             <button type="submit">Delete</button>
         </form>
