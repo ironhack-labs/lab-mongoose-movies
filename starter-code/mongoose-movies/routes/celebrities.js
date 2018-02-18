@@ -27,7 +27,7 @@ router.get('/celebrities/:id/show', (req, res, next) => {
 	});
 });
 
-router.get('/celebrities/')
+
 
 
 
