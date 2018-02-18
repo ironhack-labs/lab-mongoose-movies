@@ -16,6 +16,7 @@ mongoose.connect('mongodb://localhost/mongoose-movies');
 
 // Routes
 const celebrityRoutes = require('./routes/celebrities');
+const movieRoutes = require('./routes/movies');
 
 var index = require('./routes/index');
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // middlewares
 app.use('/', index);
 app.use('/', celebrityRoutes);
+app.use('/', movieRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

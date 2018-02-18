@@ -6,5 +6,12 @@
 		<%= celebrity.name %> 
 	</li>
 	<button><a href="/celebrities/<%= celebrity._id %>/show">Details</a></button>
+	<form action="/celebrities/<%= celebrity._id %>/delete" method="POST">
+		<button type="submit">Delete</button>
+	</form>
 <% }) %>
 </ul>
+
+
+<button><a href="/celebrities/new">Create a New Celebrity</a></button>
+<button><a href="/">Home</a></button>
