@@ -4,8 +4,9 @@ mongoose.connect('mongodb://localhost/mongoose-movies',);
 // Linked to the "module.exports = Celebrity;" line
 // in "celebrity.js"
 const Celebrity = require('../models/celebrity')
+const Movie = require('../models/movie-model')
 
-// Products
+// Celebrities
 const celebrities = [
     {
       name: 'Oprah Winfrey',
@@ -34,7 +35,38 @@ const celebrities = [
     }
 
     docs.forEach((celebrity) => {
-        console.log(celebrity.name);
+        console.log(`${celebrity.name}`);
     });
     mongoose.connection.close();
   });
+
+
+// Movies
+const movies = [
+  {
+    name: "Movie1",
+    genre: "genre1",
+    plot: "plot1"
+  },
+  {
+    name: "Movie2",
+    genre: "genre2",
+    plot: "plot2"
+  },  {
+    name: "Movie2",
+    genre: "genre2",
+    plot: "plot2"
+  },
+]
+
+
+//Save Fake Movies to Database
+Movie.create(movies, (err, savedMovies) => {
+  if (err) {
+    throw err;
+  }
+  savedMovies.forEach((oneMovie) => {
+    console.log(`${oneMovie.name}`)
+  });
+  mongoose.connection.close();
+})
