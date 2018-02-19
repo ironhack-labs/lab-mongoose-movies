@@ -1,97 +1,83 @@
-const express = require('express');
-const Celebrity = require('../models/celebrity');
-
-const router = express.Router();
+const express   = require('express');
+const Celebrety = require('../models/celebrity')
+const router    = express.Router();
 
 router.get('/', (req, res, next) => {
-    Celebrity.find({}, (err, celebrities) => {
-        if (err) {return next(err) }
-
-        res.render('celebrities/index', {
-            celebrities: celebrities
-        });
+  Celebrety.find({}, (err, celebrities) => {
+    if (err) {
+      return next(err);
+    }
+    res.render('celebrities/index', {
+      celebrities: celebrities
     });
+  });
 });
 
-// // Route Handler for New Product Form - GET
-// router.get('/new', (req, res, next) => {
-//     res.render('products/new');
-// });
+router.get('/new' ,(req, res, next) => {
+  res.render('celebrities/new');
+});
 
-// // Route Handler for Create Product - POST
-// router.post('/', (req, res, next) => {
-//     // Take the params and translate them into a new object
-//     const productInfo = {
-//         name: req.body.name,
-//         price: req.body.price,
-//         imageUrl: req.body.imageUrl,
-//         description: req.body.description
-//     }
+router.post('/', (req, res, next) => {
+  const celebInfo = {
+    name        : req.body.name,
+    occupation  : req.body.occupation,
+    catchPhrase : req.body.catchPhrase
+  }
 
-//     // Create a new Product with the Params passed
-//     // in from the "/products/new" form
-//     const newProduct = new Product(productInfo);
+  const newCeleb = new Celebrety(celebInfo);
 
-//     newProduct.save( (err) => {
-//         // Error Handling
-//         if (err) { return next(err) }
+  newCeleb.save(err => {
+    if (err) {return next(err)}
+    return res.redirect('/celebrities');
+  }) 
+})
 
-//         // Redirect to the List of Products (/products)
-//         // if it saves.
-//         return res.redirect('/products');
-//     });
-// }); 
+router.get('/:id/delete', (req, res, next) => {
+  let id = req.params.id;
+  Celebrety.findByIdAndRemove(id, (err, data) => {
+    if (err) {
+      return next(err);
+    }
+  })
+  return res.redirect('/celebrities')
+})
 
-// Show Individual Product Details
+router.get('/:id/edit', (req, res, next) => {
+  let id = req.params.id;
+  Celebrety.findById(id, (err, celeb) => {
+    res.render('celebrities/edit', {
+       celeb: celeb 
+    })
+  })
+})
+
+router.post('/:id', (req, res, next) => {
+  let id = req.params.id;
+  const celebData = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  }
+  Celebrety.update({_id: id}, celebData, (err, response) => {
+    if (err) {
+      return next(err);
+    }
+
+  });
+  return res.redirect('/celebrities/' + id);
+});
+
 router.get('/:id', (req, res, next) => {
-    const celebrityId = req.params.id;
-
-    Celebrity.findById(celebrityId, (err, celebrity) => {
-        if (err) { return next(err); }
-        res.render('celebrities/show', { 
-            celebrity: celebrity 
-        });
+  let id = req.params.id;
+  console.log(id);
+  Celebrety.findById(id, (err, celeb) => {
+    if (err) {
+      return next(err);
+    }
+    res.render('celebrities/show', {
+      celeb: celeb
     });
- }); 
-
-// // Show Form to Update Form
-// router.get('/:id/edit', (req, res, next) => {
-//     const productId = req.params.id;
-  
-//     Product.findById(productId, (err, product) => {
-//       if (err) { return next(err); }
-//       res.render('products/edit', { product: product });
-//     });
-// });
-
-// // Update Products Information Database
-// router.post('/:id', (req, res, next) => {
-//     const productId = req.params.id;
-
-//     // Create a new object with all of the information from the request body.
-//     // This correlates directly with the schema of Product
-//     const updates = {
-//         name: req.body.name,
-//         price: req.body.price,
-//         imageUrl: req.body.imageUrl,
-//         description: req.body.description
-//     };
-  
-//     Product.findByIdAndUpdate(productId, updates, (err, product) => {
-//       if (err){ return next(err); }
-//       return res.redirect('/products');
-//     });
-//   });
-
-//   router.post('/:id/delete', (req, res, next) => {
-//     const id = req.params.id;
-  
-//     Product.findByIdAndRemove(id, (err, product) => {
-//       if (err){ return next(err); }
-//       return res.redirect('/products');
-//     });
-  
-//   });
+  });
+});
 
 module.exports = router;
-

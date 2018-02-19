@@ -11,6 +11,7 @@ mongoose.connect("mongodb://localhost/mongoose-movies");
 var index = require('./routes/index');
 var users = require('./routes/users');
 const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 var app = express();
 
 // view engine setup
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/movies', movies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
