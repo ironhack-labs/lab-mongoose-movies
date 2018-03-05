@@ -14,11 +14,7 @@
 ## Requirements
 - [Fork this repo](https://guides.github.com/activities/forking/)
 - Clone your fork into your `~/code/labs` folder.
-- Navigate into the folder you just cloned and create the project with the Express generator command.  
-       ```express --ejs nameOfYourProject ```
-- The ```--ejs``` command tells express to use ejs files for the views
-
-
+- Navigate into the folder you just cloned and create the project with the Irongenerator command.  
 
 ## Submission
 
@@ -35,11 +31,11 @@ Let's create an Express app with all the basic CRUD actions that will allow the 
 
 The user should be able to:
 
-1. See the list of celebrities.
-2. See the details of a celebrity.
-3. Add new celebrities.
-4. Update existing celebrities.
-5. Delete celebrities.
+**1. See the list of celebrities.**
+**2. See the details of a celebrity.**
+**3. Add new celebrities.**
+**4. Update existing celebrities.**
+**5. Delete celebrities.**
 
 But wait! That's not all!
 
@@ -49,12 +45,11 @@ That means we'll need all the basic CRUD actions for movies as well.
 
 The user should be able to:
 
-6. See the list of movies.
-7. See the details of a movie.
-8. Add new movies.
-9. Update existing movies.
-10. Delete movies.
-
+**6. See the list of movies.**
+**7. See the details of a movie.**
+**8. Add new movies.**
+**9. Update existing movies.**
+**10. Delete movies.**
 
 
 ## Deliverables
@@ -107,19 +102,17 @@ Here's the route we will be using:
     - If there isn't an error, render the `celebrities/index` view.
     - Pass the array of celebrities into the view as a variable. 
 3. Create the `celebrities/` folder inside `views/`.
-4. Create the `index.ejs` view file inside the `views/celebrities/` folder.
-5. In the `views/celebrities/index.ejs` view file:
+4. Create the `index.hbs` view file inside the `views/celebrities/` folder.
+5. In the `views/celebrities/index.hbs` view file:
     - Add an `<h2>` tag for the page's heading.
     - Use a `forEach` loop to display tags with each celebrity's `name`.
-6. In the `views/index.ejs` (homepage) file:
+6. In the `views/index.hbs` (homepage) file:
     - Add a link that goes to the `/celebrities` route.
 
 
 ## Iteration #3: The Celebrity Details Page
 
-We've got a list of celebrities that displays each of their `name`, but what if we want to see the other details? In our `views/celebrities/index.ejs` view with our list of celebrities, let's add links so that the user can click on any celebrity's name, and go to a page specifically for that celebrity.  On this page, we will show all the details of that celebrity. 
-
-
+We've got a list of celebrities that displays each of their `name`, but what if we want to see the other details? In our `views/celebrities/index.hbs` view with our list of celebrities, let's add links so that the user can click on any celebrity's name, and go to a page specifically for that celebrity.  On this page, we will show all the details of that celebrity. 
 
 Here's the route we will be using:
 
@@ -136,11 +129,11 @@ Here's the route we will be using:
     - If there's an error, call the route's `next` function and return the error.
     - If there isn't an error, render the `celebrities/show` view.
     - Pass the variable with the celebrity's details into the view.
-3. Create the `show.ejs` view file inside the `views/celebrities/` folder.
-4. In the `views/celebrities/show.ejs` view file:
+3. Create the `show.hbs` view file inside the `views/celebrities/` folder.
+4. In the `views/celebrities/show.hbs` view file:
     - Add an `<h2>` for the page's heading.
     - Display tags with the celebrity's `name`, `occupation` and `catchPhrase`.
-6. In the `views/celebrities/index.ejs` view file:
+6. In the `views/celebrities/index.hbs` view file:
     - As part of the loop that displays each celebrity's name, add a link that goes to the `/celebrities/:id` route with the `:id` replaced by the actual celebrity's id.
 
 ## Iteration #4: Adding New Celebrities
@@ -157,8 +150,8 @@ Now that we have a list of celebrities, as well as a personalized details page f
 1. Locate the `/celebrities/new` GET route in `routes/celebrities.js`:
 2. In that route's callback: 
   - Render the `celebrities/new` view.
-3. Create the `new.ejs` view file inside the `views/celebrities` folder
-4. In the `views/celebrities/new.ejs` view file: 
+3. Create the `new.hbs` view file inside the `views/celebrities` folder
+4. In the `views/celebrities/new.hbs` view file: 
    - Add an `<h2>` for the page's heading.
    - Add a `<form>` tag that makes a POST request to `/celebrities`.
    - Add `<input>` tags inside the form so the user can fill in values for each attribute of the celebrity.  Make an input for `name`, `occupation`, and `catchPhrase`
@@ -171,7 +164,7 @@ Now that we have a list of celebrities, as well as a personalized details page f
     - Call the `save` method to save the new celebrity to the database
     - If there is an error, render the `celebrities/new` view so the user can try again.
     - If there is no error, redirect to the page with the list of celebrities
-7. In the `views/celebrities/index.ejs` view file: 
+7. In the `views/celebrities/index.hbs` view file: 
     - Add a link that goes to the page you just created with the form to create a new celebrity. 
 
 ## Iteration #5: Deleting Celebrities
@@ -184,7 +177,7 @@ Now that we have a list of celebrities, a celebrity details page, and a page to 
 
 ### Steps we will follow in this iteration:
 
-1. In the `views/celebrities/index.ejs` file: 
+1. In the `views/celebrities/index.hbs` file: 
     - As part of the loop, add a `<form>` tag that makes a POST request to `celebrities/:id/delete` where the `:id` is replaced by the actual `id` of each celebrity. 
     - Add a `<button>` tag inside the form so that it can be submitted.
 2. Create the `/celebrities/:id/delete` POST route in your `routes/celebrities.js` file
@@ -214,8 +207,8 @@ Here are the routes we will be using:
     - If there's an error, call the route's `next` function and return the error.
     - If there isn't an error, render the `celebrities/edit` view.
     - Pass the variable with the celebrity’s details into the view.
-3. Create the `edit.ejs` view file inside the `views/celebrities/` folder.
-4. In the `views/celebrities/edit.ejs` view file:
+3. Create the `edit.hbs` view file inside the `views/celebrities/` folder.
+4. In the `views/celebrities/edit.hbs` view file:
     - Add an `<h2>` tag for the page's heading.
     - Add a `<form>` tag that makes a POST request to `/celebrities/:id` with the `:id` replaced by the actual celebrity's id.
     - Add `<input>` tags inside the form for each attirbute of the celebrity. 
@@ -230,6 +223,7 @@ Here are the routes we will be using:
     - If there is no error, redirect back to the list of celebrities.
 
 ## Celebrities - Done!
+
 At this point, we have implemented all the basic CRUD actions for the Celebrity model in our app.  Nice work! 
 
 Now that we've done all this good work, it's time to do it all over again, but for the Movie model.  After all, what's the point of having all these celebrities if we can't make up fake movies to cast them in?
