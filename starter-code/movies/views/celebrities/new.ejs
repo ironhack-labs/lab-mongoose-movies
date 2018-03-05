@@ -1,0 +1,20 @@
+<% if (typeof(errors) !== "undefined"){ %>
+  <% for (let error in errors){ %>
+    <li><%= errors[error].message %></li>
+  <% } %>
+<% } %>
+
+<h2>Add a celebrity.</h2>
+
+<form action="/celebrities" method="POST">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+
+  <label for="occupation">Occupation</label>
+  <input id="occupation" name="occupation" type="text">
+
+  <label for="catchPhrase">Catchphrase</label>
+  <input id="catchPhrase" name="catchPhrase" type="text">
+
+  <button type="submit">Add celebrity</button>
+</form>
