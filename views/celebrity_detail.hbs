@@ -1,0 +1,13 @@
+<div class="index-container">
+  {{#with celebrity_detail}}
+  <div class="artist-index">
+    <a href="/celebrities"><span class="glyphicon glyphicon-fast-backward"></span>  Go back</a>
+    <div class="text-random"></div>
+    <h4>{{name}}</h4>
+    <h5>{{occupation}}</h5>
+    <p>{{catch_phrase}}</p>
+    <a href="/celebrities/{{_id}}/edit" class="glyphicon glyphicon-pencil"></a>
+  </div>
+  {{/with}}
+</div>
+

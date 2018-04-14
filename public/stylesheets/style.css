@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron:400,500");
+body {
+  padding: 50px;
+  font: 16px "Orbitron", Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: green; }
+  body button {
+    background: none;
+    border: none;
+    color: #B20076; }
+
+a {
+  color: #38FF1F;
+  font-family: "Orbitron", sans-serif; }
+
+.index-body {
+  background-color: grey;
+  height: 100vh; }
+
+.artist-index {
+  margin: 10px 0;
+  display: flex;
+  width: 33.3%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  .artist-index p {
+    color: grey; }
+
+h1 {
+  text-align: center;
+  font-family: "Orbitron", sans-serif; }
+
+.index-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center; }
+
+.img-artist {
+  box-shadow: 0 4px 8px 0 grey, 0 6px 20px 0 grey;
+  margin-bottom: 4%; }
+
+#titulo-movies {
+  margin-bottom: 4%; }
+
+#list-details {
+  float: left;
+  list-style: none; }
+
+#list-stars {
+  list-style: none; }
+
+/*# sourceMappingURL=style.css.map */

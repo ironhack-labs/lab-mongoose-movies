@@ -1,0 +1,14 @@
+<h1 id="titulo-movies">Movies</h1>
+<div class="index-container">
+  {{#with movie_detail}}
+  <div class="artist-index">
+    <a href="/movies"><span class="glyphicon glyphicon-fast-backward"></span>  Go back</a>
+    <div class="text-random"></div>
+    <h4>{{title}}</h4>
+    <h5>{{genre}}</h5>
+    <p>{{plot}}</p>
+    <a href="/movies/{{_id}}/edit" class="glyphicon glyphicon-pencil"></a>
+  </div>
+  {{/with}}
+</div>
+
