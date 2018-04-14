@@ -14,7 +14,7 @@ const celebritiesRouter = require("./routes/celebrities");
 
 mongoose.Promise = Promise;
 mongoose
-  .connect("mongodb://localhost/lab-mongoose-movies", { useMongoClient: true })
+  .connect("mongodb://localhost/awesome-project", { useMongoClient: true })
   .then(() => {
     console.log("Connected to Mongo!");
   })
