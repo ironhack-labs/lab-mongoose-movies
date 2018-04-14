@@ -1,0 +1,10 @@
+<h1>The celebritie's list </h1>
+<p>Click on the celebrity to check</p>
+
+{{#each celebrities}}
+        <h2><a href="/celebrity/{{id}}">{{name}}</a></h2>
+ {{!-- {{else}}
+    <p class="empty">No content</p> --}}
+{{/each}}
+
+<a href="/">Go back to HOME</a>
