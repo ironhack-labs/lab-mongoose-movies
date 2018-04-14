@@ -11,7 +11,7 @@ mongoose.connect(DBURL).then(() => {
 
   celebrity_data.forEach(celebrity_data => {
     let celebrity = new Celebrity(celebrity_data).save().then(() => {
-      console.log("Created celebrity");
+      console.log("Created Celebrity");
       mongoose.disconnect();
     });
   });
