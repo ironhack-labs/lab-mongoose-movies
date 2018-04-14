@@ -20,6 +20,28 @@ router.get("/index", (req, res, next) => {
     });
 });
 
+/* Add new celebrity */
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
+router.post("/new", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+
+  const celeb = new Celeb({ name, occupation, catchPhrase });
+
+  celeb
+    .save()
+    .then(celeb => {
+      res.redirect("/celebrities/index");
+    })
+    .catch(err => {
+      res.render("error", err);
+    });
+});
+
+/* The position of routers matters! */
+/* Show celebrity details */
 router.get("/:id", (req, res, next) => {
   Celeb.findById(req.params.id).then(celeb => {
     res.render("celebrities/show", { celeb });
