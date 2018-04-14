@@ -1,0 +1,8 @@
+<h2>Celebrity</h2>
+
+{{#with celebrity}}
+<p>Name: {{name}}</p>
+<p>Occupation: {{occupation}}</p>
+<p>Catch Phrase: {{catchPhrase}}</p>
+{{/with}}
+<a href="/celebrities/{{celebrity._id}}/edit" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Eddit celebrity</a>
