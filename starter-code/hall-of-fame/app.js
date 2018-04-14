@@ -9,6 +9,8 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
+hbs.registerPartials(path.join(__dirname, "partials"));
+
 mongoose.Promise = Promise;
 mongoose
   .connect("mongodb://localhost/hall-of-fame")
@@ -51,5 +53,8 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
 app.use("/", index);
+
+const celebritiesIndex = require("./routes/celebrities");
+app.use("/celebrities", celebritiesIndex);
 
 module.exports = app;
