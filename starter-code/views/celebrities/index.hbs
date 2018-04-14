@@ -1,6 +1,8 @@
 
 {{#each celebrities}}
+<div class="celebrity-container">
 <h1>Name: {{name}}</h1>
+
 <h2>Occupation:</h2> <p>{{occupation}}</p>
 
 <h2>Catchphrase:</h2> <p>{{catchPhrase}}</p>
@@ -12,6 +14,7 @@
 <form method="post" action="/celebrities/{{_id}}/delete">
   <input type="submit" value="delete">  
 </form>
+</div>
 {{/each}}
 
 <a href="/celebrities/new"> Add new Celebrity</a>

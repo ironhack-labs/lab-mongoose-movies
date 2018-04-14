@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Celebrity = require("../models/Celebrity");
 const celebrity_data = require("./celebrity_data");
 const dbURL = "mongodb://localhost/lab-mongoose-movies";
-console.log(dbURL);
+
 
 mongoose.connect(dbURL).then (() => {
   Celebrity.collection.drop();
