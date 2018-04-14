@@ -1,0 +1,15 @@
+  <h1 id="titulo-movies">Movies</h1>
+<div class="index-container">
+  {{#each movies}}
+  <div class="artist-index">
+
+    <div class="img-artist">
+      <img src="{{this.image}}" alt="">
+    </div>
+    <div class="text-random"></div>
+    <h4>{{this.title}}</h4>
+    <a href="/movies/{{this._id}}">See more  <span class="glyphicon glyphicon-fast-forward"></span></a>
+  </div>
+
+{{/each}}
+</div>

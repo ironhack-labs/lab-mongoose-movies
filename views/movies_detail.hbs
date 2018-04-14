@@ -1,0 +1,27 @@
+<h1 id="titulo-movies">Movies</h1>
+<div class="index-container">
+  {{#with movie_detail}}
+  <div class="artist-index">
+    <a href="/movies"><span class="glyphicon glyphicon-fast-backward"></span>  Go back</a>
+    <div class="img-artist">
+      <img src="{{image}}" alt="">
+    </div>
+    <div class="text-random"></div>
+    <h4>{{title}}</h4>
+    <h5>{{director}}</h5>
+    <h5>Stars</h5>
+    <ul>
+      {{#each stars}}
+      <li id="list-stars"><span class="glyphicon glyphicon-star"> </span>  {{this}}  <span class="glyphicon glyphicon-star"> </span></li>
+      {{/each}}
+    </ul>
+    <p>{{description}}</p>
+      <ul>
+      {{#each showtimes}}
+      <li id="list-details">| {{this}} |</li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/with}}
+</div>
+
