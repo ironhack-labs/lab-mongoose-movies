@@ -22,6 +22,14 @@ router.post("/", (req, res, next) => {
     })
 });
 
+// POST delete
+router.post("/:id/delete", (req, res, next) => {
+  Celebrity.findByIdAndRemove( req.params.id )
+    .then( () => {
+      res.redirect("/celebrities");
+    })
+});
+
 /* GET home page */
 router.get('/', (req, res, next) => {
   Celebrity.find()
