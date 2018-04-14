@@ -9,8 +9,8 @@ const dbURL = process.env.DBURL;
 mongoose.connect(dbURL).then(() =>{
     console.log(`Connected to db ${dbURL}`);
     //Movie.collection.drop();
-    console.log(celebrities)
-    celebrities.forEach( celebrity => {
+    console.log(movies)
+     celebrities.forEach( celebrity => {
         console.log(celebrity)
             let celebrity_new = new Celebrity ({
                 name: celebrity.name,
@@ -19,6 +19,6 @@ mongoose.connect(dbURL).then(() =>{
             })
             .save()
             .then( () => console.log("Created celebrity"))
-        })
+        }) 
     })
     //mongoose.disconnect();

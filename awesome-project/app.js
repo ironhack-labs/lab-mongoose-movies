@@ -11,6 +11,7 @@ const path = require("path");
 
 const indexRouter = require("./routes/index");
 const celebritiesRouter = require("./routes/celebrities");
+const moviesRouter = require("./routes/movies")
 
 mongoose.Promise = Promise;
 mongoose
@@ -56,6 +57,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 app.use("/", indexRouter);
 app.use("/celebrity", celebritiesRouter);
+app.use("/movie", moviesRouter);
 
 
 module.exports = app;

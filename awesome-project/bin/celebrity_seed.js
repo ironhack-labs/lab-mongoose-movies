@@ -1,4 +1,4 @@
-module.exports = [
+ /* module.exports = [
     {
         name: "Kim Kardashian",
         occupation: "Businesswoman",
@@ -14,4 +14,5 @@ module.exports = [
         occupation: "Actor",
         catchPhrase: "Aah such honesty",   
     }
-]
+]  */
+

@@ -1,0 +1,12 @@
+<h1>The movie's list </h1>
+<p>Click on the movie to check</p>
+
+{{#each movies}}
+        <h2><a href="/movie/{{id}}">{{title}}</a></h2>
+        {{!-- <a href="/celebrity/{{this._id}}/delete">Delete this celebrity</a>
+        <a href="/celebrity/{{this._id}}/edit">Edit this celebrity</a> --}}
+  {{else}}
+    <p class="empty">No content</p> 
+{{/each}}
+{{!-- <a href="/celebrity/new">Add new celebrity</a> --}}
+<a href="/">Go back to HOME</a>
