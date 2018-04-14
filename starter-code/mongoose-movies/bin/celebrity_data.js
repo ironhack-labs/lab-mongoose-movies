@@ -5,13 +5,13 @@ module.exports = [
     catchPhrase: "Donec non posuere nisl"
   },
   {
-    name: "Bruce Springsteen",
-    occupation: "Singer",
+    name: "Jessica Chastain",
+    occupation: "Actress",
     catchPhrase: "Donec faucibus pulvinar justo in vulputate"
   },
   {
-    name: "Rihanna",
-    occupation: "Singer",
+    name: "Brad Pitt",
+    occupation: "Actor",
     catchPhrase: "Quisque id lectus a velit dictum consectetur"
   }
 ]
