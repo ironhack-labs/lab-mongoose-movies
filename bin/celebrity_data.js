@@ -14,4 +14,4 @@ module.exports = [
     ocupation: "Rivendel Lord",
     catchPhrase: "The Ring-Bearer is setting out on the Quest of Mount Doom"
   }
-]
+];

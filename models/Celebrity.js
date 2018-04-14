@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const celebritySchema = new Schema(
   {
-    name: String,
-    ocupation: String,
-    catchPhrase: String,
+    name: {type: String},
+    ocupation: {type: String},
+    catchPhrase: {type: String}
   },
   {
     timestamps: {
@@ -15,5 +15,5 @@ const celebritySchema = new Schema(
   }
 );
 
-const Celebrity = mongoose.model("Celebrity, celebritySchema");
+const Celebrity = mongoose.model("Celebrity", celebritySchema);
 module.exports = Celebrity;
