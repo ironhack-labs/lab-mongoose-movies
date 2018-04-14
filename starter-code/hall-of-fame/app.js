@@ -11,7 +11,7 @@ const path = require("path");
 
 mongoose.Promise = Promise;
 mongoose
-  .connect("mongodb://localhost/hall-of-fame", { useMongoClient: true })
+  .connect("mongodb://localhost/hall-of-fame")
   .then(() => {
     console.log("Connected to Mongo!");
   })

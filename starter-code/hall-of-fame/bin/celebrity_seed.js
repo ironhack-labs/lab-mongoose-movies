@@ -12,11 +12,7 @@ mongoose.connect(dbURL).then(() => {
 
   Celeb.collection.drop();
 
-  celebData.forEach(celebData => {
-    let celeb = new Celeb(celebData)
-      .save()
-      .then(() => console.log("Added celeb in DB"));
+  Celeb.collection.insertMany(celebData).then(() => {
+    mongoose.disconnect();
   });
-
-  //mongoose.disconnect();
 });
