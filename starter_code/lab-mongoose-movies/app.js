@@ -45,7 +45,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 // default value for title local
 app.locals.title = 'IHdb';
 
@@ -53,7 +52,14 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const celebRoute = require('./routes/celebrities');
-app.use('/', celebRoute);
+app.use('/celebrities', celebRoute);
+
+
+const movieRoute = require('./routes/movies');
+app.use('/movies', movieRoute);
+
+
+
 
 
 module.exports = app;

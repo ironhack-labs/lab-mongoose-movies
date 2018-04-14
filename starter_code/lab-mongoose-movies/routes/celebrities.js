@@ -4,7 +4,7 @@ const router  = express.Router();
 const Celebrity = require("../models/celebrity");
 
 // Route to Show all celebrities.
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
       console.log({celebrities});
@@ -17,7 +17,9 @@ router.get('/celebrities', (req, res, next) => {
   
 });
 
-router.post('/celebrities', (req, res, next) => {
+
+// ADD new celebrity
+router.post('/', (req, res, next) => {
  
   const { name, occupation, catchPhrase } = req.body;
   const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
@@ -34,14 +36,14 @@ router.post('/celebrities', (req, res, next) => {
 
 
 /* GET home page */
-router.get('/celebrities/new', (req, res, next) => {
+router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
 
 
 // Route to Show a specific celebrity.
-router.get('/celebrities/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   let celebID = req.params.id;
   Celebrity.findOne({'_id': celebID})
   .then(celebrityInfo => {
@@ -57,7 +59,7 @@ router.get('/celebrities/:id', (req, res, next) => {
 
 
 // Route to DELETE a specific celebrity.
-router.post('/celebrities/:id/delete', (req, res, next) => {
+router.post('/:id/delete', (req, res, next) => {
   let celebID = req.params.id;
   Celebrity.findByIdAndRemove({'_id': celebID})
   .then(celebrityInfo => {
@@ -72,7 +74,7 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 
 
 // Route to show an UPDATE form a specific celebrity.
-router.get('/celebrities/:id/edit', (req, res, next) => {
+router.get('/:id/edit', (req, res, next) => {
   let celebID = req.params.id;
   Celebrity.findOne({'_id': celebID})
   .then(celebrityInfo => {
@@ -85,7 +87,7 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
 });
 
 // Route to UPDATE a specific celebrity.
-router.post('/celebrities/:id/edit', (req, res, next) => {
+router.post('/:id/edit', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   const updates = { name, occupation, catchPhrase };
   Celebrity.findByIdAndUpdate(req.params.id, updates).then(() => {
