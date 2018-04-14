@@ -6,6 +6,10 @@
 <h2>Catchphrase:</h2> <p>{{catchPhrase}}</p>
 
 <a href="/celebrities/{{_id}}">Go to celebrity details</a>
+
+<form method="post" action="/celebrities/{{_id}}/delete">
+  <input type="submit" value="delete">  
+</form>
 {{/each}}
 
 <a href="/celebrities/new"> Add new Celebrity</a>

@@ -22,11 +22,21 @@ router.post("/celebrities", (req, res) => {
     .catch(err => console.log(err));
 });
 
+
+// GET Show one celebrity
 router.get("/celebrities/:id", (req, res) => {
   console.log(req.params.id);
   Celebrity.findById(req.params.id)
     .then(celebrity => res.render("celebrities/cb_details", celebrity))
     .catch(err => console.log(err));
 });
+
+// POST DELETE CELEBRITY
+router.post("/celebrities/:id/delete", (req, res) => {
+  console.log(req.params.id)
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then(() => res.redirect("/celebrities"))
+  .catch(err => console.log(err))
+})
 
 module.exports = router;
