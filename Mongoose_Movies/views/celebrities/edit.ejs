@@ -1,0 +1,18 @@
+
+<h1>Currently updating: <strong><%= celebrity.name %></strong></h1>
+
+<form action"/celebrities/:id/up" method="POST">
+  <div class="form-group">
+    <label for="formGroupExampleInput"><strong>Celebrity name</strong></label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="<%= celebrity.name %>" name="name">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2"><strong>Celebrity Ocupation/job</strong></label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="<%= celebrity.ocupation %>" name="ocupation">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2"><strong>Celebrity catchphrase</strong></label>
+    <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="<%= celebrity.catchPhrase %>" name="catchPhrase">
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
