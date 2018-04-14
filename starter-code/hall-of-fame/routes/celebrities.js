@@ -40,12 +40,20 @@ router.post("/new", (req, res, next) => {
     });
 });
 
-/* The position of routers matters! */
 /* Show celebrity details */
 router.get("/:id", (req, res, next) => {
   Celeb.findById(req.params.id).then(celeb => {
     res.render("celebrities/show", { celeb });
   });
 });
+
+/* Delete celebrity */
+router.post("/:id/delete", (req, res, next) => {
+    Celeb.findByIdAndRemove(req.params.id).then(() => {
+        res.redirect("/celebrities/index");
+    }).catch(err => {
+        res.render("error", err);
+    })
+  });
 
 module.exports = router;
