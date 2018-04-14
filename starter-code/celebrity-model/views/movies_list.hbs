@@ -1,0 +1,16 @@
+<h2>My Movies</h2>
+
+<ul>
+{{#each movies}}
+    <li>
+        <a href="/movie/{{this._id}}">{{ this.title }}</a>
+        <a href="/movie/{{this._id}}/edit">Edit this movie</a>
+        <a href="/movie/{{this._id}}/delete" onclick="return confirm('Delete {{this.title}} from BD?')">Delete this movie</a>
+    </li>
+{{else}}
+    <p class="empty">No content</p>
+{{/each}}
+</ul>
+
+<a href="/movie/new">Add new movie</a>
+<a href="/">Go back to HOME</a>
