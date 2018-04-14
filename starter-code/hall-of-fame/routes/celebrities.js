@@ -20,4 +20,10 @@ router.get("/index", (req, res, next) => {
     });
 });
 
+router.get("/:id", (req, res, next) => {
+  Celeb.findById(req.params.id).then(celeb => {
+    res.render("celebrities/show", { celeb });
+  });
+});
+
 module.exports = router;
