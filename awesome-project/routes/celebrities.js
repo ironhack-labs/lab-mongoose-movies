@@ -9,7 +9,7 @@ router.get("/new", (req, res) => {
   res.render("celebrity_new");
 });
 
-/* CRUD -> Acquire form params and create the book object in DB */
+/* CRUD -> Acquire form params and create the celebrity object in DB */
 router.post("/new", (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
 
@@ -46,7 +46,7 @@ router.get("/:id", (req, res, next) => {
     })
   });
 
-  /* CRUD -> Delete the book in DB */
+  /* CRUD -> Delete the celebrity in DB */
 router.get("/:id/delete", (req, res) => {
   Celebrity.findByIdAndRemove(req.params.id).then(() => {
     res.redirect("/celebrity");
@@ -55,7 +55,7 @@ router.get("/:id/delete", (req, res) => {
     res.render("error")
   }); 
 });
-/* CRUD -> Udpate, show book update form */
+/* CRUD -> Udpate, show celebrity update form */
 router.get("/:id/edit", (req, res) => {
   Celebrity.findById(req.params.id).then(celebrity => {
     res.render("celebrity_edit", { celebrity });

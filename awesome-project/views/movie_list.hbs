@@ -3,10 +3,10 @@
 
 {{#each movies}}
         <h2><a href="/movie/{{id}}">{{title}}</a></h2>
-        {{!-- <a href="/celebrity/{{this._id}}/delete">Delete this celebrity</a>
-        <a href="/celebrity/{{this._id}}/edit">Edit this celebrity</a> --}}
+       <a href="/movie/{{this._id}}/delete">Delete this movie</a>
+         <a href="/movie/{{this._id}}/edit">Edit this movie</a> 
   {{else}}
     <p class="empty">No content</p> 
 {{/each}}
-{{!-- <a href="/celebrity/new">Add new celebrity</a> --}}
+ <a href="/movie/new">Add new movie</a> 
 <a href="/">Go back to HOME</a>
