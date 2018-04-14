@@ -1,12 +1,17 @@
+require("dotenv").config();
+
 const express = require('express');
 const router  = express.Router();
 
-const Movies = require("../models/Celebrity")
+const Celebrity = require("../models/Celebrity")
 
-router.get("/",(req, res) => {
-  Movies.find().then(celebrities => {
-    console.log(Celebrity);
-    res.render("celebrities",{celebrities});
+router.get("/index",(req, res, next) => {
+  Celebrity.find().then(celebrities => {
+    
+    res.render("celebrities/index",{celebrities});
+  })
+  .catch(err => {
+    console.log(err);
   });
 });
 
