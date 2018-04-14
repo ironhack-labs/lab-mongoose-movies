@@ -22,6 +22,32 @@ router.post("/", (req, res, next) => {
     })
 });
 
+// POST delete
+router.post("/:id/delete", (req, res, next) => {
+  Movie.findByIdAndRemove( req.params.id )
+    .then( () => {
+      res.redirect("/movies");
+    })
+});
+
+// GET edit
+router.get("/:id/edit", (req, res, next) => {
+  Movie.findById( req.params.id )
+    .then( (movie) => {
+      res.render("movies/edit", {movie});
+    });
+});
+
+// POST edit
+router.post("/:id", (req, res, next) => {
+  const {title, genre, plot} = req.body;
+  const updates = {title, genre, plot};
+  Movie.findByIdAndUpdate(req.params.id, updates)
+    .then( () => {
+      res.redirect("/movies");
+    });
+});
+
 // GET detail
 router.get("/:id", (req, res, next) => {
   Movie.findById( req.params.id)
