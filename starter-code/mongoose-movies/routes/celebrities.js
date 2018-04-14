@@ -30,14 +30,22 @@ router.post("/:id/delete", (req, res, next) => {
     })
 });
 
-/* GET home page */
-router.get('/', (req, res, next) => {
-  Celebrity.find()
-    .then( celebrities => {
-      res.render("celebrities/index", {celebrities});
-    })
-    .catch( error => {
-    })
+// GET edit
+router.get("/:id/edit", (req, res, next) => {
+  Celebrity.findById( req.params.id )
+    .then( (celebrity) => {
+      res.render("celebrities/edit", {celebrity});
+    });
+});
+
+// POST edit
+router.post("/:id", (req, res, next) => {
+  const {name, occupation, catchPhrase} = req.body;
+  const updates = {name, occupation, catchPhrase};
+  Celebrity.findByIdAndUpdate(req.params.id, updates)
+    .then( () => {
+      res.redirect("/celebrities");
+    });
 });
 
 // GET detail
@@ -48,6 +56,15 @@ router.get("/:id", (req, res, next) => {
     })
 });
 
+/* GET home page */
+router.get('/', (req, res, next) => {
+  Celebrity.find()
+    .then( celebrities => {
+      res.render("celebrities/index", {celebrities});
+    })
+    .catch( error => {
+    })
+});
 
 
 module.exports = router;
