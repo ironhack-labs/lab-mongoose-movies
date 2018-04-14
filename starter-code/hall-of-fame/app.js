@@ -49,7 +49,7 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "Hall of Fame";
 
 const index = require("./routes/index");
 app.use("/", index);
@@ -59,5 +59,23 @@ app.use("/celebrities", celebrities);
 
 const movies = require("./routes/movies");
 app.use("/movies", movies);
+
+
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+app.use((err, req, res, next) => {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = process.env.ENV === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+}); // Express middleware to handle errors
 
 module.exports = app;

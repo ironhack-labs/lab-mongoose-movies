@@ -1,43 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400");
+@import url(animate.min.css);
 * {
   margin: 0;
   padding: 0;
   border: 0; }
 
 body {
-  font: 62.5%/1.5 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font: 62.5%/1.5 "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: #000000; }
 
 h1 {
-  font-size: 3.0rem; }
+  font-size: 4rem; }
 
 h2 {
-  font-size: 2.8rem; }
+  font-size: 3rem; }
 
 h3 {
-  font-size: 2.0rem; }
+  font-size: 2rem; }
 
 h4 {
-  font-size: 1.6rem; }
-
-h5 {
   font-size: 1.4rem; }
 
+h5 {
+  font-size: 1.2rem; }
+
 p {
-  font-size: 1.0rem; }
+  font-size: 1rem; }
 
 li {
   list-style-type: none; }
 
 a {
+  color: #000000;
   text-decoration: none; }
   a:hover {
     text-decoration: none; }
 
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+button {
+  cursor: pointer; }
 
-a {
-  color: #00B7FF; }
+.btest {
+  border: 1px solid red; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white; }
+
+.nav {
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  box-sizing: border-box; }
+  .nav .container {
+    height: 100%;
+    display: flex;
+    flex-direction: row; }
+    .nav .container ul {
+      height: 100%;
+      display: flex;
+      align-items: center; }
+    .nav .container li {
+      padding: 10px; }
+
+h1 {
+  font-family: "Comfortaa";
+  font-weight: normal;
+  font-size: 4.5rem; }
+
+.container-fluid {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+.container {
+  max-width: 1200px;
+  width: 85%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center; }
+
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  .main-menu ul {
+    margin: 20px; }
+    .main-menu ul li button {
+      width: 150px;
+      color: #ffffff;
+      margin-top: 20px;
+      margin-bottom: 15px;
+      padding: 10px 20px 10px 20px;
+      background: linear-gradient(to bottom, #bf0306 0%, #b51214 44%, #840002 100%);
+      box-sizing: border-box; }
+      .main-menu ul li button:hover {
+        color: #d8d8d8;
+        background: linear-gradient(to bottom, #820202 0%, #9b0f0f 44%, #5b0000 100%); }
 
 /*# sourceMappingURL=style.css.map */

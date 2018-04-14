@@ -1,0 +1,54 @@
+h1 {
+    font-family: $main-font;
+    font-weight: normal;
+    font-size: 4.5rem;
+  }
+
+.container-fluid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 85%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  ul {
+    margin: 20px;
+    li {
+      button {
+        width: 150px;
+        color: #ffffff;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        padding: 10px 20px 10px 20px;
+        background: linear-gradient(
+          to bottom,
+          #bf0306 0%,
+          #b51214 44%,
+          #840002 100%
+        );
+        box-sizing: border-box;
+        &:hover {
+          color: #d8d8d8;
+          background: linear-gradient(
+            to bottom,
+            #820202 0%,
+            #9b0f0f 44%,
+            #5b0000 100%
+          );
+        }
+      }
+    }
+  }
+}
