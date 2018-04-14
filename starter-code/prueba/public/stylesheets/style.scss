@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.fondo{
+  background-image: url("../images/hola.jpg");
+  height: 750px;
+  width: 100%;
+  
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.fondo h1{
+ color: white;
+ text-align: center;
+}
+.botn{
+ position: relative;
+ left: 600px;
+}
