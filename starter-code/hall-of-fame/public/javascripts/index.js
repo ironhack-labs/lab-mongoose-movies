@@ -1,10 +1,10 @@
 $(() => {
+    
+  $("li.effect").hover(() => {
+    $("li.effect").toggleClass("animated infinite pulse");
+  });
 
-    $("li.effect").hover(() => {
-        $("li.effect").toggleClass("animated infinite pulse");
-    });
-
-    setInterval(()=>{
-        $(".dev-name").toggleClass("animated jello");
-    }, 2000);
-  })
+  setInterval(() => {
+    $(".dev-name").toggleClass("animated jello");
+  }, 2000);
+});

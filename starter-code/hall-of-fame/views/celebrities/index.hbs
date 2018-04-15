@@ -23,8 +23,8 @@
                                 </button>
                             </form>
 
-                            <form action="/celebrities/{{_id}}/delete" method="post">
-                                <button type="submit" id="btn-delete" title="Delete">
+                            <form action="/celebrities/{{_id}}/delete" method="post" onsubmit="return confirm('Are you sure?!');">
+                                <button type="submit" class="btn-delete" title="Delete">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
