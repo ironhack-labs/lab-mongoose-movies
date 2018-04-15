@@ -1,0 +1,29 @@
+<div class="items">
+  {{#each movies}}
+  <div class="item-container">
+    <h1>Title: {{title}}</h1>
+
+    <h2>Genre:</h2>
+    <p>{{genre}}</p>
+
+    <h2>Plot</h2>
+    <p>{{plot}}</p>
+
+  <div class="link-container details-btn">
+    <a href="/movies/{{_id}}">Go to movie details</a>
+  </div>
+
+  <div class="link-container edit-btn">
+    <a href="/movies/{{_id}}/edit">Edit movie details</a>
+  </div>
+
+    <form method="post" action="/movies/{{_id}}/delete">
+      <input type="submit" value="delete">
+    </form>
+  </div>
+  {{/each}}
+</div>
+<div class="link-container add-btn">
+  <a href="/movies/new"> Add new Movie</a>
+
+</div>

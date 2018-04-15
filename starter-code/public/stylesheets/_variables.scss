@@ -1,0 +1,18 @@
+$bgcolorone: rgba(34, 231, 16, 0.623);
+
+$bgcolortwo: rgb(208, 245, 0);
+
+$bgcolorthree: rgb(231, 16, 195);
+
+$color: rgba(93, 98, 93, 0.623);
+
+$grey: rgba(185, 187, 185, 0.986);
+
+$linksize: 16px;
+
+%display {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
