@@ -1,8 +1,48 @@
+@import "variables";
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.main {
+  height: 600px;
+  width: 80%;
+  margin: 0 auto;
+  background-color: $bgcolorone;
+  @extend %display;
+}
+
+.items {
+  width: 80%;
+  margin: 0 auto;
+  @extend %display;
+  background-color: $bgcolortwo;
+  padding: 20px;
+  .item-container {
+    width: 280px;
+    background-color: $grey;
+    text-align: center;
+  }
+}
+
+.link-container {
+  width: 150px;
+  height: 60px;
+  background-color: $grey;
+  display: inline-block;
+  line-height: 60px;
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: $linksize;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+  }
+}
+
+.add-btn {
+  display: block;
+  margin: 20px auto;
 }
