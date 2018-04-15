@@ -56,19 +56,17 @@ router.get("/:id/edit", (req, res, next) => {
 router.post("/:id/delete", (req, res, next) => {
 
   Celebrity.findByIdAndRemove(req.params.id)
-  .then( () => res.redirect("/celebrities/index"))
+  .then(res.redirect("/celebrities/index"))
   .catch(err => res.render("error", err));
 })
 
 router.post("/:id/edit", (req, res, next) => {
-  
+
   const { name, occupation, catchPhrase } = req.body;
   const celebrityEdit = { name, occupation, catchPhrase };
 
   Celebrity.findByIdAndUpdate(req.params.id, celebrityEdit)
-    .then(() => {
-      res.redirect("/celebrities/index");
-    })
+    .then(res.redirect("/celebrities/index"))
     .catch(err => res.render("error", err));
 });
 
