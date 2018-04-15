@@ -69,7 +69,7 @@ router.get('/:id/edit', (req, res, next) => {
   Celebrity.findById(req.params.id).then(celeb_data => {
 
     console.log(celeb_data)
-    res.render("celebrities/edit", { celeb_data });
+    res.render("celebrities/edit" , { celeb_data});
   })
     .catch(error => {
       console.log(error)
