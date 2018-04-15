@@ -3,10 +3,12 @@ const router = express.Router();
 
 const Celebrity = require("../models/celebrity");
 
+// Home
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+// Getting Celeb
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
@@ -17,6 +19,7 @@ router.get("/celebrities", (req, res, next) => {
     });
 });
 
+// Celeb details
 router.get("/celebrity/:id", (req, res, next) => {
   let celebrityId = req.params.id;
   Celebrity.findOne({ _id: celebrityId })
@@ -42,5 +45,17 @@ router.post("/newCelebrities", (req, res) => {
     res.redirect("/newCelebrities");
   });
 });
+
+// Removing a Celeb
+router.post("/celebrity/:id/delete", (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("showCelebrities");
+    })
+    .catch(err => {
+      console.log(error);
+    });
+});
+
 
 module.exports = router;
