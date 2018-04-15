@@ -28,6 +28,10 @@ router.post("/:id/delete", (req, res, next) => {
     .then( () => {
       res.redirect("/movies");
     })
+    .catch( err => {
+      next();
+      return err;
+    })
 });
 
 // GET edit
@@ -35,7 +39,11 @@ router.get("/:id/edit", (req, res, next) => {
   Movie.findById( req.params.id )
     .then( (movie) => {
       res.render("movies/edit", {movie});
-    });
+    })
+    .catch( err => {
+      next();
+      return err;
+    })
 });
 
 // POST edit
@@ -45,7 +53,11 @@ router.post("/:id", (req, res, next) => {
   Movie.findByIdAndUpdate(req.params.id, updates)
     .then( () => {
       res.redirect("/movies");
-    });
+    })
+    .catch( err => {
+      next();
+      return err;
+    })
 });
 
 // GET detail
@@ -53,6 +65,10 @@ router.get("/:id", (req, res, next) => {
   Movie.findById( req.params.id)
     .then( movie => {
       res.render("movies/show", {movie} );
+    })
+    .catch( err => {
+      next();
+      return err;
     })
 });
 
@@ -62,7 +78,9 @@ router.get('/', (req, res, next) => {
     .then( movies => {
       res.render("movies/index", {movies});
     })
-    .catch( error => {
+    .catch( err => {
+      next();
+      return err;
     })
 });
 
