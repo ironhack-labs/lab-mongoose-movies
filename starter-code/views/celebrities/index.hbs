@@ -1,9 +1,13 @@
 <h2>Hall of Fame</h2>
-
 <div class="container">
   <div class="row justify-content-between">
     {{#each celebrities}}
+    <div class="col">
       <p>{{name}}</p>
+      <p>{{occupation}}</p>
+      <p>{{catchPhrase}}</p>
+      <a href="/celebrities/{{id}}">Check this Star!</a>
+    </div>
     {{/each}}
   </div>
 </div>
