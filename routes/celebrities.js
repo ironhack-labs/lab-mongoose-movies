@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
 
   celeb.save().then(celeb => {
     console.log(celeb)
-    res.render("celebrities/index", { celeb });
+    res.render("celebrities");
   })
     .catch(error => {
       res.redirect("celebrities/new")
@@ -45,7 +45,18 @@ router.get('/new', (req, res, next) => {
 //Id to show data 
 router.get('/:id', (req, res, next) => {
   Celebrity.findById(req.params.id).then(celeb_data => {
-    //debug(celebrities_data);
+
+    console.log(celeb_data)
+    res.render("celebrities/show", { celeb_data });
+  })
+    .catch(error => {
+      console.log(error)
+    })
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id).then(celeb_data => {
+
     console.log(celeb_data)
     res.render("celebrities/show", { celeb_data });
   })
