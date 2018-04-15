@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="title">
+                <h2>My Favourite Movies</h2>
+            </div>
+        </div>
+    </div>
+    <div>
+        <ul>
+            {{#each movies}}
+            <li class="row element">
+                <div class="col-sm-6 title-name">
+                    <a href="/movie/{{this._id}}">{{ this.title }}</a>
+                </div>
+                <div class="col-sm-6">
+                    <div class="small button">
+                        <a href="/movie/{{this._id}}/edit">Edit this movie</a>
+                    </div>
+                    <div class="small button">
+                        <a href="/movie/{{this._id}}/delete" onclick="return confirm('Delete {{this.title}} from BD?')">Delete this movie</a>
+                    </div>
+                </div>
+            </li>
+            {{else}}
+                <p class="empty">No content</p>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="large button">
+                <a href="/movie/new">Add new movie</a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="large button">
+                <a href="/">Go back to HOME</a>
+            </div>
+        </div>
+    </div>
+</div>
