@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <h2> Edit celebrity {{name}}</h2>
+      <form method="post" action="/celebrities/{{_id}}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="{{name}}" value="{{name}}">
+        <br>
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" name="occupation" placeholder="{{occupation}}" value="{{occupation}}">
+        <br>
+        <label for="catchPhrase">Catchphrase:</label>
+        <input type="text" name="catchPhrase" placeholder="{{catchPhrase}}" value="{{catchPhrase}}">
+        <br>
+        <input type="submit" value="Update celebrity">
+      </form>
+    </div>
+  </div>
+</div>
