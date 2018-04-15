@@ -1,0 +1,13 @@
+header ul li {
+  display: inline-block;
+  padding: 10px; }
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: grey; }
+
+a {
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */
