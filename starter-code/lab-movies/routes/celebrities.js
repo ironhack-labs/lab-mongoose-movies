@@ -11,9 +11,8 @@ router.get('/index', (req, res, next) => {
     //debug(celebrities)
     res.render('celebrities/index', {celebrities});
   })
-  .catch(error => console.log(error))
+  .catch(err => res.render("error", err));
 });
-
 
 router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
@@ -38,7 +37,7 @@ router.get("/:id", (req, res, next) => {
     //debug(celebrity_detail)
     res.render("celebrities/show", {celebrity_detail});
   })
-  .catch(error => console.log(error));
+  .catch(err => res.render("error", err));
 });
 
 router.get("/:id/edit", (req, res, next) => {
@@ -67,7 +66,5 @@ router.post("/:id/edit", (req, res, next) => {
     .then(res.redirect("/celebrities/index"))
     .catch(err => res.render("error", err));
 });
-
-
 
 module.exports = router;
