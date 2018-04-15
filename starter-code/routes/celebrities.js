@@ -5,7 +5,6 @@ const Celebrity = require("../models/Celebrity");
 router.get("/", (req, res) => {
   Celebrity.find()
     .then(celebrities => {
-      console.log(celebrities);
 
       const data = {
         title: "Celebrities",
@@ -35,6 +34,8 @@ router.post('/', (req,res) => {
     .catch(err => console.log(err))
 })
 
+/* CRUD Retrieve element by ID */
+
 router.get('/:id', (req,res) => {
 
   celebrityId = req.params.id;
@@ -48,11 +49,15 @@ router.get('/:id', (req,res) => {
       };
       res.render('celebrities/show', data)
     })
-    .catch(err => {
-      console.log(err);
-      res.render('/celebrities/new');
-    })
+    .catch(err => console.log(err))
 })
 
+/* CRUD Delete element */
+router.post('/:id/delete', (req, res) => {
+  
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then( () => res.redirect('/celebrities'))
+    .catch(err => console.log(err))
+})
 
 module.exports = router;

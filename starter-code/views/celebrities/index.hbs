@@ -7,6 +7,9 @@
       <p>{{occupation}}</p>
       <p>{{catchPhrase}}</p>
       <a href="/celebrities/{{id}}">Check this Star!</a>
+      <form action="/celebrities/{{id}}/delete" method="POST">
+        <input type="submit" value="Delete this Star">
+      </form>
     </div>
     {{/each}}
   </div>
