@@ -14,6 +14,21 @@ router.get('/', (req, res, next) => {
     })
 });
 
+//New celebrity POST
+router.post('/', (req, res, next) => {
+
+  const { name, ocupation, catchPhrase } = req.body;
+  const celeb = new Celebrity({name, ocupation, catchPhrase})
+
+  celeb.save().then(celeb => {
+    console.log(celeb)
+    res.render("celebrities/index", { celeb });
+  })
+    .catch(error => {
+      res.redirect("celebrities/new")
+    })
+});
+
 //New celebrity GET
 router.get('/new', (req, res, next) => {
   Celebrity.findById(req.params.id).then(celeb_data => {
@@ -26,19 +41,6 @@ router.get('/new', (req, res, next) => {
     })
 });
 
-//New celebrity POST
-router.post('/', (req, res, next) => {
-  const { name, ocupation, catchPhrase } = req.body;
-  const celeb = new Celebrity({name, ocupation, catchPhrase})
-
-  Celebrity.save().then(celeb => {
-    console.log(celeb)
-    res.render("celebrities/show", { celeb_data });
-  })
-    .catch(error => {
-      res.redirect("celebrities/new")
-    })
-});
 
 //Id to show data 
 router.get('/:id', (req, res, next) => {
