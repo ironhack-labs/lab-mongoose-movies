@@ -1,0 +1,20 @@
+<h1>Celebrities </h1>
+
+{{#each celebrities}}
+<ul>
+    <li>
+        <a class="nombre" href="/celebrity/{{id}}">{{name}}</a>
+
+        <a href="/celebrity/{{id}}/edit" class="btn edit">Edit this celebrity</a>
+
+        <a href="/celebrity/{{id}}/delete" class="btn delete">Delete this celebrity</a>
+    </li>
+</ul>
+
+
+{{else}}
+<p class="empty">No content</p>
+{{/each}}
+
+
+<a href="/celebrity/new" class="añadir">Add new celebrity</a>

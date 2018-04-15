@@ -1,0 +1,20 @@
+<h1> Movies </h1>
+
+{{#each movies}}
+<ul>
+    <li>
+        <a class="titulo" href="/movie/{{id}}">{{title}}</a>
+
+        <a href="/movie/{{id}}/edit" class="btn edit">Edit this movie</a>
+
+        <a href="/movie/{{id}}/delete" class="btn delete">Delete this movie</a>
+    </li>
+</ul>
+
+
+{{else}}
+<p class="empty">No content</p>
+{{/each}}
+
+
+<a href="/movie/new" class="añadir">Add new movie</a>
