@@ -1,9 +1,13 @@
 <h2>Celebrities</h2>
 {{#each celebrities}}
- <form action="/celebrities/{{_id}}/delete" method="POST">
- <p>{{name}} <a href="/celebrities/{{_id}}">Show details</a></p>
- <button type="submit">Delete</button>
- </form>
+<form action="/celebrities/{{_id}}/delete" method="POST">
+  <p>{{name}}
+    <a class="btn btn-default" href="/celebrities/{{_id}}">Show details</a>
+    <button class="btn btn-danger" type="submit">Delete</button>
+  </p>
+  
+</form>
 {{/each}}
-<a href="/celebrities/new">Add Celebrity</a>
-<a href="/">Back</a>
+<hr>
+<a class="btn btn-success" href="/celebrities/new">Add Celebrity</a>
+<a class="btn btn-default" href="/">Back</a>
