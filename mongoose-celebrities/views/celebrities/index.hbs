@@ -1,0 +1,17 @@
+<h2>Celebrities</h2>
+{{#each celebrity}} 
+<p>{{name}}</p>
+<a href="/celebrities/{{id}}">Check this celebrity</a>
+
+<div>
+  <form action="/celebrities/{{id}}/delete" method="POST">
+    <button type="submit" value="Delete celebrity">Delete this celebrity</button>
+  </form> 
+</div>
+
+<a href="/celebrities/{{id}}/edit">EDIT</a>
+
+ {{/each}} 
+
+ <h2><a href="/celebrities/new">Add a new Celebrity</a></h2>
+
