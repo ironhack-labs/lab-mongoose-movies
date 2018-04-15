@@ -1,24 +1,27 @@
 <div class="main-list">
   <h2>List</h2>
+
   {{#each celebrities_data}}
-    <div class="celebContainer">
-      <div class="row celebBox">
-        <p>
-          <h3 class="center-text">{{this.name}}</h3>
-        </p>
-        <p class="center-text">
-          <a href="/celebrities/{{this._id}}">Show info</a>
-        </p>
-        <p class="center-text">
-          <a href="/celebrities/{{this._id}}/edit">Edit info</a>
-        </p>
-        <form class="center-text" action="/celebrities/{{this._id}}/delete" method="post">
-          <button class="btn-delete" type="submit">Delete</button>
-        </form>
-        
-      </div>
+  <div class="celebContainer">
+    <div class="row celebBox">
+      <p>
+        <h3 class="center-text">{{this.name}}</h3>
+      </p>
+      <p class="center-text">
+        <a href="/celebrities/{{this._id}}">Show info</a>
+      </p>
+      <p class="center-text">
+        <a href="/celebrities/{{this._id}}/edit">Edit info</a>
+      </p>
+      <form class="center-text" action="/celebrities/{{this._id}}/delete" method="post">
+        <button class="btn-delete" type="submit">Delete</button>
+      </form>
+
     </div>
+  </div>
   {{/each}}
-  
-  <a href="/celebrities/new"><button class="btn">Create new celebrity</button></a>
+
+  <a href="/celebrities/new">
+    <button class="btn">Create new celebrity</button>
+  </a>
 </div>

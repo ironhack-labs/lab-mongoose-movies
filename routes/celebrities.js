@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 router.post('/new', (req, res, next) => {
 
   const { name, ocupation, catchPhrase } = req.body;
-  const celeb = new Celebrity({name, ocupation, catchPhrase})
+  const celeb = new Celebrity({ name, ocupation, catchPhrase })
 
   celeb.save().then(celeb => {
     console.log(celeb)
@@ -69,7 +69,7 @@ router.get('/:id/edit', (req, res, next) => {
   Celebrity.findById(req.params.id).then(celeb_data => {
 
     console.log(celeb_data)
-    res.render("celebrities/edit" , { celeb_data});
+    res.render("celebrities/edit", { celeb_data });
   })
     .catch(error => {
       console.log(error)
