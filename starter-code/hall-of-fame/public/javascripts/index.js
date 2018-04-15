@@ -1,6 +1,10 @@
 $(() => {
+
     $("li.effect").hover(() => {
         $("li.effect").toggleClass("animated infinite pulse");
-        console.log("hover");
     });
+
+    setInterval(()=>{
+        $(".dev-name").toggleClass("animated jello");
+    }, 2000);
   })
