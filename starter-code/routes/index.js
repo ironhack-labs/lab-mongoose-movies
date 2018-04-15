@@ -10,8 +10,6 @@ router.get("/", (req, res, next) => {
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
-      console.log("Consulta realizada!!");
-      console.log(celebrities);
       res.render("celebrities", { celebrities });
     })
     .catch(error => {
@@ -31,13 +29,6 @@ router.get("/celebrity/:id", (req, res, next) => {
 });
 
 router.get("/newCelebrities", (req, res) => {
-  res.render("newCelebrities", { newCelebrities });
-});
-router.post("/newCelebrities", (req, res) => {
-  const { name, occupation, catchPhrase } = req.body;
-  const celebrity = new Celebrity({ name, occupation, catchPhrase });
-  celebrity.save().then(celebrity => {
-    res.redirect("celebrities");
-  });
+  res.render("/newCelebrities");
 });
 module.exports = router;

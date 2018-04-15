@@ -4,9 +4,6 @@ const Celebrity = require('../models/celebrity');
 const dbName = 'starter-code';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
-
-
-
 const celebrities = [
   {
     name : "Scarlett Johansson",
