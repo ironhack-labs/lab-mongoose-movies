@@ -27,9 +27,7 @@ router.post("/new", (req, res, next) => {
     celebrity
       .save()
       .then(() => res.redirect("/celebrities/index"))
-      .catch(err => {
-        res.render("error", err);
-      });
+      .catch(err => res.render("error", err));
 });
 
 
