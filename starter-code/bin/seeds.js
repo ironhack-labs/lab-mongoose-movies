@@ -9,19 +9,19 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const celebrities = [
   {
-    name : "test",
-    occupation: "testo",
-    catchPhrase: "testc"
+    name : "Scarlett Johansson",
+    occupation: "Actress",
+    catchPhrase: "Will you, if you dont mind, marry me?"
   },
   {
-    name : "test1",
-    occupation: "test1o",
-    catchPhrase: "test1c"
+    name : "Javier Bardem",
+    occupation: "Serial Killer",
+    catchPhrase: "You need to call it. I can't call it for you. It wouldn't be fair."
   },
   {
-    name : "test2",
-    occupation: "test2o",
-    catchPhrase: "test2c"
+    name : " Myroslav Slaboshpytskyi",
+    occupation: "Director",
+    catchPhrase: "Silent is golden"
   },
 ];
 
