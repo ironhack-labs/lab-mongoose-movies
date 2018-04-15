@@ -15,11 +15,52 @@ a {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.fondo h1{
- color: white;
- text-align: center;
-}
+
 .botn{
  position: relative;
  left: 600px;
+ background-color: red;
+ color:white;
+ size:200px;
+ height: 50px;
+}
+.nombre{
+  font-size: 20px;
+  color:black;
+}
+.delete{
+  background-color: tomato;
+  width: 100px;
+  height: 70px;
+  color: snow;
+  border: 1px solid black;
+  border-radius: 20px;
+  text-decoration: none
+}
+.edit{
+  background-color: blue;
+  width: 100px;
+  height: 70px;
+  color: snow;
+  border: 1px solid black;
+  border-radius: 20px;
+  text-decoration: none;
+}
+.añadir{
+  background-color: green;
+  width: 100px;
+  height: 70px;
+  color: snow;
+  border: 1px solid black;
+  border-radius: 20px;
+  text-decoration: none
+}
+.fondo2{
+  background-image: url("../images/cubo-de-palomitas-y-gafas-3d-en-el-cine_23-2147698960.jpg");
+  height: 750px;
+  width: 100%;
+  
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

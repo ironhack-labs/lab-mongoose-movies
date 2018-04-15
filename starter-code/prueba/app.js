@@ -12,7 +12,7 @@ const path = require("path");
 
 const indexRouter = require("./routes/index");
 const celebrityRouter = require("./routes/celebrity");
-
+const movieRouter = require("./routes/movie");
 
 
 mongoose.Promise = Promise;
@@ -59,7 +59,7 @@ app.locals.title = "THE BEST CELEBRITIES";
 
 app.use("/", indexRouter);
 app.use("/celebrity", celebrityRouter); 
- 
+app.use("/movie", movieRouter);
 
 
 module.exports = app;

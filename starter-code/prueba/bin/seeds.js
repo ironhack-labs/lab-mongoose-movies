@@ -5,9 +5,9 @@ const Celebrity = require('../models/Celebrity');
 const celebrities = require('./celebrity_data');
 const dbURL = process.env.DBURL;
 
-mongoose.connect(dbURL).then(() =>{
+     mongoose.connect(dbURL).then(() =>{
     console.log(`Connected to db ${dbURL}`);
-    //Movie.collection.drop();
+//     //Movie.collection.drop();
     console.log(celebrities)
     celebrities.forEach( celebrity => {
         console.log(celebrity)
@@ -20,5 +20,23 @@ mongoose.connect(dbURL).then(() =>{
             .then( () => console.log("Created celebrity"))
         })
     })
-    //mongoose.disconnect();
+//     //mongoose.disconnect();
 
+// const movie = require('../models/Movie');
+// const movies = require('./movie_data');
+
+//     mongoose.connect(dbURL).then(() => {
+//     console.log(`Connected to db ${dbURL}`);
+//     //Movie.collection.drop();
+//     console.log(movie)
+//     movies.forEach(movie => {
+//         console.log(movie)
+//         let movie_new = new Movie({
+//                 title: movie.name,
+//                 genre: movie.occupation,
+//                 plot: movie.catchPhrase,
+//             })
+//             .save()
+//             .then(() => console.log("Created movie"))
+//     })
+// })

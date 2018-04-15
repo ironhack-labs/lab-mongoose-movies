@@ -1,5 +1,5 @@
-<h2>Añade un nuevo Famoso</h2>
-<form action="/celebrity/new" method="post">
+<h2>Edita un famoso</h2>
+<form action="/celebrity/{{celebrity.id}}/edit" method="post">
   <label for="">Name:</label>
   <input type="text" name="name">
 
@@ -9,14 +9,13 @@
   <label for="">Catch phrase:</label>
   <input type="text" name="catchPhrase">
 
-  <button type="submit">Add a celebrity</button>
+  <button type="submit">Edit a celebrity</button>
 </form>
 
 
 <a href="/celebrity">Go back to Celebrities</a> 
-
-{{!-- <h2>Añade una nueva pelicula</h2>
-<form action="/movie/new" method="post">
+{{!-- <h2>Edita una Pelicula</h2>
+<form action="/movie/{{movie.id}}/edit" method="post">
   <label for="">Title:</label>
   <input type="text" name="title">
 
@@ -24,9 +23,9 @@
   <input type="text" name="genre">
 
   <label for="">Plot:</label>
-  <input type="text" name="catchPhrase">
+  <input type="text" name="plot">
 
-  <button type="submit">Add a movie</button>
+  <button type="submit">Edit a movie</button>
 </form>
 
 
