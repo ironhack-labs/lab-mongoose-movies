@@ -26,7 +26,7 @@ router.get("/new", (req, res, next) => {
 
 router.post("/new", (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body;
-  const celebrityNew = new Celebrity ({name, occupation, catchPhrase});
+  const celebrityNew = new Celebrity({name, occupation, catchPhrase});
 
   celebrityNew
   .save()
@@ -39,7 +39,7 @@ router.post("/new", (req, res, next) => {
 });
 
 
-//-----------CELEBRITIES DETAILS---------
+//-----------CELEBRITY DETAILS---------
 
 router.get("/:id", (req, res, next) => {
   Celebrity.findById(req.params.id).then(celebrity => {
@@ -50,7 +50,40 @@ router.get("/:id", (req, res, next) => {
   });
 });
 
+//-----------DELETE CELEBRITY--------------
 
+router.post("/:id/delete", (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id).then(() => {
+    res.redirect("/celebrities/index");
+  })
+  .catch(err => {
+    res.render("error", err);
+  });
+});
+
+//----------EDIT A CELEBRITY---------------
+
+router.get("/:id/edit", (req, res, next) => {
+  Celebrity.findById(req.params.id).then(celebrity => {
+    res.render("celebrities/edit", {celebrity});
+  })
+  .catch(err => {
+    res.render("error", err);
+  });
+});
+
+router.post("/:id/edit", (req, res, next) => {
+  const {name, occupation, catchPhrase} = req.body;
+  const celebrityEdited = {name, occupation, catchPhrase};
+  Celebrity.findByIdAndUpdate(req.params.id, celebrityEdited)
+    .then(() => {
+      res.redirect("/celebrities/index");
+    })  
+    .catch(err => {
+      res.render("error", err);
+    });
+
+});
 
 
 module.exports = router;
