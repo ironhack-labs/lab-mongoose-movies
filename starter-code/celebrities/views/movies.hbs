@@ -1,0 +1,13 @@
+<h1> MOVIES LIST </h1>
+
+{{#each movies}}
+    {{this.title}}
+    <a href="/movies/{{this._id}}">View More</a>
+    <a href="/movies/{{this._id}}/delete">Delete</a>
+     
+    <br>
+{{/each}}
+
+
+<br>
+<a href="/celebrities">Go to celebrity page</a>

@@ -39,15 +39,16 @@ router.get("/:id/edit", (req, res, next) => {
 
 router.post("/:id/edit", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
-  const updates =  { name, occupation, catchPhrase } 
+  const updates = { name, occupation, catchPhrase };
   Celebrity.findByIdAndUpdate(req.params.id, updates).then(celebrity => {
     console.log(req.body.params);
-    res.redirect("/detail")
+    res.redirect("/detail");
   });
 });
 
 router.get("/:id/delete", (req, res, next) => {
-  Celebrity.findByIdAndRemove(req.params.id).then((err, celebrity) => {
+  console.log("LLEGA AQUI")
+  Celebrity.findByIdAndRemove(req.params.id).then((celebrity) => {
     console.log(celebrity);
     console.log(`SE HA BORRADO LA CELEBRITY ${celebrity.name}`);
     res.redirect("/celebrities");
