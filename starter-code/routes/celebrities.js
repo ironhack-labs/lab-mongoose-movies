@@ -16,6 +16,25 @@ router.get("/", (req, res) => {
     .catch(err => console.log(err));
 });
 
+/* CRUD Create new element */
+
+//GET
+router.get('/new', (req,res) => {
+  res.render('celebrities/new')
+})
+
+//POST
+router.post('/', (req,res) => {
+
+  const {name, occupation, catchPhrase} = req.body;
+  const celebrity = new Celebrity({ name, occupation, catchPhrase });
+  celebrity.save()
+    .then( () => {
+      res.redirect('/celebrities')
+    })
+    .catch(err => console.log(err))
+})
+
 router.get('/:id', (req,res) => {
 
   celebrityId = req.params.id;
@@ -29,7 +48,11 @@ router.get('/:id', (req,res) => {
       };
       res.render('celebrities/show', data)
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      res.render('/celebrities/new');
+    })
 })
+
 
 module.exports = router;
