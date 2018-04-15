@@ -1,0 +1,23 @@
+h1 {
+  font-family: $main-font;
+  font-weight: normal;
+  font-size: 4.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  width: 85%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  ul {
+    margin: 20px;
+  }
+}

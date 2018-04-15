@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="container">
+        <h2>Celebrity Details</h2>
+
+        <ul class="celeb-details">
+            <img src="/images/default-avatar.jpg">
+            <div class="celeb-item">
+                {{#with celeb}}
+                <li>
+                    <h3>{{name}}</h3>
+                </li>
+                <li>
+                    <h4>Occupation: {{occupation}}</h4>
+                </li>
+                <li>
+                    <h5>Catch Phrase:</h5>
+                    <div class="catch-phrase">
+                        <h5>"{{catchPhrase}}"</h5>
+                    </div>
+                </li>
+                {{/with}}
+            </div>
+        </ul>
+    </div>
+</div>

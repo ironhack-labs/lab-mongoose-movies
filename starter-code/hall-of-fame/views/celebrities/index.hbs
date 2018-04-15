@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="celeb-container">
+
+        <h2>Celebrities Index</h2>
+
+        <ul>
+            {{#each celebs}}
+            <li>
+                <div class="celeb-item">
+                    <img src="/images/default-avatar.jpg">
+
+                    <div class="celeb-name">
+                        <h4>
+                            <a href="/celebrities/{{_id}}">
+                                {{name}} </a>
+                        </h4>
+
+                        <div class="btn-celeb">
+
+                            <form action="/celebrities/{{_id}}/edit" method="get">
+                                <button type="submit" title="Edit">
+                                    <i class="far fa-edit"></i>
+                                </button>
+                            </form>
+
+                            <form action="/celebrities/{{_id}}/delete" method="post" onsubmit="return confirm('Are you sure?!');">
+                                <button type="submit" class="btn-delete" title="Delete">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+<h2>Edit Celebrity</h2>
+
+    <ul>
+        {{#with celeb}}
+
+        <li>{{name}}</li>
+        <li>{{occupation}}</li>
+        <li>{{catchPhrase}}</li>
+
+        {{/with}}
+    </ul>
+
+    {{#with celeb}}
+
+    <form action="/celebrities/{{_id}}/edit" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="{{name}}">
+
+        <label for="occupation">Occupation</label>
+        <input type="text" name="occupation" value="{{occupation}}">
+
+        <label for="catchPhrase">Catch Phrase</label>
+        <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+
+        <button type="submit">Edit Celebrity</button>
+    </form>
+
+    {{/with}}
+</div>

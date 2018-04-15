@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <h2>Edit Movie</h2>
+    <ul>
+        {{#with movie}}
+
+        <li>{{title}}</li>
+        <li>{{genre}}</li>
+        <li>{{plot}}</li>
+
+        {{/with}}
+    </ul>
+
+    {{#with movie}}
+
+    <form action="/movies/{{_id}}/edit" method="POST">
+        <label for="title">Name</label>
+        <input type="text" name="title" value="{{title}}">
+
+        <label for="genre">Occupation</label>
+        <input type="text" name="genre" value="{{genre}}">
+
+        <label for="plot">Catch Phrase</label>
+        <input type="text" name="plot" value="{{plot}}">
+
+        <button type="submit">Edit Movie</button>
+    </form>
+
+    {{/with}}
+</div>
