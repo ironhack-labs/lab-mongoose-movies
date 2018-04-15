@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  &:hover{
+    color:blueviolet;
+  }
+}
+ul{
+  padding: 0;
+}
+button{
+  background-color: firebrick;
+  &:hover{
+    background-color: red;
+  }
+}
+.start-celmov{
+  text-align: end;
+  a{
+    color:blue;
+    &:hover{
+      color:aqua;
+    }
+  }
+}
+.container-index{
+  background-image: url(https://10images.cgames.de/images/gamestar/226/pepe-frog_6026299.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    h1{
+      margin: 0;
+    }
+    .start{
+      text-align: start;
+      margin-left: 10px;
+      a{
+        color:white;
+      }
+      a:hover{
+        color:red;
+      }
+    }
+    .end{
+      text-align: start;
+      margin-left: 10px;
+      a{
+        color:white;
+      }
+      a:hover{
+        color:brown;
+      }
+    }
+    
+}
+.edit{
+  background-color:green;
+  &:hover{
+    background-color: greenyellow;
+  }
+}

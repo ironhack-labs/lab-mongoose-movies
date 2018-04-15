@@ -1,0 +1,17 @@
+<ul>
+    {{#each movie}}
+    <li>
+        <h2 href="/movie/{{this._id}}"> {{this.title}}</h2>
+        <a href="/movie/{{this._id}}"> GO</a>
+        <a href="movie/{{this._id}}/edit">Edit</a>
+        <form action="/movie/{{this._id}}/delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+    {{/each}}
+</ul>
+<a href="/movie/new">New</a>
+<div class="start-celmov">
+
+<a href="/">Volver</a>
+</div>
