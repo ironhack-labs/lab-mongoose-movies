@@ -57,4 +57,5 @@ const celebritiesRouter = require('./routes/celebrities');
 app.use('/celebrities', celebritiesRouter);
 
 
+
 module.exports = app;
