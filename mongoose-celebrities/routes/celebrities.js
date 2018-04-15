@@ -42,18 +42,14 @@ router.get("/:id/edit", (req, res) => {
   });
 });
 
-router.post("/:id", (req, res) => {
+router.post("/detail/:id", (req, res) => {
   const {name, occupation, catchPhrase} = req.body;
   const updates = { name, occupation, catchPhrase };
   Celebrity.findByIdAndUpdate(req.params.id, updates)
-  .then(celebrity => 
-    {cosole.log("Modificado correctamente");
-   res.render("celebrities/show", { celebrity });
+  .then(celebrity => {
+    res.redirect("/celebrities");
   });
 });
-
-
-
 
 //-----------CELEBRITY DELETE ----------------
 
