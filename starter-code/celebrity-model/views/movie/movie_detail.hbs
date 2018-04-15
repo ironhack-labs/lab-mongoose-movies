@@ -1,0 +1,33 @@
+<div class="container">
+    {{#with movie}}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title">
+                    <h2>{{title}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row near">
+            <div class="col-sm-12">
+                <div class="oblique">
+                    <h3>Genre: {{genre}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row near">
+            <div class="col-sm-12">
+                <div class="plot">
+                    <p><span>Plot:</span></p>
+                    <p class="pplot">{{plot}}</p>
+                </div>
+            </div>
+        </div>
+    {{/with}}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="lonely button">
+                <a href="/movie">Go back to My Movies</a>
+            </div>
+        </div>
+    </div>
+</div>

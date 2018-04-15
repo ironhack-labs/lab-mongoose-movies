@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="title">
+        <h2>Edit {{celebrity.name}}</h2>
+      </div>
+    </div>
+  </div>
+  <form action="/celebrity/{{celebrity._id}}/edit" method="post">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{celebrity.name}}">
+      </div>
+      <div class="col-sm-6">
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" name="occupation" value="{{celebrity.occupation}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <label for="catchPhrase">Catch Phrase:</label>
+        <input type="text" id="catchPhrase" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="large button">
+          <button type="submit">Edit</button>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="large button">
+          <a href="/celebrity">Go back to My Characters</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
