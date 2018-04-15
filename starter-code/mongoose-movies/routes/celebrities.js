@@ -28,6 +28,10 @@ router.post("/:id/delete", (req, res, next) => {
     .then( () => {
       res.redirect("/celebrities");
     })
+    .catch( err => {
+      next();
+      return err;
+    })
 });
 
 // GET edit
@@ -35,7 +39,11 @@ router.get("/:id/edit", (req, res, next) => {
   Celebrity.findById( req.params.id )
     .then( (celebrity) => {
       res.render("celebrities/edit", {celebrity});
-    });
+    })
+    .catch( err => {
+      next();
+      return err;
+    })
 });
 
 // POST edit
@@ -45,7 +53,11 @@ router.post("/:id", (req, res, next) => {
   Celebrity.findByIdAndUpdate(req.params.id, updates)
     .then( () => {
       res.redirect("/celebrities");
-    });
+    })
+    .catch( err => {
+      next();
+      return err;
+    })
 });
 
 // GET detail
@@ -53,6 +65,10 @@ router.get("/:id", (req, res, next) => {
   Celebrity.findById( req.params.id)
     .then( celebrity => {
       res.render("celebrities/show", {celebrity} );
+    })
+    .catch( err => {
+      next();
+      return err;
     })
 });
 
@@ -62,7 +78,9 @@ router.get('/', (req, res, next) => {
     .then( celebrities => {
       res.render("celebrities/index", {celebrities});
     })
-    .catch( error => {
+    .catch( err => {
+      next();
+      return err;
     })
 });
 
