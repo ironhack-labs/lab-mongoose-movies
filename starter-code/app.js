@@ -9,6 +9,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const dbURL = process.env.DBURL;
 
 mongoose.Promise = Promise;
 mongoose
@@ -49,12 +50,10 @@ hbs.registerPartials(__dirname + '/views/partials');
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
 const index = require('./routes/index');
 app.use('/', index);
 
-const celebritiesRouter = require('./routes/movies');
+const celebritiesRouter = require('./routes/celebrities');
 app.use('/celebrities', celebritiesRouter);
 
 
