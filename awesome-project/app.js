@@ -53,6 +53,7 @@ app.locals.title = 'CELEBRITIES';
 
 const index = require('./routes/index');
 app.use('/', index);
+
 const celebritiesRouter = require('./routes/celebrities');
 app.use('/celebrities', celebritiesRouter);
 

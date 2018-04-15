@@ -1,8 +1,12 @@
 <h2>Celebrity Details</h2>
-{{#with juan}}
+{{#with celebrity}}
     <h3>{{name}}</h3>
     <p>{{occupation}}</p>
     <p>{{catchPhrase}}</p>
-    <a href="/celebrities/{{id}}"></a>
+    <a href="/celebrities/{{id}}/edit"></a>
 
 {{/with}}
+
+<p><a href="/celebrities">Go back to list</a></p>
+
+<p><a href="/">Go to home</a></p>
