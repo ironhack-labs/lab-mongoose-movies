@@ -1,0 +1,10 @@
+<h2>Celebrity Details</h2>
+{{#with celebrity_detail}}
+<h4>{{name}}</h4>
+  <ul>
+    <li>{{occupation}}</li>
+    <li>{{catchPhrase}}</li>
+  </ul>
+{{/with}}
+<a class="btn btn-info" href="/celebrities/{{celebrity_detail._id}}/edit">Edit</a>
+<a class="btn btn-default" href="/celebrities/index">Back</a>

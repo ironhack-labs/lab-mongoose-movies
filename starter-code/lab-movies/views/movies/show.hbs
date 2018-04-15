@@ -1,0 +1,10 @@
+<h2>Movie Details</h2>
+{{#with movie_detail}}
+<h4>{{title}}</h4>
+  <ul>
+    <li>{{genre}}</li>
+    <li>{{plot}}</li>
+  </ul>
+{{/with}}
+<a class="btn btn-info" href="/movies/{{movie_detail._id}}/edit">Edit</a>
+<a class="btn btn-default" href="/movies/index">Back</a>
