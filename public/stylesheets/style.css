@@ -1,0 +1,47 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  background-color: lightgoldenrodyellow;
+}
+
+a {
+  color: #00B7FF; }
+
+.celebBox {
+  background-color: lightgrey;
+  margin-bottom: 20px;
+  border-radius: 25px;
+}
+
+.main-list {
+  background-color: lightgoldenrodyellow;
+}
+
+.btn {
+  color: black;;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: lightgreen;
+  font-size: 20px;
+}
+.btn-delete {
+  background-color: rgb(184, 63, 63);
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+
+.center-text{
+  text-align: center;
+}
+
+input[type=text] {
+  display: block;
+  width: 400px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
