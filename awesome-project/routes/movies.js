@@ -22,36 +22,39 @@ router.post("/new", (req, res) => {
 
 /* CRUD -> Delete the movie in DB */
 router.get("/:id/delete", (req, res) => {
-  Movie.findByIdAndRemove(req.params.id).then(() => {
-    res.redirect("/movie");
-  })
-  .catch(error => {
-    res.render("error")
-  }); 
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/movie");
+    })
+    .catch(error => {
+      res.render("error");
+    });
 });
 
 /* CRUD -> Retrieve ALL */
 router.get("/", (req, res) => {
-    Movie.find().then(movies => {
-      console.log(movies)
+  Movie.find()
+    .then(movies => {
+      console.log(movies);
       res.render("movie_list", { movies });
     })
     .catch(error => {
-      console.log(error)
-    }) 
-  });
-
-  router.get("/:id", (req, res, next) => {
-    Movie.findById(req.params.id).then(movie => {
-      console.log(movie);
-        res.render("show_movie", { movie });
-      })
-      .catch(error => {
-        res.render("error")
-      })
+      console.log(error);
     });
+});
 
-    /* CRUD -> Udpate, show movie update form */
+router.get("/:id", (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then(movie => {
+      console.log(movie);
+      res.render("show_movie", { movie });
+    })
+    .catch(error => {
+      res.render("error");
+    });
+});
+
+/* CRUD -> Udpate, show movie update form */
 router.get("/:id/edit", (req, res) => {
   Movie.findById(req.params.id).then(movie => {
     res.render("movie_edit", { movie });
@@ -66,4 +69,4 @@ router.post("/:id/edit", (req, res) => {
     res.redirect("/movie");
   });
 });
-  module.exports = router;
+module.exports = router;

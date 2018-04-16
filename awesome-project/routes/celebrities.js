@@ -3,7 +3,6 @@ const router = express.Router();
 
 const Celebrity = require("../models/celebrity");
 
-
 /* CRUD -> Create show form */
 router.get("/new", (req, res) => {
   res.render("celebrity_new");
@@ -21,39 +20,38 @@ router.post("/new", (req, res) => {
   });
 });
 
-
-
-
-
 /* CRUD -> Retrieve ALL */
 router.get("/", (req, res) => {
-  Celebrity.find().then(celebrities => {
-    console.log(celebrities)
-    res.render("celebrity_list", { celebrities });
-  })
-  .catch(error => {
-    console.log(error)
-  }) 
+  Celebrity.find()
+    .then(celebrities => {
+      console.log(celebrities);
+      res.render("celebrity_list", { celebrities });
+    })
+    .catch(error => {
+      console.log(error);
+    });
 });
 
 router.get("/:id", (req, res, next) => {
-  Celebrity.findById(req.params.id).then(celebrity => {
-    console.log(celebrity);
+  Celebrity.findById(req.params.id)
+    .then(celebrity => {
+      console.log(celebrity);
       res.render("show", { celebrity });
     })
     .catch(error => {
-      res.render("error")
-    })
-  });
+      res.render("error");
+    });
+});
 
-  /* CRUD -> Delete the celebrity in DB */
+/* CRUD -> Delete the celebrity in DB */
 router.get("/:id/delete", (req, res) => {
-  Celebrity.findByIdAndRemove(req.params.id).then(() => {
-    res.redirect("/celebrity");
-  })
-  .catch(error => {
-    res.render("error")
-  }); 
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/celebrity");
+    })
+    .catch(error => {
+      res.render("error");
+    });
 });
 /* CRUD -> Udpate, show celebrity update form */
 router.get("/:id/edit", (req, res) => {
@@ -71,5 +69,4 @@ router.post("/:id/edit", (req, res) => {
   });
 });
 
-  
 module.exports = router;
