@@ -1,0 +1,21 @@
+<h2>Hall of Fame</h2>
+<div class="container">
+  <div class="row justify-content-between">
+    {{#each celebrities}}
+    <div class="col">
+      <p>{{name}}</p>
+      <p>{{occupation}}</p>
+      <p>{{catchPhrase}}</p>
+      <a href="/celebrities/{{id}}">Check this Star!</a>
+      <form action="/celebrities/{{id}}/delete" method="POST">
+        <input type="submit" value="Delete this Star">
+      </form>
+    </div>
+    {{/each}}
+  </div>
+  <div class="row justify-content-center">
+    <div class="col align-self-center">
+      <a href="/celebrities/new">Add a new Star</a>
+    </div>
+  </div>
+</div>

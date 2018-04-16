@@ -1,0 +1,21 @@
+<h2>Movies</h2>
+<div class="container">
+  <div class="row justify-content-between">
+    {{#each movies}}
+    <div class="col">
+      <p>{{title}}</p>
+      <p>{{genre}}</p>
+      <p>{{plot}}</p>
+      <a href="/movies/{{id}}">Check this Movie!</a>
+      <form action="/movies/{{id}}/delete" method="POST">
+        <input type="submit" value="Delete this Movie">
+      </form>
+    </div>
+    {{/each}}
+  </div>
+  <div class="row justify-content-center">
+    <div class="col align-self-center">
+      <a href="/movies/new">Add a new Movie</a>
+    </div>
+  </div>
+</div>
