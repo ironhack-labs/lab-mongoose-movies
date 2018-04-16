@@ -42,7 +42,7 @@ router.post("/newCelebrities", (req, res) => {
   const celebrity = new Celebrity({ name, occupation, catchPhrase });
   celebrity.save().then(book => {
     console.log(celebrity);
-    res.redirect("/newCelebrities");
+    res.redirect("/celebrities");
   });
 });
 
@@ -50,7 +50,7 @@ router.post("/newCelebrities", (req, res) => {
 router.post("/celebrity/:id/delete", (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
     .then(() => {
-      res.redirect("showCelebrities");
+      res.redirect("/celebrities");
     })
     .catch(err => {
       console.log(error);
