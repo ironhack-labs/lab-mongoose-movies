@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -38,5 +39,11 @@ form {
 
 .addNew {
   padding: 15px 50px; }
+
+.quote:after {
+  content: "\”"; }
+
+.quote:before {
+  content: "\„"; }
 
 /*# sourceMappingURL=style.css.map */

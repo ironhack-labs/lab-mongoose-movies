@@ -12,14 +12,10 @@ router.get("/", (req, res, next) => {
 
 //  Routing to the individual celebrity
 router.get("/:id", (req, res, next) => {
-  Celebrity.findById(req.params.id)
-    .then(celebrity => {
-      res.render("celebrities/show", { celebrity });
-    })
-    .catch(err => {
-      next();
-      return err;
-    });
+  Celebrity.findById(req.params.id, (err, celebrity) => {
+    if (err) return next(err);
+    res.render("celebrities/show", { celebrity });
+  });
 });
 
 //  Routing to the form page

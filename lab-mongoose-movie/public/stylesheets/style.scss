@@ -19,7 +19,7 @@ form {
             flex-grow: 1;
             list-style: none;
         }
-        :last-child{
+        :last-child {
             display: flex;
             flex-direction: column;
             align-self: flex-end;
@@ -27,20 +27,34 @@ form {
         }
     }
 }
-#celebList{
+
+#celebList {
     width: 30vw;
     list-style: none
 }
-.person{
-    display:flex;
+
+.person {
+    display: flex;
     justify-content: flex-end;
-    border-bottom:1px solid black;
+    border-bottom: 1px solid black;
     padding: 15px;
     li {
         flex: 1 0 auto;
     }
-    a{ margin-left: 10px}
+    a {
+        margin-left: 10px
+    }
 }
-.addNew{
+
+.addNew {
     padding: 15px 50px;
+}
+
+.quote {
+    &:after {
+        content: "\”";
+    }
+    &:before {
+        content: "\„";
+    }
 }
