@@ -1,0 +1,14 @@
+  <h1> Editing a movie</h1>
+
+  <form action="/movies/{{_id}}/edit" method="POST">
+
+    <input id="movie-title" type="text" name="title" value={{title}}>
+    <input id="movie-genre" type="text" name="genre" value={{genre}}>
+    <input id="movie-plot" type="text" name="plot" value={{plot}}>
+    
+
+    <input type="submit" value="UPDATE">
+    
+  </form>
+
+  <a href="/celebrities">Go to celebrity page</a>
