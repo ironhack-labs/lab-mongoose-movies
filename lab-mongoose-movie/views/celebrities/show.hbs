@@ -1,0 +1,8 @@
+<a href="/celebrities">Go back</a>
+<h1>Persona details</h1>
+<h2>Name:</h2> <p>{{celebrity.name}}</p>
+<h2>Occupation:</h2> <p>{{celebrity.occupation}}</p>
+<h2>Famous quotes:</h2> 
+  {{#each celebrity.catchPhrase}} 
+  <p>{{this}}</p>
+  {{/each}}

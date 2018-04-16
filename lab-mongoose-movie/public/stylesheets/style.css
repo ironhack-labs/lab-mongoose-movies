@@ -1,0 +1,42 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+form {
+  width: 350px; }
+  form ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; }
+    form ul li {
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+      list-style: none; }
+    form ul :last-child {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+      width: auto; }
+
+#celebList {
+  width: 30vw;
+  list-style: none; }
+
+.person {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid black;
+  padding: 15px; }
+  .person li {
+    flex: 1 0 auto; }
+  .person a {
+    margin-left: 10px; }
+
+.addNew {
+  padding: 15px 50px; }
+
+/*# sourceMappingURL=style.css.map */

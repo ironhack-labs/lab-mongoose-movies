@@ -1,8 +1,46 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+form {
+    width: 350px;
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        li {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+            list-style: none;
+        }
+        :last-child{
+            display: flex;
+            flex-direction: column;
+            align-self: flex-end;
+            width: auto;
+        }
+    }
+}
+#celebList{
+    width: 30vw;
+    list-style: none
+}
+.person{
+    display:flex;
+    justify-content: flex-end;
+    border-bottom:1px solid black;
+    padding: 15px;
+    li {
+        flex: 1 0 auto;
+    }
+    a{ margin-left: 10px}
+}
+.addNew{
+    padding: 15px 50px;
 }
