@@ -32,9 +32,7 @@ router.post("/", (req, res, next) => {
   //destructuring req.body into an object
   const catchPhrase = req.body.catchPhrase;
   const { name, occupation } = req.body;  
-  const celebrity = new Celebrity({ name, occupation });
-
-  celebrity.catchPhrase.push(catchPhrase)
+  const celebrity = new Celebrity({ name, occupation, catchPhrase });
   
   celebrity
     .save()
