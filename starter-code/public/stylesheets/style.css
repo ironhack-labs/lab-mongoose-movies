@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family:  "Lucida Grande", Helvetica, Arial, sans-serif; 
+  color: azure;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Tahoma, sans-serif
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+h1 {
+  font-size: 5rem;
+  font-weight: bold;
+ 
+}
+h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+hr {
+ margin: 0 3rem;
+}
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.main__container {
+  width: 100%;
+  height: 100vh;
+  background-color:#4ABDAC;
+  padding-top: 5rem;
+}
+.home__container {
+  max-width: 70%;
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+}
+.home__container a {
+  color: azure;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+ 
+}
+.button:hover {
+  box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.2);
+}
+.submit {
+  background-color: #FC4A1A;
+  appearance: none;
+}
+.submit:hover {
+  box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.2)
+}
+.home__button {
+  margin-top: 2rem;
+  max-width: 450px; 
+  height: 50px;
+  border-radius: 20px;
+  padding: 1rem;
+  background-color:#F7B733;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-weight: bold;
+}
+.home__button a {
+  font-size: 1rem;
+}
+.list__container { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+.list__container a {
+  color: azure;
+}
+.list__container ul {
+  width: 50%;
+  overflow: scroll;
+}
+.list__container li {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+  align-items: center;
+}
+.list__button {
+  margin-top: 1rem;
+  width: 130px;
+  height: 25px;
+  border-radius: 10px;
+  
+}
+.list__footer {
+  background-color: azure;
+  height: 5rem;
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  vertical-align: bottom;
+  border-top: 1px solid rgba(0,0,0,0.4)
+  /* position: absolute;
+  top: calc(100% - 5rem); */
+}
+.more__button:hover {
+  text-decoration: underline;
+  box-shadow: none;
+}
+.footer__button {
+  width: 180px;
+  height: 50px;
+  font-size: 1.2rem;
+}
+.back__button {
+  background-color: azure;
+  border: 1px solid #FC4A1A;
+  color: #FC4A1A;
+ 
+}
+.list__footer a:first-child {
+ color:#FC4A1A;
+}
+.create__button {
+  background-color:#F7B733;
+}
+.detail__container {
+  width: 80%;
+  margin: 0 auto;
+}
+.inner__detail {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+.inner__detail input {
+  margin-right: 2rem;
+}
+.detail__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  width:150px;
+  height: 30px;
+  margin-top: 5rem;
+  
+}
+.detail__button:hover {
+  box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.2);
+}
+.inner__form {
+  display: flex;
+  justify-content: space-around;
+}
+.inner__form button {
+  background-color: #F7B733;
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+.inner__form button:hover {
+  box-shadow: inset 0 0 5px 2px rgba(0,0,0,0.2);
+}
+/*# sourceMappingURL=style.css.map */

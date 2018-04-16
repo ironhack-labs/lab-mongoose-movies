@@ -1,0 +1,20 @@
+<div class="list__container">
+    <h2>My Celebrities List</h2>
+    <ul>
+        {{#each celebrities}}
+        <li>
+            <h3>{{this.name}}</h3>
+            <div class="more__button button list__button">
+                <a href="./celebrity/{{this._id}}">See more</a>
+            </div>
+            <form action="./celebrity/{{this._id}}/delete" method="post">
+                <button class="submit list__button" type="submit">Delete</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+    <div class="list__footer">
+        <a href="/"><div class="footer__button button back__button">Home</div></a>
+        <a href="../newCelebrities"><div class="footer__button button create__button"> Add a new one!!</div></a>
+    </div>
+</div>
