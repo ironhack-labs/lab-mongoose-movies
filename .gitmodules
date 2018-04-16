@@ -1,0 +1,3 @@
+[submodule "starter-code/starter-code/movies-library-project"]
+	path = starter-code/starter-code/movies-library-project
+	url = https://github.com/BrianNacho/lab-mongoose-movies.git
