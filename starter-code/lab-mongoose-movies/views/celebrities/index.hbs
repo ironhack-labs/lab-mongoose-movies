@@ -1,0 +1,14 @@
+<h2>Browse celebrities if you do</h2>
+
+<ul>
+    {{#each celebList}}
+    <li>{{this.name}}</li>
+    <a href="/celebrities/{{this._id}}">read more</a>
+    <a href="/celebrities/{{this._id}}/edit">Edit Celebrity</a>
+    <form action="/celebrities/{{this._id}}/delete" method="POST">
+        <button>Delete this celebrity</button>
+    </form>
+    {{/each}}
+</ul>
+
+<a href="/celebrities/new">Not what you're looking for? Add your favorite celebrity</a>
