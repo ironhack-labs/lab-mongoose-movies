@@ -1,0 +1,17 @@
+<div class="container2">
+<h2> Edit a Movies </h2>
+
+<form action="/movie-new/{{movieId}}" method="POST">
+  <input type='text' name='name'  value='{{movie.name}}' placeholder="Name ..."/>
+  <br />
+  <input type='text' name='genre' value='{{movie.genre}}'  placeholder="genre ..."/>
+   <br />
+  <input type='text' name='plot' value='{{movie.plot}}' placeholder="plot ..."/>
+  <br />
+ 
+<button> Edit the Movie</button>
+
+</form>
+
+<a href="/celebrities">Go back to my Movies</a>
+</div>
