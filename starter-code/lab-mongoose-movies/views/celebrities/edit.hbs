@@ -1,0 +1,11 @@
+<h2>Add a new celebrity</h2>
+<a href="/celebrities">Back to all celebrities</a>
+<form action="/celebrities/{{celebId}}" method="POST">
+  <input type="text" name="name" value={{celeb.name}} placeholder="Name..." style="margin:10px">
+  <br>
+  <input type="text" name="occupation" value={{celeb.occupation}} placeholder="Occupation..." style="margin:10px">
+  <br>
+  <input type="text" name="catchPhrase" value={{celeb.catchPhrase}} placeholder="Catch phrase..." style="margin:10px">
+  <br>  
+  <button style="margin:10px"> Update celebrity</button>
+</form>
