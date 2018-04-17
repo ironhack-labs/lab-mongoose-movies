@@ -1,0 +1,13 @@
+<h2>Movie</h2>
+<a href="/movies">Back to all movies</a>
+{{#each movie}}
+  <p>{{this.title}}</p>  
+  <p>{{this.genre}}</p> 
+  <p>{{this.plot}}</p>  
+{{/each}}
+  <span><form action="/movies/{{movie._id}}/edit" method="GET"  style="margin-top:20px">
+                <button>Edit</button>
+  </form> </span>
+  <form action="/movies/{{movie._id}}/delete" method="POST"  style="margin-top:20px">
+                <button>Delete</button>
+            </form>  
