@@ -1,0 +1,24 @@
+<div class="container2">
+<h1> All your Favorite Celebrities :</h1>
+<ul>
+  <button > <a href="/celebrities/new"> Create a celeb </a> </button>
+   <br/>
+{{#each celebrityList}}
+<li> {{this.name}} </li>
+
+<a href="/celebrities/{{this._id}}"> See more info</a>  <br/>
+<button >
+<a href="/celebrities/{{this._id}}/edit"> Update</a> </button>
+<button >
+<a href="/celebrities/{{this._id}}/delete"> Delete</a> </button>
+
+
+{{!-- <p>{{this.occupation}} </p>
+{{this.catchPhrase}} --}}
+
+{{/each}}
+</ul>
+
+ <a href="/">Go back to my Home-Page</a>
+
+</div>
