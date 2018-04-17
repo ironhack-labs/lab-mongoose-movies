@@ -1,0 +1,12 @@
+<h2>Edit a Celebrity</h2>
+
+<!--Step 4 of CREATE form (browser sends request)-->
+<form action="/process-edit/{{celebrityId}}" method="POST">
+  <input type="text" name="title" value="{{celebrity.name}}" placeholder="Name... ">
+  <br>
+  <input type="text " name="description" value="{{celebrity.occupation}}" placeholder="Occupation... ">
+  <br>
+  <input type="text " name="author" value="{{celebrity.catchPhrase}}" placeholder="Catch Phrase... ">
+  <br>
+  <button>Edit This Celebrity</button>
+</form>
