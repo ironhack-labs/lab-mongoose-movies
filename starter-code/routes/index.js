@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require("../models/celebrity-model");
+const Movie = require("../models/movies-model");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -81,4 +82,81 @@ router.post('/edit-process/celebrity/:celebId', (req, res, next)=>{
   })
 });
  
+/*************************MOVIES************************/
+router.get('/movies', (req, res, next)=>{
+  Movie.find()
+  .then((movieList)=>{
+      res.locals.theirList = movieList;
+      res.render('movies/all-movies');
+    // res.send(movieList);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
+
+router.get('/movie/:movieId', (req, res, next)=>{
+  Movie.findById(req.params.movieId)
+  .then((movieDetails)=>{
+    res.locals.oneMovie = movieDetails;
+    res.render("movies/one-movie");
+  })
+  .catch((err)=>{
+    next(err)
+  })
+});
+
+router.get('/add-new', (req, res, next)=>{
+  res.render('movies/new-movie');
+});
+
+router.post('/post-new-movie',(req, res, next)=>{
+ const { title, genre, plot } = req.body;
+ Movie.create({title, genre, plot})
+ .then(()=>{
+   res.redirect('movies');
+ })
+ .catch((err)=>{
+   res.render('movies/new-movie');
+ });
+});
+
+router.get('/edit/movie/:movieId', (req, res, next)=>{
+ Movie.findById(req.params.movieId)
+ .then((editMovie)=>{
+   res.locals.movieId = req.params.movieId;
+   res.locals.oneMovie = editMovie;
+   res.render('movies/edit-movie');
+ })
+ .catch((err)=>{
+   next(err);
+ }) 
+});
+
+
+router.post('/edit-process/movie/:movieId', (req, res, next)=>{
+  const { title, genre, plot } = req.body;
+  Movie.findByIdAndUpdate(
+    req.params.movieId,
+    { title, genre, plot},
+    {runValidators: true}
+  )
+  .then(()=>{
+    res.redirect(`/movie/${req.params.movieId}`);
+  })
+  .catch(()=>{
+    res.render('movies/edit-movie');
+  })
+});
+
+router.get('/delete/movie/:movieId', (req, res, next)=>{
+  Movie.findByIdAndRemove(req.params.movieId)
+  .then(()=>{
+    res.redirect("/movies");
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
+
 module.exports = router;

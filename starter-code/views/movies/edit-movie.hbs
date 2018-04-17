@@ -1,0 +1,8 @@
+<h1>Edit the movie</h1>
+
+<form method="POST" action="/edit-process/movie/{{oneMovie._id}}">
+    <input type="text" value="{{oneMovie.title}}" name="title" placeholder="Title of the movie">
+    <input type="text" value="{{oneMovie.genre}}" name="genre" placeholder="Genre">
+    <input type="text" value="{{oneMovie.plot}}" name="plot" placeholder="Plot">
+    <button>Submit</button>
+</form>
