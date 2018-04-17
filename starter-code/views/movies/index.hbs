@@ -1,0 +1,16 @@
+<h1>Index Movies</h1>
+<ul>
+  {{#each movies}}
+  <p>{{this.title}}</p>
+  <a href="/movies/{{this._id}}">View more</a>
+  <form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
+  <form action="/movies/{{_id}}/edit" method="get">
+    <button type="submit">Edit</button>
+  </form>
+  {{/each}}
+  <div>
+    <a href="/movies/new">Add a new Movie</a>
+  </div>
+</ul>
