@@ -1,0 +1,16 @@
+<h2>Add a book</h2>
+
+
+<form action=`/process-edit/{{bookId}}` method="POST">
+
+    <input type="text" name=`{{book.title}}` placeholder="title..." />
+    <br />
+    <input type="text" name=`{{book.author}}` placeholder="Author..." />
+    <br />
+    <input type="text" name=`{{book.description}}` placeholder="Description..." />
+    <br />
+    <input type="number" name=`{{book.rating}}` placeholder="Rating (1-10)" />
+    <br />
+
+    <button> Save This Book </button>
+</form>
