@@ -1,0 +1,26 @@
+{% extends '../layout.twig' %} 
+
+{% block body %}
+    <h2>View All Movies</h2>
+    {% for mv in movie %}
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            {{ mv.title }}
+            <span class="caret"></span>
+        </button>
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="/movies/{{ mv._id }}">View</a></li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <form action="/movies/{{ mv._id }}/delete" method="post">
+                    <button type="submit" class="btn-unstyled">Delete</button>
+                </form>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/movies/{{ mv._id }}/edit">Edit</a></li>
+            
+        </ul> 
+    </div>
+    {% endfor %} 
+{% endblock %}
