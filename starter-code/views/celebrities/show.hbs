@@ -1,0 +1,9 @@
+<h2>Celebrity details page</h2>
+
+<p><strong>Name:</strong> {{celebrities.name}}</p>
+<p><strong>Occupation:</strong> {{celebrities.occupation}}</p>
+<p><strong>Catch Phrase:</strong> {{celebrities.catchPhrase}}</p>
+
+<form action="/celebrities/{{celebrities._id}}/edit" method="get">
+      <button type="submit">Edit</button>
+</form> 
