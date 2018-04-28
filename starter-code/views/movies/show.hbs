@@ -1,0 +1,9 @@
+<h2>Movie details page</h2>
+
+<p><strong>Title:</strong> {{movies.title}}</p>
+<p><strong>Genre:</strong> {{movies.genre}}</p>
+<p><strong>Plot:</strong> {{movies.plot}}</p>
+
+<form action="/movies/{{movies._id}}/edit" method="get">
+      <button type="submit">Edit</button>
+</form> 
