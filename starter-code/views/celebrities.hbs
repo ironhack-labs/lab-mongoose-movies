@@ -1,0 +1,16 @@
+<h1>Celebrities</h1>
+{{!-- create a list with each element of the database --}}
+<ul>
+   {{!--  use "as" to avoid using this. --}}
+    {{#each celebrities as |celebrity|}}
+    <li>
+        {{!-- when I click the name, send me to the url celebrities/whichever this celebrity id is --}}
+        <a href="/celebrities/{{_id}}">{{name}}</a>
+    </li>
+      <form action="/{{_id}}/delete" method="POST">
+        <button type ="submit">Delete</button>
+      </form>  
+    {{/each}}
+</ul>
+
+<a href="/newCelebrity">Add a new celebrity</a>
