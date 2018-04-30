@@ -1,0 +1,15 @@
+<div>
+  <h1>Edit Movies</h1>  
+</div>
+  <div>
+    <form action="/movies/update/{{movies.id}}" method="POST">
+      <h4>Title</h4>
+        <input type="text" name="theTitle" placeholder="{{movies.title}}" value="{{movies.title}}">
+      <h4>Genre</h4>
+        <input type="text" name="theGenre" placeholder="{{movies.genre}}" value="{{movies.genre}}">
+      <h4>Plot</h4>
+        <input type="text" name="thePlot" placeholder="{{movies.plot}}" value="{{movies.plot}}">
+    
+      <input type="submit" value="Update">
+    </form>
+  </div> 
