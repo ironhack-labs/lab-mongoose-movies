@@ -1,0 +1,35 @@
+<h2> Edit {{celebrity.name}} </h2>
+
+<div class="row editForm">
+
+
+<form action="/celebrities/update/{{celebrity._id}}" method="post">
+
+  <div class="row nameRow">
+  <label>Name</label>
+  <input type="text" name="theEditedName" value="{{celebrity.name}}">
+  </div>
+
+  <div class="row occupationRow">
+  <label>Occupation</label>
+  <input type="text" name="theEditedOccupation" value="{{celebrity.occupation}}">
+  </div>
+
+  <div class="row phraseRow">
+  <label>Catch Phrase</label>
+  <input type="text" name="theEditedPhrase" value="{{celebrity.catchPhrase}}">
+  </div>
+
+  <div class="row submitButton">
+  <input type="submit" value="Save Changes">
+  </div>
+
+</form>
+
+<div class="backButton">
+  <form action="/celebrities">
+    <input type="submit" value="<   Return to full list" />
+  </form>
+</div>
+
+</div>

@@ -50,7 +50,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Mongoose Movies';
 
 
-// Routes
+// Routes middleware always needs to go at the bottom
 const index = require('./routes/index');
 app.use('/', index);
 
