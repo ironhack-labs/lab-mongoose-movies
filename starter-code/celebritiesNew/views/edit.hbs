@@ -1,0 +1,21 @@
+<h2>Editar perdedor</h2> 
+<form action="/{{_id}}/edit" method="POST">
+
+<p>
+    <label for="name">Edita el nombre del perderdor</label>
+    <input placeholder="{{name}}" type="text" name="name">
+</p>
+<p>
+    <label for="occupation">Edita la ocupación del perdedor</label>
+    <input placeholder="{{_id.occupation}}" type="text" name="occupation">
+</p>
+<p>
+    <label for="catchPhrase">¿que otra tonteria dice el perdedor?</label>
+    <input placeholder="{{_id.catchPhrase}}" type="text" name="catchPhrase">
+</p>
+<br> 
+<button type="submit" value="Editalo">Editar perdedor</button>
+</form>
+<a href="/celebrities/{{_id}}"><button>Regresar</button></a>
+
+
