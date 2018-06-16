@@ -1,46 +1,35 @@
-html > body{
-background: #000000;
-background: black url('http://www.bonsecoursarena.com/assets/img/MonsterJam_2016_1580x581-30c3713494.jpg') no-repeat fixed 50% 50%;
+html > body {
+  background: #000000;
+  background: black url("http://www.bonsecoursarena.com/assets/img/MonsterJam_2016_1580x581-30c3713494.jpg") no-repeat fixed 50% 50%; }
 
-}
-
-body{
+body {
   display: flex;
   align-items: center;
-  text-align: center;
-}
-
-
+  text-align: center; }
 
 div {
   text-shadow: 0 0 5px black;
   height: auto;
   font-family: 'Bangers', cursive;
   text-align: center;
-  color: #00ff00;
-}
+  color: #00ff00; }
 
-#start{
-  margin: 20% auto 20% auto;
-}
+#start {
+  margin: 20% auto 20% auto; }
 
-.card{
-margin: 10px 10px 10px 10px;
-}
+.card {
+  margin: 10px 10px 10px 10px; }
 
-.card-body{
-  background: #282828;
-}
+.card-body {
+  background: #282828; }
 
-.details{
+.details {
   margin-left: auto;
-  margin-right: auto;
-}
+  margin-right: auto; }
 
-ul > li{
+ul > li {
   list-style: none;
-  text-align: left;
-}
+  text-align: left; }
 
 .choose-btn {
   width: 200px;
@@ -60,8 +49,7 @@ ul > li{
   box-shadow: 4px 4px 7px #666666;
   color: #000000;
   padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .choose-btn:hover {
   background: #00FF33;
@@ -70,5 +58,6 @@ ul > li{
   background-image: -ms-linear-gradient(top, #00FF33, #00CC00);
   background-image: -o-linear-gradient(top, #00FF33, #00CC00);
   background-image: linear-gradient(to bottom, #00FF33, #00CC00);
-  text-decoration: none;
-}
+  text-decoration: none; }
+
+/*# sourceMappingURL=style.css.map */

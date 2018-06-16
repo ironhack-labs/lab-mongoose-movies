@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center row">
+<h2>DRIVERS</h2>
+
+<div class="cards-container d-flex flex-wrap justify-content-center align-content-center">
+  {{#each drivers}}
+      {{> driverCard this}}
+  {{/each}}
+</div>
+
+<div class="justify-content-between">
+ <p><a class="choose-btn btn-lg" href="/">Return</a></p>
+ <p><a class="choose-btn btn-lg" href="/drivers/add">Add a Driver</a></div>
+</div>
+
+</div>

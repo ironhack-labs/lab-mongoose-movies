@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center row">
+  <h1>TRUCKS</h1>
+
+<div class="cards-container d-flex flex-wrap justify-content-center align-content-center">
+  {{#each trucks}}
+      {{> truckCard this}}
+  {{/each}}
+</div>
+
+
+<div class="justify-content-between">
+<p><a class="choose-btn btn-lg" href="/">Return</a></p>
+<p><a class="choose-btn btn-lg" href="/trucks/add">Add a Truck</a></p></div>
+
+</div>
