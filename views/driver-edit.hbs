@@ -1,0 +1,34 @@
+<div class="card details" style="width: 20rem;">
+  <form action="/drivers/edit?driver_id={{driver._id}}" method="post">
+    <div>
+      <img class="card-img-top" src="{{driver.image}}" alt="Card image cap">
+      <div class="card-body">
+        <div>
+          <label for="">First Name:</label>
+          <input type="text" name="firstName" value="{{driver.firstName}}">
+        </div>
+        <div>
+          <label for="">Last Name:</label>
+          <input type="text" name="lastName" value="{{driver.lastName}}">
+        </div>
+        <div>
+          <label for="">Birthday:</label>
+          <input type="date" name="birthday" value="{{driver.birthday}}">
+        </div>
+        <div>
+          <label for="">Driver of:</label>
+          <select name="_truck">
+          </select>
+          <input type="text" name="_truck" value="{{driver._truck.name}}">
+        </div>
+        <div>
+          <label for="image">Image</label>
+          <input id="image" type="text" name="image" value="{{driver.image}}">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-secondary btn-lg active edit-btn">EDIT</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

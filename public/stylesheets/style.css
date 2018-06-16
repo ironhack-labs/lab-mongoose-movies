@@ -1,0 +1,63 @@
+html > body {
+  background: #000000;
+  background: black url("http://www.bonsecoursarena.com/assets/img/MonsterJam_2016_1580x581-30c3713494.jpg") no-repeat fixed 50% 50%; }
+
+body {
+  display: flex;
+  align-items: center;
+  text-align: center; }
+
+div {
+  text-shadow: 0 0 5px black;
+  height: auto;
+  font-family: 'Bangers', cursive;
+  text-align: center;
+  color: #00ff00; }
+
+#start {
+  margin: 20% auto 20% auto; }
+
+.card {
+  margin: 10px 10px 10px 10px; }
+
+.card-body {
+  background: #282828; }
+
+.details {
+  margin-left: auto;
+  margin-right: auto; }
+
+ul > li {
+  list-style: none;
+  text-align: left; }
+
+.choose-btn {
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: #00ff00;
+  background-image: -webkit-linear-gradient(top, #00ff00, #518c17);
+  background-image: -moz-linear-gradient(top, #00ff00, #518c17);
+  background-image: -ms-linear-gradient(top, #00ff00, #518c17);
+  background-image: -o-linear-gradient(top, #00ff00, #518c17);
+  background-image: linear-gradient(to bottom, #00ff00, #518c17);
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  -webkit-box-shadow: 4px 4px 7px #666666;
+  -moz-box-shadow: 4px 4px 7px #666666;
+  box-shadow: 4px 4px 7px #666666;
+  color: #000000;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none; }
+
+.choose-btn:hover {
+  background: #00FF33;
+  background-image: -webkit-linear-gradient(top, #00FF33, #00CC00);
+  background-image: -moz-linear-gradient(top, #00FF33, #00CC00);
+  background-image: -ms-linear-gradient(top, #00FF33, #00CC00);
+  background-image: -o-linear-gradient(top, #00FF33, #00CC00);
+  background-image: linear-gradient(to bottom, #00FF33, #00CC00);
+  text-decoration: none; }
+
+/*# sourceMappingURL=style.css.map */

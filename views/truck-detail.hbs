@@ -1,0 +1,21 @@
+<!-- driver.hbs -->
+<div class="card details" style="width: 20rem;">
+    <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+    <div class="card-body">
+        <h3 class="card-title"><strong>{{this.name}}</strong></h3>
+        <div>
+        <p><strong>Driver:</strong> 
+        <ul>
+            {{#each this.driver}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul></p>
+        <p><strong>Year:</strong> {{this.year}}</p>
+        <p><strong>Body:</strong> {{this.body}}</p>
+        <p><strong>Engine:</strong> {{this.engine}}</p>
+        <p><strong>Transmission:</strong> {{this.transmission}}</p>
+        </div>
+        <p><a href="/trucks/edit?truck_id={{this._id}}" class="btn btn-secondary btn-lg active edit-btn">Edit this TRUCK</a></p>
+        <p><a href="/trucks" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back to the TRUCKS!</a></p>
+    </div>
+</div>

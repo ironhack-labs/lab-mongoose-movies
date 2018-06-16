@@ -1,0 +1,37 @@
+<div class="card details" style="width: 20rem;">
+    <form action="/trucks/edit?truck_id={{truck._id}}" method="post">
+        <div>
+            <img class="card-img-top" src="{{truck.image}}" alt="Card image cap">
+            <div class="card-body">
+                <div>
+                    <label for="">Name:</label>
+                    <input type="text" name="name" value="{{truck.name}}">
+                </div>
+                <div>
+                    <label for="">Driver</label>
+                    <select name="driver"></select>
+                    <input type="text" name="driver" value="{{truck._driver}}">
+                </div>
+                <div>
+                    <label for="">Year:</label>
+                    <input type="number" name="year" value="{{truck.year}}">
+                </div>
+                <div>
+                    <label for="">Body:</label>
+                    <input type="string" name="body" value="{{truck.body}}">
+                </div>
+                <div>
+                    <label for="">Body:</label>
+                    <input type="string" name="transmission" value="{{truck.transmission}}">
+                </div>
+                <div>
+                    <label for="image">Image</label>
+                    <input id="image" type="text" name="image" value="{{truck.image}}">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-secondary btn-lg active edit-btn">EDIT</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

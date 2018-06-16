@@ -1,0 +1,17 @@
+<!-- driver.hbs -->
+<div class="card details" style="width: 20rem;">
+    <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title"><strong>{{this.firstName}} {{this.lastName}}</strong></h5>
+        <div>
+            <p><strong>Birthday:</strong> {{this.birthday}}</p>
+            <p><strong>Driver of:</strong> {{this.truck_id.name}}</p>
+        </div>
+        <p>
+            <a href="/drivers/edit?driver_id={{this._id}}" class="btn btn-secondary btn-lg active edit-btn">Edit this DRIVER</a>
+        </p>
+        <p>
+            <a href="/drivers" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Back to the DRIVERS!</a>
+        </p>
+    </div>
+</div>
