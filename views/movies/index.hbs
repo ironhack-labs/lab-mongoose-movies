@@ -1,0 +1,11 @@
+<h2>Watch a movie? This is the delicious selection of movies.</h2>
+
+<ul>
+  {{#each movies}}
+    <li>
+      <h3>
+        <a href="/movies/{{_id}}">{{title}}
+        </a>
+      </h3>
+  {{/each}}
+</ul>

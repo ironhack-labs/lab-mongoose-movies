@@ -31,7 +31,7 @@ let movies = [
   },
   { title: "Basti", genre: "Love Story", plot: "Young Basti tries to make his cats happy by building their home" },
   {
-    title: "Im Radkasten",
+    title: "Loving Parents",
     genre: "Comedy",
     plot: "This is the story about Otto and Olga, son and mother who try to catch their own tails"
   }
