@@ -57,6 +57,27 @@ router.get('/celebrities/:celebrityId/delete', (req, res, next) => {
     .catch( err => { throw err } );
 });
 
+// edit celebrity 
+router.get('/celebrities/:celebrityId/edit', (req, res, next) => {
+  Celebrity.findById( req.params.celebrityId )
+    .then( celebrity => {
+      console.log("Going to edit this: ", celebrity );
+      res.render( 'celebrity-edit', celebrity );
+    })
+    .catch( err => { throw err } );
+});
+
+// update celebrity
+router.post('/celebrities/:celebrityId/update', (req, res, next) => {
+  let { name, occupation, catchPhrase } = req.body;
+  Celebrity.findByIdAndUpdate( req.params.celebrityId, { name, occupation, catchPhrase } )
+    .then( celebrity => {
+      console.log("Going to edit this: ", celebrity );
+      res.redirect( `/celebrities/${celebrity._id}`);
+    })
+    .catch( err => { throw err } );
+});
+
 
 
 module.exports = router;
