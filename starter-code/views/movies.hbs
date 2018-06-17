@@ -1,0 +1,7 @@
+<h1>Celebrities page</h1>
+<ul>
+  {{#each movies}}
+    <li><a href="/movies/{{this._id}}"> {{this.title}} </a> ({{this.genre}})</li>
+  {{/each}}
+</ul>
+
