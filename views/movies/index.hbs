@@ -7,5 +7,11 @@
         <a href="/movies/{{_id}}">{{title}}
         </a>
       </h3>
+      <form action="/movies/{{_id}}/delete" method="get">
+        <button type="submit">delete</button>
+      </form>
+      <form action="/movies/{{_id}}/edit" method="get">
+        <button type="submit">edit</button>
+      </form>
   {{/each}}
 </ul>
