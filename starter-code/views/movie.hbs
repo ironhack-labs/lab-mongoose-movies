@@ -3,6 +3,15 @@
   <li><strong>Title:</strong> {{title}}</li>
   <li><strong>Genre:</strong> {{genre}}</li>
   <li><strong>Plot:</strong> {{plot}}</li>
+  <li><strong>Stars:</strong>
+    {{#if _stars}}
+      {{#each _stars }}
+        {{this}} |
+      {{/each}}
+    {{else}}
+      No stars in this movie
+    {{/if }}
+  </li>
 </ul>
 
 <a class="btn btn-primary" href="/movies/{{id}}/edit">Edit this movie</a>

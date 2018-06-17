@@ -96,6 +96,7 @@ router.get('/movies', (req, res, next) => {
 router.get('/movies/:movieId', (req, res, next) => {
   let movieId = req.params.movieId;
   Movie.findById( movieId )
+    .populate('_stars')
     .then( movie => {
       console.log(movie);
       res.render( 'movie', movie );

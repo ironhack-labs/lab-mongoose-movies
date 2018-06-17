@@ -8,7 +8,7 @@ const movieSchema = new Schema(
     title: { type: String, required: true },
     genre: String,
     plot: String,
-    stars: [ {type: Schema.ObjectId, ref: 'Celebrity' } ]
+    _stars: [ {type: Schema.Types.ObjectId, ref: 'Celebrity' } ]
   }
 );
 
