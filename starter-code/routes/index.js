@@ -34,7 +34,7 @@ router.get('/celebrity-add', (req, res, next) => {
   res.render( 'celebrity-add' );
 });
 
-// Get data from /celebrity/add
+// create new celebrity
 router.post('/celebrity-add', (req, res, next) => {
   let { name, occupation, catchPhrase } = req.body;
   Celebrity.create({ name, occupation, catchPhrase }, (err, celebrity) => {
@@ -44,8 +44,17 @@ router.post('/celebrity-add', (req, res, next) => {
       console.log('The new celebrity has been saved and he/she is: ', celebrity);
       res.redirect('/celebrities');
     } 
-  })
-  
+  })  
+});
+
+// create new celebrity
+router.get('/celebrities/:celebrityId/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove( req.params.celebrityId )
+    .then( () => {
+      console.log("Celebrity deleted!!!");
+      res.redirect('/celebrities');
+    })
+    .catch( err => { throw err } );
 });
 
 
