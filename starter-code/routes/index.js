@@ -131,6 +131,27 @@ router.get('/movies/:movieId/delete', (req, res, next) => {
     .catch( err => { throw err } );
 });
 
+// edit movie 
+router.get('/movies/:movieId/edit', (req, res, next) => {
+  Movie.findById( req.params.movieId )
+    .then( movie => {
+      console.log("Going to edit this: ", movie );
+      res.render( 'movie-edit', movie );
+    })
+    .catch( err => { throw err } );
+});
+
+// update movie
+router.post('/movies/:movieId/update', (req, res, next) => {
+  let { title, genre, plot } = req.body;
+  Movie.findByIdAndUpdate( req.params.movieId, { title, genre, plot } )
+    .then( movie => {
+      console.log("Going to update this: ", movie );
+      res.redirect( `/movies/${movie._id}`);
+    })
+    .catch( err => { throw err } );
+});
+
 
 
 module.exports = router;
