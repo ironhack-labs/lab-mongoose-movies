@@ -92,4 +92,33 @@ router.get('/movies', (req, res, next) => {
     .catch( err => { throw err } );
 });
 
+// Get /movies/:id
+router.get('/movies/:movieId', (req, res, next) => {
+  let movieId = req.params.movieId;
+  Movie.findById( movieId )
+    .then( movie => {
+      console.log(movie);
+      res.render( 'movie', movie );
+    })
+    .catch( err => { throw err } );
+});
+
+// Get /movie-add
+router.get('/movie-add', (req, res, next) => {
+  res.render( 'movie-add' );
+});
+
+// create new movie
+router.post('/movie-add', (req, res, next) => {
+  let { title, genre, plot } = req.body;
+  Movie.create({ title, genre, plot }, (err, movie) => {
+    if (err) {
+      console.log('An error happened:', err);
+    } else {
+      console.log('The new movie has been saved and it is: ', movie);
+      res.redirect('/movies');
+    } 
+  })  
+});
+
 module.exports = router;
