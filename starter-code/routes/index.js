@@ -49,7 +49,7 @@ router.post('/celebrity-add', (req, res, next) => {
   })  
 });
 
-// create new celebrity
+// delete celebrity
 router.get('/celebrities/:celebrityId/delete', (req, res, next) => {
   Celebrity.findByIdAndRemove( req.params.celebrityId )
     .then( () => {
@@ -120,5 +120,17 @@ router.post('/movie-add', (req, res, next) => {
     } 
   })  
 });
+
+// delete movie
+router.get('/movies/:movieId/delete', (req, res, next) => {
+  Movie.findByIdAndRemove( req.params.movieId )
+    .then( () => {
+      console.log("Movie deleted!!!");
+      res.redirect('/movies');
+    })
+    .catch( err => { throw err } );
+});
+
+
 
 module.exports = router;
