@@ -106,13 +106,17 @@ router.get('/movies/:movieId', (req, res, next) => {
 
 // Get /movie-add
 router.get('/movie-add', (req, res, next) => {
-  res.render( 'movie-add' );
+  Celebrity.find( { occupation: { $in: ['actor', 'actress'] } } )
+    .then( players => {
+      res.render( 'movie-add', { players: players } );
+    })
+    .catch( err => { throw err } );
 });
 
 // create new movie
 router.post('/movie-add', (req, res, next) => {
-  let { title, genre, plot } = req.body;
-  Movie.create({ title, genre, plot }, (err, movie) => {
+  let { title, genre, plot, _stars } = req.body;
+  Movie.create({ title, genre, plot, _stars }, (err, movie) => {
     if (err) {
       console.log('An error happened:', err);
     } else {
@@ -134,18 +138,29 @@ router.get('/movies/:movieId/delete', (req, res, next) => {
 
 // edit movie 
 router.get('/movies/:movieId/edit', (req, res, next) => {
-  Movie.findById( req.params.movieId )
-    .then( movie => {
-      console.log("Going to edit this: ", movie );
-      res.render( 'movie-edit', movie );
-    })
-    .catch( err => { throw err } );
+  let { movieId } = req.params
+  Celebrity.find( { occupation: { $in: ['actor', 'actress'] } } )
+    .lean()
+    .then(players => {
+    Movie.findById( movieId )
+      .then( movie => {
+        // check if actor or actress is already in the list
+        // of this movie stars and pass to the view the checked list
+        const checkedPlayers = players.map( player => {
+          player.checked = movie._stars.map(star => star.toString()).includes( player._id.toString() );
+          return player;
+        } );
+        console.log("CHECKED PLAYERS: ", checkedPlayers );
+        res.render( 'movie-edit', { movie, players: checkedPlayers } );
+      })
+  })
+  .catch( err => { throw err } );
 });
 
 // update movie
 router.post('/movies/:movieId/update', (req, res, next) => {
-  let { title, genre, plot } = req.body;
-  Movie.findByIdAndUpdate( req.params.movieId, { title, genre, plot } )
+  let { title, genre, plot, _stars } = req.body;
+  Movie.findByIdAndUpdate( req.params.movieId, { title, genre, plot, _stars } )
     .then( movie => {
       console.log("Going to update this: ", movie );
       res.redirect( `/movies/${movie._id}`);

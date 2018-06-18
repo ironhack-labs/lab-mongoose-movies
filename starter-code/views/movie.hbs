@@ -6,7 +6,7 @@
   <li><strong>Stars:</strong>
     {{#if _stars}}
       {{#each _stars }}
-        {{this}} |
+        <a href="/celebrities/{{this._id}}"> {{this.name}}</a>
       {{/each}}
     {{else}}
       No stars in this movie
