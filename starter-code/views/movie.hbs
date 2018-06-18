@@ -1,0 +1,18 @@
+<h1>Movie details:</h1>
+<ul>
+  <li><strong>Title:</strong> {{title}}</li>
+  <li><strong>Genre:</strong> {{genre}}</li>
+  <li><strong>Plot:</strong> {{plot}}</li>
+  <li><strong>Stars:</strong>
+    {{#if _stars}}
+      {{#each _stars }}
+        <a href="/celebrities/{{this._id}}"> {{this.name}}</a>
+      {{/each}}
+    {{else}}
+      No stars in this movie
+    {{/if }}
+  </li>
+</ul>
+
+<a class="btn btn-primary" href="/movies/{{id}}/edit">Edit this movie</a>
+<a class="btn btn-danger" href="/movies/{{id}}/delete">Delete this movie</a>
