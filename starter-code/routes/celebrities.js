@@ -51,6 +51,24 @@ router.post('/new', (req, res, next) => {
   });
 });
 
+// Deleting Celebrities
+router.post('/:id/delete', (req, res, next) => {
+  let celebrityId = req.params.id;
+  if (!/^[0-9a-fA-F]{24}$/.test(celebrityId)) { 
+    return res.status(404).render('not-found');
+  }
+  Celebrity.findByIdAndRemove({'_id': celebrityId})
+    .then(celebrity => {
+      // console.log(celebrity);
+      if (!celebrity) {
+          return res.status(404).render('not-found');
+      }
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      next(error);
+    });
+});
 
 
 
