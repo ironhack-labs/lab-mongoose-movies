@@ -1,0 +1,13 @@
+<h2>Add a Movie</h2>
+{{#if errorMessage}}
+    <p style="color:red;">{{errorMessage}}</p>
+{{/if}}
+<form method="POST" action="/movies">
+    <label>Title <br><input name="title" type="text"/></label><br><br>
+    <label>Genre <br><input name="genre" type="text"/></label><br><br>
+    <label>Plot <br><input name="plot" type="text"/></label><br><br>
+    <input type="submit" value="Add Movie"/>
+</form>
+
+<br><br>
+<a href="/movies">Back</a>

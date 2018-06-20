@@ -1,0 +1,14 @@
+<h2>Edit Celebrity</h2>
+{{#if errorMessage}}
+    <p style="color:red;">{{errorMessage}}</p>
+{{/if}}
+<form method="POST" action="/celebrities/{{celebrity.id}}">
+    <label>Name <br><input name="name" type="text" value="{{celebrity.name}}"/></label><br><br>
+    <label>Occupation <br><input name="occupation" type="text" value="{{celebrity.occupation}}"/></label><br><br>
+    <label>Catch Phrase <br><input name="catchPhrase" type="text" value="{{celebrity.catchPhrase}}"/></label><br><br>
+    <input type="submit" value="Update Celebrity"/>
+</form>
+
+<br><br>
+<a href="/celebrities">Back</a>
+

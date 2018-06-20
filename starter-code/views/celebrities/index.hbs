@@ -1,0 +1,14 @@
+<h2>Celebrities</h2>
+
+{{#if celebrityDeleted}}
+    <p style="color:red;">{{celebrityDeleted.name}} was deleted.</p>
+{{/if}}
+
+<ul>
+{{#each celebrities}}
+    <li><a href="/celebrities/{{this.id}}">{{this.name}}</a></li><form method="GET" action="/celebrities/{{this.id}}/edit"><button>Edit</button></form><form method="POST" action="/celebrities/{{this.id}}/delete"><button>Delete</button></form>
+{{/each}}
+</ul>
+ 
+<br><br>
+<a href="/celebrities/new">Add Celebrity</a>
