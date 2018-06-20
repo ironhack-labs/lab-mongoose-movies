@@ -70,6 +70,29 @@ router.post('/:id/delete', (req, res, next) => {
     });
 });
 
+// Editing Celebrities
+router.get('/edit', (req, res, next) => {
+  Celebrity.findOne({_id: req.query.celebrity_id})
+  .then((celebrity) => {
+    res.render("celebrities/edit", {celebrity});
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+
+router.post('/edit', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  // let celebrityId = req.params.id;
+  Celebrity.update({_id: req.query.celebrity_id}, { $set: {name, occupation, catchPhrase }}, { new: true })
+  .then((celebrity) => {
+    res.redirect('/celebrities');
+  })
+  .catch(error => {
+    next(error);
+  });
+});
+
 
 
 module.exports = router;
