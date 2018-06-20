@@ -33,4 +33,25 @@ router.get('/celebrities/:id', (req, res, next) => {
     });
 });
 
+// Adding New Celebrities
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
+router.post('/new', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+  newCelebrity.save()
+  .then((celebrity) => {
+    // console.log(celebrity);
+    res.redirect('/celebrities');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+
+
+
+
 module.exports = router;
