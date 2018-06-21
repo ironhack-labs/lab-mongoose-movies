@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 });
 
 // The Celebrity Details Page
-router.get('/:id', (req, res, next) => {
+router.get('/celebrities/:id', (req, res, next) => {
   let celebrityId = req.params.id;
   if (!/^[0-9a-fA-F]{24}$/.test(celebrityId)) { 
     return res.status(404).render('not-found');
@@ -38,7 +38,7 @@ router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
 });
 
-router.post('/new', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
   newCelebrity.save()
@@ -81,9 +81,9 @@ router.get('/edit', (req, res, next) => {
   });
 });
 
-router.post('/edit', (req, res, next) => {
+router.post('/:id', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
-  Celebrity.update({_id: req.query.celebrity_id}, { $set: {name, occupation, catchPhrase }}, { new: true })
+  Celebrity.update({_id: req.query.celebrity_id}, { $set: { name, occupation, catchPhrase }}, { new: true })
   .then((celebrity) => {
     res.redirect('/celebrities');
   })
