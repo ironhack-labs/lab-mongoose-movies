@@ -14,25 +14,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// The Movie Details Page
-router.get('/movies/:id', (req, res, next) => {
-  let movieId = req.params.id;
-  if (!/^[0-9a-fA-F]{24}$/.test(movieId)) { 
-    return res.status(404).render('not-found');
-  }
-  Movie.findOne({'_id': movieId})
-    .then(movie => {
-      // console.log(movie);
-      if (!movie) {
-          return res.status(404).render('not-found');
-      }
-      res.render("movies/show", { movie });
-    })
-    .catch(error => {
-      next(error);
-    });
-});
-
 // Adding New Movies
 router.get("/new", (req, res, next) => {
   res.render("movies/new");
@@ -92,5 +73,23 @@ router.post('/:id', (req, res, next) => {
   });
 });
 
+// The Movie Details Page
+router.get('/:id', (req, res, next) => {
+  let movieId = req.params.id;
+  if (!/^[0-9a-fA-F]{24}$/.test(movieId)) { 
+    return res.status(404).render('not-found');
+  }
+  Movie.findOne({'_id': movieId})
+    .then(movie => {
+      // console.log(movie);
+      if (!movie) {
+          return res.status(404).render('not-found');
+      }
+      res.render("movies/show", { movie });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
 
 module.exports = router;

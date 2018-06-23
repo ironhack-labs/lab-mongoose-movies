@@ -14,25 +14,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// The Celebrity Details Page
-router.get('/celebrities/:id', (req, res, next) => {
-  let celebrityId = req.params.id;
-  if (!/^[0-9a-fA-F]{24}$/.test(celebrityId)) { 
-    return res.status(404).render('not-found');
-  }
-  Celebrity.findOne({'_id': celebrityId})
-    .then(celebrity => {
-      // console.log(celebrity);
-      if (!celebrity) {
-          return res.status(404).render('not-found');
-      }
-      res.render("celebrities/show", { celebrity });
-    })
-    .catch(error => {
-      next(error);
-    });
-});
-
 // Adding New Celebrities
 router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
@@ -92,6 +73,23 @@ router.post('/:id', (req, res, next) => {
   });
 });
 
-
+// The Celebrity Details Page
+router.get('/:id', (req, res, next) => {
+  let celebrityId = req.params.id;
+  if (!/^[0-9a-fA-F]{24}$/.test(celebrityId)) { 
+    return res.status(404).render('not-found');
+  }
+  Celebrity.findOne({'_id': celebrityId})
+    .then(celebrity => {
+      // console.log(celebrity);
+      if (!celebrity) {
+          return res.status(404).render('not-found');
+      }
+      res.render("celebrities/show", { celebrity });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
 
 module.exports = router;
