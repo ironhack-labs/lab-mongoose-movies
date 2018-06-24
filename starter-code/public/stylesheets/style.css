@@ -26,4 +26,11 @@ a {
   background-color: grey;
   border-radius: 6px; }
 
+.home-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }
+
 /*# sourceMappingURL=style.css.map */
