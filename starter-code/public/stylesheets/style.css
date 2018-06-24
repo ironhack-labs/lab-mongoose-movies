@@ -12,4 +12,18 @@ a {
   background-color: grey;
   border-radius: 6px; }
 
+.delete-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }
+
+.edit-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }
+
 /*# sourceMappingURL=style.css.map */
