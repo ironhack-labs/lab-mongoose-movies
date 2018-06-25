@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.add-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }
+
+.delete-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }
+
+.edit-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }
+
+.home-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }
+
+/*# sourceMappingURL=style.css.map */
