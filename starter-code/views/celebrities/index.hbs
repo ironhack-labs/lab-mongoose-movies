@@ -1,0 +1,15 @@
+<h1>Our celebrities</h1>
+<p>Welcome to {{title}}</p>
+
+
+<ul>
+    {{#each celebrities}}
+        <br />
+        <li style="color:green">{{this.name}}</li>
+        <a href="/celebrities/{{this._id}}">Click here to know more</a>
+        <a href="/celebrities/{{this._id}}/delete">Delete</a>
+        <br />
+    {{/each}}
+
+
+</ul>
