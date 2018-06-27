@@ -1,0 +1,21 @@
+<h2>Movies</h2>
+
+<ul>
+  {{#each movies}}
+    <li>
+      <h3>{{this.title}}</h3>
+      {{!-- <p><a href="/movies/{{this._id}}">Learn More</a></p>
+
+    <form method="POST" action="{{this._id}}/delete">
+      <button>DELETE ME</button>
+    </form> --}}
+    </li>
+
+    {{else}}
+    <li>
+      <h3>No movies yet :(</h3>
+    </li>
+  {{/each}}
+</ul>
+
+<h2><a href="/movies/new">Add other celebrities!</a></h2>

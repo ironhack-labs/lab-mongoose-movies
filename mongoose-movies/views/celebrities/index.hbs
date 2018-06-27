@@ -1,0 +1,21 @@
+<h2>Celebrities</h2>
+
+<ul>
+  {{#each celebsArray}}
+    <li>
+      <h3>{{this.name}}</h3>
+      <p><a href="/celebrities/{{this._id}}">Learn More</a></p>
+
+    <form method="POST" action="{{this._id}}/delete">
+      <button>DELETE ME</button>
+    </form>
+    </li>
+
+    {{else}}
+    <li>
+      <h3>No celebrities yet :(</h3>
+    </li>
+  {{/each}}
+</ul>
+
+<h2><a href="/celebrities/new">Add other celebrities!</a></h2>
