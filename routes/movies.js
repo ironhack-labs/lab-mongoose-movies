@@ -79,4 +79,15 @@ router.get("/:id/edit", (req, res, next) => {
     });
 });
 
+router.post("/:id", (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  Movie.update({ _id: req.params.id }, { $set: { title, genre, plot } })
+    .then(movies => {
+      res.redirect("/movies/");
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
 module.exports = router;

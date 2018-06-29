@@ -77,12 +77,13 @@ router.get("/:id/edit", (req, res, next) => {
     });
 });
 
-////////////PROBLEM///// EFFECTS THE ADD CELEBRITY POST
-//when active the add new celebrity replaces the 1st celebrity.
 router.post("/:id", (req, res, next) => {
   const { name, occupation, catchphrase } = req.body;
-  Celebrity.update({ name, occupation, catchphrase })
-    .then(celebrity => {
+  Celebrity.update(
+    { _id: req.params.id },
+    { $set: { name, occupation, catchphrase } }
+  )
+    .then(celebrities => {
       res.redirect("/celebrities/");
     })
     .catch(error => {
