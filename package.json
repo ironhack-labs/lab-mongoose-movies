@@ -1,0 +1,28 @@
+{
+  "name": "lab-mongoose-movies",
+  "version": "1.0.0",
+  "description": "![](https://i.imgur.com/1QgrNNw.png)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon -e hbs,js app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Georginapacey/lab-mongoose-movies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Georginapacey/lab-mongoose-movies/issues"
+  },
+  "homepage": "https://github.com/Georginapacey/lab-mongoose-movies#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "hbs": "^4.0.1",
+    "mongoose": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
