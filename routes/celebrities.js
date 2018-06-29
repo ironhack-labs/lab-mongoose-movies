@@ -16,7 +16,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-// CELEBRITY DETAIL PAGE
+// CELEBRITY DETAIL PAGE and UPDATE CELEBRITY (RECEIVED FROM EDIT POST)
 router.get("/:id", (req, res, next) => {
   let celebrityId = req.params.id;
   Celebrity.findOne({ _id: celebrityId })
@@ -48,7 +48,7 @@ router.post("/new", (req, res, next) => {
     });
 });
 
-//DELETE CELEBRITY
+//DELETE CELEBRITY - redirects to celebrities view
 router.post("/:id/delete", (req, res, next) => {
   let celebrityId = req.params.id;
   Celebrity.findByIdAndRemove({ _id: celebrityId })
@@ -60,6 +60,34 @@ router.post("/:id/delete", (req, res, next) => {
       next();
     })
     .next(res.redirect("/celebrities/"));
+});
+
+//EDIT CELEBRITY
+router.get("/:id/edit", (req, res, next) => {
+  let celebrityId = req.params.id;
+  Celebrity.findOne({ _id: celebrityId })
+    .then(celebrity => {
+      console.log(celebrity);
+
+      res.render("celebrities/edit", { celebrity });
+    })
+    .catch(error => {
+      console.log(error);
+      next();
+    });
+});
+
+////////////PROBLEM///// EFFECTS THE ADD CELEBRITY POST
+//when active the add new celebrity replaces the 1st celebrity.
+router.post("/:id", (req, res, next) => {
+  const { name, occupation, catchphrase } = req.body;
+  Celebrity.update({ name, occupation, catchphrase })
+    .then(celebrity => {
+      res.redirect("/celebrities/");
+    })
+    .catch(error => {
+      console.log(error);
+    });
 });
 
 module.exports = router;
