@@ -10,7 +10,7 @@ router.get('/',(req,res,next) =>{
   })
   .catch (error =>{
     console.log(error);
-  })
+  });
 });
 
 //route to display celebrity details
@@ -57,9 +57,9 @@ router.post('/:id/delete', (req, res, next) =>{
 });
 
 //route to edit celebrity
-router.get('/edit', (req, res, next) =>{
-  res.render("celebrities/edit")
-});
+// router.get('/edit', (req, res, next) =>{
+//   res.render("celebrities/edit")
+// });
 
 router.get('/:id/edit', (req, res, next) =>{
   let celId = req.param.id;

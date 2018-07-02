@@ -11,12 +11,11 @@ const path         = require('path');
 
 
 mongoose.Promise = Promise;
-mongoose
-  .connect('mongodb://localhost/mongoose-movies', {useMongoClient: true})
+mongoose.connect('mongodb://localhost/mongoose-movies', {useMongoClient: true})
   .then(() => {
-    console.log('Connected to Mongo!')
+    console.log('Connected to Mongo!');
   }).catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -56,6 +55,10 @@ app.use('/', index);
 
 const celebrities = require('./routes/celebrities');
 app.use('/celebrities', celebrities);
+
+const movies = require('./routes/movies');
+app.use('/movies', movies);
+
 
 
 
