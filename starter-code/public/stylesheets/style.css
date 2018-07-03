@@ -1,0 +1,122 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background:rgb(0,0,0);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.container{
+    width:50%;
+    margin:0 auto;
+    background:rgb(67, 238, 144);
+    padding:3em;
+}
+.data{
+    display:flex;
+    border-bottom:1px solid black;
+    padding:1em 0;
+}
+.data .celebName{
+    text-decoration:none;
+    color:rgb(0,0,0);
+    display:block;
+    flex-direction: row;
+    width:60%;
+    padding-top:0.9em;
+}
+.data form{
+    width:10%;
+    flex-direction: row; 
+    padding-top:0.5em;
+}
+.data .edit{
+    width:10%;
+    flex-direction: row;
+    padding:0.5em 0;
+    
+}
+.btn-edit{
+    font-size: 0.9em;
+    text-align: center;
+    background:rgb(0,0,0);
+    color:rgb(255,255,255);
+    padding: 0.45em 2em;
+    display: inline-block;
+    text-decoration: none;
+}
+.btn-edit:hover{
+    color:rgb(0,0,0);
+    background:rgb(255,255,255);
+}
+.data button {
+    padding: 0.5em 1.2em;
+    background: rgb(0,0,0);
+    color:rgb(255,255,255);
+    border:none;
+    cursor: pointer;
+}
+
+.newCeleb{
+    display:inline-block;
+    background:rgb(0,0,0);
+    color:rgb(255,255,255);
+    text-decoration:none;
+    padding: 1em
+}
+
+h2{
+    text-align: center;
+    font-size:3em;
+    font-weight: 900;
+
+}
+
+#create input{
+    display:block;
+    width:50%;
+    margin:1em auto;
+    padding:0em 0.5em;
+    height: 3em;
+
+}
+#create button{
+    width:10%;
+    margin:0 auto;
+    display:block;
+    padding: 0.5em 0;
+    border:none;
+    background:rgb(0,0,0);
+    color:rgb(255,255,255);
+    cursor:pointer;
+}
+
+#create button:hover,.btn-back:hover, .newCeleb:hover, .data button:hover{
+    color:rgb(0,0,0);
+    background:rgb(255,255,255);
+}
+.btn-back{
+    width:10%;
+    margin:0 auto;
+    display:block;
+    padding: 0.5em 0;
+    background:rgb(0,0,0);
+    color:rgb(255,255,255);
+    text-align:center;
+    text-decoration:none;
+    margin-top:0.3em;
+    font-size:0.9em;
+}
+
+.listName{
+    text-align:left;
+    margin-bottom:0.5em;
+}
+.list{
+    font-size:1.4em;
+    margin-bottom:0.5em;
+}
+.left{
+    margin: 0;
+}
