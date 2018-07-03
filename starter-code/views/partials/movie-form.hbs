@@ -1,0 +1,13 @@
+<form action="{{#if editing }}/movies/{{movie._id}}/edit{{else}}/movies/new{{/if}}" method="POST" id="create">
+    <label for="title">
+        <input type="text" name="title" placeholder="title" value="{{movie.title}}">
+    </label>
+    <label for="genre">
+        <input type="text" name="genre" placeholder="genre" value="{{movie.genre}}">
+    </label>
+    <label for="plot">
+        <input type="text" name="plot" placeholder="plot" value="{{movie.plot}}">
+    </label>
+    <button type="submit">{{#if editing }}Edit{{else}}Create{{/if}}</button>
+</form>
+<a href="/movies" class="btn-back">Back</a>

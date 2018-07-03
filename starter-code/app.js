@@ -8,7 +8,7 @@ require('./configs/db.config');
 require('./configs/hbs.config');
 
 const celebritiesRouter = require('./routes/celebrities.routes');
-
+const moviesRouter = require('./routes/movies.routes');
 const app = express();
 
 
@@ -27,8 +27,12 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use('/movies', moviesRouter);
 app.use('/celebrities', celebritiesRouter);
 
+app.use('/', (req, res, next) => {
+    res.render('menu')
+});
 
 
 app.listen(PORT,() => {
