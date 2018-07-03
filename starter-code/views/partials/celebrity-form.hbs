@@ -1,0 +1,13 @@
+<form action="{{#if editing }}/celebrities/{{celebrity._id}}/edit{{else}}/celebrities/new{{/if}}" method="POST" id="create">
+    <label for="name">
+        <input type="text" name="name" placeholder="Name" value="{{celebrity.name}}">
+    </label>
+    <label for="occupation">
+        <input type="text" name="occupation" placeholder="Occupation" value="{{celebrity.occupation}}">
+    </label>
+    <label for="catchPhrase">
+        <input type="text" name="catchPhrase" placeholder="Phrase" value="{{celebrity.catchPhrase}}">
+    </label>
+    <button type="submit">{{#if editing }}Edit{{else}}Create{{/if}}</button>
+</form>
+<a href="/celebrities" class="btn-back">Back</a>
