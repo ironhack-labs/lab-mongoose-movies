@@ -32,7 +32,6 @@ module.exports.new = (req, res, next) => {
 
 module.exports.newCeleb = (req, res, next) => {
     const celebrity = new Celebrity(req.body);
-    console.log(req.body.name);
     celebrity.save()
         .then(() => {
             res.redirect('/celebrities');
@@ -53,7 +52,6 @@ module.exports.delete = (req, res, next) =>{
 
 module.exports.edit = (req, res, next) =>{
     const id = req.params.id;
-    console.log('hola');
     Celebrity.findById(id)
         .then(celebrity => {
             res.render('celebrities/edit', {
@@ -65,7 +63,6 @@ module.exports.edit = (req, res, next) =>{
 
 module.exports.doEdit = (req, res, next) => {
     const id = req.params.id;
-    console.log('adios');
     Celebrity.findByIdAndUpdate(id, req.body)
         .then(() => {
             res.redirect('/celebrities');
