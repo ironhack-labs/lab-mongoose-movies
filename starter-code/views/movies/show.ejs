@@ -1,0 +1,11 @@
+<h2> Edit a Movie </h2>
+
+<ul>
+  <li> Title: <%= movie.title %></li>
+  <li> Genre: <%= movie.genre %></li>
+  <li> Year: <%= movie.year %></li>
+</ul>
+
+<button class="btn btn-warning btn-sm"> <a href="/movies/<%= movie._id %>/edit">Edit</a>
+<button class="btn btn-danger btn-sm"> <a href="/movies/<%= movie._id %>/delete">Delete</a>
+<button class="btn btn-primary btn-sm"> <a href="/movies">Back to list of celebrities</a>

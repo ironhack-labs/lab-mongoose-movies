@@ -1,0 +1,23 @@
+<h2> Your Favorite Movies Catalog </h2>
+
+<table class="table table-hover">
+  <tr>
+    <th> Title </th>
+    <th> Genre </th>
+    <th> Year </th>
+    <th> </th>
+    <th> </th>
+  </tr>
+  <% movies.forEach((movie) => { %>
+  <tr>
+    <td> <%= movie.title %> </td>
+    <td> <%= movie.genre %> </td>
+    <td> <%= movie.year %> </td>
+    <td> <button class="btn btn-primary btn-sm"> <a href="/movies/<%= movie._id %>">Show</a> </td>
+    <td> <button class="btn btn-warning btn-sm"> <a href="/movies/<%= movie._id %>/edit">Edit</a> </td>
+    <td> <button class="btn btn-danger btn-sm"> <a href="/movies/<%= movie._id %>/delete">Delete</a> </td>
+  </tr>
+  <% }) %>
+</table>
+<button class="btn btn-default"> <a href="/">Home</a> </button>
+<button class="btn btn-default"> <a href="movies/new"> Add New Movie </a></button>
