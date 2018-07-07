@@ -1,0 +1,12 @@
+<h2>Index for movies</h2>
+{{#each result}}
+    <div>
+        <h2>{{this.title}}</h2>
+        <a href="/movies/{{this._id}}">See Details</a>
+        <!--goes to the celebrity folder and inserts the ID-->
+        <form action="/movies/:id/delete">
+            <button type="submit">Delete</button>
+        </form>
+        <!--idk if the form is supposed to take up the entire div or just this button element-->
+    </div>
+{{/each}}
