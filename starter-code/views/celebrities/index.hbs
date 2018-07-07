@@ -2,7 +2,9 @@
   <div class="container">
     <h2>Celebrities</h2>
     {{#each celebrities}}
-      <div>{{name}}</div>
+      <div>
+        <a href="/celebrities/{{_id}}">{{name}}</a>
+      </div>
     {{/each}}
   </div>
 </section>
