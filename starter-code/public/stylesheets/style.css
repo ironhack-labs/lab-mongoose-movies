@@ -1,2 +1,73 @@
-*{box-sizing:border-box}body{font-size:16px;font-family:"Raleway",sans-serif}.text-center{text-align:center}.text-right{text-align:right}.button-danger{color:#fff;background-color:#f44336;border-color:#f44336}.button-danger:hover,.button-danger:focus{color:#fff;background-color:#d32f2f;border-color:#d32f2f}#error{padding:30px 0}#home{height:100vh;background:url("/images/film-wallpaper.jpg") center;background-size:cover;padding:30px 0;display:flex;align-items:center}#home h2{color:#fff}#home .button{color:#fff}#celebrities{padding:30px 0}#celebrities .celebrity-wrp{border-bottom:1px dotted #cecece;padding-top:1rem}#celebrities .celebrity-wrp form{margin-bottom:0}#celebrities blockquote{font-size:4rem}#celebrities blockquote .icon{font-size:5rem;color:#00bcd4}.errors-wrp{color:#f44336}.form textarea{resize:none}.form .error>input,.form .error>select,.form .error>textarea{border-color:#f44336}
+* {
+  box-sizing: border-box; }
+
+body {
+  font-size: 16px;
+  font-family: "Raleway", sans-serif; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+.button-danger {
+  color: #fff;
+  background-color: #f44336;
+  border-color: #f44336; }
+  .button-danger:hover, .button-danger:focus {
+    color: #fff;
+    background-color: #d32f2f;
+    border-color: #d32f2f; }
+
+#error {
+  padding: 30px 0; }
+
+#home {
+  height: 100vh;
+  background: url("/images/film-wallpaper.jpg") center;
+  background-size: cover;
+  padding: 30px 0;
+  display: flex;
+  align-items: center; }
+  #home h2 {
+    color: #fff; }
+  #home .button {
+    color: #fff; }
+
+#celebrities {
+  padding: 30px 0; }
+  #celebrities .celebrity-wrp {
+    border-bottom: 1px dotted #cecece;
+    padding-top: 1rem; }
+    #celebrities .celebrity-wrp form {
+      margin-bottom: 0; }
+  #celebrities blockquote {
+    font-size: 4rem; }
+    #celebrities blockquote .icon {
+      font-size: 5rem;
+      color: #00bcd4; }
+
+#movies {
+  padding: 30px 0; }
+  #movies .movie-wrp {
+    border-bottom: 1px dotted #cecece;
+    padding-top: 1rem; }
+    #movies .movie-wrp form {
+      margin-bottom: 0; }
+  #movies blockquote {
+    font-size: 4rem; }
+    #movies blockquote .icon {
+      font-size: 5rem;
+      color: #00bcd4; }
+
+.errors-wrp {
+  color: #f44336; }
+
+.form textarea {
+  resize: none; }
+
+.form .error > input, .form .error > select, .form .error > textarea {
+  border-color: #f44336; }
+
 /*# sourceMappingURL=style.css.map */

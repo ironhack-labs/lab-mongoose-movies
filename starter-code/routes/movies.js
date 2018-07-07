@@ -61,10 +61,54 @@ router.get("/movies/:id", (req, res, next) => {
     });
 });
 
+router.post("/movies/:id", (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  const movie = { title, genre, plot };
+
+  Movie.findByIdAndUpdate(req.params.id, movie, { runValidators: true })
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch(err => {
+      setErrors(res, err);
+
+      res.redirect(`/movies/${req.params.id}/edit`);
+    });
+});
+
 router.post("/movies/:id/delete", (req, res, next) => {
   Movie.findByIdAndRemove(req.params.id)
     .then(() => {
       res.redirect("/movies");
+    })
+    .catch(err => {
+      next();
+    });
+});
+
+router.get("/movies/:id/edit", (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then(movie => {
+      const { titleClass, genreClass, plotClass } = req.cookies;
+      let errorFields = [];
+      if (req.cookies.errorFields) {
+        errorFields = req.cookies.errorFields.split(",");
+      }
+
+      resetCookies(res);
+
+      const data = {
+        movie,
+        form: {
+          errorFields,
+          titleClass,
+          genreClass,
+          plotClass,
+          action: '/movies/' + movie._id,
+          buttonText: 'Edit'
+        }
+      }
+      res.render("movies/edit", { data });
     })
     .catch(err => {
       next();
