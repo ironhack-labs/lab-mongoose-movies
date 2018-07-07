@@ -1,5 +1,7 @@
-<h2> Add a movie</h2>
-
+<div class="header">
+  <h2>Add a movie</h2>
+</div>
+<div class="container box">
 <form action="/movies/new" method="post">
   <label for="">Title:</label>
   <input type="text" name="title">
@@ -10,8 +12,9 @@
   <label for="">Plot:</label>
   <input type="text" name="plot">
 
-  <button type="submit">ADD</button>
+  <button type="submit" class="edit">ADD</button>
 </form>
 
 
-<a href="/movies">Back to the list</a>
+<a href="/movies" class="first add">Back to the list</a>
+</div>

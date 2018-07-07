@@ -1,7 +1,11 @@
-<h2>More Info about {{celebrity.name}}</h2>
+<div class="header">
+  <h2>{{celebrity.name}}</h2>
+</div>
+<div class="container box">
+  <h4>{{celebrity.name}}</h4>
+  <p>Occupation: <strong>{{celebrity.occupation}}</strong></p>
+  <p>Catch phrase: {{celebrity.catchPhrase}}</p>
 
-<h4>{{celebrity.name}}</h4>
-<p>{{celebrity.occupation}}</p>
-<p>{{celebrity.catchPhrase}}</p>
-
-<a href="/celebrities">Back to the list</a>
+<a href="/celebrities" class="back">Back to the list</a>
+<a href="/celebrities/edit/{{celebrity._id}}" class="add box">Edit</a>
+</div>

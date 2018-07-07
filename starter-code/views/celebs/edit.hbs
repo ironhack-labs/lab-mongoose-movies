@@ -1,5 +1,7 @@
-<h2> Edit a celebrity</h2>
-
+<div class="header">
+  <h2>Edit {{celebrity.name}}</h2>
+</div>
+<div class="container box">
 <form action="/celebrities/edit/{{celebrity._id}}" method="post">
   <label for="">Name:</label>
   <input type="text" name="name" value="{{celebrity.name}}">
@@ -10,8 +12,9 @@
   <label for="">Catch Phrase:</label>
   <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
 
-  <button type="submit">EDIT</button>
+  <button type="submit" class="edit">EDIT</button>
 </form>
 
 
-<a href="/celebrities">Back to the list</a>
+<a href="/celebrities" class="first add">Back to the list</a>
+</div>

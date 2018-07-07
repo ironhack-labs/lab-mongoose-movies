@@ -1,5 +1,7 @@
-<h2> Add a celebrity</h2>
-
+<div class="header">
+  <h2>Add a celebrity</h2>
+</div>
+<div class="container box">
 <form action="/celebrities/new" method="post">
   <label for="">Name:</label>
   <input type="text" name="name">
@@ -10,8 +12,9 @@
   <label for="">Catch Phrase:</label>
   <input type="text" name="catchPhrase">
 
-  <button type="submit">ADD</button>
+  <button type="submit" class="edit">ADD</button>
 </form>
 
 
-<a href="/celebrities">Back to the list</a>
+<a href="/celebrities" class="first add">Back to the list</a>
+</div>

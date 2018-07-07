@@ -1,8 +1,80 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: rgb(224, 228, 228);
+  margin: 0 auto;
 }
 
-a {
-  color: #00B7FF;
+a, a:hover{
+  color: black;
+}
+
+.whole {
+  background: url("/images/starsbackground.jpg") no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  }
+
+.main-text{
+  border: 1px solid rgba(158, 10, 10, 0.8);
+  border-radius: 10px;
+  padding: 20px 0;
+  width: 500px;
+  text-align: center;
+  background: rgba(158, 10, 10, 0.8);
+  color: rgba(171, 141, 32, 0.94);
+}
+
+.header {
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  background: url("/images/celebstars.jpg") no-repeat;
+  background-size: cover;
+}
+
+.header h2{
+  text-align: center;
+  color:white;  
+}
+
+.box{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.celeb, .movie{
+  margin-top: 20px;
+}
+
+
+.first{
+  margin-top: 100px;
+  
+}
+
+.add, .back{
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(116, 133, 133, 0.8);
+  width: 200px;
+  text-align: center;
+}
+
+.edit {
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 10px;
+  background: rgba(116, 133, 133, 0.8);
+  width: 100px;
+  text-align: center;
+  margin-left:30px;
 }

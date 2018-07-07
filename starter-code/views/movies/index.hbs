@@ -1,10 +1,17 @@
-<div class ="container box">
- <h2>Click on the movies to learn more about them!</h2>
+<div class="header">
+  <h2>The Movies</h2>
+</div>
+<div class="container box">
   <div class="row">
+    <div class="col celeb">
       {{#each movies}} 
         {{>moviePartial this}}
       {{/each}}
-  </div>
-
-  <a href="/movies/new">Add more movies</a>
+      </div>
+  
+  <div class="col-md-3">
+      <a href="/movies/new" class="first add box">Add more movies</a>
+      <a href="/celebrities" class="add box">Check the celebrities</a>
+     </div>
+</div>
 </div>
