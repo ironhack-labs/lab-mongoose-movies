@@ -4,26 +4,28 @@ const Celebrity = require('../models/celebrity');
 
 
 /* GET celebrities page */
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res, next) => {  //duda preguntar por que no se pone /celebrities
   Celebrity.find({})
-  .then(celebrities =>
-  res.render('celebrities/index', {celebrities}))
+  .then(celebrities => {
+  res.render('celebrities/index', {celebrities});
+  })
   .catch(err => next())
 });
 
 /* GET celebrities id page */
-router.get('/celebrities/:id', (req, res) => {
+router.get('/:id', (req, res) => {  //duda preguntar por que no se pone /celebrities
   Celebrity.findById({_id: req.params.id})
-  .then(celebrities => res.render('celebrities/show',{celebrities}))
+  .then(celebrities => {res.render('celebrities/show',{celebrities});
+  })
   .catch(err => next())
 });
 
 /* Create the celebrity in DB */
-router.get('/celebrities/new', (req, res) => {
+router.get('/new', (req, res) => {
   res.render('celebrities/new');
 });
 
-router.post('/celebrities/new', (req, res, next) => {
+router.post('/new', (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body;
   new Celebrity({name, occupation, catchPhrase})
   .save().then( celebrity => {
@@ -34,7 +36,7 @@ router.post('/celebrities/new', (req, res, next) => {
 });
 
 /* Delete the celebrity in DB */
-router.post('/celebrities/delete/:id',(req,res) => {
+router.post('/:id/delete',(req,res) => {
   Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'))
   .catch(err => next())
 })
