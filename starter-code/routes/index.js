@@ -97,12 +97,12 @@ router.post('/movies/edit/:id', (req,res) => {
 
 
 router.get('/movies/delete/:id',(req,res) => {
-  Celeb.findByIdAndRemove(req.params.id, () => res.redirect('/movies'));
+  Movie.findByIdAndRemove(req.params.id, () => res.redirect('/movies'));
 })
 
 
 router.get('/movie/:id', (req, res, next) => {
-  Celeb.findById(req.params.id).then( movie => {
+  Movie.findById(req.params.id).then( movie => {
     res.render('movies/show', {movie});
   })
 });
