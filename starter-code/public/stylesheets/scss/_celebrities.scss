@@ -1,0 +1,17 @@
+#celebrities {
+  padding: 30px 0;
+  .celebrity-wrp {
+    border-bottom: 1px dotted $lightGrey;
+    padding-top: 1rem;
+    form {
+      margin-bottom: 0;
+    }
+  }
+  blockquote {
+    font-size: 4rem;
+    .icon {
+      font-size: 5rem;
+      color: $mint;
+    }
+  }
+}

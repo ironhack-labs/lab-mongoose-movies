@@ -1,9 +1,18 @@
-<section>
+<section id="celebrities">
   <div class="container">
-    <a href="/celebrities">Go back</a>
-    
-    <h2>{{celebrity.name}}</h2>
-    <p>{{celebrity.occupation}}</p>
-    <blockquote>{{celebrity.catchPhrase}}</blockquote>
+    <div class="row">
+      <div class="column">
+        <a class="button" href="/celebrities">
+          <i class="fas fa-arrow-left"></i> Go back
+        </a>
+        
+        <h2>{{celebrity.name}}</h2>
+        <p><em>{{celebrity.occupation}}</em></p>
+        <blockquote class="text-center">
+          <i class="fas fa-quote-left icon"></i>
+          {{celebrity.catchPhrase}}
+        </blockquote>
+      </div>
+    </div>
   </div>
 </section>
