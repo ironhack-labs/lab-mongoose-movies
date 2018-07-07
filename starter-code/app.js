@@ -23,6 +23,8 @@ mongoose
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
+hbs.registerPartials(path.join(__dirname,'/views/partials'));
+
 const app = express();
 
 // Middleware Setup

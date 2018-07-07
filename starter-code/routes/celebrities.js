@@ -23,28 +23,32 @@ router.post("/celebrities", (req, res, next) => {
       res.redirect("/celebrities");
     })
     .catch(err => {
-      const errors = [];
-      for (field in err.errors) {
-        errors.push(err.errors[field].message);
-
-        res.cookie(field + "Class" , "error", {maxAge: 3000});
-      }
-
-      res.cookie('errorFields' , errors.join(), {maxAge: 3000});
+      setErrors(res, err);
 
       res.redirect("/celebrities/new");
     });
 });
 
 router.get("/celebrities/new", (req, res, next) => {
-  console.log("Cookies :  ", req.cookies);
   const { nameClass, occupationClass, catchPhraseClass } = req.cookies;
   let errorFields = [];
   if (req.cookies.errorFields) {
     errorFields = req.cookies.errorFields.split(",");
   }
 
-  res.render("celebrities/new", { nameClass, occupationClass, catchPhraseClass, errorFields });
+  resetCookies(res);
+
+  const data = {
+    form: {
+      errorFields,
+      nameClass,
+      occupationClass,
+      catchPhraseClass,
+      action: '/celebrities',
+      buttonText: 'Save'
+    }
+  }
+  res.render("celebrities/new", { data });
 });
 
 router.get("/celebrities/:id", (req, res, next) => {
@@ -57,6 +61,21 @@ router.get("/celebrities/:id", (req, res, next) => {
     });
 });
 
+router.post("/celebrities/:id", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const celebrity = { name, occupation, catchPhrase };
+
+  Celebrity.findByIdAndUpdate(req.params.id, celebrity, { runValidators: true })
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch(err => {
+      setErrors(res, err);
+
+      res.redirect(`/celebrities/${req.params.id}/edit`);
+    });
+});
+
 router.post("/celebrities/:id/delete", (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
     .then(() => {
@@ -66,5 +85,54 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
       next();
     });
 });
+
+router.get("/celebrities/:id/edit", (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebrity => {
+      celebrity[celebrity.occupation] = true;
+
+      const { nameClass, occupationClass, catchPhraseClass } = req.cookies;
+      let errorFields = [];
+      if (req.cookies.errorFields) {
+        errorFields = req.cookies.errorFields.split(",");
+      }
+
+      resetCookies(res);
+
+      const data = {
+        celebrity,
+        form: {
+          errorFields,
+          nameClass,
+          occupationClass,
+          catchPhraseClass,
+          action: '/celebrities/' + celebrity._id,
+          buttonText: 'Edit'
+        }
+      }
+      res.render("celebrities/edit", { data });
+    })
+    .catch(err => {
+      next();
+    });
+});
+
+const setErrors = (res, err) => {
+  const errors = [];
+  for (field in err.errors) {
+    errors.push(err.errors[field].message);
+
+    res.cookie(field + "Class" , "error", {maxAge: 3000});
+  }
+
+  res.cookie('errorFields' , errors.join(), {maxAge: 3000});
+}
+
+const resetCookies = (res) => {
+  res.clearCookie('nameClass');
+  res.clearCookie('occupationClass');
+  res.clearCookie('catchPhraseClass');
+  res.clearCookie('errorFields');
+}
 
 module.exports = router;
