@@ -10,4 +10,11 @@ router.get('/celebrities', (req, res, next) => {
   .catch(err => next())
 });
 
+/* GET celebrities id page */
+router.get('/celebrities/:id', (req, res) => {
+  Celebrity.findById({_id: req.params.id})
+  .then(celebrities => res.render('celebrities/show',{celebrities}))
+  .catch(err => next())
+});
+
 module.exports = router;
