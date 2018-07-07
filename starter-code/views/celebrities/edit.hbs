@@ -1,12 +1,19 @@
-<form action="/celebrities/edit/{{celebrity._id}}" method="post">
-  <label for="">Name:</label>
-  <input type="text" name="name" value="{{celebrity.name}}">
+<div class="wrapper">
+  <div class="container whiteBack">
+  <h2>Update the celebrity</h2>
+    <form action="/celebrities/edit/{{celebrity._id}}" method="post">
+      <div class="row form">
+        <label for="">Name</label>
+        <input type="text" name="name" value="{{celebrity.name}}">
 
-  <label for="">Occupation:</label>
-  <input type="text" name="occupation" value="{{celebrity.occupation}}">
+        <label for="">Occupation</label>
+        <input type="text" name="occupation" value="{{celebrity.occupation}}">
 
-  <label for="">Catch Phrase:</label>
-  <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+        <label for="">Catch Phrase</label>
+        <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
 
-  <button type="submit">EDIT</button>
-</form>
+        <button type="submit" class="waves-effect waves-light btn links">EDIT</button>
+      </div>
+    </form>
+  </div>
+</div>

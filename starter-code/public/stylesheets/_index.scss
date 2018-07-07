@@ -1,0 +1,57 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url(/images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  
+  .container {
+    text-align: center;
+  }
+
+  .links {
+      margin: 5px;
+      width: 200px;
+  }
+
+  .btn {
+    background-color: #da68718f;
+  }
+}
+
+
+.card-content {
+    max-height: 90px;
+    padding: 20px !important;
+}
+
+.card-action {
+    padding: 10px !important;
+    margin: 0px !important;
+}
+
+.card {
+    min-height: 250px;
+    width: 280px;
+    color: black;
+
+    img {
+        display: inline !important;
+        height: 280px;
+        width: 210px !important;
+        margin-top: 10px;
+    }
+
+    .links {
+        margin-left: 12px;
+        width: 50px;
+        font-size: 10px;
+        padding: 2px;
+    }
+}
+
+.m7 {
+    width: 30% !important;
+}
