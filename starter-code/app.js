@@ -13,7 +13,7 @@ const path         = require('path');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect("mongodb://localhost/celebrities", {useMongoClient: true})
+  .connect("mongodb://localhost/lab-mongoose-movies", {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -48,12 +48,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Celebrities Webpage';
+app.locals.title = 'lab-mongoose-movies Webpage';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const indexCelebrities = require('./routes/indexCelebrities');
+app.use('/', indexCelebrities);
 
+const indexMovies = require('./routes/indexMovies');
+app.use('/', indexMovies);
 
 module.exports = app;

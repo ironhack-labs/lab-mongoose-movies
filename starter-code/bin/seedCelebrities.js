@@ -5,7 +5,7 @@ const Celebrity = require("../models/celebrity");
 
 //const dbName = process.env.DBURL;
 
-mongoose.connect("mongodb://localhost/celebrities", {useMongoClient: true});
+mongoose.connect("mongodb://localhost/lab-mongoose-movies", {useMongoClient: true});
 
 const celebrities = [
   {
