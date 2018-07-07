@@ -9,3 +9,6 @@ npm-debug.log
 
 # Ignoring DS_STORE file (macOS)
 .DS_STORE
+
+# Sass cache
+.sass-cache

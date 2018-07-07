@@ -1,0 +1,38 @@
+<section id="movies">
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <a class="button" href="/">
+          <i class="fas fa-home"></i> Go home
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns eight">
+        <h2>Movies</h2>
+      </div>
+      <div class="columns four text-right">
+        <a class="button" href="/movies/new">Add a new movie</a>
+      </div>
+    </div>
+    {{#each movies}}
+    <div class="row movie-wrp">
+      <div class="columns eight">
+        <a href="/movies/{{_id}}">{{title}}</a>
+      </div>
+      <div class="columns two text-right">
+        <a class="button button-primary" href="/movies/{{_id}}/edit">
+          <i class="fas fa-pencil-alt"></i>
+        </a>
+      </div>
+      <div class="columns two text-right">
+        <form action="/movies/{{_id}}/delete" method="POST">
+          <button class="button-danger" type="submit">
+            <i class="fas fa-trash"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
