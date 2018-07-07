@@ -11,6 +11,7 @@ router.get('/celebrities', (req, res, next) => {
         })
 });
 
+
 //id is interchangable
 router.get('/celebrities/:id', (req, res, next) => {
     const id = req.params.id;
@@ -19,7 +20,7 @@ router.get('/celebrities/:id', (req, res, next) => {
 
             res.render('celebrities/show', result);//result is the id i think
         })
-        .catch((err)=>{
+        .catch((err) => {
             next(err);
         })
 });
@@ -28,10 +29,23 @@ router.get('/celebrities/new', (req, res, next) => {//just renders the new and d
     res.render('celebrities/new')
 });
 
-router.get('/celebrities/create', (req, res, next) => {//keys for creating a new guy
-    const newGuy = new newGuy({
+router.post('/celebrities/create', (req, res, next) => {
+    //keys for creating a new guy
+    const newPerson = new Celebrity({
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+    });
 
-    })
+    //saves to database
+
+    newPerson.save()
+        .then((response) => {
+            res.redirect('/celebrities')//redirects to the page of celebrities
+        })
+        .catch((err) => {
+            res.render('celebrities/new')//if error, reload page
+        })
 });
 
 module.exports = router;

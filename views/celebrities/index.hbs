@@ -1,7 +1,13 @@
 {{#each result}}
     <div>
-    <h2>{{this.name}}</h2>
-    <a href="/celebrities/{{this._id}}">See Details</a>
+        <h2>{{this.name}}</h2>
+        <a href="/celebrities/{{this._id}}">See Details</a>
         <!--goes to the celebrity folder and inserts the ID-->
     </div>
 {{/each}}
+
+<div>
+    <hr>
+    <a href="/celebrities/new">New Celebrity</a>
+</div>
+<!--"goes to the page you just created(new celebrity) with the form to create a new celebrity."-->
