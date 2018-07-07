@@ -1,0 +1,12 @@
+<h1>List of all celebrities in DB</h1>
+<div id="celebrities">
+  {{#each celebrities}}
+    <div class="celebrity">
+      <h3>{{name}}
+      <a href="/celebrities/{{_id}}"> see this celebrity</a></h3>
+      <a href="/celebrities/{{id}}/delete"><button>Delete</button></a>
+      <a href="/celebrities/{{id}}/edit"><button>Edit</button></a>
+    </div>
+  {{/each}}
+  <a href="/celebrities/new"><button>NEW</button></a>
+</div>

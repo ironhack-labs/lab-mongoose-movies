@@ -24,7 +24,7 @@ const celebrities = [
     catchPhrase: "If you love somebody, set them free"
   },
   {
-    Name: "Kurt Cobain",
+    name: "Kurt Cobain",
     occupation: "Singer",
     catchPhrase: "It's better to burn than to fade out"
   }
