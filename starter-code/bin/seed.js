@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
-
 const dbName = process.env.DBURL;
 mongoose.connect(dbName);
 
@@ -22,11 +21,11 @@ const celebrities = [
     occupation: "Joey, de Friends",
     catchPhrase: "¿Cómo va eso?"
   },
-]
+];
 
 //Celebrity.collection.drop();
 
 Celebrity.create(celebrities, (err) => {
   if (err) { throw(err) }
-  console.log(`Created ${celebrities.length} celebrities`);
+  console.log('Created ${celebrities.length} celebrities');
 });
