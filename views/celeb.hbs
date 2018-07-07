@@ -1,0 +1,15 @@
+<h2>Celebrities</h2>
+<div>
+    {{#each celeb}}
+    <div>
+        <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <a href="celeb/{{id}}" class="btn btn-primary">See more</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<br>
+<div>
+    <a href="/new" class="btn btn-primary">Add a new celebrity</a>
+</div>
