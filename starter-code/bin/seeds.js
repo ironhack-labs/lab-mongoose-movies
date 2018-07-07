@@ -1,9 +1,9 @@
-require('dotenv').config();
+//require('dotenv').config();
 
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
-const dbName = process.env.DBURL;
-mongoose.connect('mongodb://localhost/'+moviesAndCelebsApp);
+const moviesAndCelebsApp = process.env.DBURL;  //en archivo env llama al fichero creado en compass
+mongoose.connect('mongodb://localhost/moviesAndCelebsApp');
 
 
 const celebrities = [
@@ -24,7 +24,7 @@ const celebrities = [
   }
 ]
 
-Celebrity.create(celebrities, (err, data) => {
+Celebrity.create(celebrities, (err) => {
   if (err) { throw(err) }
   console.log('Created ${celebrities.lenght} celebrities');
   mongoose.connection.close()
