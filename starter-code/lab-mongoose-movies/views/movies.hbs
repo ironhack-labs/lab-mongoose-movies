@@ -1,0 +1,15 @@
+  <h1 id="titulo-movies">Movies</h1>
+  <a href="/movies/new" class="glyphicon glyphicon-plus"></a>
+<div class="index-container">
+  {{#each movies}}
+  <div class="artist-index">
+
+    <div class="text-random">
+     <h4>{{this.title}}</h4> <form action="/movies/{{this._id}}/delete" method="post"><button class="glyphicon glyphicon-trash" type="submit"></button></form>
+    </div>
+    
+    <a href="/movies/{{this._id}}">See more  <span class="glyphicon glyphicon-fast-forward"></span></a>
+  </div>
+
+{{/each}}
+</div>
