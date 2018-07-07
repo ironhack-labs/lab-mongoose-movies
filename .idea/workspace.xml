@@ -1,10 +1,655 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1cbb0c71-efab-4347-b8b5-e6218c121f69" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/seeds.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/celebrity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/celebrities.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/celebrities/index.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/celebrities/newGuy.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/celebrities/show.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="celebrity.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/celebrity.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/seeds.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="celebrities.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/celebrities.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newGuy.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/celebrities/newGuy.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/celebrities/show.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1539">
+              <caret line="57" column="21" lean-forward="true" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/celebrities/index.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Handlebars" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/models/celebrity.js" />
+        <option value="$PROJECT_DIR$/bin/seeds.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/views/celebrities/show.hbs" />
+        <option value="$PROJECT_DIR$/views/celebrities/index.hbs" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/celebrities/new.hbs" />
+        <option value="$PROJECT_DIR$/routes/celebrities.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1610" />
+    <option name="width" value="1642" />
+    <option name="height" value="2092" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lab-mongoose-movies" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab-mongoose-movies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab-mongoose-movies" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab-mongoose-movies" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab-mongoose-movies" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab-mongoose-movies" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab-mongoose-movies" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab-mongoose-movies" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab-mongoose-movies" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab-mongoose-movies" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lab-mongoose-movies" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lab-mongoose-movies" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="celebrities" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ftwd-june-2018/week4/params-with-express" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1cbb0c71-efab-4347-b8b5-e6218c121f69" name="Default" comment="" />
+      <created>1530908065476</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530908065476</updated>
+      <workItem from="1530908067865" duration="8517000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8517000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-5" y="0" width="821" height="1046" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26022306" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.16974972" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/celebrities.hbs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/jacks/Documents/GitHub/lab-mongoose-movies">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/cursor/AggregationCursor.js#PromiseProvider#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cursor/AggregationCursor.js#Readable#102;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cursor/AggregationCursor.js#util#134;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/ES6Promise.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/cursor/QueryCursor.js#PromiseProvider#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cursor/QueryCursor.js#Readable#102;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cursor/QueryCursor.js#eachAsync#134;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cursor/QueryCursor.js#helpers#191;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cursor/QueryCursor.js#util#233;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/browser/ReadPreference.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/ReadPreference.js#mongodb#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/rules/add.js#utils#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/aggregate.js#AggregationCursor#36;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/aggregate.js#PromiseProvider#99;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/aggregate.js#Query#152;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/aggregate.js#eachAsync#184;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/aggregate.js#util#240;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/aggregate.js#utils#268;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/aggregate/aggregate.js#async#51;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/aggregate/aggregate.js#mongoose#121;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/aggregate/aggregate.js#person.js#155;</node>
+            <node x="" y="">$PROJECT_DIR$/app.js#app_name#634;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#bodyParser#35;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#celebs#1496;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#config#0;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#cookieParser#80;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#debug#672;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#express#127;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#favicon#168;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#hbs#215;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#index#1433;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#logger#294;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#middleware.js#970;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#mongoose#252;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/app.js#path#334;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/examples/extend/app.js#express#17;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/hbs/examples/extend/app.js#hbs#51;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/examples/partial/app.js#express#54;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/hbs/examples/partial/app.js#fs#16;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/hbs/examples/partial/app.js#hbs#88;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/express/connection-sharing/app.js#express#5;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/express/connection-sharing/app.js#mongoose#39;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/express/connection-sharing/app.js#routes#185;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/application.js#Router#274;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#View#485;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#compileETag#557;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#compileQueryParser#614;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#compileTrust#672;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#debug#432;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#deprecate#709;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#finalhandler#230;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#flatten#753;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#http#515;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#merge#793;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#methods#308;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#middleware#342;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#query#389;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#resolve#839;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/application.js#setPrototypeOf#868;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/model/applyHooks.js#PromiseProvider#19;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/model/applyHooks.js#VersionError#91;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/model/applyMethods.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/model/applyStatics.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/array-flatten/array-flatten.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/array.js#Document#83;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/array.js#EmbeddedDocument#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/array.js#ObjectId#122;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/array.js#cleanModifiedSubpaths#160;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/array.js#utils#243;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/array.js#$exists#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#$type#82;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#Array#3848;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#Embedded#970;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#Mixed#430;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#SchemaType#123;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#Types#204;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#cast#462;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#castToNumber#569;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#geospatial#618;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#util#493;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/array.js#utils#521;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/lib/async.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/node_modules/async/dist/async.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/tools/auth.js#Server#30;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/tools/auth.js#co#80;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/tools/auth.js#mongodb#106;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/browser/binary.js#Binary#47;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/binary.js#Binary#47;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/operators/bitwise.js#CastError#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/boolean.js#SchemaType#71;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/boolean.js#utils#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/browser.js#DocumentProvider#30;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browser.js#PromiseProvider#88;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browser.js#index.js#697;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browser.js#schematype.js#1995;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browser.js#utils.js#2105;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browser.js#virtualtype.js#1726;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/browserDocument.js#EventEmitter#96;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#InternalCache#335;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#MongooseError#132;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#NodeJSDocument#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#ObjectId#206;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#PromiseProvider#378;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#Schema#172;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#VersionError#446;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#embedded.js#3430;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/browserDocument.js#utils#250;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/browserMissingSchema.js#MongooseError#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/buffer.js#Binary#46;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/buffer.js#utils#80;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/buffer.js#MongooseBuffer#131;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/buffer.js#SchemaType#180;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/buffer.js#document.js#1721;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/buffer.js#handleBitwiseOperator#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/buffer.js#utils#97;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/utils/bus.js#debug#36;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/utils/bus.js#events#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/utils/bus.js#util#77;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/cast.js#StrictModeError#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cast.js#Types#86;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cast.js#util#125;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/cast.js#utils#153;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/cast.js#MongooseError#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/cast.js#util#72;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/query/castUpdate.js#StrictModeError#19;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/query/castUpdate.js#ValidationError#72;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/query/castUpdate.js#utils#129;</node>
+            <node x="" y="">$PROJECT_DIR$/routes/celebrities.js#Celebrity#75;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/routes/celebrities.js#express#6;</node>
+            <node x="" y="">$PROJECT_DIR$/models/celebrity.js#mongoose#6;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/document/cleanModifiedSubpaths.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/utils/clone.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/collection.js#EventEmitter#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/collection.js#STATES#88;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js#Collection#104;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js#MongooseCollection#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js#inspect#6779;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js#utils#139;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/utils/colour.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/config/command.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/common.js#ObjectId#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/common.js#flatten#127;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/common.js#modifiedPaths#154;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/common.js#utils#97;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/document/compile.js#compile#86;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/document/compile.js#defineKey#113;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/document/compile.js#document.js#249;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/document/compile.js#utils#33;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/dotenv/config.js#config#212;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/connection.js#Collection#231;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#EventEmitter#84;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#MongooseError#324;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#PromiseProvider#392;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#STATES#281;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#Schema#197;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#mongodb#445;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#muri#364;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#util#479;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/connection.js#utils#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js#DisconnectedError#279;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js#MongooseConnection#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js#STATES#196;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js#mongo#91;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js#o#6540;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/connectionstate.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/date.js#MongooseError#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/date.js#SchemaType#112;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/date.js#utils#78;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/decimal128.js#Decimal128#149;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/decimal128.js#Decimal128Type#144;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/decimal128.js#SchemaType#63;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/decimal128.js#document.js#1564;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/decimal128.js#utils#197;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/browser/decimal128.js#Decimal128#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/decimal128.js#Decimal128#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/config/defaults.js#ignoreRoot#17;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/disconnected.js#MongooseError#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/model/discriminator.js#defineKey#31;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/model/discriminator.js#utils#77;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/divergentArray.js#MongooseError#38;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/doc-methods.js#mongoose#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/document.js#EventEmitter#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#InternalCache#763;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#MixedSchema#128;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#MongooseError#88;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#ObjectExpectedError#207;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#ObjectParameterError#268;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#PromiseProvider#1085;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#Schema#173;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#StrictModeError#331;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#ValidatorError#397;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#VirtualType#441;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#array.js#24174;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#cleanModifiedSubpaths#806;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#compile#898;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#defineKey#995;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#documentarray.js#46530;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#embedded.js#23870;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#flatten#1200;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#hooks#1049;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#idGetter#1272;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#inspect#681;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#isDefiningProjection#542;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#mpath#1242;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document.js#utils#485;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/document_provider.js#BrowserDocument#118;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/document_provider.js#Document#77;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/document_provider.web.js#BrowserDocument#77;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/documentarray.js#Document#200;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/documentarray.js#MongooseArray#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/documentarray.js#ObjectId#77;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/documentarray.js#ObjectIdSchema#115;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/documentarray.js#utils#167;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/documentarray.js#ArrayType#63;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#CastError#99;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#Document#141;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#EventEmitter#195;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#SchemaType#231;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#discriminator#274;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#documentarray.js#3293;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#embedded.js#1600;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#util#338;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/documentarray.js#utils#366;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/node_modules/async/each.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/cursor/eachAsync.js#PromiseProvider#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/cursor/eachAsync.js#async#109;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/embedded.js#Document#69;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/embedded.js#EventEmitter#134;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/embedded.js#PromiseProvider#170;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/embedded.js#$exists#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/embedded.js#EventEmitter#112;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/embedded.js#SchemaType#148;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/embedded.js#castToNumber#206;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/embedded.js#discriminator#255;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/embedded.js#geospatial#319;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/embedded.js#subdocument.js#999;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/config/exec.js#fs#36;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/exec.js#path#6;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/exec.js#utils#96;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/operators/exists.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/express.js#EventEmitter#273;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#Route#389;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#Router#428;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#bodyParser#218;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#index.js#1584;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#mixin#309;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#proto#351;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#query.js#1536;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#req#462;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/express.js#res#494;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/geospatial/geoJSONSchema.js#mongoose#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/geospatial/geoJSONexample.js#async#50;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/geospatial/geoJSONexample.js#geoJSONSchema.js#154;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/geospatial/geoJSONexample.js#mongoose#120;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/operators/geospatial.js#SchemaArray#323;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/operators/geospatial.js#castArraysOfNumbers#59;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/operators/geospatial.js#castToNumber#120;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/geospatial/geospatial.js#async#50;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/geospatial/geospatial.js#mongoose#120;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/geospatial/geospatial.js#person.js#154;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/populate/getSchemaTypes.js#Mixed#38;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/populate/getSchemaTypes.js#mpath#81;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/globalschemas/gs_example.js#mongoose#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/globalschemas/gs_example.js#person.js#118;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/query/hasDollarKeys.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/lib/hbs.js#async#90;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/hbs/lib/hbs.js#create#387;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/hbs/lib/hbs.js#fs#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/hbs/lib/hbs.js#path#28;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/hbs/lib/hbs.js#walk#63;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/operators/helpers.js#Types#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/operators/helpers.js#castArraysOfNumbers#154;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/operators/helpers.js#castToNumber#117;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/hooks-fixed/hooks.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/plugins/idGetter.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/iconv-lite/lib/index.d.ts</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/raw-body/index.d.ts</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/setprototypeof/index.d.ts</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/chokidar/index.js</node>
+            <node x="" y="">create;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/escape-html/index.js</node>
+            <node x="" y="">sign;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/depd/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/cookie-parser/index.js#cookie#190;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/cookie-parser/index.js#signature#222;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/etag/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/http-errors/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/methods/index.js</node>
+            <node x="" y="">directories;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/co/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/ms/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/cookie/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/merge-descriptors/index.js</node>
+            <node x="" y="">Binary;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Collection#15911;Decimal128;ObjectId;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/qs/lib/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/serve-favicon/index.js#Buffer#236;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/serve-favicon/index.js#etag#270;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/serve-favicon/index.js#fresh#297;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/serve-favicon/index.js#fs#326;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/serve-favicon/index.js#ms#349;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/serve-favicon/index.js#parseUrl#372;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/serve-favicon/index.js#path#407;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/kareem/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/index.js#index.js#53;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/content-disposition/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/index.js#nodemon.js#17;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/on-finished/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/index.js#Aggregate#618;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Collection#15647;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Connection#15573;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Document#311;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Model#279;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#PromiseProvider#658;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Query#247;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#STATES#172;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Schema#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#SchemaType#86;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#Types#215;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#VirtualType#128;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#cast.js#19807;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#document_provider.js#19265;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#index.js#19427;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#mquery.js#20183;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#pkg#418;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#querystring#457;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#saveSubdocs#499;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#shardingPlugin#711;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#utils#349;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/index.js#validateBeforeSave#551;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/cli/index.js#parse#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/help/index.js#fs#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/help/index.js#path#28;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/help/index.js#supportsColor#58;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/rules/index.js#add#51;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/rules/index.js#parse#79;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/rules/index.js#utils#18;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/pstree.remy/lib/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/utils/index.js#log.js#2200;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/utils/index.js#path#32;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/utils/index.js#semver#62;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/utils/index.js#utils#165;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/parseurl/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/config/index.js#command#383;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/index.js#debug#202;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/index.js#load#243;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/index.js#pinVersion#352;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/index.js#rules#273;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/index.js#rulesToMonitor#436;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/index.js#utils#306;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/muri/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mkdirp/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/monitor/index.js#run.js#26;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/index.js#watch#53;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/index.js#DivergentArrayError#1546;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#DocumentNotFoundError#1118;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#OverwriteModelError#1418;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#VersionError#1367;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#cast.js#1236;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#divergentArray.js#1582;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#messages.js#770;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#missingSchema.js#1518;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#notFound.js#1156;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#overwriteModel.js#1454;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#validation.js#1287;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#validator.js#1343;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/index.js#version.js#1396;</node>
+            <node x="" y="">Buffer;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/index.js#Array#29;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#Buffer#65;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#Embedded#137;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#array.js#45;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#buffer.js#82;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#decimal128.js#253;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#documentarray.js#204;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#embedded.js#156;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#objectid.js#297;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/index.js#subdocument.js#343;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/node_modules/debug/src/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/node_modules/supports-color/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/index.js#array.js#260;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#boolean.js#125;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#buffer.js#298;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#date.js#335;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#decimal128.js#474;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#documentarray.js#172;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#embedded.js#220;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#mixed.js#414;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#number.js#85;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#objectid.js#374;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/index.js#string.js#46;</node>
+            <node x="" y="">mime;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/morgan/index.js#auth#411;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/morgan/index.js#debug#444;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/morgan/index.js#deprecate#483;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/morgan/index.js#onFinished#525;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/morgan/index.js#onHeaders#565;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/browser/index.js#Binary#28;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/browser/index.js#Decimal128#66;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/browser/index.js#ObjectId#112;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/browser/index.js#ReadPreference#154;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/index.js#global.MONGOOSE_DRIVER_PATH#164;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/index.js#index.js#80;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/browser/index.js#ReadPreference.js#179;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/browser/index.js#binary.js#45;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/browser/index.js#decimal128.js#87;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/browser/index.js#objectid.js#131;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/lodash.get/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/index.js#ReadPreference.js#179;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/index.js#binary.js#45;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/index.js#decimal128.js#87;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/drivers/node-mongodb-native/index.js#objectid.js#131;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/utils-merge/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/path-to-regexp/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/vary/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/encodeurl/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/schema/storing-schemas-as-json/index.js#mongoose#16;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/schema/storing-schemas-as-json/index.js#raw#101;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/on-headers/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/sliced/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/content-type/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/proxy-addr/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/accepts/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/routes/index.js#express#6;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/index.js#express.js#198;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/finalhandler/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/bytes/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/index.js#Layer#262;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#Route#230;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#debug#364;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#deprecate#412;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#flatten#456;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#methods#294;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#mixin#328;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#parseUrl#496;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/index.js#setPrototypeOf#532;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/debug/src/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/node_modules/statuses/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/fresh/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/node-sass/lib/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/range-parser/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/type-is/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/regexp-clone/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mpath/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/serve-static/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/basic-auth/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/index.js#deprecate#156;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/index.js#json.js#2302;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/index.js#raw.js#2373;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/index.js#text.js#2444;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/index.js#urlencoded.js#2522;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/configstore/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/update-notifier/index.js</node>
+            <node x="" y="">Binary;Decimal128;ObjectID;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/index.web.js#index.js#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/middleware/init.js#setPrototypeOf#230;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/internal.js#StateMachine#29;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/projection/isDefiningProjection.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/projection/isInclusive.js#isDefiningProjection#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/projection/isPathSelectedInclusive.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/json.js#bytes#190;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/json.js#contentType#219;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/json.js#createError#261;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/json.js#debug#302;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/json.js#read#351;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/json.js#typeis#381;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/layer.js#debug#274;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/layer.js#pathRegexp#230;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/lean/lean.js#async#51;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/lean/lean.js#mongoose#121;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/lean/lean.js#person.js#155;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/config/load.js#debug#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/load.js#defaults#271;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/load.js#exec#241;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/load.js#fs#45;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/load.js#parse#202;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/load.js#path#69;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/load.js#rules#169;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/config/load.js#utils#136;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/utils/log.js#bus#38;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/utils/log.js#colour#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/dotenv/lib/main.js#config#1758;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/dotenv/lib/main.js#fs#18;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/mapreduce/mapreduce.js#async#50;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/mapreduce/mapreduce.js#mongoose#120;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/mapreduce/mapreduce.js#person.js#154;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/monitor/match.js#debug#102;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/match.js#fs#76;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/match.js#minimatch#6;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/match.js#path#46;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/match.js#rulesToMonitor#205;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/match.js#utils#151;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/utils/merge.js#clone#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/messages.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/node-sass-middleware/middleware.js#dirname#140;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/node-sass-middleware/middleware.js#fs#80;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/node-sass-middleware/middleware.js#join#208;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/node-sass-middleware/middleware.js#mkdirp#169;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/node-sass-middleware/middleware.js#sass#19;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/node-sass-middleware/middleware.js#url#104;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/node-sass-middleware/middleware.js#util#52;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/minimatch/minimatch.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/missingSchema.js#MongooseError#38;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/mixed.js#SchemaType#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/mixed.js#utils#80;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/model.js#Aggregate#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#DivergentArrayError#207;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#Document#77;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#DocumentNotFoundError#139;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#Error#251;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#EventEmitter#298;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#OverwriteModelError#356;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#PromiseProvider#400;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#Query#453;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#Schema#485;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#VersionError#534;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#applyHooks#571;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#applyMethods#628;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#applyStatics#689;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#cast#750;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#castUpdate#780;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#discriminator#837;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#get#988;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#getSchemaTypes#1021;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#isPathSelectedInclusive#900;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#model#74522;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#mpath#1089;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#parallel#1119;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#parallelLimit#1161;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#setDefaultsOnInsert#1213;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#util#1282;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/model.js#utils#1310;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/express/connection-sharing/modelA.js#Schema#13;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/promise_provider.js#Promise#547;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/bin/nodemon.js#cli#27;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/bin/nodemon.js#fs#159;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/bin/nodemon.js#index.js#390;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/bin/nodemon.js#nodemon#62;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/nodemon.js#cli#109;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#config#284;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#debug#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#defaults#352;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#help#254;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#monitor#73;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#path#45;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#spawn#318;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#util#173;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#utils#201;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/nodemon.js#version#137;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/notFound.js#MongooseError#52;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/notFound.js#util#87;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/number.js#MongooseError#178;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/number.js#SchemaType#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/number.js#document.js#4882;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/number.js#handleBitwiseOperator#118;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/number.js#utils#219;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/objectExpected.js#MongooseError#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/objectParameter.js#MongooseError#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/objectid.js#ObjectId#147;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/objectid.js#SchemaType#63;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/objectid.js#document.js#2343;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/objectid.js#oid#144;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/objectid.js#utils#184;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/browser/objectid.js#ObjectId#160;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/objectid.js#ObjectId#160;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/overwriteModel.js#MongooseError#38;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/package.json</node>
+            <node x="" y="">$PROJECT_DIR$/package.json#name#4;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/node_modules/async/parallel.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/node_modules/async/parallelLimit.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/cli/parse.js#fs#494;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/cli/parse.js#path#518;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/rules/parse.js#fs#18;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/lean/person.js#mongoose#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/statics/person.js#mongoose#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/promises/person.js#mongoose#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/aggregate/person.js#mongoose#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/mapreduce/person.js#mongoose#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/geospatial/person.js#mongoose#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/replicasets/person.js#mongoose#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/querybuilder/person.js#mongoose#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/globalschemas/person.js#mongoose#36;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/population/population-across-three-collections.js#assert#5;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/population/population-across-three-collections.js#dbname#217;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/population/population-across-three-collections.js#mongoose#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/population/population-across-three-collections.js#s#2361;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/population/population-basic.js#mongoose#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/population/population-of-existing-doc.js#mongoose#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/population/population-of-multiple-existing-docs.js#mongoose#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/population/population-options.js#mongoose#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/population/population-plain-objects.js#mongoose#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/bin/postinstall.js#Configstore#112;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/bin/postinstall.js#pkg#160;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/promise.js#MPromise#36;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/promise.js#util#72;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/promises/promise.js#async#50;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/promises/promise.js#mongoose#120;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/promises/promise.js#person.js#154;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mpromise/lib/promise.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/promise_provider.js#ES6Promise.js#491;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/promise_provider.js#MPromise#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/promise_provider.js#Promise#547;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/query.js#CastError#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#ObjectParameterError#78;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#PromiseProvider#141;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#QueryCursor#194;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#QueryStream#245;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#cast#289;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#castUpdate#319;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#hasDollarKeys#376;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#helpers#439;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#isInclusive#480;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#mquery#544;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#readPref#587;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#selectPopulatedFields#628;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#setDefaultsOnInsert#707;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#slice#776;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#updateValidators#807;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#util#870;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/query.js#utils#898;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/middleware/query.js#merge#218;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/middleware/query.js#parseUrl#253;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/middleware/query.js#qs#289;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/querybuilder/querybuilder.js#async#51;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/querybuilder/querybuilder.js#mongoose#121;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/querybuilder/querybuilder.js#person.js#155;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/queryhelpers.js#createModel#1327;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/queryhelpers.js#get#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/queryhelpers.js#isDefiningProjection#70;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/queryhelpers.js#utils#152;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/querystream.js#Stream#72;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/querystream.js#helpers#134;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/querystream.js#utils#102;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/raw.js#bytes#144;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/raw.js#debug#173;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/raw.js#read#221;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/raw.js#typeis#251;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/read.js#createError#156;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/read.js#getBody#197;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/read.js#iconv#231;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/read.js#onFinished#265;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/read.js#zlib#305;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/tools/repl.js#ReplSet#75;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/tools/repl.js#co#21;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/replicasets/replica-sets.js#async#51;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/replicasets/replica-sets.js#mongoose#121;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/replicasets/replica-sets.js#person.js#155;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/request.js#accepts#230;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#deprecate#264;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#fresh#401;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#http#373;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#isIP#315;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#parse#473;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#parseRange#431;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#proxyaddr#506;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/request.js#typeis#340;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/response.js#Buffer#203;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#contentDisposition#237;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#cookie#836;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#deprecate#294;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#encodeUrl#338;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#escapeHtml#376;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#http#417;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#isAbsolute#458;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#merge#597;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#normalizeType#694;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#normalizeTypes#749;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#onFinished#493;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#path#534;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#send#868;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#setCharset#801;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#sign#640;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#statuses#562;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/response.js#vary#974;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/router/route.js#Layer#324;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/route.js#debug#230;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/route.js#flatten#284;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/router/route.js#methods#356;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/express/connection-sharing/routes.js#model#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/monitor/run.js#childProcess#140;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#config#315;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#debug#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#path#521;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#psTree#484;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#signals#549;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#statSync#58;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#utils#86;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/run.js#watch#285;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/plugins/saveSubdocs.js#each#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema.js#EventEmitter#104;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#Kareem#235;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#SchemaType#301;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#VirtualType#140;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#each#267;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#index.js#50023;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#mpath#343;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#readPref#48;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema.js#utils#184;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/schema/schema.js#mongoose#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/schema/storing-schemas-as-json/schema.json</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schematype.js#$exists#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schematype.js#$type#89;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schematype.js#MongooseError#169;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schematype.js#ValidatorError#31612;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schematype.js#legacyAsyncValidate#26362;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schematype.js#utils#137;</node>
+            <node x="" y="">$PROJECT_DIR$/bin/seeds.js#Celebrity#44;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/bin/seeds.js#mongoose#6;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/query/selectPopulatedFields.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/semver/semver.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/setDefaultsOnInsert.js#modifiedPaths#35;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/tools/sharded.js#Sharded#75;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/tools/sharded.js#co#21;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/plugins/sharding.js#utils#19;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/monitor/signals.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/spawn.js#spawn#98;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/spawn.js#utils#6;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/statemachine.js#utils#38;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/static.js#createServer#88;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/static.js#static#5;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/examples/statics/statics.js#mongoose#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/examples/statics/statics.js#person.js#60;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/strict.js#MongooseError#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/string.js#MongooseError#118;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/string.js#SchemaType#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/string.js#document.js#12661;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/schema/string.js#utils#159;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/types/subdocument.js#Document#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/types/subdocument.js#PromiseProvider#43;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/text.js#bytes#144;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/text.js#contentType#173;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/text.js#debug#215;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/text.js#read#264;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/text.js#typeis#294;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/schema/operators/type.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/undefsafe/lib/undefsafe.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/services/updateValidators.js#Mixed#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/updateValidators.js#ValidationError#77;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/updateValidators.js#flatten#183;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/updateValidators.js#modifiedPaths#232;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/services/updateValidators.js#parallel#131;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js#bytes#190;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#contentType#219;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#createError#261;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#debug#302;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#deprecate#357;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#index.js#4569;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#querystring#4631;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#read#404;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/body-parser/lib/types/urlencoded.js#typeis#434;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/utils.js#Array#11320;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#Buffer#11385;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#Decimal#37;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#ObjectId#82;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#clone#5056;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#cloneRegExp#126;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#document.js#9357;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#mpath#201;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#ms#231;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#random#8039;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/utils.js#sliced#169;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/utils.js#Buffer#207;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#compileETag#3224;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#compileQueryParser#3774;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#compileTrust#4424;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#contentDisposition#241;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#contentType#298;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#deprecate#341;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#etag#458;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#flatten#385;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#isAbsolute#1086;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#mime#432;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#normalizeType#1693;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#normalizeTypes#1971;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#proxyaddr#486;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#qs#525;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#querystring#549;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/utils.js#setCharset#5021;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/plugins/validateBeforeSave.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/validation.js#MongooseError#36;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/lib/error/validation.js#utils#71;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/validator.js#MongooseError#37;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/version.js#exec#116;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/version.js#fs#57;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/version.js#path#81;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/version.js#pin#26;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/error/version.js#MongooseError#52;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/express/lib/view.js#debug#230;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/view.js#fn#1551;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/view.js#fs#304;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/express/lib/view.js#path#276;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/lib/virtualtype.js</node>
+            <node x="" y="">walk;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/nodemon/lib/monitor/watch.js#chokidar#173;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#config#247;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#debug#81;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#debugRoot#128;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#fs#312;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#match#390;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#path#282;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#undefsafe#209;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#utils#336;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/monitor/watch.js#watch#0;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/mongoose/website.js#acquit#2027;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#filemap#1031;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#filters#301;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#fs#4;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#hl#92;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#href#189;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#jade#28;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#klass#232;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#linktype#138;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/mongoose/website.js#package#56;</node>
+            <node x="" y="">/collection</node>
+            <node x="" y="">/connection</node>
+            <node x="" y="">acquit</node>
+            <node x="" y="">assert</node>
+            <node x="" y="">body-parser</node>
+            <node x="" y="">exec;C:/Users/jacks/Documents/GitHub/lab-mongoose-movies/node_modules/nodemon/lib/cli/parse.js#spawn#3387;</node>
+            <node x="" y="">EventEmitter;</node>
+            <node x="" y="">filters</node>
+            <node x="" y="">statSync;</node>
+            <node x="" y="">global.MONGOOSE_DRIVER_PATH</node>
+            <node x="" y="">highlight</node>
+            <node x="" y="">href</node>
+            <node x="" y="">createServer;</node>
+            <node x="" y="">jade</node>
+            <node x="" y="">json</node>
+            <node x="" y="">klass</node>
+            <node x="" y="">linktype</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/hbs/lib/hbs.js#__express#503;</node>
+            <node x="" y="">ReplSet;Server;Sharded;</node>
+            <node x="" y="">isIP;</node>
+            <node x="" y="">node-static</node>
+            <node x="" y="">dirname;join;resolve;</node>
+            <node x="" y="">querystring</node>
+            <node x="" y="">source</node>
+            <node x="" y="">Readable;Stream;</node>
+            <node x="" y="">url</node>
+            <node x="" y="">deprecate;inspect;</node>
+            <node x="" y="">zlib</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="2235.904078197574" y="1981.4285714285713" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Overview</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/celebrities/show.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/celebrities/index.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="57" column="21" lean-forward="true" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/celebrity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/seeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/celebrities/newGuy.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/celebrities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

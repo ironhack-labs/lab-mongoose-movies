@@ -54,5 +54,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebs = require('./routes/celebrities');//grabs the celebrity url for use
+app.use('/', celebs);
+//it;s already in the celebtiry route folder, so no need to do celebrity again
+
 
 module.exports = app;
