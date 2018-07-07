@@ -12,7 +12,7 @@ const path         = require('path');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/starter-code', {useMongoClient: true})
+  .connect('mongodb://localhost/movies-mongoose', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -52,7 +52,13 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const celebs = require('./routes/celebs');
+const newCeleb = require('./routes/new');
+const movies = require('./routes/movies');
 app.use('/', index);
+app.use('/celebrities',celebs);
+app.use('/newCeleb', newCeleb);
+app.use('/movies', movies);
 
 
 module.exports = app;
