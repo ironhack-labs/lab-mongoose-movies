@@ -1,0 +1,10 @@
+<div class ="container box">
+ <h2>Click on the celebs to learn more about them!</h2>
+  <div class="row">
+      {{#each celebrities}} 
+        {{>celebPartial this}}
+      {{/each}}
+  </div>
+
+  <a href="/celebrities/new">Add more celebrities</a>
+</div>

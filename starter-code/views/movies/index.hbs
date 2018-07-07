@@ -1,0 +1,10 @@
+<div class ="container box">
+ <h2>Click on the movies to learn more about them!</h2>
+  <div class="row">
+      {{#each movies}} 
+        {{>moviePartial this}}
+      {{/each}}
+  </div>
+
+  <a href="/movies/new">Add more movies</a>
+</div>
