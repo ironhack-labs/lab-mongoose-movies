@@ -61,6 +61,16 @@ router.get("/movies/:id", (req, res, next) => {
     });
 });
 
+router.post("/movies/:id/delete", (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch(err => {
+      next();
+    });
+});
+
 const setErrors = (res, err) => {
   const errors = [];
   for (field in err.errors) {
