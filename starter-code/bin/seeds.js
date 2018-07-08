@@ -4,23 +4,23 @@ const mongoose  = require('mongoose');
 const Celebrity = require('../models/celebrity');
 const Movie     = require('../models/movie');
 
-// mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
-mongoose.connect(`mongodb://localhost/lab-mongoose-movies`);
+mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useMongoClient: true});
 
 const celebrities = [
   {
-    name: 'Rodrigo Rato',
-    catchPhrase: '¡Es el mercado amigo!'
+    name: 'Chiquito de la Calzada',
+    occupation: 'Comedian',
+    catchPhrase: 'Pecador de la pradera'
   },
   {
-    name: 'M. Rajoy',
-    occupation: 'Politic',
-    catchPhrase: '¿Y la europea?'
+    name: 'Gila',
+    occupation: 'Comedian',
+    catchPhrase: '¿Es el enemigo?'
   },
   {
-    name: 'Cristina Cifuentes',
-    occupation: 'Student',
-    catchPhrase: 'No me voy, me quedo.'
+    name: 'Eugenio',
+    occupation: 'Comedian',
+    catchPhrase: 'Saben aquel que diu'
   }
 ]
 
@@ -36,19 +36,19 @@ mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${proc
 
 const movies = [
   {
-    title: 'Caso canal',
-    genre: 'Drama',
-    plot: ''
+    title: 'Karate a muerte en Torremolinos',
+    genre: 'Comedy',
+    plot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis tincidunt arcu vel vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium tellus ut enim mollis mollis. Curabitur vulputate massa risus, ut fringilla velit commodo ut. Donec bibendum gravida maximus. Vestibulum lacinia ornare magna id imperdiet. Duis quis convallis enim. Nunc sit amet nulla non lacus cursus dapibus blandit id nisl. Suspendisse nibh eros, euismod ac ante nec, tristique viverra lectus. Etiam nec risus venenatis, congue nunc sed, faucibus urna. Duis sit amet elementum massa.'
   },
   {
-    title: 'Caso punica',
+    title: 'The Room',
     genre: 'Drama',
-    plot: ''
+    plot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis tincidunt arcu vel vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium tellus ut enim mollis mollis. Curabitur vulputate massa risus, ut fringilla velit commodo ut. Donec bibendum gravida maximus. Vestibulum lacinia ornare magna id imperdiet. Duis quis convallis enim. Nunc sit amet nulla non lacus cursus dapibus blandit id nisl. Suspendisse nibh eros, euismod ac ante nec, tristique viverra lectus. Etiam nec risus venenatis, congue nunc sed, faucibus urna. Duis sit amet elementum massa.'
   },
   {
-    title: 'Caso gurtel',
-    genre: 'Drama',
-    plot: ''
+    title: 'R.O.T.O.R.',
+    genre: 'Action',
+    plot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis tincidunt arcu vel vestibulum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam pretium tellus ut enim mollis mollis. Curabitur vulputate massa risus, ut fringilla velit commodo ut. Donec bibendum gravida maximus. Vestibulum lacinia ornare magna id imperdiet. Duis quis convallis enim. Nunc sit amet nulla non lacus cursus dapibus blandit id nisl. Suspendisse nibh eros, euismod ac ante nec, tristique viverra lectus. Etiam nec risus venenatis, congue nunc sed, faucibus urna. Duis sit amet elementum massa.'
   }
 ]
 
