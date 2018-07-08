@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <h2>Celebrities</h2>
+        <!--<p>Welcome to BBDD of Celebrities</p>
+        --><div class="col-12 col-md-3"></div>
+     
+        <div>
+            <ul>
+                {{#each celebrities}}
+                <li>
+                    <h3>{{name}}</h3>
+                    <a href="/celebrities/{{_id}}">See More</a>
+                    <a href="/celebrities/edit/{{_id}}">Update</a>
+                    <a href="/celebrities/delete/{{_id}}">Delete</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+   
+
+
+    </div>
+
+<div class="buttons">
+    <div><a href="/">BACK</a></div>
+    <div><a href="/celebrities/new">Add a new Celebrity</a></div>
+ </div>
+</div>
+

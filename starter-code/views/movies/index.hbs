@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <h2>MOVIES</h2>
+       <div class="col-12 col-md-3"></div>
+     
+        <div>
+            <ul>
+                {{#each movies}}
+                <li>
+                    <h3>{{title}}</h3>
+                    <a href="/movies/{{_id}}">See More</a>
+                    <a href="/movies/edit/{{_id}}">Update</a>
+                    <a href="/movies/delete/{{_id}}">Delete</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+   
+
+
+    </div>
+    <a href="/">Back Cinema --</a>
+    <a href="/movies/new">Add a new movie</a>
+ 
+</div>
+
