@@ -51,4 +51,17 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+router.post('/:id/delete', (req, res, next) => {
+  const celebrityId = req.params.id; // Don't really understand why params.id
+  Celebrity.findByIdAndRemove(celebrityId)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      next();
+      console.log(error);
+      return error;
+    });
+});
+
 module.exports = router; // Why do we need this?
