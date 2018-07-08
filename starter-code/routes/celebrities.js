@@ -21,6 +21,23 @@ router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
+router.post('/', (req, res, next) => {
+  const data = {
+    name: req.body.name, // When do we use req.query??
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  const newCelebrity = new Celebrity(data); // Why don't we use Celebrity.create(data)
+  newCelebrity.save()
+    .then((celebrity) => {
+      res.redirect('celebrities');
+    })
+    .catch(error => {
+      res.render('celebrities/new');
+      console.log(error);
+    });
+});
+
 router.get('/:id', (req, res, next) => {
   const celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
