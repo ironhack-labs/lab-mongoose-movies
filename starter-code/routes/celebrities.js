@@ -20,7 +20,7 @@ router.get('/:id', (req, res, next) => {  //duda preguntar por que no se pone /c
   .catch(err => next())
 });
 
-/* Create the celebrity in DB */
+/* Create the celebrity */
 router.get('/new', (req, res) => {
   res.render('celebrities/new');
 });
@@ -35,10 +35,27 @@ router.post('/new', (req, res, next) => {
   .catch(err => next())
 });
 
-/* Delete the celebrity in DB */
+/* Delete the celebrity */
 router.post('/:id/delete',(req,res) => {
   Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'))
   .catch(err => next())
 })
+
+/* Edit the celebrity*/
+router.get('/edit/:id', (req,res) => {
+  Celebrity.findById(req.params.id).then(celebrity => {
+    res.render('celebrities/edit',{celebrity});;
+  })
+})
+
+router.post('/edit/:id', (req,res,next) => {
+  const {name, occupation, catchPhrase} = req.body;
+  Celebrity.findByIdAndUpdate(req.params.id,{name, occupation, catchPhrase})
+    .then( celebrity => {
+      res.redirect('/celebrities')
+    })
+    .catch(err => next())
+})
+
 
 module.exports = router;

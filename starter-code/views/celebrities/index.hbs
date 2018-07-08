@@ -4,11 +4,11 @@
   <p><a href="/celebrities/{{_id}}">{{name}}</a></p>
   <form action="/celebrities/{{this._id}}/delete" method="post">
     <button type="submit">Delete</button>
-  </form>
+  </form> 
 {{/each}}
 
-
 <button><a href="/celebrities/new">Add Celebrity</a></button>
+<button><a href="/celebrities/edit/{{celebrity._id}}">Edit Celebrity</a></button>
 
 <button><a href="/">Go Back</a></button>
 
