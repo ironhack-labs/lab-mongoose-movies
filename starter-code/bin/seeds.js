@@ -4,7 +4,8 @@ const mongoose  = require('mongoose');
 const Celebrity = require('../models/celebrity');
 const Movie     = require('../models/movie');
 
-mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useMongoClient: true});
+//mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useMongoClient: true});
+mongoose.connect(`mongodb://localhost/lab-mongoose-movies`);
 
 const celebrities = [
   {
@@ -32,7 +33,8 @@ Celebrity.create(celebrities, (err) => {
   mongoose.connection.close()
 });
 
-mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useMongoClient: true});
+//mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {useMongoClient: true});
+mongoose.connect(`mongodb://localhost/lab-mongoose-movies`);
 
 const movies = [
   {
