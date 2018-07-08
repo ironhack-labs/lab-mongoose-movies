@@ -1,0 +1,15 @@
+<h2>Películas</h2>
+
+<a href="/movies/new">Crea tu propia Película</a>
+
+<ul>
+  {{#each movies}}
+    <li>
+      {{this.title}}
+      <a href="/movies/{{this._id}}">{{this._id}}</a>
+      <form action="/movies/{{this._id}}/delete" method="post">
+      <button type="submit">Eliminar</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
