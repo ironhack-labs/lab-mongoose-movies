@@ -51,9 +51,39 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-router.post('/:id/delete', (req, res, next) => {
+router.post('/:id/delete', (req, res, next) => { // Why does the route include :id ??
   const celebrityId = req.params.id; // Don't really understand why params.id
   Celebrity.findByIdAndRemove(celebrityId)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      next();
+      console.log(error);
+      return error;
+    });
+});
+
+router.get('/:id/edit', (req, res, next) => {
+  const celebrityId = req.params.id;
+  Celebrity.findById(celebrityId)
+    .then((celebrityDetails) => {
+      res.render('celebrities/edit', {celebrityDetails: celebrityDetails});
+    })
+    .catch(error => {
+      next();
+      console.log(error);
+      return error;
+    });
+});
+
+router.post('/:id', (req, res, next) => {
+  const data = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  Celebrity.update({_id: req.params.id}, data) // When params, when body?? IMPORTANT TO KNOW UPDATE
     .then(() => {
       res.redirect('/celebrities');
     })
