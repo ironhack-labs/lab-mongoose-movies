@@ -49,6 +49,29 @@ router.post('/celebrities/:id/delete',(req, res, next)=>{
 
 
 
+router.get('/celebrities/:id/edit', (req, res, next)=>{
+  Celebrity.findById(req.params.id)
+  .then((theCelebrity)=>{
+    res.render('celebrities/edit',{theCelebrity})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
+
+router.post('/celebrities/:id/update', (req,res,next)=>{
+  Celebrity.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  })
+  .then((theCelebrity)=>{
+    res.redirect('/celebrities/')
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
 
 
 
@@ -60,7 +83,17 @@ router.post('/celebrities/:id/delete',(req, res, next)=>{
 
 
 
-//Leaving these two at the bottom to work after every edit
+
+
+
+
+
+
+
+
+
+
+//Leaving these two at the bottom to work after every edit/add/delete
 
 
 
