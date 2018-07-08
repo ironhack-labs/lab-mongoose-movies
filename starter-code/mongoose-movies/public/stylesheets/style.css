@@ -5,4 +5,8 @@ body {
 a {
   color: #00B7FF; }
 
+.headshot {
+  max-height: 300px;
+  max-width: 300px; }
+
 /*# sourceMappingURL=style.css.map */

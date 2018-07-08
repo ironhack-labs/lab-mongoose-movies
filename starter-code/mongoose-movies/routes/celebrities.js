@@ -43,9 +43,48 @@ router.post('/celebrities/create', (req,res,next)=>{
 
             next(err);
 
-        })
+        });
 
 });
+
+// GET ROUTE FOR EDITING A CELEB PAGE
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+
+    const theID = req.params.id;
+    
+    Celebrity.findById(theID)
+        .then((theCeleb)=>{
+            
+            res.render('celebrities/edit',theCeleb);
+        })
+        .catch((err)=>{
+
+            next(err);
+
+        });
+  
+});
+
+// POST ROUTE FOR UPDATING CELEBRITY INFO
+
+router.post('/celebrities/:id/update', (req,res,next)=>{
+
+    Celebrity.findByIdAndUpdate(req.params.id,req.body)
+        .then((response)=>{
+
+            res.redirect('/celebrities');
+
+        })
+        .catch((err)=>{
+
+            next(err);
+
+        });
+
+});
+
+// ROUTE FOR DELETE POST - USER IS NEVER ACTUALLY SHOWN THIS ROUTE, JUST USED BY THE FORM BUTTON
 
 router.post('/celebrities/:id/delete', (req,res,next)=>{
 
