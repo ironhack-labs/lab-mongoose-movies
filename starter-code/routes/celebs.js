@@ -32,7 +32,13 @@ router.post('/:id/delete',(req,res)=>{
   .then(celebs => {res.redirect('/celebrities')})
 })
 
+router.get('/:id/edit',(req,res)=>{
+  Celebs.findById(req.params.id)
+  .then(celeb=>{res.render('celebsEdit', celeb)})
+})
 
-
-
+router.post('/:id/edit',(req,res)=>{
+  Celebs.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  .then(celebs=>{res.redirect(`/celebrities/${req.params.id}`)})
+})
 module.exports = router;

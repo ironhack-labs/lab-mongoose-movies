@@ -20,4 +20,19 @@ router.get('/:id',(req,res)=>{
   .catch(err=>{console.log(err)});
 })
 
+router.post('/:id/delete',(req,res)=>{
+  Movies.findByIdAndRemove(req.params.id)
+  .then(movies=>{res.redirect('/movies')})
+})
+
+router.get('/:id/edit',(req,res)=>{
+  Movies.findById(req.params.id)
+  .then(movie=>{res.render('movieEdit',movie)})
+})
+
+router.post('/:id/edit',(req,res)=>{
+  Movies.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  .then(movie=>{return res.redirect(`/movies/${req.params.id}`)})
+})
+
 module.exports = router;
