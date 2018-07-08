@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/celebrity');
 
-router.get('/celebrities/index', (req, res, next) => {
+router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
     .then((listOfCelebs) => {
         res.render('celebrities/index', {celebsArray: listOfCelebs});
@@ -32,16 +32,6 @@ router.post('/celebrities/create', (req, res, next) => {
     })
 });
 
-router.get('/celebrities/:id/edit', (req, res, next) => {
-    Celebrity.findById(req.params.id)
-    .then((theCeleb) => {
-        res.render('celebrities/edit', {theCeleb})
-    })
-    .catch((err) => {
-        next(err)
-    })
-});
-
 router.post('/celebrities/:id/delete', (req, res, next)=>{
     Celebrity.findByIdAndRemove(req.params.id)
     .then((reponse)=>{
@@ -51,6 +41,16 @@ router.post('/celebrities/:id/delete', (req, res, next)=>{
         next(err);
     })
  });
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+    Celebrity.findById(req.params.id)
+    .then((theCeleb) => {
+        res.render('celebrities/edit', {theCeleb})
+    })
+    .catch((err) => {
+        next(err)
+    })
+});
 
  router.post('/celebrities/:id/update', (req, res, next) => {
     Celebrity.findByIdAndUpdate(req.params.id, {
