@@ -1,0 +1,20 @@
+{{!-- this is the page in the browser where people can see the details of an specific 
+celebrity --}}
+
+
+
+
+<hr>
+{{name}}
+<hr>
+{{occupation}}
+<hr>
+{{catchPhrase}}
+
+<hr>
+<a href="/celebrities/{{_id}}/edit">Edit This Celebrity</a>
+
+
+<form action="/celebrities/{{_id}}/delete" method="post"> 
+<button>Delete This Celebrity</button>
+</form>
