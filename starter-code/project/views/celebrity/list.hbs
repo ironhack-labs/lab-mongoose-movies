@@ -1,0 +1,15 @@
+<h2>All the celebrities in DB</h2>
+<a href="/celebrities/add">Añadir una celebrity</a>
+
+<ul>
+    {{#each celebrities}}
+        <li>
+            <div>
+                <a href="/celebrities/{{_id}}">{{name}}</a><br>
+                <a href="/celebrities/edit/{{_id}}">Editar esta celebrity</a>
+                -
+                <a href="/celebrities/delete/{{_id}}">Borrar</a>
+            </div>
+        </li>
+    {{/each}}
+</ul>
