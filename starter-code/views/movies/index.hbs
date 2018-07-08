@@ -2,6 +2,7 @@
 
 {{#each movies}}
   <p><a href="/movies/{{_id}}">{{title}}</a></p>
+  <button><a href="/movies/{{this._id}}/edit">Edit Movie</a></button>
   <form action="/movies/{{this._id}}/delete" method="post">
     <button type="submit">Delete</button>
   </form>
