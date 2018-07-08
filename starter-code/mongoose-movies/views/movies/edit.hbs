@@ -1,0 +1,26 @@
+<h1>EDIT MOVIE PAGE</h1>
+
+<form action="/movies/{{_id}}/update" method="post">
+
+<label>Title:</label>
+<input type="text" name="title" value="{{title}}">
+<br>
+
+<p><label>Genre:</label>
+<input type="text" name="genre" value="{{genre}}">
+<br>
+
+<p><label>Plot:</label>
+<input type="text" name="plot" value="{{plot}}">
+<br>
+
+<p><label>Poster URL:</label>
+<input type="text" name="poster" value="{{poster}}">
+<br>
+
+<p></p><button type="submit">Update Movie</button>
+
+
+</form>
+
+<p><a href="/movies">Back to Movies</a></p>

@@ -60,5 +60,10 @@ app.use('/', index);
 const celebrities = require('./routes/celebrities');
 app.use('/', celebrities);
 
+// MIDDLEWARE 'ROUTE' FOR /MOVIES ROUTE FILE
+
+const movies = require('./routes/movies');
+app.use('/', movies);
+
 
 module.exports = app;
