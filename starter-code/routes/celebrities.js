@@ -42,13 +42,13 @@ router.post('/:id/delete',(req,res) => {
 })
 
 /* Edit the celebrity*/
-router.get('/edit/:id', (req,res) => {
+router.get('/:id/edit', (req,res) => {
   Celebrity.findById(req.params.id).then(celebrity => {
     res.render('celebrities/edit',{celebrity});;
   })
 })
 
-router.post('/edit/:id', (req,res,next) => {
+router.post('/:id/edit', (req,res,next) => {
   const {name, occupation, catchPhrase} = req.body;
   Celebrity.findByIdAndUpdate(req.params.id,{name, occupation, catchPhrase})
     .then( celebrity => {

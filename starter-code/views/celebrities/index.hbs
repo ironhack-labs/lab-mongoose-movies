@@ -2,13 +2,14 @@
 
 {{#each celebrities}}
   <p><a href="/celebrities/{{_id}}">{{name}}</a></p>
+  <button><a href="/celebrities/{{this._id}}/edit">Edit Celebrity</a></button>
   <form action="/celebrities/{{this._id}}/delete" method="post">
     <button type="submit">Delete</button>
   </form> 
 {{/each}}
 
 <button><a href="/celebrities/new">Add Celebrity</a></button>
-<button><a href="/celebrities/edit/{{celebrity._id}}">Edit Celebrity</a></button>
+
 
 <button><a href="/">Go Back</a></button>
 
