@@ -10,7 +10,31 @@ const Celebrity = require('../models/celebritymodelfile')
 
 
 
-//PROBLEM: CANNOT GET THE MONGOOSE DATA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Leaving these two at the bottom to work after every edit
+
+
+
 //GET celebrities page
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
@@ -27,12 +51,14 @@ router.get('/celebrities/:id', (req, res, next)=>{
   const theId = req.params.id;
   Celebrity.findById(theId)
   .then((theCelebrity)=>{
-    res.render('celebrityDetails', theCelebrity);
+    //there's a way to link this so that I only need to put 'celebrityDetails',
+    //however for the sake of time, this eludes me at this code's writing time.
+    res.render('celebrities/show', theCelebrity);
   })
   .catch((err)=>{
     next(err);
   })
-})
+});
 
 
 
