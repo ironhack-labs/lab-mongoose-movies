@@ -22,14 +22,14 @@ router.post('/new', (req, res, next) => {
   });
 });
 
-/* CR(U)D: Update the book, show update form  */
+
 router.get('/edit/:id', (req,res) => {
   Movie.findById(req.params.id).then(movie => {
     res.render('movies/edit',{movie});;
   })
 })
 
-/* CR(U)D: Update the book in DB */
+
 router.post('/edit/:id', (req,res) => {
   const {title, genre, plot} = req.body;
   Movie.findByIdAndUpdate(req.params.id,{title, genre, plot})
