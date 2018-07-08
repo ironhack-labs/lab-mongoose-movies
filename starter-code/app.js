@@ -12,7 +12,7 @@ const path         = require('path');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/moviesAndCelebsApp', {useMongoClient: true})
+  .connect('mongodb://localhost/moviesAndCelebs', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -54,7 +54,10 @@ app.locals.title = 'Celebrities!';
 const index = require('./routes/index');
 app.use('/', index);
 
-const celebrities = require('./routes/celebrities');
+const celebrities = require('./routes/celebrities');  //al ponerlo no tengo que estar llamándolo en routes constantemente
 app.use('/celebrities', celebrities);
+
+const movies = require('./routes/movies');  
+app.use('/movies', movies);
 
 module.exports = app;

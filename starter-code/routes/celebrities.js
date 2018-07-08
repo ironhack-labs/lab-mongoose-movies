@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {  //duda preguntar por que no se pone /cele
 });
 
 /* GET celebrities id page */
-router.get('/:id', (req, res) => {  //duda preguntar por que no se pone /celebrities
+router.get('/:id', (req, res, next) => {  //duda preguntar por que no se pone /celebrities
   Celebrity.findById({_id: req.params.id})
   .then(celebrities => {res.render('celebrities/show',{celebrities});
   })
@@ -30,7 +30,7 @@ router.post('/new', (req, res, next) => {
   new Celebrity({name, occupation, catchPhrase})
   .save().then( celebrity => {
     console.log("Celebrity sucessfully created!");
-    res.redirect('/celebrities');
+    res.redirect('/celebrities');  
   })
   .catch(err => next())
 });
@@ -40,7 +40,5 @@ router.post('/:id/delete',(req,res) => {
   Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'))
   .catch(err => next())
 })
-
-
 
 module.exports = router;
