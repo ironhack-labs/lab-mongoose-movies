@@ -3,7 +3,11 @@
   <a href="/celebrities/new">Agregar una celebridad</a>
 
   {{#each celebritiesArray}}
-    <h4>{{name}}</h4>
-    <a href="/celebrities:{{_id}}">See More</a>
+  <h4>{{name}}</h4>
+  <a href="/celebrities:{{_id}}">Ver detalles</a>
+  <a href="/celebrities/{{_id}}/edit">Modificar detalles</a>
+  <form action="/celebrities/{{_id}}/delete" method="post">
+    <button type="submit">Eliminar</button>
+  </form>
   {{/each}}
 </div>

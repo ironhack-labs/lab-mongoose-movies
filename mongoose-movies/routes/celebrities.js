@@ -61,4 +61,31 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
     });
 });
 
+/* CR(U)D: GET Agrega forma de nueva celebridad */
+router.get("/celebrities/:id/edit", (req, res, next) => {
+  let celID = req.params.id;
+  Celebrities.findById(celID)
+    .then(celebrity => {
+      console.log(`Informacion ha actualizar de la celebridad ${celebrity} OK!`);
+      res.render("celebrities/edit", { celebrity });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+/* CR(U)D: POST Modifica una celebridad */
+router.post("/celebrities/edit", (req, res, next) => {
+  const { id, name, occupation, catchPhrase } = req.body;
+  console.log(`Estos son los parametros: ${name} mas ${occupation} mas ${catchPhrase} mas ${id}`);
+  Celebrities.findByIdAndUpdate(id,{ name, occupation, catchPhrase })
+  .then( celebrity => {
+    res.redirect('/celebrities')
+  })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+
 module.exports = router;
