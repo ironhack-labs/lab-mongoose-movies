@@ -11,11 +11,31 @@ const Celebrity = require('../models/celebritymodelfile')
 
 
 
+//Locating route for page to make a new celebrity. new.hbs has the form that calls post
+router.get('/celebrities/new', (req, res, next)=>{
+  res.render('celebrities/new')
+})
+
+//method that modifies information in database by adding a new celebrity
+router.post('/celebrities/', (req, res, next)=>{
+  const newCelebrity = new Celebrity({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  })
+
+//this saves the info in mongodb
+newCelebrity.save()
+.then((response)=>{
+  res.redirect('/celebrities/')
+})
+.catch((err)=>{
+  next(err);
+  res.redirect('/celebrities/new')
+})
 
 
-
-
-
+})
 
 
 
