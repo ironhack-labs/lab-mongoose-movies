@@ -17,4 +17,17 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/:id', (req, res, next) => {
+  const celebrityId = req.params.id;
+  Celebrity.findById(celebrityId)
+    .then(celebrity => {
+      res.render('celebrities/show', {celebrity: celebrity});
+    })
+    .catch(error => {
+      next();
+      console.log(error);
+      return error;
+    });
+});
+
 module.exports = router; // Why do we need this?
