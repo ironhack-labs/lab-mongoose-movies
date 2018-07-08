@@ -33,6 +33,18 @@ router.post('/add', (req, res) => {
       res.render('celebrities/add');
     });
 });
+
+router.post('/:id/delete', (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findByIdAndRemove(celebId)
+    .then((result) => {
+      return res.redirect('../');
+    })
+    .catch(err => {
+      console.log(err);
+      next();
+    });
+});
 router.get('/:id', (req, res, next) => {
   const celebId = req.params.id;
   Celebrity.findById(celebId)
