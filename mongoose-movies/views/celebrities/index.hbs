@@ -1,0 +1,9 @@
+<div>
+  <h2>CELEBRIDADES</h2>
+  <a href="/celebrities/new">Agregar una celebridad</a>
+
+  {{#each celebritiesArray}}
+    <h4>{{name}}</h4>
+    <a href="/celebrities:{{_id}}">See More</a>
+  {{/each}}
+</div>
