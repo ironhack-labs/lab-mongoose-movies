@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 
 /* C(R)UD: Retrieve -> List all celebrities */
 router.get('/celebrities', (req, res, next) => {
-  Celebrity.find({}).then(celebrities => {
+  Celebrity.find({}).sort({name: 1}).then(celebrities => {
     console.log(celebrities);
     res.render('celebrities/index', {celebrities});
   });
@@ -31,6 +31,27 @@ router.post('/celebrities/new', (req, res, next) => {
   });
 });
 
+/* CR(U)D: Update the celebrity, show update form  */
+router.get('/celebrities/edit/:id', (req,res) => {
+  Celebrity.findById(req.params.id).then(celebrities => {
+    res.render('celebrities/edit',{celebrities});
+  });
+});
+
+///* CR(U)D: Update the celebrity in DB */
+router.post('/celebrities/edit/:id', (req,res) => {
+  const {name, occupation, catchPhrase} = req.body;
+  Celebrity.findByIdAndUpdate(req.params.id,{name, occupation, catchPhrase})
+  .then( celebrities => {
+    res.redirect('/celebrities');
+  });
+});
+
+/* CRU(D): Update the deleted Celebrity in DB */
+router.get('/celebrities/delete/:id',(req,res) => {
+  Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'));
+});
+
 /* C(R)UD: Retrieve -> List the choosen celebrity */
 router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findById(req.params.id)
@@ -39,26 +60,5 @@ router.get('/celebrities/:id', (req, res, next) => {
     res.render('celebrities/show', {celebrities});
   });
 });
-
-/* CR(U)D: Update the celebrity, show update form  */
-// router.get('/celebrities/edit/:id', (req,res) => {
-//   Book.findById(req.params.id).then(book => {
-//     res.render('book/edit',{book});;
-//   })
-// })
-
-///* CR(U)D: Update the celebrity in DB */
-//router.post('/books/edit/:id', (req,res) => {
-//  const { title, author, description, rating} = req.body;
-//  Book.findByIdAndUpdate(req.params.id,{ title, author, description, rating })
-//      .then( book => {
-//        res.redirect('/books')
-//      })
-//})
-
-/* CRU(D): Update the deleted Celebrity in DB */
-router.get('/celebrities/delete/:id',(req,res) => {
-  Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'));
-})
 
 module.exports = router;

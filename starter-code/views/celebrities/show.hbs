@@ -1,10 +1,11 @@
-<h2>The celebrity</h2>
+<h2>Our celebrity <span class="text-secondary">{{celebrities.name}}</span></h2>
 
 <div>
-  {{#each celebrities}}
-    <p>{{name}}</p>
-    <p>{{occupation}}</p>
-    <p>{{catchPhrase}}</p>
-  {{/each}}
+    <p><span class="text-secondary">Name: </span>{{celebrities.name}}</p>
+    <p><span class="text-secondary">Occupation: </span>{{celebrities.occupation}}</p>
+    <p><span class="text-secondary">Catch Phrase: </span>"{{celebrities.catchPhrase}}"</p>
 </div>
-<a href="/celebrities">Back to celebrities</a>
+
+<div class="bottom-links">
+  <a href="/celebrities">Back to celebrities</a>
+</div>

@@ -1,14 +1,16 @@
 <h2>Our Celebrities</h2>
-<div>
-  {{#each celebrities}}
+
+{{#each celebrities}}
+  <div class=" celebs">
     <p>{{name}}</p>
-    <a href="celebrities/{{id}}">+ Info</a>
-    -
-    <a href="celebrities/edit/{{id}}">Delete</a>
-    -
-    <a href="celebrities/delete/{{id}}">Delete</a>
+    <div class="celebs-btn">
+      <a class="btn btn-outline-info" href="celebrities/{{id}}">+ INFO</a>
+      <a class="btn btn-outline-success" href="celebrities/edit/{{id}}">EDIT</a>
+      <a class="btn btn-outline-danger" href="celebrities/delete/{{id}}">DELETE</a>
+    </div>
+  </div>
+{{/each}}
 
-  {{/each}}
+<div class="bottom-links">
+  <a href="/celebrities/new">Add a Celebrity</a>  
 </div>
-
-<a href="/celebrities/new">Add a Celebrity</a>
