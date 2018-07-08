@@ -33,10 +33,19 @@ newCelebrity.save()
   next(err);
   res.redirect('/celebrities/new')
 })
-
-
 })
 
+
+
+router.post('/celebrities/:id/delete',(req, res, next)=>{
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then((response)=>{
+    res.redirect('/celebrities');
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
 
 
 
