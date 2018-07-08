@@ -16,8 +16,8 @@ router.get("/celebrities", (req, res, next) => {
 });
 
 /*  C(R)UD: Retrieve -> Detalles de una celebridad */
-router.get("/celebrities:id", (req, res, next) => {
-  let celID = req.params.id.split(":")[1];
+router.get("/celebrities/:id", (req, res, next) => {
+  let celID = req.params.id;
   console.log("El celID vale: " + celID);
   Celebrities.findById(celID)
     .then(celebrity => {
