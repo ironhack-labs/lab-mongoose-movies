@@ -5,15 +5,26 @@ const Celebrity = require('../models/celebrity');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  console.log('requested celebriteis');
   Celebrity.find()
     .then(celebrities => {
-      console.log(celebrities);
-      res.render('celebrities', celebrities);
+      res.render('celebrities', { celebrities });
     })
     .catch(err => {
       console.log(err);
+      next();
     });
 });
 
+router.get('/:id', (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findById(celebId)
+    .then(celeb => {
+      console.log(celeb);
+      res.render('celebrities/details', celeb)
+        .catch(err => {
+          console.log(err);
+          next();
+        });
+    });
+});
 module.exports = router;
