@@ -1,7 +1,24 @@
 <section>
+    <a href="/celebrities">HOME PAGE</a>
+    <h2>Add a celebrity</h2>
+    <ul>
+        {{#each errorFields}}
+        <li>{{this}}</li>
+        {{/each}}
+    </ul>
 
-<h2>Add a celebrity</h2>
 
-<form action="/celebrities" method="POST"></form>
+    <form action="/celebrities" method="POST"></form>
+    <label for="">Name: </label>
+    <input type="text" name="name">
 
+    <label for="">Occupation: </label>
+    <input type="text" name="occupation">
+
+    <label for="">Catch Phrase: </label>
+    <input type="text" name="catchPhrase">
+
+    <button type="submit">Add Celebrity</button>
+
+    </form>
 </section>

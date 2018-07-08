@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 celebSchema = new Schema({
-    name: {typpe: String, required: true },
-    occupation: {type: String, required: true },
-    catchPhrase:{type: String, required: true}
+    name:  String,
+    occupation:  String, 
+    catchPhrase: String
 }, {
         timestamps: {
             createdAt: "created_at",

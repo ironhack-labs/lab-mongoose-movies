@@ -1,0 +1,13 @@
+<section>
+    <a href="/movies">Movie List</a> 
+    <h1>Edit a Movie!</h1>
+    <form action="/movies/edit/{{movie._id}}" method="post">
+        <label>Title:</label>
+        <input type="text" name="title" value="{{movie.title}}">
+        <label>Genre:</label>
+        <input type="text" name="genre" value="{{movie.genre}}">
+        <label>Plot:</label>
+        <input type="text" name="plot" value="{{movie.plot}}">
+        <button type="submit">EDIT</button>
+    </form>
+</section>

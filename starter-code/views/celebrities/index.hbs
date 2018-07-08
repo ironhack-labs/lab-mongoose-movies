@@ -1,0 +1,12 @@
+<div class="cont">
+    <a href="/">HOME PAGE</a>
+    <h1>Celebrities</h1>
+    <a href="/celebrities/new">Add a Celebrity!!</a>
+    {{#each celebrities}}
+    <div>
+        <a href="/celebrities/{{_id}}">{{name}}</a>
+        <a href="/celebrities/edit/{{_id}}">Edit Celebrity</a>
+        <a href="/celebrities/delete/{{_id}}">Delete Celebrity</a>
+    </div>
+    {{/each}}
+</div>

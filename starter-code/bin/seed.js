@@ -4,17 +4,11 @@ const Celebrity = require('../models/Celebrity');
 const Movie = require('../models/Movie');
 
 
-const dbName = process.env.DBURL;
-mongoose.connect(dbName);
-
-mongoose.Promise = Promise;
-mongoose
-  .connect( dbUrl, { useMongoClient: true })
-  .then(() => {
-    console.log("Connected to Mongo!");
+mongoose.connect('mongodb://localhost/starter-code', { useMongoClient: true })
 
 
-const celebirties = [{
+
+const celebrities = [{
     name: "Jason Statham",
     occupation: "british actor and model",
     catchPhrase: "If you're going to do something, do it with style"
@@ -32,19 +26,39 @@ const celebirties = [{
     catchPhrase: "Great companies are built on great products"
 
 }
+]
+
+const movies = [{
+    title: "Dunkirk",
+    genre: "History",
+    plot: "Allied soldiers from Belgium, the British Empire and France are surrounded by the German Army, and evacuated during a fierce battle in World War II.",
+},
+{
+    title: "Avengers Infinity War",
+    genre: "Action",
+    plot: "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
+},
+{
+    title: "The Purge: Election Year",
+    genre: "Sci-Fi",
+    plot: "Former Police Sergeant Barnes becomes head of security for Senator Charlie Roan, a Presidential candidate targeted for death on Purge night due to her vow to eliminate the Purge.",
+
+},
 ];
 
 
 Celebrity.collection.drop();
 Movie.collection.drop();
 
-Celebrity.create(celebrities)
-    .then((celebrities) => {
-        console.log(`${celebrities.length} celebrities created.`);
+Celebrity.create(celebrities, (err, celebrities) => {
+    if (err) {
+        throw err;
+    }
+    console.log(`created${celebrities.length}celebrities`);
+    mongoose.disconnect();
+});
 
-        mongoose.disconnect();
-      })
-  })
-  .catch(err => {
-    console.error("Error connecting to mongo", err);
-  });
+Movie.create(movies, (err, movies) => {
+    if (err) { throw (err) }
+    console.log(`Created ${movies.length} movies`);
+    mongoose.disconnect(); });
