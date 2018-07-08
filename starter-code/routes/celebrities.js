@@ -7,8 +7,8 @@ const Celebrity = require('../models/celebrity'); // .js missing??
 
 router.get('/', (req, res, next) => {
   Celebrity.find()
-    .then((celebrities) => {
-      res.render('celebrities/index', {celebrities: celebrities});
+    .then((celebrity) => {
+      res.render('celebrities/index', {celebrity: celebrity});
     })
     .catch(error => {
       next();
