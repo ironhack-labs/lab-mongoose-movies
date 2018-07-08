@@ -1,13 +1,13 @@
 <h2>Edit the Celebrity</h2>
 <form action="/celebrities/{{celebrityDetails.id}}" method="POST">
   <label for="">Name:</label>
-  <input type="text" name="name"> {{!-- possible to add bonus --}}
+  <input type="text" name="name" value="{{celebrityDetails.name}}"> {{!-- Pre-filled value! --}}
   <br>
   <label for="">Occupation:</label>
-  <input type="text" name="occupation">
+  <input type="text" name="occupation" value="{{celebrityDetails.occupation}}">
   <br>
   <label for="">Catch Phrase:</label>
-  <input type="text" name="catchPhrase">
+  <input type="text" name="catchPhrase" value="{{celebrityDetails.catchPhrase}}">
   <br>
   <button type="submit">Save</button>
 </form>
