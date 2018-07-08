@@ -21,34 +21,20 @@ router.get('/celebrities', (req, res, next) => {
   
   });
 
-  /* C(R)UD :Show a specific celebrity*/
-router.get('/celebrities/:id', (req, res, next) => {
-    Celebrity.findById(req.params.id)
-    .then(celebrities =>{
-        res.render('celebrities/show',{celebrities});
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  
-  });
-
-
   /* (C)RUD: Add a celebrity form */
-router.get('/celebrities/new', (req, res, next) => {
-    res.render('celebrities/new');
+  router.get("/celebrities/new", (req, res, next) => {
+    res.render("celebrities/new");
   });
   
-  /* (C)RUD: Create the celebrity in DB */
-  router.post('/celebrities', (req, res, next) => {
-    const {name, occupation,catchPhrase} = req.body;
-    new Celebrity({name, occupation,catchPhrase})
-    .save()
-    .then( celebrity => {
-      console.log("Celebrity sucessfully created!");
-      res.redirect('/celebrities');
-    })
-    .catch(error => {
+ /* (C)RUD: Create the celebrity in DB */
+  router.post("/celebrities", (req, res, next) => {
+    const { name, occupation, catchPhrase } = req.body;
+    new Celebrity({ name, occupation, catchPhrase  })
+      .save()
+      .then(celebrity => {
+        res.redirect("/celebrities");
+      })
+      .catch(error => {
         console.log(error);
       });
   });
@@ -89,6 +75,16 @@ router.post("/celebrities/edit/:id", (req, res, next) => {
       console.log(error);
     });
 });
-  
+
+   /* (C)RUD: Show specific celebrity */
+   router.get("/celebrities/:id", (req, res, next) => {
+    Celebrity.findById(req.params.id)
+      .then(celebrity => {
+        res.render("celebrities/show", { celebrity });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
   
 module.exports = router;

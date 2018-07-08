@@ -8,9 +8,9 @@
                 {{#each movies}}
                 <li>
                     <h3>{{title}}</h3>
-                    <a href="/movies/{{_id}}">See More</a>
-                    <a href="/movies/edit/{{_id}}">Update</a>
-                    <a href="/movies/delete/{{_id}}">Delete</a>
+                    <a href="/movies/{{_id}}" class="btn btn-outline-secondary btn-sm">See More</a>
+                    <a href="/movies/edit/{{_id}}" class="btn btn-outline-info btn-sm">Update</a>
+                    <a href="/movies/delete/{{_id}}" class="btn btn-outline-danger btn-sm">Delete</a>
                 </li>
                 {{/each}}
             </ul>
@@ -20,8 +20,8 @@
 
 
     </div>
-    <a href="/">Back Cinema --</a>
-    <a href="/movies/new">Add a new movie</a>
+    <a href="/" class="btn btn-outline-primary btn-sm">Back Cinema </a>
+    <a href="/movies/new" class="btn btn-outline-warning btn-sm">Add a new movie</a>
  
 </div>
 

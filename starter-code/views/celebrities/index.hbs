@@ -9,9 +9,9 @@
                 {{#each celebrities}}
                 <li>
                     <h3>{{name}}</h3>
-                    <a href="/celebrities/{{_id}}">See More</a>
-                    <a href="/celebrities/edit/{{_id}}">Update</a>
-                    <a href="/celebrities/delete/{{_id}}">Delete</a>
+                    <a href="/celebrities/{{_id}}" class="btn btn-outline-secondary btn-sm">See More</a>
+                    <a href="/celebrities/edit/{{_id}}" class="btn btn-outline-info btn-sm" >Update</a>
+                    <a href="/celebrities/delete/{{_id}}" class="btn btn-outline-danger btn-sm">Delete</a>
                 </li>
                 {{/each}}
             </ul>
@@ -22,9 +22,10 @@
 
     </div>
 
-<div class="buttons">
-    <div><a href="/">BACK</a></div>
-    <div><a href="/celebrities/new">Add a new Celebrity</a></div>
+    <a href="/" class="btn btn-outline-primary btn-sm">BACK</a></div>
+    <a href="/celebrities/new" class="btn btn-outline-warning btn-sm">Add a new Celebrity</a></div>
  </div>
 </div>
+
+
 
