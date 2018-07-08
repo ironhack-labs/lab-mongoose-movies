@@ -18,7 +18,7 @@ router.get("/celebrities", (req, res, next) => {
 /*  C(R)UD: Retrieve -> Detalles de una celebridad */
 router.get("/celebrities:id", (req, res, next) => {
   let celID = req.params.id.split(":")[1];
- console.log("El celID vale: " + celID);
+  console.log("El celID vale: " + celID);
   Celebrities.findById(celID)
     .then(celebrity => {
       console.log(`Informacion de celebridad ${celebrity} OK!`);
@@ -50,7 +50,15 @@ router.post("/celebrities/new", (req, res, next) => {
 });
 
 /* CRU(D): Elimina una celebridad de la DB */
-
-
+router.post("/celebrities/:id/delete", (req, res, next) => {
+  let celID = req.params.id;
+  Celebrities.findByIdAndRemove(celID)
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 
 module.exports = router;
