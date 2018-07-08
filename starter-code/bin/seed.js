@@ -23,9 +23,10 @@ const celebrities = [
   },
 ];
 
-//Celebrity.collection.drop();
+celebrities.collection.drop();
 
 Celebrity.create(celebrities, (err) => {
   if (err) { throw(err) }
   console.log('Created ${celebrities.length} celebrities');
+  mongoose.disconnect();
 });
