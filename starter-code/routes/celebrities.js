@@ -21,7 +21,7 @@ router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
-router.post('/', (req, res, next) => {
+router.post('/new', (req, res, next) => { // Remember /new !!!
   const data = {
     name: req.body.name, // When do we use req.query??
     occupation: req.body.occupation,
@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
   const newCelebrity = new Celebrity(data); // Why don't we use Celebrity.create(data)
   newCelebrity.save()
     .then((celebrity) => {
-      res.redirect('celebrities');
+      res.redirect('/celebrities'); // Remember /celebrities
     })
     .catch(error => {
       res.render('celebrities/new');
