@@ -1,0 +1,17 @@
+<h2>Edita los datos de tu película</h2>
+
+<form action="/movies/{{movie._id}}" method="post">
+    <div>
+        <label for="title">Edita el nombre de la celebridad:</label>
+        <input type="text" name="title" value="{{movie.title}}">
+    </div>
+    <div>
+        <label for="genre">Edita la ocupación de la celebridad:</label>
+        <input type="text" name="genre" value="{{movie.genre}}">
+    </div>
+    <div>
+        <label for="plot">Edita la frase de la celebridad:</label>
+        <input type="text" name="plot" value="{{movie.plot}}">
+    </div>
+    <button type="submit">Editar</button>
+</form>
