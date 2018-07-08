@@ -7,11 +7,15 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const celebritiesRouter = require('./routes/celebrities');
+const mongoose = require('mongoose');
 
 // --- Instantiations
 const app = express();
 
 // --- Configurations
+// database
+const dbName = 'mongoose-movies';
+mongoose.connect(`mongodb://localhost/${dbName}`);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
