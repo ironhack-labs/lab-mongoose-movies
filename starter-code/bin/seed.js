@@ -1,9 +1,17 @@
+require("dotenv").config();
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
 const Movie = require('../models/Movie');
 
+
 const dbName = process.env.DBURL;
 mongoose.connect(dbName);
+
+mongoose.Promise = Promise;
+mongoose
+  .connect( dbUrl, { useMongoClient: true })
+  .then(() => {
+    console.log("Connected to Mongo!");
 
 
 const celebirties = [{
@@ -30,8 +38,13 @@ const celebirties = [{
 Celebrity.collection.drop();
 Movie.collection.drop();
 
-Celebrity.create(celebrities, (err, celebrities) => {
-    if (err) { throw (err); }
-    console.log(`Created ${celebrities.length} celebrities`);
+Celebrity.create(celebrities)
+    .then((celebrities) => {
+        console.log(`${celebrities.length} celebrities created.`);
 
-});
+        mongoose.disconnect();
+      })
+  })
+  .catch(err => {
+    console.error("Error connecting to mongo", err);
+  });

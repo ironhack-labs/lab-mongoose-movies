@@ -1,20 +1,21 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 const Celebrity = require('../models/Celebrity');
 const Movie = require('../models/Movie');
 
-/* GET home page */
+
 router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-router.get('/Celebrity', (req, res, next) => {
-  res.render('Celebrity');
-});
-
-router.get('/Movie', (req, res, next) => {
-  res.render('Movie');
+router.get('routes/celebrities', (req, res, next) => {
+  Celebrity.find({})
+    .then(celebrities => {
+      console.log(celebrities);
+      res.render("celebrities", { celebrities });
+    })
+    .catch(err => console.log(err));
 });
 
 /* CR(U)D: Update the book, show update form  
