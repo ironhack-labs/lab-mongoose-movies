@@ -11,13 +11,13 @@ const logger       = require('morgan');
 const path         = require('path');
 
 //Calling celebrity.js model
-const CelebrityCall    = require('./models/celebrity');
+const Celebrity    = require('./models/celebritymodelfile');
 
 
 //mongoose promise for activation on local host
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/goose-movies', {useMongoClient: true})
+  .connect('mongodb://localhost/lab-mongoose-movies', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -52,7 +52,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Mongoose Movies';
 
 
 

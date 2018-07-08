@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Celebrity = require('../models/celebrity');
+const CelebrityModelMongoCall = require('../models/celebritymodelfile');
 
 const dbName = 'lab-mongoose-movies';
 mongoose.connect(`mongodb://localhost/${dbName}`);
@@ -24,8 +24,11 @@ const celebritiesSeed = [
     }
 ];
 
-Celebrity.create(celebritiesSeed)
+CelebrityModelMongoCall.create(celebritiesSeed)
 .then((result)=>{
   console.log(`created ${result.length} celebrities`)
   mongoose.disconnect();
+})
+.catch((err)=>{
+  console.log(err);
 })

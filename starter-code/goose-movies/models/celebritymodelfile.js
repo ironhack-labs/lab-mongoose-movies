@@ -10,12 +10,13 @@ const Schema   = mongoose.Schema;
     name: String,
     occupation: String,
     catchPhrase: String,
-  })
+  });
 
 
   //Model below, rules for model are above
-  const Celebrities = mongoose.model("Celebrities", celebritySchema);
+  //"celebritiescollection" means name of the collection
+  const Celebrity = mongoose.model("celebrities", celebritySchema);
 
 
   //Exporting Celebrity Model for use in app
-  module.exports = Celebrities;
+  module.exports = Celebrity;
