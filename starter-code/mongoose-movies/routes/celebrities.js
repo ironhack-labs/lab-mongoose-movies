@@ -15,6 +15,9 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/add', (req, res, next) => {
+  res.render('celebrities/add');
+});
 router.get('/:id', (req, res, next) => {
   const celebId = req.params.id;
   Celebrity.findById(celebId)
@@ -27,4 +30,5 @@ router.get('/:id', (req, res, next) => {
         });
     });
 });
+
 module.exports = router;
