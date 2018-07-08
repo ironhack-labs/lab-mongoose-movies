@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const celebSchema = new Schema({
-  name: String,
-  occupation: String,
+  name: {type:String, required: true},
+  occupation: {type:String, required: true},
   catchPhrase: String
 });
 

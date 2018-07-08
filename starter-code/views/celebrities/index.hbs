@@ -2,8 +2,13 @@
 <div>
   {{#each celebrities}}
     <p>{{name}}</p>
-    <a href="celebrities/{{id}}">Link</a>
+    <a href="celebrities/{{id}}">+ Info</a>
+    -
+    <a href="celebrities/edit/{{id}}">Delete</a>
+    -
+    <a href="celebrities/delete/{{id}}">Delete</a>
+
   {{/each}}
 </div>
 
-<a href="/celebrities/add">Add a Celebrity</a>
+<a href="/celebrities/new">Add a Celebrity</a>
