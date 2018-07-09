@@ -1,0 +1,31 @@
+<img src="/images/cineheader.jpg" class="img-fluid" alt="Responsive image">
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Editing an existing movie...?</h2>
+    <p class="lead">Of course, you can edit an existing movie as many time as you need!</p>
+  </div>
+</div>
+
+
+<form action="/movies/edit/{{movie.id}}" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Title</label>
+      <input type="text" class="form-control" id="inputName" name="title" value="{{movie.title}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Genre</label>
+      <input type="text" class="form-control" id="inputOccupation" name="genre" value={{movie.genre}}>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputCacthPhrase">Plot</label>
+    <input type="text" class="form-control" id="inputCatchPhrase" name="plot" value="{{movie.plot}}">
+  </div>
+  <button type="submit" class="btn btn-success">Update movie!</button>
+</form>
+
+<a href="/movies" class="btn btn-warning">Back to Mongoose Movies list</a>    
+
