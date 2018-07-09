@@ -6,7 +6,7 @@ const Movie = require('../models/movie');
 router.get('/movies', (req, res, next) => {
     Movie.find()
         .then((result) => {
-            res.render('movies/index');//this result is making an array an object, which is the celebrity array
+            res.render('movies/index', {result});//this result is making an array an object, which is the celebrity array
         })
         .catch((err)=>{
             next(err);
