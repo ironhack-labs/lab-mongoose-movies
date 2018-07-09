@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Edit Celebrity</h2>
+    <form action="/celebrities/{{celebrity._id}}" method="POST">
+        <label for="name">Insert the name: </label>
+        <input type="text" name="name" value="{{celebrity.name}}">
+        
+        <label for="occupation">Insert the occupation: </label>
+        <input type="text" name="occupation" value="{{celebrity.occupation}}">
+
+        <label for="catchPhrase">Catch Phrase: </label>
+        <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+
+        <button type="submit" class="waves-effect waves-light btn"> Edit Celebrity</button>
+    </form>
+</div>

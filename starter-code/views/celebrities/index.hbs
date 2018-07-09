@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <h2>Celebrities</h2>
+        <a href="/celebrities/new">Add new celebrity!</a>
+
+        <h3>Celebrity List</h3>
+        {{#each celebrities}}
+            <p><a href="/celebrities/{{_id}}">{{name}}</a></p>
+        {{/each}}
+    </div>
+</div>
