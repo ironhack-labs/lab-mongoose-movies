@@ -1,0 +1,14 @@
+<div class="container celebrities-container">
+  <h2>Meet our celebrities</h2>
+  <ul>
+    {{#each celebs}}
+    <li>
+      <a href="/celebrities/{{this.id}}">{{this.name}}</a>
+      <form action="celebrities/{{this.id}}/delete" method="post">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+    {{/each}}
+  </ul>
+  <a href="/celebrities/new">Add new Celebrity</a>
+</div>
