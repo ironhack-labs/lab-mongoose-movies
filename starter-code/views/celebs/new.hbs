@@ -1,0 +1,25 @@
+ {{#if celeb}}
+<form action="/celebrities/{{celeb._id}}/edit" method="post">
+  <label>Name:</label>
+  <input type="text" name="name" value="{{celeb.name}}">
+
+  <label>Occupation: </label>
+  <input type="text" name="occupation" value="{{celeb.occupation}}">
+
+  <label>Catch Phrase:</label>
+  <input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}">
+  <button type="submit">EDIT</button>
+</form>
+{{else}}
+<form action="/celebrities/new" method="post">
+  <label>Name:</label>
+  <input type="text" name="name">
+
+  <label>Occupation: </label>
+  <input type="text" name="occupation">
+
+  <label>Catch Phrase:</label>
+  <input type="text" name="catchPhrase">
+  <button type="submit">ADD</button>
+</form>
+{{/if}}
