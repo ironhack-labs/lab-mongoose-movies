@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: lightcyan; }
+
+h1, h2 {
+  color: tomato; }
+
+a {
+  color: #00B7FF; }
+
+a:hover {
+  text-decoration: none; }
+
+.celeb {
+  display: flex;
+  align-items: center; }
+  .celeb button {
+    margin-left: 10px; }
+
+/*# sourceMappingURL=style.css.map */
