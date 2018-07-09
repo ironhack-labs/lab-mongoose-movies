@@ -1,0 +1,14 @@
+# Dependency directory
+node_modules
+
+# Debug log from npm
+npm-debug.log
+
+# Environment Variables should NEVER be published
+# .env
+
+# Ignoring DS_STORE file (macOS)
+.DS_STORE
+
+# Sass cache
+.sass-cache

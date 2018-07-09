@@ -1,0 +1,14 @@
+.errors-wrp {
+  color: $red;
+}
+
+.form {
+  textarea {
+    resize: none;
+  }
+  .error {
+    > input, > select, > textarea {
+      border-color: $red;
+    }
+  }
+}

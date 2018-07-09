@@ -1,0 +1,38 @@
+<section id="celebrities">
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <a class="button" href="/">
+          <i class="fas fa-home"></i> Go home
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns eight">
+        <h2>Celebrities</h2>
+      </div>
+      <div class="columns four text-right">
+        <a class="button" href="/celebrities/new">Add a new celebrity</a>
+      </div>
+    </div>
+    {{#each celebrities}}
+    <div class="row celebrity-wrp">
+      <div class="columns eight">
+        <a href="/celebrities/{{_id}}">{{name}}</a>
+      </div>
+      <div class="columns two text-right">
+        <a class="button button-primary" href="/celebrities/{{_id}}/edit">
+          <i class="fas fa-pencil-alt"></i>
+        </a>
+      </div>
+      <div class="columns two text-right">
+        <form action="/celebrities/{{_id}}/delete" method="POST">
+          <button class="button-danger" type="submit">
+            <i class="fas fa-trash"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</section>
