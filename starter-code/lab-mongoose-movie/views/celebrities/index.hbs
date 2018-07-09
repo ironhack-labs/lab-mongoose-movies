@@ -1,0 +1,21 @@
+
+<h2>Celebrities</h2>
+<a href="/celebrities/add">Add a celebrity</a>
+<a href="/">Return to home page</a>
+
+<ul>
+    {{#each celebrities}}
+        <li>
+            <div>
+                <h3>{{name}}</h3>
+                <p>{{catchPhrase}}</p>
+                <p>{{occupation}}</p>
+                <a href="/celebrities/{{_id}}/update">Edit this celebrity</a>
+                
+                <a href="/celebrities/{{_id}}">See more</a>
+                
+                <a href="/celebrities/{{_id}}/delete">Delete</a>
+            </div>
+        </li>
+    {{/each}}
+</ul>
