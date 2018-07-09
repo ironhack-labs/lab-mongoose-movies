@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const rfs = require('rotating-file-stream');
+const helmet = require('helmet');
 
 // --- Instantiations
 const app = express();
@@ -30,6 +31,7 @@ const accessLogStream = rfs('access.log', {
 });
 
 // --- Middleware
+app.use(helmet());
 app.use(logger('dev', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
