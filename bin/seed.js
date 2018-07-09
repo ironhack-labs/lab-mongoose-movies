@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const Movie = require('../models/movie');
+const Movie = require('../models/movie'); //import model to have blueprint
+
+// dont forget to connect with your DB 
 
 const dbName = 'lab-mongoose-movies';
 mongoose.connect(`mongodb://localhost/${dbName}`);
@@ -26,6 +28,7 @@ Movie.create(movies)
 .then((result)=>{
     console.log(`created ${result.length} movies`)
 })
+// mongoose.disconnect();
 .catch((err)=>{
     console.log(err)
 });
