@@ -1,9 +1,14 @@
-<h2>Celebrity Details</h2>
+<h2 class="details-header">Celebrity Details</h2>
 
-<h4> {{celeb.name}} </h4>
+<h3> {{celeb.name}} </h3>
 
-<h4> {{celeb.occupation}} </h4>
+<h4 class="genre"> {{celeb.occupation}} </h4>
 
-<h4> {{celeb.catchPhrase}} </h4>
+<span> {{celeb.catchPhrase}} </span>
+<br>
+<br>
 
-<a href="/celebrities/{{_id}}/edit">Edit</a>
+<a href="/celebrities/{{celeb._id}}/edit">Edit</a>
+<br>
+<br>
+<a href="/celebrities">Go Back</a>

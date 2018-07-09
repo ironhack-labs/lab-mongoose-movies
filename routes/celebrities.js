@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/celebrity');
 
+//Show list of celebs
 router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
     .then((listOfCelebs) => {
@@ -12,10 +13,12 @@ router.get('/celebrities', (req, res, next) => {
     })
 });
 
+//Show user the form
 router.get('/celebrities/new', (req, res, next)=>{
     res.render('celebrities/new');
 })
 
+//Get info from form 
 router.post('/celebrities/create', (req, res, next) => {
     const newCeleb = new Celebrity({
         name: req.body.name,
@@ -25,23 +28,14 @@ router.post('/celebrities/create', (req, res, next) => {
     
     newCeleb.save()
     .then((response) => {
-        res.redirect('/celebrities/index')
+        res.redirect('/celebrities')
     })
     .catch((err) => {
-        res.render('/celebrities/new')
+        res.render('celebrities/new')
     })
 });
 
-router.post('/celebrities/:id/delete', (req, res, next)=>{
-    Celebrity.findByIdAndRemove(req.params.id)
-    .then((reponse)=>{
-        res.redirect('/celebrities/index');
-    })
-    .catch((err)=>{
-        next(err);
-    })
- });
-
+//Show edit page
 router.get('/celebrities/:id/edit', (req, res, next) => {
     Celebrity.findById(req.params.id)
     .then((theCeleb) => {
@@ -52,19 +46,31 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
     })
 });
 
- router.post('/celebrities/:id/update', (req, res, next) => {
+//Get the new info from user
+router.post('/celebrities/:id/update', (req, res, next) => {
     Celebrity.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         occupation: req.body.occupation,
         catchPhrase: req.body.catchPhrase
     })
     .then((theCeleb) => {
-        res.redirect('/celebrities/index')
+        res.redirect(`/celebrities/${req.params.id}`)
     })
     .catch((err) => {
         next(err)
     })
 });
+
+//Delete Celebrities
+ router.post('/celebrities/:id/delete', (req, res, next)=>{
+     Celebrity.findByIdAndRemove(req.params.id)
+     .then((reponse)=>{
+         res.redirect('/celebrities');
+     })
+     .catch((err)=>{
+         next(err);
+     })
+  });
  
 router.get('/celebrities/:id', (req, res, next) => {
     const theID = req.params.id;
