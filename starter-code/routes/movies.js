@@ -1,18 +1,18 @@
 const express = require("express");
 const router = express.Router()
-const Movie = require('../models/movie')
+const Movie = require('../models/Movie')
 
-router.get('/movies', (req, res, next) => {
+router.get('/', (req, res, next) => {
     Movie.find({}).then(movies => {
         res.render('movies/index', { movies });
     })
 });
 
-router.get("/movies/new", (req, res, next) => {
+router.get("/new", (req, res, next) => {
     res.render("movies/new");
 });
 
-router.post('/movies/new', (req, res, next) => {
+router.post('/new', (req, res, next) => {
     const { title, genre, plot } = req.body;
     new Movie({ title, genre, plot })
         .save().then(movie => {
@@ -21,18 +21,18 @@ router.post('/movies/new', (req, res, next) => {
         });
 });
 
-router.get("/movies/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
     Movie.findById(req.params.id).then(movie => {
-        res.render("movies/show", { movie });
+        res.render("movies/show", { movies });
     });
 });
 
-router.get('/movies/edit/:id', (req, res) => {
+router.get('/edit/:id', (req, res) => {
     Movie.findById(req.params.id).then(movie => {
-        res.render('movies/edit', { movie });;
+        res.render('movies/edit', { movies });;
     });
 });
 
-router.get("/movies/delete/:id", (req, res, next) => {
+router.get("/delete/:id", (req, res, next) => {
     Movie.findByIdAndRemove(req.params.id, () => res.redirect("/movies"))
 });
