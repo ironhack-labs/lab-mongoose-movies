@@ -1,0 +1,19 @@
+<h1>CELEBRITY DETAIL</h1>
+<div>
+  <li>Artist: {{celebrity.name}}   </li>
+  <li>Show: {{celebrity.show}}   </li>
+  <li>Phrase: {{celebrity.phrase}}   </li>
+</div>
+<hr>
+
+<a href="/">Home</a>
+
+<hr>
+{{!-- celebrities/_id/edit --}}
+<button><a href="/celebrities/{{celebrity._id}}/edit">Edit This Profile</a>
+<form action="/celebrities/{{celebrity._id}}/edit" method="POST"></form>
+</button>
+
+
+
+

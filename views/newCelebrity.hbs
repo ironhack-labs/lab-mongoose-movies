@@ -1,0 +1,21 @@
+
+<h2>Add new celebrity profile</h2>
+<form action="/celebrities/create" method="post">
+
+<label>Name</label>
+<input type="text" name="name" value="{{theCelebrity.name}}">
+<br>
+
+<label>Show</label>
+<input type="text" name="show" value="{{theCelebrity.show}}">
+<br>
+
+<label>Phrase</label>
+<textarea name="phrase" cols="30" rows="10" >{{theCelebrity.phrase}}</textarea>
+<br>
+
+{{!-- <label>Rating</label>
+<input type="number" name="rating">
+<br> --}}
+<button type="submit">Save Book</button>
+</form>
