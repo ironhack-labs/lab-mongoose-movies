@@ -49,8 +49,9 @@ router.get('/celebrities/:id', (req, res, next) => {
 });
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
-    const id = req.params.id;//saves the id for use
-    Celebrity.findByIdAndRemove(id)
+    // const id = req.params.id;//saves the id for use
+    console.log('id: ============== ', req.params.id);
+    Celebrity.findByIdAndRemove(req.params.id)
         .then((response) => {
             res.redirect('/celebrities');
         })

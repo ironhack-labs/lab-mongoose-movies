@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="@types/express" level="application" />
+    <orderEntry type="library" name="@types/mongodb" level="application" />
+    <orderEntry type="library" name="@types/mongoose" level="application" />
   </component>
 </module>

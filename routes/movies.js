@@ -8,4 +8,7 @@ router.get('/movies', (req, res, next) => {
         .then((result) => {
             res.render('movies/index', {result});//this result is making an array an object, which is the celebrity array
         })
+        .catch((err)=>{
+            next(err);
+        })
 });
