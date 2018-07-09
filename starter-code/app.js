@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const express      = require('express');
 const favicon      = require('serve-favicon');
 const hbs          = require('hbs');
-const mongoose     = require('mongoose');
+const mongoose     = require('mongoose'); // npm package that allows us as users to communicate with the database
+//methods that allow the developer to communicate with the database in the back end  
 const logger       = require('morgan');
 const path         = require('path');
 
@@ -56,8 +57,11 @@ app.use('/', index);
 
 
 
-
+//at the end so everything is ready
+//middleware: 
 const celebrities = require('./routes/celebritiesRoutes'); //this is to conect the route!!!!!!
 app.use('/', celebrities);
+const movies = require('./routes/moviesRoutes'); //this is to conect the route!!!!!!
+app.use('/', movies);
 
 module.exports = app; //last line! dont touch it!!!!!!!

@@ -1,0 +1,35 @@
+<h2>Add a New Movie to the Library</h2>
+{{!-- 
+//what the heck is action?? is that the route? in the other page is /new not create
+
+//whats the difference between post and the other method i dont remember
+//whats the other way to do this besides form --}}
+
+
+{{!-- action means: got to "this route" which is a 'post' route --}}
+
+<form action="/movies/create" method="post">
+
+<label for="title-input">Title</label>
+<input type="text" name="title" id="title-input">
+<br>
+<br>
+
+<label>Genre</label>
+<input type="text" name="genre">
+<br>
+<br>
+
+<label>plot</label>  
+<input type="text" name="plot">
+
+
+<br>
+<br>
+<br>
+
+
+<button type="submit">Save changes</button>
+
+
+</form>

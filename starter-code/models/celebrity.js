@@ -23,4 +23,4 @@ const Celebrity = mongoose.model("Celebritie", celebritySchema);
 
 //leting the oder files see this. when using require the others files 
 //will look at whaterver is equal to module.exports
-module.exports = Celebrity; //end with this one
+module.exports = Celebrity; //end with this line

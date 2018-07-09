@@ -17,27 +17,26 @@ router.get('/celebrities', (req, res, next) => {
    })
 });
 
-//this is a route for a single celeb
 
 router.get('/celebrities/new', (req, res, next) =>{
-  res.render('newCelebrity');
+    res.render('newCelebrity');
 });
 
 
 router.post('/celebrities/create', (req, res, next)=>{
-  const newCelebrity = new Celebrity({
-   name: req.body.name,
-   occupation: req.body.occupation,
-   catchPhrase: req.body.catchPhrase,
-  })
-
-  newCelebrity.save()
-.then((response)=>{
-    res.redirect('/celebrities')
-})
-.catch((err)=>{
-    next(err);
-}) 
+    const newCelebrity = new Celebrity({
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase,
+    })
+    
+    newCelebrity.save()
+    .then((response)=>{
+        res.redirect('/celebrities')
+    })
+    .catch((err)=>{
+        next(err);
+    }) 
 })
 
 
@@ -49,22 +48,22 @@ router.get('/celebrities/:id/edit', (req, res, next)=>{
     .catch((err)=>{
         next(err);
     })
- })
- 
- 
- router.post('/celebrities/:id/update', (req, res, next)=>{
-     Celebrity.findByIdAndUpdate(req.params.id, {
-         name: req.body.name,
-         occupation: req.body.occupation,
-         catchPhrase: req.body.catchPhrase,
-     })
-     .then((theCeleb)=>{
-         res.redirect('/celebrities/'+theCeleb._id)
-     })
-     .catch((err)=>{
-         next(err);
-     })  
- })
+})
+
+
+router.post('/celebrities/:id/update', (req, res, next)=>{
+    Celebrity.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase,
+    })
+    .then((theCeleb)=>{
+        res.redirect('/celebrities/'+theCeleb._id)
+    })
+    .catch((err)=>{
+        next(err);
+    })  
+})
 
 router.post('/celebrities/:id/delete', (req, res, next)=>{
     Celebrity.findByIdAndRemove(req.params.id)
@@ -80,10 +79,11 @@ router.post('/celebrities/:id/delete', (req, res, next)=>{
 //this is a route for a single celeb. Always leave this at the end
 
 
+
 router.get('/celebrities/:id', (req, res, next) => {
-  const id = req.params.id;
-  Celebrity.findById(id)
-  .then((theCelebrity)=>{    
+    const id = req.params.id;
+    Celebrity.findById(id)
+    .then((theCelebrity)=>{    
       res.render('celebrityDetails',  theCelebrity);
   })
   .catch((err)=>{

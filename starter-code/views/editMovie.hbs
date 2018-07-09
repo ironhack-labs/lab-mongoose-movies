@@ -1,0 +1,31 @@
+{{!-- it has to be a post function
+ --}}
+
+<form action="/movies/{{theMovie._id}}/update" method="post">
+
+{{!-- to prefill the form to value="{{movie.(name)}}" --}}
+{{!-- value="{{theMovie.title}} (whatever we put inside the parenthesis) --}}
+
+<label for="title-input">Title</label>
+<input type="text" name="editedTitle" value="{{theMovie.title}}">
+<br>
+<br>
+
+<label>Genre</label>
+<input type="text" name="editedGenre" value="{{theMovie.genre}}">
+<br>
+<br>
+
+<label>plot</label>  
+<input type="text" name="editedPlot" value="{{theMovie.plot}}">
+
+
+<br>
+<br>
+<br>
+
+
+<button type="submit">Save changes</button>
+
+
+</form>
