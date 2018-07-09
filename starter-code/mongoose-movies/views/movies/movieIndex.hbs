@@ -1,0 +1,9 @@
+<a href="/movies/new">Click here to add a new movie</a>
+<ul>
+  {{#each listOfMovies}}
+  <li>
+    {{ this.title }}</br>
+    <a href='/movies/{{this._id}}'>Click here for spicy info about {{this.title}}</a><br/>
+  </li>
+  {{/each}}
+</ul>

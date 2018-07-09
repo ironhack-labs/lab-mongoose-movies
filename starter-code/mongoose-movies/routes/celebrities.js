@@ -35,6 +35,17 @@ router.post('/celebrities/create', (req, res, next)=>{
 
 //    const newBook = new Book(req.body)
 // ^ this is super fancy mode, use if you dare
+router.post('/celebrities/:id/delete', (req, res, next)=>{
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then((response)=>{
+    res.redirect('/celebrities');
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
+
+
 router.get('/celebrities/:id', (req, res, next)=>{
   const theID = req.params.id;
   Celebrity.findById(theID)
@@ -45,8 +56,6 @@ router.get('/celebrities/:id', (req, res, next)=>{
     res.send(err);
   });
 });
-
-
 
 
 

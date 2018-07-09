@@ -1,9 +1,12 @@
 <h2>Welcome to the Celebrities List Page!</h2>
 
 {{#each listOfCelebrities}}
-  {{this.name}}<br/>
-  <a href='celebrities/{{this._id}}'>Click here for spicy info about {{this.name}}</a><br/>
-</br>
+
+{{this.name}}<br/>
+<a href='celebrities/{{this._id}}'>Click here for spicy info about {{this.name}}</a><br/>
+<form action="/celebrities/{{this._id}}/delete" method="post"></br>
+<button >Devour this Spicy Specimen</button> </br></br>
+</form>
 {{/each}}
 
 <a href='celebrities/new'>Click here to add a new Celebrity to this spicy database</a><br/>

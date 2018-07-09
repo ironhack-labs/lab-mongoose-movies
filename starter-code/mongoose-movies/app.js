@@ -9,6 +9,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+hbs.registerPartials(__dirname + '/views/partials');
 
 mongoose.Promise = Promise;
 mongoose
@@ -50,15 +51,18 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
+//routes middlewares is always the last thing in the APP.js
 const index = require('./routes/index');
 app.use('/', index);
+
+const movieRoutes = require('./routes/movies');
+app.use('/', movieRoutes);
 
 const celebs = require('./routes/celebrities');
 app.use('/', celebs);
 
 const show = require('./routes/celebrities');
 app.use('/', show);
-
+//we can add routes here in the / section of app.use to avoid having to type it out in our routes
 
 module.exports = app;
