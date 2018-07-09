@@ -1,10 +1,10 @@
 const express = require('express');
 const movieRouter  = express.Router();
 
-
 const Movie = require('../models/movie');
 
-/* GET movies page */
+
+//READ: GET MOVIES FROM DATABASE AND DISPLAY
 movieRouter.get('/index', (req, res, next) => {
   Movie.find()
     .then((theMovies) => {
@@ -16,11 +16,13 @@ movieRouter.get('/index', (req, res, next) => {
 });
 
 
+//CREATE: RENDER FORM TO FILL AND CREATE MOVIE
 movieRouter.get('/new', (req, res, next) => {
   res.render('movies/new-movie');
 });
 
 
+//CREATE: SEND FILLED FORM WITH DATA(req.body) AND SAVE IN DATABASE
 movieRouter.post('/create', (req, res, next) => {
   const newMovie = new Movie(req.body);
   newMovie.save()
@@ -33,15 +35,24 @@ movieRouter.post('/create', (req, res, next) => {
   })
 });
 
-movieRouter.get('/edit/:id', (req, res, next) => {
-    res.render('movies/edit-movie');
+
+//UPDATE: RENDER FORM PREFILLED AND EDIT IN DATABASE
+movieRouter.get('/:id/edit', (req, res, next) => {
+  Movie.findById(req.params.id)
+  .then((theMovie) => {
+    res.render('movies/edit-movie', theMovie);
+  })
+  .catch((err) => {
+    next(err);
+  })
 });
 
-movieRouter.post('/delete/:id', (req, res, next) => {
-  console.log("entre");
-  Movie.findByIdAndRemove(req.params.id)
+
+//UPDATE: SEND THE NEW INFO TO DATABASE TO UPDATE
+movieRouter.post('/:id/update', (req, res, next) => {
+  Movie.findOneAndUpdate({_id : req.params.id},req.body)
   .then((response) => {
-    res.redirect('index');
+    res.redirect('/movies/index');
   })
   .catch((err) => {
     console.log(err);
@@ -50,6 +61,20 @@ movieRouter.post('/delete/:id', (req, res, next) => {
 });
 
 
+//DELETE
+movieRouter.post('/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+  .then((response) => {
+    res.redirect('/movies/index');
+  })
+  .catch((err) => {
+    console.log(err);
+    next(err);
+  })
+});
+
+
+//READ: SHOW AN SPECIFIC MOVIE
 movieRouter.get('/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then((theMovie) => {
@@ -59,7 +84,6 @@ movieRouter.get('/:id', (req, res, next) => {
     next(err);
   })
 });
-
 
 
 module.exports = movieRouter;

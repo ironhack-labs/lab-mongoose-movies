@@ -1,10 +1,10 @@
 const express = require('express');
-const router = express.Router();
+const celebRouter = express.Router();
 
 const Celeb = require('../models/celeb');
 
-/* GET celebs index page */
-router.get('/index', (req, res, next) => {
+//READ: GET MOVIES FROM DATABASE AND DISPLAY
+celebRouter.get('/index', (req, res, next) => {
   Celeb.find()
     .then((theCelebs) => {
       res.render('celebs/index', { theCelebs });
@@ -14,27 +14,70 @@ router.get('/index', (req, res, next) => {
     })
 });
 
+
+//CREATE: RENDER FORM TO FILL AND CREATE MOVIE
 //THIS IS TO SHOW THE FORM TO CREATE A NEW CELEBRITY
-router.get('/new', (req, res, next) => {
+celebRouter.get('/new', (req, res, next) => {
   res.render('celebs/new');
 });
 
-//THIS IS TO CREATE A NEW CELEBRITY
-router.post('/create', (req, res, next) => {
+
+//CREATE: SEND FILLED FORM WITH DATA(req.body) AND SAVE IN DATABASE
+celebRouter.post('/create', (req, res, next) => {
   const newCeleb = new Celeb(req.body);
   newCeleb.save()
-    .then((response) => {
-      res.redirect('index');
-    })
-    .catch((err) => {
-      console.log(err);
-      next(err);
-    })
+  .then((response) => {
+    res.redirect('index');
+  })
+  .catch((err) => {
+    console.log(err);
+    next(err);
+  })
 });
 
-//THIS IS TO SHOW THE DETAILS OF AN SPECIFIC CELEBRITY
+
+//UPDATE: RENDER FORM PREFILLED AND EDIT IN DATABASE
+celebRouter.get('/:id/edit', (req, res, next) => {
+
+  Celeb.findById(req.params.id)
+  .then((theCeleb) => {
+    res.render('celebs/edit-celeb', theCeleb);
+  })
+  .catch((err) => {
+    next(err);
+  })
+});
+
+
+//UPDATE: SEND THE NEW INFO TO DATABASE TO UPDATE
+celebRouter.post('/:id/update', (req, res, next) => {
+  console.log("ddddd");
+  Celeb.findOneAndUpdate({_id : req.params.id},req.body)
+  .then((response) => {
+    res.redirect('/celebs/index');
+  })
+  .catch((err) => {
+    console.log(err);
+    next(err);
+  })
+});
+
+//DELETE
+celebRouter.post('/:id/delete', (req, res, next) => {
+  Celeb.findByIdAndRemove(req.params.id)
+  .then((response) => {
+    res.redirect('/celebs/index');
+  })
+  .catch((err) => {
+    console.log(err);
+    next(err);
+  })
+});
+
+
+//READ: SHOW AN SPECIFIC CELEB
 //THIS ROUTE IS AT THE BOTTOM BECAUSE IT USES '/:id'
-router.get('/:id', (req, res, next) => {
+celebRouter.get('/:id', (req, res, next) => {
   Celeb.findById(req.params.id)
     .then((theCeleb) => {
       res.render('celebs/show', theCeleb);
@@ -46,4 +89,4 @@ router.get('/:id', (req, res, next) => {
 
 
 
-module.exports = router;
+module.exports = celebRouter;

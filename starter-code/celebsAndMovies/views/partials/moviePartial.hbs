@@ -4,7 +4,10 @@
 
     <hr>{{this.title}} es {{this.genre}} y dice {{this.plot}}
     <br>
-    <a href="/edit/{{this.id}}">Edit Movie</a>
+    <a href="/movies/{{this.id}}/edit">Edit Movie</a>
+    <form action="/movies/{{this._id}}/delete" method="post">
+    <button type="submit">DELETE</button>
+    </form>
 
   </div>
 </div>

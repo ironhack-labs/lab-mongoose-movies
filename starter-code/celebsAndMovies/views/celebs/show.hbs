@@ -5,6 +5,10 @@
     <hr> {{this.name}} es {{this.occupation}} y dice {{this.catchPhrase}}
     <a href="/celebs/index">Go Back</a>
     <br>
+    <a href="/celebs/{{this.id}}/edit">Edit Movie</a>
+    <form action="/celebs/{{this._id}}/delete" method="post">
+      <button type="submit">DELETE</button>
+    </form>
 
   </div>
 </div>
