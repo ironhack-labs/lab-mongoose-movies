@@ -1,0 +1,8 @@
+<a href="/">Go Back</a>
+<h2>Movies</h2>
+<a href="/movies/new">Add new movie!</a>
+
+<h3>Movies List</h3>
+{{#each movies}}
+    <p><a href="/movies/{{_id}}">{{title}}</a></p>
+{{/each}}
