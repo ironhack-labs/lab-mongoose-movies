@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+
+
 const Celebrity = require('../models/celebrity');
 
 router.get('/celebrities', (req, res, next) => {
@@ -33,8 +35,17 @@ router.post('/celebrities/create', (req, res, next)=>{
 
 });
 
-//    const newBook = new Book(req.body)
-// ^ this is super fancy mode, use if you dare
+router.get('/celebrities/editCeleb/:celebId', (req, res, next)  =>{
+  const id = req.params.celebId;
+  Celebrity.findById(id)
+  .then(aCelebrity => {
+    res.render('celebrities/editCeleb', {celebrity: aCelebrity});
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
+
 router.post('/celebrities/:id/delete', (req, res, next)=>{
   Celebrity.findByIdAndRemove(req.params.id)
   .then((response)=>{
@@ -44,6 +55,27 @@ router.post('/celebrities/:id/delete', (req, res, next)=>{
     next(err);
   });
 });
+
+// "/celebrities/editCeleb/{{celebrity._id}}"
+router.post('/celebrities/editCeleb/:celebId', (req, res, next) =>{
+  const id = req.params.celebId;
+  const editedCeleb = {
+    name: req.body.editName,
+    occupation: req.body.editOccupation,
+    catchPhrase:  req.body.editCatchPhrase
+  };
+  Celebrity.findByIdAndUpdate(id, editedCeleb)
+  .then( () =>{
+    res.redirect(`/celebrities/${id}`);
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
+
+//    const newBook = new Book(req.body)
+// ^ this is super fancy mode, use if you dare
+
 
 
 router.get('/celebrities/:id', (req, res, next)=>{

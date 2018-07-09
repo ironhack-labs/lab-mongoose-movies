@@ -1,7 +1,11 @@
 <h2>Welcome to the Movie Details Page for the movie "{{movie.title}}"!</h2>
 <div>
   {{> moviePartial this}}
-  <a href="/movies/edit/{{movie.id}}">Edit movie!</a></br>
+  <a href="/movies/edit/{{movie._id}}">Edit movie!</a></br>
+  <form action="/movies/delete/{{movie._id}}" method="post"></br>
+  <button type="submit" >Delete this entry</button> </br></br>
+  </form>
+
 </div>
 
 <a href='/movies'>Return Back</a>

@@ -1,0 +1,14 @@
+<form action="/celebrities/editCeleb/{{celebrity._id}}" method="post"> {{!--This route corresponds to the Post route in the movies.js our route file --}}
+  <label for="name-input">Name</label>{{!-- IT will connect the forms body to the route and process to mongoDB--}}
+  <input type="text" name="editName" id="name-input" value="{{celebrity.name}}" />
+
+  <label for="ocupation-input">Occupation</label>
+  <input type="text" name="editOccupation" id="occupation-input" value="{{celebrity.occupation}}"/>
+
+  <label for="catchPhrase-input">Catch Phrase</label>
+  <input type="text" name="editCatchPhrase" id="catchPhrase-input" value="{{celebrity.catchPhrase}}"/>
+
+  <button type="submit">Save Changes!</button>
+</form>
+
+{{!--the value attribute is to prefil the form when the user comes into the app page.--}}

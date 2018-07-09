@@ -30,6 +30,7 @@ movieRouter.post('/movies/create', (req, res, next)=>{
     genre: req.body.newGenre,
     plot: req.body.newPlot
   };
+
   Movie.create(newMovie)
   .then((response)=>{
     //redirect is looking for a URL so must begin with a / because it will try to visit that URL next.
@@ -55,6 +56,19 @@ movieRouter.get('/movies/edit/:movieId', (req, res, next) =>{
 
 //post route now to pick up those changes and send it to our DB, otherwise we would 404 when clicking on the button
 //to save our changes.
+
+
+movieRouter.post('/movies/delete/:movieId', (req, res, next)=>{
+  const id = req.params.movieId;
+  Movie.findByIdAndRemove(req.params.movieId)
+  .then((response)=>{
+    res.redirect('/movies');
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
+
 
 movieRouter.post('/movies/edit/:movieId', (req, res, next) =>{
   const id = req.params.movieId;
