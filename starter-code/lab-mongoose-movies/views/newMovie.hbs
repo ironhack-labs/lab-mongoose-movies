@@ -1,0 +1,33 @@
+<img src="/images/cineheader.jpg" class="img-fluid" alt="Responsive image">
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Adding a new movie...?</h2>
+    <p class="lead">Of course, you can add as many new movies as you want!</p>
+  </div>
+</div>
+
+
+<form action="/movies/new" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Title</label>
+      <input type="text" class="form-control" id="inputName" name="title" placeholder="A title for your new movie...">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Genre</label>
+      <input type="text" class="form-control" id="inputOccupation" name="genre" placeholder="Which genre is this...?">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputCacthPhrase">Plot</label>
+    <input type="text" class="form-control" id="inputCatchPhrase" name="plot" placeholder="What is this great story about...?">
+  </div>
+  <button type="submit" class="btn btn-success">Add new movie!</button>
+</form>
+
+<a href="/movies" class="btn btn-warning">Back to Mongoose Movies list</a>    
+
+
+ 

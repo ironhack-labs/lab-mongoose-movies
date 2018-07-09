@@ -1,0 +1,20 @@
+<img src="/images/movieshead.jpg" class="img-fluid" alt="Responsive image">
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Awesome Mongoose Movies...</h2>
+    <p class="lead">You wanna know a little bit more, don´t you?</p>
+  </div>
+</div>
+
+<a href="/movies/new" class="btn btn-warning">"Wanna" add one more movie?</a>
+
+{{#each movies}}
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{title}}
+    <a href="/movies/{{_id}}" span class="badge badge-primary badge-pill">More details</a>
+  </li>
+</ul>
+{{/each}}

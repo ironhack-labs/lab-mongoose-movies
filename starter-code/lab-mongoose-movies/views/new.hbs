@@ -1,0 +1,33 @@
+<img src="/images/hollywoodhead.jpg" class="img-fluid" alt="Responsive image">
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Adding a new celebritie...?</h2>
+    <p class="lead">Of course, you can add as many new celebs as you want!</p>
+  </div>
+</div>
+
+
+<form action="/celebrities/new" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input type="text" class="form-control" id="inputName" name="name" placeholder="A name for your new celeb...">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Occupation</label>
+      <input type="text" class="form-control" id="inputOccupation" name="occupation" placeholder="His/Her occupation is...">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputCacthPhrase">CatchPhrase</label>
+    <input type="text" class="form-control" id="inputCatchPhrase" name="catchPhrase" placeholder="A great CatchPhrase...">
+  </div>
+  <button type="submit" class="btn btn-success">Add new celeb!</button>
+</form>
+
+<a href="/celebrities" class="btn btn-warning">Back to Mongoose Celebrities list</a>    
+
+
+ 

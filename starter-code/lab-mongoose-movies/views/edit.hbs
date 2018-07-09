@@ -1,0 +1,31 @@
+<img src="/images/hollywoodhead.jpg" class="img-fluid" alt="Responsive image">
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Editing an existing celebritie...?</h2>
+    <p class="lead">Of course, you can edit an existing celeb as many time as you need!</p>
+  </div>
+</div>
+
+
+<form action="/celebrities/edit/{{celebritie.id}}" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input type="text" class="form-control" id="inputName" name="name" value="{{celebritie.name}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Occupation</label>
+      <input type="text" class="form-control" id="inputOccupation" name="occupation" value={{celebritie.occupation}}>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputCacthPhrase">CatchPhrase</label>
+    <input type="text" class="form-control" id="inputCatchPhrase" name="catchPhrase" value="{{celebritie.catchPhrase}}">
+  </div>
+  <button type="submit" class="btn btn-success">Update celeb!</button>
+</form>
+
+<a href="/celebrities" class="btn btn-warning">Back to Mongoose Celebrities list</a>    
+
