@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cbb0c71-efab-4347-b8b5-e6218c121f69" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/views/movies/edit.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/movies/new.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/movies/show.hbs" afterDir="false" />
+    <list default="true" id="1cbb0c71-efab-4347-b8b5-e6218c121f69" name="Default" comment="6 and 12 fail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/movies.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/movies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/movies/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/movies/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/seeds.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/seeds.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,8 +47,17 @@
       <file leaf-file-name="movies.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/movies.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+            <state relative-caret-position="116">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bin/seeds.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -76,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/movies/edit.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+            <state relative-caret-position="333">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -88,8 +92,8 @@
       <file leaf-file-name="index.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/movies/index.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
+            <state relative-caret-position="486">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -133,15 +137,15 @@
         <option value="$PROJECT_DIR$/views/celebrities/edit.hbs" />
         <option value="$PROJECT_DIR$/models/movie.js" />
         <option value="$PROJECT_DIR$/views/celebrities/new.hbs" />
-        <option value="$PROJECT_DIR$/bin/seeds.js" />
         <option value="$PROJECT_DIR$/routes/celebrities.js" />
         <option value="$PROJECT_DIR$/views/celebrities/index.hbs" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/movies.js" />
-        <option value="$PROJECT_DIR$/views/movies/index.hbs" />
         <option value="$PROJECT_DIR$/views/movies/show.hbs" />
         <option value="$PROJECT_DIR$/views/movies/new.hbs" />
         <option value="$PROJECT_DIR$/views/movies/edit.hbs" />
+        <option value="$PROJECT_DIR$/views/movies/index.hbs" />
+        <option value="$PROJECT_DIR$/routes/movies.js" />
+        <option value="$PROJECT_DIR$/bin/seeds.js" />
       </list>
     </option>
   </component>
@@ -160,8 +164,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1714" />
-    <option name="width" value="1538" />
+    <option name="x" value="-10" />
+    <option name="width" value="2010" />
     <option name="height" value="2092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -252,7 +256,7 @@
       <updated>1530908065476</updated>
       <workItem from="1530908067865" duration="17129000" />
       <workItem from="1531099453288" duration="5244000" />
-      <workItem from="1531141663543" duration="6034000" />
+      <workItem from="1531141663543" duration="7631000" />
     </task>
     <task id="LOCAL-00001" summary="Iteration#3 completed">
       <created>1530979137459</created>
@@ -317,14 +321,28 @@
       <option name="project" value="LOCAL" />
       <updated>1531146433923</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Still failing 6 and the movie index is not showing">
+      <created>1531148581367</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1531148581367</updated>
+    </task>
+    <task id="LOCAL-00011" summary="6 and 12 fail">
+      <created>1531150399711</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1531150399711</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28407000" />
+    <option name="totallyTimeSpent" value="30004000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1633" height="1053" extended-state="7" />
+    <frame x="-6" y="-6" width="1633" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.119827054" />
@@ -335,7 +353,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31137088" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.25292242" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -362,7 +380,9 @@
     <MESSAGE value="The new page now shows after the new celebrity button. Fails when posting tho" />
     <MESSAGE value="Iteration 4 completed. I did not know how the from action thing worked" />
     <MESSAGE value="Iteration 5 complete, i did not know how to link the id correctly from the form action when delete button clicked." />
-    <option name="LAST_COMMIT_MESSAGE" value="Iteration 5 complete, i did not know how to link the id correctly from the form action when delete button clicked." />
+    <MESSAGE value="Still failing 6 and the movie index is not showing" />
+    <MESSAGE value="6 and 12 fail" />
+    <option name="LAST_COMMIT_MESSAGE" value="6 and 12 fail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -876,13 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/seeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/celebrity.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -904,34 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/movies/index.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/movies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/movies/new.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -946,6 +931,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/movies/edit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/movie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -953,10 +959,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/movies/edit.hbs">
+    <entry file="file://$PROJECT_DIR$/views/movies/index.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        <state relative-caret-position="486">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/movies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/seeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="38" column="6" lean-forward="true" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
         </state>
       </provider>
     </entry>
