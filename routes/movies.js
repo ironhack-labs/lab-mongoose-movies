@@ -26,7 +26,7 @@ router.post('/movies/create', (req, res, next)=>{
     //could use Movie.create(newMovie) instead of newMovie.save
     newMovie.save()
     .then((response)=>{
-        res.redirect('/movies/index')
+        res.redirect('/movies')
     })
     .catch((err)=>{
         res.render('movies/new')
