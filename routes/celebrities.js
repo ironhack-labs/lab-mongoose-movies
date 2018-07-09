@@ -11,20 +11,6 @@ router.get('/celebrities', (req, res, next) => {
         })
 });
 
-
-//id is interchangable
-router.get('/celebrities/:id', (req, res, next) => {
-    const id = req.params.id;
-    Celebrity.findById(id)
-        .then((result) => {
-
-            res.render('celebrities/show', result);//result is the id i think
-        })
-        .catch((err) => {
-            next(err);
-        })
-});
-
 router.get('/celebrities/new', (req, res, next) => {//just renders the new and doesn't include the changes. idk why they are split
     res.render('celebrities/new')
 });
@@ -45,6 +31,20 @@ router.post('/celebrities/create', (req, res, next) => {
         })
         .catch((err) => {
             res.render('celebrities/new')//if error, reload page
+        })
+});
+
+
+//id is interchangable
+router.get('/celebrities/:id', (req, res, next) => {
+    const id = req.params.id;
+    Celebrity.findById(id)
+        .then((result) => {
+
+            res.render('celebrities/show', result);//result is the id i think
+        })
+        .catch((err) => {
+            next(err);
         })
 });
 
@@ -74,10 +74,10 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
 router.post('/celebrities/:id', (req, res, next) => {
     const id = req.params.id;//saves the id for use
     Celebrity.findById(id)
-        .then((result)=>{
+        .then((result) => {
             Celebrity.update(result);
         })
-        .catch((err)=>{
+        .catch((err) => {
             next(err);
         })
 });
