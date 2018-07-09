@@ -14,12 +14,17 @@ router.get('/index', (req, res, next) => {
     })
 });
 
+//THIS IS TO SHOW THE FORM TO CREATE A NEW CELEBRITY
+router.get('/new', (req, res, next) => {
+  res.render('celebs/new');
+});
+
+//THIS IS TO CREATE A NEW CELEBRITY
 router.post('/create', (req, res, next) => {
-  onsole.log("entre");
   const newCeleb = new Celeb(req.body);
   newCeleb.save()
     .then((response) => {
-      res.redirect('/celebs/index');
+      res.redirect('index');
     })
     .catch((err) => {
       console.log(err);
@@ -27,10 +32,8 @@ router.post('/create', (req, res, next) => {
     })
 });
 
-router.get('/new', (req, res, next) => {
-  res.render('celebs/new');
-});
-
+//THIS IS TO SHOW THE DETAILS OF AN SPECIFIC CELEBRITY
+//THIS ROUTE IS AT THE BOTTOM BECAUSE IT USES '/:id'
 router.get('/:id', (req, res, next) => {
   Celeb.findById(req.params.id)
     .then((theCeleb) => {

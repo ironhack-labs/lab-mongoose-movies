@@ -1,3 +1,19 @@
 
+<br>
+<h3>
+<a href="/movies/new">CREATE NEW</a>
+</h3>
 
-<p>THIS IS THE INDEX PAGE FOR THE MOVIES MODULE</p>
+{{#each theMovies}}
+
+<div class="row celeb-row">
+  <div class="col-sm-12">
+
+    <hr> {{this.title}} es {{this.genre}} y dice {{this.plot}}
+    <a href="/movies/{{this._id}}">Show</a>
+    <br>
+
+  </div>
+</div>
+{{/each}}
+<hr>
