@@ -58,5 +58,9 @@ const celebs = require('./routes/celebrities');//grabs the celebrity url for use
 app.use('/', celebs);
 //it;s already in the celebtiry route folder, so no need to do celebrity again
 
+const movies = require('./routes/movies');//grabs the celebrity url for use
+app.use('/', movies);
+//it;s already in the celebtiry route folder, so no need to do celebrity again
+
 
 module.exports = app;
