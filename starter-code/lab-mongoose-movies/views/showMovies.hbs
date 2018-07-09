@@ -1,0 +1,48 @@
+<img src="/images/cineheader.jpg" class="img-fluid" alt="Responsive image">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+
+    <h2 class="display-4">Good Choice!</h2>
+    <p class="lead">Let tell you more about
+      <h4> {{movie.title}}</h4>
+  </div>
+</div>
+
+</div>
+
+<a href="/movies/edit/{{movie.id}}" class="btn btn-info">Wanna update this movie info?</a>
+<a href="/movies/delete/{{movie.id}}" span class="btn btn-danger">Wanna delete this one?</a>
+
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Genre
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        {{movie.genre}}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+          aria-controls="collapseTwo">
+          Plot
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        {{movie.plot}}
+      </div>
+    </div>
+  </div>
+</div>
