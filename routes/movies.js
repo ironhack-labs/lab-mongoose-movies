@@ -23,6 +23,7 @@ router.post('/movies/create', (req, res, next)=>{
      plot: req.body.plot
     })
 
+    //could use Movie.create(newMovie) instead of newMovie.save
     newMovie.save()
     .then((response)=>{
         res.redirect('/movies/index')
@@ -49,7 +50,7 @@ router.post('/movies/create', (req, res, next)=>{
         plot: req.body.plot
     })
     .then((theMovie)=>{
-        res.redirect('/movies/index')
+        res.redirect(`/movies/${req.params.id}`)
     })
     .catch((err)=>{
         next(err);
@@ -57,9 +58,9 @@ router.post('/movies/create', (req, res, next)=>{
 })
 
  router.post('/movies/:id/delete', (req, res, next)=>{
-    Celebrity.findByIdAndRemove(req.params.id)
-    .then((reponse)=>{
-        res.redirect('/movies/index');
+    Movie.findByIdAndRemove(req.params.id)
+    .then((response)=>{
+        res.redirect('/movies');
     })
     .catch((err)=>{
         next(err);

@@ -51,6 +51,8 @@ app.locals.title = 'Mongoose Movies';
 
 
 
+//routes middleware: ALWAYS the last thing in app.js
+
 const index = require('./routes/index');
 app.use('/', index);
 
