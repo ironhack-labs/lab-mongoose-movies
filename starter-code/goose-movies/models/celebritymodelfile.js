@@ -14,7 +14,7 @@ const Schema   = mongoose.Schema;
 
 
   //Model below, rules for model are above
-  //"celebritiescollection" means name of the collection
+  //"celebrities" means name of the collection
   const Celebrity = mongoose.model("celebrities", celebritySchema);
 
 

@@ -12,6 +12,7 @@ const path         = require('path');
 
 //Calling celebrity.js model
 const Celebrity    = require('./models/celebritymodelfile');
+const Movie        = require('./models/moviemodelfile');
 
 
 //mongoose promise for activation on local host
@@ -65,5 +66,9 @@ const celebrities = require('./routes/celebrities');
 //Makes the route link so people see it when they type in site/celebrities
 app.use('/', celebrities);
 
+
+//Makes app look at routes/movies.js
+const movies = require('./routes/movies');
+app.use('/', movies);
 
 module.exports = app;

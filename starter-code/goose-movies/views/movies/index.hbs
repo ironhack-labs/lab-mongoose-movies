@@ -1,0 +1,18 @@
+<h1>Movies</h1>
+
+
+<a href="movies/new">Create a movie!</a>
+{{!-- Each loop based on number of movies in database --> movies collection --}}
+{{#each listOfMovies}}
+<h3>{{this.title}}</h3>
+<p><a href="/movies/{{this._id}}">Explore the Movie</a></p>
+<p><a href="/movies/{{this._id}}/edit">Edit this Movie</a></p>
+
+{{!-- Calls the movie delete post route to delete from MongoDb --}}
+<form action = "/movies/{{this._id}}/delete" method="post">
+<div>
+  <button>Delete this Movie</button>
+</div>
+</form>
+{{/each}}
+
