@@ -1,13 +1,13 @@
 const express = require('express');
 const router  = express.Router();
-const Celebrities = require('../models/celebrity');
+const Movies = require('../models/movie');
 
 
-/* GET celebrities page */
+/* GET movies page */
 router.get('/', (req, res, next) => {
-  Celebrities.find()
-  .then((celebs) => {
-    res.render('Celebrities/index', {celebs});
+  Movies.find()
+  .then((movies) => {
+    res.render('Movies/index', {movies});
   })
   .catch((err) => {
     next(err);
@@ -15,26 +15,26 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('Celebrities/new');
+  res.render('Movies/new');
 });
 
 router.post('/', (req, res, next) => {
-  let celebrity = new Celebrities(req.body);
-  celebrity.save()
+  let movie = new Movies(req.body);
+  movie.save()
   .then((result) => {
     console.log("Saved to db: ", result);
-    res.redirect('/celebrities');
+    res.redirect('/movies');
   })
   .catch((err) => {
-    res.render('Celebrities/new', {celebrity: celebrity, error: true});
+    res.render('Movies/new', {movie: movie, error: true});
   });
 });
 
 router.post('/:id/delete', (req, res, next) => {
-  Celebrities.findByIdAndRemove(req.params.id)
+  Movies.findByIdAndRemove(req.params.id)
   .then((result) => {
     console.log("Removed from db: ", result);
-    res.redirect('/celebrities');
+    res.redirect('/movies');
   })
   .catch((err) => {
     next(err);
@@ -42,9 +42,9 @@ router.post('/:id/delete', (req, res, next) => {
 });
 
 router.get('/:id/edit', (req, res, next) => {
-  Celebrities.findById(req.params.id)
-  .then((celebrity) => {
-    res.render('Celebrities/edit', {celebrity: celebrity})
+  Movies.findById(req.params.id)
+  .then((movie) => {
+    res.render('Movies/edit', {movie: movie})
   })
   .catch((err) => {
     next(err);
@@ -52,10 +52,10 @@ router.get('/:id/edit', (req, res, next) => {
 });
 
 router.post('/:id', (req, res, next) => {
-  Celebrities.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  Movies.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then((result) =>{
     console.log("Updated db entry: ", result);
-    res.redirect('/celebrities/' + req.params.id);
+    res.redirect('/movies/' + req.params.id);
   })
   .catch((err) => {
     next(err);
@@ -63,9 +63,9 @@ router.post('/:id', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-  Celebrities.findById(req.params.id)
-    .then((celebrity) => {
-      res.render('Celebrities/show', celebrity);
+  Movies.findById(req.params.id)
+    .then((movie) => {
+      res.render('Movies/show', movie);
     })
     .catch((err) => {
       next(err);
