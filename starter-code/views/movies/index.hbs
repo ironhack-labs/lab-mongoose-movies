@@ -1,0 +1,13 @@
+<h1>List of all movies in DB</h1>
+<div id="movies">
+  {{#each movies}}
+    <div class="movie">
+      <h3>{{title}}
+      <a href="/movies/{{_id}}"> see this movie</a></h3>
+      <a href="/movies/{{id}}/delete"><button>Delete</button></a>
+      <a href="/movies/{{id}}/edit"><button>Edit</button></a>
+    </div>
+  {{/each}}
+  <a href="/movies/new"><button>NEW</button></a>
+  <a href="/"><button>Back</button></a>
+</div>
