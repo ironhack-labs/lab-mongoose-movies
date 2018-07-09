@@ -1,0 +1,18 @@
+<div class="cualquiera">
+    <h1>Personajes de Pixar</h1>
+    <div class="row">
+        {{#each celebrities}}
+        <div class="col col-4">
+            <div class="tarjetas">
+                <h3>{{name}}</h3>
+                <a class="ver" href="/celebrities/{{_id}}">Ver más</a>
+                 |
+                <a class="editar" href="/celebrities/edit/{{_id}}">Editar de este personaje</a>
+                 |
+                <a class="borrar" href="/celebrities/delete/{{_id}}">Borrar</a>
+            </div>
+        </div>
+        {{/each}}
+        <a href="/celebrities/new">Añadir una celebritie</a>
+    </div>
+    </div>

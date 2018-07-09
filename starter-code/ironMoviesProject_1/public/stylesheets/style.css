@@ -1,0 +1,43 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #dddddd; }
+
+a {
+  color: #00b7ff; }
+
+.borrar {
+  color: red; }
+
+.editar {
+  color: orange; }
+
+.ver {
+  color: grey; }
+
+col-4 {
+  text-align: center; }
+
+.imageLanding {
+  background-image: url("../images/pixarLanding.jpg");
+  min-height: 50vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -250px;
+  padding: 25vh 10vw 0 0; }
+
+h1 {
+  text-align: center; }
+
+.cualquiera {
+  margin-top: 50px;
+  padding: 50px; }
+
+.col {
+  padding: 50px; }
+
+.tarjetas {
+  background-color: white;
+  padding: 20px; }
+
+/*# sourceMappingURL=style.css.map */
