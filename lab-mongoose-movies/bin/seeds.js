@@ -1,9 +1,12 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 const Movie = require('../models/movie');
 
+let dbURL = process.env.DBURL;
 mongoose
-    .connect('mongodb://localhost/lab-mongoose-movies', {useMongoClient: true})
+    .connect(dbURL, {useMongoClient: true})
     .then(o => {
         Promise.all([
             Celebrity.create(celebrities),

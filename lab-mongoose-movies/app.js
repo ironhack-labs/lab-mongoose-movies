@@ -11,8 +11,10 @@ const path         = require('path');
 
 
 mongoose.Promise = Promise;
+let dbURL = process.env.DBURL;
+
 mongoose
-  .connect('mongodb://localhost/lab-mongoose-movies', {useMongoClient: true})
+  .connect(dbURL, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
