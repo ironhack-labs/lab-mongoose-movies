@@ -1,0 +1,18 @@
+{{#each result}}
+    <div>
+        <h2>{{this.title}}</h2>
+        <a href="/movies/{{this._id}}">See Details</a>
+        <!--goes to the celebrity folder and inserts the ID-->
+        <form method="post" action="/movies/{{this._id}}/delete">
+            <!--pay close attention to how the id was done, i forgot how to put the id correctly-->
+            <button>Delete</button>
+        </form>
+        <!--idk if the form is supposed to take up the entire div or just this button element-->
+    </div>
+{{/each}}
+
+<div>
+    <hr>
+    <a href="/movies/new">New Movie</a>
+</div>
+<!--"goes to the page you just created(new celebrity) with the form to create a new celebrity."-->
