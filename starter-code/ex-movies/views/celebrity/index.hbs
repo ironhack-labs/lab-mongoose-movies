@@ -1,0 +1,11 @@
+<h2>CELEBRITIES</h2>
+{{#each celebs}}
+<div class="jumbotron jumbotron-fluid">
+     <div class="container">
+          <h1 class="display-4">{{name}}</h1>
+          <a href="/celebrities/{{id}}">More</a>
+          <a href="/celebrities/delete/{{id}}">Delete</a>
+     </div>
+</div>
+{{/each}}
+<a href="/celebrities/new">Add a celebritie</a>
