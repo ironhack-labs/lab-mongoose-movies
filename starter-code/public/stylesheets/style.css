@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.home {
+  background: url("/images/background.jpeg");
+  height: 100vh;
+  width: 90vw;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  color: white; }
+  .home h2 {
+    color: white; }
+  .home a {
+    border-radius: 20px;
+    background: silver;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    display: inline-block;
+    color: black; }
+
+.buttons {
+  border-radius: 20px; }
+
+/*# sourceMappingURL=style.css.map */

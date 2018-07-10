@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Update</h2>
+
+     <form action="/celebrities/edit/{{celebrities._id}}" method="post">
+      <div class="row form"></div>
+        <label for="">Name :</label>
+        <input type="text" name="name" value="{{celebrities.name}}">
+
+        <label for="">Occupation :</label>
+        <input type="text" name="occupation" value="{{celebrities.occupation}}">
+
+        <label for="">Catch Phrase:</label>
+        <input type="text" name="catchPhrase" value="{{celebrities.catchPhrase}}">
+
+        <button type="submit" class="btn btn-outline-success">EDIT</button>
+      </div>
+    </form>
+
+</div>
