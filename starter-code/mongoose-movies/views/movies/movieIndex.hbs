@@ -2,7 +2,7 @@
 <ul>
   {{#each listOfMovies}}
   <li>
-    {{ this.title }}</br>
+    <p>{{this.title}} by {{celebrity.name}} {{celebrity.lastName}} </p></br>
     <a href='/movies/{{this._id}}'>Click here for spicy info about {{this.title}}</a><br/>
   </br/>
   </li>

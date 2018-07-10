@@ -9,8 +9,11 @@ const Schema = mongoose.Schema;
 const movieSchema = new Schema ({
   title: String,
   genre: String,
+  celebrity: {type: Schema.Types.ObjectId, ref: "Celebrity"},
+  //we are referencing the Celebrity Models page, setting it up for the seed
   plot: String
 });
+
 
 /*Now we use schema to make the blueprints of the objects for our database
 these are the object/ key/value pairs that will be used in our Database*/
@@ -23,4 +26,4 @@ module.exports = Movie;
 
 //export this bad boy
  //so our models folder is our data structure of our project, the controllers will be in
- //in the routes folder. Model View Controller. 
+ //in the routes folder. Model View Controller. MVC remember this.

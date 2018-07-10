@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const celebritySchema = new Schema ({
   name: String,
-  occupation: String,
-  catchPhrase: String
+  lastName: String,
+  nationality: String,
+  birthday: String
 });
 
 const Celebrity = mongoose.model("Celebrity", celebritySchema);

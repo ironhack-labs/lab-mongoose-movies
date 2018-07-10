@@ -1,13 +1,14 @@
 const express = require('express');
 const movieRouter = express.Router();
 
-
+const Celebrity = require('../models/celebrity');
 const Movie = require('../models/movie');
 // dont forget to require your models.
 
 //
 movieRouter.get('/movies', (req, res, next)=>{
   Movie.find()
+  .populate('celebrity')
   .then((listOfMovies)=>{
     res.render('movies/movieIndex', {listOfMovies});
   })
@@ -16,11 +17,18 @@ movieRouter.get('/movies', (req, res, next)=>{
   });
 });
 
-
+//Start off here when you get back
 //creates new movies and displays forms
 movieRouter.get('/movies/new', (req, res, next) =>{
-  res.render('movies/newMovies');
+  Celebrity.find()
+  .then((allTheCelebrities)=>{
+      res.render('movies/newMovies', {allTheCelebrities});
+  })
+  .catch((err)=>{
+    next(err);
+  });
 });
+//man im not too sure about this part ^, line 25, should i make an object movies? or reference movies?
 
 //this post route will correspond to the form action.
 movieRouter.post('/movies/create', (req, res, next)=>{
@@ -28,6 +36,8 @@ movieRouter.post('/movies/create', (req, res, next)=>{
      //left side are fields from Model, right side are fields from input form/names
     title: req.body.newTitle,
     genre: req.body.newGenre,
+    first: req.body.devito ? true : false,
+    second: req.body.carrel ? true : false,
     plot: req.body.newPlot
   };
 
