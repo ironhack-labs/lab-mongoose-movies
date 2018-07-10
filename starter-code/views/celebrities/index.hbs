@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="container">
+        <h2>Celebrities</h2>
+        <div class="row">
+        {{#each celebrities}}
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{img}}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">{{name}}</span>
+                    </div>
+                    <div class="card-action">
+                        <a class="waves-effect waves-light btn links" href="/celebrities/edit/{{_id}}">Update</a>
+                        <a class="waves-effect waves-light btn links" href="/celebrities/{{_id}}">Details</a>
+                        <a class="waves-effect waves-light btn links" href="/celebrities/delete/{{_id}}">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <a href="/celebrities/new" class="waves-effect waves-light btn links">Add a celebrity</a>
+        <a href="/" class="waves-effect waves-light btn links">Back to cinema</a>
+    </div>
+</div>

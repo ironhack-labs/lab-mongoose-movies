@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="container whiteBack">
+  <h2>Update the movie</h2>
+    <form action="/movies/edit/{{movie._id}}" method="post">
+      <div class="row form">
+        <label for="">Title</label>
+        <input type="text" name="title" value="{{movie.title}}">
+
+        <label for="">Genre</label>
+        <input type="text" name="genre" value="{{movie.genre}}">
+
+        <label for="">Plot</label>
+        <input class="plot" type="text" name="plot" value="{{movie.plot}}">
+
+        <button type="submit" class="waves-effect waves-light btn links">EDIT</button>
+      </div>
+    </form>
+  </div>
+</div>
