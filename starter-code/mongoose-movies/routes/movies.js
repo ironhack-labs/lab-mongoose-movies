@@ -72,12 +72,12 @@ router.post('/movies/create', (req,res,next)=>{
 
 router.get('/movies/:id/edit', (req,res,next)=>{
 
-    Movie.findById(req.params.id)
+    const theID = req.params.id;
+    Movie.findById(theID)
         .then((theMovie)=>{
             Celebrity.find()
             .then((allCelebs)=>{
-                console.log(theMovie);
-                console.log(allCelebs);
+                // if(theMovie.celebrities === )
                 res.render('movies/edit', {theMovie: theMovie, allCelebs: allCelebs});
 
             });
