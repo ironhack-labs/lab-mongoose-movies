@@ -21,8 +21,10 @@ let celebrities = [
     }
 ]
 
-Celebrity.create(celebrities, (err) => {
-    if (err) {throw(err) }
-    console.log(`created ${celebrities.length} celebrities`);
-    mongoose.connection.close()  
-});
+Celebrity.create(celebrities)
+    .then((result) => {
+        console.log('created')
+    })
+    .catch((err) => {
+        console.log(err);
+    })
