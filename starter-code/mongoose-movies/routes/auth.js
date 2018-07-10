@@ -22,10 +22,13 @@ router.post('/signup', (req, res, next) => {
   const password = req.body.password;
 
   // Check if user is already logged in
+  if (req.session.currentUser) {
+    return res.redirect('/');
+  }
 
   // Check username and password params supplied
   if (!username || !password) {
-    // Flash an error message
+    req.flash('signup-error', 'Please provide a username and password');
     return res.redirect('/auth/signup');
   }
   // Check user exists
@@ -33,8 +36,8 @@ router.post('/signup', (req, res, next) => {
     .then(user => {
       if (user) {
         // Username already exists in database.
-        // Flash error
-        res.redirect('/auth/signup');
+        req.flash('signup-error', 'Username already exists.');
+        return res.redirect('/auth/signup');
       }
       // Create the user
       const salt = bcrypt.genSaltSync(saltRounds);
