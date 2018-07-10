@@ -3,7 +3,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-const indexRouter = require('./routes/index');
+
 const mongoose = require('mongoose');
 const fs = require('fs');
 const rfs = require('rotating-file-stream');
@@ -11,6 +11,8 @@ const helmet = require('helmet');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
+
+const indexRouter = require('./routes/index');
 
 // --- Instantiations
 const app = express();

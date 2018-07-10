@@ -4,20 +4,20 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
-const User = require('../models/user');
+const User = require('../../models/user');
 
 // --- Config
 const saltRounds = 10;
 
 /* GET sign up page. */
 
-router.get('/signup', (req, res, next) => {
+router.get('/', (req, res, next) => {
   res.render('auth/signup');
 });
 
 /* POST sign up page form */
 
-router.post('/signup', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -51,13 +51,6 @@ router.post('/signup', (req, res, next) => {
         .catch(next);
     })
     .catch(next);
-});
-
-/* Log out POST */
-
-router.post('/logout', (req, res, next) => {
-  delete req.session.currentUser;
-  res.redirect('/');
 });
 
 module.exports = router;
