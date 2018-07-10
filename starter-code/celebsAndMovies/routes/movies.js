@@ -5,7 +5,7 @@ const Movie = require('../models/movie');
 
 
 //READ: GET MOVIES FROM DATABASE AND DISPLAY
-movieRouter.get('/index', (req, res, next) => {
+movieRouter.get('/movies/index', (req, res, next) => {
   Movie.find()
     .then((theMovies) => {
       res.render('movies/index', { theMovies });
@@ -17,17 +17,17 @@ movieRouter.get('/index', (req, res, next) => {
 
 
 //CREATE: RENDER FORM TO FILL AND CREATE MOVIE
-movieRouter.get('/new', (req, res, next) => {
+movieRouter.get('/movies/new', (req, res, next) => {
   res.render('movies/new-movie');
 });
 
 
 //CREATE: SEND FILLED FORM WITH DATA(req.body) AND SAVE IN DATABASE
-movieRouter.post('/create', (req, res, next) => {
+movieRouter.post('/movies/create', (req, res, next) => {
   const newMovie = new Movie(req.body);
   newMovie.save()
   .then((response) => {
-    res.redirect('index');
+    res.redirect('/movies/index');
   })
   .catch((err) => {
     console.log(err);
@@ -37,7 +37,7 @@ movieRouter.post('/create', (req, res, next) => {
 
 
 //UPDATE: RENDER FORM PREFILLED AND EDIT IN DATABASE
-movieRouter.get('/:id/edit', (req, res, next) => {
+movieRouter.get('/movies/:id/edit', (req, res, next) => {
   Movie.findById(req.params.id)
   .then((theMovie) => {
     res.render('movies/edit-movie', theMovie);
@@ -49,7 +49,7 @@ movieRouter.get('/:id/edit', (req, res, next) => {
 
 
 //UPDATE: SEND THE NEW INFO TO DATABASE TO UPDATE
-movieRouter.post('/:id/update', (req, res, next) => {
+movieRouter.post('/movies/:id/update', (req, res, next) => {
   Movie.findOneAndUpdate({_id : req.params.id},req.body)
   .then((response) => {
     res.redirect('/movies/index');
@@ -62,7 +62,7 @@ movieRouter.post('/:id/update', (req, res, next) => {
 
 
 //DELETE
-movieRouter.post('/:id/delete', (req, res, next) => {
+movieRouter.post('/movies/:id/delete', (req, res, next) => {
   Movie.findByIdAndRemove(req.params.id)
   .then((response) => {
     res.redirect('/movies/index');
@@ -75,7 +75,7 @@ movieRouter.post('/:id/delete', (req, res, next) => {
 
 
 //READ: SHOW AN SPECIFIC MOVIE
-movieRouter.get('/:id', (req, res, next) => {
+movieRouter.get('/movies/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then((theMovie) => {
     res.render('movies/show', theMovie);
