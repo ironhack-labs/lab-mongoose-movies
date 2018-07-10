@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Movies = require('../models/movie');
+const Celebrities = require('../models/celebrity');
 
 
 /* GET movies page */
@@ -42,9 +43,15 @@ router.post('/:id/delete', (req, res, next) => {
 });
 
 router.get('/:id/edit', (req, res, next) => {
-  Movies.findById(req.params.id)
-  .then((movie) => {
-    res.render('Movies/edit', {movie: movie})
+  Celebrities.find()
+  .then((celebrities) => {
+    Movies.findById(req.params.id)
+    .then((movie) => {
+      res.render('Movies/edit', {movie: movie, celebrities: celebrities});
+    })
+    .catch((err) => {
+      next(err);
+    });
   })
   .catch((err) => {
     next(err);
@@ -52,6 +59,7 @@ router.get('/:id/edit', (req, res, next) => {
 });
 
 router.post('/:id', (req, res, next) => {
+
   Movies.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then((result) =>{
     console.log("Updated db entry: ", result);
@@ -64,12 +72,13 @@ router.post('/:id', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   Movies.findById(req.params.id)
-    .then((movie) => {
-      res.render('Movies/show', movie);
-    })
-    .catch((err) => {
-      next(err);
-    });
+  .populate('cast')
+  .then((movie) => {
+    res.render('Movies/show', movie);
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
 module.exports = router;

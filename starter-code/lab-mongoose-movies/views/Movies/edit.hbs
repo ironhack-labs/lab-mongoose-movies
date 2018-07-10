@@ -6,6 +6,14 @@
   <input type="text" name="genre" id="genre" value="{{movie.genre}}"> <br>
   <label for="plot">Plot: </label>
   <input type="text" name="plot" id="plot" value="{{movie.plot}}"> <br>
+  <ul>
+    {{#each celebrities}}
+    <li>
+      <input type="checkbox" name="cast" id="{{this.id}}" value="{{this.id}}">
+      <label for="{{this.id}}">{{this.name}}</label>
+    </li>
+    {{/each}}
+  </ul>
   <button type="submit">Update</button>
 </form>
 {{#if error}}

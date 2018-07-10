@@ -4,6 +4,11 @@
     Genre: {{genre}}<br>
     Plot: {{plot}}
   </p>
+  <ul>
+    {{#each cast}}
+      <li>{{this.name}}</li>
+    {{/each}}
+  </ul>
  <form action="{{this.id}}/delete" method="post">
     <button type="submit">Delete</button>
   </form>
