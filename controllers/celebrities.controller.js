@@ -5,6 +5,7 @@ const Celebrity = require("../models/celebrity.model")
 module.exports.list = (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
+      console.log('Cele', celebrities);
       res.render('celebrities/index', { 
         celebrities
       });

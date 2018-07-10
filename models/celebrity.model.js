@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-module.exports = mongoose.model("Celebrity", new mongoose.Schema({
+const movieSchema = new mongoose.Schema({
     name: {
     type: String,
     required: 'Name is required',
@@ -13,4 +13,7 @@ module.exports = mongoose.model("Celebrity", new mongoose.Schema({
   catchPhrase: {
     type: String
   }
-}))
+})
+
+const Celebrity = mongoose.model("Celebrity", movieSchema);
+module.exports = Celebrity;
