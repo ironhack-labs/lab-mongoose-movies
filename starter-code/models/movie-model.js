@@ -6,7 +6,8 @@ const Schema   = mongoose.Schema;
 const movieSchema = new Schema({
   title: {type:String},
   genre: {type:String},
-  plot: {type:String}
+  plot: {type:String},
+  reviews: [{reviewer: String, content: String}]
   
 });
 
