@@ -53,4 +53,11 @@ router.post('/signup', (req, res, next) => {
     .catch(next);
 });
 
+/* Log out POST */
+
+router.post('/logout', (req, res, next) => {
+  delete req.session.currentUser;
+  res.redirect('/');
+});
+
 module.exports = router;
