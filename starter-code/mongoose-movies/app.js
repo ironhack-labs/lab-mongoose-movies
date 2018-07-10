@@ -10,6 +10,7 @@ const rfs = require('rotating-file-stream');
 const helmet = require('helmet');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
 
 // --- Instantiations
 const app = express();
@@ -36,17 +37,17 @@ app.use(helmet());
 app.use(logger('dev', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'mongoose-movies',
   cookie: {
-    maxAge: 24 * 60 * 60 * 1000 // 1 day },
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
+  },
   store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-      ttl: 24 * 60 * 60 // 1 day
-    })
-  }));
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 app.use(flash());
 
 // --- Routes
