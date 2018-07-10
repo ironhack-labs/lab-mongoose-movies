@@ -1,0 +1,9 @@
+<h2>{{title}}</h2>
+<h5>Add a review:</h5>
+<form action="/movies/{{id}}/reviews/create" method="post">
+  <label for="reviewer">Name:</label> <br>
+  <input type="text" name="reviewer" id="reviewer"> <br> <br>
+  <label for="content">Your review:</label> <br>
+  <textarea name="content" id="content" cols="30" rows="10"></textarea> <br> <br>
+  <button type="submit">Add review</button>
+</form>

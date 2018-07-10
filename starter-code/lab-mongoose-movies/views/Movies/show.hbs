@@ -15,5 +15,19 @@
   <form action="{{this.id}}/edit">
     <button type="submit">Edit</button>
   </form>
-  <a href="/movies">Back</a>
+  <a href="/movies">Back</a> <br>
+  <hr>
+  {{#if reviews}}
+    <h3>Reviews:</h3>
+    <hr>
+    {{#each reviews}}
+      <p>By: <b>{{this.reviewer}}</b></p>
+      <p>{{this.content}}</p>
+      <form action="/movies/{{../id}}/reviews/{{this.id}}/remove" method="post">
+        <button type="submit">Delete</button>
+      </form>
+      <hr>
+    {{/each}}
+  {{/if}}
+  <a href="/movies/{{id}}/reviews/add">Add a Review</a>
 </div>

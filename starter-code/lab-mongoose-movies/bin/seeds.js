@@ -33,19 +33,22 @@ const movies = [
     title: "Despicable Me",
     genre: "Animated Movies",
     plot: "Meet Gru and his minions. Join them in their journey to become the gratest evil masterminds", 
-    cast: [celebs[0]._id, celebs[1]._id, celebs[2]._id]
+    cast: [celebs[0]._id, celebs[1]._id, celebs[2]._id],
+    reviews: []
   }, 
   {
     title: "Despicable Me 2",
     genre: "Animated Movies",
     plot: "Join our favorite not-so-evil criminals in their attempt to save the world", 
-    cast: [celebs[0]._id, celebs[1]._id, celebs[2]._id]
+    cast: [celebs[0]._id, celebs[1]._id, celebs[2]._id],
+    reviews: []
   },
   {
     title: "Despicable Me 3",
     genre: "Animated Movies",
     plot: "Our minions search for a new boss.", 
-    cast: [celebs[0]._id, celebs[1]._id, celebs[2]._id]
+    cast: [celebs[0]._id, celebs[1]._id, celebs[2]._id],
+    reviews: []
   }
 ];
 
