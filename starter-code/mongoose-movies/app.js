@@ -2,13 +2,14 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const rfs = require('rotating-file-stream');
 const helmet = require('helmet');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 // --- Instantiations
 const app = express();
@@ -37,6 +38,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'mongoose-movies',
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000 // 1 day },
+  store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
+  }));
+app.use(flash());
 
 // --- Routes
 app.use('/', indexRouter);
