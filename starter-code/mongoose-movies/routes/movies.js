@@ -56,7 +56,15 @@ movieRouter.get('/movies/edit/:movieId', (req, res, next) =>{
   const id = req.params.movieId;
   Movie.findById(id)
   .then(oneMovie =>{
-    res.render('movies/editMovie', {movie: oneMovie});
+
+    Celebrity.find()
+    .then((allTheCelebrities)=>{
+      res.render('movies/editMovie', {movie: oneMovie, celebrity: allTheCelebrities});
+    })
+    .catch((err)=>{
+      next(err);
+    });
+
   })
   .catch((err)=>{
     next(err);
@@ -69,7 +77,7 @@ movieRouter.get('/movies/edit/:movieId', (req, res, next) =>{
 
 movieRouter.post('/movies/delete/:movieId', (req, res, next)=>{
   const id = req.params.movieId;
-  Movie.findByIdAndRemove(req.params.movieId)
+  Movie.findByIdAndRemove(id)
   .then((response)=>{
     res.redirect('/movies');
   })
@@ -84,6 +92,7 @@ movieRouter.post('/movies/edit/:movieId', (req, res, next) =>{
   const editedMovie = {
     title: req.body.editTitle,
     genre: req.body.editGenre,
+    celebrity: req.body.celebrity,
     plot:  req.body.editPlot
   };
   Movie.findByIdAndUpdate(id, editedMovie)
@@ -99,15 +108,34 @@ movieRouter.post('/movies/edit/:movieId', (req, res, next) =>{
 movieRouter.get('/movies/:id', (req, res, next) =>{
   const movieId= req.params.id;
   Movie.findById(movieId)
+  .populate('celebrity')
   .then(oneMovie =>{
-    console.log(oneMovie);
-    //           movies is in views, moviedetails is the file inside the folder
-    res.render('movies/movieDetails', {movie: oneMovie});
-  })
-  .catch((err)=>{
-    next(err);
-  });
+
+    res.render('movies/movieDetails', oneMovie);
+     })
+     .catch((err)=>{
+       next(err);
+     });
 });
 
+
+//movieRouter.get('/movies/edit/:movieId', (req, res, next) =>{
+//   const id = req.params.movieId;
+//   Movie.findById(id)
+//   .then(oneMovie =>{
+//
+//     Celebrity.find()
+//     .then((allTheCelebrities)=>{
+//
+//       res.render('movies/editMovie', {movie: oneMovie, celebrity: allTheCelebrities});
+//     })
+//     .catch((err)=>{
+//       next(err);
+//     });
+//   })
+//   .catch((err)=>{
+//     next(err);
+//   });
+// });
 
 module.exports = movieRouter;

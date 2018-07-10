@@ -63,6 +63,9 @@ app.use('/', celebs);
 
 const show = require('./routes/celebrities');
 app.use('/', show);
+
+const reviewRoutes = require('./routes/reviewRoutes');
+app.use('/', reviewRoutes);
 //we can add routes here in the / section of app.use to avoid having to type it out in our routes
 
 module.exports = app;

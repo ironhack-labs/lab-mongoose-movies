@@ -1,13 +1,39 @@
-<h2>Welcome to the Movie Details Page for the movie "{{movie.title}}"!</h2>
+<h2>Welcome to the Movie Details Page for the movie "{{title}}"!</h2>
 <div>
-  {{> moviePartial this}}
 
-  <a href="/movies/edit/{{movie._id}}">Edit movie!</a></br>
-  
-  <form action="/movies/delete/{{movie._id}}" method="post"></br>
+  <div>
+    <h1>{{title}}</h1>
+    <p>
+      <hr/> Genre: {{genre}}
+    </p>
+    <hr/>
+    <p>
+      plot: {{plot}}
+    </p>
+    <hr/>
+  </div>
+
+
+  <p>Starring: {{celebrity.name}} {{celebrity.lastName}}</p>
+  <p> Birthday: {{celebrity.birthday}}</p>
+  <p> Nationality: {{celebrity.nationality}}</p>
+
+
+  <a href="/movies/edit/{{_id}}">Edit movie!</a></br>
+
+  <form action="/movies/delete/{{_id}}" method="post"></br>
   <button type="submit" >Delete this entry</button> </br></br>
   </form>
 
+</div>
+
+<div>
+  <h2>Reviews for this Movie!</h2>
+  {{#each reviews}}
+  <h4>{{this.reviewer}}</h4>
+  <p>{{this.content}}</p>
+  <hr />
+  {{/each}}
 </div>
 
 <a href='/movies'>Return Back</a>

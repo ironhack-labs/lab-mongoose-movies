@@ -11,7 +11,8 @@ const movieSchema = new Schema ({
   genre: String,
   celebrity: {type: Schema.Types.ObjectId, ref: "Celebrity"},
   //we are referencing the Celebrity Models page, setting it up for the seed
-  plot: String
+  plot: String,
+  reviews: [{reviewer: String, content: String}]
 });
 
 
