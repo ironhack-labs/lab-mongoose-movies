@@ -22,4 +22,24 @@ reviewRouter.post('/movies/:id/reviews/create', (req, res, next)=>{
   });
 });
 
+reviewRouter.post('/movies/:id/reviews/delete/:reviewIndex', (req, res, next)=>{
+  const movieID = req.params.id;
+  const reviewIndex = req.params.reviewIndex;
+  Movie.findById(movieID)
+  .then((theMovieBeingEdited)=>{
+    theMovieBeingEdited.reviews.splice(reviewIndex, 1);
+    //theMovieBeingEdited.review[reviewIndex] = {reviewer: "me", content: "wahh"}
+    theMovieBeingEdited.save()
+    .then(()=>{
+      res.redirect('/movies/'+ movieID);
+    })
+    .catch((err)=>{
+      next(err);
+    });
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
+
 module.exports = reviewRouter;
