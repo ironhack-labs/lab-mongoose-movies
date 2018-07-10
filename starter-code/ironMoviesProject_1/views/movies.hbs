@@ -1,0 +1,20 @@
+<div class="cualquiera">
+    <h1>Peliculas de Pixar</h1>
+    <div class="row">
+        {{#each movies}}
+        <div class="col col-4">
+            <div class="tarjetas">
+                <h3>{{title}}</h3>
+                
+                <a class="ver" href="/movies/{{_id}}">Ver más</a>
+                |
+                <a class="editar" href="/movies/editMovie/{{_id}}">Editar</a>
+                |
+                <a class="borrar" href="/movies/delete/{{_id}}">Borrar</a>
+            </div>
+        </div>
+        {{/each}}
+        
+    </div>
+<a href="/movies/newMovie">Añadir una película</a>
+</div>
