@@ -8,13 +8,13 @@
   <label for="genre-input">Genre</label>
   <input type="text" name="newGenre" id="genre-input" />
 
-
-  <form action="/movies/create" method="post">
-    <label>Danny Devito</label>
-    <input type="checkbox", name=`${devito}`/>
-    <label>Steve Carell</label>
-    <input type="checkbox", name=`$(carell)`/>
-  </form>
+  <label>Celebrity</label>
+  <select name="celebrity" required="true">
+    <option value="null"></option>
+    {{#each allTheCelebrities}}
+    <option value="{{this._id}}">{{this.name}}{{this.lastName}}</option>
+    {{/each}}
+  </select>
 
 
   <label for="plot-input">Plot</label>
