@@ -3,3 +3,6 @@
 <h2>
   <a href="/celebrities">Celebrities</a>
 </h2>
+{{#if currentUser}}
+<p>Logged in as {{currentUser.username}}</p>
+{{/if}}
