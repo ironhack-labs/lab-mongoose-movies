@@ -100,7 +100,7 @@ router.get('/movies/:id', (req, res, next)=>{
   const theId = req.params.id;
   Movie.findById(theId)
   .then((theMovie)=>{
-    res.render('movies/show', theMovie);
+    res.render('movies/show', {theMovie: theMovie});
   })
   .catch((err)=>{
     next(err);

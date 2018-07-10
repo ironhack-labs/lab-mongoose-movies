@@ -71,4 +71,9 @@ app.use('/', celebrities);
 const movies = require('./routes/movies');
 app.use('/', movies);
 
+//calls the file so things will be routed there
+const reviewRoutes = require('./routes/reviewRoutes');
+app.use('/', reviewRoutes);
+
+
 module.exports = app;

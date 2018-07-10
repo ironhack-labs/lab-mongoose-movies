@@ -11,6 +11,7 @@ const movieSchema = new Schema ({
   title: String,
   genre: String,
   plot: String,
+  reviews: [{reviewer:String, content: String}]
 });
 
 //Model is below, rules for model above.
