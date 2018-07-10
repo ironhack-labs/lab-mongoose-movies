@@ -7,6 +7,8 @@
 
 <p>{{plot}}</p>
 
+<p>{{#each celebrities}}<li>{{this.name}}</li>{{/each}}</p>
+
 <p><a href="/movies/{{_id}}/edit">EDIT MOVIE</a></p>
 
 <form action="/movies/{{_id}}/delete" method="post">

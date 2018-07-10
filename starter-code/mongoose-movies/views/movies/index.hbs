@@ -4,11 +4,13 @@
 
     <p><a href="/movies/{{this._id}}"><img src="{{this.poster}}" class="content-img"></a></p>
     
-    <p><a href="/movies/{{this._id}}">{{this.title}}</a>
+    <p><b>Title: </b><a href="/movies/{{this._id}}">{{this.title}}</a>
 
-    <p>{{this.genre}}
+    <p><b>Genre: </b>{{this.genre}}
 
-    <p>"{{this.plot}}"
+    <p><b>Celebrities: </b>{{#each this.celebrities}}<li>{{this.name}}</li>{{/each}}
+
+    <p><b>Plot: </b>"{{this.plot}}"
         <br>
         <br>
         <br>

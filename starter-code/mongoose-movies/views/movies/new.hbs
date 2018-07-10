@@ -14,6 +14,16 @@
 <input type="text" name="plot">
 <br>
 
+<label>Celebrities:</label>
+<select name="celebrities" required="true">
+    <option value="null"></option>
+{{#each allCelebs}}
+    {{!-- {{#if this._id === theBook._id}} --}}
+    <option value="{{this._id}}">{{this.celebrities}}</option>
+{{/each}}
+</select>
+<br>
+
 <p><label>Poster URL:</label>
 <input type="text" name="poster">
 <br>
