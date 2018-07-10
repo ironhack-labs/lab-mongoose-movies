@@ -9,7 +9,7 @@ const User = require('../../models/user');
 // --- Config
 const saltRounds = 10;
 
-/* GET sign up page. */
+/* GET login page. */
 
 router.get('/', (req, res, next) => {
   // Check if user is logged in
@@ -17,9 +17,9 @@ router.get('/', (req, res, next) => {
     return res.redirect('/');
   }
   const data = {
-    messages: req.flash('signup-error')
+    messages: req.flash('login-error')
   };
-  res.render('auth/signup', data);
+  res.render('auth/login', data);
 });
 
 /* POST sign up page form */
@@ -35,27 +35,26 @@ router.post('/', (req, res, next) => {
 
   // Check username and password params supplied
   if (!username || !password) {
-    req.flash('signup-error', 'Please provide a username and password');
-    return res.redirect('/auth/signup');
+    req.flash('login-error', 'Please provide a username and password');
+    return res.redirect('/auth/login');
   }
   // Check user exists
   User.findOne({ username: username })
     .then(user => {
-      if (user) {
-        // Username already exists in database.
-        req.flash('signup-error', 'Username already exists.');
-        return res.redirect('/auth/signup');
+      if (!user) {
+        // Username does not exist in database
+        req.flash('login-error', 'User not found.');
+        return res.redirect('/auth/login');
       }
-      // Create the user
-      const salt = bcrypt.genSaltSync(saltRounds);
-      const hashed = bcrypt.hashSync(password, salt);
-      const newUser = new User({ username: username, password: hashed });
-      newUser.save()
-        .then((user) => {
-          req.session.currentUser = user;
-          res.redirect('/');
-        })
-        .catch(next);
+      // Check that password is correct
+      if (!bcrypt.compareSync(password, user.password)) {
+        // Password is incorrect
+        req.flash('login-error', 'Please check your password.');
+        return res.redirect('/auth/login');
+      }
+      // User found and password correct, save session info
+      req.session.currentUser = user;
+      res.redirect('/');
     })
     .catch(next);
 });
