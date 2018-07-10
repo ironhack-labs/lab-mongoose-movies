@@ -1,0 +1,18 @@
+<h1>Log in</h1>
+<form action="login" method="POST">
+  <label for="username">Username: </label>
+  <input type="text" name="username" id="username">
+  <label for="password">Password: </label>
+  <input type="password" name="password" id="password">
+  <input type="submit" name="submit" value="Login">
+</form>
+{{#if messages.length}}
+<p>
+  <ul>
+    {{#each messages}}
+    <li>{{this}}</li>
+    {{/each}}
+
+  </ul>
+</p>
+{{/if}}
