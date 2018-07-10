@@ -1,0 +1,36 @@
+<h1>CREATE NEW MOVIE PAGE</h1>
+
+<form action="/movies/create" method="post">
+
+<label>Title:</label>
+<input type="text" name="title">
+<br>
+
+<p><label>Genre:</label>
+<input type="text" name="genre">
+<br>
+
+<p><label>Plot:</label>
+<input type="text" name="plot">
+<br>
+
+<label>Celebrities:</label>
+<select name="celebrities" required="true">
+    <option value="null"></option>
+{{#each allCelebs}}
+    {{!-- {{#if this._id === theBook._id}} --}}
+    <option value="{{this._id}}">{{this.celebrities}}</option>
+{{/each}}
+</select>
+<br>
+
+<p><label>Poster URL:</label>
+<input type="text" name="poster">
+<br>
+
+<p></p><button type="submit">Save Movie</button>
+
+
+</form>
+
+<p><a href="/movies">Back to Movies</a></p>
