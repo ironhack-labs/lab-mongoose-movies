@@ -36,8 +36,7 @@ movieRouter.post('/movies/create', (req, res, next)=>{
      //left side are fields from Model, right side are fields from input form/names
     title: req.body.newTitle,
     genre: req.body.newGenre,
-    first: req.body.devito ? true : false,
-    second: req.body.carrel ? true : false,
+    celebrity: req.body.celebrity,
     plot: req.body.newPlot
   };
 
