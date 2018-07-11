@@ -5,6 +5,14 @@ const Celebrity = require('../models/celebrity');
 const Movie = require('../models/movie');
 // dont forget to require your models.
 
+movieRouter.use((req, res, next) => {
+  if (req.session.currentUser) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+});
+
 //
 movieRouter.get('/movies', (req, res, next)=>{
   Movie.find()

@@ -1,0 +1,17 @@
+<h1>Welcome to the Sign Up Page!</h1>
+
+<form action="/signup" method="post">
+  <!--get /signup and post /signup are two completely different routes-->
+  <label for="username">Please input a username:</label>
+  <input id="username" type="text" name="theUsername" />
+
+  <label for="password">Please input a password:</label>
+  <input id="password" type="password" name="thePassword" />
+
+  <button>Submit!</button>
+
+</form>
+
+{{#if errorMessage}}
+<div>{{errorMessage}}</div>
+{{/if}}

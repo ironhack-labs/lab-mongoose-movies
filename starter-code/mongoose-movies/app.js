@@ -8,6 +8,9 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session      = require('express-session');
+const MongoStore   = require('connect-mongo')(session);
+
 
 hbs.registerPartials(__dirname + '/views/partials');
 
@@ -45,6 +48,15 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: {maxAge: 60000},
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60
+  })
+}));
+
 
 
 // default value for title local
@@ -66,6 +78,9 @@ app.use('/', show);
 
 const reviewRoutes = require('./routes/reviewRoutes');
 app.use('/', reviewRoutes);
+
+const authRoutes = require('./routes/authRoutes');
+app.use('/', authRoutes);
 //we can add routes here in the / section of app.use to avoid having to type it out in our routes
 
 module.exports = app;

@@ -1,0 +1,17 @@
+<h1>Welcome to the Log-in Page!</h1>
+
+<form action="/login" method="post">
+  <!--get /signup and post /signup are two completely different routes-->
+  <label>Username:</label>
+  <input id="username" type="text" name="theUsername" />
+
+  <label>Password:</label>
+  <input id="password" type="password" name="thePassword" />
+
+  <button>Log In!</button>
+
+</form>
+
+{{#if errorMessage}}
+<div>{{errorMessage}}</div>
+{{/if}}
