@@ -1,0 +1,11 @@
+<form action="/movies/{{theMovie._id}}/reviews/update/{{@index}}" method="post">
+
+    <label for="reviewer">Your Name?</label>
+    <input type="text" id="reviewer" name="{{this.reviewer}}">
+
+    <label for="say">What do you have to say?</label>
+    <textarea name="content" id="say" cols="30" rows="10" value="{{this.content}}"></textarea>
+
+    <button type="submit">Post Review</button>
+
+</form>

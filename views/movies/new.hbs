@@ -13,6 +13,14 @@
 <input type="text" name="occupation">
 <br>
 
+<label>Celebrities: </label>
+<select name= "celebrities" required = "true">
+    {{#each allTheCelebs}}
+        <option value = "null"></option> //makes author selector empty 
+        <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+</select>
+
 <button type="submit">Save Movie</button>
 </form>
 
