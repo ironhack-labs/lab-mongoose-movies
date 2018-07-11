@@ -3,6 +3,7 @@ var router = express.Router();
 
 router.use('/signup', require('./signup'));
 router.use('/login', require('./login'));
+router.use('/star', require('./star'));
 
 /* Log out POST */
 router.post('/logout', (req, res, next) => {

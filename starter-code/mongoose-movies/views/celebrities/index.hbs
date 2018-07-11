@@ -4,6 +4,8 @@
   <a href="/celebrities/add">Add a celebrity</a>
 </h2>
 
+
+
 <ul>
   {{#each this.celebrities}}
   <li>
@@ -14,6 +16,8 @@
     <form action="/celebrities/{{_id}}/edit" method='get'>
       <input type='submit' value='Edit'>
     </form>
+    <a href="../auth/star/{{_id}}">Star</a>
+    <a href="../auth/unstar/{{_id}}">Unstar</a>
   </li>
   {{/each}}
 </ul>
