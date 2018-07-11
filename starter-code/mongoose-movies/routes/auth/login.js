@@ -1,18 +1,14 @@
 // --- Dependencies
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
 const User = require('../../models/user');
 
-// --- Config
-const saltRounds = 10;
-
 /* GET login page. */
 
 router.get('/', (req, res, next) => {
-  // Check if user is logged in
+  // Check if user is logged in redirect
   if (req.session.currentUser) {
     return res.redirect('/');
   }

@@ -1,0 +1,13 @@
+<header>
+  {{#if currentUser}}
+  <p>Logged in as {{currentUser.username}}</p>
+  <p>
+    <form method='post' action='auth/logout'>
+      <button>Log out</button>
+    </form>
+  </p>
+  {{else}} {{!-- This is not working on anything but index --}}
+  <a href="auth/signup">Sign up</a> or
+  <a href="auth/login">Login</a>
+  {{/if}}
+</header>

@@ -1,13 +1,6 @@
-<h1>{{title}}</h1>
+<h1>
+  {{title}}</h1>
 <p>Welcome to {{title}}</p>
 <h2>
   <a href="/celebrities">Celebrities</a>
 </h2>
-{{#if currentUser}}
-<p>Logged in as {{currentUser.username}}</p>
-<p>
-  <form method='post' action='auth/logout'>
-    <button>Log out</button>
-  </form>
-</p>
-{{/if}}

@@ -19,13 +19,10 @@ const indexRouter = require('./routes/index');
 const app = express();
 
 // --- Configurations
-// database
+// -- database
 const dbName = 'mongoose-movies';
 mongoose.connect(`mongodb://localhost/${dbName}`);
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-// logging
+// -- logging
 const logDirectory = path.join(__dirname, 'log');
 // ensure log directory exists
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
@@ -34,6 +31,10 @@ const accessLogStream = rfs('access.log', {
   interval: '1d', // rotate daily
   path: logDirectory
 });
+// -- View engine
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 // Register handlebars helpers
 hbs.registerHelper('ifIn', function (elem, list, options) {
   if (list.indexOf(elem) > -1) {
@@ -41,6 +42,8 @@ hbs.registerHelper('ifIn', function (elem, list, options) {
   }
   return options.inverse(this);
 });
+// Use partials
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 // --- Middleware
 app.use(helmet());
@@ -48,6 +51,7 @@ app.use(logger('dev', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 app.use(session({
   secret: 'mongoose-movies',
   cookie: {
@@ -58,7 +62,7 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
-app.use(flash());
+
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
   next();
@@ -66,21 +70,22 @@ app.use((req, res, next) => {
 
 // --- Routes
 app.use('/', indexRouter);
-
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// NOTE: requires a views/not-found.ejs template
+app.use((req, res, next) => {
+  res.status(404);
+  res.render('not-found');
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// NOTE: requires a views/error.ejs template
+app.use((err, req, res, next) => {
+  // always log the error
+  console.error('ERROR', req.method, req.path, err);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  // only render if the error ocurred before sending the response
+  if (!res.headersSent) {
+    res.status(500);
+    res.render('error');
+  }
 });
 
 module.exports = app;

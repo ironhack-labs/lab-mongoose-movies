@@ -8,20 +8,28 @@
   {{#each this.celebrities}}
   <li>
     <a href="/celebrities/{{_id}}">{{name}}</a>
+
+    {{#ifIn id ../currentUser.stars}}
+    <b>
+      Starred!
+      <a href="../auth/unstar/{{_id}}">Unstar</a>
+    </b>
+    {{else}}
+    <b>
+      <a href="../auth/star/{{_id}}">Star</a>
+    </b>
+    {{/ifIn}}
+
+    <hr>
     <form action="/celebrities/{{_id}}/delete" method='post'>
       <input type='submit' value='Delete'>
     </form>
     <form action="/celebrities/{{_id}}/edit" method='get'>
       <input type='submit' value='Edit'>
     </form>
+    <hr>
 
 
-
-    {{#ifIn _id ../stars}}
-    <a href="../auth/unstar/{{_id}}">Unstar</a>
-    {{else}}
-    <a href="../auth/star/{{_id}}">Star</a>
-    {{/ifIn}}
   </li>
   {{/each}}
 </ul>

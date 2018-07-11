@@ -1,7 +1,6 @@
 // --- Dependencies
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
 const User = require('../../models/user');
@@ -50,12 +49,11 @@ router.post('/', (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashed = bcrypt.hashSync(password, salt);
       const newUser = new User({ username: username, password: hashed });
-      newUser.save()
+      return newUser.save()
         .then((user) => {
           req.session.currentUser = user;
           res.redirect('/');
-        })
-        .catch(next);
+        });
     })
     .catch(next);
 });
