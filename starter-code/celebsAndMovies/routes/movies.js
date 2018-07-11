@@ -4,6 +4,14 @@ const movieRouter  = express.Router();
 const Movie = require('../models/movie');
 
 
+movieRouter.use((req, res, next) => {
+  if (req.session.currentUser) {
+    next();
+  } else {
+    res.redirect("/authRoutes/login");
+  }
+});
+
 //READ: GET MOVIES FROM DATABASE AND DISPLAY
 movieRouter.get('/movies/index', (req, res, next) => {
   Movie.find()
@@ -78,7 +86,7 @@ movieRouter.post('/movies/:id/delete', (req, res, next) => {
 movieRouter.get('/movies/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then((theMovie) => {
-    res.render('movies/show', theMovie);
+    res.render('movies/show', {theMovie: theMovie});
   })
   .catch((err) => {
     next(err);

@@ -1,5 +1,31 @@
-<div>
-  {{> moviePartial this}}
+<div class="row celeb-row">
+  <div class="col-sm-12">
+
+
+    <hr>{{theMovie.title}} es {{theMovie.genre}} y dice {{theMovie.plot}}
+    <br>
+    <a href="/movies/{{theMovie.id}}/edit">Edit Movie</a> 
+    || <a href="/movies/{{theMovie.id}}/reviews/new">Add review</a> 
+    || <a href="/movies/index">Go Back</a>
+    <br><br>
+    <form action="/movies/{{theMovie._id}}/delete" method="post">
+    <button type="submit">DELETE</button>
+    </form>
+
+  </div>
 </div>
 
-<a href="/movies/index">Go Back</a>
+
+<br>
+<br>
+<div>
+  <h2>Reviews for this book</h2>
+  {{#each reviews}}
+  <hr>
+  <h4>{{this.reviewer}}</h4>
+  <p>{{this.content}}</p>
+      <form action="/movies/{{theMovie._id}}/reviews/{{this.reviewer}}/delete" method="post">
+    <button type="submit">DELETE</button>
+    </form>
+  {{/each}}
+</div>
