@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 const Movie = require('../models/moviemodelfile')
-
+const Celebrity = require('../models/celebritymodelfile')
 
 //creating a new movie
 
@@ -86,6 +86,7 @@ router.post('/movies/:id/update', (req, res, next)=>{
 //Get movies page
 router.get('/movies', (req, res, next)=> {
   Movie.find()
+  .populate('Celebrity')
   .then((listOfMovies)=>{
     res.render('movies/index', {listOfMovies});
   })

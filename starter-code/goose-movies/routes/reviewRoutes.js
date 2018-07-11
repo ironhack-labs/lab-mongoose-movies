@@ -8,11 +8,15 @@ reviewRouter.get('/movies/:id/reviews/edit/:reviewIndex', (req, res, next)=>{
   const reviewIndex = req.params.reviewIndex;
   console.log('*******************************************',movieID);
   Movie.findById(movieID)
-  .then((theMovieThatImEditing)=>{
+  .then((theMovie)=>{
     // res.render('editReview', theMovieThatImEditing.reviews[reviewIndex]);
-    const reviewSpot = theMovieThatImEditing.reviews[reviewIndex];
+    const reviewSpot = theMovie.reviews[reviewIndex];
     
-    res.render('editReview', reviewSpot);
+    console.log(`theMovie: ${theMovie}`);
+    console.log(`reviewSpot:${reviewSpot}`);
+    res.render('editReview', {theMovie:theMovie,reviewSpot:reviewSpot,reviewIndex:reviewIndex});
+
+    // Movie.findByIdAndUpdate(theID,{$push: {reviews: req.body}})
   })
  .catch((err)=>{
    console.log("It didn't work", err)
@@ -27,22 +31,31 @@ reviewRouter.get('/movies/:id/reviews/edit/:reviewIndex', (req, res, next)=>{
 //   next(err);
 // })
 // })
-action="/movies/5b44efade4834314a78f6a9e/reviews/update/:reviewIndex"
-reviewRouter.post('/movies/:id/reviews/update/:reviewIndex', (req, res, next)=>{
-  const movieID = req.params.id;
-  const reviewIndex = req.params.reviewIndex;
 
-  console.log('movieID:'+movieID+'reviewIndex:'+reviewIndex);
+// reviewRouter.post('/movies/:id/reviews/update/:reviewIndex', (req, res, next)=>{
+//   const movieID = req.params.id;
+//   const reviewIndex = req.params.reviewIndex;
 
-  Movie.findById(movieID)
-  .then((theMovieThatImEditing)=>{
-  console.log('=========================================',movieID, theMovieThatImEditing);
-  //   theMovieThatImEditing.reviews.splice(reviewIndex, 1, {reviews: req.body});
-  })
-  .catch((err)=>{
-    next(err)
-  })
-});
+//   // console.log('movieID:'+movieID+'reviewIndex:'+reviewIndex);
+
+//   Movie.findById(movieID)
+//   .then((theMovieThatImEditing)=>{
+//     theMovieThatImEditing.reviews.splice(reviewIndex, 1);
+//     theMovieThatImEditing.findByIdAndUpdate(req.params.id,{$push: {reviews: req.body}});
+//     theMoviethatImEditing.save()
+//   })
+//     .then(()=>{
+//       res.redirect('/movies/'+movieID)
+//     })
+//     .catch((err)=>{
+//       console.log('error1', err);
+//       next(err)
+//     })
+//   })
+//   .catch((err)=>{
+//     console.log('error2', err);
+//     next(err)
+// });
 
 reviewRouter.post('/movies/:id/reviews/delete/:reviewIndex', (req, res, next)=>{
   const movieID = req.params.id;

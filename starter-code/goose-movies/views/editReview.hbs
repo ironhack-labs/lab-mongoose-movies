@@ -8,12 +8,12 @@
 <div>
   {{!-- reviewRouter.post('/movies/:id/reviews/create', (req, res, next)=>{
  --}}
-<form action="/movies/{{this._id}}/reviews/update/{{reviewSpot}}" method="post">
-<p>{{_id}} Something
+
+<form action="/movies/{{theMovie._id}}/reviews/update/{{reviewIndex}}" method="post">
   <p><label for ="reviewer">Review Author:</label></p>
-  <p><input type = "text" id="reviewer" name ="reviewer" value = {{this.reviewer}}></p>
+  <p><input type = "text" id="reviewer" name ="reviewer" value = {{reviewSpot.reviewer}}></p>
 <p><label for="content">Write your review!</label></p>
-<p><textarea name="content" id="content" cols="70" rows="10">{{this.content}}</textarea></p>
+<p><textarea name="content" id="content" cols="70" rows="10">{{reviewSpot.content}}</textarea></p>
 
 <button type = "submit">Change This Review</button>
 
