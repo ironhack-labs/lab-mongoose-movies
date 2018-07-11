@@ -167,7 +167,7 @@ router.get('/movies/:id/review/add', (req,res,next)=>{
 
 });
 
-// GET METHOD TO GET TO EDIT REVIEW PAGE
+// GET ROUTE TO GET TO EDIT REVIEW PAGE
 
 router.get('/movies/reviews/:movieID/:reviewIndex/edit', (req,res,next)=>{
 
@@ -177,9 +177,9 @@ router.get('/movies/reviews/:movieID/:reviewIndex/edit', (req,res,next)=>{
     Movie.findById(theID)
         .then((theMovie)=>{
 
-            // const theReview = theMovie.reviews[review]
-
-            res.render('movies/editReview', theMovie.reviews[reviewIndex]);
+            const theReview = theMovie.reviews[reviewIndex];
+            console.log(theReview);
+            res.render('movies/editReview', {theMovie,theReview,reviewIndex});
 
         })
         .catch((err)=>{
@@ -190,7 +190,34 @@ router.get('/movies/reviews/:movieID/:reviewIndex/edit', (req,res,next)=>{
 
 });
 
-router.post('/movies')
+// POST ROUTE FOR EDITING A REVIEW
+
+router.post('/movies/:movieID/reviews/:reviewIndex/update', (req,res,next)=>{
+
+    const movieID = req.params.movieID;
+    const reviewIndex = req.params.reviewIndex;
+    const updatedReview = req.body;
+
+    Movie.findById(movieID)
+        .then((theMovie)=>{
+            
+            theMovie.reviews[reviewIndex] = updatedReview;
+                
+            theMovie.save()
+                .then((response)=>{
+
+                    res.redirect('/movies/'+movieID);
+
+                });
+
+        })
+        .catch((err)=>{
+
+            next(err);
+
+        });
+
+});
 
 // POST ROUTE FOR DELETING REVIEWS
 
@@ -199,13 +226,10 @@ router.post('/movies/:movieID/review/delete/:reviewIndex', (req,res,next)=>{
     const movieID = req.params.movieID;
     const reviewIndex = req.params.reviewIndex;
 
-    // console.log(`movieID: `,movieID);
-    // console.log(`reviewIndex: `,reviewIndex);
-
     Movie.findById(movieID)
         .then((theMovie)=>{
 
-            console.log(theMovie);
+            // console.log(theMovie);
 
             theMovie.reviews.splice(reviewIndex,1);
 
@@ -229,25 +253,6 @@ router.post('/movies/:movieID/review/delete/:reviewIndex', (req,res,next)=>{
             next(err);
 
         });
-        
-
-    // console.log('----------------------------',theID)
-
-    // // console.log(theID.reviews);
-
-    // Movie.findByIdAndUpdate(theID,{$pull: {reviews: req.body}})
-    //     .then((response)=>{
-
-    //         console.log(response);
-    //         res.redirect(`/movies/`);
-
-    //     })
-    //     .catch((err)=>{
-
-    //         console.log('-------------------------',err);
-    //         next(err);
-
-    //     });
 
 });
 
@@ -261,6 +266,7 @@ router.get('/movies/:id', (req,res,next)=>{
         .populate('celebrities')
         .then((theMovie)=>{
             // console.log('---------------------------------------',theMovie.reviews);
+            
             res.render('movies/show', theMovie);
 
         })

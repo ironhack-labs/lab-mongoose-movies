@@ -20,6 +20,8 @@
 
     <p>What they said: {{this.content}}
 
+    <p><a href="/movies/reviews/{{../_id}}/{{@index}}/edit">EDIT THIS REVIEW</a>
+    
     <p><form action="/movies/{{../_id}}/review/delete/{{@index}}" method="post">
 
         <button type="submit">DELETE THIS REVIEW</button>
