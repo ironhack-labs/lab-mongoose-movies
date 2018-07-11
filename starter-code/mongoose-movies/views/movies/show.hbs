@@ -16,6 +16,19 @@
     <button>DELETE THIS MOVIE</button>
 
 </form>
+{{#each reviews}}<p>Reviewer: {{this.reviewer}}
+
+    <p>What they said: {{this.content}}
+
+    <p><form action="/movies/{{../_id}}/review/delete/{{@index}}" method="post">
+
+        <button type="submit">DELETE THIS REVIEW</button>
+
+    </form>
+
+{{/each}}
+
+<p><a href="/movies/{{_id}}/review/add/">ADD REVIEW</a>
 
 <br>
 <br>

@@ -16,8 +16,11 @@ const movieSchema   = new Schema({
     genre:          String,
     plot:           String,
     poster:         String,
-    celebrities:    [{type: Schema.Types.ObjectId, ref: 'Celeb'}]
-
+    celebrities:    [{type: Schema.Types.ObjectId, ref: 'Celeb'}],
+    reviews:        [{
+                    reviewer:      String,
+                    content:       String
+                    }]
 });
 
 // READ: 'MOVIE' IS A NEW MONGOOSE MODEL (MODEL IS A METHOD OF MONGOOSE), WHICH SHOULD
