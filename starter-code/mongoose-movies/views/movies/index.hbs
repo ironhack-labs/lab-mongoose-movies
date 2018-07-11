@@ -1,0 +1,19 @@
+<h1>MOVIES</h1>
+
+{{#each moviesArray}}
+
+    <p><a href="/movies/{{this._id}}"><img src="{{this.poster}}" class="content-img"></a></p>
+    
+    <p><b>Title: </b><a href="/movies/{{this._id}}">{{this.title}}</a>
+
+    <p><b>Genre: </b>{{this.genre}}
+
+    <p><b>Celebrities: </b>{{#each this.celebrities}}<li>{{this.name}}</li>{{/each}}
+
+    <p><b>Plot: </b>"{{this.plot}}"
+        <br>
+        <br>
+        <br>
+        <br>
+
+{{/each}}

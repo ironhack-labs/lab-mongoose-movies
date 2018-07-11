@@ -1,0 +1,14 @@
+<form action="/movies/{{_id}}/review/create" method="post">
+
+    <p><img src="{{poster}}" class="content-img">
+    
+    <h1>Title: {{title}}</h1>
+
+    <label>Reviewer: </label>
+    <input type="text" name="reviewer">
+    
+    <textarea name="content" placeholder="Enter your review here!"></textarea>
+
+    <button type="submit">SUBMIT REVIEW</button>
+
+</form>
