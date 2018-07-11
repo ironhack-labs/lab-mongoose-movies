@@ -5,7 +5,6 @@ const Celebrity = require("../models/celebrity.model")
 module.exports.list = (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
-      console.log('Cele', celebrities);
       res.render('celebrities/index', { 
         celebrities
       });
@@ -14,3 +13,25 @@ module.exports.list = (req, res, next) => {
       next(error);
     });
 }; 
+
+module.exports.details = (req, res, next) => {
+  const id = req.params.id;
+
+  Celebrity.findById(id)
+    .then(celebrity => {
+      if (celebrity) {
+        res.render('celebrities/show', {
+          celebrity,
+        });
+      } else {
+        next(createError(404, `Celebrity with id ${id} not found`));
+      }
+  })
+  .catch(error => {
+    if (error instanceof mongoose.Error.CastError) {
+      next(createError(404, `Celebrity with id ${id} not found`));
+    } else {
+      next(error);
+    }
+  });
+}

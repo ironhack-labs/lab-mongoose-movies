@@ -1,9 +1,12 @@
-<h2>Celebrities</h2>
+<h2 class="m-5">Celebrities</h2>
 
 {{#each celebrities as |celebrity|}}
-
-<li>{{celebrity.name}}</li>
-
+<div class="card m-5" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{celebrity.name}}</h5>
+    <a href="/celebrities/{{ this.id }}" class="card-link">Details</a>
+    <a href="#" class="card-link">Delete</a>
+  </div>
+</div>
 {{/each}}
-
 
