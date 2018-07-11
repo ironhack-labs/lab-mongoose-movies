@@ -1,0 +1,13 @@
+Movie: {{title}}
+  <hr>
+
+<form action="/movies/{{_id}}/reviews/create" method="post">
+  <label for="reviewer">Your name:</label>
+  <input type="text" id="reviewer" name="reviewer">
+  <hr>
+  <label>Your review:</label>
+  <textarea name="content" id="content" cols="30" rows="10"></textarea>
+  <hr>
+  <button type="submit">Submit</button>
+
+</form>

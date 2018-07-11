@@ -1,0 +1,21 @@
+
+<br>
+<h3>
+<a href="/celebs/new">CREATE NEW</a>
+</h3>
+
+
+{{#each theCelebs}}
+
+<div class="row celeb-row">
+  <div class="col-sm-12">
+
+
+    <hr> {{this.name}} es {{this.occupation}} y dice {{this.catchPhrase}}
+    <a href="/celebs/{{this._id}}">Show</a>
+    <br>
+
+  </div>
+</div>
+{{/each}}
+<hr>
