@@ -1,0 +1,15 @@
+<h1>{{theMovie.title}}</h1>
+
+<form action="/movies/{{theMovie._id}}/reviews/update/{{@index}}" method = "post">
+
+<label for= "reviewer">Name: </label>
+<input type="text" id = "reviewer" name= "reviewer" value= "{{theMovie.reviewer}}">
+<br>
+<br>
+<label for="text">Type Review: </label>
+<textarea name="content" id = "text" cols="30" rows="10" value = "{{theMovie.content}}"></textarea>
+<br>
+<br>
+<button type= "submit">Submit Review</button>
+
+</form>

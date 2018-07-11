@@ -1,8 +1,59 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/images/movie.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: gray;
+  background-color: black;
 }
 
 a {
-  color: #00B7FF;
+  color: white;
 }
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 9rem;
+}
+
+nav li {
+  padding-right: 2rem;
+  color: white;
+}
+nav a {
+  text-decoration: none;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 60px;
+  margin-left: 37%; 
+  color: white;
+}
+
+.celebs, .movies {
+  margin-left: 37%;
+}
+
+.new-btn {
+  margin-left: 37%;
+}
+
+.celeb-details, .edit-details, .edit-movies, .movie-details, .movie-reviews {
+  margin-left: 37%;
+}
+.heading {
+  margin-left: 25%;
+  font-size: 40px;
+  margin-top: 15rem;
+  color: white;
+}
+
+.heading p {
+  margin-left: 5rem;
+}
+

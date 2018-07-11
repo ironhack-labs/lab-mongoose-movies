@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Movie   = require('../models/movie');
+const Celebrity = require('../models/celebrity')
 
 router.get('/movies', (req, res, next) => {
     Movie.find()
@@ -13,14 +14,21 @@ router.get('/movies', (req, res, next) => {
 });
 
 router.get('/movies/new', (req, res, next) =>{
-    res.render('movies/new');
+    Celebrity.find()
+    .then((allTheCelebs)=>{
+        res.render('movies/new', {allTheCelebs})
+    })
+    .catch((err)=>{
+        next(err);
+    })
 });
 
 router.post('/movies/create', (req, res, next)=>{
     const newMovie = new Movie({
      title: req.body.title,
      genre: req.body.genre,
-     plot: req.body.plot
+     plot: req.body.plot,
+     celebrities: req.body.celebrities
     })
 
     //could use Movie.create(newMovie) instead of newMovie.save
@@ -36,18 +44,28 @@ router.post('/movies/create', (req, res, next)=>{
 
  router.get('/movies/:id/edit', (req, res, next)=>{
     Movie.findById(req.params.id)
+    
     .then((theMovie)=>{
-        res.render('movies/edit', {theMovie})
+
+        Celebrity.find()
+        .then((allTheCelebs)=>{
+            res.render('movies/edit', {theMovie: theMovie, allTheCelebs: allTheCelebs})
+        })
+    .catch((err)=>{
+        next(err);
+    })
     })
     .catch((err)=>{
         next(err);
     })
  })
+
  router.post('/movies/:id/update', (req, res, next)=>{
     Movie.findByIdAndUpdate(req.params.id, {
         title: req.body.title,
         genre: req.body.genre,
-        plot: req.body.plot
+        plot: req.body.plot,
+        celebrities: req.body.celebrities
     })
     .then((theMovie)=>{
         res.redirect(`/movies/${req.params.id}`)
@@ -70,6 +88,7 @@ router.post('/movies/create', (req, res, next)=>{
 router.get('/movies/:id', (req, res, next)=>{
     const theID = req.params.id;
     Movie.findById(theID)
+    .populate('celebrities')
     .then((theMovie)=>{
         res.render('movies/show', {movie: theMovie})
     })

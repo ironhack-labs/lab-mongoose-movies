@@ -1,7 +1,10 @@
 <h2>Edit Celebs</h2>
 
-<form action="/celebrities/{{theCeleb_id}}/edit" method="post">
 
+
+<form action="/celebrities/{{theCeleb._id}}/update" method="post">
+
+<div class = "edit-details">
 <label>Name: </label>
 <input type="text" name = "name" value="{{theCeleb.name}}">
 <br>
@@ -13,7 +16,8 @@
 <label>Catch Phrase: </label>
 <input type="text" name = "catchphrase" value="{{theCeleb.catchPhrase}}">
 <br>
-
-<button type= "submit">Submit Corrections</button>
+<br>
+<button type= "submit">Submit Changes</button>
+</div>
 
 </form>

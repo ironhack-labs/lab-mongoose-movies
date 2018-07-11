@@ -25,7 +25,7 @@ router.post('/celebrities/create', (req, res, next)=>{
 
     newCeleb.save()
     .then((response)=>{
-        res.redirect('/celebrities/index')
+        res.redirect('/celebrities')
     })
     .catch((err)=>{
         res.render('celebrities/new')
@@ -46,10 +46,10 @@ router.post('/celebrities/create', (req, res, next)=>{
     Celebrity.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         occupation: req.body.occupation,
-        catchPhrase: req.body.catchPhrase
+        catchPhrase: req.body.catchphrase
     })
     .then((theCeleb)=>{
-        res.redirect('/celebrities/index')
+        res.redirect(`/celebrities/${req.params.id}`)
     })
     .catch((err)=>{
         next(err);
@@ -59,7 +59,7 @@ router.post('/celebrities/create', (req, res, next)=>{
  router.post('/celebrities/:id/delete', (req, res, next)=>{
     Celebrity.findByIdAndRemove(req.params.id)
     .then((reponse)=>{
-        res.redirect('/celebrities/index');
+        res.redirect('/celebrities');
     })
     .catch((err)=>{
         next(err);

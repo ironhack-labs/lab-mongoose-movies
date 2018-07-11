@@ -1,18 +1,23 @@
 <h2>Celebrities</h2>
 
-{{#each celebsArray}}
 
+{{#each celebsArray}}
+<div class = "celebs">
 <h4>{{this.name}}</h4>
 
  <a href="/celebrities/{{this._id}}">Click Here for More Details</a>
 
 <br>
+<br>
 <form action="/celebrities/{{_id}}/delete" method="post"><button type = "submit">Delete</button></form>
+</div>
 {{/each}}
 
+
 <br>
 <br>
 <br>
 
-
+<div class = "new-btn">
 <a href="../celebrities/new">Create Your Own Celeb</a>
+</div>
