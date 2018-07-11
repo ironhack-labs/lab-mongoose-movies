@@ -1,0 +1,16 @@
+{{!--this route corresponds to the post route in moviesRoute.js--}}
+{{!-- the goal is to connect form's body to the route and process to the mongo db--}}
+<form action="/movies/edit/{{movie._id}}" method="post">
+    <label for='title-input'>Title</label>
+    <input type="text" name="editedTitle" id="title-input" value="{{movie.title}}">
+
+    <label for="genre=input">Genre</label>
+    <input type="text" name="editedGenre" id="genre-input" value="{{movie.genre}}">
+    
+        <label for="">Plot</label>
+    <input type="plot-input" name="editedPlot" id="plot-input" value="{{movie.plot}}">
+    
+    <button type="submit">Save changes</button>
+    </form>
+
+    editedTitle
