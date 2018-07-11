@@ -15,10 +15,12 @@ router.get('/', (req, res, next) => {
   });
 });
 
+/* GET new-movie page */
 router.get('/new', (req, res, next) => {
   res.render('Movies/new');
 });
 
+/* POST new-movie and redirect to movies page */
 router.post('/', (req, res, next) => {
   let movie = new Movies(req.body);
   movie.save()
@@ -31,6 +33,7 @@ router.post('/', (req, res, next) => {
   });
 });
 
+/* POST delete-movie and redirect to movies page */
 router.post('/:id/delete', (req, res, next) => {
   Movies.findByIdAndRemove(req.params.id)
   .then((result) => {
@@ -42,6 +45,7 @@ router.post('/:id/delete', (req, res, next) => {
   });
 });
 
+/* GET edit-movie page */
 router.get('/:id/edit', (req, res, next) => {
   Celebrities.find()
   .then((celebrities) => {
@@ -58,8 +62,8 @@ router.get('/:id/edit', (req, res, next) => {
   });
 });
 
+/* POST edit-movie changes to db and redirect to movie-details page */
 router.post('/:id', (req, res, next) => {
-
   Movies.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then((result) =>{
     console.log("Updated db entry: ", result);
@@ -70,6 +74,7 @@ router.post('/:id', (req, res, next) => {
   })
 });
 
+/* GET movie-details page */
 router.get('/:id', (req, res, next) => {
   Movies.findById(req.params.id)
   .populate('cast')

@@ -16,8 +16,6 @@ router.get('/:id/reviews/add', (req, res, next) => {
 
 //route to save review to db
 router.post('/:id/reviews/create', (req, res, next) => {
-  // console.log("req.params: ", req.params);
-  // console.log("req.body", req.body);
   Movies.findByIdAndUpdate(req.params.id, {$push: {reviews: req.body}})
   .then((result) =>{
     res.redirect(`/movies/${req.params.id}`);
@@ -29,8 +27,6 @@ router.post('/:id/reviews/create', (req, res, next) => {
 
 //route to delete a review from db
 router.post('/:id/reviews/:reviewId/remove', (req, res, next) => {
-  // console.log("movieId:", req.params.id);
-  // console.log("reviewId:", req.params.reviewId);
   Movies.findByIdAndUpdate(req.params.id, {$pull: {reviews: {_id: req.params.reviewId}}})
   .then((result) => {
     console.log(result);
