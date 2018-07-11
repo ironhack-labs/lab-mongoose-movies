@@ -3,6 +3,46 @@ const reviewRouter = express.Router();
 const Movie = require('../models/moviemodelfile')
 
 
+reviewRouter.get('/movies/:id/reviews/edit/:reviewIndex', (req, res, next)=>{
+  const movieID = req.params.id;
+  const reviewIndex = req.params.reviewIndex;
+  console.log('*******************************************',movieID);
+  Movie.findById(movieID)
+  .then((theMovieThatImEditing)=>{
+    // res.render('editReview', theMovieThatImEditing.reviews[reviewIndex]);
+    const reviewSpot = theMovieThatImEditing.reviews[reviewIndex];
+    
+    res.render('editReview', reviewSpot);
+  })
+ .catch((err)=>{
+   console.log("It didn't work", err)
+ })
+})
+
+// Movie.findById(req.params.id)
+// .then((theMovie)=>{
+//   res.render('movies/edit', {theMovie})
+// })
+// .catch((err)=>{
+//   next(err);
+// })
+// })
+action="/movies/5b44efade4834314a78f6a9e/reviews/update/:reviewIndex"
+reviewRouter.post('/movies/:id/reviews/update/:reviewIndex', (req, res, next)=>{
+  const movieID = req.params.id;
+  const reviewIndex = req.params.reviewIndex;
+
+  console.log('movieID:'+movieID+'reviewIndex:'+reviewIndex);
+
+  Movie.findById(movieID)
+  .then((theMovieThatImEditing)=>{
+  console.log('=========================================',movieID, theMovieThatImEditing);
+  //   theMovieThatImEditing.reviews.splice(reviewIndex, 1, {reviews: req.body});
+  })
+  .catch((err)=>{
+    next(err)
+  })
+});
 
 reviewRouter.post('/movies/:id/reviews/delete/:reviewIndex', (req, res, next)=>{
   const movieID = req.params.id;
@@ -52,6 +92,9 @@ reviewRouter.post('/movies/:id/reviews/create', (req, res, next)=>{
     console.log('didnt work', err);
   })
 })
+
+
+
 
 
 module.exports = reviewRouter;

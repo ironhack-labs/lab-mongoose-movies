@@ -14,6 +14,7 @@
 
 <h4>{{this.reviewer}}</h4>
 <p>{{this.content}}</p>
+<p><a href="/movies/{{../theMovie._id}}/reviews/edit/{{@index}}">Edit This Review</a></p>
 <form action="/movies/{{../theMovie._id}}/reviews/delete/{{@index}}" method="post">
   <button>Delete This Review</button>
   </form>
