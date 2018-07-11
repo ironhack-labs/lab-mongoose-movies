@@ -11,6 +11,7 @@ const helmet = require('helmet');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
+const hbs = require('hbs');
 
 const indexRouter = require('./routes/index');
 
@@ -32,6 +33,13 @@ fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 const accessLogStream = rfs('access.log', {
   interval: '1d', // rotate daily
   path: logDirectory
+});
+// Register handlebars helpers
+hbs.registerHelper('ifIn', function (elem, list, options) {
+  if (list.indexOf(elem) > -1) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
 });
 
 // --- Middleware

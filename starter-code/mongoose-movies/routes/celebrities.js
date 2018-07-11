@@ -3,12 +3,17 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 
 const Celebrity = require('../models/celebrity');
+const User = require('../models/user');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
-      res.render('celebrities', { celebrities });
+      const userId = req.session.currentUser;
+      User.findById(userId)
+        .then(user => {
+          res.render('celebrities', { celebrities: celebrities, stars: user.stars });
+        });
     })
     .catch(err => {
       console.log(err);
