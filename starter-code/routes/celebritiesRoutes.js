@@ -13,6 +13,7 @@ router.get('/celebrities', (req, res, next) => {
       res.render('celebrityList', {listOfCelebrities});
   })
   .catch((err)=>{
+      console.log('go to celebritiesRoutes.js and router.get/celebrities')
       next(err); 
    })
 });

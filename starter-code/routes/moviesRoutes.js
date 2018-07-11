@@ -121,7 +121,7 @@ router.get('/movies/:id', (req, res, next) => {
   const id = req.params.id;
   Movie.findById(id)
   .then((theMovie)=>{    
-    res.render('movieDetails',  theMovie);
+    res.render('movieDetails',  {theMovie});
 })
 .catch((err)=>{
    next(err); 

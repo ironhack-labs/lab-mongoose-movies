@@ -1,10 +1,32 @@
-{{title}}
+{{theMovie.title}}
 <br>
-{{genre}}
+{{theMovie.genre}}
 <br>
-{{plot}}
+{{theMovie.plot}}
 <br>
 
-<a href="/movies/{{_id}}/edit">Edit This Movie</a>
-<form action="/movies/{{_id}}/delete" method="post"> 
-<button>Delete This Movie</button>
+<a href="/movies/{{theMovie._id}}/edit">Edit This Movie</a>
+<form action="/movies/{{theMovie._id}}/delete" method="post"> 
+  <button>Delete This Movie</button>
+</form>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+  <h2>Reviews for the movie</h2>
+  {{#each theMovie.review}}
+    <p>User: {{this.reviewer}}</p>
+    <p>Review: {{this.content}}</p>
+    <form action="/movies/{{../theMovie._id}}/reviews/delete/{{@index}}" method="post">
+      <button>Delete This Review</button>
+    </form>
+    <hr>
+  {{/each}}
+
+</div>
+<br><br><br>
+
+
+<a href="/movies/{{theMovie._id}}/reviews/new">Write a review</a>

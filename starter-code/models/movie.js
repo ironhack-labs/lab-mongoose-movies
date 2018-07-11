@@ -10,6 +10,7 @@ const movieSchema = new Schema ({
   title: String,
   genre: String,
   plot: String,
+  review: [{reviewer: String, content: String}]
 })
 
 //export the model. Second parameter is based on the name of the schema(const movieSchema = new Schema)

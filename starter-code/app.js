@@ -60,8 +60,10 @@ app.use('/', index);
 //at the end so everything is ready
 //middleware: 
 const celebrities = require('./routes/celebritiesRoutes'); //this is to conect the route!!!!!!
-app.use('/', celebrities);
+app.use('', celebrities);
 const movies = require('./routes/moviesRoutes'); //this is to conect the route!!!!!!
-app.use('/', movies);
+app.use('', movies);
+const reviewRouter = require('./routes/reviewRoutes')
+app.use('', reviewRouter)
 
 module.exports = app; //last line! dont touch it!!!!!!!
