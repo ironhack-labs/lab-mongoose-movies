@@ -3,15 +3,15 @@
 <form action="/authRoutes/login" method="POST">
 
   <label for="">Username</label>
-  <input type="text" name="theUsername">
+  <input type="text" name="username">
 
   <label for="">Password</label>
-  <input type="password" name="thePassword" id="pasword">
+  <input type="password" name="password" id="pasword">
 
   <button type="submit">Login</button>
 
 </form>
 
-{{#if errorMessage}}
-{{errorMessage}}
+{{#if message}}
+{{message}}
 {{/if}}

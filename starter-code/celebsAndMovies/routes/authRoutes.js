@@ -2,6 +2,7 @@ const express = require('express');
 const userRouter = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
+const passport        = require("passport");
 
 
 userRouter.get('/authRoutes/signup', (req, res, nex) => {
@@ -37,40 +38,27 @@ userRouter.post('/authRoutes/signup', (req, res, nex) => {
 
 
 userRouter.get('/authRoutes/login',(req,res,next)=>{
-  res.render('userViews/loginPage');
+  res.render('userViews/loginPage',{ "message": req.flash("error")});
 })
 
-userRouter.post('/authRoutes/login',(req,res,next)=>{
-  const theUsername = req.body.theUsername;
-  const thePassword = req.body.thePassword;
-  
-  if (theUsername === "" || thePassword === "") {
-    res.render('userViews/loginPage', {errorMessage: "Indicate a username and a password to sign up"});
-    return;
-  }
+userRouter.post("/authRoutes/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/authRoutes/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
-  User.findOne({ "username": theUsername }, (err, user) => {
-    if (err || !user) {
-      res.render('userViews/loginPage', {errorMessage: "The username doesn't exist"});
-      return;
-    }
-    if (bcrypt.compareSync(thePassword, user.password)) {
-      // Save the login in the session!
-      req.session.currentUser = user;
-      res.redirect("/");
-    } else {
-      res.render('userViews/loginPage', {
-        errorMessage: "Incorrect password"
-      });
-    }
-});
-})
+// CON PASSPORT WE DONT NEED THIS ANYMORE
+// userRouter.get('/authRoutes/logout',(req,res,next)=>{
+//   req.session.destroy((err) => {
+//     // cannot access session here
+//     res.redirect("/authRoutes/login");
+//   });
+// });
 
 userRouter.get('/authRoutes/logout',(req,res,next)=>{
-  req.session.destroy((err) => {
-    // cannot access session here
-    res.redirect("/authRoutes/login");
-  });
+  req.logout();
+  res.redirect("/authRoutes/login")
 });
 
 module.exports = userRouter

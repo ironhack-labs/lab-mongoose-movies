@@ -1,19 +1,21 @@
 const express = require('express');
 const movieRouter  = express.Router();
 
+const ensureLogin     = require("connect-ensure-login");
+
 const Movie = require('../models/movie');
 
 
-movieRouter.use((req, res, next) => {
-  if (req.session.currentUser) {
-    next();
-  } else {
-    res.redirect("/authRoutes/login");
-  }
-});
+// movieRouter.use((req, res, next) => {
+//   if (req.session.currentUser) {
+//     next();
+//   } else {
+//     res.redirect("/authRoutes/login");
+//   }
+// });
 
 //READ: GET MOVIES FROM DATABASE AND DISPLAY
-movieRouter.get('/movies/index', (req, res, next) => {
+movieRouter.get('/movies/index', ensureLogin.ensureLoggedIn("/authRoutes/login"), (req, res, next) => {
   Movie.find()
     .then((theMovies) => {
       res.render('movies/index', { theMovies });
