@@ -1,7 +1,8 @@
-<h2 class="m-5">Celebrities</h2>
+<h2 class="ml-5 mt-3">Celebrities</h2>
+<a type="button" class="btn btn-outline ml-5" href="celebrities/new/">New celebrity</a>
 
 {{#each celebrities as |celebrity|}}
-<div class="card m-5" style="width: 18rem;">
+<div class="card m-5 bg-light" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{celebrity.name}}</h5>
     <a href="/celebrities/{{ this.id }}" class="card-link">Details</a>

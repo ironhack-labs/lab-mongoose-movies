@@ -28,10 +28,31 @@ module.exports.details = (req, res, next) => {
       }
   })
   .catch(error => {
-    if (error instanceof mongoose.Error.CastError) {
-      next(createError(404, `Celebrity with id ${id} not found`));
-    } else {
       next(error);
-    }
+    });
+}
+
+module.exports.create = (req, res, next) => {
+  res.render('celebrities/new', {
+    celebrity: new Celebrity()
   });
+}
+
+module.exports.doCreate = (req, res, next) => {
+    const celebrity = new Celebrity(req.body);
+
+    celebrity.save()
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      if (error) {
+        res.render('celebrities/new', { 
+          celebrity: celebrity,
+          errors: error.errors
+        });
+      } else {
+        next(error);
+      }
+    });
 }
