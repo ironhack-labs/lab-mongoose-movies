@@ -39,14 +39,14 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
-    const celebrity = new Celebrity(req.body);
+  const celebrity = new Celebrity(req.body);
 
-    celebrity.save()
+  celebrity.save()
     .then(() => {
       res.redirect('/celebrities');
     })
     .catch(error => {
-      if (error) {
+      if (error instanceof mongoose.Error.ValidationError) {
         res.render('celebrities/new', { 
           celebrity: celebrity,
           errors: error.errors
