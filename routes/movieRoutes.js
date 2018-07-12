@@ -48,7 +48,7 @@ reviewRouter.get('/movies/:id/reviews/edit/:reviewIndex', (req, res, next)=>{
     const reviewIndex = req.params.reviewIndex;
     Movie.findById(req.params.id)
     .then((theMovieThatIEdit)=>{
-        theMovieThatIEdit.reviews[reviewIndex]= {reviewer: reviewer, content: content}
+        theMovieThatIEdit.reviews[reviewIndex] = {reviewer: reviewer, content: content}
     })
     .catch((err)=>{
         next(err);
