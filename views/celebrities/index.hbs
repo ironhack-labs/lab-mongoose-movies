@@ -1,17 +1,8 @@
 <h2>Celebrities</h2>
 
 
-{{#each celebsArray}}
-<div class = "celebs">
-<h4>{{this.name}}</h4>
-
- <a href="/celebrities/{{this._id}}">Click Here for More Details</a>
-
-<br>
-<br>
-<form action="/celebrities/{{_id}}/delete" method="post"><button type = "submit">Delete</button></form>
-</div>
-{{/each}}
+<button id = "get-celebs">See the Celebs</button>
+<div class = "celeb-list"></div>
 
 
 <br>

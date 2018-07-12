@@ -2,14 +2,19 @@ const express = require('express');
 const router  = express.Router();
 const Celebrity   = require('../models/celebrity');
 
+router.get('/api/celebrities', (req, res, next)=>{
+Celebrity.find()
+.then((allTheCelebs)=>{
+    res.json(allTheCelebs);
+})
+.catch((err)=>{
+    next(err);
+})
+});
+
 router.get('/celebrities', (req, res, next) => {
-    Celebrity.find()
-    .then((listOfCelebs)=>{
-        res.render('celebrities/index', {celebsArray: listOfCelebs});
-    })
-    .catch((err)=>{
-        next(err); 
-     })
+        res.render('celebrities/index');
+
 });
 
 router.get('/celebrities/new', (req, res, next) =>{
