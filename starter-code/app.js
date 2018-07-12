@@ -72,6 +72,11 @@ const celebrityRoutes = require('./routes/celebrity-routes');
 app.use('/', celebrityRoutes);
 
 
+const pokeRoutes=require('./routes/pokeroutes');
+app.use('/', pokeRoutes);
+
+
+
 app.use(session({
   secret: "basic-auth-secret",
   cookie: {maxAge: 6000},
