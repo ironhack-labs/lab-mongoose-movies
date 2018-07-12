@@ -66,6 +66,8 @@ app.use('/', celebsRoutes);
 const reviewRoutes = require('./routes/reviewRoutes');
 app.use('/', reviewRoutes);
 
+const pokeRoutes = require('./routes/pokeRoutes');
+app.use('/', pokeRoutes);
 
 
 
