@@ -76,4 +76,7 @@ const reviewRoutes = require('./routes/reviewRoutes');
 app.use('/', reviewRoutes);
 
 
+const apiRoutes = require ('./routes/apiRouter')
+app.use('/', apiRoutes);
+
 module.exports = app;

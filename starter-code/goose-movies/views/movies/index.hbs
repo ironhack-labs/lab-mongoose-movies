@@ -5,7 +5,9 @@
 {{!-- Each loop based on number of movies in database --> movies collection --}}
 {{#each listOfMovies}}
 <h3>{{this.title}}</h3>
-<p>Celebrities: {{this}}</p>
+
+{{!-- Repair to celebrities tags needed --}}
+{{!-- <p>Celebrities: {{this.name}}</p> --}}
 <p><a href="/movies/{{this._id}}">Explore the Movie</a></p>
 <p><a href="/movies/{{this._id}}/edit">Edit this Movie</a></p>
 

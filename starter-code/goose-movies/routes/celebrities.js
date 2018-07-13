@@ -12,6 +12,11 @@ const Celebrity = require('../models/celebritymodelfile')
 
 
 //Locating route for page to make a new celebrity. new.hbs has the form that calls post
+
+router.get('/celebrities/data', (req, res, next)=>{
+  res.render('celebrities/celebritiesJsonified')
+})
+
 router.get('/celebrities/new', (req, res, next)=>{
   res.render('celebrities/new')
 })
