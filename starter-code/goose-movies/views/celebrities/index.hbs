@@ -1,0 +1,21 @@
+<h2>Celebrities</h2>
+
+{{!-- Calls the new celebrity route & goes to new celebrity hbs --}}
+<a href="/celebrities/new">Input a new celebrity</a>
+{{#each listOfCelebrities}}
+
+<h3>{{this.name}}</h3>
+<a href="/celebrities/{{this._id}}">Learn More</a>
+
+{{!-- Calls the celebrity delete post route to delete from MongoDb --}}
+<form action="/celebrities/{{this._id}}/delete" method="post">
+<a href="/celebrities/{{this._id}}/edit">Edit this Celebrity</a>
+<div>
+  <button>Delete this Celebrity</button>
+</div>
+</form>
+
+
+{{/each}}
+
+<a href = "celebrities/data"><p><em>Developers, see the API Data<em></p></a>

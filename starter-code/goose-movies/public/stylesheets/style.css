@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #560606;
+  color: white; }
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  background-color: darkred;
+  border-bottom: 2px solid goldenrod; }
+
+nav a {
+  font-size: 1.5em; }
+
+a {
+  text-decoration: none;
+  color: palegoldenrod;
+  font-size: 1em; }
+
+a:hover {
+  color: white; }
+
+.showtime {
+  margin: 50px; }
+
+.centerMe {
+  line-height: 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 2.3em;
+  color: white;
+  background-image: url("/images/theater.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px; }
+
+button {
+  padding: 5px;
+  color: red;
+  background-color: goldenrod;
+  border-radius: 10px;
+  border: 2px solid #560606; }
+
+button:hover {
+  color: goldenrod;
+  background-color: red; }
+
+h3 {
+  font-size: 1.6em; }
+
+/*# sourceMappingURL=style.css.map */

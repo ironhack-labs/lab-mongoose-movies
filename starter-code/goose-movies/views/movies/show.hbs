@@ -1,0 +1,23 @@
+<h2>Movie Details</h2>
+
+<p><b>Title:</b> {{theMovie.title}}</p>
+<p><b>Genre:</b> {{theMovie.genre}}</p>
+<p><b>Plot: </b>{{theMovie.plot}}</p>
+<p><a href="{{theMovie._id}}/reviews/new">Review this movie!</a></p>
+
+
+
+<hr>
+<div>
+<h2>Reviews:</h2>
+{{#each theMovie.reviews}}
+
+<h4>{{this.reviewer}}</h4>
+<p>{{this.content}}</p>
+<p><a href="/movies/{{../theMovie._id}}/reviews/edit/{{@index}}">Edit This Review</a></p>
+<form action="/movies/{{../theMovie._id}}/reviews/delete/{{@index}}" method="post">
+  <button>Delete This Review</button>
+  </form>
+<hr>
+{{/each}}
+<div>

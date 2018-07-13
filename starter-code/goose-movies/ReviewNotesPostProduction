@@ -1,0 +1,16 @@
+Express is a backend framework for javascript
+
+
+Frameworks are more structured than libraries, and come with many preinstalled methods, allowing you to get started quickly,
+
+but negatives are that they limit you into following the design paradigms of that framework. It may not always be the best tool for the job.
+
+
+ES6: Putting curlies after an arrow function optional if the variable manipulation
+is handled within one line
+
+
+Mongoose is an NPM package (set of predefined methods) that allow us to communicate with our
+database
+
+hbs is a UI package that lets
