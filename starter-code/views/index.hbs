@@ -1,3 +1,11 @@
+ {{#if theUser}}
+</div>
+<div>
+  Welcome {{theUser.username}}.  You are logged in.
+    </div>
+{{/if}}
+
+
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 <div id="homepage">
@@ -6,9 +14,3 @@
 <a href="/celebrities">Celebrities ***members only - login or signup***</a>
 <a href="/login">Click here to login</a>
 <a href="/signup">Click here to signup</a>
-{{#if theUser}}
-</div>
-<div>
-    {{theUser.username}}
-    </div>
-{{/if}}

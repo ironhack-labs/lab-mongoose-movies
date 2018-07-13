@@ -21,6 +21,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt        = require('bcryptjs');
 const flash         = require('connect-flash');
 const ensureLogin   = require('connect-ensure-login');
+const User         = require('./models/user');
 
 
 
@@ -74,7 +75,7 @@ app.use(session({
 }));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Chris\'s Movies, Celebrities, and Pokemon App';
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);

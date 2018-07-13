@@ -2,18 +2,20 @@ const express       = require('express')
 const userRouter    = express.Router();
 const User          = require('../models/user');
 const bcrypt        = require('bcryptjs');
-//added 7/18
 const passport      = require('passport');
 const ensureLogin   =require('connect-ensure-login');
-//added 7/18
+
+//signup  shows the signupPage
 userRouter.get('/signup', (req, res, next)=>{
     res.render('userViews/signupPage');
 })
+
+//when entring the form on signup page...
 userRouter.post('/signup', (req, res, next)=>{
 //create a salt
 //hash it
-const thePassword = req.body.thePassword;
-const theUsername = req.body.theUsername;
+const thePassword = req.body.password;
+const theUsername = req.body.username;
 if(thePassword ==="" || theUsername===""){
     res.render('userViews/signupPage', {errorMessage: 'Please fill in both the username and the password fields'});
     return;
@@ -43,6 +45,8 @@ User.findOne({'username': theUsername})
 userRouter.get('/login', (req, res, next)=>{
     res.render('userViews/loginPage'), {message: req.flash("error")};
 })
+
+
 userRouter.post("/login", passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/login",
