@@ -36,6 +36,8 @@ customHelpers.forEach((helper) => {
   hbs.registerHelper(`${helper.name}`, helper);
 });
 
+
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({

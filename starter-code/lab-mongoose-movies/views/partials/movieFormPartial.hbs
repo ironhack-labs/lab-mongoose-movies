@@ -1,0 +1,22 @@
+
+
+  <label for="title">Title: </label>
+  <input type="text" name="title" id="title" value="{{movie.title}}"> <br> <br>
+  <label for="genre">Genre: </label>
+  <input type="text" name="genre" id="genre" value="{{movie.genre}}"> <br> <br>
+  <label for="plot">Plot: </label> <br>
+ <textarea name="plot" id="plot" cols="30" rows="10">{{movie.plot}}</textarea> <br> <br>
+  <p>Cast:</p>
+  <ul>
+    {{#each celebrities}}
+    <li>
+      <input type="checkbox" name="cast" id="{{this.id}}" value="{{this.id}}" {{castCheckbox this.id ../movie}} >
+      <label for="{{this.id}}">{{this.name}}</label>
+    </li>
+    {{/each}}
+  </ul>
+  <button type="submit">Update</button>
+{{#if error}}
+  <br>
+  <p>All fields are required!</p>
+{{/if}}
