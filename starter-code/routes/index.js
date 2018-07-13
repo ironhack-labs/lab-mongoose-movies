@@ -1,0 +1,14 @@
+//this is the local hosts thing
+
+const express = require('express');
+const router  = express.Router();
+
+/* GET home page */
+router.get('/', (req, res, next) => {
+
+  res.render('index', {theUser: req.user});
+});
+
+module.exports = router;
+
+{{}}

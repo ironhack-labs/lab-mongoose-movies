@@ -1,0 +1,14 @@
+{{!--this route corresponds to the post route in moviesRoute.js--}}
+{{!-- the goal is to connect form's body to the route and process to the mongo db--}}
+<form action="/movies/addMovie" method="post">
+    <label for='title-input'>Title</label>
+    <input type="text" name="newTitle" id="title-input">
+
+    <label for="genre=input">Genre</label>
+    <input type="text" name="newGenre" id="genre-input">
+    
+        <label for="">Plot</label>
+    <input type="plot-input" name="newPlot" id="plot-input">
+    
+    <button type="submit">Create!</button>
+    </form>
