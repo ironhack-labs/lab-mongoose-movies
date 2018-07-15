@@ -25,7 +25,7 @@ const clooney              = {
     name:           'George Clooney',
     occupation:     'Actor',
     catchPhrase:    'Insert catchphrase',
-    headshot:       'https://upload.wikimedia.org/wikipedia/commons/8/8d/George_Clooney_2016.jpg'
+    image:       'https://upload.wikimedia.org/wikipedia/commons/8/8d/George_Clooney_2016.jpg'
 
 };
 
@@ -35,7 +35,7 @@ const schwartzman          = {
     name:           'Jason Schwartzman',
     occupation:     'Actor',
     catchPhrase:    'Insert catchphrase 2',
-    headshot:       'https://m.media-amazon.com/images/M/MV5BMjAyNjY0NTgzNF5BMl5BanBnXkFtZTcwOTQ0ODk2Mw@@._V1_.jpg'
+    image:       'https://m.media-amazon.com/images/M/MV5BMjAyNjY0NTgzNF5BMl5BanBnXkFtZTcwOTQ0ODk2Mw@@._V1_.jpg'
 
 };
 
@@ -47,19 +47,19 @@ const celebsArray = [
     name:           'Maiyim Bialik',
     occupation:     'Actress',
     catchPhrase:    'Maiyim Bialik Catchphrase',
-    headshot:       'https://pbs.twimg.com/profile_images/822196051083808768/ZuIqS-lf_400x400.jpg'
+    image:       'https://pbs.twimg.com/profile_images/822196051083808768/ZuIqS-lf_400x400.jpg'
 },
 {
     name:           'Ta-Nehisi Coates',
     occupation:     'Author',
     catchPhrase:    'Ta-Nehisi Coates catchphrase',
-    headshot:       'https://upload.wikimedia.org/wikipedia/commons/0/0b/Ta-Nehisi_Coates.jpg'
+    image:       'https://upload.wikimedia.org/wikipedia/commons/0/0b/Ta-Nehisi_Coates.jpg'
 },
 {
     name:           'Cornel West',
     occupation:     'Academic',
     catchPhrase:    'Cornel West catchphrase',
-    headshot:       'https://43ihfu4aarxi2wmx5m1zjrq9-wpengine.netdna-ssl.com/wp-content/uploads/2014/10/img-cornell-west_233156117028-750x1000.jpg'
+    image:       'https://43ihfu4aarxi2wmx5m1zjrq9-wpengine.netdna-ssl.com/wp-content/uploads/2014/10/img-cornell-west_233156117028-750x1000.jpg'
 }
 ];
 

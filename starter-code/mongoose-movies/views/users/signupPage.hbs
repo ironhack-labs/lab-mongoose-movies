@@ -1,0 +1,23 @@
+<h1>TEST</h1>
+
+<form action="/users/signup" method="post">
+
+    <label for="username">Username: </label>
+    <input id="username" type="text" name="newUsername" placeholder="Pick a Username">
+
+    <P></P><label for="password">Password: </label>
+    <input id="password" type="text" name="newPassword" placeholder="Pick a Password">
+
+    <button>SUBMIT</button>
+
+</form>
+
+<p>{{#if errorMessage}}
+
+<div>
+
+    <h1 color="red">{{errorMessage}}</h1>
+
+</div>
+
+{{/if}}

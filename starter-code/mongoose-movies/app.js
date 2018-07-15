@@ -8,7 +8,20 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const app          = express();
 
+// SETTING CONDITIONS FOR EXPRESSION
+
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 mongoose.Promise = Promise;
 mongoose
@@ -21,8 +34,6 @@ mongoose
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
-
-const app = express();
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -54,7 +65,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 const index = require('./routes/index');
 app.use('/', index);
 
-
 // MIDDLEWARE 'ROUTE' FOR /CELEBRITIES ROUTE FILE
 
 const celebrities = require('./routes/celebrities');
@@ -64,6 +74,12 @@ app.use('/', celebrities);
 
 const movies = require('./routes/movies');
 app.use('/', movies);
+
+const authRoutes = require('./routes/authRoutes');
+app.use('/', authRoutes);
+
+const pokeRoutes = require('./routes/pokeRoutes');
+app.use('/', pokeRoutes);
 
 
 module.exports = app;
