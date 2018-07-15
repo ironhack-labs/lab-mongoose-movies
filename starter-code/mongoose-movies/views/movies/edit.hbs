@@ -1,0 +1,21 @@
+<h2>
+  Edit Form for a Movie
+</h2>
+
+<form action="/movies/{{movie.id}}/edit" method="post">
+  <label for="">Name: </label>
+  <br>
+  <input type="text" name="title" size="70" value="{{movie.title}}">
+  <br>
+  <br>
+  <label for="">Genre: </label>
+  <br>  
+  <input type="text" name="genre" size="70" value="{{movie.genre}}">
+  <br>
+  <br>
+  <label for="">Plot: </label>
+  <br>
+  <textarea name="plot" cols="70" rows="10">{{movie.plot}}</textarea>
+  <br>
+  <button type="submit"> Edit </button>
+</form>

@@ -12,7 +12,7 @@ const path         = require('path');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/lab-express-cinema', {useMongoClient: true})
+  .connect('mongodb://localhost/mongoose-movies', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!');
   }).catch(err => {
@@ -44,18 +44,20 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-hbs.registerPartials(__dirname + '/views/partials'); /*con el __dirname ya esta indicando que en la carpeta del app.js (tu proyecto) busque '/views/partials', 
-si pones el punto le estas diciendo que salga de __dirname (que es la carpeta donde esta el app.js) y busque '/views/partials' 
-que no lo va a encontrar porque va a buscar la carpeta views en module2_OwnRepo. Antes tenias escrito './views/partials' con el . */
-
+hbs.registerPartials(__dirname + '/views/partials');
 
 // default value for title local
-app.locals.title = 'Express Cinema';
+app.locals.title = 'Mongoose Movies';
 
 
 
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebritiesRoute = require('./routes/celebrities');
+app.use('/celebrities', celebritiesRoute);
+
+const moviesRoute = require('./routes/movies');
+app.use('/movies', moviesRoute);
 
 module.exports = app;
