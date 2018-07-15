@@ -11,7 +11,8 @@ const movieSchema = new mongoose.Schema({
     default: 'unknown',
   },
   catchPhrase: {
-    type: String
+    type: String,
+    required: true
   }
 })
 

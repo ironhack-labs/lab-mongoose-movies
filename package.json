@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/almalonso8/lab-mongoose-movies#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-generator": "^4.16.0",
     "faker": "^4.1.0",
