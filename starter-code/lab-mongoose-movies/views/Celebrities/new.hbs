@@ -1,0 +1,14 @@
+<h2>Add a new celebrity:</h2>
+<form action="/celebrities" method="post">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" value="{{celebrity.name}}"> <br>
+  <label for="occupation">Occupation: </label>
+  <input type="text" name="occupation" id="occupation" value="{{celebrity.occupation}}"> <br>
+  <label for="catchPhrase">Catch Phrase: </label>
+  <input type="text" name="catchPhrase" id="catchPhrase" value="{{celebrity.catchPhrase}}"> <br>
+  <button type="submit">Add celebrity</button>
+</form>
+{{#if error}}
+  <br>
+  <p>All fields are required!</p>
+{{/if}}

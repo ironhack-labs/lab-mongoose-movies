@@ -1,0 +1,14 @@
+<div class="celebrity-details-container">
+  <h2>Name: {{name}}</h2>
+  <p>
+    Occupation: {{occupation}}<br>
+    Catch Phrase: {{catchPhrase}}
+  </p>
+ <form action="{{this.id}}/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
+  <form action="{{this.id}}/edit">
+    <button type="submit">Edit</button>
+  </form>
+  <a href="/celebrities">Back</a>
+</div>
