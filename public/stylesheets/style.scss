@@ -1,0 +1,94 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+nav {
+  display: flex;
+}
+
+li {
+  list-style-type: none;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+h3, h2, h1, p, span{
+  color: white;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+h4 {
+  color: red;
+  font-size: 16px;
+}
+
+.genre {
+  color: white;
+}
+
+.details-header {
+  color: red;
+}
+
+label {
+  color: white;
+}
+
+.home-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25%;
+  margin-top: 4rem;
+}
+
+.celebrity-btn {
+  width: 8rem;
+  height: 2rem;
+  margin-left: 16rem;
+  border-radius: 20px;
+}
+
+.celebrity-btn a {
+  color: red;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.movie-btn {
+  width: 8rem;
+  height: 2rem;
+  margin-left: 16rem;
+  border-radius: 20px;
+}
+
+.movie-btn a {
+  color: red;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.title {
+  color: rgb(236, 9, 9);
+  font-size: 50px;
+  margin-left: 1rem;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+p {
+  margin-left: 12rem;
+  font-size: 18px;
+}
+
+.details {
+  font-size: 12px;
+}

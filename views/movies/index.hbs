@@ -1,0 +1,21 @@
+<h2>Movies</h2>
+
+{{#each moviesArray}}
+
+    <h4>{{this.title}}</h4>
+
+    <a href="/movies/{{this._id}}" class="details">Click for more details</a>
+    <br>
+    <br>
+    <form action= "/movies/{{_id}}/delete" method= "post"><button type ="submit">Delete</button></form>
+
+{{/each}}
+
+    <br>
+    <br>
+    <br>
+
+<a href="/movies/new">Create Your Own Movie</a>
+
+
+
