@@ -1,0 +1,9 @@
+<h2>Celebrities</h2>
+<ul>
+{{#each celebrities as |celebrity|}}
+ {{> celebrities/celebrity celebrity}}
+{{/each}}
+</ul>
+<a href="celebrities/create" >
+  <button type="button" class="btn btn-outline-primary">Create</button>
+</a>

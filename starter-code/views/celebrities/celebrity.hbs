@@ -1,0 +1,16 @@
+<div class="list-group">
+    <div class="list-group-item list-group-item-action">
+    {{this.name}}
+    <a href="/celebrities/{{this._id}}" >
+        <button type="button" class="btn btn-outline-success">Details</button>
+    </a>
+    <form action='/celebrities/{{this._id}}/delete' method='post'>
+        <button type="submit" class="btn btn-outline-danger">X</button>
+    </form>
+
+    <form action='/celebrities/{{this._id}}/update'>
+        <button type="submit" class="btn btn-outline-secondary">Update</button>
+    </form>
+
+  </div>
+</div>
