@@ -38,7 +38,7 @@ module.exports.doCreate = (req, res, next) => {
 
     celebrity.save()
         .then(
-            res.redirect('celebrities')
+            res.redirect('/celebrities')
         )
         .catch(error => {
             next(error);

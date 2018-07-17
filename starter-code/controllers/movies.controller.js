@@ -30,7 +30,7 @@ module.exports.doCreate = (req, res, next) => {
     const movie = new Movie(req.body);
     movie.save()
         .then(
-            res.redirect('movies')//todos los redirect están escachuflados
+            res.redirect('/movies')//todos los redirect están escachuflados
         )
         .catch(error => {
             next(error);
@@ -42,7 +42,7 @@ module.exports.delete = (req, res, next) => {
 
     Movie.findByIdAndRemove(id)
         .then(
-            res.redirect('movies')
+            res.redirect('/movies')
         )
         .catch(error => {
             next(error);
@@ -67,7 +67,7 @@ module.exports.doUpdate = (req, res, next) => {
             Object.assign(movie, req.body);
             movie.save()
                 .then(
-                    res.redirect('../views/movies')
+                    res.redirect(`/movies/${id}`)
                 )
                 .catch(error => {
                     next(error);
