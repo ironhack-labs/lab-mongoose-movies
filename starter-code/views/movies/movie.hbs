@@ -1,0 +1,14 @@
+<div class="list-group">
+    <div class="list-group-item list-group-item-action">
+    {{this.title}}
+    <a href="/movies/{{this._id}}" >
+        <button type="button" class="btn btn-outline-success">Details</button>
+    </a>
+    <form action='/movies/{{this._id}}/delete' method='post'>
+        <button type="submit" class="btn btn-outline-danger">X</button>
+    </form>
+    <form action='/movies/{{this._id}}/update'>
+        <button type="submit" class="btn btn-outline-warning">Update</button>
+    </form>
+  </div>
+</div>

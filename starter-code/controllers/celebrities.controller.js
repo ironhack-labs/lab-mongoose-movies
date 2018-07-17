@@ -38,7 +38,7 @@ module.exports.doCreate = (req, res, next) => {
 
     celebrity.save()
         .then(
-            res.redirect('/celebrities')
+            res.redirect('celebrities')
         )
         .catch(error => {
             next(error);
@@ -64,7 +64,7 @@ module.exports.doUpdate = (req, res, next) => {
     let id = req.params.id;
     Celebrity.findByIdAndUpdate(id)
         .then(celebrity => {
-            Object.assign(celebrity, req.body)
+           Object.assign(celebrity, req.body)
            celebrity.save()
             .then(
                 res.redirect(`/celebrities/${id}`) //por qué un res.render no funciona?

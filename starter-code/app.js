@@ -7,6 +7,7 @@ var logger = require('morgan');
 const celebritiesRouter = require('./routes/celebrities.js')
 var usersRouter = require('./routes/users.js');
 var indexRouter = require('./routes/index.js');
+const moviesRouter = require('./routes/movies.js');
 
 var app = express();
 
@@ -26,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/celebrities', celebritiesRouter);
 app.use('/users', usersRouter);
+app.use('/movies', moviesRouter);
+
 
 
 
