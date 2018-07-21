@@ -1,7 +1,8 @@
-{{#each celebrity}}
+
   <ul>
-    <il>{{this.name}}</il>
-    <il>{{this.occupation}}</il>
-    <il>{{this.catchPhrase}}</il>
+    <li>{{celebrity.name}}</li>
+    <li>{{celebrity.occupation}}</li>
+    <li>{{celebrity.catchPhrase}}</li>
   </ul>
-{{/each}}
+{{!-- WHAT THE FUCK IS HAPPENING HERE? --}}
+  <a href="{{celebrity._id}}/edit">Edit</a>
