@@ -12,7 +12,7 @@ const movies = [
   },
   {
     title: 'Guardians of the Galaxy Vol. 1',
-    genren: 'Action',
+    genre: 'Action',
     plot: 'Maecenas ut rhoncus mi, vitae porttitor erat. Quisque sed iaculis risus. Proin lobortis augue ligula, a convallis dolor ultricies vitae.',
   },
   {

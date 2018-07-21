@@ -11,6 +11,7 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const indexRouter = require('./routes/index');
 const celebritiesRouter = require('./routes/celebrities');
+const moviesRouter = require('./routes/movies');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/celebrities', celebritiesRouter);
+app.use('/movies', moviesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

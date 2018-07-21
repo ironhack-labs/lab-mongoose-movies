@@ -1,0 +1,9 @@
+ {{#each movieArray}}
+  <ul>
+    <li><a href="/movies/{{id}}"><h2>{{title}}</h2></a></li>
+    <form action="/movies/{{id}}/destroy" method="POST">
+      <button type="submit">DESTROY</button>
+    </form>
+  </ul>
+{{/each}}
+<a href="/movies/new"><button>Add a movie</button></a>

@@ -47,7 +47,6 @@ router.get('/:id', (req, res, next) => {
   const celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
     .then((celebrity) => {
-      console.log(celebrity);
       res.render('celebrities/detail',  { celebrity });
     })
     .catch((err) => {
@@ -58,7 +57,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/add', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   Celebrity.create({ name, occupation, catchPhrase })
-    .then((celebrity) => {
+    .then(() => {
       res.redirect('/celebrities');
     })
     .catch((err) => {
