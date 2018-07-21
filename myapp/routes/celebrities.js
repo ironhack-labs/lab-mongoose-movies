@@ -15,5 +15,19 @@ router.get('/' , function(req,res,next){
   })
 });
 
+
+/* GET celebrities ID page. */
+router.get('/:id' , function(req,res,next){
+  const {id} = req.params;
+  Celebrity.findById(id)
+  .then((celebrityData)=>{
+  res.render('celebrities/show', {celebrityData});
+  })
+  .catch((error)=>{
+  next(error);
+  })
+});
+
+
 module.exports = router;
 
