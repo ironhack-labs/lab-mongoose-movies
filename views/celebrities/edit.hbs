@@ -1,10 +1,14 @@
+<div class="col d-flex form">
+  <form action="/celebrities/{{celebrity.id}}/update" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" value="{{celebrity.name}}" name="name" maxlength="20">
 
-<form action="/celebrities/{{celebrity.id}}/update" method="POST">
-  <label for="name">Name:</label>
-  <input type="text" value="{{celebrity.name}}" name="name">
-  <label for="occupation">Occupation:</label>
-  <input type="text" value="{{celebrity.occupation}}" name="occupation">
-  <label for="catchPhrase">Catch phrase:</label>
-  <input type="text" value="{{celebrity.catchPhrase}}" name="catchPhrase">
-  <button type="submit">EDIT</button>
-</form>
+    <label for="occupation">Occupation:</label>
+    <input type="text" value="{{celebrity.occupation}}" name="occupation" maxlength="20">
+
+    <label for="catchPhrase">Catch phrase:</label>
+    <input type="text" value="{{celebrity.catchPhrase}}" name="catchPhrase" maxlength="20">
+
+    <button type="submit" class="btn link">EDIT</button>
+  </form>
+</div>

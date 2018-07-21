@@ -1,8 +1,118 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+*:active {
+  box-shadow: none !important;
 }
 
-a {
-  color: #00B7FF;
+a, a:active {
+  color: inherit;
+  text-decoration: none !important;
 }
+
+body {
+  background: #283048;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #859398, #283048);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #859398, #283048);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+  flex-direction: column;
+}
+
+h1 {
+  color: #FFF;
+  font-family: "Press Start 2P", cursive;
+  font-size: 2em;
+  margin-top: 2em;
+}
+
+.content {
+  padding: 1em 0;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.link {
+  border: 2px solid #526065;
+  color: #526065;
+  padding: 1em;
+  font-family: "Inconsolata", monospace;
+}
+.link:hover {
+  border-color: #171F37;
+  color: #171F37;
+}
+.link:active {
+  border-color: #526065;
+  background: #526065;
+  color: #FFF;
+}
+.link.btn-margin {
+  margin: 0.5em;
+}
+
+.destroy {
+  background: none;
+  padding: 0.2em;
+}
+.destroy:hover {
+  border-color: #A00;
+  color: #A00;
+}
+.destroy:active {
+  border-color: #A00;
+  background: #A00;
+  color: #FFF;
+}
+
+.add {
+  margin-top: 2em;
+}
+
+.list {
+  flex: 1;
+  min-height: 100%;
+  flex-direction: column;
+}
+.list > .col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.details {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+.details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.form {
+  flex: 1;
+  flex-direction: column;
+}
+.form label {
+  font-weight: bold;
+}
+.form form {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.form .btn {
+  background: none;
+  padding-left: 3em;
+  padding-right: 3em;
+  margin-top: 1em;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   Celebrity.find({})
     .then((celebrityArray) => {
-      res.render('celebrities/list', { celebrityArray });
+      res.render('celebrities/list', { celebrityArray, header: 'Celebs' });
     })
     .catch((err) => {
       console.log('Je suis retrasé');
@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('celebrities/new');
+  res.render('celebrities/new', { header: 'Add celebrity' });
 });
 
 router.get('/:id/edit', (req, res, next) => {
@@ -23,7 +23,7 @@ router.get('/:id/edit', (req, res, next) => {
 
   Celebrity.findById(celebrityId)
     .then((celebrity) => {
-      res.render('celebrities/edit', { celebrity });
+      res.render('celebrities/edit', { celebrity, header: 'Edit celebrity' });
     })
     .catch((err) => {
       next(err);
@@ -47,7 +47,7 @@ router.get('/:id', (req, res, next) => {
   const celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
     .then((celebrity) => {
-      res.render('celebrities/detail',  { celebrity });
+      res.render('celebrities/detail',  { celebrity, header: 'Celebrity details' });
     })
     .catch((err) => {
       next(err);

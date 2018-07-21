@@ -1,7 +1,9 @@
-<ul>
-  <li>{{celebrity.name}}</li>
-  <li>{{celebrity.occupation}}</li>
-  <li>{{celebrity.catchPhrase}}</li>
-</ul>
+<div class="col d-flex details">
+  <ul>
+    <li><b>Name: </b>{{celebrity.name}}</li>
+    <li><b>Occupation: </b>{{celebrity.occupation}}</li>
+    <li><b>Catch phrase: </b>{{celebrity.catchPhrase}}</li>
+  </ul>
+  <a href="{{celebrity._id}}/edit" class="btn link btn-margin">Edit</a>
+</div>
 {{!-- WHAT THE FUCK IS HAPPENING HERE? --}}
-<a href="{{celebrity._id}}/edit">Edit</a>
