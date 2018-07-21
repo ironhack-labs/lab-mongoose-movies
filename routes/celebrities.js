@@ -15,11 +15,38 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
 router.get('/:id', (req, res, next) => {
-  const celebrityId = req.params;
+  const celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
     .then((celebrity) => {
       res.render('celebrities/detail', { celebrity });
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.post('/add', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
+    .then((celebrity) => {
+      res.redirect('/celebrities');
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.post('/:id/destroy', (req, res, next) => {
+  const celebrityId = req.params.id;
+
+  Celebrity.findByIdAndRemove(celebrityId)
+    .then(() => {
+      res.redirect('/celebrities');
     })
     .catch((err) => {
       next(err);
