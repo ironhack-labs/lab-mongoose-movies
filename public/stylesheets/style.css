@@ -100,13 +100,12 @@ h1 {
   flex: 1;
   flex-direction: column;
 }
-.form label {
-  font-weight: bold;
-}
 .form form {
-  margin: 0;
-  padding: 0;
   text-align: center;
+}
+.form label {
+  margin-top: 0.5em;
+  font-weight: bold;
 }
 .form .btn {
   background: none;

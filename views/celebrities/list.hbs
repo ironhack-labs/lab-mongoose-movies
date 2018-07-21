@@ -1,7 +1,7 @@
 <div class="col d-flex list">
   {{#each celebrityArray}}
     <div class="col">
-      <a href="/celebrities/{{id}}" id="title"><h5>{{name}}</h5></a>
+      <a href="/celebrities/{{id}}"><h5>{{name}}</h5></a>
       <form action="/celebrities/{{id}}/destroy" method="POST">
         <button type="submit" class="btn link destroy">DESTROY</button>
       </form>

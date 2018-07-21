@@ -1,7 +1,9 @@
-<ul>
-  <li>{{movie.title}}</li>
-  <li>{{movie.genre}}</li>
-  <li>{{movie.plot}}</li>
-</ul>
+<div class="col d-flex details">
+  <ul>
+    <li><b>Title: </b>{{movie.title}}</li>
+    <li><b>Genre: </b>{{movie.genre}}</li>
+    <li><b>Plot: </b>{{movie.plot}}</li>
+  </ul>
 {{!-- WHAT THE FUCK IS HAPPENING HERE? --}}
-<a href="{{movie._id}}/edit">Edit</a>
+  <a href="{{movie._id}}/edit" class="btn link btn-margin">Edit</a>
+</div>

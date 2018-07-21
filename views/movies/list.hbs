@@ -1,9 +1,13 @@
- {{#each movieArray}}
-  <ul>
-    <li><a href="/movies/{{id}}"><h2>{{title}}</h2></a></li>
-    <form action="/movies/{{id}}/destroy" method="POST">
-      <button type="submit">DESTROY</button>
-    </form>
-  </ul>
-{{/each}}
-<a href="/movies/new"><button>Add a movie</button></a>
+<div class="col d-flex list">
+  {{#each movieArray}}
+    <div class="col">
+      <a href="/movies/{{id}}"><h5>{{title}}</h5></a>
+      <form action="/movies/{{id}}/destroy" method="POST">
+        <button type="submit" class="btn link destroy">DESTROY</button>
+      </form>
+    </div>
+  {{/each}}
+  <div class="col add">
+    <a href="/movies/new" class="btn link">Add a movie</a>
+  </div>
+</div>

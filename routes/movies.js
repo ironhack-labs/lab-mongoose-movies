@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   Movie.find({})
     .then((movieArray) => {
-      res.render('movies/list', { movieArray });
+      res.render('movies/list', { movieArray, header: 'Movies' });
     })
     .catch((err) => {
       next(err);
@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('movies/new');
+  res.render('movies/new', { header: 'Add movie' });
 });
 
 router.get('/:id', (req, res, next) => {
@@ -22,7 +22,7 @@ router.get('/:id', (req, res, next) => {
 
   Movie.findById(movieId)
     .then((movie) => {
-      res.render('movies/detail', { movie });
+      res.render('movies/detail', { movie, header: 'Movie details' });
     })
     .catch((err) => {
       next(err);
@@ -34,7 +34,7 @@ router.post('/add', (req, res, next) => {
 
   Movie.create({ title, genre, plot })
     .then(() => {
-      res.redirect('movies');
+      res.redirect('/movies');
     })
     .catch((err) => {
       next(err);
@@ -58,7 +58,7 @@ router.get('/:id/edit', (req, res, next) => {
 
   Movie.findById(movieId)
     .then((movie) => {
-      res.render('movies/edit', { movie });
+      res.render('movies/edit', { movie, header: 'Edit movie' });
     })
     .catch((err) => {
       next(err);
@@ -69,7 +69,6 @@ router.post('/:id/update', (req, res, next) => {
   const movieId = req.params.id;
   const { title, genre, plot } = req.body;
 
-  console.log('HOLA POR FAVOR FUNCIONA');
   Movie.findByIdAndUpdate(movieId, { title, genre, plot })
     .then(() => {
       res.redirect('/movies');
