@@ -1,0 +1,17 @@
+<h1>Review "{{theMovie.title}}"</h1>
+
+<div>
+  {{!-- reviewRouter.post('/movies/:id/reviews/create', (req, res, next)=>{
+ --}}
+<form action="/movies/{{theMovie._id}}/reviews/{{reviewIndex}}/update" method="post">
+  <p><label for ="reviewer">Review Author:</label></p>
+  <p><input type = "text" id="reviewer" name ="reviewer" value = {{theReview.reviewer}}></p>
+
+<p><label for="content">Write your review!</label></p>
+<p><textarea name="content" id="content" cols="70" rows="10">{{theReview.content}}</textarea></p>
+
+<button type = "submit">Change This Review</button>
+
+</form>
+
+</div>

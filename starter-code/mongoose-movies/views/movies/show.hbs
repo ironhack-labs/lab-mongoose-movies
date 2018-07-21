@@ -1,0 +1,37 @@
+
+<p><img src="{{poster}}" class="content-img"></p>
+
+<h1>{{title}}</h1>
+
+<h2>{{genre}}</h2>
+
+<p>{{plot}}</p>
+
+<p>{{#each celebrities}}<li>{{this.name}}</li>{{/each}}</p>
+
+<p><a href="/movies/{{_id}}/edit">EDIT MOVIE</a></p>
+
+<form action="/movies/{{_id}}/delete" method="post">
+
+    <button>DELETE THIS MOVIE</button>
+
+</form>
+{{#each reviews}}<p>Reviewer: {{this.reviewer}}
+
+    <p>What they said: {{this.content}}
+
+    <p><a href="/movies/reviews/{{../_id}}/{{@index}}/edit">EDIT THIS REVIEW</a>
+    
+    <p><form action="/movies/{{../_id}}/review/delete/{{@index}}" method="post">
+
+        <button type="submit">DELETE THIS REVIEW</button>
+
+    </form>
+
+{{/each}}
+
+<p><a href="/movies/{{_id}}/review/add/">ADD REVIEW</a>
+
+<br>
+<br>
+<p><a href="/movies">Back to Movies</a></p>

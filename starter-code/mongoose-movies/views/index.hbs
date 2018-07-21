@@ -1,0 +1,21 @@
+<h1>INDEX PAGE</h1>
+
+{{#unless theUser}}
+
+<p><h2>LOG IN TO SEE A SURPRISE !</h2>
+
+{{/unless}}
+
+{{#if logoutMessage}}
+
+<h2>SUCCESSFULLY LOGGED OUT</h2>
+
+{{/if}}
+
+{{#if theUser}}
+
+<h1>CONGRATS, YOU'RE LOGGED IN! HERE'S A SLOTH:</h1>
+
+<img src="https://falconvoice.com/wp-content/uploads/2017/10/sloth-03.jpg">
+
+{{/if}}

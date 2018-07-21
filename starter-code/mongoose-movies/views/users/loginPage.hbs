@@ -1,0 +1,23 @@
+<h1>LOGIN PAGE</h1>
+
+<form action="/users/login" method="post">
+
+    <label for="username">Username: </label>
+    <input id="username" type="text" name="theUsername">
+
+    <P></P><label for="password">Password: </label>
+    <input id="password" type="text" name="thePassword">
+
+    <button>SUBMIT</button>
+
+</form>
+
+<p>{{#if errorMessage}}
+
+<div>
+
+    <h1 color="red">{{errorMessage}}</h1>
+
+</div>
+
+{{/if}}
