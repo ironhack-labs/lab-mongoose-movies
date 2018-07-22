@@ -1,16 +1,20 @@
 <!--layout.hbs-->
-<h2>Celebrities</h2>
-{{#each celebrities}}
-<ul>
-    <li>
-        {{name}} - <a href="/celebrities/{{id}}">más info</a>
-        <form action="/celebrities/{{id}}/edit" method="get">
-            <button type="submit">edit</button>
-        </form>
-        <form action="/celebrities/{{id}}/delete" method="post">
-            <button type="submit">delete</button>
-        </form>
-    </li>
-</ul>
-{{/each}}
-<a href="/celebrities/new">Add celebrity</a>
+<div class="container-fluid celebrities-index">
+    <div class="celebrities-inner-index">
+        <h2>Celebrities</h2>
+        {{#each celebrities}}
+        <ul>
+            <li>
+                <span class="name">{{name}}</span>  <a href="/celebrities/{{id}}" class="btn btn-secondary">más info</a>
+                <form action="/celebrities/{{id}}/edit" method="get">
+                    <button type="submit" class="btn btn-secondary">edit</button>
+                </form>
+                <form action="/celebrities/{{id}}/delete" method="post">
+                    <button type="submit" class="btn btn-secondary">delete</button>
+                </form>
+            </li>
+        </ul>
+        {{/each}}
+        <a href="/celebrities/new" class="btn btn-info">Add celebrity</a>
+    </div>
+</div>

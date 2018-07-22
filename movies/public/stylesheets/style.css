@@ -1,8 +1,151 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+a:hover{
+  text-decoration: none;
+}
+/* index */
+.index
+{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/oscar.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+.inner-index
+{
+  width: 100%;
+  position: absolute;
+  bottom: 35%;
+  left: 0;
+}
+.inner-index a
+{
+  /* margin-right: 10px; */
+  width: 400px;
+  margin: 10px auto;
+  padding: 20px 100px;
+  display: block;
+  text-align: center;
+}
+/* common styles */
+.celebrities-index, 
+.movies-index,
+.celebrities-edit, 
+.movies-edit,
+.celebrities-details, 
+.movies-details,
+.celebrities-new, 
+.movies-new
+{
+  padding: 100px 10%;
+}
+.celebrities-index .celebrities-inner-index, 
+.movies-index .movies-inner-index,
+.celebrities-edit .celebrities-inner-edit, 
+.movies-edit .movies-inner-edit,
+.celebrities-details .celebrities-inner-details, 
+.movies-details .movies-inner-details,
+.celebrities-new .celebrities-inner-new, 
+.movies-new .movies-inner-new
+{
+  text-align: right;
+}
+.celebrities-index h2, 
+.movies-index h2,
+.celebrities-edit h2, 
+.movies-edit h2,
+.celebrities-details h2, 
+.movies-details h2,
+.celebrities-new h2, 
+.movies-new h2
+{
+  margin-bottom: 30px;
+}
+
+/* celebrity/movies index */
+.celebrities-index h2 + ul li, .movies-index h2 + ul li
+{
+  border-top: gray 1px solid;
+  padding-top: 15px;
+}
+.celebrities-index li, .movies-index li
+{
+  list-style-type: none;
+  border-bottom: gray 1px solid;
+  padding-bottom: 15px;
+}
+.celebrities-index li .name, .movies-index li .name
+{
+  font-size: 20px;
+  margin-right: 30px;
+}
+.celebrities-index li form, .movies-index li form
+{
+  display: inline-block;
+}
+
+/* celebrities/movies edit */
+.celebrities-edit form label, 
+.celebrities-edit form input,
+.movies-edit form label, 
+.movies-edit form input,
+.celebrities-new form label, 
+.celebrities-new form input,
+.movies-new form label, 
+.movies-new form input
+{
+  display: block;
+}
+.celebrities-edit form input,
+.movies-edit form input,
+.celebrities-new form input,
+.movies-new form input
+{
+  padding: 12px;
+  text-align:left;
+}
+.celebrities-edit form label, 
+.movies-edit form label,
+.celebrities-new form label, 
+.movies-new form label
+{
+  font-size: 16px;
+  margin-top: 20px;
+}
+.celebrities-edit .celebrities-inner-edit .btn, 
+.movies-edit .movies-inner-edit .btn,
+.celebrities-new .celebrities-inner-new .btn, 
+.movies-new .movies-inner-new .btn
+{
+  margin-top: 20px;
+}
+
+/* elebrities/movies details */
+.celebrities-details ul, 
+.movies-details ul
+{
+  list-style-type: none;
+}
+.celebrities-details .detail,
+.movies-details .detail
+{
+  font-size: 18px;
+  display: block;
+  margin-top: 10px;
+  color: black;
+}
+.celebrities-details li,
+.movies-details li
+{
+  margin-top: 20px;
+  color: lightslategray;
+}
+
+/* add celebrities/movies */

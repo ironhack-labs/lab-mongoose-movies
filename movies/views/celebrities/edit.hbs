@@ -1,12 +1,15 @@
 <!-- layout.hbs -->
-
-<h2>Editing {{name}}</h2>
-<form action="/celebrities/{{id}}" method="post">
-    <label>name</label>
-    <input type="text" value="{{name}}" name="name" id="name">
-    <label>occupation</label>
-    <input type="text" value="{{occupation}}" name="occupation" id="occupation">
-    <label>catchPhrase</label>
-    <input type="text" value="{{catchPhrase}}" name="catchPhrase" id="catchPhrase">
-    <button type="submit">Edit</button>
-</form>
+<div class="container-fluid celebrities-edit">
+    <div class="celebrities-inner-edit">
+        <h2>Editing {{name}}</h2>
+        <form action="/celebrities/{{id}}" method="post">
+            <label>name</label>
+            <input type="text" value="{{name}}" name="name" id="name" class="form-control">
+            <label>occupation</label>
+            <input type="text" value="{{occupation}}" name="occupation" id="occupation" class="form-control">
+            <label>catchPhrase</label>
+            <input type="text" value="{{catchPhrase}}" name="catchPhrase" id="catchPhrase" class="form-control">
+            <button type="submit" class="btn btn-info">Edit</button>
+        </form>
+    </div>
+</div>
