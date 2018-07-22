@@ -1,0 +1,16 @@
+<!--layout.hbs-->
+<h2>Movies</h2>
+{{#each movies}}
+<ul>
+    <li>
+        {{title}} - <a href="/movies/{{id}}">más info</a>
+        <form action="/movies/{{id}}/edit" method="get">
+            <button type="submit">edit</button>
+        </form>
+        <form action="/movies/{{id}}/delete" method="post">
+            <button type="submit">delete</button>
+        </form>
+    </li>
+</ul>
+{{/each}}
+<a href="/movies/new">Add movie</a>

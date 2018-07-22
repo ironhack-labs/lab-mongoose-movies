@@ -1,0 +1,12 @@
+<!-- layout.hbs -->
+
+<h2>Editing {{name}}</h2>
+<form action="/celebrities/{{id}}" method="post">
+    <label>name</label>
+    <input type="text" value="{{name}}" name="name" id="name">
+    <label>occupation</label>
+    <input type="text" value="{{occupation}}" name="occupation" id="occupation">
+    <label>catchPhrase</label>
+    <input type="text" value="{{catchPhrase}}" name="catchPhrase" id="catchPhrase">
+    <button type="submit">Edit</button>
+</form>
