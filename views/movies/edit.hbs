@@ -1,0 +1,14 @@
+<div class="col d-flex form">
+  <form action="/movies/{{movie.id}}/update" method="POST" class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" value="{{movie.title}}" name="title" maxlength="20" class="form-control">
+
+    <label for="genre">Genre:</label>
+    <input type="text" value="{{movie.genre}}" name="genre" maxlength="20" class="form-control">
+
+    <label for="plot">Plot:</label>
+    <input type="text" value="{{movie.plot}}" name="plot" maxlength="20" class="form-control">
+
+    <button type="submit" class="btn link">EDIT</button>
+  </form>
+</div>

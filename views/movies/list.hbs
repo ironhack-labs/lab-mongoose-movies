@@ -1,0 +1,13 @@
+<div class="col d-flex list">
+  {{#each movieArray}}
+    <div class="col">
+      <a href="/movies/{{id}}"><h5>{{title}}</h5></a>
+      <form action="/movies/{{id}}/destroy" method="POST">
+        <button type="submit" class="btn link destroy">DESTROY</button>
+      </form>
+    </div>
+  {{/each}}
+  <div class="col add">
+    <a href="/movies/new" class="btn link">Add a movie</a>
+  </div>
+</div>
