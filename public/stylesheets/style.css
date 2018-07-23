@@ -32,7 +32,6 @@ h1 {
 .content {
   padding: 1em 0;
   flex-direction: column;
-  justify-content: space-evenly;
   background: rgba(255, 255, 255, 0.7);
 }
 
@@ -112,6 +111,25 @@ h1 {
   padding-left: 3em;
   padding-right: 3em;
   margin-top: 1em;
+}
+
+@media (min-width: 992px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  .container .row:last-child {
+    width: 80%;
+  }
+
+  .content {
+    padding: 2em;
+    border: 2px solid #777799;
+    border-radius: 5px;
+    justify-content: space-around;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
