@@ -24,12 +24,13 @@ router.get('/new', function (req, res, next) {
 
 // save new celebrity
 router.post('/', function (req, res, next) {
-
+  console.log(JSON.stringify(req.body))
+  console.log(JSON.stringify(req.query))
   console.log(req.query)
   let celeb = {
-    name: `${req.query.name}`,
-    occupation: req.query.occupation,
-    catchPhrase: req.query.catchPhrase
+    name: `${req.body.name}`,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
   }
   console.log(celeb)
   newCeleb = new Celebrities(celeb)
@@ -75,15 +76,14 @@ router.post('/:id/delete', function (req, res, next) {
 router.post('/:id', function (req, res, next) {
   id = req.params.id
   let celeb = {
-    name: req.query.name,
-    occupation: req.query.occupation,
-    catchPhrase: req.query.catchPhrase
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
   }
   
-  //console.log(id)
-  Celebrities.findById(id).update(celeb)
+  Celebrities.findByIdAndUpdate(id,celeb)
     .then(celebrity => {
-      //console.log(celebrity)
+      console.log(celebrity)
       res.redirect(`/celebrities`);
     })
     .catch(error => {
@@ -91,7 +91,7 @@ router.post('/:id', function (req, res, next) {
     })
 })
 
-// All :id in last position 
+// All :id in last position for control of variable url
 /* GET details of one celebrity . */
 router.get('/:id', function (req, res, next) {
   id = req.params.id
