@@ -1,8 +1,14 @@
+<!--layout.hbs-->
+
 <h2>Celebrities</h2>
 <ul>
   {{#each celebrities}}
     <li> 
      <a href = '/celebrities/{{id}}'> {{ name }} - {{ @index }}</a>
-    </li>
+        <a href="/celebrities/{{_id}}/edit">edit</a>
+      <form action="/celebrities/{{_id}}/delete" method="post">
+        <input type="submit" value="delete" />
+      </form>
+    </li>    
   {{/each}}
 </ul>
