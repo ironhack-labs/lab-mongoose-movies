@@ -3,19 +3,6 @@ const Celeb = require('../models/celebrity');
 const Movie = require('../models/movie');
 
 const dbTitle = 'celebs-movies';
-mongoose.connect(`mongodb://localhost:27017/${dbTitle}`, {
-    useNewUrlParser: true
-  })
-  .then(() => {
-    console.log(`localhost@${dbTitle} connected`)
-  })
-  .catch((error) => {
-    console.log(`localhost@${dbTitle} not connected`)
-    next(error)
-  })
-
-Movie.collection.drop()
-Celeb.collection.drop()
 
 const celebs = [{
     name: 'leo Mesi',
@@ -71,19 +58,32 @@ const movies = [{
   },
 ];
 
-Celeb.create(celebs)
-  .then((celeb) => {
-    console.log(`${celebs.length} celebs created`);
-    mongoose.connection.close()
-  }).catch((error) => {
-    next(error)
+mongoose.connect(`mongodb://localhost:27017/${dbTitle}`, {useNewUrlParser: true})
+  .then(() => {
+    console.log(`localhost@${dbTitle} connected`)
+    Movie.collection.drop()
+    Celeb.collection.drop()
+
+    Celeb.create(celebs)
+      .then(() => {
+        console.log(`${celebs.length} celebs created`)
+      }).catch((error) => {
+        next(error)
+      })
+
+    Movie.create(movies)
+      .then((movie) => {
+        console.log(`${movies.length} movies created`);
+        mongoose.connection.close().then(() => {
+          console.log('closed database')
+        }).catch(error => {
+          next(error)
+        })
+      }).catch((error) => {
+        next(error)
+      })
   })
-
-Movie.create(movies)
-  .then((movie) => {
-    console.log(`${movies.length} movies created`);
-    mongoose.connection.close()
-
-  }).catch((error) => {
+  .catch((error) => {
+    console.log(`localhost@${dbTitle} not reachable`)
     next(error)
   })
