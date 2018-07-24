@@ -12,35 +12,17 @@ router.get('/', function (req, res, next) {
       next(error);
     })
 });
-/* GET celebrities ID page. */
-router.get('/:id', function (req, res, next) {
-  const { id } = req.params;
-  Celebrity.findById(id)
-    .then((celebrityData) => {
-      res.render('celebrities/show', { celebrityData });
-    })
-    .catch((error) => {
-      next(error);
-    })
-});
-module.exports = router;
+
+/* GET celebrities ADD NEW page */
 router.get('/new', (req, res, next) => {
-  res.render('celebrities/new', { header: 'Add celebrity' });
-});
-router.get('/:id/edit', (req, res, next) => {
-  const celebrityId = req.params.id;
-  Celebrity.findById(celebrityId)
-    .then((celebrity) => {
-      res.render('celebrities/edit', celebrity);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-router.post('/:id/update', (req, res, next) => {
-  const celebrityId = req.params.id;
-  const { name, occupation, catchPhrase } = req.body;
-  Celebrity.findByIdAndUpdate(celebrityId, { name, occupation, catchPhrase })
+  res.render('celebrities/new');
+  
+  });
+//add new celebrity
+
+router.post('/add', (req, res, next) => {
+  const { name, ocupation, catchPhrase } = req.body;
+  Celebrity.create({ name, ocupation, catchPhrase })
     .then(() => {
       res.redirect('/celebrities');
     })
@@ -48,26 +30,53 @@ router.post('/:id/update', (req, res, next) => {
       next(err);
     });
 });
-router.get('/:id', (req, res, next) => {
-  const celebrityId = req.params.id;
-  Celebrity.findById(celebrityId)
-    .then((celebrity) => {
-      res.render('celebrities/show',  { celebrity, header: 'Celebrity details' });
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-router.post('/add', (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body;
-  Celebrity.create({ name, occupation, catchPhrase })
-    .then(() => {
-      res.redirect('celebrities');
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
+
+ /* GET celebrities ID page. */
+ router.get('/:id', function (req, res, next) {
+   const { id } = req.params;
+   Celebrity.findById(id)
+     .then((celebrityData) => {
+       res.render('celebrities/show', { celebrityData });
+     })
+     .catch((error) => {
+       next(error);
+     })
+ });
+
+
+
+// router.get('/:id/edit', (req, res, next) => {
+//   const celebrityId = req.params.id;
+//   Celebrity.findById(celebrityId)
+//     .then((celebrity) => {
+//       res.render('celebrities/edit', celebrity);
+//     })
+//     .catch((err) => {
+//       next(err);
+//     });
+// });
+// router.post('/:id/update', (req, res, next) => {
+//   const celebrityId = req.params.id;
+//   const { name, occupation, catchPhrase } = req.body;
+//   Celebrity.findByIdAndUpdate(celebrityId, { name, occupation, catchPhrase })
+//     .then(() => {
+//       res.redirect('/celebrities');
+//     })
+//     .catch((err) => {
+//       next(err);
+//     });
+// });
+
+// router.post('/add', (req, res, next) => {
+//   const { name, occupation, catchPhrase } = req.body;
+//   Celebrity.create({ name, occupation, catchPhrase })
+//     .then(() => {
+//       res.redirect('celebrities');
+//     })
+//     .catch((err) => {
+//       next(err);
+//     });
+// });
 router.post('/:id/delete', (req, res, next) => {
   const {id} = req.params;
   Celebrity.findByIdAndRemove(id)
@@ -75,8 +84,8 @@ router.post('/:id/delete', (req, res, next) => {
       console.log('hola');
       res.redirect('/celebrities');
     })
-    .catch((err) => {
-      next(err);
+    .catch((error) => {
+      next(error);
     });
 });
 module.exports = router;

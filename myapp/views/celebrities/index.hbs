@@ -4,11 +4,12 @@
 <ul>
   {{#each celebrities}}
     <li> 
-     <a href = '/celebrities/{{id}}'> {{ name }} - {{ @index }}</a>
-        <a href="/celebrities/{{_id}}/edit">edit</a>
+     <a href = '/celebrities/{{id}}'> {{ name }} </a>
+      
       <form action="/celebrities/{{_id}}/delete" method="post">
         <input type="submit" value="delete" />
       </form>
     </li>    
   {{/each}}
+  <a href = 'celebrities/new'> ADD </a>
 </ul>
