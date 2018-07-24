@@ -4,54 +4,105 @@ const Celebrities = require('../models/celebrity')
 
 
 /* GET celebrities listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   Celebrities.find({})
-  .then(celebrities=>{
-    console.log(celebrities)
-    res.render('celebrities/index', {celebrities});
-  })
-  .catch(error=>{
-    next(error)
-  })
+    .then(celebrities => {
+      //console.log(celebrities)
+      res.render('celebrities/index', {
+        celebrities
+      });
+    })
+    .catch(error => {
+      next(error)
+    })
 });
 
-/* GET details of one celebrity . */
-router.get('/:id', function(req, res, next) {
-  id=req.params.id
-  Celebrities.findById(id)
-  .then(celebrity=>{
-    console.log(celebrity)
-    res.render('celebrities/show', celebrity);
-  })
-  .catch(error=>{
-    next(error)
-  })
-});
-
-// New celebrity
-router.post('/celebrities/new', function(req,res,next){
-
-  res.render('/celebrities/new')
-  .then(celebrity=>{
-    console.log(celebrity)
-  })
-  .catch(error=>{
-    next(error)
-  })
+// Create New celebrity
+router.get('/new', function (req, res, next) {
+  res.render('celebrities/new', {msg: 'Create new celebrity'})
 })
+
+// save new celebrity
+router.post('/', function (req, res, next) {
+
+  console.log(req.query)
+  let celeb = {
+    name: `${req.query.name}`,
+    occupation: req.query.occupation,
+    catchPhrase: req.query.catchPhrase
+  }
+  console.log(celeb)
+  newCeleb = new Celebrities(celeb)
+  newCeleb.save ()
+    .then(celeb => {
+      console.log(`${celeb.name} inserted in database`)
+      res.redirect('/celebrities')
+    })
+    .catch(error => {
+      res.redirect('/celebrities/new')
+    })
+})
+
+//MODIFY
+router.get('/:id/edit', function (req, res, next) {
+  id = req.params.id
+  //console.log(id)
+  Celebrities.findById(id)
+    .then(celebrity => {
+      //console.log(celebrities)
+      res.render('celebrities/edit', celebrity );
+    })
+    .catch(error => {
+      next(error)
+    })
+});
 
 //delete celebrity
-router.post('/:id/delete', function(req,res,next){
-  id=req.params.id
-  console.log(id)
+router.post('/:id/delete', function (req, res, next) {
+  id = req.params.id
+  //console.log(id)
   Celebrities.findByIdAndRemove(id)
-  .then(celebrity=>{
-    console.log(celebrity)
-    res.redirect('/celebrities');
-  })
-  .catch(error=>{
-    next(error)
-  })
+    .then(celebrity => {
+      //console.log(celebrity)
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      next(error)
+    })
 })
+
+//UPDATE
+router.post('/:id', function (req, res, next) {
+  id = req.params.id
+  let celeb = {
+    name: req.query.name,
+    occupation: req.query.occupation,
+    catchPhrase: req.query.catchPhrase
+  }
+  
+  //console.log(id)
+  Celebrities.findById(id).update(celeb)
+    .then(celebrity => {
+      //console.log(celebrity)
+      res.redirect(`/celebrities`);
+    })
+    .catch(error => {
+      next(error)
+    })
+})
+
+// All :id in last position 
+/* GET details of one celebrity . */
+router.get('/:id', function (req, res, next) {
+  id = req.params.id
+  Celebrities.findById(id)
+    .then(celebrity => {
+      console.log(celebrity)
+      res.render('celebrities/show', celebrity);
+    })
+    .catch(error => {
+      next(error)
+    })
+});
 
 module.exports = router;

@@ -1,4 +1,5 @@
-<h2>NEW CELEBRITY</h2>
+
+<h2>MODIFY CELEBRITY</h2>
 <div>
   {{#if msg }}
   <h3>{{msg}}</h3>
@@ -9,11 +10,11 @@
 <div>
   <form action="/celebrities" method="post">
     <label for="name-input">Name:</label>
-    <input type="text" id="name-input" name="name">
+    <input type="text" id="name-input" name="name" value="{{name}}">
     <label for="occupation-input">Ocupation:</label>
-    <input type="text" id="occupation-input" name="occupation">
+    <input type="text" id="occupation-input" name="occupation" value={{occupation}}>
     <label for="catchPhrase-input">Catch Phrase:</label>
-    <input type="text" id="catchPhrase-input" name="catchPhrase">
+    <input type="text" id="catchPhrase-input" name="catchPhrase" value={{catchPhrase}}>
     <button type="submit">Save info</button>
   </form>
 </div>

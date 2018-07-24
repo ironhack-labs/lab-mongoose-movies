@@ -1,10 +1,10 @@
 <h2>CELEBRITIES</h2>
 
-<a href="/celerities/new">new</a>
+<a href="/celebrities/new">new</a>
 
 {{#each celebrities}}
 <div>
-  {{name}}
+  {{@index}} - {{name}}
   <a href="/celebrities/{{_id}}">details</a>
   <a href="/celebrities/{{_id}}/edit">edit</a>
   <form action="/celebrities/{{_id}}/delete" method="POST">
