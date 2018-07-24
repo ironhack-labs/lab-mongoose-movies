@@ -1,0 +1,23 @@
+
+<h2>MODIFY MOVIE</h2>
+<div>
+  {{#if msg }}
+  <h3>{{msg}}</h3>
+  {{else}}
+  <h3>Error creating movie, try another time</h3>
+  {{/if}}
+</div>
+<br>
+<a href="/movies">back</a>
+<br>
+<div>
+  <form action="/movies/{{_id}}" method="post">
+    <label for="title-input">Title:</label>
+    <input type="text" id="title-input" name="title" value="{{title}}">
+    <label for="genre-input">Genre:</label>
+    <input type="text" id="genre-input" name="genre" value={{genre}}>
+    <label for="plot-input">Catch Phrase:</label>
+    <input type="text" id="plot-input" name="plot" value={{plot}}>
+    <button type="submit">Save info</button>
+  </form>
+</div>
