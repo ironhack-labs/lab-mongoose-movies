@@ -1,0 +1,28 @@
+<h2>All Celebrities</h2>
+
+<div class="celebrityListing">
+  {{#each celebrity}}
+  <div class="row celebrityRow">
+  <div class="col-sm-3">
+    <h4><a href='/celebrities/{{this._id}}'>{{this.name}}</a></h4>
+  </div>
+  <div class="editButton">
+    <form action="/celebrities/edit/{{this._id}}" method="get">
+      <input type="submit" value="Edit">
+    </form>
+  </div>
+  <div class="deleteButton">
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+      <input type="submit" value="X  Delete">
+    </form>
+  </div>
+  </div>
+  <hr>
+  {{/each}}
+</div>
+
+<div class="createButton">
+  <form action="/celebrities/add-new">
+    <input type="submit" value="Create New Celebrity" />
+</form>
+</div>
