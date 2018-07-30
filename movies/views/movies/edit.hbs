@@ -1,0 +1,15 @@
+<!-- layout.hbs -->
+<div class="container-fluid movies-edit">
+    <div class="movies-inner-edit">
+        <h2>Editing {{title}}</h2>
+        <form action="/movies/{{id}}" method="post">
+            <label>title</label>
+            <input type="text" value="{{title}}" name="title" id="title" class="form-control">
+            <label>genre</label>
+            <input type="text" value="{{genre}}" name="genre" id="genre" class="form-control">
+            <label>plot</label>
+            <input type="text" value="{{plot}}" name="plot" id="plot" class="form-control">
+            <button type="submit" class="btn btn-info">Edit</button>
+        </form>
+    </div>
+</div>
