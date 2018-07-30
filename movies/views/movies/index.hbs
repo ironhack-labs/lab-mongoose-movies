@@ -6,15 +6,19 @@
         <ul>
             <li>
                 <span class="name">{{title}}</span>  <a href="/movies/{{id}}" class="btn btn-secondary">más info</a>
+                {{#if ../currentUser}}
                 <form action="/movies/{{id}}/edit" method="get">
                     <button type="submit" class="btn btn-secondary">edit</button>
                 </form>
                 <form action="/movies/{{id}}/delete" method="post">
                     <button type="submit" class="btn btn-secondary">delete</button>
                 </form>
+                {{/if}}
             </li>
         </ul>
         {{/each}}
+        {{#if currentUser}}
         <a href="/movies/new" class="btn btn-info">Add movie</a>
+        {{/if}}
     </div>
 </div>

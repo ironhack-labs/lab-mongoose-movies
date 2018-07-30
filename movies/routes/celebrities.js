@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/celebrity');
+const {celebrities: {index, edit, add, show} } = require('../pages');
+const Auth = require('../middlewares/auth');
 
 //shows all celebrities
 router.get('/', (req, res, next) => {
     Celebrity.find({})
     .then(celebrities => {
+        req.session.currentPage = index;
         res.render('celebrities/index', {celebrities});
     })
     .catch(error => {
@@ -13,7 +16,8 @@ router.get('/', (req, res, next) => {
     })
 });
 //shows form to add new celebrity
-router.get('/new', (req, res, next) => {
+router.get('/new', Auth.ensureLogin, (req, res, next) => {
+    req.session.currentPage = add;
     res.render('celebrities/new');
 });
 
@@ -34,16 +38,21 @@ router.post('/', (req, res, next)=> {
 router.get('/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
     .then(celebrity => {
+        if(show.origin === '/celebrities')
+        {
+            show.origin = show.origin + '/' + celebrity.id;
+            show.alternative = show.origin;
+        }
+        req.session.currentPage = show;
         res.render('celebrities/show', celebrity);
     })
     .catch(error => {
-        // next(error);
-        res.render('celebrities/new');
+        next(error);
     })
 });
 
 //deletes a concrete celebrity
-router.post('/:id/delete', (req,res,next) => {
+router.post('/:id/delete', Auth.ensureLogin, (req,res,next) => {
     Celebrity.findByIdAndRemove(req.params.id)
     .then(()=>{
         res.redirect('/celebrities');
@@ -54,10 +63,10 @@ router.post('/:id/delete', (req,res,next) => {
 });
 
 //shows the form to edit a concrete celebrity
-router.get('/:id/edit', (req, res, next) => {
-    console.log('eeeeedit!!!!');
+router.get('/:id/edit', Auth.ensureLogin, (req, res, next) => {
     Celebrity.findById(req.params.id)
     .then(((celebrity)=>{
+        req.session.currentPage = edit;
         res.render('celebrities/edit', celebrity);
     }))
     .catch(error=>{
@@ -70,11 +79,9 @@ router.post('/:id', (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body;
     Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase})
     .then(() => {
-        console.log("hola 1");
         res.redirect('/celebrities');
     })
     .catch(error => {
-        console.log("hola 2");
         next(error);
     })
 });
