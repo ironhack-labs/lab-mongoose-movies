@@ -48,7 +48,17 @@ router.post('/', (req, res, next) => {
       // Create the user
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashed = bcrypt.hashSync(password, salt);
-      const newUser = new User({ username: username, password: hashed });
+
+      const newUserObject = {
+        username: username,
+        location: {
+          type: 'Point',
+          coordinates: [req.body.longitude, req.body.latitude]
+        },
+        password: hashed
+      };
+
+      const newUser = new User(newUserObject);
       return newUser.save()
         .then((user) => {
           req.session.currentUser = user;

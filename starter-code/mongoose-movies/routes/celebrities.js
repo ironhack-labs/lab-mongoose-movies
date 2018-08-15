@@ -40,11 +40,8 @@ router.post('/:id/delete', requireLoggedInUser, isIdValid, (req, res, next) => {
     .catch(next);
 });
 
-router.get('/:id/edit', [requireLoggedInUser, isIdValid], (req, res, next) => {
+router.get('/:id/edit', requireLoggedInUser, isIdValid, (req, res, next) => {
   const celebId = req.params.id;
-  // @todo if not valid id (celebId) {
-  //   return next();
-  // }
 
   Celebrity.findById(celebId)
     .then(celeb => {

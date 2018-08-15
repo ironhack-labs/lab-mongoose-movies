@@ -1,7 +1,6 @@
 // --- Dependencies
 const express = require('express');
 const router = express.Router();
-// const app = require('../../app');
 
 const User = require('../../models/user');
 const requireLoggedInUser = require('../../middlewares/require-loggedin-user');
@@ -14,10 +13,8 @@ router.get('/:id', requireLoggedInUser, isIdValid, (req, res, next) => {
   // Add it to favourites
   User.findByIdAndUpdate(userId, { $addToSet: { stars: celebId } }, { new: true })
     .then(result => {
-      app.use((req, res, next) => {
-        // app.locals.currentUser = result;
-        next();
-      });
+      // Update the session for the current user
+      req.session.currentUser = result;
       res.redirect('/celebrities');
     })
     .catch(next);
