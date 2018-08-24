@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=movies-project:* nodemon ./bin/www"
+    "dev": "PORT=3001 DEBUG=movies-project:* nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",

@@ -28,7 +28,6 @@ router.get("/new", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
   const query = req.params.id;
   Celeb.findById(query).then(star => {
-    console.log("Hello")
     res.render("celebrities/show", {star})
   })
 })
