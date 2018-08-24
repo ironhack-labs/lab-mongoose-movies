@@ -1,0 +1,7 @@
+<h1>Meet the celebrities!</h1>
+
+{{#each celebrities}}
+
+<h2>{{this.name}}</h2>
+<h3><a href="/celebrities/{{this._id}}">See more about {{this.name}}</a></h3>
+{{/each}}
