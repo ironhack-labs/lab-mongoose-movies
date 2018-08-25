@@ -1,0 +1,21 @@
+<h2>Welcome to the Movies Page</h2>
+
+
+<ul>
+  {{#each movies}}
+  <a href="/movies/{{this.id}}"><li>
+      {{this.title}}
+    </li></a>
+
+  <span>
+    <form action="/movies/{{this.id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+    <a href="/movies/{{this.id}}/edit">
+      <button>Edit</button>
+    </a>
+    <br>
+  </span>
+
+  <br> {{/each}}
+</ul>
