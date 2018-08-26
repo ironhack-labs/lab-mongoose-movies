@@ -124,8 +124,8 @@ router.post("/celebrities/:id/edit", (req, res) => {
       occupation,
       catchPhrase
     },{new: true }
-  ).then(result=> {
-    res.render("show", { result, updated: true });
+  ).then(data=> {
+    res.render("show", { data, updated: true });
   });
 });
 
