@@ -130,4 +130,33 @@ router.post("/celebrities/:id/edit", (req, res) => {
 });
 
 
+/* Update a MOVIE */
+router.get("/movies/:id/edit", (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then(data => {
+      res.render("movedit", {data});
+    })
+    .catch(console.error);
+});
+
+router.post("/movies/:id/edit", (req, res) => {
+  const { id } = req.params
+  const {
+    title,
+    genre,
+    plot
+  } = req.body
+
+  Movie.findByIdAndUpdate(
+    id,
+    {
+      title,
+    genre,
+    plot
+    },{new: true }
+  ).then(data=> {
+    res.render("movie-show", { data, updated: true });
+  });
+})
+
 module.exports = router;
