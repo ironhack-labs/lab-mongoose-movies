@@ -9,22 +9,21 @@ router.get("/", (req, res, next) => {
   })
 })
 
-// router.post("/", (req, res, next) => {
-//  const {
-//    name,
-//    catchphrase,
-//    occupation
-//  } = req.body;
+ router.post("/", (req, res, next) => {
+  const {
+    title,
+    genre,
+    plot
+  } = req.body;
 
-//   Celeb.create({name,catchphrase,occupation}).then(result => {
-//     console.log(result);
-//   res.redirect("/celebrities")}).catch(() =>
-//   res.render("celebrities/new"))
-// })
+   Movie.create({title,genre,plot}).then(result => {
+   res.redirect("/movies")}).catch(() =>
+   res.render("movies/new"))
+ })
 
-// router.get("/new", (req, res, next) => {
-//   res.render("celebrities/new")
-// })
+ router.get("/new", (req, res, next) => {
+   res.render("movies/new")
+ })
 
 
  router.get("/:id", (req, res, next) => {
@@ -35,29 +34,29 @@ router.get("/", (req, res, next) => {
  })
 
 
-// router.post("/:id/delete", (req, res, next) => {
-//   Celeb.findByIdAndRemove(req.params.id).then(star => {
-//     res.redirect("/celebrities")
-//   })
-// })
+ router.post("/:id/delete", (req, res, next) => {
+   Movie.findByIdAndRemove(req.params.id).then(movie => {
+     res.redirect("/movies")
+   })
+ })
 
-// router.get("/:id/edit", (req, res, next) => {
-//   const query = req.params.id;
+ router.get("/:id/edit", (req, res, next) => {
+   const query = req.params.id;
 
-//   Celeb.findById(query).then(star =>
-//   res.render("celebrities/edit", {
-//     star : star,
-//     edited : true,
-//   }))
-// })
+   Movie.findById(query).then(movie =>
+   res.render("movies/edit", {
+     movie : movie,
+     edited : true,
+   }))
+ })
 
-// router.post("/:id", (req, res, next) => {
-//   Celeb.findByIdAndUpdate(req.params.id, req.body, {new: true}).then(star => {
-//     res.render("celebrities/show", {
-//       star : star,
-//       edited: true})
-//   })
-// })
+ router.post("/:id", (req, res, next) => {
+   Movie.findByIdAndUpdate(req.params.id, req.body, {new: true}).then(movie => {
+     res.render("movies/show", {
+       movie : movie,
+       edited: true})
+   })
+ })
 
 
 module.exports = router;
