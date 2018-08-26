@@ -1,5 +1,11 @@
 <h1>Meet the celebrities!</h1>
 
+{{#if deleted}}
+
+<h2>{{star.name}} has been deleted!</h2>
+
+{{/if}}
+
 <p><a href="/celebrities/new">Add a new Celebrtity</a></p>
 
 {{#each celebrities}}
