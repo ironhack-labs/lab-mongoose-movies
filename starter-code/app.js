@@ -12,7 +12,7 @@ const path = require("path");
 mongoose.Promise = Promise;
 mongoose
   .connect(
-    "mongodb://localhost/awesome-project",
+    "mongodb://localhost/celebs",
     { useMongoClient: true }
   )
   .then(() => {
@@ -56,7 +56,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 const index = require("./routes/index");
 app.use("/", index);
 
-const books = require("./routes/books");
-app.use("/books", books);
+const celebrities = require("./routes/celebrities");
+app.use("/celebrities/", celebrities);
 
 module.exports = app;

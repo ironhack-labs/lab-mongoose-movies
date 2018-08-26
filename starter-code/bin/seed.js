@@ -1,86 +1,40 @@
-// const mongoose = require("mongoose");
-// const Book = require("../models/book");
+const mongoose = require("mongoose");
+const Celebrity = require("../models/celebrity");
 
-// const dbName = "awesome-project";
-// mongoose.connect(`mongodb://localhost/${dbName}`);
+const dbName = "celebs";
+mongoose.connect(`mongodb://localhost/${dbName}`);
 
-// const books = [
-//   {
-//     title: "The Hunger Games",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "Suzanne Collins",
-//     rating: 10
-//   },
-//   {
-//     title: "Harry Potter",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "J.K. Rowling ",
-//     rating: 9
-//   },
-//   {
-//     title: "To Kill a Mockingbird",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "Harper Lee",
-//     rating: 8
-//   },
-//   {
-//     title: "Pride and Prejudice",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "Jane Austen",
-//     rating: 9
-//   },
-//   {
-//     title: "Twilight",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "Stephenie Meyer",
-//     rating: 10
-//   },
-//   {
-//     title: "The Book Thief",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "Markus Zusak",
-//     rating: 7
-//   },
-//   {
-//     title: "The Chronicles of Narnia",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "C.S. Lewis",
-//     rating: 8
-//   },
-//   {
-//     title: "Animal Farm",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "George Orwell",
-//     rating: 9
-//   },
-//   {
-//     title: "Gone with the Wind",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "Margaret Mitchell",
-//     rating: 10
-//   },
-//   {
-//     title: "The Fault in Our Stars",
-//     description:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//     author: "John Green",
-//     rating: 8
-//   }
-// ];
+const celebrities = [
+  {
+    name: "Cem Karaca",
+    occupation: "Singer",
+    catchPhrase: "Ne olur ıslak ıslak",
+    rating: 7
+  },
+  {
+    name: "Ibrahim Tatlıses",
+    occupation: "Singer, filmstar, mafia",
+    catchPhrase: "Mavi, mavi masmavi",
+    rating: 9
+  },
+  {
+    name: "Angela Merkel",
+    occupation: "Politician",
+    catchPhrase: "Wir schaffen das.",
+    rating: 8
+  },
+  {
+    name: "Emmanuel Macron",
+    occupation: "Président de la république",
+    catchPhrase: "Je ne suis pas socialiste.",
+    rating: 8
+  }
+];
 
-// Book.create(books, err => {
-//   if (err) {
-//     throw err;
-//   }
-//   console.log(`Created ${books.length} books`);
-//   mongoose.connection.close();
-// });
+Celebrity.create(celebrities, err => {
+  if (err) {
+    throw err;
+  }
+  console.log(`Created ${celebrities.length} celebrities`);
+  mongoose.connection.close();
+});
