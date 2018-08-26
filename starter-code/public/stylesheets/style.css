@@ -1,0 +1,14 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00b7ff; }
+
+.add {
+  background-color: green;
+  color: white;
+  padding: 6px;
+  border-radius: 8px; }
+
+/*# sourceMappingURL=style.css.map */
