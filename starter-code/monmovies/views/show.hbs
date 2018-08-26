@@ -14,8 +14,10 @@
         <h4>Catchphrase : {{data.catchPhrase}}</h4>
 
         <a href="/celebrities" class='list'><button>Back to list</button></a>
-        &nbsp; &nbsp; &nbsp; {{!-- <a href="/update-book/{{book._id}}"><button>Update this book</button>
-        </a> --}}
+        &nbsp; &nbsp; &nbsp; 
+        
+        <a href="/celebrities/{{data._id}}/edit"><button>Edit this entry</button>
+        </a>
         <br><br> &nbsp; &nbsp; &nbsp;
         <form action="/celebrities/{{data._id}}/delete" method="post">
             <button type='submit' class='btn-delete'>This is not a celebrity!</button>

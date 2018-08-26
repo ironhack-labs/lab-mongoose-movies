@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <h1>Update your favorite celeb!</h1>
+        <form action="/celebrities/{{data._id}}" method='post'>
+            <label for="name">Name: </label>
+            <input type="text" id='name' name='name' required="true" value="{{data.name}}">
+            <br>
+            <label for="occupation">Occupation: </label>
+            <input type="text" id='occupation' name='occupation' required="true" value="{{data.occupation}}">
+            <br>
+            <label for="catchPhrase">Catchprase: </label>
+            <textarea type="text" id='catchPhrase' name='catchPhrase' required="true">{{data.catchPhrase}}</textarea>
+            <br>
+            {{!-- <a href="/celebrities/{{data._id}}"><button>Cancel</button></a> --}}
+            &nbsp; &nbsp; &nbsp;
+            <button type='submit' class='go-btn'>Save!</button>
+        </form>
+    </div>
+</div>
