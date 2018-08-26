@@ -1,0 +1,25 @@
+<h2>All the info we have about this celebrity...</h2>
+
+<div class="container">
+    <div class="card">
+        {{!-- {{#if new}}
+        <h3>Your book has been added to the list!</h3>
+        {{/if}} {{#if updated}}
+        <h3>Your book has been updated!</h3>
+        {{/if}} --}}
+
+
+ <h3>Name : {{data.name}}</h3>
+    <h4>Occupation : {{data.occupation}}</h4>
+    <h4>Catchphrase : {{data.catchPhrase}}</h4>
+
+        <a href="/celebrities"><button>See all the Celebs</button></a>
+        &nbsp; &nbsp; &nbsp;
+        {{!-- <a href="/update-book/{{book._id}}"><button>Update this book</button>
+        </a>
+        &nbsp; &nbsp; &nbsp;
+        <a href="/book/delete/{{book._id}}">
+            <button class='btn-delete'>I hate this book, delete it!</button>
+        </a> --}}
+    </div>
+</div>
