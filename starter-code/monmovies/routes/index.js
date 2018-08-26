@@ -25,22 +25,48 @@ router.get('/celebrities/:id', (req, res, next) => {
 });
 
 
+/* Create New celebrities */ 
+router.get('/new', (req, res) => {
+res.render('new')
+})
 
-// Route	HTTP Verb	Description
-// /celebrities/:id	GET	Show a specific celebrity
-// Steps we will follow in this iteration:
-// Create the /celebrities/:id GET route in routes/celebrities.js.
-// In the route callback:
-// Call the Celebrity model's findOne or findById method to retrieve the details of a specific celebrity by its id.
-// If there's an error, call the route's next function and return the error.
-// If there isn't an error, render the celebrities/show view.
-// Pass the variable with the celebrity's details into the view.
-// Create the show.hbs view file inside the views/celebrities/ folder.
-// In the views/celebrities/show.hbs view file:
-// Add an <h2> for the page's heading.
-// Display tags with the celebrity's name, occupation and catchPhrase.
-// In the views/celebrities/index.hbs view file:
-// As part of the loop that displays each celebrity's name, add a link that goes to the /celebrities/:id route with the :id replaced by the actual celebrity's id.
+router.post('/new', (req, res) => {
+  const {
+    name, occupation, catchPhrase,
+  } = req.body
 
+  new Celeb({
+    name, occupation, catchPhrase,
+  })
+  .save()
+  .then(data => {
+    res.render('show', { data, new: true})
+  })
+})
+
+/* Delete A Celebrity */
+router.post('/celebrities/:id/delete', (req, res) =>{
+Celeb.findByIdAndRemove(req.params.id)
+.then(result => {
+  res.redirect('/celebrities')
+})
+.catch(console.error)
+})
+
+
+/* Iteration #5: Deleting Celebrities
+Now that we have a list of celebrities, a celebrity details page, and a page to create new celebrities, we only have 2 features left to implement: editing celebrities and deleting them. Since deleting is simpler, let's start with that.
+
+Route	HTTP Verb	Description
+/celebrities/:id/delete	POST	Delete a specific celebrity
+Steps we will follow in this iteration:
+In the views/celebrities/index.hbs file:
+As part of the loop, add a <form> tag that makes a POST request to celebrities/:id/delete where the :id is replaced by the actual id of each celebrity.
+Add a <button> tag inside the form so that it can be submitted.
+Create the /celebrities/:id/delete POST route in your routes/celebrities.js file
+In that route's callback:
+Use the Celebrity model's findByIdAndRemove method to delete the celebrity by its id.
+If there's an error, call the route's next function and return the error
+If there is no error, redirect to the list of celebrities page.*/
 
 module.exports = router;

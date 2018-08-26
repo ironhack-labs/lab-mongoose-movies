@@ -2,24 +2,24 @@
 
 <div class="container">
     <div class="card">
-        {{!-- {{#if new}}
-        <h3>Your book has been added to the list!</h3>
+        {{#if new}}
+        <h3>A star is born!</h3>
         {{/if}} {{#if updated}}
-        <h3>Your book has been updated!</h3>
-        {{/if}} --}}
+        <h3>Something has changed about you...</h3>
+        {{/if}}
 
 
- <h3>Name : {{data.name}}</h3>
-    <h4>Occupation : {{data.occupation}}</h4>
-    <h4>Catchphrase : {{data.catchPhrase}}</h4>
+        <h3>Name : {{data.name}}</h3>
+        <h4>Occupation : {{data.occupation}}</h4>
+        <h4>Catchphrase : {{data.catchPhrase}}</h4>
 
-        <a href="/celebrities"><button>See all the Celebs</button></a>
-        &nbsp; &nbsp; &nbsp;
-        {{!-- <a href="/update-book/{{book._id}}"><button>Update this book</button>
-        </a>
-        &nbsp; &nbsp; &nbsp;
-        <a href="/book/delete/{{book._id}}">
-            <button class='btn-delete'>I hate this book, delete it!</button>
+        <a href="/celebrities" class='list'><button>Back to list</button></a>
+        &nbsp; &nbsp; &nbsp; {{!-- <a href="/update-book/{{book._id}}"><button>Update this book</button>
         </a> --}}
+        <br><br> &nbsp; &nbsp; &nbsp;
+        <form action="/celebrities/{{data._id}}/delete" method="post">
+            <button type='submit' class='btn-delete'>This is not a celebrity!</button>
+        </form>
+        </a>
     </div>
 </div>
