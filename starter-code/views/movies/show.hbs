@@ -1,0 +1,21 @@
+
+{{#if edited}}
+<h3>{{movie.title}} has been updated!</h3>
+{{/if}}
+
+
+<h2>{{movie.title}}</h2>
+
+<h4>Genre: {{movie.genre}}</h4>
+
+<p>{{movie.plot}}</p>
+
+<p><a href="/movies">Go back</a></p>
+
+<form action="/celebrities/{{movie._id}}/delete" method="POST">
+<input type="submit" value="Delete celebrity">
+</form>
+
+<form action="/celebrities/{{movie._id}}/edit" method="GET">
+<input type="submit" value="Edit celebrity">
+</form>
