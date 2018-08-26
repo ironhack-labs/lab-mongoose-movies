@@ -1,15 +1,27 @@
+
+<div class="celebrities-all">
+
+<div class="all-content list">
+
 <h1>All the Movies!</h1>
 
-{{#if deleted}}
+<p class="btn green"><a href="/movies/new">Add a new Movie</a></p>
 
-<h2>{{movie.name}} has been deleted!</h2>
-
-{{/if}}
-
-<p><a href="/movies/new">Add a new Movie</a></p>
+<div class="list-content">
 
 {{#each movies}}
 
+<div class="item">
 <h2>{{this.title}}</h2>
-<h3><a href="/movies/{{this._id}}">See more about {{this.title}}</a></h3>
+<p class="btn btn-item"><a href="/movies/{{this._id}}">See more about {{this.title}}</a></p>
+</div>
 {{/each}}
+
+
+</div>
+
+<p class="btn"><a href="/">Go back to home</a></p>
+
+</div>
+
+</div>

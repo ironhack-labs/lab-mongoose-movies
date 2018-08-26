@@ -1,4 +1,8 @@
 
+<div class="celebrities-all">
+
+<div class="all-content content-movies">
+
 {{#if edited}}
 <h3>{{star.name}} has been updated!</h3>
 {{/if}}
@@ -10,12 +14,24 @@
 
 <h4>Occupation: {{star.occupation}}</h4>
 
-<p><a href="/celebrities">Go back</a></p>
+<div class="btn-container">
+
+<p class="btn"><a href="/celebrities">Go back</a></p>
+
 
 <form action="/celebrities/{{star._id}}/delete" method="POST">
-<input type="submit" value="Delete celebrity">
+<input class="btn submit red" type="submit" value="Delete celebrity">
 </form>
 
+
+
 <form action="/celebrities/{{star._id}}/edit" method="GET">
-<input type="submit" value="Edit celebrity">
+<input class="btn submit green" type="submit" value="Edit celebrity">
 </form>
+
+</div>
+
+
+</div>
+</div>
+
