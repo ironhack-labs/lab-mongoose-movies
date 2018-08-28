@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card">
+        <h2>EDIT {{movie.title}}</h2>
+        <form action="/movies/details/{{movie._id}}" method='POST'>
+            <input type="text" id='title' name='title' required="true" value="{{movie.title}}">
+            <br>
+            <input type="text " id='genre' name='genre' required="true " value="{{movie.genre}}">
+            <br>
+            <textarea type="text" id='plot' name='plot' required="true">{{movie.plot}}</textarea>
+            <br>
+            <button type='submit' class='btn btn-add'>UPDATE</button>
+        </form>
+    </div>
+</div>

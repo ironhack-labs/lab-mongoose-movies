@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card">
+        <h2>EDIT {{celebrity.name}}</h2>
+        <form action="/celebrities/details/{{celebrity._id}}" method='POST'>
+            <input type="text" id='name' name='name' required="true" value="{{celebrity.name}}">
+            <br>
+            <input type="text " id='occupation' name='occupation' required="true " value="{{celebrity.occupation}}">
+            <br>
+            <input type="text" id='catchPhrase' name='catchPhrase' required="true" value="{{celebrity.catchPhrase}}"></input>
+            <br>
+            <button type='submit' class='btn btn-add'>UPDATE</button>
+        </form>
+    </div>
+</div>
