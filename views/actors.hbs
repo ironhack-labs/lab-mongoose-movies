@@ -1,0 +1,14 @@
+<h2> Actors list</h2>
+{{#each  actors}}
+  <li>
+   {{_movies}}
+  </li>
+  <a href="/actors/{{this._id}}"> Details</a>
+  <br>
+  
+  <form action="/actors/{{this._id}}/delete" method="post">˚
+  <button type="submit" >Delete</button>
+</form>
+{{/each}}
+<br>
+  <a href="/actors/new"> Add new Actor</a>
