@@ -1,0 +1,10 @@
+<h2>Celebrities Index</h2>
+
+<ul>
+  {{#each celebArray}}
+  <li> {{this.name}} </li>
+  <a href="/celebrities/show/{{this._id}}">Details</a>
+  {{/each}}
+</ul>
+
+<a href="/celebrities/new">ADD YOUR FAVORITE CELEBRITIES TO THE LIST</a>
