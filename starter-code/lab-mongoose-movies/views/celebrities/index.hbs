@@ -1,0 +1,13 @@
+<h2>Show Celebrities</h2>
+{{#each celebrities}}
+<ul>
+<li>
+  <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+</li>
+{{!-- 
+<li>{{this.occupation}}</li>
+<li>{{this.catchPhrase}}</li> 
+--}}
+</ul>
+<hr>
+{{/each}}
