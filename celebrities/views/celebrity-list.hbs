@@ -6,6 +6,12 @@
     <h3>{{this.name}}</h3>
     <p>{{this.occupation}}</p>
     <p>{{this.catchPhrase}}</p>
+    <a href="/celebrities/{{this._id}}/delete">Delete a celeb</a>
+    <a href="/celebrities/{{this._id}}/edit">edit a celeb</a>
   </li>
   {{/each}}
 </ul>
+
+
+<a href="/">home page</a>
+<a href="/celebrities/new">add a new celeb</a>

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const Celebrity = require("../models/celebrity.js");
+const Movie = require("../models/movie.js");
+//const Celebrity = require("../models/celebrity.js");
 
 mongoose.Promise = Promise;
 mongoose
@@ -14,27 +15,54 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-const celebrityData = [
+// const celebrityData = [
+//   {
+//     name: "a",
+//     occupation: "a",
+//     catchPhrase: "a"
+//   },
+//   {
+//     name: "b",
+//     occupation: "b",
+//     catchPhrase: "b"
+//   },
+//   {
+//     name: "c",
+//     occupation: "c",
+//     catchPhrase: "c"
+//   }
+// ];
+
+// Celebrity.create(celebrityData)
+//   .then(celebrityResult => {
+//     console.log(`inserted ${celebrityResult.length} celebrities`);
+//   })
+//   .catch(err => {
+//     console.log(`failureeeee`, err);
+//   });
+
+const movieData = [
   {
-    name: "a",
-    occupation: "a",
-    catchPhrase: "a"
+    title: "Skyscrapper",
+    genre: "action",
+    plot:
+      "Global icon Dwayne Johnson leads the cast of Legendary's SKYSCRAPER as former FBI"
   },
   {
-    name: "b",
-    occupation: "b",
-    catchPhrase: "b"
+    title: "",
+    genre: "",
+    plot: ""
   },
   {
-    name: "c",
-    occupation: "c",
-    catchPhrase: "c"
+    title: "",
+    genre: "",
+    plot: ""
   }
 ];
 
-Celebrity.create(celebrityData)
-  .then(celebrityResult => {
-    console.log(`inserted ${celebrityResult.length} celebrities`);
+Movie.create(MovieData)
+  .then(movieResult => {
+    console.log(`inserted ${movieResult.length} movies`);
   })
   .catch(err => {
     console.log(`failureeeee`, err);

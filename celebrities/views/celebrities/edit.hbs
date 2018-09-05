@@ -1,0 +1,20 @@
+<h2>EDIT A CELEB</h2>
+
+<form action="/celebrities/{{celebItem._id}}/process-edit" method="POST">
+
+  <input type="text" value="{{celebItem.name}}" name="name" placeholder="new celeb name">
+  <br>
+
+  <input type="text" value="{{celebItem.occupation}}" name="occupation" placeholder="and their occupation">
+  <br>
+
+
+  <input type="text" value="{{celebItem.catchPhrase}}" name="catchPhrase" placeholder="their catchphrase">
+  <br>
+
+  <button>EDIT YOUR CELEB</button>
+
+
+</form>
+
+<a href="/celebrities/{{celebItem._id}}">Cancel edit</a>
