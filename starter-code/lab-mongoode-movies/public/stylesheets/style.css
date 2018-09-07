@@ -1,8 +1,17 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
+
+.startBtn {
+  margin-top: 30px;
+  display: block;
+  margin: 30px auto; }
+
+.title {
+  font-size: 1.3rem;
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=style.css.map */
