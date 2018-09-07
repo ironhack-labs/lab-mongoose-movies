@@ -1,0 +1,26 @@
+
+Hello editing
+
+
+
+<h1>Eddit {{celeb.name}} to The Library</h1>
+
+
+<form action="/celebrities/update/{{celeb._id}}" method="POST">
+
+    <label for="">Name</label>
+    <input type="text" name="celebName" value="{{celeb.name}}">
+
+    <label for="">Description</label>
+    <input type="text" name="occupation" value="{{celeb.occupation}}">
+
+
+    <label for="">ctchPhrase</label>
+    <input type="text" name="ctchPhrase" value="{{celeb.catchPhrase}}">
+  
+    <label for="">imageSrc</label>
+    <input type="text" name="image" value="{{celeb.image}}">
+
+    <button>Edit</button>
+
+</form>

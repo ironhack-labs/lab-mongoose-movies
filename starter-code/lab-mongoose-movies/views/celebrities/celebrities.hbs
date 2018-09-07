@@ -1,0 +1,25 @@
+{{!-- 
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p> --}}
+
+<a href='/'>Main Page</a>
+<h1>click see more to get information</h1>
+
+
+{{#each celebrityData}}
+
+<dive class="list-celebrity">
+  <p>{{this.name}}</p>
+  
+  <img src="{{this.image}}" alt="Movie Poster">
+  <br>
+  <br>
+  <a href="/celebrities/{{this._id}}">See More</a>
+  <br>
+  <br>
+  <form action="/celebrities/delete/{{this._id}}" method="POST">
+    <button style="background:red;">Delete This Celeb</button>
+  </form>
+</dive>
+
+{{/each}}

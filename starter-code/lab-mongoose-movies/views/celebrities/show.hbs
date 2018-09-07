@@ -1,0 +1,16 @@
+
+
+
+<dive class="list-celebrity">
+  <a href='/celebrities'>Go Back</a>
+  <h1>{{oneCelebrity.name}}</h1>
+  
+  <img src="{{oneCelebrity.image}}" alt="Movie Poster">
+  <br>
+  <h2>occupation: {{oneCelebrity.occupation}}</h2>
+  <h2>catchPhrase: {{oneCelebrity.catchPhrase}}</h2>
+  <form action="/celebrities/edit/{{oneCelebrity._id}}" method="POST">
+    <button>Edit This Celeb</button>
+  </form>
+  
+</dive>
