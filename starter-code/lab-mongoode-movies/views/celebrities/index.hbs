@@ -1,0 +1,14 @@
+<h2 class="celebreties-header">Celebrities page</h2>
+<hr>
+<ul class="container">
+{{#each celebrities}}
+    <li class="row my-3 cel-opt"><span class="title badge badge-success p-3">{{this.name}}</span>
+    <a class="btn btn-primary ml-2" href="/celebrities/{{this._id}}">Click to get more information!</a>
+    <a class="btn btn-warning mx-3" href="/celebrities/{{this._id}}/edit">Click to edit information!</a>
+    <a class="btn btn-danger" href="/celebrities/{{this._id}}/delete">Get rid of this celebrity!</a>
+    </li>
+    <hr>
+{{/each}}
+</ul>
+<hr>
+<p>Didn't find your favorite celebrity here? Add new one! <a class="btn btn-primary" href="/celebrities/new">Click right now!</a><a class="btn btn-primary m-2" href="/">Return to main page!</a></p>
