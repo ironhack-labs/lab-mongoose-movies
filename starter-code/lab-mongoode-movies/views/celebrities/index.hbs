@@ -1,0 +1,8 @@
+<h2 class="celebreties-header">Celebrities page</h2>
+<hr>
+<ul>
+{{#each celebrities}}
+    <li>{{this.name}}</li>
+    <a href="/celebrities/{{this._id}}">Click to get more information!</a>
+{{/each}}
+</ul>
