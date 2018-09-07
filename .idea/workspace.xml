@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5a7306a-67c3-4fb0-9497-faa399a6ba5d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/edit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/routes/celebrities.js" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/routes/celebrities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/index.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/new.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/new.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/layout.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,17 +25,8 @@
       <file leaf-file-name="celebrity.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/models/celebrity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="seeds.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/bin/seeds.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="375">
+              <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -42,26 +34,53 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+            <state>
+              <caret column="27" selection-start-column="27" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="celebrities.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="celebrities.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/routes/celebrities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+            <state relative-caret-position="940">
+              <caret line="76" column="3" lean-forward="true" selection-start-line="76" selection-start-column="3" selection-end-line="76" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs">
+      <file leaf-file-name="edit.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/edit.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/new.hbs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="113" lean-forward="true" selection-start-line="2" selection-start-column="113" selection-end-line="2" selection-end-column="113" />
+              <caret line="2" selection-start-line="2" selection-end-line="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/layout.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="105" selection-start-line="7" selection-start-column="105" selection-end-line="7" selection-end-column="105" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.hbs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -70,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/index.hbs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -95,10 +114,13 @@
         <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/models/celebrity.js" />
         <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/bin/seeds.js" />
         <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/index.hbs" />
+        <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/layout.hbs" />
+        <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/new.hbs" />
         <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/app.js" />
-        <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs" />
-        <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/index.hbs" />
+        <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/edit.hbs" />
         <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/routes/celebrities.js" />
+        <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/index.hbs" />
+        <option value="$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs" />
       </list>
     </option>
   </component>
@@ -219,12 +241,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536343013127</updated>
-      <workItem from="1536343014463" duration="3217000" />
+      <workItem from="1536343014463" duration="7344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3217000" />
+    <option name="totallyTimeSpent" value="7344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="608" y="23" width="1034" height="947" extended-state="0" />
@@ -256,20 +278,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/models/celebrity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/bin/seeds.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -284,31 +292,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/app.js">
+    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/models/celebrity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        <state relative-caret-position="375">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs">
+    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/bin/seeds.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="27" selection-start-column="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/new.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="113" lean-forward="true" selection-start-line="2" selection-start-column="113" selection-end-line="2" selection-end-column="113" />
+          <caret line="2" selection-start-line="2" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/edit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/index.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="77" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/routes/celebrities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="940">
+          <caret line="76" column="3" lean-forward="true" selection-start-line="76" selection-start-column="3" selection-end-line="76" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/layout.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="105" selection-start-line="7" selection-start-column="105" selection-end-line="7" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/starter-code/lab-mongoode-movies/views/celebrities/show.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>

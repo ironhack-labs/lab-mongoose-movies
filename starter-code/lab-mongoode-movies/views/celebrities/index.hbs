@@ -4,5 +4,9 @@
 {{#each celebrities}}
     <li>{{this.name}}</li>
     <a href="/celebrities/{{this._id}}">Click to get more information!</a>
+    <a href="/celebrities/{{this._id}}/edit">Click to edit information!</a>
+    <a href="/celebrities/{{this._id}}/delete">Get rid of this celebrity!</a>
 {{/each}}
+    <hr>
+    <p>Didn't find your favorite celebrity here? Add new one! <a href="/celebrities/new">Click right now!</a></p>
 </ul>
