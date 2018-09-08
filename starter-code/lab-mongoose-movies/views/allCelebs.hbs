@@ -1,0 +1,13 @@
+
+<div class="allCelebs">
+
+  {{#each listOfCelebs}}
+
+  <h3>{{this.name}}</h3>
+  <button><a href="/celebrities/{{this._id}}">See more</a></button>
+  {{!-- <h4>{{this.occupation}}</h4>
+  <p>{{this.catchphrase}}</p> --}}
+  
+
+  {{/each}}
+</div>
