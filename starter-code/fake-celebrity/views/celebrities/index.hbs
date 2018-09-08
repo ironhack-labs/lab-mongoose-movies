@@ -1,0 +1,14 @@
+<h1>welcome to the celebrity page</h1>
+
+<h3>Artist</h3>
+{{#each data}}
+<ul>
+  <li>
+    {{this.name}}
+    <a href="/celebrities/{{this.id}}">Show Info</a>
+    <a href="/celebrities/{{this.id}}/delete">Delete Artist</a>
+  </li>
+</ul>
+{{/each}}
+
+<a href="/celebrities/new">Create a new Artist</a>
