@@ -2,9 +2,6 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00B7FF; }
-
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -37,8 +34,5 @@ a {
 #btn-delete:hover {
   background-color: #be421dfd;
   border-color: #be421dfd; }
-
-div {
-  margin-top: 2vh; }
 
 /*# sourceMappingURL=style.css.map */
