@@ -16,7 +16,95 @@ router.get('/movies', (req, res, next) => {
   })
 });
 
+router.get('/movies/new', (req, res, next)=>{
+  res.render('newMovie');
+})
 
+router.post('/movies/create', (req, res, next)=>{
+
+  const theTitle = req.body.title;
+  const theDirector = req.body.director;
+  const theStars = req.body.stars.split(',');
+  const theImage = req.body.image;
+  const theDescription = req.body.description;
+  const theShowtimes = req.body.showtimes.split(',');
+
+   Movie.create({
+      title: theTitle,
+      director: theDirector,
+      stars: theStars,
+      image: theImage,
+      description:theDescription,
+      showtimes: theShowtimes,
+   })
+   .then((response)=>{
+       res.redirect('/movies')
+   })
+   .catch((err)=>{
+      next(err);
+   })
+})
+
+router.post('/movies/delete/:id', (req, res, next)=>{
+  Movie.findByIdAndRemove(req.params.id)
+  .then((response)=>{
+      res.redirect('/movies')
+  })
+  .catch((err)=>{
+     next(err);
+  })
+
+})
+
+router.get('/movies/edit/:id', (req, res, next)=>{
+  Movie.findById(req.params.id)
+  .then((movieData)=>{
+      res.render('editMovieInfo', {theMovie: movieData});
+  })
+  .catch((err)=>{
+      next(err);
+  })
+})
+
+router.post('/movies/update/:id', (req, res, next)=>{
+  const theTitle = req.body.title;
+  const theDirector = req.body.director;
+  const theStars = req.body.stars.split(',');
+  const theImage = req.body.image;
+  const theDescription = req.body.description;
+  const theShowtimes = req.body.showtimes.split(',');
+
+   Movie.findByIdAndUpdate(req.params.id, {
+    title: theTitle,
+    director: theDirector,
+    stars: theStars,
+    image: theImage,
+    description:theDescription,
+    showtimes: theShowtimes,
+   })
+   .then((response)=>{
+       res.redirect('/movies/'+req.params.id)
+   })
+   .catch((err)=>{
+      next(err);
+   })
+
+})
+
+router.get('/movies/:theMovieID', (req, res, next)=>{
+
+  Movie.findById(req.params.theMovieID)
+  .then((theActualMovie)=>{
+      console.log('----------got ONE movies ---------')
+      console.log(theActualMovie)
+      res.render('MovieDetails', {theMovie: theActualMovie})
+
+  })
+  .catch((err)=>{
+
+  })
+
+})
 
 
 module.exports = router;
