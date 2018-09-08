@@ -1,0 +1,12 @@
+<h1>Here is our list of cats</h1>
+
+<a href="/celebrities/new">Add a famous cat</a>
+
+{{#each listOfCats}}
+
+  <div>
+    <h2>Meet {{this.name}} </h2> <a class="btn" href="/celebrities/{{this._id}}">See Details</a>
+  </div>
+
+
+{{/each}}

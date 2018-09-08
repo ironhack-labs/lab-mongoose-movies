@@ -1,0 +1,19 @@
+<h1>Details about: {{theCat.name}}</h1>
+
+ <p>{{theCat.name}} specializes on: {{theCat.occupation}}</p>
+ <p>{{theCat.name}}'s famous phrase is: <em>"{{theCat.catchPhrase}}"</em></p>
+
+ <img src="{{theCat.photo}}" alt="cat photo">
+<div>
+  <a  class="btn" href="/celebrities/edit/{{theCat._id}}">Edit This Cat's Info</a>
+</div>
+
+<div>
+  <form action="/celebrities/delete/{{theCat._id}}" onclick="return confirm('Are you sure you want to delete this cat?');" method="POST">
+      <button  class="btn" id="btn-delete">Delete This Cat</button>
+  </form>
+</div>
+
+<div>
+ <a class="btn" href="/celebrities/">Go back to list</a>
+</div>
