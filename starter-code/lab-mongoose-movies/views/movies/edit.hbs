@@ -1,0 +1,26 @@
+
+Hello editing
+
+
+
+<h1>Eddit {{movie.title}} to The Library</h1>
+
+
+<form action="/movies/update/{{movie._id}}" method="POST">
+
+    <label for="">Name</label>
+    <input type="text" name="title" value="{{movie.title}}">
+
+    <label for="">genre</label>
+    <input type="text" name="genre" value="{{movie.genre}}">
+
+
+    <label for="">Plot</label>
+    <input type="text" name="plot" value="{{movie.plot}}">
+  
+    <label for="">imageSrc</label>
+    <input type="text" name="image" value="{{movie.image}}">
+
+    <button>Edit</button>
+
+</form>

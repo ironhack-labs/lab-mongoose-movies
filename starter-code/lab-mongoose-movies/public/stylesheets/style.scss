@@ -3,8 +3,11 @@ body {
 }
 
 a {
-    color: rgb(182, 0, 70);
-    text-decoration: none;
+  text-decoration: none;
+  color: rgb(219, 55, 14);
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF,
+   0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18,
+   0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
 }
 
 .list-celebrity {
@@ -13,15 +16,19 @@ a {
 }
 
 .cover-image {
- width: 100vw;
+  width: 100vw;
 }
 .check-the-celebrities {
-  background: rgb(228, 181, 181);
+  background: rgb(196, 21, 123);
   border-style: solid;
-  border-color: rgba(201, 76, 76, 0.3);
+  border-color: rgba(134, 59, 97, 1);
   border-radius: 5px;
   padding: 1vw;
   position: absolute;
-  bottom: 40%;
-  right: 12%;
+  bottom: 8%;
+  right: 52%;
+}
+
+.movies {
+  bottom: 22%;
 }

@@ -2,8 +2,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #b60046;
-  text-decoration: none; }
+  text-decoration: none;
+  color: #db370e;
+  text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18; }
 
 .list-celebrity {
   display: inline-block;
@@ -13,13 +14,16 @@ a {
   width: 100vw; }
 
 .check-the-celebrities {
-  background: #e4b5b5;
+  background: #c4157b;
   border-style: solid;
-  border-color: rgba(201, 76, 76, 0.3);
+  border-color: #863b61;
   border-radius: 5px;
   padding: 1vw;
   position: absolute;
-  bottom: 40%;
-  right: 12%; }
+  bottom: 8%;
+  right: 52%; }
+
+.movies {
+  bottom: 22%; }
 
 /*# sourceMappingURL=style.css.map */
