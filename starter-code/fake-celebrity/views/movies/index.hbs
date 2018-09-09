@@ -1,5 +1,5 @@
 <h1>Welcome to movies !!</h1>
-<h3>Movies</h3>
+<!-- <h3>Movies</h3>
 {{#each movies}}
 <ul>
   <li>
@@ -12,14 +12,15 @@
 
 
 
-{{/each}}
+{{/each}} -->
 
 
-<a href="/movies/new">Create a New Movie</a>
 
 <div class="cards-container">
   {{#each movies}}
       {{> jumbo this}}
-      
+
   {{/each}}
 </div>
+
+<a class="btn btn-success btn-lg btn-block" href="/movies/new">Create a New Movie</a>

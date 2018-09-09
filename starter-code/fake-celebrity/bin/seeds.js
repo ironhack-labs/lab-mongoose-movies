@@ -12,16 +12,19 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 const movies = [
   {
     title: "Iron Man",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91qvAndeVYL._RI_.jpg",
     genre: "Action",
     plot: "Iron man saves the world"
   },
   {
-    title: "titanic",
+    title: "Batman",
+    image: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Batman_%281989%29_theatrical_poster.jpg/220px-Batman_%281989%29_theatrical_poster.jpg",
     genre: "boring",
     plot: "jack dies"
   },
   {
-    title: "scooby",
+    title: "Avengers",
+    image: "https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg",
     genre: "cartoons",
     plot: "scooby is very scared of ghosts"
   },
