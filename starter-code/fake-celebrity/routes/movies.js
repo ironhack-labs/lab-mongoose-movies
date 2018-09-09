@@ -8,7 +8,7 @@ router.get('/movies/index', (req, res, next) => {
       res.render('movies/index', {
         movies: data
       })
-      console.log(data)
+      // console.log(data)
     })
 })
 
@@ -26,7 +26,8 @@ router.get('/movies/:id/edit', (req, res, next) => {
       console.log(data.title)
       res.render('movies/edit', {
         movieId: movieId,
-        name: data.title
+        name: data.title,
+        data: data
       })
     })
 })
@@ -36,6 +37,7 @@ router.post('/movies/update/:id', (req, res, next) => {
   movieId = req.params.id
   let movieEdit = {
     title: req.body.title,
+    image: req.body.image,
     genre: req.body.genre,
     plot: req.body.genre
   }

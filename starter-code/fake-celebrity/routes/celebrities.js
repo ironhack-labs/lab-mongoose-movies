@@ -6,7 +6,7 @@ const Celebrity = require('../models/celebrity')
 router.get('/celebrities/index', (req, res, next) => {
   Celebrity.find()
     .then((data) => {
-      // console.log(data)
+      console.log(data)
       res.render('celebrities/index', {
         data: data
       });
@@ -18,9 +18,10 @@ router.post('/celebrities/create', (req, res, next) => {
   let name = req.body.name
   let ocup = req.body.ocuppation
   let catchP = req.body.catchPhrase
-
+  console.log(req.body.image)
   let allinfo = {
     name: name,
+    image: req.body.image,
     ocupation: ocup,
     catchPhrase: catchP
   }
@@ -45,13 +46,13 @@ router.get('/celebrities/new', (req, res, next) => {
 router.get('/celebrities/:id/edit', (req, res, next) => {
   console.log(req.params.id)
   var id = req.params.id
-
-
   // console.log("=====================")
-
-  res.render("celebrities/edit", {
-    id: id
+  Celebrity.findById(id)
+  .then((data)=>{
+    console.log(data)
+    res.render("celebrities/edit", {id: id, data:data})
   })
+
 })
 
 router.post('/celebrities/update/:id', (req, res, next) => {
@@ -60,6 +61,7 @@ router.post('/celebrities/update/:id', (req, res, next) => {
   console.log(req.body)
   let update1 = {
     name: req.body.name,
+    image: req.body.image,
     ocupation: req.body.ocuppation,
     catchPhrase: req.body.catchPhrase,
   }

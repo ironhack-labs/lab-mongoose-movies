@@ -3,13 +3,18 @@
 
 <form class="" action="/movies/update/{{movieId}}" method="post" id="editMovie">
   <label for="title">Title</label>
-  <input type="text" name="title" value="">
+  <input type="text" name="title" value="{{data.title}}">
+
+  <label for="genre">Image</label>
+  <input type="text" name="image" value="{{data.image}}">
 
   <label for="genre">Genre</label>
-  <input type="text" name="genre" value="">
+  <input type="text" name="genre" value="{{data.genre}}">
+
+
   <br>
   <h5>Plot</h5>
-  <textarea name="plot" rows="8" cols="80" form="editMovie"></textarea>
+  <textarea name="plot" rows="8" cols="80" form="editMovie">{{data.plot}}</textarea>
 
 
 <button > Edit the movie</button>

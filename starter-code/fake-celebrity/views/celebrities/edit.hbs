@@ -3,16 +3,19 @@
 <form action="/celebrities/update/{{id}}" method="POST">
 
     <label for="">name</label>
-    <input type="text" name="name" placeholder="name">
+    <input type="text" name="name" placeholder="name" value="{{data.name}}">
+
+    <label for="">Image url</label>
+    <input type="text" name="image" placeholder="name" value="{{data.image}}">
 
     <label for="">ocuppation</label>
-    <input type="text" name="ocuppation" placeholder="ocuppation">
+    <input type="text" name="ocuppation" placeholder="ocuppation" value="{{data.ocupation}}" >
 
     <label for="">catchPhrase</label>
-    <input type="text" name="catchPhrase" placeholder="Phrase">
+    <input type="text" name="catchPhrase" placeholder="Phrase" value="{{data.catchPhrase}}">
 
 
-    <button>Create</button>
+    <button>Update</button>
 
 
 
