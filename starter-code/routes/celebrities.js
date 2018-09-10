@@ -18,7 +18,7 @@ router.get('/celebrities', (req, res, next) => {
 });
 
 //create a new celebrity listing
-router.get('/celebrities/new', (req, res, next)=> {
+router.get('/celebrities/create', (req, res, next)=> {
     res.render('celebrities/create');
 })
 
@@ -26,8 +26,8 @@ router.get('/celebrities/new', (req, res, next)=> {
 router.post('/celebrities/create', (req, res, next)=> {
         
     Celebrity.create({
-            name: req.body.name,
-            occupation: req.body.occupation,
+            name:        req.body.name,
+            occupation:  req.body.occupation,
             catchphrase: req.body.catchphrase,
         })
         .then ((response)=> {

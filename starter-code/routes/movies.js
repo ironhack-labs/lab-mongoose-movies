@@ -19,7 +19,8 @@ router.get('/movies', (req, res, next) => {
 });
 
 //create a new movie listing
-router.get('/movies/new', (req, res, next)=> {
+router.get('/movies/create', (req, res, next)=> {
+
     res.render('movies/create');
 })
 
