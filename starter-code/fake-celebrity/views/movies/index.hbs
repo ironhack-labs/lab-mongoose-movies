@@ -1,27 +1,14 @@
 <h1>Welcome to movies !!</h1>
-<!-- <h3>Movies</h3>
-{{#each movies}}
-<ul>
-  <li>
-    {{this.title}}
-    <a href="/movies/{{this.id}}">Movie's Info</a>
-    <a href="/movies/{{this.id}}/delete">Delete the Movie</a>
-    <a href="/movies/{{this.id}}/edit">Update the Movie</a>
-  </li>
-</ul>
 
-
-
-{{/each}} -->
 
 
 
 <div class="cards-container movieContainer">
   {{#each movies}}
       {{> jumbo this}}
-
+      
   {{/each}}
 </div>
 
 <a class="btn btn-success btn-lg btn-block" href="/movies/new">Create a New Movie</a>
-<a  class="btn btn-info btn-lg btn-block"href="/celebrities/index">Go to Celebrities Page</a>
+<a  class="btn btn-info btn-lg btn-block" href="/celebrities/index">Go to Celebrities Page</a>
