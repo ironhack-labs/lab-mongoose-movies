@@ -1,0 +1,25 @@
+<h2>WAKKA WAKKA</h2>
+
+{{#each listOfMovies}}
+
+<div>
+  <h3>Title:
+  <a href="/celebrities/{{this.id}}">
+   {{this.title}}
+  </a>
+  </h3>
+
+  <h5>Genre: {{this.genre}}</h5>
+
+  <p>Plot: {{this.plot}}</p>
+  
+</div>
+
+<form action="/movies/delete/{{this.id}}" method="POST">
+  <button>Delete This Movie</button>
+</form>
+
+<hr>
+{{/each}}
+
+<a href="/movies/new"><button>Make new Movie</button></a>

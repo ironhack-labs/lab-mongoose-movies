@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose');
 const Celeb = require('../models/celebrity');
+const Movie = require('../models/movie')
 
 const dbName = 'celebrity-application';
 mongoose.connect(`mongodb://localhost/${dbName}`);
@@ -23,11 +24,36 @@ const celebrity = [
 }
 ]
 
+const movie = [
+  {
+    title:'Deadpool',
+    genre:'Action',
+    plot:'The origin of Deadpool'
+  },
+  {
+    title:'The Muppets in Vegas',
+    genre:'Comedy',
+    plot:'The muppets go to Vegas'
+  },
+  {
+    title:'The Babadook',
+    genre:'Horror',
+    plot:'The Babadook scares people'
+  }
+]
 
-Celeb.create(celebrity)
-.then((celebrity)=>{
-  console.log(`Created ${celebrity.length} celebrities`)
+Movie.create(movie)
+.then((movie)=>{
+  console.log(`Created ${movie.length} movies`)
 })
 .catch((err)=>{
   console.log(err)
 })
+
+// Celeb.create(celebrity)
+// .then((celebrity)=>{
+//   console.log(`Created ${celebrity.length} celebrities`)
+// })
+// .catch((err)=>{
+//   console.log(err)
+// })
