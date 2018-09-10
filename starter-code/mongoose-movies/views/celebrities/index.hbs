@@ -1,0 +1,27 @@
+<h2>Aren't they Glorious?</h2>
+
+{{#each listOfCelebs}}
+
+<h1>
+{{this.name}}
+
+</h1>
+
+<h2>{{this.occupation}}</h2>
+
+<h3>
+{{this.catchphrase}}
+
+</h3>
+
+<a href='/celebrities/{{this.id}}'><button>See More!</button></a>
+
+<form action='/celebrities/{{this.id}}/delete' method="POST">
+<button>Remove This Celebrity</button>
+</form>
+
+
+
+{{/each}}
+
+<a href='/celebrities/new'><button>MAKE A NEW CELEBRITY</button></a>
