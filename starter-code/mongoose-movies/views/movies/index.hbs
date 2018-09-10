@@ -1,0 +1,27 @@
+<h2>Award Winners</h2>
+
+{{#each listOfMovies}}
+
+<h1>
+{{this.title}}
+
+</h1>
+
+<h2>{{this.genre}}</h2>
+
+<h3>
+{{this.plot}}
+
+</h3>
+
+<a href='/movies/{{this.id}}'><button>See More!</button></a>
+
+<form action='/movies/{{this.id}}/delete' method="POST">
+<button>Remove This Movie</button>
+</form>
+
+
+
+{{/each}}
+
+<a href='/movies/new'><button>MAKE A NEW FILM</button></a>
