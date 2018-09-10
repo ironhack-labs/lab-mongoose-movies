@@ -2,7 +2,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a:visited, a {
+html a:visited, a {
   color: white;
 }
 
@@ -14,8 +14,6 @@ a:visited, a {
 .index{
   // color: rgb(206, 65, 14);
   height: 100vh;
-  // background-color: bisque;
-  // background-color: rgba(198, 128, 71, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,11 +25,11 @@ a:visited, a {
   width: 15vw;
 }
 
-.allCelebs{
+.allCelebs, .allMovies {
   height: 100vh;
 }
 
-.each-celeb{
+.each-celeb, .each-movie{
   padding: 20px;
   height: 40vh;
   width: 30vw;
@@ -47,7 +45,7 @@ a:visited, a {
   color: rgb(39, 84, 27);
 }
 
-.show, .new-celeb, .edit{
+.show, .new-celeb, .edit, .movieDetails, .new-movie{
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,6 +53,4 @@ a:visited, a {
   text-align: center;
   align-items: center;
 }
-// .celeb-details h4{
-//   color: rgb(158, 51, 12);
-// }
+

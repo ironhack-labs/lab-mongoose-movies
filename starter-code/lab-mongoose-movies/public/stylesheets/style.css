@@ -1,7 +1,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a:visited, a {
+html a:visited, a {
   color: white; }
 
 .background {
@@ -19,10 +19,10 @@ a:visited, a {
 .button {
   width: 15vw; }
 
-.allCelebs {
+.allCelebs, .allMovies {
   height: 100vh; }
 
-.each-celeb {
+.each-celeb, .each-movie {
   padding: 20px;
   height: 40vh;
   width: 30vw;
@@ -36,7 +36,7 @@ a:visited, a {
 .create-new h4 {
   color: #27541b; }
 
-.show, .new-celeb, .edit {
+.show, .new-celeb, .edit, .movieDetails, .new-movie {
   height: 100vh;
   display: flex;
   flex-direction: column;
