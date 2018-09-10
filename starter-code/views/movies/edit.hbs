@@ -1,15 +1,17 @@
-Edit {{theMovie.title}}
+<h1>Edit: {{movie.title}}</h1>
+<hr>
+<br>
 
-<form action="/celebrities/update/{{theMovie._id}}" method="POST">
+<form action="/movies/update/{{movie._id}}" method="POST">
 
 <label for="">Title</label>
-<input type="text" name="title">
+<input type="text" name="title" value="{{movie.title}}">
 
 <label for="">Genre</label>
-<input type="text" name="genre">
+<input type="text" name="genre" value="{{movie.genre}}">
 
 <label for="">Plot</label>
-<input type="text" name="plot">
+<input type="text" name="plot" value="{{movie.plot}}">
 
 <button>Submit</button>
 

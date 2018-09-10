@@ -1,15 +1,16 @@
 const express      = require('express');
 const router       = express.Router();
-const Movie    = require('../models/Movie')
+const Movie        = require('../models/Movie')
 
 //get reqs always end in a res.render
 //post reqs always end in a redirect
 
-//get homepage
+//get homepage movies
 router.get('/movies', (req, res, next) => {
         
     Movie.find()
         .then((listOfMovies)=>{
+            console.log(listOfMovies);
             res.render('movies/index', {theMovieList: listOfMovies})
         })
         .catch((err)=>{

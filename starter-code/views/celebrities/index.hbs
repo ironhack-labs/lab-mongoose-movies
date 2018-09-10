@@ -1,10 +1,20 @@
-This is the celebrity index page.
+<h1>This is the celebrity index page.</h1>
+<hr>
 
 {{#each theCelebrityList}}
 
-<a href="/celebrities/{{this._id}}">{{this.name}}</a>
-{{this.occupation}}
-{{this.catchphrase}}
-<form action="/celebrities/delete/{{this._id}}"
+<div>
+<a href="/celebrities/{{this._id}}">
+<h2>Name: {{this.name}}</h2></a>
 
+<h3>Occupation: {{this.occupation}}</h3>
+
+<p>Catchphrase: {{this.catchphrase}}</p>
+
+<form action="/celebrities/edit/{{this._id}}"><button>Edit This Celebrity</button></form>
+<form action="/celebrities/delete/{{this._id}}" method="POST"><button>Delete This Celebrity</button></form>
+
+</div>
+
+<hr>
 {{/each}}

@@ -1,7 +1,11 @@
-Welcome to {{theMovie.title}}'s Page!
+<div>
+<h1>Welcome to {{theMovie.title}}'s Page!</h1>
+<hr>
+<br>
+<h2>genre: {{theMovie.genre}}</h2>
 
-genre: {{theMovie.genre}}
+<p>plot: {{theMovie.plot}}</p>
 
-plot: {{theMovie.plot}}
+<a href="/movies/edit/{{theMovie._id}}"><button>Edit This Movie</button></a>
 
-<a href="/celebrities/edit/{{theMovie._id}}"><button>Edit This Movie</button></a>
+</div>

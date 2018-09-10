@@ -5,7 +5,7 @@ const Celebrity    = require('../models/Celebrity')
 //get reqs always end in a res.render
 //post reqs always end in a redirect
 
-//get homepage
+//get homepage celebrities
 router.get('/celebrities', (req, res, next) => {
         
     Celebrity.find()
@@ -39,9 +39,9 @@ router.post('/celebrities/create', (req, res, next)=> {
 })
 
 //delete a celebrity listing
-router.post("/celebrities/delete/:theid", (req, res, next)=> {
+router.post("/celebrities/delete/:id", (req, res, next)=> {
 
-    Celebrity.findByIdAndRemove(req.params.theid)
+    Celebrity.findByIdAndRemove(req.params.id)
         .then((response)=>{
             res.redirect("/celebrities")
         })
@@ -51,11 +51,11 @@ router.post("/celebrities/delete/:theid", (req, res, next)=> {
 })
 
 //get the edit for a celebrity listing
-router.get("/celebrities/edit/:celebrityID", (req, res, next)=>{
+router.get("/celebrities/edit/:id", (req, res, next)=>{
 
-    Celebrity.findById(req.params.celebrityID)
-        .then((celebrity)=> {
-            res.render('celebrities/edit', {theCelebrity: celebrity})
+    Celebrity.findById(req.params.id)
+        .then((theCelebrity)=> {
+            res.render('celebrities/edit', {celebrity: theCelebrity})
         })
         .catch((err)=>{
             next(err);
@@ -63,15 +63,15 @@ router.get("/celebrities/edit/:celebrityID", (req, res, next)=>{
 })
 
 //post the edited celebrity listing
-router.post("/celebrities/update/:celebrityID", (req, res, next)=>{
+router.post("/celebrities/update/:id", (req, res, next)=>{
         
-    Celebrity.findByIdAndUpdate(req.params.celebrityID, {
+    Celebrity.findByIdAndUpdate(req.params.id, {
             name: req.body.name,
             occupation: req.body.occupation,
             catchphrase: req.body.catchphrase
         })
         .then((response)=>{
-            req.redirect('/celebrities/'+req.params.celebrityID)
+            req.redirect('/celebrities/'+req.params.id)
         })
         .catch((err)=>{
             next(err);
@@ -80,11 +80,11 @@ router.post("/celebrities/update/:celebrityID", (req, res, next)=>{
 
 
 //get celebrity by id
-router.get('/celebrities/:theid', (req, res, next)=>{
+router.get('/celebrities/:id', (req, res, next)=>{
         
-    Celebrity.findById(req.params.theid)
-        .then ((celebrity)=> {
-            res.render('celebrities/show', {theCelebrity: celebrity})
+    Celebrity.findById(req.params.id)
+        .then ((theCelebrity)=> {
+            res.render('celebrities/show', {celebrity: theCelebrity})
         })
         .catch ((err)=>{
             next(err);
