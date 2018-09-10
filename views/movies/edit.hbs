@@ -1,0 +1,35 @@
+<h2>Edit Movie</h2>
+
+<form action="/movies/{{theMovie._id}}/update" method="post">
+
+<div class= "edit-details">
+<label>Title: </label>
+<input type="text" name = "title" value="{{theMovie.title}}">
+<br>
+<br>
+<label>Genre: </label>
+<input type="text" name = "genre" value="{{theMovie.genre}}">
+<br>
+<br>
+<label>Plot: </label>
+<input type="text" name = "plot" value="{{theMovie.plot}}">
+<br>
+<br>
+<label>Celebrities: </label>
+<select name= "celebrities" required = "true">
+    {{#each allTheCelebs}}
+            <option value = "null"></option> //makes selector empty 
+
+        <option value="{{this._id}}">{{this.name}}</option>
+    
+    {{/each}}
+</select>
+<br>
+<br>
+
+<button type= "submit">Submit Changes</button>
+<br>
+<br>
+<a href="/movies/{{theMovie._id}}">Go back to Details</a>
+</div>
+</form>
