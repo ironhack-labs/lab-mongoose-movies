@@ -3,7 +3,7 @@
 const express = require('express');
 const router  = express.Router();
 const Movie   = require('../models/Movie')
-
+const Celebrity   = require('../models/Celebrity')
 
 
 /* GET celebrities page */
@@ -21,7 +21,15 @@ router.get('/movies', (req, res, next) => {
 });
 
 router.get('/movies/new', (req, res, next)=>{
-  res.render('movies/new');
+
+    Celebrity.find()
+    .then((allTheCelebs)=>{
+        res.render('movies/new', {actors: allTheCelebs});
+    })
+    .catch((err)=>{
+        next(err);
+    })
+
 })
 
 /*   Creating new movie page */
@@ -34,18 +42,20 @@ router.post('/movies/new', (req, res, next)=>{
   //     image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
   
         const theTitle    = req.body.title;
+        const theActors   = req.body.actors
         const theGenre    = req.body.genre;
         const thePlot     = req.body.plot;
         const theImageSrc = req.body.image;
       
            Movie.create({
-              title: theTitle,
-              genre: theGenre,
-              plot: thePlot,
-              image: theImageSrc
+              title:  theTitle,
+              actors: theActors,
+              genre:  theGenre,
+              plot:   thePlot,
+              image:  theImageSrc
           })
           .then((response)=>{
-              res.redirect('/movies') // why it not work?????????????  (all redirecting)
+              res.redirect('/movies') 
           })
           .catch((err)=>{
              next(err);
@@ -54,8 +64,8 @@ router.post('/movies/new', (req, res, next)=>{
 
 /* GET /movieInfo page */
 router.get('/movies/:movieID', (req, res, next) => {
-
-  Movie.findById(req.params.movieID)
+   
+  Movie.findById(req.params.movieID).populate('actors')
   .then((oneMovie)=>{
       console.log(oneMovie);
       res.render('movies/show', {oneMovie: oneMovie})
@@ -65,14 +75,24 @@ router.get('/movies/:movieID', (req, res, next) => {
   })
 });
 
+
+
 router.post('/movies/edit/:id', (req, res, next)=>{
-  Movie.findById(req.params.id)
-  .then((theMovie)=>{
-      res.render('movies/edit', {movie: theMovie});
-  })
-  .catch((err)=>{
-      next(err);
-  })
+
+  Celebrity.find()
+    .then((allTheCelebs)=>{
+        Movie.findById(req.params.id)
+        .then((theMovie)=>{
+            res.render('movies/edit', {movie: theMovie, actors: allTheCelebs});
+
+            })
+            .catch((err)=>{
+                next(err);
+            })
+        })
+        .catch((err)=>{
+            next(err);
+        })
 })
 
 /*   Editing A celeb page */
@@ -85,18 +105,29 @@ router.post('/movies/update/:id', (req, res, next)=>{
 //     image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
  
      const theTitle    = req.body.title;
+     const theActors   = req.body.actors
      const theGenre    = req.body.genre;
      const thePlot     = req.body.plot;
      const theImageSrc = req.body.image;
   
        Movie.findByIdAndUpdate(req.params.id, {
-          title: theTitle,
-          genre: theGenre,
-          plot: thePlot,
-          image: theImageSrc
+          title:  theTitle,
+          $push:  {actors:   theActors},
+          genre:  theGenre,
+          plot:   thePlot,
+          image:  theImageSrc
       })
       .then((response)=>{
-          res.redirect('/movies/'+req.params.id)
+
+            Celebrity.findByIdAndUpdate(req.body.actors, {
+                $push:  {movies: req.params.id}
+            })
+            .then((response)=>{
+                res.redirect('/movies/'+req.params.id)
+            })
+            .catch ((err)=>{
+                next(err);
+            })
       })
       .catch((err)=>{
          next(err);

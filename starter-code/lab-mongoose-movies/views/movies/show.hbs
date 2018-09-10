@@ -8,6 +8,16 @@
   <br>
   <h2>genre: {{oneMovie.genre}}</h2>
   <h2>plot: {{oneMovie.plot}}</h2>
+  <h2>Actors In Movie:</h2>
+    
+    <ul>
+      {{#each oneMovie.actors}}
+      <li>{{this.name}}</li>
+      {{/each}}
+    </ul>
+   
+  <br>
+  <br>
   <form action="/movies/edit/{{oneMovie._id}}" method="POST">
     <button>Edit This movie</button>
   </form>

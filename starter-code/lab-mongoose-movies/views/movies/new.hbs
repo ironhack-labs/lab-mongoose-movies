@@ -19,6 +19,13 @@ Hello creation
     <label for="">imageSrc</label>
     <input type="text" name="image">
 
+    <label for="">Actors</label>
+    <select name="actors">
+        {{#each actors}}
+    <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
     <button>Create</button>
 
 

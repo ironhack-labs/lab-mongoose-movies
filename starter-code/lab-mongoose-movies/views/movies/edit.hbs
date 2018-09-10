@@ -21,6 +21,15 @@ Hello editing
     <label for="">imageSrc</label>
     <input type="text" name="image" value="{{movie.image}}">
 
+
+
+    <label for="">Actors</label>
+    <select name="actors">
+        {{#each actors}}
+    <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
     <button>Edit</button>
 
 </form>

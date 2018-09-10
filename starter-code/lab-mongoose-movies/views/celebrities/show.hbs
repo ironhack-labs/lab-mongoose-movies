@@ -9,6 +9,16 @@
   <br>
   <h2>occupation: {{oneCelebrity.occupation}}</h2>
   <h2>catchPhrase: {{oneCelebrity.catchPhrase}}</h2>
+    <h2>Movies IN:</h2>
+    
+    <ul>
+      {{#each oneCelebrity.movies}}
+      <li>{{this.title}}</li>
+      {{/each}}
+    </ul>
+   
+  <br>
+  <br>
   <form action="/celebrities/edit/{{oneCelebrity._id}}" method="POST">
     <button>Edit This Celeb</button>
   </form>

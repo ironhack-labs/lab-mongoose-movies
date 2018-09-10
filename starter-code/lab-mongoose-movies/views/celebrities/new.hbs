@@ -22,8 +22,13 @@ Hello creation
     <label for="">imageSrc</label>
     <input type="text" name="image">
 
+    <label for="">movies In</label>
+    <select name="movies">
+        {{#each movies}}
+    <option value="{{this._id}}">{{this.title}}</option>
+        {{/each}}
+    </select>
+
     <button>Create</button>
-
-
 
 </form>

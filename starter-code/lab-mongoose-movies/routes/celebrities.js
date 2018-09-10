@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity   = require('../models/Celebrity')
+const Movie   = require('../models/Movie')
 
 
 
@@ -25,7 +26,15 @@ router.get('/celebrities/the-new-window', (req, res, next)=>{
 })
 
 router.get('/celebrities/new', (req, res, next)=>{
-    res.render('celebrities/new');
+
+    Movie.find()
+    .then((allTheMovies)=>{
+        res.render('celebrities/new', {movies: allTheMovies});
+    })
+    .catch((err)=>{
+        next(err);
+    })
+
 })
 
 /*   Creating new celeb page */
@@ -36,16 +45,18 @@ router.post('/celebrities/new', (req, res, next)=>{
     //     catchPhrase: "every celebrity needs a good catch phrase",
     //     image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
    
-       const theName = req.body.celebName;
-       const theOccupation = req.body.occupation;
+       const theName        = req.body.celebName;
+       const theOccupation  = req.body.occupation;
        const theCatchPhrase = req.body.ctchPhrase;
-       const theImageSrc= req.body.image;
+       const movies         = req.body.movies;
+       const theImageSrc    = req.body.image;
     
          Celebrity.create({
-            name: theName,
-            occupation: theOccupation,
+            name:        theName,
+            occupation:  theOccupation,
             catchPhrase: theCatchPhrase,
-            image: theImageSrc
+            image:       theImageSrc,
+            movie:       movies
         })
         .then((response)=>{
             res.redirect('/celebrities')
@@ -59,7 +70,7 @@ router.post('/celebrities/new', (req, res, next)=>{
 /* GET /celebrityInfo page */
 router.get('/celebrities/:celebrityID', (req, res, next) => {
 
-    Celebrity.findById(req.params.celebrityID)
+    Celebrity.findById(req.params.celebrityID).populate('movies')
     .then((oneCelebrity)=>{
         console.log(oneCelebrity);
         res.render('celebrities/show', {oneCelebrity: oneCelebrity})
@@ -80,14 +91,23 @@ router.post('/celebrities/delete/:id', (req, res, next)=>{
 
 })
 
-router.post('/celebrities/edit/:id', (req, res, next)=>{
-    Celebrity.findById(req.params.id)
-    .then((theCeleb)=>{
-        res.render('celebrities/edit', {celeb: theCeleb});
-    })
-    .catch((err)=>{
-        next(err);
-    })
+
+router.post('/celebrities/edit/:id', (req, res, next) => {
+
+    Movie.find()
+      .then(allTheMovies => {
+         Celebrity.findById(req.params.id)
+           .then(theCeleb => {
+               res.render("celebrities/edit", { celeb: theCeleb, movies: allTheMovies });
+
+                })
+                .catch(err => {
+                    next(err);
+                });
+        })
+        .catch(err => {
+            next(err);
+        });
 })
 
 // router.post('/books/update/:id', (req, res, next)=>{
@@ -127,16 +147,30 @@ router.post('/celebrities/update/:id', (req, res, next)=>{
        const theName        = req.body.celebName;
        const theOccupation  = req.body.occupation;
        const theCatchPhrase = req.body.ctchPhrase;
+       const movies         = req.body.movies;
        const theImageSrc    = req.body.image;
     
          Celebrity.findByIdAndUpdate(req.params.id, {
-            name: theName,
-            occupation: theOccupation,
+            name:        theName,
+            occupation:  theOccupation,
             catchPhrase: theCatchPhrase,
-            image: theImageSrc
+            image:       theImageSrc,
+            $push:  {movies:   movies}
         })
         .then((respnse)=>{
+
+            console.log( "=-=-=-=-=-=-=-=-=-=-=-=-=-=" + req.body.movies);
+
+            Movie.findByIdAndUpdate(req.body.movies, {
+                
+                $push:  {actors: req.params.id},
+            })
+            .then((respnse)=>{
             res.redirect('/celebrities/'+req.params.id)
+            })
+            .catch((err)=>{
+                next(err);
+             })
         })
         .catch((err)=>{
            next(err);
