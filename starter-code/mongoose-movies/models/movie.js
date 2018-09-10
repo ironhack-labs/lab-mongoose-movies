@@ -5,6 +5,7 @@ const movieSchema = new Schema({
   title: {type: String, required: true},
   genre: String,
   plot: String,
+  cast: [{type: Schema.Types.ObjectId}]
 });
 
 

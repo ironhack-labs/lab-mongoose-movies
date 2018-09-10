@@ -4,7 +4,7 @@ const Celebrity    = require('../models/celebrity')
 
 
 router.get('/celebrity', (req, res, next) => {
-  Celebrity.find()
+  Celebrity.find().populate('movies')
   .then((celebInfo)=>{
     res.render('celebrities/listOfCelebs', {listOfCelebs: celebInfo})
   })
@@ -21,9 +21,9 @@ router.get('/celebrities/new', (req, res, next) => {
 
 router.post('/celebrity/create', (req, res, next) => {
   Celebrity.create({
-    name: req.body.celebName,
-    occupation: req.body.celebOccupation,
-    catchphrase: req.body.celebCatchphrase,
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchphrase: req.body.catchphrase,
   })
   .then((response) => {
     res.redirect('/celebrity')
@@ -57,7 +57,7 @@ router.post('/celebrities/update/:id', (req, res, next ) => {
   Celebrity.findByIdAndUpdate(req.params.id, {
     name: req.body.name,
     occupation: req.body.occupation,
-    catchphrase: req.body.catchphrase
+    catchphrase: req.body.catchphrase,
   })
   .then((response) => {
     res.redirect('/celebrities/' + req.params.id)

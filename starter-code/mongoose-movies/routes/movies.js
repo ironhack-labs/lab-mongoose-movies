@@ -1,9 +1,10 @@
 const express = require('express');
 const router  = express.Router();
 const Movie    = require('../models/movie')
+const Celebrity = require('../models/celebrity');
 
 router.get('/movies', (req, res, next) => {
-  Movie.find()
+  Movie.find().populate('cast')
   .then((movieInfo) => {
     res.render('movies/index', {listOfMovies: movieInfo})
   })
@@ -43,23 +44,44 @@ router.post('/movies/delete/:id', (req, res, next) => {
 })
 
 router.post('/movies/update/:id', (req, res, next ) => {
-  Movie.findByIdAndUpdate(req.params.id, {
-    title: req.body.title,
-    genre: req.body.genre,
-    plot: req.body.plot
-  })
+  Movie.findById(req.params.id) 
   .then((response) => {
-    res.redirect('/movies/' + req.params.id)
+    console.log("the first response ========================= ", response);
+    response.set({
+      title: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot,
+      cast: req.body.cast
+    })
+  
+    return response.save()
+    .then((updatedResponse) => {
+      console.log("saved all the movie info including cast -------------------------- ", updatedResponse);
+      res.redirect('/movies/' + req.params.id)
+    })
+    .catch((err) => {
+      next(err);
+    })
   })
   .catch((err) => {
-    next(errs)
+    next(err);
   })
 })
 
 router.get('/movies/edit/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then((aMovie) => {
-    res.render('movies/edit', {theMovie: aMovie})
+    Celebrity.find()
+    .then((celebInfo) => {
+      data = {
+        theMovie: aMovie,
+        celebs: celebInfo
+      }
+      res.render('movies/edit', data)
+    })
+    .catch((err) => {
+      next(err);
+    })
   })
   .catch((err) => {
     next(err)
@@ -69,7 +91,18 @@ router.get('/movies/edit/:id', (req, res, next) => {
 router.get('/movies/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then((movieInfo)=>{
-    res.render('movies/show', {movieDetails: movieInfo})
+    // Celebrity.find({'_id': {$in: [movieInfo.cast]}})
+    Celebrity.find({_id: movieInfo.cast})
+    .then((celebInfo) => {
+      data = {
+        movieDetails: movieInfo,
+        celebInfo: celebInfo
+      }
+      res.render('movies/show', data)
+    })
+    .catch((err) => {
+      next(err);
+    })
   })
   .catch((err)=>{
     next(err);

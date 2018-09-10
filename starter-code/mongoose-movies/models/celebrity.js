@@ -5,6 +5,7 @@ const celebritySchema = new Schema({
   name: {type: String, required: true},
   occupation: String,
   catchphrase: String,
+  movies: [{type: Schema.Types.ObjectId, ref: "Movie"}]
 });
 
 

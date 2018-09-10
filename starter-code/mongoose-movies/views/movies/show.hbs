@@ -3,6 +3,10 @@
 
 <h5>{{movieDetails.genre}}</h5>
 <p>{{movieDetails.plot}}</p>
+{{#each celebInfo}}
+  <p>{{this.name}}</p>
+{{/each}}
+{{!-- <p>{{movieDetails.cast}}</p> --}}
 
 <a href="/movies/edit/{{movieDetails.id}}">
 <button>Edit this Movie</button>
