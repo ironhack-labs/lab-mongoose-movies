@@ -137,6 +137,8 @@ const movies = [
 Movie.create(movies)
 .then((theThingIGet)=>{
   console.log(theThingIGet);
+
+  mongoos.connection.close(); // no need for contrl + c to exit node after creation. function will exit node after for you ;)
 })
 .catch((err)=>{
   console.log(err);
