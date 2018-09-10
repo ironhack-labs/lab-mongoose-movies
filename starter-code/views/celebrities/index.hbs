@@ -1,0 +1,10 @@
+This is the celebrity index page.
+
+{{#each theCelebrityList}}
+
+<a href="/celebrities/{{this._id}}">{{this.name}}</a>
+{{this.occupation}}
+{{this.catchphrase}}
+<form action="/celebrities/delete/{{this._id}}"
+
+{{/each}}
