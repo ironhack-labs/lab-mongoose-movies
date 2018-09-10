@@ -65,7 +65,7 @@ router.get ('/movies/edit/:id', (req, res, next)=> {
   .then((ret)=> {
     Celebrity.find()
     .then((allTheCelebs)=>{
-      res.render('movies/new', {Movie: ret, celebs: allTheCelebs});
+      res.render('movies/edit', {Movie: ret, celebs: allTheCelebs});
     })
   })
 })
