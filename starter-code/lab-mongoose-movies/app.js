@@ -50,6 +50,25 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
+
+//-------------require packages for sessions
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+
+//------ configure middleware to enable sessions in Express
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+//------------- End sessions
+
+
+
 //--------  Main rout
 const index = require('./routes/index');
 app.use('/', index);
@@ -62,7 +81,13 @@ app.use('/', celebrities);
 const movies = require('./routes/movies');
 app.use('/', movies);
 
-
+//--------  login routs
+const authRoutes = require('./routes/auth-routes');
+app.use('/', authRoutes);
+const siteRoutes = require('./routes/site-routes');
+// login Routes
+app.use('/', authRoutes);
+app.use('/', siteRoutes);
 
 
 

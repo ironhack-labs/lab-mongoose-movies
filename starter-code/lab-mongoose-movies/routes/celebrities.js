@@ -21,9 +21,20 @@ router.get('/celebrities', (req, res, next) => {
 
 });
 
+
+// creating new id's
 router.get('/celebrities/the-new-window', (req, res, next)=>{
+
+    //--- protected routes, Authentication needed!! 
+    if (req.session.currentUser) {
+        next();
+      } else {
+        res.redirect("/login");
+      }
     res.render('celebrities/the-new-window');
 })
+
+
 
 router.get('/celebrities/new', (req, res, next)=>{
 
