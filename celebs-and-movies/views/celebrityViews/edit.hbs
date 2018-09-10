@@ -6,13 +6,13 @@ Edit {{theCelebrity.name}}
 <form action="/celebrities/update/{{theCelebrity._id}}" method="POST">
 
 
-    <label for="">Name</label>
+    <label for="">Name: </label>
     <input type="text" name="name" value="{{theCelebrity.name}}">
 
-    <label for="">Occupation</label>
+    <label for="">Occupation: </label>
     <input type="text" name="occupation" value="{{theCelebrity.occupation}}">
 
-    <label for="">Catch Phrase</label>
+    <label for="">Catch Phrase: </label>
     <input type="text" name="catchphrase" value="{{theCelebrity.catchphrase}}">
 
     <button>Submit</button>
