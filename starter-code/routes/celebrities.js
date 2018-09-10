@@ -66,8 +66,8 @@ router.get("/celebrities/edit/:id", (req, res, next)=>{
 router.post("/celebrities/update/:id", (req, res, next)=>{
         
     Celebrity.findByIdAndUpdate(req.params.id, {
-            name: req.body.name,
-            occupation: req.body.occupation,
+            name:        req.body.name,
+            occupation:  req.body.occupation,
             catchphrase: req.body.catchphrase
         })
         .then((response)=>{

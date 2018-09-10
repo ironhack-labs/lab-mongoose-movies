@@ -1,13 +1,19 @@
 <div>
-<h1>Title: {{theMovie.title}}</h1>
+<div class="title-bar">
+<h1>Title: {{movie.title}}</h1>
+<a href="/movies/">
+<button type="button" class="btn btn-info">See All Movies</button>
+</a>
+</div>
 <hr>
 <br>
-<p><strong>Genre: </strong>{{theMovie.genre}}</p>
 
-<p><strong>Plot: </strong>{{theMovie.plot}}</p>
+<p><strong>Genre: </strong>{{movie.genre}}</p>
+
+<p><strong>Plot: </strong>{{movie.plot}}</p>
 
 <div class="buttons">
-<a href="/movies/edit/{{theMovie._id}}"><button class="btn btn-primary btn-md">Edit This Movie</button></a>
+<a href="/movies/edit/{{movie._id}}"><button class="btn btn-primary btn-md">Edit This Movie</button></a>
 <form action="/movies/delete/{{this._id}}" method="POST">
 <button class="btn btn-danger btn-md">Delete This Movie</button>
 </form>

@@ -1,5 +1,8 @@
 <div class="title-bar">
-<h1>ALL MOVIES</h1> <a href="/movies/create/"><button class="btn btn-success btn-md">Create New Movie</button></a>
+<h1>ALL MOVIES</h1> 
+<a href="/movies/create/">
+<button class="btn btn-success">Create New Movie</button>
+</a>
 </div>
 <hr>
 
@@ -15,13 +18,12 @@
 
 <div class="buttons">
 <a href="/movies/edit/{{this._id}}">
-<button class="btn btn-primary btn-md">Edit This Movie</button></a>
+<button class="btn btn-primary">Edit This Movie</button></a>
 
 <form action="/movies/delete/{{this._id}}" method="POST">
-<button class="btn btn-danger btn-md">Delete This Movie</button>
+<button class="btn btn-danger">Delete This Movie</button>
 </form>
 </div>
-
 </div>
 
 <hr>

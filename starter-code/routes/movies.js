@@ -10,7 +10,6 @@ router.get('/movies', (req, res, next) => {
         
     Movie.find()
         .then((listOfMovies)=>{
-            console.log(listOfMovies);
             res.render('movies/index', {theMovieList: listOfMovies})
         })
         .catch((err)=>{
@@ -20,7 +19,6 @@ router.get('/movies', (req, res, next) => {
 
 //create a new movie listing
 router.get('/movies/create', (req, res, next)=> {
-
     res.render('movies/create');
 })
 
@@ -30,7 +28,7 @@ router.post('/movies/create', (req, res, next)=> {
     Movie.create({
             title: req.body.title,
             genre: req.body.genre,
-            plot: req.body.plot,
+            plot:  req.body.plot,
         })
         .then ((response)=> {
             res.redirect('/movies')
@@ -41,9 +39,9 @@ router.post('/movies/create', (req, res, next)=> {
 })
 
 //delete a movie listing
-router.post("/movies/delete/:theid", (req, res, next)=> {
+router.post("/movies/delete/:id", (req, res, next)=> {
 
-    Movie.findByIdAndRemove(req.params.theid)
+    Movie.findByIdAndRemove(req.params.id)
         .then((response)=>{
             res.redirect("/movies")
         })
@@ -53,9 +51,9 @@ router.post("/movies/delete/:theid", (req, res, next)=> {
 })
 
 //get the edit for a movie listing
-router.get("/movies/edit/:movieID", (req, res, next)=>{
-
-    Movie.findById(req.params.movieID)
+router.get("/movies/edit/:id", (req, res, next)=>{
+    console.log("------`-`-`---`--`-`-`-`-`--`-`")
+    Movie.findById(req.params.id)
         .then((theMovie)=> {
             res.render('movies/edit', {movie: theMovie})
         })
@@ -65,15 +63,15 @@ router.get("/movies/edit/:movieID", (req, res, next)=>{
 })
 
 //post the edited movie listing
-router.post("/movies/update/:movieID", (req, res, next)=>{
+router.post("/movies/update/:id", (req, res, next)=>{
         
-    Movie.findByIdAndUpdate(req.params.movieID, {
+    Movie.findByIdAndUpdate(req.params.id, {
             title: req.body.title,
             genre: req.body.genre,
-            plot: req.body.plot
+            plot:  req.body.plot
         })
         .then((response)=>{
-            res.redirect('/movies/'+req.params.movieID)
+            res.redirect('/movies/'+req.params.id)
         })
         .catch((err)=>{
             next(err);
@@ -81,11 +79,11 @@ router.post("/movies/update/:movieID", (req, res, next)=>{
 })
 
 //get movie by id
-router.get('/movies/:theid', (req, res, next)=>{
+router.get('/movies/:id', (req, res, next)=>{
         
-    Movie.findById(req.params.theid)
-        .then ((movie)=>{
-            res.render('movies/show', {theMovie: movie})
+    Movie.findById(req.params.id)
+        .then ((theMovie)=>{
+            res.render('movies/show', {movie: theMovie})
         })
         .catch ((err)=>{
             next(err);

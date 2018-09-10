@@ -1,18 +1,25 @@
+<div class="title-bar">
 <h1>Edit: {{movie.title}}</h1>
+<a href="/movies/">
+<button type="button" class="btn btn-info">See All Movies</button>
+</a>
+</div>
 <hr>
 <br>
-<div class="row">
 <form action="/movies/update/{{movie._id}}" method="POST">
-
-<label for="">Title</label>
-<input type="text" name="title" value="{{movie.title}}">
-
-<label for="">Genre</label>
-<input type="text" name="genre" value="{{movie.genre}}">
-
-<label for="">Plot</label>
-<input type="text" name="plot" value="{{movie.plot}}">
-
+<div class="row">
+<div class="item">
+<label for=""><strong>Title: </strong></label>
+<input type="text" name="title" value="{{movie.title}}" class="input">
+</div>
+<div class="item">
+<label for=""><strong>Genre: </strong></label>
+<input type="text" name="genre" value="{{movie.genre}}" class="input">
+</div>
+<div class="item">
+<label for=""><strong>Plot: </strong></label>
+<input type="text" name="plot" value="{{movie.plot}}" class="input">
+</div>
 <button class="btn btn-dark">Submit</button>
 </form>
 </div>

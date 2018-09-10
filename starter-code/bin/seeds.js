@@ -51,11 +51,11 @@ Movie.create(movies)
     })
 
 
-// Celebrity.create(celebrities)
-//     .then((celebrities)=>{
-//     console.log(`Created ${celebrities.length} celebrities`)
-//     })
+Celebrity.create(celebrities)
+    .then((celebrities)=>{
+    console.log(`Created ${celebrities.length} celebrities`)
+    })
 
-//     .catch((err)=>{
-//     console.log(err)
-//     })
+    .catch((err)=>{
+    console.log(err)
+    })
