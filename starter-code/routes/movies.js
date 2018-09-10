@@ -73,7 +73,7 @@ router.post("/movies/update/:movieID", (req, res, next)=>{
             plot: req.body.plot
         })
         .then((response)=>{
-            req.redirect('/movies/'+req.params.movieID)
+            res.redirect('/movies/'+req.params.movieID)
         })
         .catch((err)=>{
             next(err);

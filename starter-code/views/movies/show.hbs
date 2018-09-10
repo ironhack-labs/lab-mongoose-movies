@@ -1,11 +1,15 @@
 <div>
-<h1>Welcome to {{theMovie.title}}'s Page!</h1>
+<h1>Title: {{theMovie.title}}</h1>
 <hr>
 <br>
-<h2>genre: {{theMovie.genre}}</h2>
+<p><strong>Genre: </strong>{{theMovie.genre}}</p>
 
-<p>plot: {{theMovie.plot}}</p>
+<p><strong>Plot: </strong>{{theMovie.plot}}</p>
 
-<a href="/movies/edit/{{theMovie._id}}"><button>Edit This Movie</button></a>
-
+<div class="buttons">
+<a href="/movies/edit/{{theMovie._id}}"><button class="btn btn-primary btn-md">Edit This Movie</button></a>
+<form action="/movies/delete/{{this._id}}" method="POST">
+<button class="btn btn-danger btn-md">Delete This Movie</button>
+</form>
+</div>
 </div>

@@ -6,3 +6,32 @@ body {
 a {
   color: #00B7FF;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.title-bar {
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.input {
+  color: grey;
+  font-weight: lighter;
+}
+

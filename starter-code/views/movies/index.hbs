@@ -1,23 +1,32 @@
-<h1>This is the movies index page.</h1>
+<div class="title-bar">
+<h1>ALL MOVIES</h1> <a href="/movies/create/"><button class="btn btn-success btn-md">Create New Movie</button></a>
+</div>
 <hr>
 
 {{#each theMovieList}}
 
 <div>
-<a href="/movies/{{this._id}}">
-<h2>Title: {{this.title}}</h2></a>
 
-<h3>Genre: {{this.genre}}</h3>
+<h2>Title: <a href="/movies/{{this._id}}">{{this.title}}</h2></a>
 
-<p>Plot: {{this.plot}}</p>
+<p><strong>Genre: </strong>{{this.genre}}</p>
 
-<form action="/movies/edit/{{this._id}}"><button>Edit This Movie</button></form>
-<form action="/movies/delete/{{this._id}}" method="POST"><button>Delete This Movie</button></form>
+<p><strong>Plot: </strong>{{this.plot}}</p>
+
+<div class="buttons">
+<a href="/movies/edit/{{this._id}}">
+<button class="btn btn-primary btn-md">Edit This Movie</button></a>
+
+<form action="/movies/delete/{{this._id}}" method="POST">
+<button class="btn btn-danger btn-md">Delete This Movie</button>
+</form>
+</div>
 
 </div>
 
 <hr>
 
-<form action="/movies/create/"><button>Create New Movie</button></form>
-
 {{/each}}
+
+
+

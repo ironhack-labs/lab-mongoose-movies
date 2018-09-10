@@ -71,7 +71,7 @@ router.post("/celebrities/update/:id", (req, res, next)=>{
             catchphrase: req.body.catchphrase
         })
         .then((response)=>{
-            req.redirect('/celebrities/'+req.params.id)
+            res.redirect('/celebrities/'+req.params.id)
         })
         .catch((err)=>{
             next(err);

@@ -1,17 +1,30 @@
-<h1>Create a new celebrity</h1>
+<div class="title-bar">
+<h1>Create: New Celebrity Listing</h1>
+<a href="/celebrities/">
+<button type="button" class="btn btn-info">See All Celebrities</button>
+</a>
+</div>
 <hr>
+<br>
 
 <form action="/celebrities/create" method="POST">
-
-<label for="">Name</label>
+<div class = "row">
+<div class="item">
+<label for=""><strong>Name: </strong></label>
 <input type="text" name="name">
+</div>
 
-<label for="">Occupation</label>
+<div class="item">
+<label for=""><strong>Occupation: </strong></label>
 <input type="text" name="occupation">
+</div>
 
-<label for="">Catchphrase</label>
+<div class="item">
+<label for=""><strong>Catch Phrase: </strong></label>
 <input type="text" name="catchphrase">
+</div>
 
-<button>Submit</button>
+<button class= "btn btn-dark">Submit</button>
 
+</div>
 </form>
