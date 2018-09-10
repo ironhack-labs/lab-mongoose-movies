@@ -12,10 +12,21 @@
       <label for="">Plot</label>
       <input type="text" name="updatedPlot" value="{{theID.plot}}">
 
+      <label for="">Starring</label>
+      <select name="updatedCelebrities" multiple>
+        {{#each theCelebs}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
 
+      </select>
       <button class="btn btn-secondary">Submit Changes</button>
       </form>
+
+
+
+
+
   {{!-- {{/each}} --}}
-  {{!-- <form action="/movies/update"></form> --}}
+ 
 
 </div>

@@ -1,6 +1,10 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.link a:visited, a{
+  text-decoration: underline;
+  color: rgb(242, 128, 75);
+}
 
 html a:visited, a {
   color: white;
@@ -45,7 +49,7 @@ html a:visited, a {
   color: rgb(39, 84, 27);
 }
 
-.show, .new-celeb, .edit, .movieDetails, .new-movie{
+.show, .new-celeb, .edit, .movieDetails, .new-movie, .editMovie{
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -53,4 +57,3 @@ html a:visited, a {
   text-align: center;
   align-items: center;
 }
-

@@ -1,6 +1,10 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+.link a:visited, a {
+  text-decoration: underline;
+  color: #f2804b; }
+
 html a:visited, a {
   color: white; }
 
@@ -36,7 +40,7 @@ html a:visited, a {
 .create-new h4 {
   color: #27541b; }
 
-.show, .new-celeb, .edit, .movieDetails, .new-movie {
+.show, .new-celeb, .edit, .movieDetails, .new-movie, .editMovie {
   height: 100vh;
   display: flex;
   flex-direction: column;

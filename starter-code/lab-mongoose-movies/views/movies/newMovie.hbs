@@ -15,6 +15,19 @@
   <label for="">Plot</label>
   <input type="text" name="newPlot">
   <br>
+
+  <label for="">Starring:</label>
+  {{!-- <br> --}}
+  <select name="theCelebrities" multiple>
+    {{#each theCelebs}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+
+  </select>
+
+  <br> 
+      {{!-- <br>
+      <input type="checkbox" name="theCelebrities" id="{{this.name}}"> {{this.name}} --}}
   
   <button class="btn btn-success">Create the Movie!</button>
 
