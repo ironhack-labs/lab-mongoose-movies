@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+<div class="edit">
+  {{!-- {{#each theID}} --}}
+      <form action="/celebrities/update/{{theID._id}}" method="POST">
+
+      <label for="">Name</label>
+      <input type="text" name="updatedName" value="{{theID.name}}"> 
+      <label for="">Occupation</label>
+      <input type="text" name="updatedOccupation" value="{{theID.occupation}}"> 
+      <label for="">Catchphrase</label>
+      <input type="text" name="updatedCatchphrase" value="{{theID.catchphrase}}">
+
+
+      <button class="btn btn-secondary">Submit Changes</button>
+      </form>
+  {{!-- {{/each}} --}}
+  {{!-- <form action="/celebrities/update"></form> --}}
+
+</div>

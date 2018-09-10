@@ -2,11 +2,59 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+a:visited, a {
+  color: white;
+}
+
+.background{
+  color: rgb(206, 65, 14);
+  background-color: rgba(198, 128, 71, 0.2);
 }
 
 .index{
+  // color: rgb(206, 65, 14);
+  height: 100vh;
+  // background-color: bisque;
+  // background-color: rgba(198, 128, 71, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
 
+.button{
+  width: 15vw;
+}
+
+.allCelebs{
   height: 100vh;
 }
+
+.each-celeb{
+  padding: 20px;
+  height: 40vh;
+  width: 30vw;
+  float: left;
+}
+
+.create-new{
+  padding: 20px;
+  float: left;
+  clear: both;
+}
+.create-new h4{
+  color: rgb(39, 84, 27);
+}
+
+.show, .new-celeb, .edit{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+// .celeb-details h4{
+//   color: rgb(158, 51, 12);
+// }
