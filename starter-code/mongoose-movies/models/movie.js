@@ -5,6 +5,7 @@ const movieSchema = new Schema({
   title: String,
   genre: String,
   plot: String,
+  stars: [{type: Schema.Types.ObjectId, ref: "Celebrity"}]
 }, {
   timestamps: {
     createdAt: "created_at",

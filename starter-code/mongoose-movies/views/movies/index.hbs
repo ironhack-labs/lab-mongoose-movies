@@ -14,6 +14,12 @@
 
 </h3>
 
+<h3>
+  {{#each this.stars}}
+  {{this.name}}
+  {{/each}}
+</h3>
+
 <a href='/movies/{{this.id}}'><button>See More!</button></a>
 
 <form action='/movies/{{this.id}}/delete' method="POST">

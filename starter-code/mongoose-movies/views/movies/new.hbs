@@ -10,6 +10,14 @@
 <input type="text" name="movieGenre">
 <label for="">plot</label>
 <input type="text" name="moviePlot">
+<label for="">Star</label>
+    <select name="movieStar">
+        {{#each celebs}}
+      <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+        </select>
+
+
 <button>CREATE</button>
 
 
