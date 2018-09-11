@@ -9,13 +9,22 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const bcrypt       = require('bcryptjs')
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const User = require('./models/user');
+const flash = require("connect-flash");
 
+//Mongoose
+
+mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/celebrity-application', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
+  .connect('mongodb://localhost/celebrity-application', {useMongoClient: true})
+  .then(() => {
+    console.log('Connected to Mongo!')
+  }).catch(err => {
     console.error('Error connecting to mongo', err)
   });
 
@@ -37,6 +46,56 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
+// session
+
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 
+  })
+}));
+
+// passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+// flash
+
+app.use(flash());
+
+// local strat
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+// views
       
 
 app.set('views', path.join(__dirname, 'views'));
@@ -58,6 +117,9 @@ const celebrityRoutes = require('./routes/celebrities');
 app.use('/', celebrityRoutes);
 
 const movieRoutes = require('./routes/movies');
-app.use('/', movieRoutes )
+app.use('/', movieRoutes );
+
+const userAuthRoutes = require('./routes/authRoutes')
+app.use('/', userAuthRoutes)
 
 module.exports = app;

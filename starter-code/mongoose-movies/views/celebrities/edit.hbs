@@ -13,6 +13,14 @@
     <label for="">Catchphrase</label>
     <input type="text" name="celebCatchphrase" value="{{Celebrity.catchphrase}}">
 
+    <label for="">Movie</label>
+    <select name="celebMovie">
+        {{#each movies}}
+      <option value="{{this._id}}">{{this.title}}</option>
+        {{/each}}
+        </select>
+
+
     <button>Submit Changes</button>
 
 

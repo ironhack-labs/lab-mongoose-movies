@@ -17,14 +17,14 @@ router.get ('/movies/index', (req, res, next)=>
 })
 
 
-router.post('/movies/update/:id', (req, res, next)=> {
+router.post('/movies/update/:Movieid', (req, res, next)=> {
 
   let theTitle = req.body.movieTitle;
  let  theGenre = req.body.movieGenre;
   let thePlot = req.body.moviePlot;
   let theStar = req.body.movieStar;
 
-  Movie.findByIdAndUpdate(req.params.id, {
+  Movie.findByIdAndUpdate(req.params.Movieid, {
 
     title: theTitle,
 
@@ -32,13 +32,17 @@ router.post('/movies/update/:id', (req, res, next)=> {
 
     plot: thePlot,
 
-    stars: [theStar],
-
+    $push: { stars: theStar }
+    
 
   })
-
   .then((ret)=> {
-    res.redirect('/movies/index')
+    Celebrity.findByIdAndUpdate(theStar, 
+      {$push: {movies: req.params.Movieid},
+    })
+    .then((response)=> {
+      res.redirect('/movies/index')
+    })
   })
   .catch((err)=>{
     console.log(err);

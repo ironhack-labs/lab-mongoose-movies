@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
@@ -23,5 +22,14 @@ a {
 .movie-create-button:hover {
   background-color: violet;
   font-size: 2vw; }
+
+.navbar {
+  color: lawngreen;
+  background-color: darkgray;
+  margin: 0; }
+
+.navbar a {
+  text-decoration: none;
+  color: lawngreen; }
 
 /*# sourceMappingURL=style.css.map */
