@@ -63,7 +63,7 @@ router.get("/signup", (req, res, next) => {
   })
 
   router.post('/login', passport.authenticate('local', {
-    successRedirect: "/coolpage",
+    successRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true,
     successFlash: true,
