@@ -48,10 +48,13 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
   var id = req.params.id
   // console.log("=====================")
   Celebrity.findById(id)
-  .then((data)=>{
-    console.log(data)
-    res.render("celebrities/edit", {id: id, data:data})
-  })
+    .then((data) => {
+      console.log(data)
+      res.render("celebrities/edit", {
+        id: id,
+        data: data
+      })
+    })
 
 })
 

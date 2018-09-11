@@ -6,18 +6,26 @@ const Celebrity = require('../models/celebrity')
 router.get('/movies/index', (req, res, next) => {
   Movie.find().populate('celebrity')
     .then((data) => {
+      console.log('=-=-=-=-=-=-=-=-=-=-=', req.session)
       res.render('movies/index', {
-        movies: data
+        movies: data, theUser: req.session.currentUser
       })
+    })
+    .catch((err)=>{
+      next(err)
       console.log(data)
     })
 })
 
 router.get('/movies/new', (req, res, next) => {
-  console.log("working")
+  // console.log("working")
+  if(!req.session.currentUser){
+    res.redirect('/movies/index')
+    return
+  }
   Celebrity.find()
   .then((data)=>{
-    res.render('movies/new', {celeb: data})
+    res.render('movies/new', {celeb: data, errorMessage: "You need to be logged in"})
   })
   .catch((err)=>{
     next(err)

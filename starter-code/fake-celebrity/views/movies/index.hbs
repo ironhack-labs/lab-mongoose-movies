@@ -1,12 +1,22 @@
+
+
+{{#if errorMessage }}
+  <div class="error-message">{{ errorMessage }}</div>
+{{/if}}
+
+
+{{#if theUser}}
+<div>
+  Welcome {{theUser.username}}
+</div>
+{{/if}}
 <h1>Welcome to movies !!</h1>
 
-
-
-
 <div class="cards-container movieContainer">
+
   {{#each movies}}
       {{> jumbo this}}
-      
+
   {{/each}}
 </div>
 
