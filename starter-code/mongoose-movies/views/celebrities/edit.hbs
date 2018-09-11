@@ -11,6 +11,13 @@
   <label for="">Catchphrase</label>
   <input type="text" name="catchphrase">
 
+  <h3>Movies with {{celeb.name}}</h3>
+        <ul>
+            {{#each celeb.movies}}
+            <li>{{this.title}}</li>
+            {{/each}}
+        </ul>
+
   <button>Edit</button>
 
 </form>

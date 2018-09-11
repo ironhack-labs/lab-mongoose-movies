@@ -4,7 +4,7 @@ const Celebrity    = require('../models/celebrity')
 
 
 router.get('/celebrity', (req, res, next) => {
-  Celebrity.find().populate('movies')
+  Celebrity.find()
   .then((celebInfo)=>{
     res.render('celebrities/listOfCelebs', {listOfCelebs: celebInfo})
   })
@@ -68,7 +68,7 @@ router.post('/celebrities/update/:id', (req, res, next ) => {
 })
 
 router.get('/celebrities/:id', (req, res, next) => {
-  Celebrity.findById(req.params.id)
+  Celebrity.findById(req.params.id).populate('movies')
   .then((celebInfo)=>{
     res.render('celebrities/celebDetails', {celebDetails: celebInfo})
   })

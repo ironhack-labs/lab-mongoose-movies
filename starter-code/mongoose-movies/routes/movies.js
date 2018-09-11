@@ -4,20 +4,18 @@ const Movie    = require('../models/movie')
 const Celebrity = require('../models/celebrity');
 
 router.get('/movies', (req, res, next) => {
-  Movie.find().populate('cast')
+  Movie.find()
   .then((movieInfo) => {
     res.render('movies/index', {listOfMovies: movieInfo})
   })
   .catch((err) => {
     next(err)
   })
-})
+});
 
 router.get('/movies/new', (req, res, next) => {
   res.render('movies/new')
-})
-
-
+});
 
 router.post('/movies/create', (req, res, next) => {
   Movie.create({
@@ -41,43 +39,38 @@ router.post('/movies/delete/:id', (req, res, next) => {
   .catch((err) => {
     next(err)
   })
-})
+});
 
-router.post('/movies/update/:id', (req, res, next ) => {
-  Movie.findById(req.params.id) 
-  .then((response) => {
-    console.log("the first response ========================= ", response);
-    response.set({
+router.post('/movies/update/:id', (req, res, next) => {
+  Movie.findByIdAndUpdate(req.params.id, { 
       title: req.body.title,
       genre: req.body.genre,
       plot: req.body.plot,
-      cast: req.body.cast
+      $push: {cast: req.body.theCelebrity}
     })
-  
-    return response.save()
-    .then((updatedResponse) => {
-      console.log("saved all the movie info including cast -------------------------- ", updatedResponse);
-      res.redirect('/movies/' + req.params.id)
+    .then((response)=>{
+        Celebrity.findByIdAndUpdate(req.body.theCelebrity,
+            {$push: {movies: req.params.movieID}
+        })
+            .then((theResponse)=>{
+                res.redirect('/movies/'+req.params.movieID)
+            })
+            .catch((err)=>{
+                next(err)
+            })
     })
-    .catch((err) => {
-      next(err);
+    .catch((err)=>{
+        next(err)
     })
-  })
-  .catch((err) => {
-    next(err);
-  })
-})
+});
+
 
 router.get('/movies/edit/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then((aMovie) => {
     Celebrity.find()
     .then((celebInfo) => {
-      data = {
-        theMovie: aMovie,
-        celebs: celebInfo
-      }
-      res.render('movies/edit', data)
+      res.render('movies/edit', {theMovie: aMovie,  celebs: celebInfo});
     })
     .catch((err) => {
       next(err);
@@ -86,27 +79,17 @@ router.get('/movies/edit/:id', (req, res, next) => {
   .catch((err) => {
     next(err)
   })
-})
+});
 
 router.get('/movies/:id', (req, res, next) => {
-  Movie.findById(req.params.id)
+  Movie.findById(req.params.id).populate('cast')
   .then((movieInfo)=>{
-    // Celebrity.find({'_id': {$in: [movieInfo.cast]}})
-    Celebrity.find({_id: movieInfo.cast})
-    .then((celebInfo) => {
-      data = {
-        movieDetails: movieInfo,
-        celebInfo: celebInfo
-      }
-      res.render('movies/show', data)
+      res.render('movies/show', {movieDetails: movieInfo})
     })
-    .catch((err) => {
-      next(err);
-    })
-  })
+
   .catch((err)=>{
     next(err);
-  })
+  });
 });
 
 module.exports = router;
