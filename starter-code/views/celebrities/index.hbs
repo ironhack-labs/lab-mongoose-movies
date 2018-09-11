@@ -1,30 +1,31 @@
 <div class="title-bar">
-<h1>ALL CELEBRITIES</h1> 
-<a href="/celebrities/create/">
-<button type="button" class="btn btn-success">Create New Celebrity</button>
-</a>
+    <a href="/">
+        <button type="button" class="btn btn-info">Back To Homepage</button>
+    </a>
+    <h1>ALL CELEBRITIES</h1>
+    <a href="/celebrities/create/">
+        <button type="button" class="btn btn-success">Create New Celebrity</button>
+    </a>
 </div>
-<hr>
-
-{{#each theCelebrityList}}
-
-<div>
-
-<h2>Name: <a href="/celebrities/{{this._id}}">{{this.name}}</h2></a>
-
-<p><strong>Occupation:</strong> {{this.occupation}}</p>
-
-<p><strong>Catchphrase:</strong> " {{this.catchphrase}} "</p>
-
-<div class="buttons">
-<a href="/celebrities/edit/{{this._id}}">
-<button type="button" class="btn btn-primary">Edit This Celebrity</button></a>
-
-<form action="/celebrities/delete/{{this._id}}" method="POST"><button type="submit" class="btn btn-danger">Delete This Celebrity</button>
-</form>
+<hr> {{#each theCelebrityList}}
+<div class="celeb-row">
+    <div class="celeb-profile">
+        <div class="celeb-img-container">
+            <img style="background-image" src="{{this.image}}" class="celeb-img" alt="">
+        </div>
+        <div class="celeb-info">
+            <h2>Name: <a href="/celebrities/{{this._id}}">{{this.name}}</h2></a>
+            <p><strong>Occupation:</strong> {{this.occupation}}</p>
+            <p><strong>Catchphrase:</strong> " {{this.catchphrase}} "</p>
+            <div class="buttons">
+                <a href="/celebrities/edit/{{this._id}}">
+                    <button type="button" class="btn btn-primary">Edit This Celebrity</button>
+                </a>
+                <form action="/celebrities/delete/{{this._id}}" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete This Celebrity</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-
-<hr>
-
-{{/each}}
+<hr> {{/each}}

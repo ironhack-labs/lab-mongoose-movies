@@ -1,20 +1,30 @@
-<div>
 <div class="title-bar">
-<h1>Name: {{celebrity.name}}</h1>
-<a href="/celebrities/">
-<button type="button" class="btn btn-info">See All Celebrities</button>
-</a>
+    <a href="/">
+        <button type="button" class="btn btn-info">Back To Homepage</button>
+    </a>
+    <h1>Name: {{celebrity.name}}</h1>
+    <a href="/celebrities/">
+        <button type="button" class="btn btn-info">Back To Celebrity Directory</button>
+    </a>
 </div>
 <hr>
 <br>
-<p><strong>Occupation:</strong> {{celebrity.occupation}}</p>
-
-<p><strong>Catch Phrase:</strong> "<em> {{celebrity.catchphrase}}</em> "</p>
-
-<div class="buttons">
-<a href="/celebrities/edit/{{celebrity._id}}"><button class="btn btn-primary btn-md">Edit This Celebrity</button></a>
-<form action="/celebrities/delete/{{this._id}}" method="POST">
-<button class="btn btn-danger btn-md">Delete This Celebrity</button>
-</form>
-</div>
+<div class="celeb-row">
+    <div class="celeb-profile">
+        <div class="celeb-img-container">
+            <img style="background-image" src="{{celebrity.image}}" class="celeb-img" alt="">
+        </div>
+        <div class="celeb-info">
+            <p><strong>Occupation:</strong> {{celebrity.occupation}}</p>
+            <p><strong>Catch Phrase:</strong> "<em> {{celebrity.catchphrase}}</em> "</p>
+            <div class="buttons">
+                <a href="/celebrities/edit/{{celebrity._id}}">
+                    <button class="btn btn-primary btn-md">Edit This Celebrity</button>
+                </a>
+                <form action="/celebrities/delete/{{this._id}}" method="POST">
+                    <button class="btn btn-danger btn-md">Delete This Celebrity</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

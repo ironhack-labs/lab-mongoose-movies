@@ -1,29 +1,44 @@
 <div class="title-bar">
-<h1>Edit: {{celebrity.name}}</h1>
-<a href="/celebrities/">
-<button type="button" class="btn btn-info">See All Celebrities</button>
-</a>
+    <a href="/">
+        <button type="button" class="btn btn-info">Back To Homepage</button>
+    </a>
+    <h1>Edit: {{celebrity.name}}</h1>
+    <a href="/celebrities/">
+        <button type="button" class="btn btn-info">Back To Celebrity Directory</button>
+    </a>
 </div>
 <hr>
 <br>
 <form action="/celebrities/update/{{celebrity._id}}" method="POST">
+    <div class="row">
+        <div class="item">
+            <label for="">
+                <strong>Name:</strong>
+            </label>
+            <input type="text" name="name" value="{{celebrity.name}}" class="input">
+        </div>
 
-<div class="row">
-<div class="item">
-<label for=""><strong>Name:</strong> </label>
-<input type="text" name="name" value="{{celebrity.name}}" class="input">
-</div>
+        <div class="item">
+            <label for="">
+                <strong>Occupation:</strong>
+            </label>
+            <input type="text" name="occupation" value="{{celebrity.occupation}}" class="input">
+        </div>
 
-<div class="item">
-<label for=""><strong>Occupation:</strong> </label>
-<input type="text" name="occupation" value="{{celebrity.occupation}}" class="input">
-</div>
+        <div class="item">
+            <label for="">
+                <strong>Catch Phrase:</strong>
+            </label>
+            <input type="text" name="catchphrase" value="{{celebrity.catchphrase}}" class="input">
+        </div>
 
-<div class="item">
-<label for=""><strong>Catch Phrase:</strong> </label>
-<input type="text" name="catchphrase" value="{{celebrity.catchphrase}}" class="input">
-</div>
+        <div class="item">
+            <label for="">
+                <strong>Image URL: </strong>
+            </label>
+            <input type="text" name="image" value="{{celebrity.image}}" class="input">
+        </div>
 
-<button class="btn btn-dark">Submit</button>
+        <button class="btn btn-dark">Submit</button>
+    </div>
 </form>
-</div>

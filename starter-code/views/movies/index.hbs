@@ -1,34 +1,31 @@
 <div class="title-bar">
-<h1>ALL MOVIES</h1> 
-<a href="/movies/create/">
-<button class="btn btn-success">Create New Movie</button>
-</a>
+    <a href="/">
+        <button type="button" class="btn btn-info">Back To Homepage</button>
+    </a>
+    <h1>ALL MOVIES</h1>
+    <a href="/movies/create/">
+        <button class="btn btn-success">Create New Movie</button>
+    </a>
 </div>
-<hr>
-
-{{#each theMovieList}}
-
-<div>
-
-<h2>Title: <a href="/movies/{{this._id}}">{{this.title}}</h2></a>
-
-<p><strong>Genre: </strong>{{this.genre}}</p>
-
-<p><strong>Plot: </strong>{{this.plot}}</p>
-
-<div class="buttons">
-<a href="/movies/edit/{{this._id}}">
-<button class="btn btn-primary">Edit This Movie</button></a>
-
-<form action="/movies/delete/{{this._id}}" method="POST">
-<button class="btn btn-danger">Delete This Movie</button>
-</form>
+<hr> {{#each theMovieList}}
+<div class="movie-row">
+    <div class="movie-profile">
+        <div class="movie-img-container">
+            <img style="background-image" src="{{this.image}}" class="movie-img" alt="">
+        </div>
+        <div class="movie-info">
+            <h3>Title: <a href="/movies/{{this._id}}">{{this.title}}</h3></a>
+            <p><strong>Genre: </strong>{{this.genre}}</p>
+            <p><strong>Plot: </strong>{{this.plot}}</p>
+            <div class="buttons">
+                <a href="/movies/edit/{{this._id}}">
+                    <button class="btn btn-primary">Edit This Movie</button>
+                </a>
+                <form action="/movies/delete/{{this._id}}" method="POST">
+                    <button class="btn btn-danger">Delete This Movie</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-
-<hr>
-
-{{/each}}
-
-
-
+<hr> {{/each}}
