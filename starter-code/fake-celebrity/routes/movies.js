@@ -45,11 +45,14 @@ router.get('/movies/:id/edit', (req, res, next) => {
 })
 
 router.post('/movies/update/:id', (req, res, next) => {
+  console.log("========================");
   console.log(req.body);
+  console.log("========================");
   movieId = req.params.id
   let movieEdit = {
     title: req.body.title,
     image: req.body.image,
+    celebrity: req.body.celebrity,
     genre: req.body.genre,
     plot: req.body.genre
   }
