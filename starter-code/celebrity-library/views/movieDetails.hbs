@@ -7,7 +7,13 @@
 <div class="in-line">
 
   <h2>Title: {{theMovie.title}}</h2>
-  <p>Staring: {{theMovie.stars}}</p>
+  {{#if theMovie.stars}}
+  <p>Staring: </p>
+   {{#each theMovie.stars}} 
+    <li><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+  {{/each}}
+  {{/if}}
+  {{!-- <p>Staring: {{theMovie.stars}}</p> --}}
 
   <h3>By: {{theMovie.director}}</h3>
 

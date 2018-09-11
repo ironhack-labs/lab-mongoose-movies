@@ -9,8 +9,13 @@
     <label for="">Director</label>
     <input type="text" name="director" value="{{theMovie.director}}">
 
-    <label for="">stars, separated by commas: </label>
-    <input type="text" name="stars" value="{{theMovie.stars}}">
+    <label for="">Stars</label>
+        <select multiple name="stars">
+            {{#each celebrityList}}
+                <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+            <option value="">Add stars later</option>
+        </select>
 
     <label for="">Description</label>
     <input type="text" name="description" value="{{theMovie.description}}">

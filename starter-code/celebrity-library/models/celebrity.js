@@ -6,6 +6,7 @@ const celebritySchema = new Schema({
   occupation: String,
   catchPhrase: String,
   photo: String,
+  movies: [{type: Schema.Types.ObjectId, ref: "Movie"}],
 }, {
   timestamps: {
     createdAt: "created_at",

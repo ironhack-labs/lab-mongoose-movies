@@ -4,10 +4,17 @@
  <p>{{theCat.name}}'s famous phrase is: <em>"{{theCat.catchPhrase}}"</em></p>
 
  <img src="{{theCat.photo}}" alt="cat photo">
+ {{#if theCat.movies}}
+ <p>Movies:</p>
+    {{#each theCat.movies}}
+    <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+    {{/each}}
+ {{/if}}
 <p>
-  <a  class="btn" href="/celebrities/edit/{{theCat._id}}">Edit This Cat's Info</a>
-  <a class="btn" href="/celebrities/">Go back to list</a>
+  <a  class="btn" href="/celebrities/edit/{{theCat._id}}">Edit This Celebrity's Info</a>
   <form action="/celebrities/delete/{{theCat._id}}" onclick="return confirm('Are you sure you want to delete this cat?');" method="POST">
-      <button  class="btn" id="btn-delete">Delete This Cat</button>
+      <button  class="btn" id="btn-delete">Delete This Celebrity</button>
   </form>
 </p>
+
+<a class="btn" href="/celebrities/">Go back to list</a>

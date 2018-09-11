@@ -15,7 +15,17 @@
     <label for="">Photo link</label>
     <input type="text" name="photo" value="{{theCat.photo}}">
 
+    <label for="">Movies</label>
+        <select multiple name="movies">
+            {{#each theMovies}}
+                <option value="{{this._id}}">{{this.title}}</option>
+            {{/each}}
+            <option value="">Add movies later</option>
+        </select>
+
     <button class="btn">Submit Changes</button>
 
 
 </form>
+
+<a class="btn" href="/celebrities/">Go back to list</a>

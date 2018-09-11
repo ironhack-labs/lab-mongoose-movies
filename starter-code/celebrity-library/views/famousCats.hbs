@@ -1,6 +1,11 @@
-<h1>Here is our list of cats </h1>
+{{#if theUser}}
+<div>
+Welcome {{theUser.username}}
+</div>
+{{/if}}
+<h1>Here is our celebrity wall of fame </h1>
 
-<a class="btn" href="/celebrities/new">Add another cat</a>
+<a class="btn" href="/celebrities/new">Add another celebrity</a>
 
 {{#each listOfCats}}
 
