@@ -50,10 +50,10 @@ router.post('/movies/update/:id', (req, res, next) => {
     })
     .then((response)=>{
         Celebrity.findByIdAndUpdate(req.body.theCelebrity,
-            {$push: {movies: req.params.movieID}
+            {$push: {movies: req.params.id}
         })
             .then((theResponse)=>{
-                res.redirect('/movies/'+req.params.movieID)
+                res.redirect('/movies/'+req.params.id)
             })
             .catch((err)=>{
                 next(err)
