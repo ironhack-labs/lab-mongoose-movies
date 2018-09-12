@@ -99,5 +99,24 @@ router.get('/movies/:theid', (req, res, next)=>{
   })
 
 })
+
+
+router.get('/fancypage', (req, res, next)=>{
+  res.render('movieViews/fancy.hbs')
+})
+
+
+router.get('/api/movies', (req, res, next) => {
+  Movie.find()
+    .then((listOfMovies)=>{
+      res.json(listOfMovies)
+
+})
+.catch((err)=>{
+  res.json(err);
+})
+
+});
+
   
 module.exports = router;
