@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Movie = require('../models/movie')
 const Celebrity = require('../models/celebrity')
+const ensureLogin = require("connect-ensure-login");
 
 router.get('/movies/index', (req, res, next) => {
   Movie.find().populate('celebrity')
@@ -13,16 +14,17 @@ router.get('/movies/index', (req, res, next) => {
     })
     .catch((err)=>{
       next(err)
-      console.log(data)
+      // console.log(data)
     })
 })
 
-router.get('/movies/new', (req, res, next) => {
-  // console.log("working")
-  if(!req.session.currentUser){
-    res.redirect('/movies/index')
-    return
-  }
+router.get('/movies/new', ensureLogin.ensureLoggedIn('/login')   ,(req, res, next) => {
+  console.log('######');
+  console.log(req.session)
+  // if(!req.session.currentUser){
+  //   res.redirect('/movies/index')
+  //   return
+  // }
   Celebrity.find()
   .then((data)=>{
     res.render('movies/new', {celeb: data, errorMessage: "You need to be logged in"})
@@ -52,7 +54,7 @@ router.get('/movies/:id/edit', (req, res, next) => {
     })
 })
 
-router.post('/movies/update/:id', (req, res, next) => {
+router.post('/movies/update/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next) => {
   console.log("========================");
   console.log(req.body);
   console.log("========================");
@@ -77,12 +79,14 @@ router.post('/movies/update/:id', (req, res, next) => {
 
 router.post('/movies/create', (req, res, next) => {
   // console.log(req.body.celebrity)
+  console.log(">>>>>", req.user)
   let newMovie = {
     title: req.body.title,
     image: req.body.image,
     celebrity: req.body.celebrity,
     genre: req.body.genre,
-    plot: req.body.plot
+    plot: req.body.plot,
+    owner: req.user._id
   }
   Movie.create(newMovie)
     .then((data) => {

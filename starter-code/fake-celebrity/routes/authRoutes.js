@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/user')
 const bcrypt         = require("bcryptjs");
 const bcryptSalt     = 10;
+const passport = require('passport');
 
 
 router.get('/signup',(req, res, next)=>{
@@ -47,50 +48,61 @@ router.post('/signup', (req, res, next)=>{
 })
 
 router.get('/login', (req, res, next)=>{
-  res.render("userViews/login")
+  res.render("userViews/login",  {message: req.flash('error')})
 })
 
-router.post('/login', (req, res, next)=>{
-  console.log("carajo")
 
-  const username = req.body.username
-  const password = req.body.password
 
-  if(username === "" || password === ""){
-      console.log("carajo")
-    res.render('userViews/login', {
-      errorMessage: "Oops, it look like you left one or more of the files blank, please fill in your username and password"
-    })
-    return
-  }
+router.post('/login', passport.authenticate('local', {
+  successRedirect: "/movies/index",
+  failureRedirect: "/login",
+  failureFlash: true,
+  successFlash: true,
+  passReqToCallback: true
+}));
 
-  User.findOne({"username": username})
-  .then((user)=>{
-    if(!user){
-      res.render("userViews/login", {
-        errorMessage: "This user does not exist"
-      })
-      return
-    }
-    if(bcrypt.compareSync(password, user.password)){
-      req.session.currentUser = user
-      res.redirect('/')
-    }else{
-      res.render("userViews/login", {
-        errorMessage: "Incorreect password"
-      })
-    }
-  })
-  .catch(error =>{
-    next(error)
-  })
 
+// router.post('/login', (req, res, next)=>{
+//   console.log("carajo")
+//
+//   const username = req.body.username
+//   const password = req.body.password
+//
+//   if(username === "" || password === ""){
+//       console.log("carajo")
+//     res.render('userViews/login', {
+//       errorMessage: "Oops, it look like you left one or more of the files blank, please fill in your username and password"
+//     })
+//     return
+//   }
+//
+//   User.findOne({"username": username})
+//   .then((user)=>{
+//     if(!user){
+//       res.render("userViews/login", {
+//         errorMessage: "This user does not exist"
+//       })
+//       return
+//     }
+//     if(bcrypt.compareSync(password, user.password)){
+//       req.session.currentUser = user
+//       res.redirect('/')
+//     }else{
+//       res.render("userViews/login", {
+//         errorMessage: "Incorreect password"
+//       })
+//     }
+//   })
+//   .catch(error =>{
+//     next(error)
+//   })
+//
   router.get('/logout', (req, res, next)=>{
-    req.session.destroy((err)=>{
-      res.redirect('/login')
+    req.logout()
+    res.redirect('/login')
     })
-  })
-
-})
+  // })
+//
+// })
 
 module.exports = router;
