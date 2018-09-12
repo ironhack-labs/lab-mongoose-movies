@@ -1,0 +1,45 @@
+<div class="title-bar">
+    <a href="/">
+        <button type="button" class="btn btn-info">Back To Homepage</button>
+    </a>
+    <h1>Create: New Movie Listing</h1>
+    <a href="/movies/">
+        <button type="button" class="btn btn-info">Back To Movie Directory</button>
+    </a>
+</div>
+<hr>
+<br>
+<form action="/movies/create" method="POST">
+    <div class="row">
+
+        <div class="item">
+            <label for="">
+                <strong>Title: </strong>
+            </label>
+            <input type="text" name="title" class="input">
+        </div>
+
+        <div class="item">
+            <label for="">
+                <strong>Genre: </strong>
+            </label>
+            <input type="text" name="genre" class="input">
+        </div>
+
+        <div class="item">
+            <label for="">
+                <strong>Plot: </strong>
+            </label>
+            <input type="text" name="plot" class="input">
+        </div>
+
+        <div class="item">
+            <label for="">
+                <strong>Image URL: </strong>
+            </label>
+            <input type="text" name="image" class="input">
+        </div>
+
+        <button class="btn btn-dark">Submit</button>
+    </div>
+</form>
