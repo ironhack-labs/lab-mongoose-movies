@@ -8,6 +8,7 @@ const movieSchema = new Schema({
   image: String,
   description:String,
   showtimes: [String],
+  owner:{type: Schema.Types.ObjectId, ref: "User"},
 }, {
   timestamps: {
     createdAt: "created_at",

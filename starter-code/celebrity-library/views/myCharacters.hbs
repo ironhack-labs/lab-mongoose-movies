@@ -1,0 +1,88 @@
+
+  <section class="container">
+    <h1>Ironhack Characters API</h1>
+    <div class="characters-container">
+      <div class="character-info">
+        <div class="name">Character Name</div>
+        <div class="occupation">Character Occupation</div>
+        <div class="cartoon">Is a Cartoon?</div>
+        <div class="weapon">Character Weapon</div>
+      </div>
+    </div>
+    <section class="operations">
+      <div class="operation">
+        <button id="fetch-all">Fetch all characters</button>
+        <button id="fetch-movies">Fetch movies</button>
+      </div>
+      <div class="operation">
+        <label for="character-id">Search by ID: </label>
+        <input type="number" name="character-id" id="character-id">
+        <button id="fetch-one">Fetch one</button>
+      </div>
+      <div class="operation delete">
+        <label for="character-id-delete">Delete by ID: </label>
+        <input type="text" name="character-id-delete" id="delete-character">
+        <button id="delete-one">Delete one</button>
+      </div>
+
+    </section>
+  </section>
+  <section class="container">
+    <section class="form-container">
+      <h2>New Character</h2>
+      {{!-- <div class="character-form"> --}}
+      <form id="new-character-form" class="character-form">
+        <div class="field">
+          <label for="name">Name: </label>
+          <input type="text" name="name" id="newName">
+        </div>
+        <div class="field">
+          <label for="occupation">Occupation: </label>
+          <input type="text" name="occupation" id="newOccupation">
+        </div>
+        <div class="field">
+          <label for="weapon">Weapon: </label>
+          <input type="text" name="weapon" id="newWeapon">
+        </div>
+        <div class="field">
+          <label for="cartoon">Is a Cartoon: </label>
+          <input name="cartoon" type="checkbox">
+        </div>
+        <!-- <input type="submit" value="Submit"> -->
+        <button type="submit" id="send-data">Create</button>
+     </form> 
+    {{!-- </div> --}}
+    </section>
+    <section class="form-container">
+      <h2>Edit Character</h2>
+      <div class="character-form">
+      <!-- <form id="edit-character-form" class="character-form"> -->
+        <div class="field">
+          <label for="id">ID: </label>
+          <input type="text" name="chr-id" id="editId">
+        </div>
+        <div class="field">
+          <label for="name">Name: </label>
+          <input type="text" name="name" id="editName">
+        </div>
+        <div class="field">
+          <label for="occupation">Occupation: </label>
+          <input type="text" name="occupation" id="editOccupation">
+        </div>
+        <div class="field">
+          <label for="weapon">Weapon: </label>
+          <input type="text" name="weapon" id="editWeapon">
+        </div>
+        <div class="field">
+          <label for="cartoon">Is a Cartoon: </label>
+          <input name="cartoon" type="checkbox">
+        </div>
+        <button id="update-data">Update</button>
+      <!-- </form> -->
+      </div>
+    </section>
+  </section>
+ 
+
+</body>
+</html>

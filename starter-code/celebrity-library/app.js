@@ -8,9 +8,15 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const ensureLogin  = require("connect-ensure-login");
+const flash        = require("connect-flash");
 
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const User = require('./models/User')
 
 mongoose.Promise = Promise;
 mongoose
@@ -50,12 +56,58 @@ app.use(require('node-sass-middleware')({
       
 app.use(session({
   secret: "basic-auth-secret",
+  resave: true,
+  saveUninitialized: true,
   cookie: { maxAge: 60000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 
+    ttl: 24 * 60 * 60 // store session for 1 day
   })
 }));
+
+// start passport package -=-=-=-=-=-
+app.use(passport.initialize());
+app.use(passport.session());
+
+//This will make a user variable available in all templates, provided that req.user is populated. 
+//Make sure that you declare that middleware after you declare the passport.session middleware,
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
+
+// encrypt user info
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+// decrypt user info for developer use
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+//connect-flash package =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=
+app.use(flash());
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user, {message: 'Welcome back!'});
+  });
+}));
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -78,6 +130,9 @@ app.use('/', moviesRoutes);
 
 const theUserRoutes = require('./routes/authRoutes')
 app.use('/', theUserRoutes)
+
+const characterRoutes = require('./routes/characters');
+app.use('/', characterRoutes);
 
 // const recipesRoutes = require('./routes/recipes');
 // app.use('/', recipesRoutes);

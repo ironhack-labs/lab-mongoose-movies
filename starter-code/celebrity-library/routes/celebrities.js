@@ -2,27 +2,27 @@ const express = require('express');
 const router  = express.Router();
 const Celebrity    = require('../models/celebrity')
 const Movie    = require('../models/movie')
-
+const ensureLogin = require("connect-ensure-login");
 
 router.get('/celebrities', (req, res, next) => {
 
   Celebrity.find()
   .then((theData)=>{
       console.log('-------- got the cats ----------')
-      res.render('famousCats', {listOfCats: theData, theUser: req.session.currentUser})
+      res.render('famousCats', {listOfCats: theData, theUser: req.user})
   })
   .catch((err)=>{
     next(err);
   })
 });
 
-router.get('/celebrities/new', (req, res, next)=>{
+router.get('/celebrities/new', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
     if(!req.session.currentUser){
         res.redirect('/celebrities')
         return
     }
     Movie.find().then((movieData)=>{
-        res.render('newCelebrity', {theMovies: movieData});
+        res.render('newCelebrity', {theMovies: movieData, theUser: req.user});
     }).catch((err)=>{
         next(err);
     })
@@ -60,7 +60,7 @@ router.post('/celebrities/create', (req, res, next)=>{
 //    })
 // })
 
-router.post('/celebrities/delete/:id', (req, res, next)=>{
+router.post('/celebrities/delete/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   Celebrity.findByIdAndRemove(req.params.id)
   .then((response)=>{
       res.redirect('/celebrities')
@@ -71,7 +71,7 @@ router.post('/celebrities/delete/:id', (req, res, next)=>{
 
 })
 
-router.get('/celebrities/edit/:id', (req, res, next)=>{
+router.get('/celebrities/edit/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   Celebrity.findById(req.params.id)
   .then((catData)=>{
       Movie.find().then((movieData)=>{
@@ -101,11 +101,11 @@ router.post('/celebrities/update/:id', (req, res, next)=>{
        if (req.body.movies > []) {
            for (let i=0; i<req.body.movies.length; i++){
             Movie.findById(req.body.movies[i]).then((thisMovie)=>{
-                console.log('movie to be edited:   ',thisMovie);
+                // console.log('movie to be edited:   ',thisMovie);
                 const theStars = thisMovie.stars;
                 theStars.push(req.params.id)
                 Movie.findByIdAndUpdate(req.body.movies[i], {stars:theStars} ).then((updatedMovie)=>{
-                    console.log('updated movie:   ',updatedMovie)
+                    // console.log('updated movie:   ',updatedMovie)
                 }).catch((err)=>{console.log(err)})
             }).catch((err)=>{console.log(err)})
            }
@@ -122,7 +122,7 @@ router.get('/celebrities/:id', (req, res, next)=>{
   Celebrity.findById(req.params.id).populate('movies') //.populate('keyThatIwantToPopulate')
   .then((thisCat)=>{
       console.log('----------got ONE cat ---------')
-      console.log(thisCat)
+    //   console.log(thisCat)
       res.render('details', {theCat: thisCat})
   })
   .catch((err)=>{

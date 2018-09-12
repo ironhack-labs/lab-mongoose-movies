@@ -6,19 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 
    <div>
+      <a href="/">Home</a>
       <a href="/celebrities">Celebrities Page</a>
+      <a href="/characters">Characters Page</a>
       <a href="/movies">Movies Page</a>
       <a href="/login">Login</a>
       <a href="/logout">Logout</a>
       
     </div>
-    
+
+    {{!-- {{#if theUser}}
+      <div>You are logged in as {{theUser.username}}</div>
+    {{/if}} --}}
+
+{{!-- user was created in app.js, res.locals.user = req.user --}}
+    {{#if user}} 
+      <div>You are logged in as {{user.username}}</div>
+    {{/if}}
+
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
+  <script type="text/javascript" src="/javascripts/APIHandler.js"></script>
+  <script type="text/javascript" src="/javascripts/index.js"></script>
 </body>
 </html>

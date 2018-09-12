@@ -2,6 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const Movie    = require('../models/movie')
 const Celebrity    = require('../models/celebrity')
+const ensureLogin = require("connect-ensure-login");
+
 
 /* GET home page */
 router.get('/movies', (req, res, next) => {
@@ -9,15 +11,27 @@ router.get('/movies', (req, res, next) => {
   .then((movieData)=>{
       console.log('----------got the movies ---------')
       console.log('=-=-=-=-=-=-=-=-=-', req.session)
-      res.render('movieList', {listOfMovies: movieData, theUser: req.session.currentUser})
+      res.render('movieList', {listOfMovies: movieData, theUser: req.user})
   })
   .catch((err)=>{
     console.log('----------No movies :( ---------')
   })
 });
 
-router.get('/movies/new', (req, res, next)=>{
-  if(!req.session.currentUser){
+router.get('/movies/myMovies', (req, res, next) => {
+  Movie.find({ 'owner': req.user._id })
+  .then((movieData)=>{
+      console.log('----------got the movies ---------')
+      console.log('=-=-=-=-=-=-=-=-=-', req.session)
+      res.render('myMovies', {listOfMovies: movieData, theUser: req.user})
+  })
+  .catch((err)=>{
+    console.log('----------No movies :( ---------')
+  })
+});
+
+router.get('/movies/new', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
+  if(!req.user){
     res.redirect('/movies')
     return
   }
@@ -49,6 +63,7 @@ router.post('/movies/create', (req, res, next)=>{
       image: theImage,
       description:theDescription,
       showtimes: theShowtimes,
+      owner: req.user._id,
    })
    .then((response)=>{
        res.redirect('/movies')
@@ -58,7 +73,7 @@ router.post('/movies/create', (req, res, next)=>{
    })
 })
 
-router.post('/movies/delete/:id', (req, res, next)=>{
+router.post('/movies/delete/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   Movie.findByIdAndRemove(req.params.id)
   .then((response)=>{
       res.redirect('/movies')
@@ -69,7 +84,7 @@ router.post('/movies/delete/:id', (req, res, next)=>{
 
 })
 
-router.get('/movies/edit/:id', (req, res, next)=>{
+router.get('/movies/edit/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, next)=>{
   Movie.findById(req.params.id)
   .then((movieData)=>{
     Celebrity.find()
@@ -104,6 +119,13 @@ router.post('/movies/update/:id', (req, res, next)=>{
     showtimes: theShowtimes,
    })
    .then((response)=>{
+    if (theStars.length > 0) {
+      for (let i=0; i<theStars.length;i++) {
+        Celebrity.findByIdAndUpdate(theStars[i],{$push: {movies: req.params.id}}).then((response)=> {
+          console.log('success in updating celebrity +_+_+_+_+_+_+',reponse)
+        }).catch((err)=>{console.log("no update -0-0-0-0-0-0", err)})
+      }
+    }
        res.redirect('/movies/'+req.params.id)
    })
    .catch((err)=>{
