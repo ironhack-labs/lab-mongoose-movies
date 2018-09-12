@@ -126,5 +126,8 @@ app.use('/', movies)
 const userRoutes = require('./routes/authRoutes')
 app.use('/', userRoutes)
 
+const axiRoutes = require('./routes/axi')
+app.use('/', axiRoutes)
+
 
 module.exports = app;

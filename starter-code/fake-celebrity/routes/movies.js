@@ -4,7 +4,8 @@ const Movie = require('../models/movie')
 const Celebrity = require('../models/celebrity')
 const ensureLogin = require("connect-ensure-login");
 
-router.get('/movies/index', (req, res, next) => {
+router.get('/movies', (req, res, next) => {
+  console.log("carajo")
   Movie.find().populate('celebrity')
     .then((data) => {
       console.log('=-=-=-=-=-=-=-=-=-=-=', req.session)
