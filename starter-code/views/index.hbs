@@ -1,5 +1,14 @@
-<div class="home-title">
+<div class="title-bar">
     <h1>Welcome to the Movie + Celebity Database!</h1>
+    {{#if req.session.User}}
+    <a href="/logout">
+        <button type="button" class="btn btn-info">Logout</button>
+    </a>
+    {{else}}
+     <a href="/login">
+        <button type="button" class="btn btn-info">Login</button>
+    </a>
+    {{/if}}
 </div>
 <hr>
 <br>

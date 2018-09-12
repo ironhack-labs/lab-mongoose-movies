@@ -27,6 +27,7 @@ router.post('/celebrities/create', (req, res, next) => {
         name:        req.body.name,
         occupation:  req.body.occupation,
         catchphrase: req.body.catchphrase,
+        image:       req.body.image
     })
     .then((response) => {
         res.redirect('/celebrities')
@@ -63,7 +64,8 @@ router.post("/celebrities/update/:id", (req, res, next) => {
     Celebrity.findByIdAndUpdate(req.params.id, {
         name:        req.body.name,
         occupation:  req.body.occupation,
-        catchphrase: req.body.catchphrase
+        catchphrase: req.body.catchphrase,
+        image:       req.body.image
     })
     .then((response) => {
         res.redirect('/celebrities/' + req.params.id)
