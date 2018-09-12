@@ -87,6 +87,8 @@ router.get ('/movies/:id', (req, res, next)=>
 })
 
 router.post('/movies/create', (req, res, net)=> {
+  console.log('#$!@#$@#$^$%^&#')
+  console.log(req.body)
   let newTitle = req.body.movieTitle;
   let newGenre = req.body.movieGenre;
   let newPlot = req.body.moviePlot;
@@ -118,4 +120,15 @@ router.post('/movies/create', (req, res, net)=> {
   .catch(next)
   })
 
+
+router.get('/api/movies', (req, res, next)=> {
+  Movie.find()
+  .then((ret)=> {
+    res.json(ret)
+    
+  })
+  .catch((err)=> {
+    res.json(err)
+  })
+})
 module.exports = router;

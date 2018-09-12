@@ -120,6 +120,9 @@ const movieRoutes = require('./routes/movies');
 app.use('/', movieRoutes );
 
 const userAuthRoutes = require('./routes/authRoutes')
-app.use('/', userAuthRoutes)
+app.use('/', userAuthRoutes );
+
+const axiosRoute = require('./routes/axios')
+app.use('/', axiosRoute );
 
 module.exports = app;
