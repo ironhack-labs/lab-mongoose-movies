@@ -7,9 +7,9 @@ const ensureLogin = require("connect-ensure-login");
 
 /* GET home page */
 router.get('/movies', (req, res, next) => {
-  Movie.find()
+  Movie.find().sort({_id: -1})
   .then((movieData)=>{
-      console.log('----------got the movies ---------')
+      console.log('----------got the movies ---------', movieData)
       console.log('=-=-=-=-=-=-=-=-=-', req.session)
       res.render('movieList', {listOfMovies: movieData, theUser: req.user})
   })
@@ -46,6 +46,8 @@ router.get('/movies/new', ensureLogin.ensureLoggedIn('/login'), (req, res, next)
 
 })
 
+
+
 router.post('/movies/create', (req, res, next)=>{
     
   const theTitle = req.body.title;
@@ -54,7 +56,7 @@ router.post('/movies/create', (req, res, next)=>{
   if (theStars === '') {theStars = []}
   const theImage = req.body.image;
   const theDescription = req.body.description;
-  const theShowtimes = req.body.showtimes.split(',');
+  // const theShowtimes = req.body.showtimes.split(',');
   console.log(theStars)
    Movie.create({
       title: theTitle,
@@ -62,8 +64,8 @@ router.post('/movies/create', (req, res, next)=>{
       stars: theStars,
       image: theImage,
       description:theDescription,
-      showtimes: theShowtimes,
-      owner: req.user._id,
+      // showtimes: theShowtimes,
+      // owner: req.user._id,
    })
    .then((response)=>{
        res.redirect('/movies')
@@ -149,6 +151,11 @@ router.get('/movies/:theMovieID', (req, res, next)=>{
   })
 
 })
+
+router.get('/show', (req, res, next)=>{
+  res.render('awesomePage.hbs');
+})
+
 
 
 module.exports = router;

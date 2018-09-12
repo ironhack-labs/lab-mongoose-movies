@@ -2,25 +2,25 @@
 <div>You are logged in as {{theUser.username}}</div>
 {{/if}} --}}
 
-<h1>Here is our movie list</h1>
+  <h1>Here is our movie list</h1>
 
-<a class="btn" href="/movies/new">Add another movie</a>
+  <div class="half-width">
+    <a class="btn" href="/movies/new">Add another movie</a>
 
-<a class="btn" href="/movies/myMovies">See YOUR movies</a>
+    <a class="btn" href="/movies/myMovies">See YOUR movies</a>
+ </div>
 
-{{#each listOfMovies}}
+<div class="movie-div">
+  <div class="half-width">
+      {{#each listOfMovies}}
+      <p>{{this.title}}</p>
+      by
+      <p>{{this.director}}</p>
+      <img class="imag" src="{{this.image}}" alt="movie cover">
+      <a class="btn" href="/movies/{{this._id}}">See Details</a>
+      {{/each}}
+  </div>
 
 
-<div>
-{{this.title}}
-by
-{{this.director}}
-<img class="imag" src="{{this.image}}" alt="movie cover">
-<a class="btn" href="/movies/{{this._id}}">See Details</a>
+
 </div>
-
-
-
-
-
-{{/each}}

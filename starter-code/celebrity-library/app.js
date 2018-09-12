@@ -17,6 +17,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require('./models/User')
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 mongoose.Promise = Promise;
 mongoose
@@ -133,6 +134,38 @@ app.use('/', theUserRoutes)
 
 const characterRoutes = require('./routes/characters');
 app.use('/', characterRoutes);
+
+const theRoutesForApiStuff = require('./routes/apiroutes')
+app.use('/api', theRoutesForApiStuff)
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.client_id, // stored in .env
+  clientSecret: process.env.client_secret,
+  callbackURL: "/auth/google/callback"
+}, (accessToken, refreshToken, profile, done) => {
+  User.findOne({ googleID: profile.id })
+  .then((user, err) => {
+    if (err) {
+      return done(err);
+    }
+    if (user) {
+      return done(null, user);
+    }
+
+    const newUser = new User({
+      googleID: profile.id
+    });
+
+    newUser.save()
+    .then(user => {
+      done(null, newUser);
+    })
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
+}));
 
 // const recipesRoutes = require('./routes/recipes');
 // app.use('/', recipesRoutes);
