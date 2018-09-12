@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+<div class="new-movie">
+
+  <h2>Create a New Movie</h2>
+  <form action="/movies/create" method="POST">
+  
+  <label for="">Movie Title</label>
+  <input type="text" name="newTitle">
+  <br>
+  <label for="">Genre</label>
+  <input type="text" name="newGenre">
+  <br>
+  <label for="">Plot</label>
+  <input type="text" name="newPlot">
+  <br>
+
+  <label for="">Starring:</label>
+  {{!-- <br> --}}
+  <select name="theCelebrities" multiple>
+    {{#each theCelebs}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+
+  </select>
+
+  <br> 
+      {{!-- <br>
+      <input type="checkbox" name="theCelebrities" id="{{this.name}}"> {{this.name}} --}}
+  
+  <button class="btn btn-success">Create the Movie!</button>
+
+  </form>
+
+
+
+</div>

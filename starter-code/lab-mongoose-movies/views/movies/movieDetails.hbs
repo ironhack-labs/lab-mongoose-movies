@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+  <div class="movieDetails"> 
+    {{!-- {{#each theMovieInfo}} --}}
+      <div class="movie-details">
+
+
+        <h2>{{theMovieInfo.title}}</h2>
+        <h5>Genre: {{theMovieInfo.genre}}</h5>
+        <p>Plot summary: {{theMovieInfo.plot}}</p>
+        
+        {{#if theMovieInfo.celebrities}}
+        <h5>Starring:</h5>
+      
+        {{#each theMovieInfo.celebrities}}
+            <p class="link">
+              <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+            </p>
+        {{/each}} 
+        {{/if}}
+
+      </div>
+    {{!-- {{/each}} --}}
+
+    <button class="btn btn-secondary"><a href="/movies/edit/{{theMovieInfo._id}}">Edit the movie</a> </button>
+  </div>
+
+

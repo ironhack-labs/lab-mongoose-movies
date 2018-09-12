@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+    crossorigin="anonymous">
+<div class="allCelebs">
+
+
+    {{#each listOfCelebs}}
+      <div class="each-celeb">
+
+    <h3>{{this.name}}</h3>
+    <button class="btn btn-warning"><a href="/celebrities/{{this._id}}">See more</a></button>
+    {{!-- <h4>{{this.occupation}}</h4>
+    <p>{{this.catchphrase}}</p> --}}
+    <br>
+    <br>
+    <form action="/celebrities/delete/{{this._id}}" method="POST">
+    <button class="btn btn-danger"> Delete this celebrity </button>
+    </form>
+
+
+      </div>
+    {{/each}}
+
+  <div class="create-new">
+
+    <h4>Want to create a new celebrity?</h4>
+    <button class="btn btn-success"><a href="/celebrities/new">Create!</a> </button>
+
+  </div>
+</div>
