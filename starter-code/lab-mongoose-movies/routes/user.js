@@ -22,7 +22,6 @@ router.get('/user', ensureLogin.ensureLoggedIn("/login"), (req, res, next) => {
 });
 
 
-
 /* GET movies page */
 router.get('/users/movies', ensureLogin.ensureLoggedIn("/login"), (req, res, next) => {
 
