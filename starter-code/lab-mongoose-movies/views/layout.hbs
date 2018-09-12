@@ -17,15 +17,16 @@
   
   {{#if user}}
     <a href="/logout">Logout</a> 
+    <img class="profile-img" src="{{user.image}}" alt="">
     <div class="user-name">
     Logged In: 
     <a  href="/user">{{user.username}}</a>
-    <img src="{{user.image}}" alt="">
    </div>
   {{else}}
   <a href="/signup">Sign Up</a> 
   <a href="/login">Log In</a> 
   {{/if}}
+<hr>
 
   {{{body}}}
 

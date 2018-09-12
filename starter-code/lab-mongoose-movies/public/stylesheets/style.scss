@@ -19,12 +19,24 @@ a {
    0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
 }
 
+hr {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  border: 2px solid rgb(105, 32, 32);
+}
 //----- layout 
 
 .user-name {
   float: right;
-  margin-right: 20px;
+  margin-right: 40px;
 
+}
+
+.profile-img {
+  float: right;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
 //---------------
@@ -127,6 +139,7 @@ body {
 
 h1, h2 {
   color: #d8b362;
+  margin-top: 40px;
 }
 
 button {

@@ -10,9 +10,20 @@ a {
   color: #db370e;
   text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18; }
 
+hr {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  border: 2px solid #692020; }
+
 .user-name {
   float: right;
-  margin-right: 20px; }
+  margin-right: 40px; }
+
+.profile-img {
+  float: right;
+  margin-right: 10px;
+  border-radius: 10px; }
 
 .list-celebrity {
   display: inline-block;
@@ -92,7 +103,8 @@ body {
   background: url("../images/minions.jpg"); }
 
 h1, h2 {
-  color: #d8b362; }
+  color: #d8b362;
+  margin-top: 40px; }
 
 button {
   font-family: inherit;
