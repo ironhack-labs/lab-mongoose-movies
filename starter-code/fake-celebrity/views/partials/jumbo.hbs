@@ -1,0 +1,17 @@
+{{#if errorMessage }}
+  <div class="error-message">{{ errorMessage }}</div>
+{{/if}}
+
+<div class="card" style="width: 33.333%;">
+      <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Title: {{this.title}} </h5>
+        <p class="card-text">Genre: {{this.genre}}</p>
+
+        <p>Celebrity: {{this.celebrity.name}}</p>
+
+        <a class="btn btn-primary" href="/movies/{{this.id}}">Movie Info</a>
+        <a class="btn btn-danger" href="/movies/{{this.id}}/delete">Delete</a>
+        <a class="btn btn-warning" href="/movies/{{this.id}}/edit">Update </a>
+      </div>
+</div>

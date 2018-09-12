@@ -1,0 +1,27 @@
+<h1>welcome to the celebrity page</h1>
+
+<!-- <h3>Artist</h3>
+{{#each data}}
+<ul>
+  <li>
+    {{this.name}}
+    <a href="/celebrities/{{this.id}}">Show Info</a>
+    <a href="/celebrities/{{this.id}}/delete">Delete Artist</a>
+    <a href="/celebrities/{{this.id}}/edit">Edit Celebrity</a>
+  </li>
+</ul>
+{{/each}}
+
+<a href="/celebrities/new">Create a new Artist</a> -->
+
+
+<div class="cards-container movieContainer">
+  {{#each data}}
+      {{> jumboCeleb this}}
+
+  {{/each}}
+</div>
+
+<a class="btn btn-success btn-lg btn-block" href="/celebrities/new">Create a New Celebrity</a>
+
+<a  class="btn btn-info btn-lg btn-block"href="/movies/index">Go to movies Page</a>

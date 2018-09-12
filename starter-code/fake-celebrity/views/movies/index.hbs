@@ -1,0 +1,33 @@
+
+
+{{#if errorMessage }}
+  <div class="error-message">{{ errorMessage }}</div>
+{{/if}}
+
+
+{{#if theUser}}
+<div>
+  Welcome {{theUser.username}}
+</div>
+{{/if}}
+<h1>Welcome to movies !!</h1>
+
+<div class="cards-container movieContainer">
+
+  {{#each movies}}
+      {{> jumbo this}}
+
+  {{/each}}
+</div>
+
+<a class="btn btn-success btn-lg btn-block" href="/movies/new">Create a New Movie</a>
+<a  class="btn btn-info btn-lg btn-block" href="/celebrities/index">Go to Celebrities Page</a>
+
+
+<button id="fetch-movies">Fetch Movies</button>
+<button id="form-movies">Create Movies</button>
+<br><br>
+
+<div id="results"></div>
+<br>
+<div id="wrapper"></div>

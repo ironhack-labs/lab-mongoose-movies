@@ -1,0 +1,34 @@
+<h1>Lets Create a new Movie</h1>
+
+<form class="" action="/movies/create" id="newmovie" method="post">
+  <label for="">Title</label>
+  <input type="text" name="title" value="">
+
+  <label for="">Celebrity</label>
+  <select class="thecelebrity" name="celebrity">
+    {{#each celeb}}
+    <option value="{{this._id}}">{{this.name}}</option>
+
+    {{/each}}
+  </select>
+
+  <label for="">Genre</label>
+  <input type="text" name="genre" value="">
+  <br>
+  <label for="">Image Url</label>
+  <input type="text" name="image" value="">
+  <br>
+  <br>
+  <textarea name="plot" rows="4" cols="30" form="newmovie"></textarea>
+  <!-- <label for="">Plot</label>
+  <input type="textarea" name="plot" value=""> -->
+
+  <button >Create Movie</button>
+
+
+
+</form>
+
+<br>
+
+<a href="/movies/index">Go back to All Movies</a>

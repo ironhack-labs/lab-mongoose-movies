@@ -1,0 +1,29 @@
+<h1>Update the info of {{name}} </h1>
+
+
+<form class="" action="/movies/update/{{movieId}}" method="post" id="editMovie">
+  <label for="title">Title</label>
+  <input type="text" name="title" value="{{data.title}}">
+
+  <label for="">Celebrity</label>
+  <select class="thecelebrity" name="celebrity">
+    {{#each dat2}}
+    <option value="{{this.id}}">{{this.name}}</option>
+
+    {{/each}}
+  </select>
+
+  <label for="genre">Image</label>
+  <input type="text" name="image" value="{{data.image}}">
+
+  <label for="genre">Genre</label>
+  <input type="text" name="genre" value="{{data.genre}}">
+
+
+  <br>
+  <h5>Plot</h5>
+  <textarea name="plot" rows="8" cols="80" form="editMovie">{{data.plot}}</textarea>
+
+
+<button > Edit the movie</button>
+</form>
