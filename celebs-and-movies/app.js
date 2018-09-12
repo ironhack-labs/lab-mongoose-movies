@@ -114,6 +114,8 @@ app.use('/', movieroutesFile);
 const authRoutes = require('./routes/auth-routes');
 app.use('/', authRoutes);
 
+const charactersroutesFile = require('./routes/characters');
+app.use('/', charactersroutesFile);
 
 
 module.exports = app;
