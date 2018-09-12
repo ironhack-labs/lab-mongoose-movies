@@ -11,19 +11,19 @@
 </head>
 <body>
 
-  <a href='/'>Home Page</a><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-  
-  <a href='/api/movies-json-view'>Home Page</a><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+  <a href='/'>Home Page</a>
+
+  <a href='/api/movies-json-view'>API Home Page</a>
   
   {{#if user}}
-    <a href="/logout">Logout</a> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+    <a href="/logout">Logout</a> 
     <div class="user-name">
     Logged In: 
     <a  href="/user">{{user.username}}</a>
    </div>
   {{else}}
-  <a href="/signup">Sign Up</a> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-  <a href="/login">Log In</a> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+  <a href="/signup">Sign Up</a> 
+  <a href="/login">Log In</a> 
   {{/if}}
 
   {{{body}}}

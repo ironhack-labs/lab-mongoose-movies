@@ -2,6 +2,9 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+body > a {
+  margin-left: 20px; }
+
 a {
   text-decoration: none;
   color: #db370e;
@@ -85,7 +88,7 @@ a {
 
 body {
   font-family: 'Roboto';
-  color: #f0dede;
+  color: #62ee37;
   background: url("../images/minions.jpg"); }
 
 h1, h2 {
@@ -104,8 +107,8 @@ button {
   outline: none;
   position: relative;
   border-radius: 50px;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid #8cf550;
+  color: #b4f53c;
   overflow: hidden; }
 
 .container {

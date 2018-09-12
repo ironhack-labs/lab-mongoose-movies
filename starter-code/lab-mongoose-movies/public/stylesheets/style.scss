@@ -6,6 +6,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+body > a {
+  margin-left: 20px;
+}
+
+
 a {
   text-decoration: none;
   color: rgb(219, 55, 14);
@@ -116,7 +121,7 @@ a {
 
 body {
   font-family: 'Roboto';
-  color: rgb(240, 222, 222);
+  color: rgb(98, 238, 55);
   background: url("../images/minions.jpg")
 }
 
@@ -137,8 +142,8 @@ button {
   outline: none;
   position: relative;
   border-radius: 50px;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid rgb(140, 245, 80);
+  color: rgb(180, 245, 60);
   overflow: hidden;
 }
 
