@@ -4,8 +4,7 @@ const Movie = require('../models/movie')
 const Celebrity = require('../models/celebrity')
 const ensureLogin = require("connect-ensure-login");
 
-router.get('/movies', (req, res, next) => {
-  console.log("carajo")
+router.get('/movies/index', (req, res, next) => {
   Movie.find().populate('celebrity')
     .then((data) => {
       console.log('=-=-=-=-=-=-=-=-=-=-=', req.session)
@@ -80,7 +79,7 @@ router.post('/movies/update/:id', ensureLogin.ensureLoggedIn('/login'), (req, re
 
 router.post('/movies/create', (req, res, next) => {
   // console.log(req.body.celebrity)
-  console.log(">>>>>", req.user)
+  console.log(">>>>>", req.body)
   let newMovie = {
     title: req.body.title,
     image: req.body.image,

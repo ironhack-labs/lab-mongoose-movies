@@ -1,11 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("script running");
+  // document.getElementById('fetch-movies').onclick = () =>{
+  document.getElementById("fetch-movies").onclick = () => {
+    axios.get('http://localhost:3000/api/movies')
+      .then((allMovies) => {
+        console.log(allMovies)
 
-  console.log('IronGenerator JS imported successfully!');
+
+        const results = document.getElementById("results")
+        allMovies.data.forEach((each) => {
+          console.log(each)
+
+          results.innerHTML += `
+          <h2 style="color: black"> ${each.title} <h2>
+        `
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  document.getElementById('form-movies').onclick = () => {
+    var dummy = '<span>Label: <input type="text"><small>(ft)</small></span>\r\n';
+    var wrap = document.getElementById("wrapper")
+    // wrap.innerHTML += dummy
+    wrap.innerHTML += `
+    <form class="newform" action="/movies/create" method="post">
+        <label for="newmovie">Title </label>
+        <input name="title" id="newmovie" type="text">
+        <br> <br>
+        <label for="genre">Genre </label>
+        <input name="genre" id="genre"type="text">
+        <br> <br>
+        <label for="image">Image </label>
+        <input name="image" id="image"type="text">
+        <br> <br>
+        <label for="plot">Plot </label>
+        <input name="plot" id="plot" type="text">
+        <button class="newButton1"> Create </button>
+    </form>
+    `
+    // console.log("create a movie now!")
+
+  }
+
+document.querySelector(".newform").onsubmit = function(e){
+
+  // const theResultDiv = document.querySelector(".characters-container")
+  axios.post('/movies/create',{title: req.body.newmovie})
+  console.lof(newData)
+  // .then((response) => {
+  //   console.log(response)
+  //   // getAllCharacters();
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  // })
+
+}
+
+
+
+
 
 }, false);
 
 window.onload = () => {
-//   //
+  //   //
   document.getElementById('fetch-all').onclick = getAllCharacters;
   //
   function getAllCharacters() {
