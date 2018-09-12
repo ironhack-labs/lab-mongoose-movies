@@ -6,16 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 
   <a href='/'>Home Page</a><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+  
+  <a href='/api/movies-json-view'>Home Page</a><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+  
+  {{#if user}}
+    <a href="/logout">Logout</a> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+    <div class="user-name">
+    Logged In: 
+    <a  href="/user">{{user.username}}</a>
+   </div>
+  {{else}}
   <a href="/signup">Sign Up</a> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
   <a href="/login">Log In</a> <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-  <a href="/logout">Logout</a>
+  {{/if}}
 
   {{{body}}}
 
-  <script src="/javascripts/script.js"></script>
 </body>
 </html>

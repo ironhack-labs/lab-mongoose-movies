@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const Celebrity   = require('../models/Celebrity')
 const Movie   = require('../models/Movie')
+const ensureLogin = require("connect-ensure-login");
 
 
 
@@ -23,20 +24,14 @@ router.get('/celebrities', (req, res, next) => {
 
 
 // creating new id's
-router.get('/celebrities/the-new-window', (req, res, next)=>{
-
-    //--- protected routes, Authentication needed!! 
-    if (req.session.currentUser) {
-        next();
-      } else {
-        res.redirect("/login");
-      }
-    res.render('celebrities/the-new-window');
+router.get('/celebrities/the-new-window', ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
+    
+    res.render('celebrities/the-new-window', {message: req.flash('success') ,user: req.user});
 })
 
 
 
-router.get('/celebrities/new', (req, res, next)=>{
+router.get('/celebrities/new', ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
 
     Movie.find()
     .then((allTheMovies)=>{

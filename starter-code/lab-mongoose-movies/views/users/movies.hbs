@@ -1,0 +1,22 @@
+
+<a href='/'>Main Page</a>
+<h1>click see more to get information</h1>
+
+
+{{#each movieData}}
+
+<dive class="list-celebrity">
+  <p>Title: {{this.title}}</p>
+  <p>Genre: {{this.genre}}</p>  
+  <img src="{{this.image}}" alt="Movie Poster">
+  <p style="width: 250px;">Plot: {{this.plot}}</p>
+  <br>
+  <a href="/movies/{{this._id}}">See More</a>
+  <br>
+  <br>
+  <form action="/movies/delete/{{this._id}}" method="POST">
+    <button style="background:red;">Delete This Movie</button>
+  </form>
+</dive>
+
+{{/each}}

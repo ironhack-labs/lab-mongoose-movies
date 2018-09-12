@@ -4,9 +4,10 @@ const express = require('express');
 const router  = express.Router();
 const Movie   = require('../models/Movie')
 const Celebrity   = require('../models/Celebrity')
+const ensureLogin = require("connect-ensure-login");
 
 
-/* GET celebrities page */
+/* GET movies page */
 router.get('/movies', (req, res, next) => {
 
     Movie.find()
@@ -20,7 +21,7 @@ router.get('/movies', (req, res, next) => {
 
 });
 
-router.get('/movies/new', (req, res, next)=>{
+router.get('/movies/new', ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
 
     Celebrity.find()
     .then((allTheCelebs)=>{
@@ -41,6 +42,7 @@ router.post('/movies/new', (req, res, next)=>{
   //     plot: "T'Challa, the King of Wakanda, rises to the throne in the isolated, technologically advanced African nation, but his claim is challenged by a vengeful outsider who was a childhood victim of T'Challa's father's mistake.",
   //     image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
   
+        const theCreator  = req.user._id;
         const theTitle    = req.body.title;
         const theActors   = req.body.actors
         const theGenre    = req.body.genre;
@@ -48,6 +50,7 @@ router.post('/movies/new', (req, res, next)=>{
         const theImageSrc = req.body.image;
       
            Movie.create({
+              creator: theCreator,
               title:  theTitle,
               actors: theActors,
               genre:  theGenre,
@@ -144,5 +147,6 @@ router.post('/movies/update/:id', (req, res, next)=>{
     })
 
 })
+
 
 module.exports = router;
