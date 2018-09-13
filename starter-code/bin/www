@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const http = require('http');
 
 let app = require('../app');
@@ -33,7 +31,7 @@ server.on('error', error => {
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(`Port ${process.env.PORT} is already in use`);
+      console.error(`Port ${process.env.PORT}is already in use`);
       process.exit(1);
       break;
     default:

@@ -12,7 +12,7 @@
 <div class="celeb-row">
     <div class="celeb-profile">
         <div class="celeb-img-container">
-            <img style="background-image" src="{{celebrity.image}}" class="celeb-img" alt="">
+            <img style="background-image" src="{{celebrity.imgPath}}" class="celeb-img" alt="">
         </div>
         <div class="celeb-info">
             <p><strong>Occupation:</strong> {{celebrity.occupation}}</p>
@@ -21,8 +21,8 @@
                 <a href="/celebrities/edit/{{celebrity._id}}">
                     <button class="btn btn-primary btn-md">Edit This Celebrity</button>
                 </a>
-                <form action="/celebrities/delete/{{this._id}}" method="POST">
-                    <button class="btn btn-danger btn-md">Delete This Celebrity</button>
+                <form action="/celebrities/delete/{{celebrity._id}}" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete This Celebrity</button>
                 </form>
             </div>
         </div>

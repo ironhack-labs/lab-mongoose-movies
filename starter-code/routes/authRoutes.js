@@ -1,7 +1,10 @@
 const express    = require('express');
 const router     = express.Router();
-const User       = require('../models/User')
-const bcrypt     = require('bcrypt')
+const User       = require('../models/User');
+const bcrypt     = require('bcrypt');
+const bcryptSalt = 10;
+const passport   = require('passport');
+const flash      = require("connect-flash");
 
 router.get('/signup', (req, res, next)=>{
     res.render('users/signup')
@@ -12,82 +15,63 @@ router.post('/signup', (req, res, next)=>{
     const password = req.body.password
 
     if (username === "" || password === "") {
-        res.render("users/signup", {
-          errorMessage: "Indicate a username and a password to sign up"
-        });
-        return;
+      req.flash('error', 'please specify a username and password to sign up')
+      res.render("users/signup", { message: req.flash("error") });
+      return;
       }
 
       User.findOne({ "username": username })
       .then(user => {
           if (user !== null) {
-            res.render("users/signup", {
-            errorMessage: "Sorry, that username already exists"
-        });
+            res.render("users/signup", { message: req.flash("error") });
         return;
         }
-      
-    const saltRounds = 10;
-    const thePassword = req.body.password;
-    const salt  = bcrypt.genSaltSync(saltRounds);
-    const hash = bcrypt.hashSync(thePassword, salt);
 
-    User.create({
-        username: req.body.username,
-        password: hash
-    })
-    .then((result)=>{
-        res.redirect('/');
-    })
-    .catch((err)=>{
-        next(err);
-    })
-    })
-})
+      const salt = bcrypt.genSaltSync(bcryptSalt);
+      const hashPass = bcrypt.hashSync(password, salt);
 
-
-router.get('/login', (req, res, next)=>{
-    res.render('users/login')
-})
-
-router.post('/login', (req, res, next)=>{
-    const username = req.body.username;
-    const password = req.body.password;
-
-    if (username === "" || password === "") {
-        res.render("auth/login", {
-          errorMessage: "Oops, it look like you left one or more of the files blank, please fill in your username and password"
-        });
-        return;
-      }
-
-      User.findOne({ "username": username })
-      .then(user => {
-          if (!user) {
-            res.render("auth/login", {
-              errorMessage: "Sorry, that username doesn't exist"
-            });
-            return;
-          }
-          if (bcrypt.compareSync(password, user.password)) {
-            // Save the login in the session!
-            req.session.currentUser = user;
-            res.redirect("/");
-          } else {
-            res.render("auth/login", {
-              errorMessage: "Incorrect password"
-            });
-          }
+      User.create({
+          username: username,
+          password: hashPass
+      })
+      .then((result)=>{
+          res.redirect('/');
+      })
+      .catch((err)=>{
+        res.render("users/signup", {message: req.flash("error") });
+      })
       })
       .catch(error => {
         next(error)
       })
-})
+    });
+
+router.get('/login', (req, res, next)=>{
+    res.render('users/login', {message: req.flash('error')})
+  })
+
+router.post('/login', passport.authenticate('local', {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  successFlash: true,
+  passReqToCallback: true
+}));
 
 router.get("/logout", (req, res, next) => {
-    req.logout()
-    res.rendre('logout');
+    req.logout();
+    res.redirect('/');
     
   });
+
+router.get("/auth/google", passport.authenticate("google", {
+  scope: ["https://www.googleapis.com/auth/plus.login",
+          "https://www.googleapis.com/auth/plus.profile.emails.read"]
+}));
+
+router.get("/auth/google/callback", passport.authenticate("google", {
+  failureRedirect: "/",
+  successRedirect: "/"
+}));
 
 module.exports = router;

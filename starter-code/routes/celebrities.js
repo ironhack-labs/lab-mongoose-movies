@@ -1,6 +1,7 @@
 const express    = require('express');
 const router     = express.Router();
-const Celebrity  = require('../models/Celebrity')
+const Celebrity  = require('../models/Celebrity');
+const uploadCloud = require('../config/cloudinary.js');
 
 //get reqs always end in a res.render
 //post reqs always end in a redirect
@@ -22,12 +23,13 @@ router.get('/celebrities/create', (req, res, next) => {
 })
 
 //post a new celebrity listing
-router.post('/celebrities/create', (req, res, next) => {
+router.post('/celebrities/create', uploadCloud.single('photo'), (req, res, next) => {
     Celebrity.create({
         name:        req.body.name,
         occupation:  req.body.occupation,
         catchphrase: req.body.catchphrase,
-        image:       req.body.image
+        imgPath:     req.file.url,
+        imgName:     req.file.originalname,
     })
     .then((response) => {
         res.redirect('/celebrities')
@@ -60,12 +62,13 @@ router.get("/celebrities/edit/:id", (req, res, next) => {
 })
 
 //post the edited celebrity listing
-router.post("/celebrities/update/:id", (req, res, next) => {
+router.post("/celebrities/update/:id", uploadCloud.single('photo'), (req, res, next) => {
     Celebrity.findByIdAndUpdate(req.params.id, {
         name:        req.body.name,
         occupation:  req.body.occupation,
         catchphrase: req.body.catchphrase,
-        image:       req.body.image
+        imgPath:     req.file.url,
+        imgName:     req.file.originalname,
     })
     .then((response) => {
         res.redirect('/celebrities/' + req.params.id)

@@ -1,6 +1,6 @@
 <div class="title-bar">
     <h1>Welcome to the Movie + Celebity Database!</h1>
-    {{#if req.session.User}}
+    {{#if currentUser}}
     <a href="/logout">
         <button type="button" class="btn btn-info">Logout</button>
     </a>
@@ -18,17 +18,29 @@
             <img style="background-image" src="https://images-na.ssl-images-amazon.com/images/I/61RLRZnbc%2BL._SY679_.jpg" class="home-img"
                 alt="">
         </div>
-        <a href="/movies/">
+            {{#if currentUser}}
+            <a href="/movies/">
             <button type="button" class="btn btn-primary">See Movie Directory</button>
-        </a>
+            </a>
+            {{else}}
+            <a href="/login">
+            <button type="button" class="btn btn-primary">See Movie Directory</button>
+            </a>
+            {{/if}}
     </div>
     <div class="home-profile">
         <div class="home-img-container">
             <img style="background-image" src="https://www.popworkouts.com/wp-content/uploads/2013/03/matthew-mcconaughey-headshot.jpg"
                 class="home-img" alt="">
         </div>
-        <a href="/celebrities/">
+            {{#if currentUser}}
+            <a href="/celebrities/">
             <button type="button" class="btn btn-primary">See Celebrity Directory</button>
-        </a>
+            </a>
+             {{else}}
+            <a href="/login">
+            <button type="button" class="btn btn-primary">See Celebrity Directory</button>
+            </a>
+            {{/if}}
     </div>
 </div>

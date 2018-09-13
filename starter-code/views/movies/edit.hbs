@@ -9,7 +9,7 @@
 </div>
 <hr>
 <br>
-<form action="/movies/update/{{movie._id}}" method="POST">
+<form action="/movies/update/{{movie._id}}" method="post" enctype="multipart/form-data">
     <div class="row">
 
         <div class="item">
@@ -35,9 +35,9 @@
 
         <div class="item">
             <label for="">
-                <strong>Image URL: </strong>
+                <strong>Image Upload: </strong>
             </label>
-            <input type="text" name="image" value="{{movie.image}}" class="input">
+            <input type="file" name="photo" class="input">
         </div>
 
         <button class="btn btn-dark">Submit</button>

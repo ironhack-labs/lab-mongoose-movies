@@ -1,6 +1,7 @@
 const express   = require('express');
 const router    = express.Router();
-const Movie     = require('../models/Movie')
+const Movie     = require('../models/Movie');
+const uploadCloud = require('../config/cloudinary.js');
 
 //get reqs always end in a res.render
 //post reqs always end in a redirect
@@ -22,12 +23,13 @@ router.get('/movies/create', (req, res, next) => {
 })
 
 //post a new movie listing
-router.post('/movies/create', (req, res, next) => {
+router.post('/movies/create', uploadCloud.single('photo'), (req, res, next) => {
     Movie.create({
         title: req.body.title,
         genre: req.body.genre,
         plot:  req.body.plot,
-        image: req.body.image
+        imgPath: req.file.url,
+        imgName: req.file.originalname,
     })
     .then((response) => {
         res.redirect('/movies')
@@ -60,12 +62,13 @@ router.get("/movies/edit/:id", (req, res, next) => {
 })
 
 //post the edited movie listing
-router.post("/movies/update/:id", (req, res, next) => {
+router.post("/movies/update/:id", uploadCloud.single('photo'),  (req, res, next) => {
     Movie.findByIdAndUpdate(req.params.id, {
         title: req.body.title,
         genre: req.body.genre,
         plot:  req.body.plot,
-        image: req.body.image,
+        imgPath: req.file.url,
+        imgName: req.file.originalname,
     })
     .then((response) => {
         res.redirect('/movies/' + req.params.id)

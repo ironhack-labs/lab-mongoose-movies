@@ -18,3 +18,9 @@
     Don't have an account? <a href="/signup">Sign up here</a>
   </p>
 </form>
+
+{{#unless user}}
+  <div>
+    <a href="/auth/google">Login with Google Account</a>
+  </div>
+{{/unless}}

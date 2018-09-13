@@ -5,7 +5,8 @@ const celebritySchema = new Schema({
   name: String,
   occupation: String,
   catchphrase: String,
-  image: String
+  imgName: String,
+  imgPath: String,
 });
 
 const Celebrity = mongoose.model("celebrities", celebritySchema);

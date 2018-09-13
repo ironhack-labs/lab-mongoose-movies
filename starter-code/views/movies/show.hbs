@@ -12,7 +12,7 @@
 <div class="movie-row">
     <div class="movie-profile">
         <div class="movie-img-container">
-            <img style="background-image" src="{{movie.image}}" class="movie-img" alt="">
+            <img style="background-image" src="{{movie.imgPath}}" class="movie-img" alt="">
         </div>
         <div class="movie-info">
             <p><strong>Genre: </strong>{{movie.genre}}</p>
@@ -21,8 +21,8 @@
                 <a href="/movies/edit/{{movie._id}}">
                     <button class="btn btn-primary btn-md">Edit This Movie</button>
                 </a>
-                <form action="/movies/delete/{{this._id}}" method="POST">
-                    <button class="btn btn-danger btn-md">Delete This Movie</button>
+                <form action="/movies/delete/{{movie._id}}" method="POST">
+                    <button class="btn btn-danger">Delete This Movie</button>
                 </form>
             </div>
         </div>
