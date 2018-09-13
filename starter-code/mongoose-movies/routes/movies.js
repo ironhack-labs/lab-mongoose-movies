@@ -46,7 +46,6 @@ router.post('/movies/delete/:id', (req, res, next) => {
 });
 
 router.post('/movies/update/:id', uploadCloud.single('photo'), (req, res, next) => {
-
   const theupdate = {
     title: req.body.title,
     genre: req.body.genre,

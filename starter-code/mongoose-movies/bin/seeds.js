@@ -28,17 +28,14 @@ const movie = [
   {
     title:'Deadpool',
     genre:'Action',
-    plot:'The origin of Deadpool'
   },
   {
     title:'The Muppets in Vegas',
     genre:'Comedy',
-    plot:'The muppets go to Vegas'
   },
   {
     title:'The Babadook',
     genre:'Horror',
-    plot:'The Babadook scares people'
   }
 ]
 
