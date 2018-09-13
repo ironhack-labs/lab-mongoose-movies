@@ -12,9 +12,12 @@
   <a href="/movies">Movies</a>
   <a href="/movieList">Movie List</a>
   <a href="/celebrity">Celebrities</a>
+  {{#if user}}
+  <a href="/logout">Log Out</a>
+  {{else}}
   <a href="/signup">Sign Up</a>
   <a href="/login">Log In</a>
-  <a href="/logout">Log Out</a>
+  {{/if}}
 
   {{{body}}}
 

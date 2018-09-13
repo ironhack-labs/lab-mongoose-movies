@@ -128,7 +128,12 @@ passport.use(new GoogleStrategy({
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
+app.use(function (req, res, next){
+  res.locals = {
+    user: req.user
+  };
+  next();
+})
 
 const index = require('./routes/index');
 app.use('/', index);
