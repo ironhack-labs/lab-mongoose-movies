@@ -1,11 +1,12 @@
 const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/Movie')
+const uploadCloud = require('../config/cloudinary.js');
 
 
 /* GET Movies page */
 
-  router.get('/Movies', (req, res, next) => {
+  router.get('/movies', (req, res, next) => {
     Movie.find()
       .then((listOfMovies)=>{
 
@@ -16,8 +17,6 @@ const Movie = require('../models/Movie')
   })
 
 });
-
-
 
 
 
@@ -32,7 +31,8 @@ router.post('/movies/create', (req, res, next)=>{
   Movie.create({
       title: req.body.title,
       genre: req.body.genre,
-      plot: req.body.plot
+      plot: req.body.plot,
+      image: req.body.image
   })
   .then((response)=>{
       res.redirect('/movies')
@@ -75,7 +75,8 @@ router.post('/movies/update/:movieID', (req, res, next)=>{
   Movie.findByIdAndUpdate(req.params.movieID, {
     title: req.body.title,
     genre: req.body.genre,
-    plot: req.body.plot
+    plot: req.body.plot,
+    image: req.body.image
   })
   .then((response)=>{
     res.redirect('/movies/'+req.params.movieID)
@@ -118,5 +119,5 @@ router.get('/api/movies', (req, res, next) => {
 
 });
 
-  
+
 module.exports = router;

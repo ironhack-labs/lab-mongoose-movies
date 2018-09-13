@@ -13,7 +13,6 @@ const flash         = require("connect-flash");
 
 
 
-
 const session       = require("express-session");
 const bcrypt        = require("bcryptjs");
 const passport      = require("passport");
@@ -119,3 +118,5 @@ app.use('/', charactersroutesFile);
 
 
 module.exports = app;
+
+app.listen(2000);

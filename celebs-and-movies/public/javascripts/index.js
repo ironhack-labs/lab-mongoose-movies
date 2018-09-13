@@ -15,6 +15,7 @@ $(document).ready( () => {
             <div class="name"> Name:  ${character.name} </div>
             <div class="occupation"> Occupation: ${character.occupation} </div>
             <div class="weapon"> Weapon: ${character.weapon} </div>
+            <div class="id"> ID: ${character.id} </div>
             </div>
             `;
 
