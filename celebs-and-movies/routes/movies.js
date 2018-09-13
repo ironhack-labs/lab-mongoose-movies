@@ -26,13 +26,18 @@ router.get('/movies/new', (req, res, next)=>{
 })
 
 
-router.post('/movies/create', (req, res, next)=>{
+router.post('/movies/create', uploadCloud.single('photo'), (req, res, next)=>{
+
+  // const imgPath = req.file.url;
+  // const imgName = req.file.originalname;
 
   Movie.create({
       title: req.body.title,
       genre: req.body.genre,
       plot: req.body.plot,
-      image: req.body.image
+      image: req.body.image,
+      imgPath: req.file.url,
+      imgName: req.file.originalname
   })
   .then((response)=>{
       res.redirect('/movies')
@@ -71,12 +76,14 @@ router.get('/movies/edit/:movieID', (req, res, next)=>{
 
 })
 
-router.post('/movies/update/:movieID', (req, res, next)=>{
+router.post('/movies/update/:movieID',uploadCloud.single('photo'), (req, res, next)=>{
   Movie.findByIdAndUpdate(req.params.movieID, {
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot,
-    image: req.body.image
+    image: req.body.image,
+    imgPath: req.file.url,
+    imgName: req.file.originalname
   })
   .then((response)=>{
     res.redirect('/movies/'+req.params.movieID)

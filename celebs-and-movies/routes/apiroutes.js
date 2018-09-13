@@ -27,7 +27,10 @@ router.post('/movies/create', (req, res, next)=>{
         title: req.body.title,
         genre: req.body.genre,
         plot: req.body.plot,
-        image: req.body.image
+        image: req.body.image,
+        imgPath: req.body.imgPath,
+        imgName: req.body.imgName,
+
     })
     .then((response)=>{
         res.json(response);

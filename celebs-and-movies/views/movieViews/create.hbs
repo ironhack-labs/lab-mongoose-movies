@@ -1,7 +1,7 @@
 <h1>Create a new movie!</h1>
 
 
-<form action="/movies/create" method= "POST">
+<form action="/movies/create" method="post" enctype="multipart/form-data">
 
 
 
@@ -17,6 +17,8 @@
 <label for"">Image: </label>
 <input type="text" name="image">
 
+<label>Cloud Image: </label>
+<input type="file" name="photo">
 
 <button>Submit</button>
 

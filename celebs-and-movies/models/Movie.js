@@ -5,7 +5,7 @@ const movieSchema = new Schema({
   title: String,
   genre: String,
   plot: String,
-  image: String,
+  // image: String,
   imgName: String,
   imgPath: String,
 });
