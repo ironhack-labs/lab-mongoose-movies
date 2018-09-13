@@ -20,25 +20,34 @@ router.get ('/movies/index', (req, res, next)=>
 })
 
 
-router.post('/movies/update/:Movieid', (req, res, next)=> {
+router.post('/movies/update/:Movieid', uploadCloud.single('photo'), (req, res, next)=> {
 
-  let theTitle = req.body.movieTitle;
- let  theGenre = req.body.movieGenre;
-  let thePlot = req.body.moviePlot;
+  let theUpdate = {
+    title: req.body.movieTitle,
+    genre: req.body.movieGenre,
+    plot: req.body.moviePlot,
+    $push: { stars: req.body.movieStar},
+
+
+
+  }
+
+  if (req.file){
+    theUpdate.imgPath = req.file.url
+    theUpdate.imgName = req.file.originalname
+  }
+
+
+
+  // let theTitle = req.body.movieTitle;
+//  let  theGenre = req.body.movieGenre;
+//   let thePlot = req.body.moviePlot;
   let theStar = req.body.movieStar;
+  // const imgPath = req.file.url;
+  // const imgName = req.file.originalname;  
 
-  Movie.findByIdAndUpdate(req.params.Movieid, {
 
-    title: theTitle,
-
-    genre: theGenre,
-
-    plot: thePlot,
-
-    $push: { stars: theStar }
-    
-
-  })
+  Movie.findByIdAndUpdate(req.params.Movieid, theUpdate)
   .then((ret)=> {
     Celebrity.findByIdAndUpdate(theStar, 
       {$push: {movies: req.params.Movieid},
