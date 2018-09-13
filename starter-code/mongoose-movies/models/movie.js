@@ -4,7 +4,8 @@ const Schema   = mongoose.Schema;
 const movieSchema = new Schema({
   title: {type: String, required: true},
   genre: String,
-  plot: String,
+  imgName: String,
+  imgPath: String,
   cast: [{type: Schema.Types.ObjectId, ref: "Celeb"}]
 });
 

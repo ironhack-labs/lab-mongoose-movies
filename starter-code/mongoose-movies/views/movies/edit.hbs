@@ -1,6 +1,6 @@
 <h1>Edit {{movieDetails.name}}</h1>
 
-<form action="/movies/update/{{theMovie._id}}" method="POST">
+<form action="/movies/update/{{theMovie._id}}" method="post" enctype="multipart/form-data">
 
   <label for="">Title</label>
   <input type="text" name="title" value="{{theMovie.title}}">
@@ -8,8 +8,8 @@
   <label for="">Genre</label>
   <input type="text" name="genre" value="{{theMovie.genre}}">
 
-  <label for="">Plot</label>
-  <input type="text" name="plot" value="{{theMovie.plot}}">
+  <label>Poster</label>
+  <input type="file" name="photo">
 
   <h6>Add a Celebrity to the cast!</h6>
   <select name="theCelebrity">

@@ -50,10 +50,10 @@ Movie.create(movie)
   console.log(err)
 })
 
-// Celeb.create(celebrity)
-// .then((celebrity)=>{
-//   console.log(`Created ${celebrity.length} celebrities`)
-// })
-// .catch((err)=>{
-//   console.log(err)
-// })
+Celeb.create(celebrity)
+.then((celebrity)=>{
+  console.log(`Created ${celebrity.length} celebrities`)
+})
+.catch((err)=>{
+  console.log(err)
+})

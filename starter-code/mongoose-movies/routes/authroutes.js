@@ -1,6 +1,7 @@
 // routes/auth-routes.js
-const express = require("express");
-const router = express.Router();
+const express  = require("express");
+const router   = express.Router();
+const passport = require('passport');
 
 // User model
 const User = require("../models/User");
@@ -9,7 +10,6 @@ const bcrypt = require("bcryptjs");
 
 const bcryptSalt = 10;
 
-const passport = require('passport');
 
 
 router.get("/signup", (req, res, next) => {
@@ -68,9 +68,22 @@ router.get("/signup", (req, res, next) => {
   }));
 
 
+
+  router.get("/auth/google", passport.authenticate("google", {
+    scope: ["https://www.googleapis.com/auth/plus.login",
+            "https://www.googleapis.com/auth/plus.profile.emails.read"]
+  }));
+  
+  router.get("/auth/google/callback", passport.authenticate("google", {
+    failureRedirect: "/",
+    successRedirect: "/movies"
+  }));
+
+
+//logout
   router.get('/logout', (req, res, next)=>{
       req.logout()
-    res.redirect('/')
+    res.redirect('/login')
   })
 
 

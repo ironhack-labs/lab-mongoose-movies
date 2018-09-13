@@ -2,8 +2,11 @@ const express = require('express');
 const router  = express.Router();
 const Movie    = require('../models/movie')
 const Celebrity = require('../models/celebrity');
+const uploadCloud = require('../config/cloudinary.js');
+const ensureLogin = require("connect-ensure-login");
 
-router.get('/movies', (req, res, next) => {
+
+router.get('/movies', ensureLogin.ensureLoggedIn('/signup'), (req, res, next) => {
   Movie.find()
   .then((movieInfo) => {
     res.render('movies/index', {listOfMovies: movieInfo})
@@ -13,15 +16,20 @@ router.get('/movies', (req, res, next) => {
   })
 });
 
-router.get('/movies/new', (req, res, next) => {
+router.get('/movies/new', ensureLogin.ensureLoggedIn('/signup'), (req, res, next) => {
+  if(!req.user){
+    res.redirect('/movies')
+    return
+}
   res.render('movies/new')
 });
 
-router.post('/movies/create', (req, res, next) => {
+router.post('/movies/create', uploadCloud.single('photo'),(req, res, next) => {
   Movie.create({
     title: req.body.title,
     genre: req.body.genre,
-    plot: req.body.plot,
+    imgPath: req.file.url,
+    imgName: req.file.originalname,
   })
   .then((response) => {
     res.redirect('/movies')
@@ -41,11 +49,12 @@ router.post('/movies/delete/:id', (req, res, next) => {
   })
 });
 
-router.post('/movies/update/:id', (req, res, next) => {
+router.post('/movies/update/:id', uploadCloud.single('photo'), (req, res, next) => {
   Movie.findByIdAndUpdate(req.params.id, { 
       title: req.body.title,
       genre: req.body.genre,
-      plot: req.body.plot,
+      imgPath: req.file.url,
+      imgName: req.file.originalname,
       $push: {cast: req.body.theCelebrity}
     })
     .then((response)=>{
@@ -65,7 +74,7 @@ router.post('/movies/update/:id', (req, res, next) => {
 });
 
 
-router.get('/movies/edit/:id', (req, res, next) => {
+router.get('/movies/edit/:id', ensureLogin.ensureLoggedIn('/signup'), (req, res, next) => {
   Movie.findById(req.params.id)
   .then((aMovie) => {
     Celebrity.find()
@@ -81,7 +90,7 @@ router.get('/movies/edit/:id', (req, res, next) => {
   })
 });
 
-router.get('/movies/:id', (req, res, next) => {
+router.get('/movies/:id', ensureLogin.ensureLoggedIn('/signup'), (req, res, next) => {
   Movie.findById(req.params.id).populate('cast')
   .then((movieInfo)=>{
       res.render('movies/show', {movieDetails: movieInfo})
@@ -91,5 +100,11 @@ router.get('/movies/:id', (req, res, next) => {
     next(err);
   });
 });
+  
+  
+  
+  router.get('/movieList', ensureLogin.ensureLoggedIn('/signup'), (req, res, next)=>{
+    res.render('movies/movieList');
+  });
 
 module.exports = router;

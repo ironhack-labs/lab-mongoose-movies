@@ -1,7 +1,7 @@
 <h1>Add a New Movie</h1>
 
 
-<form action="/movies/create" method="POST">
+<form action="/movies/create" method="post" enctype="multipart/form-data">
 
     <label for="">Title</label>
     <input type="text" name="title">
@@ -9,8 +9,8 @@
     <label for="">Genre</label>
     <input type="text" name="genre">
 
-    <label for="">Plot</label>
-    <input type="text" name="plot">
+    <label>Poster</label>
+    <input type="file" name="photo">
 
     <button>Create</button>
 

@@ -2,11 +2,11 @@
 
 
 <h5>{{movieDetails.genre}}</h5>
-<p>{{movieDetails.plot}}</p>
+<img src="{{movieDetails.image}}">
 {{#each movieDetails.cast}}
   <p>{{this.name}}</p>
 {{/each}}
-{{!-- <p>{{movieDetails.cast}}</p> --}}
+<img src="{{movieDetails.imgPath}}" alt="">
 
 <a href="/movies/edit/{{movieDetails.id}}">
 <button>Edit this Movie</button>
