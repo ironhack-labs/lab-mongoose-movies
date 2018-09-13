@@ -5,7 +5,7 @@ Hello creation
 <h1>Edd a New Movie To The Library</h1>
 
 
-<form action="/movies/new" method="POST">
+<form action="/movies/new" method="POST" enctype="multipart/form-data">
 
     <label for="">Title</label>
     <input type="text" name="title">
@@ -18,6 +18,9 @@ Hello creation
 
     <label for="">imageSrc</label>
     <input type="text" name="image">
+
+    <label>Poster</label>
+    <input type="file" name="photo">
 
     <label for="">Actors</label>
     <select name="actors">

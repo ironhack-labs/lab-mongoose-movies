@@ -10,8 +10,12 @@
 
 <dive class="list-celebrity">
   <p>Title: {{this.title}}</p>
-  <p>Genre: {{this.genre}}</p>  
+  <p>Genre: {{this.genre}}</p> 
+  {{#if this.imgPath}}
+  <img src="{{this.imgPath}}" alt=""> 
+  {{else}}
   <img src="{{this.image}}" alt="Movie Poster">
+  {{/if}}
   <p style="width: 250px;">Plot: {{this.plot}}</p>
   <br>
   <a href="/movies/{{this._id}}">See More</a>

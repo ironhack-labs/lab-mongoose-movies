@@ -6,7 +6,7 @@ Hello editing
 <h1>Eddit {{movie.title}} to The Library</h1>
 
 
-<form action="/movies/update/{{movie._id}}" method="POST">
+<form action="/movies/update/{{movie._id}}" method="POST" enctype="multipart/form-data">
 
     <label for="">Name</label>
     <input type="text" name="title" value="{{movie.title}}">
@@ -21,7 +21,8 @@ Hello editing
     <label for="">imageSrc</label>
     <input type="text" name="image" value="{{movie.image}}">
 
-
+    <label>Poster</label>
+    <input type="file" name="photo">
 
     <label for="">Actors</label>
     <select name="actors">

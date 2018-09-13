@@ -1,10 +1,11 @@
 
 
-const express = require('express');
-const router  = express.Router();
-const Movie   = require('../models/Movie')
+const express     = require('express');
+const router      = express.Router();
+const Movie       = require('../models/Movie')
 const Celebrity   = require('../models/Celebrity')
 const ensureLogin = require("connect-ensure-login");
+const uploadCloud = require('../config/cloudinary.js');
 
 
 /* GET movies page */
@@ -34,20 +35,28 @@ router.get('/movies/new', ensureLogin.ensureLoggedIn("/login"), (req, res, next)
 })
 
 /*   Creating new movie page */
-router.post('/movies/new', (req, res, next)=>{
+router.post('/movies/new', uploadCloud.single('photo'), (req, res, next)=>{
 
   //----------------------------------- movie example
-  //     title : "Black Panther",
-  //     genre: "Ryan Coogler",
-  //     plot: "T'Challa, the King of Wakanda, rises to the throne in the isolated, technologically advanced African nation, but his claim is challenged by a vengeful outsider who was a childhood victim of T'Challa's father's mistake.",
-  //     image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+//   const movieSchema = new Schema({
+//     creator: String,
+//     title: String,
+//     actors: [{type: Schema.Types.ObjectId, ref: "Celebrity"}],
+//     genre: String,
+//     plot: String,
+//     image: String,
+//     imgName: String,
+//     imgPath: String
+//   },
   
-        const theCreator  = req.user._id;
-        const theTitle    = req.body.title;
-        const theActors   = req.body.actors
-        const theGenre    = req.body.genre;
-        const thePlot     = req.body.plot;
-        const theImageSrc = req.body.image;
+        const theCreator   = req.user._id;
+        const theTitle     = req.body.title;
+        const theActors    = req.body.actors
+        const theGenre     = req.body.genre;
+        const thePlot      = req.body.plot;
+        const theImageSrc  = req.body.image;
+        const theImageName = req.file.originalname;
+        const theImgPath   = req.file.url;
       
            Movie.create({
               creator: theCreator,
@@ -55,7 +64,10 @@ router.post('/movies/new', (req, res, next)=>{
               actors: theActors,
               genre:  theGenre,
               plot:   thePlot,
-              image:  theImageSrc
+              image:  theImageSrc,
+              imgName: theImageName,
+              imgPath: theImgPath
+
           })
           .then((response)=>{
               res.redirect('/movies') 
@@ -99,27 +111,47 @@ router.post('/movies/edit/:id', (req, res, next)=>{
 })
 
 /*   Editing A celeb page */
-router.post('/movies/update/:id', (req, res, next)=>{
+router.post('/movies/update/:id', uploadCloud.single('photo'), (req, res, next)=>{
 
-//----------------------------------- movie example
-//     title : "Black Panther",
-//     genre: "Ryan Coogler",
-//     plot: "T'Challa, the King of Wakanda, rises to the throne in the isolated, technologically advanced African nation, but his claim is challenged by a vengeful outsider who was a childhood victim of T'Challa's father's mistake.",
-//     image: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  //----------------------------------- movie example
+//   const movieSchema = new Schema({
+//     creator: String,  //-- we dont want to change this!!!
+//     title: String,
+//     actors: [{type: Schema.Types.ObjectId, ref: "Celebrity"}],
+//     genre: String,
+//     plot: String,
+//     image: String,
+//     imgName: String,
+//     imgPath: String
+//   },
  
-     const theTitle    = req.body.title;
-     const theActors   = req.body.actors
-     const theGenre    = req.body.genre;
-     const thePlot     = req.body.plot;
-     const theImageSrc = req.body.image;
-  
-       Movie.findByIdAndUpdate(req.params.id, {
-          title:  theTitle,
-          $push:  {actors:   theActors},
-          genre:  theGenre,
-          plot:   thePlot,
-          image:  theImageSrc
-      })
+
+   const movieObject = {
+      title    : req.body.title,
+      genre    : req.body.genre,
+      plot     : req.body.plot,
+      image    : req.body.image,
+      $push: {actors: req.body.actors}
+    }
+    if(req.file){
+        movieObject.imgName = req.file.originalname;
+        movieObject.imgPath = req.file.url;
+      }
+//--------- before useing the better methed of object!!!!
+    //  const theTitle     = req.body.title;
+    //  const theActors    = req.body.actors;
+    //  const theGenre     = req.body.genre;
+    //  const thePlot      = req.body.plot;
+    //  const theImageSrc  = req.body.image;
+    //  let theImageName   = "originalname";
+    //  let theImgPath     = "url"; 
+    //  if(req.file){
+    //  theImageName = req.file.originalname;
+    //  theImgPath   = req.file.url;
+    // }
+//----------- End old methed
+
+       Movie.findByIdAndUpdate(req.params.id, movieObject )
       .then((response)=>{
 
             Celebrity.findByIdAndUpdate(req.body.actors, {

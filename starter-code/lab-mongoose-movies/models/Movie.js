@@ -13,7 +13,9 @@ const movieSchema = new Schema({
   actors: [{type: Schema.Types.ObjectId, ref: "Celebrity"}],
   genre: String,
   plot: String,
-  image: String
+  image: String,
+  imgName: String,
+  imgPath: String
 }, {
   timestamps: {
     createdAt: "created_at",
