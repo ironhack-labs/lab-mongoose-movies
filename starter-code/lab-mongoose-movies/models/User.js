@@ -5,9 +5,10 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
+  email:    String,
   slackID:  String,
   googleID: String,
-  image: String
+  image:    String
 }, {
   timestamps: {
     createdAt: "created_at",

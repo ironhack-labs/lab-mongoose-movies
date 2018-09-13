@@ -4,7 +4,7 @@ const router = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-
+const nodemailer = require('nodemailer');
 
 /* GET signup  page */
 router.get('/signup', (req, res, next) => {
@@ -25,10 +25,12 @@ const bcryptSalt = 10;
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+  const email    = req.body.email;
+  const message  = req.body.message;
 
 
   //----------- validate that both fields are correctly filled up
-  if (username === "" || password === "") {
+  if (username === "" || password === "" || email === "") {
     res.render("auth/signup", {
       errorMessage: "Indicate a username and a password to sign up"
     });
@@ -45,6 +47,22 @@ router.post("/signup", (req, res, next) => {
         return;
       }
 
+// --------  using nodemailer to send and get eMails
+let transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.appsGmailAccount,
+    pass: process.env.gmailPassword 
+  }
+});
+
+transporter.sendMail({
+  from: '"My Awesome Project 👻" <myawesome@project.com>',
+  to: email,  
+  text: message,
+  html: `<b>${message}</b>`
+
+});
 
   //------------------- continue after validations
       const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -52,11 +70,16 @@ router.post("/signup", (req, res, next) => {
 
       const newUser = User({
         username,
+        email,
         password: hashPass
       });
 
       newUser.save().then(user => {
-        res.redirect("/");
+        // login after signup
+        req.login(user, function (err) {
+          if (err) { return next(err); }
+          return res.redirect('/');
+        });
       });
     })
     .catch(error => {
@@ -108,7 +131,7 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.google_client_secret,
   callbackURL: "/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
-  //console.log(profile);  // to see all what google profile sends the web app
+  //console.log("=-=-=-=-=-=-=-=-",profile.emails[0].value);  // to see all what google profile sends the web app
   //console.log("-=-=-=-=-=-=-=-=-=",profile.photos[0].value)
   User.findOne({ googleID: profile.id })
     .then((user, err) => {
@@ -122,6 +145,7 @@ passport.use(new GoogleStrategy({
       const newUser = new User({
         username: profile.displayName,
         image:    profile.photos[0].value,
+        email:    profile.emails[0].value,
         googleID: profile.id
       });
 

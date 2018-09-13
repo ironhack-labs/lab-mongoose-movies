@@ -50,13 +50,13 @@ hr {
   width: 380px; }
 
 #form label {
-  color: #666;
+  color: #e08383;
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
   width: 100%; }
 
-#form input,
+#form input, textarea,
 #form button {
   box-sizing: border-box;
   font-size: 14px;

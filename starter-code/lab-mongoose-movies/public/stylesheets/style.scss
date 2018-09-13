@@ -72,14 +72,14 @@ hr {
 }
 
 #form label {
-  color: #666;
+  color: rgb(224, 131, 131);
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
   width: 100%;
 }
 
-#form input,
+#form input, textarea,
 #form button {
   box-sizing: border-box;
   font-size: 14px;

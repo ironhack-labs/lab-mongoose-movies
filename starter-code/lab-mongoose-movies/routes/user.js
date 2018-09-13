@@ -8,6 +8,7 @@ const User = require("../models/User");
  const ensureLogin = require("connect-ensure-login");
 
 
+
 /* GET /user Info page */
 router.get('/user', ensureLogin.ensureLoggedIn("/login"), (req, res, next) => {
 
@@ -37,8 +38,6 @@ router.get('/users/movies', ensureLogin.ensureLoggedIn("/login"), (req, res, nex
   })
 
 });
-
-
 
 
 module.exports = router;
