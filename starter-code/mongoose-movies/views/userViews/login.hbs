@@ -1,0 +1,32 @@
+<h1>Login</h1>
+
+
+
+
+<form action="/login" method="POST">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" name="username">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+  </div>
+
+  {{#if message}}
+  <div>{{message}}</div>
+  {{/if}}
+  
+  <div>
+    <input type="submit" value="Log In">
+  </div>
+</form>
+
+<div>
+  <a href="/auth/google">Login With Google</a>
+</div>
+
+<div>
+  <h4>Don't have an account?</h4>
+  <a href="/signup">Signup</a>
+</div>

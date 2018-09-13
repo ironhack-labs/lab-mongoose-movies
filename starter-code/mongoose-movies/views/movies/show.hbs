@@ -1,0 +1,13 @@
+<h2>{{movieDetails.title}}'s Details</h2>
+
+
+<h5>{{movieDetails.genre}}</h5>
+<img src="{{movieDetails.image}}">
+{{#each movieDetails.cast}}
+  <p>{{this.name}}</p>
+{{/each}}
+<img src="{{movieDetails.imgPath}}" alt="">
+
+<a href="/movies/edit/{{movieDetails.id}}">
+<button>Edit this Movie</button>
+</a>

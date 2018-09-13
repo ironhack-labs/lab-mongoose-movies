@@ -1,0 +1,23 @@
+<h1>Edit {{celebDetails.name}}</h1>
+
+<form action="/celebrities/update/{{theCelebrity.id}}" method="POST">
+
+  <label for="">Name</label>
+  <input type="text" name="name">
+
+  <label for="">Occupation</label>
+  <input type="text" name="occupation">
+
+  <label for="">Catchphrase</label>
+  <input type="text" name="catchphrase">
+
+  <h3>Movies with {{celeb.name}}</h3>
+        <ul>
+            {{#each celeb.movies}}
+            <li>{{this.title}}</li>
+            {{/each}}
+        </ul>
+
+  <button>Edit</button>
+
+</form>
