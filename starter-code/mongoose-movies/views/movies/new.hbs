@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
 
-<form action="/movies/create" method="POST">
+<form action="/movies/create" method="POST" enctype="multipart/form-data">
 
 <label for="">title</label>
 <input type="text" name="movieTitle">
@@ -10,6 +10,8 @@
 <input type="text" name="movieGenre">
 <label for="">plot</label>
 <input type="text" name="moviePlot">
+  <label for="">Poster</label>
+  <input type="file" name="photo">
 <label for="">Star</label>
     <select name="movieStar">
         {{#each celebs}}

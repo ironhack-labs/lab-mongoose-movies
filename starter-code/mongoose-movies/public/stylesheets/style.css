@@ -13,6 +13,9 @@ a {
 .movie-card h3 {
   font-size: 1vw; }
 
+.movie-poster {
+  height: 20vw; }
+
 .movie-create-button {
   margin-top: 5vw;
   background-color: lawngreen;

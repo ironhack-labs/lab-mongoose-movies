@@ -16,6 +16,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require('./models/user');
 const flash = require("connect-flash");
+const uploadCloud = require('./config/cloudinary.js')
 
 //Mongoose
 
@@ -124,5 +125,8 @@ app.use('/', userAuthRoutes );
 
 const axiosRoute = require('./routes/axios')
 app.use('/', axiosRoute );
+
+const routesApi = require('./routes/apiroutes')
+app.use('/api', routesApi)
 
 module.exports = app;

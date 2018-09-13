@@ -12,6 +12,11 @@
 {{this.title}}
 
 </h1>
+{{#if this.imgPath}}
+
+<img src={{this.imgPath}} class="movie-poster">
+
+{{/if}}
 
 <h2>{{this.genre}}</h2>
 
@@ -25,6 +30,7 @@
   {{this.name}}
   {{/each}}
 </h3>
+
 
 <a href='/movies/{{this.id}}'><button>See More!</button></a>
 

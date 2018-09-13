@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movie');
 const Celebrity = require('../models/celebrity');
+const multer = require('multer');
+const uploadCloud = require('../config/cloudinary.js');
+const upload = multer({dest:'.public/uploads/'})
 
 
 
@@ -86,13 +89,16 @@ router.get ('/movies/:id', (req, res, next)=>
   .catch(next)
 })
 
-router.post('/movies/create', (req, res, net)=> {
-  console.log('#$!@#$@#$^$%^&#')
-  console.log(req.body)
+router.post('/movies/create', uploadCloud.single('photo'), (req, res, next)=> {
+  // console.log('#$!@#$@#$^$%^&#')
+  // console.log(req.file)
   let newTitle = req.body.movieTitle;
   let newGenre = req.body.movieGenre;
   let newPlot = req.body.moviePlot;
   let newStar = req.body.movieStar;
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname; 
+
   // console.log('>>>>><<<<<<<<')
   // console.log(newStar);
  
@@ -100,7 +106,9 @@ router.post('/movies/create', (req, res, net)=> {
     title: newTitle,
     genre: newGenre,
     plot: newPlot,
-    stars: [newStar]
+    stars: [newStar],
+    imgName: imgName,
+    imgPath: imgPath,
  
   })
   .then((ret)=> {
@@ -121,14 +129,5 @@ router.post('/movies/create', (req, res, net)=> {
   })
 
 
-router.get('/api/movies', (req, res, next)=> {
-  Movie.find()
-  .then((ret)=> {
-    res.json(ret)
-    
-  })
-  .catch((err)=> {
-    res.json(err)
-  })
-})
+
 module.exports = router;

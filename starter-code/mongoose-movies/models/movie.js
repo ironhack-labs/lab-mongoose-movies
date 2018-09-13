@@ -5,7 +5,9 @@ const movieSchema = new Schema({
   title: String,
   genre: String,
   plot: String,
-  stars: [{type: Schema.Types.ObjectId, ref: "Celebrity"}]
+  stars: [{type: Schema.Types.ObjectId, ref: "Celebrity"}],
+  imgName: String,
+  imgPath: String,
 }, {
   timestamps: {
     createdAt: "created_at",

@@ -16,7 +16,7 @@
     const moviePlot = $('#new-plot').val();
     const theStar = $('#new-star').val();
 
-    axios.post('http://localhost:3000/movies/create',
+    axios.post('http://localhost:3000/api/movies/create',
     {
       movieTitle: movieTitle,
 
@@ -29,7 +29,6 @@
     .then((ret)=>{
       console.log(ret)
       movieCall();
-      res.json(ret);
         
 
     })
