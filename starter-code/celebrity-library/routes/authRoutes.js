@@ -129,8 +129,8 @@ function sendWelcomeEmail (receipientEmail, recipientName){
     let transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'adjudicatearbitrate@gmail.com',
-        pass: 'adjudicate' 
+        user: process.env.EMAIL_USERNAME,
+        pass:  process.env.EMAIL_PASSWORD,
       }
     });
     transporter.sendMail({
