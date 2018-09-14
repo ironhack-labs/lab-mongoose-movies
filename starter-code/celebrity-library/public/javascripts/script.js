@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function fetchAllMovies() {
     axios.get('/api/movies')
     .then((response)=>{
-      console.log(response)
+      const movieList=response.data
+      console.log('axios.get went through !!!!!!--=--=-=-=-=')
+      console.log(movieList)
       const theResultDiv = document.getElementById('listOfMovies');
       theResultDiv.innerHTML = "";
-      response.data.forEach((eachThing)=>{
+      movieList.forEach((eachThing)=>{
       theResultDiv.innerHTML +=
         `<h2>${eachThing.title}</h2>
         <p>Director: ${eachThing.director}</p>
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `});
       }).catch((err)=>{console.log(err)})
   }
-
+// this isn't working and I'm not sure why, it was working well before
   document.getElementById('addMovie').onclick = function(e){
     e.preventDefault()
     let newMovie = { 
@@ -26,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
       director: $('#addDirector')[0].value,
       image: $('#addImage')[0].value,
       description:$('#addDescription')[0].value,
-    }
-    axios.post('/api/movies/create', newMovie) // newMovie will be: req.body 
+    } // newMovie will be: req.body
+    axios.post('/api/movies/create', newMovie) 
     .then((response)=>{
       console.log("got one registered....", response)
       fetchAllMovies() 

@@ -2,7 +2,7 @@
 const myApiHandler = new APIHandler('https://ih-crud-api.herokuapp.com/characters')
 let charObject;
 
-$(document).ready( () => {
+document.addEventListener('DOMContentLoaded', () => {
   
   document.getElementById('fetch-all').onclick = function(){
     myApiHandler.getFullList(); // all functions must be inside promise
@@ -33,7 +33,9 @@ $(document).ready( () => {
       weapon:$('#newWeapon')[0].value,
     });
   }
-})
+
+
+}, false);
 
 
 function fetchAll(characterData) {

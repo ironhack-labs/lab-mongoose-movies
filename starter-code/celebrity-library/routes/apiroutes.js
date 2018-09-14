@@ -15,22 +15,19 @@ router.get('/movies', (req, res, next) => {
 });
 
 // /api is given in the app.js router 
-router.get('/movies/create', (req, res, next) => {
-  const theTitle = req.body.title;
-  const theDirector = req.body.director;
-  const theImage = req.body.image;
-  const theDescription = req.body.description;
-  console.log(theStars)
+router.post('/movies/create', (req, res, next) => {
+  console.log('New movie to be added:--------=-=-=-=',req.body)
    Movie.create({
-      title: theTitle,
-      director: theDirector,
-      image: theImage,
-      description:theDescription,
+      title: req.body.title,
+      director: req.body.director,
+      image: req.body.image,
+      description:req.body.description,
    })
    .then((response)=>{
     res.json(response);
-})
-.catch((err)=>{
+   })
+   .catch((err)=>{
+  console.log('the error from creating movie------',err)
     res.json(err);
 })
 });

@@ -139,8 +139,8 @@ const theRoutesForApiStuff = require('./routes/apiroutes')
 app.use('/api', theRoutesForApiStuff)
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.client_id, // stored in .env
-  clientSecret: process.env.client_secret,
+  clientID: process.env.google_client_id, // stored in .env
+  clientSecret: process.env.google_client_secret,
   callbackURL: "/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
   User.findOne({ googleID: profile.id })
@@ -153,9 +153,12 @@ passport.use(new GoogleStrategy({
     }
 
     const newUser = new User({
-      googleID: profile.id
+      googleID: profile.id,
+      username:profile.displayName,
+      email: profile.emails[0].value,
     });
-
+    console.log(profile)
+    console.log('emails:   ',profile.emails)
     newUser.save()
     .then(user => {
       done(null, newUser);

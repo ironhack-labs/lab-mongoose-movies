@@ -3,6 +3,7 @@ const router     = express.Router();
 const User       = require('../models/User')
 const bcrypt     = require('bcryptjs')
 const passport = require('passport');
+const nodemailer = require('nodemailer');
 
 // const bcryptSalt = 10;
 
@@ -13,6 +14,7 @@ router.get('/signup', (req, res, next)=>{
 router.post('/signup', (req, res, next)=>{
   const username = req.body.username
   const password = req.body.password
+  const email = req.body.email
 
   if (username === "" || password === "") {
     req.flash('error', 'please specify a username and password to sign up')
@@ -35,10 +37,13 @@ router.post('/signup', (req, res, next)=>{
 
     User.create({
         username: username,
-        password: hash
+        password: hash, 
+        email:email,
     })
+
     .then((result)=>{
-        res.redirect('/');
+        sendWelcomeEmail(email,username); // send email
+        res.redirect('/'); // original redirect
     }).catch((err)=>{
       res.render("userViews/signup", { message: req.flash("error") });
     })
@@ -118,6 +123,33 @@ router.get('/logout', (req, res, next)=>{
       req.logout()
     res.redirect('/')
 })
+
+function sendWelcomeEmail (receipientEmail, recipientName){
+    // send email------------------------------------------------
+    let transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'adjudicatearbitrate@gmail.com',
+        pass: 'adjudicate' 
+      }
+    });
+    transporter.sendMail({
+      from: '"My Awesome Project 👻" <myawesome@project.com>',
+      to: receipientEmail, 
+      subject: 'Welcome to my amazing app', 
+      text: `${recipientName} You just made the best decision of your life`,
+      html: `<b>You just made the best decision of your life"</b>`
+    },(error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+      // Preview only available when sending through an Ethereal account
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    })
+    // .then(info => res.render('message', {email, subject, message, info}))
+    // .catch(err => console.log('email was not sent, because: .....',err)) // end of send email
+}
 
 
 module.exports = router;

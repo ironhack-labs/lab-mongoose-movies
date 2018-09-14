@@ -3,6 +3,7 @@ const router  = express.Router();
 const Movie    = require('../models/movie')
 const Celebrity    = require('../models/celebrity')
 const ensureLogin = require("connect-ensure-login");
+const uploadCloud = require('../config/cloudinary');
 
 
 /* GET home page */
@@ -17,6 +18,25 @@ router.get('/movies', (req, res, next) => {
     console.log('----------No movies :( ---------')
   })
 });
+
+router.get('/movies/add', (req, res, next) => {
+  res.render('movie-add')
+});
+
+
+router.post('/movie/add', uploadCloud.single('photo'), (req, res, next) => {
+    console.log('=-=-=-=-=-=-=-=-=-=-=-',req.file)
+    const { title, director, description } = req.body;
+    const imgPath = req.file.url;
+    Movie.create({title: title, director: director, description: description, image: imgPath})
+    .then(movie => {
+      res.redirect('/movies')
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  });
+
 
 router.get('/movies/myMovies', (req, res, next) => {
   Movie.find({ 'owner': req.user._id })
@@ -103,23 +123,26 @@ router.get('/movies/edit/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, 
   })
 })
 
-router.post('/movies/update/:id', (req, res, next)=>{
+// you can do uploadCloud.array('name from the hmtl form')
+router.post('/movies/update/:id', uploadCloud.single('photo'), (req, res, next)=>{
   const theTitle = req.body.title;
   const theDirector = req.body.director;
   let theStars = req.body.stars;
-  if (theStars === '') {theStars = []}
-  const theImage = req.body.image;
   const theDescription = req.body.description;
   const theShowtimes = req.body.showtimes.split(',');
-
-   Movie.findByIdAndUpdate(req.params.id, {
+  if (theStars === '') {theStars = []};
+  console.log('the file ******************', req.file)
+  let editedMovie = {
     title: theTitle,
     director: theDirector,
     stars: theStars,
-    image: theImage,
     description:theDescription,
     showtimes: theShowtimes,
-   })
+  };
+  if (req.file) {editedMovie.image = req.file.url}
+  else if (req.body.image) {editedMovie.image = req.body.image};
+  
+   Movie.findByIdAndUpdate(req.params.id, editedMovie)
    .then((response)=>{
     if (theStars.length > 0) {
       for (let i=0; i<theStars.length;i++) {

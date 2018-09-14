@@ -1,7 +1,7 @@
 <h1>Edit info for {{theMovie.title}}</h1>
 
 
-<form action="/movies/update/{{theMovie._id}}" method="POST">
+<form action="/movies/update/{{theMovie._id}}" method="POST" enctype="multipart/form-data">
 
     <label for="">Title</label>
     <input type="text" name="title" value="{{theMovie.title}}">
@@ -25,6 +25,9 @@
 
     <label for="">Image link</label>
     <input type="text" name="image" value="{{theMovie.image}}">
+
+    <label>Upload image</label>
+    <input type="file" name="photo">
 
     <button class="btn">Add</button>
 
