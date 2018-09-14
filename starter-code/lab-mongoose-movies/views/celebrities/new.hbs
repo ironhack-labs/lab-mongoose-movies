@@ -1,0 +1,34 @@
+
+
+
+Hello creation
+
+
+
+<h1>Edd a New celebrity To The Library</h1>
+
+
+<form action="/celebrities/new" method="POST">
+
+    <label for="">Name</label>
+    <input type="text" name="celebName">
+
+    <label for="">Description</label>
+    <input type="text" name="occupation">
+
+    <label for="">ctchPhrase</label>
+    <input type="text" name="ctchPhrase">
+
+    <label for="">imageSrc</label>
+    <input type="text" name="image">
+
+    <label for="">movies In</label>
+    <select name="movies">
+        {{#each movies}}
+    <option value="{{this._id}}">{{this.title}}</option>
+        {{/each}}
+    </select>
+
+    <button>Create</button>
+
+</form>

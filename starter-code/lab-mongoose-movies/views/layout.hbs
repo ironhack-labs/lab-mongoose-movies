@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+  <a href='/'>Home Page</a>
+
+  <a href='/api/movies-json-view'>API Home Page</a>
+  
+  {{#if user}}
+    <a href="/logout">Logout</a> 
+    <img class="profile-img" src="{{user.image}}" alt="">
+    <div class="user-name">
+    Logged In: 
+    <a  href="/user">{{user.username}}</a>
+   </div>
+  {{else}}
+  <a href="/signup">Sign Up</a> 
+  <a href="/login">Log In</a> 
+  {{/if}}
+<hr>
+
+  {{{body}}}
+
+</body>
+</html>
