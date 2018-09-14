@@ -1,0 +1,25 @@
+
+    <h1>Welcome To {{movie.title}}'s Page!</h1>
+
+
+    <h3>
+    Genre: {{movie.genre}}
+
+    </h3>
+
+    <h4>
+    Plot: {{movie.plot}}
+
+    </h4>
+
+    <img src="{{movie.image}}">
+
+    <img src="{{movie.imgPath}}">
+
+        <a href="/movies/edit/{{movie._id}}">
+            <button>Edit This Movie</button>
+        </a>
+<br>
+                <a href="/movies">
+           Go back to list
+        </a>

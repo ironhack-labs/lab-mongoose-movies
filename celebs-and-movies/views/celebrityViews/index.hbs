@@ -1,0 +1,31 @@
+
+
+{{#each theList}}
+
+<div>
+
+  <a href="/celebrities/{{this._id}}">
+<h3>Name: {{this.name}}</h3>
+  </a>
+
+
+<h6>Occupation: {{this.occupation}}</h6>
+
+<p>
+  Catchphrase: 
+{{this.catchphrase}}
+</p>
+
+   <form action="/celebrities/delete/{{this._id}}" method="POST">
+       <button>Delete This Celebrity</button>
+   </form>
+
+<hr>
+
+</div>
+
+{{/each}}
+
+        <a href="/celebrities/new">
+            <button>Add a New Celebrity</button>
+        </a>
