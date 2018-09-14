@@ -1,0 +1,44 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class ="col-md-5 text-center">
+<h1>Get the List of Movies!</h1>
+<div id="results"></div>
+<button id="fetch-movies" class="btn btn-primary btn-lg">Get The Movies!</button>
+  </div>
+  <div class="col-md-5">
+    <h2 class="text-center">Create A New Movie!</h2>
+
+
+    <form id ="new-movie-form">
+
+    <div class="form-group">
+<label for="">Title</label>
+<input type="text" name="movieTitle" class="form-control" id="new-title">
+</div>
+<div class="form-group">
+
+<label for="">Genre</label>
+<input type="text" name="movieGenre" class="form-control" id="new-genre">
+</div>
+<div class="form-group">
+
+<label for="">Plot</label>
+<input type="text" name="moviePlot"  class= "form-control" id="new-plot">
+</div>
+
+<div class="form-group">
+
+<label for="">Star</label>
+    <select name="movieStar" class="form-control" id ="new-star">
+        {{#each celebs}}
+      <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+        </select>
+</div>
+        <button class="btn btn-outline-success">CREATE</button>
+        </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.movie-card {
+  text-align: center;
+}
+
+.movie-card h2 {
+  color: darkgrey;
+}
+
+.movie-card h3 {
+  font-size: 1vw;
+}
+
+.movie-poster {
+  height: 20vw;
+}
+
+.movie-create-button {
+  margin-top: 5vw;
+  background-color: lawngreen;
+  color: grey;
+  padding: 4vw;
+}
+
+.movie-create-button:hover {
+  background-color: violet;
+  font-size: 2vw;
+}
+
+.navbar {
+  color: lawngreen;
+  background-color: darkgray;
+  margin: 0;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: lawngreen;
+}
+
+// .item-aligner{
+//   align-items: center;
+// }

@@ -1,0 +1,56 @@
+<h2>Award Winners</h2>
+<div class="container-fluid">
+<div class="row">
+
+
+
+
+{{#each listOfMovies}}
+<div class="col-md-3 movie-card">
+
+<h1>
+{{this.title}}
+
+</h1>
+{{#if this.imgPath}}
+
+<img src={{this.imgPath}} class="movie-poster">
+
+{{/if}}
+
+<h2>{{this.genre}}</h2>
+
+<h3>
+{{this.plot}}
+
+</h3>
+
+<h3>
+  {{#each this.stars}}
+  {{this.name}}
+  {{/each}}
+</h3>
+
+
+<a href='/movies/{{this.id}}'><button>See More!</button></a>
+
+<form action='/movies/{{this.id}}/delete' method="POST">
+<button>Remove This Movie</button>
+</form>
+
+
+
+</div>
+{{/each}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 movie-card button-margin">
+<a href='/movies/new'><button class="movie-create-button">MAKE A NEW FILM</button></a>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+</div>

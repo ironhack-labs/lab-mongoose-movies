@@ -1,0 +1,53 @@
+<div class="movie-card">
+
+
+<h2>Aren't they Glorious?</h2>
+
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+{{#each listOfCelebs}}
+    <div class="col-md-4 movie-card">
+<h1>
+{{this.name}}
+
+</h1>
+
+<h2>{{this.occupation}}</h2>
+
+<h3>
+{{this.catchphrase}}
+
+</h3>
+
+
+<h4>
+
+{{#each this.movies}}
+  {{this.title}}
+{{/each}}
+  </h4>
+
+
+<a href='/celebrities/{{this.id}}'><button>See More!</button></a>
+
+<form action='/celebrities/{{this.id}}/delete' method="POST">
+<button>Remove This Celebrity</button>
+</form>
+
+
+
+    </div>
+{{/each}}
+  </div>
+</div>
+
+
+
+
+<div class="container-fluid movie-card">
+<a href='/celebrities/new'><button class="movie-create-button">MAKE A NEW CELEBRITY</button></a>
+
+</div>
