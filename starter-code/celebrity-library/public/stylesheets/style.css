@@ -1,0 +1,51 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #8bcaf5; }
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #2081C3;
+  border-color: #2081C3; }
+
+.btn:hover {
+  background-color: #598be9;
+  border-color: #598be9; }
+
+#btn-delete {
+  background-color: #dd4112fd;
+  border-color: #dd4112fd; }
+
+#btn-delete:hover {
+  background-color: #be421dfd;
+  border-color: #be421dfd; }
+
+.half-width, #listOfMovies {
+  display: inline-block;
+  width: 45vw;
+  border: solid 1px grey; }
+
+.movie-div {
+  display: flex;
+  flex-wrap: wrap; }
+
+img {
+  width: 200px; }
+
+/*# sourceMappingURL=style.css.map */

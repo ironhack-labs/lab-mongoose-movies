@@ -1,0 +1,34 @@
+<h1>Edit info for {{theMovie.title}}</h1>
+
+
+<form action="/movies/update/{{theMovie._id}}" method="POST" enctype="multipart/form-data">
+
+    <label for="">Title</label>
+    <input type="text" name="title" value="{{theMovie.title}}">
+
+    <label for="">Director</label>
+    <input type="text" name="director" value="{{theMovie.director}}">
+
+    <label for="">Stars</label>
+        <select multiple name="stars">
+            {{#each celebrityList}}
+                <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+            <option value="">Add stars later</option>
+        </select>
+
+    <label for="">Description</label>
+    <input type="text" name="description" value="{{theMovie.description}}">
+
+    <label for="">Show times, separated by commas</label>
+    <input type="text" name="showtimes" value="{{theMovie.showtimes}}">
+
+    <label for="">Image link</label>
+    <input type="text" name="image" value="{{theMovie.image}}">
+
+    <label>Upload image</label>
+    <input type="file" name="photo">
+
+    <button class="btn">Add</button>
+
+</form>

@@ -1,0 +1,16 @@
+{{!-- {{#if theUser}}
+<div>You are logged in as {{theUser.username}}</div>
+{{/if}} --}}
+
+<h1>Here is our celebrity wall of fame </h1>
+
+<a class="btn" href="/celebrities/new">Add another celebrity</a>
+
+{{#each listOfCats}}
+
+  <div>
+    <h2>Meet {{this.name}} <a class="btn" href="/celebrities/{{this._id}}">See Details</a> </h2> 
+  </div>
+
+
+{{/each}}

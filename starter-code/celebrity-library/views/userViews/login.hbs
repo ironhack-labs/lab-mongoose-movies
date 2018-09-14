@@ -1,0 +1,25 @@
+<h1>Login</h1>
+
+
+<form action="/login" method="POST">
+
+  <label for="username">Username</label>
+  <input type="text" name="username" placeholder="obiwan">
+
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="thatsnomoon">
+
+  {{#if message}}
+  <div>{{message}}</div>
+  {{/if}}
+
+  <button>Log in</button>
+
+  <p class="account-message">
+    Don't have an account? <a href="/signup">Sign up</a>
+  </p>
+</form>
+
+<div>
+  <a href="/auth/google">Login With Google</a>
+</div>

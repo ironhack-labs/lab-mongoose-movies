@@ -1,0 +1,20 @@
+<h1>Here is YOUR movie list</h1>
+
+<a class="btn" href="/movies/new">Add another movie</a>
+
+{{#each listOfMovies}}
+
+
+<div>
+{{this.title}}
+by
+{{this.director}}
+<img class="imag" src="{{this.image}}" alt="movie cover">
+<a class="btn" href="/movies/{{this._id}}">See Details</a>
+</div>
+
+
+
+
+
+{{/each}}

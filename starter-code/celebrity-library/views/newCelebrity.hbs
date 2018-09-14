@@ -1,0 +1,33 @@
+<h1>Add a New Celebrity to Our List</h1>
+
+
+<form action="/celebrities/create" method="POST">
+
+    <label for="">Name</label>
+    <input type="text" name="name">
+
+    <label for="">Occupation</label>
+    <input type="text" name="occupation">
+
+    <label for="">Catch Phrase</label>
+    <input type="text" name="catchPhrase">
+
+    <label for="">Photo link</label>
+    <input type="text" name="photo">
+
+    <label for="">Movies</label>
+        <select multiple name="movies">
+            {{#each theMovies}}
+                <option value="{{this._id}}">{{this.title}}</option>
+            {{/each}}
+            <option value="">Add movies later</option>
+        </select>
+
+    <button class="btn">Add</button>
+
+
+
+</form>
+
+<a class="btn" href="/celebrities/">Go back to list</a>
+
