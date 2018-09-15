@@ -3,8 +3,10 @@
   <ul>
   {{#each celebs}}
     <li>
-      <h2>{{this.name}}</h2>
+      <p>{{this.name}}</p><a href="celebrities/{{this._id}}">See more</a> 
     </li>
   {{/each}}
   </ul>
+  <a href="/celebrities/new">ADD a new Celebrity</a>
+  
 </section>

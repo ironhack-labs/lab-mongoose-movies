@@ -5,4 +5,8 @@ body {
 a {
   color: #00B7FF; }
 
+#celebrities ul {
+  list-style: none;
+  font-size: 15px; }
+
 /*# sourceMappingURL=style.css.map */
