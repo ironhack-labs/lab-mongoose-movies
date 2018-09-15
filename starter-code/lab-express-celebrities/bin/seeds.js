@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/Celebrity');
 
 const dbName = 'lab-express-celebrities';
 mongoose.connect(`mongodb://localhost/${dbName}`);
@@ -37,12 +37,6 @@ const celebrities = [{
 ];
 
 Celebrity.collection.drop();
-
-// Celebrity.create(celebrities, (err) => {
-// 	if (err) {throw (err)}
-// 	console.log(`Created ${celebrities.length} celebrity`)
-// 	mongoose.connection.close();
-// });
 
 Celebrity.create(celebrities)
 	.then(() => {
