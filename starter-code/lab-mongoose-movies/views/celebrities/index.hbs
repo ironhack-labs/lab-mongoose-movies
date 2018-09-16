@@ -1,12 +1,20 @@
 <section id="celebrities">
   <h1>LIST OF CELEBRITIES</h1>
   <ul>
-  {{#each celebs}}
+    {{#each celebs}}
     <li>
-      <p>{{this.name}}</p><a href="celebrities/{{this._id}}">See more</a> 
+      <p>{{this.name}}</p>
+      <p>
+      <a href="celebrities/{{this._id}}">See more</a> 
+      <form action="/celebrities/{{this._id}}/delete" method="POST">
+        <input type="hidden" name="celebId" value="{{this._id}}">
+        <button type="submit">DELETE</button>
+      </form>
+      <a href="celebrities/{{this._id}}/edit">EDIT</a>
+      </p>
     </li>
-  {{/each}}
+    {{/each}}
   </ul>
   <a href="/celebrities/new">ADD a new Celebrity</a>
-  
+
 </section>
