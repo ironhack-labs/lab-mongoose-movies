@@ -35,19 +35,18 @@ router.post('/new', (req, res, next) => {
 })
 
 
-// //Delete celebrities
-// router.get('/:id/delete', (req, res, next) => {
-//   const { id } = req.params
-//   res.render('celebrities/')
-// })
-
-// router.post('/:id/delete', (req, res, next) => {
-//   const { id } = req.params
-//   Celebrity.findByIdAndRemove(id)
-//     .then(celebrity => {
-//       res.redirect('/celebrities')
-//     }).catch(e => next(e))
-// })
+//Delete celebrities
+router.get('/:id/delete', (req, res, next) => {
+  const { id } = req.params
+  res.render('celebrities/')
+})
+router.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params
+  Celebrity.findByIdAndRemove(id)
+    .then(celebrity => {
+      res.redirect('/celebrities')
+    }).catch(e => next(e))
+})
 
 // //Update celebrity
 // router.get('/:id/edit', (req, res, next) => {
