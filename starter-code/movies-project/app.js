@@ -46,7 +46,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 
-const index = require('./routes/index');
+const index = require('./routes/index'); // como funcionan estos middleware?????
 const celebrities = require('./routes/celebrities')
 app.use('/', index);
 app.use('/celebrities', celebrities);
