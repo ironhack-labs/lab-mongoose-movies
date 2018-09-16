@@ -95,4 +95,14 @@ router.get("/movies", (req, res, next) => {
     });
 });
 
+router.get("/list/:id", (req, res) => {
+  Movie.findById(req.params.id)
+    .then(movies => {
+      res.render("./movies/show", { movies });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
