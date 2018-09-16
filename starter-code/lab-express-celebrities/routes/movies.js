@@ -48,4 +48,18 @@ router.post('/', (req, res, next) => {
 		})
 });
 
+
+//CRU(D) -> Delete
+router.post('/:id/delete', (req, res, next) => {
+	const id = req.params.id;
+	Movie.findByIdAndRemove({_id:id})
+		.then( movie => {
+			res.redirect('/movies');
+		})
+		.catch(e => {
+			console.log('Error on removing the movie', e);
+			next(e);
+		})
+});
+
 module.exports = router;
