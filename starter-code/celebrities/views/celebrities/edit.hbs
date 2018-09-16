@@ -1,0 +1,21 @@
+<h2>Editar los detalles</h2>
+
+<form action="/celebrities/{{this.id}}/edit" method="POST">
+  <p>
+    <label for="name">Nombre Entero</label>
+    <input value="{{name}}" id="name" name="name" type="text">
+  </p>
+
+  <p>
+    <label for="occupation">ocupación</label>
+    <input value="{{occupation}}" id="occupation" name="occupation" type="text">
+  </p>
+
+  <p>
+    <label for="catchPhrase">frase típica</label>
+    <textarea id="catchPhrase" name="catchPhrase" type="text">{{catchPhrase}}</textarea>
+  </p>
+  <button>
+    <input type="submit" value="Update">
+  </button>
+</form>
