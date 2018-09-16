@@ -47,15 +47,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Celebrity Webpage';
+app.locals.title = 'My Webpage';
 
 
 
 const index = require('./routes/index');
 app.use('/', index);
-
 const celebrityRoute = require('./routes/celebrities');
 app.use('/celebrities', celebrityRoute);
+const movieRoute = require('./routes/movies');
+app.use('/movies', movieRoute);
 
 
 module.exports = app;
