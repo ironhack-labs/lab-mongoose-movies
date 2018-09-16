@@ -2,7 +2,8 @@
 
 {{#each celebrities}}
 <div style="display:flex;padding:10px;">
-  <a href="/celebrities/detail/{{this.id}}">{{this.name}}</a>
+  <h2 class="celeb">{{this.name}}</h2>
+  <a href="/celebrities/detail/{{this.id}}">editar</a>
   <form action="/celebrities/{{this.id}}/delete" method="POST">
     <input type="submit" value="Remove">
   </form>

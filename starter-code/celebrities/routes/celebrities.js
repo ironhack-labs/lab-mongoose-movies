@@ -48,22 +48,22 @@ router.post('/:id/delete', (req, res, next) => {
     }).catch(e => next(e))
 })
 
-// //Update celebrity
-// router.get('/:id/edit', (req, res, next) => {
-//   const { id } = req.params
-//   Celebrity.findById(id)
-//     .then(celebrity => {
-//       res.render('celebrities/edit', celebrity)
-//     }).catch(e => next(e))
-// })
+//Update celebrity
+router.get('/:id/edit', (req, res, next) => {
+  const { id } = req.params
+  Celebrity.findById(id)
+    .then(celebrity => {
+      res.render('celebrities/edit', celebrity)
+    }).catch(e => next(e))
+})
 
-// router.post('/:id/edit', (req, res, next) => {
-//   const { id } = req.params
-//   Celebrity.findByIdAndUpdate(id, { $set: req.body }, { new: true })
-//     .then(celebrity => {
-//       res.redirect(`/celebrities/detail/${id}`)
-//     }).catch(e => next(e))
-// })
+router.post('/:id/edit', (req, res, next) => {
+  const { id } = req.params
+  Celebrity.findByIdAndUpdate(id, { $set: req.body }, { new: true })
+    .then(celebrity => {
+      res.redirect(`/celebrities/detail/${id}`)
+    }).catch(e => next(e))
+})
 
 
 module.exports = router;
