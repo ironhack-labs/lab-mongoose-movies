@@ -12,7 +12,6 @@ router.get("/celebrity", (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
       res.render("./celebrities/index", { celebrities });
-      console.log(celebrities);
     })
     .catch(err => {
       console.log(err);
@@ -59,7 +58,6 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
 router.get("/celebrities/:id/edit", (req, res) => {
   Celebrity.findById(req.params.id)
     .then(celebrities => {
-      console.log(celebrities);
       res.render("./celebrities/edit", { celebrities });
     })
     .catch(err => {
@@ -75,7 +73,6 @@ router.post("/celebrities/:id/editone", (req, res) => {
     { new: true }
   )
     .then(() => {
-      console.log(Celebrity);
       res.redirect("/celebrity");
     })
     .catch(err => {
@@ -83,12 +80,10 @@ router.post("/celebrities/:id/editone", (req, res) => {
     });
 });
 
-
 router.get("/movies", (req, res, next) => {
   Movie.find()
     .then(movies => {
       res.render("./movies/index", { movies });
-      console.log(movies);
     })
     .catch(err => {
       console.log(err);
@@ -99,6 +94,58 @@ router.get("/list/:id", (req, res) => {
   Movie.findById(req.params.id)
     .then(movies => {
       res.render("./movies/show", { movies });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+router.get("/newmovie", (req, res) => {
+  res.render("./movies/new");
+});
+
+router.post("/newmovie/create", (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  const newMovie = new Movie({ title, genre, plot });
+  newMovie
+    .save()
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+router.post("/movie/:id/delete", (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+router.get("/movie/:id/edit", (req, res) => {
+  Movie.findById(req.params.id)
+    .then(movies => {
+      res.render("./movies/edit", { movies });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+router.post("/movie/:id/editone", (req, res) => {
+  const { title, genre, plot } = req.body;
+  Movie.update(
+    { _id: req.params.id },
+    { $set: { title: title, genre: genre, plot: plot } },
+    { new: true }
+  )
+    .then(() => {
+      res.redirect("/movies");
     })
     .catch(err => {
       console.log(err);
