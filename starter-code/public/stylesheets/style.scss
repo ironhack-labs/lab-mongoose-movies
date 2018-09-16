@@ -1,8 +1,41 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*{
+  margin:0;
+  padding: 0;
 }
 
-a {
-  color: #00B7FF;
+.first-page{
+  background-image: url("../images/holly.jpg");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw; 
+}
+
+.first-page .cele{
+  color: white;
+  position: absolute;
+  border: 2px solid white;
+  font-size: 65px;
+  text-decoration: none;
+  background-color: #0b253e;
+  border-radius: 2em/2em;
+  margin-top: 40%;
+  margin-left: 14%;
+  padding-top: 10px;
+  width: 18%;
+  text-align: center;
+}
+
+.first-page .movie{
+  color: white;
+  position: absolute;
+  border: 2px solid white;
+  font-size: 65px;
+  text-decoration: none;
+  background-color: #0b253e;
+  border-radius: 2em/2em;
+  margin-top: 40%;
+  margin-left: 67%;
+  padding-top: 10px;
+  width: 15%;
+  text-align: center;
 }
