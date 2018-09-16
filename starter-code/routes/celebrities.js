@@ -50,6 +50,12 @@ router.post('/new', (req, res) => {
 
   })
 });
+
+router.post('/celebrities/:id/delete', (req, res) => {
+  Celebrity.findByIdAndRemove(req.params.id, () => res.redirect("/celebrities"))
+})
+
+
   
     
 
