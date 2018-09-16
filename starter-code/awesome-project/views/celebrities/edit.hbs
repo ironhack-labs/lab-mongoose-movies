@@ -1,0 +1,15 @@
+<h2>{{this.name}}</h2>
+
+<form action="/celebrities/{{this._id}}" method="POST">
+
+    <label for="name">Name</label>
+    <input type="text" value="{{this.name}}" name="name">
+
+    <label for="ocupation">Ocupation</label>
+    <input type="text" value="{{this.ocupation}}" name="ocupation">
+    
+    <label for="ocupation">CatchPhrase</label>
+    <input type="text" value="{{this.catchPhrase}}" name="catchPhrase">
+
+    <button type="submit">Submit</button>
+</form>
