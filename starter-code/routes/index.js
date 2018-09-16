@@ -13,8 +13,8 @@ router.get("/celebrity", (req, res, next) => {
       res.render("./celebrities/index", { celebrities });
       console.log(celebrities);
     })
-    .catch(error => {
-      console.log(error);
+    .catch(err => {
+      console.log(err);
     });
 });
 
@@ -22,11 +22,28 @@ router.get("/show/:id", (req, res) => {
   Celebrity.findById(req.params.id)
     .then(celebrities => {
       res.render("./celebrities/show", { celebrities });
-      console.log(celebrities)
+      console.log(celebrities);
     })
-    .catch(error => {
-      console.log(error);
+    .catch(err => {
+      console.log(err);
     });
+});
+
+router.get("/new", (req, res) => {
+  res.render("./celebrities/new");
+});
+
+router.post('/new/create', (req, res, next) => {
+  const { name, occupation, catchPhrase} = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase});
+  newCelebrity.save()
+  .then(() => {
+    res.redirect("/celebrity")
+  })
+  .catch((err) => {
+  console.log(err);
+  })
+
 });
 
 module.exports = router;
