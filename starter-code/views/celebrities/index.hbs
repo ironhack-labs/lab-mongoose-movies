@@ -2,6 +2,8 @@
 
 <ul>
   {{#each celebrities}}
-    <li>{{this.name}}</li>
+    <li>{{this.name}} -- <a href="/celebrities/{{this._id}}">Go to the profile</a></li>
   {{/each}}
 </ul>
+
+<a href="/celebrities/new">Create a Celebrity</a>
