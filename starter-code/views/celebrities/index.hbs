@@ -2,4 +2,8 @@
 
 {{#each celebrities}} 
 <a href="celebrities/{{this._id}}"><h3>{{this.name}}</h3></a>
+<a href="celebrities/edit/{{_id}}">Edit</a>
+<a href="celebrities/delete/{{_id}}">Delete</a>
 {{/each}}
+
+<a href="new"><button>Create celebrities</button></a>
