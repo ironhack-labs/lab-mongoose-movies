@@ -1,0 +1,15 @@
+<h2>Movies</h2>
+<a href="/movies/new">new</a>
+<ul>
+  {{#each movies}}
+  <li>
+    <a href="/movies/{{_id}}">{{title}}</a>
+    <form onsubmit="return confirm('Are you sure delete \'{{title}}\'?');" action="/movies/{{_id}}/delete" method="POST">
+      <button type="submit">Delete</button></form>
+    <form action="/movies/{{_id}}/edit">
+      <button type="submit">Edit</button>
+    </form>
+  </li>
+  {{/each}}
+</ul>
+<a href="/">Back</a>
