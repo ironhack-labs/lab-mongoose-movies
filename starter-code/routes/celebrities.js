@@ -1,7 +1,7 @@
 const express = require('express');	
 const router  = express.Router();
 
-const Celebrity = require ("../models/Celebrity")
+const Celebrity = require("../models/Celebrity").default
 
 router.get ("/", (req, res, next) => {
   Celebrity.find()
@@ -27,8 +27,6 @@ router.post ("/new", (req, res, next) => {
     res.render("celebrities/new")
   });
 });
-
-
 
 router.get ("/:id", (req, res, next) => {
   let celId = req.params.id;
