@@ -1,6 +1,7 @@
 <h2>Celebrities</h2>
 <ul class="list-group">
     {{#each data}}
-    <li class="list-group-item col-md-2">{{this.name}}</li>
+    <li class="list-group-item col-md-3">{{this.name}} <a href="/celebrities/{{this._id}}" class="btn btn primary">See more details</a></li>
     {{/each}}
 </ul>
+<a href="/celebrities/new" class="btn btn-danger">Add celebrity</a>

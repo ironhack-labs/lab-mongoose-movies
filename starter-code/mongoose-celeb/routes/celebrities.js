@@ -6,10 +6,30 @@ const Celebrity = require('../models/celebrity.js');
   router.get('/', (req, res, next) => {
     Celebrity.find()
     .then((data) => {
-      console.log(data)
       res.render('celebrities/index', {data});
     })
-    .catch(e => { next(e);})
+    .catch(e => next(e))
   });
+
+  router.get('/new', (req, res) => {
+    res.render('celebrities/new');
+  });
+
+  router.post('/new', (req, res) => {
+    const {name, occupation, catchPhrase} = req.body;
+    const celebrity = new Celebrity({name, occupation, catchPhrase});
+    celebrity.save()
+    .then(() => res.redirect('/celebrities'))
+    .catch(e => next(e));
+  });
+
+  router.get('/:celebrityId', (req, res, next) => {
+    Celebrity.find({_id: req.params.celebrityId})
+    .then((data) => {
+      res.render('celebrities/show', {data});
+    })
+    .catch(e => next(e));
+  });
+
 
 module.exports = router;
