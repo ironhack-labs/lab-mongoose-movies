@@ -1,0 +1,75 @@
+html, body {
+  height: 100%; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-flow: column nowrap; }
+
+a {
+  color: #00B7FF;
+  text-decoration: none; }
+
+nav {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+  background-color: chocolate; }
+  nav p {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: white; }
+  nav ul {
+    display: flex;
+    list-style: none; }
+    nav ul li {
+      padding: 0;
+      margin-left: 20px; }
+      nav ul li a {
+        color: white; }
+
+.container, header div, footer div {
+  margin: auto;
+  max-width: 1240px;
+  box-sizing: border-box;
+  padding: 40px 20px; }
+
+header {
+  flex: 0 0 auto;
+  height: 50vh;
+  background-color: goldenrod;
+  color: white; }
+  header div {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center; }
+    header div h1 {
+      font-size: 50px;
+      font-weight: 600;
+      margin: 0;
+      padding-bottom: 20px; }
+    header div p {
+      font-size: 25px;
+      font-style: italic;
+      margin: 0; }
+
+main {
+  flex: 1 0 auto; }
+
+footer {
+  flex: 0 0 auto;
+  background-color: black;
+  color: white; }
+  footer div {
+    padding: 20px 20px; }
+    footer div p {
+      margin: 0; }
+
+/*# sourceMappingURL=style.css.map */
