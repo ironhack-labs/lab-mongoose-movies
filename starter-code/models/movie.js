@@ -1,5 +1,5 @@
-const mangoose = require('mangoose');
-const Schema = mangoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
   title: {type: String, unique: true},
@@ -7,6 +7,6 @@ const movieSchema = new Schema({
   plot: String
 });
 
-const Movie = mangoose.model("Movie", movieSchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
 module.exports = Movie;

@@ -1,5 +1,5 @@
-const mangoose = require('mangoose');
-const Schema = mangoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const celebritySchema = new Schema({
   name: {type: String, unique: true},
@@ -7,6 +7,6 @@ const celebritySchema = new Schema({
   catchPhrase: String
 });
 
-const Celebrity = mangoose.model("Celebrity", celebritySchema);
+const Celebrity = mongoose.model("Celebrity", celebritySchema);
 
 module.exports = Celebrity;

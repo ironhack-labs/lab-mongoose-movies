@@ -33,7 +33,7 @@ nav {
       nav ul li a {
         color: white; }
 
-.container, header div, footer div {
+.container, header div, footer div, .all-elements, .add_element_form {
   margin: auto;
   max-width: 1240px;
   box-sizing: border-box;
@@ -71,5 +71,59 @@ footer {
     padding: 20px 20px; }
     footer div p {
       margin: 0; }
+
+.all-elements div {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: flex-end;
+  padding: 15px 0;
+  border-bottom: 1px solid black; }
+  .all-elements div h3 {
+    flex: 0 0 250px;
+    margin: 0; }
+  .all-elements div div, .all-elements div h4 {
+    flex: 0 0 250px;
+    margin: 0;
+    padding: 0;
+    border-bottom: none; }
+    .all-elements div div ul, .all-elements div h4 ul {
+      margin: 0;
+      padding: 0 0 0 15px; }
+  .all-elements div p:first-of-type {
+    flex: 1 0;
+    margin: 0; }
+  .all-elements div p {
+    flex: 0 0;
+    margin: 0; }
+    .all-elements div p + p {
+      margin-left: 10px; }
+
+.add_element_form form {
+  padding: 0 100px; }
+  .add_element_form form div {
+    display: flex;
+    padding-bottom: 15px; }
+    .add_element_form form div label {
+      display: block;
+      flex: 0 0 200px;
+      text-align: right;
+      padding-right: 30px; }
+    .add_element_form form div input {
+      display: block;
+      flex: 1 0; }
+  .add_element_form form input[type=submit] {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 40px;
+    background-color: gold;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    margin-top: 10px; }
 
 /*# sourceMappingURL=style.css.map */
