@@ -7,21 +7,21 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const celebrity = [
  {
-   name:String,
-   ocuppation:String,
-   catchPhrase:String
+   name:"Tom Cruise",
+   occupation:"actor",
+   catchPhrase:"mission is never impossible"
  },
 
  {
-  name:String,
-  ocuppation:String,
-  catchPhrase:String
+  name:"Arnold",
+  occupation:"actor",
+  catchPhrase:"I'll be back"
 },
 
 {
-  name:String,
-  ocuppation:String,
-  catchPhrase:String
+  name:"Eminem",
+  occupation:"singer",
+  catchPhrase:"I'm Slamshady"
 }
 
 ]
