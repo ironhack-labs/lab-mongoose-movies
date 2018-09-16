@@ -4,6 +4,7 @@ const Celebrity = require('../models/celebrity.js')
 
 
 /* GET home page */
+//ALL CELEBS
 router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
   .then((celebrities) => {
@@ -12,10 +13,12 @@ router.get('/celebrities', (req, res, next) => {
   .catch(next)
 });
 
+//RENDER CREATE NEW PAGE
 router.get('/celebrities/new', (req,res,next) => {
     res.render('celebrities/new')
 })
 
+//DETAILS
 router.get('/celebrities/:id', (req,res,next) => {
     let celebrityId = req.params.id;
     console.log(celebrityId);
@@ -27,22 +30,41 @@ router.get('/celebrities/:id', (req,res,next) => {
     .catch(next)
 })
 
+//CREATE NEW
 router.post('/celebrities/new', (req,res,next) => {
-    const { name, occupation, catchPhrase } = req.body;
+    let { name, occupation, catchPhrase } = req.body;
     const newCeleb = new Celebrity({ name, occupation, catchPhrase })
     newCeleb.save()
-    .then((/* celebrity */) => {
+    .then(() => {
         res.redirect('../celebrities')
     })
     .catch(() => {
-        res.render('celebrities/new')
+        res.render('/celebrities/new')
     })
 })
 
+//UPDATE
+router.get('/celebrities/:id/edit', (req,res,next) => {
+    let celebrityId= req.params.id;
+    Celebrity.findOne({'_id': celebrityId})
+    .then(celebrity => { 
+            res.render('celebrities/edit', { celebrity })
+    })
+    .catch(next)
+})
+
+ router.post('/celebrities/:id', (req,res,next) => {
+    let celebrityId = req.params.id;
+    let { name, occupation, catchPhrase } = req.body;
+    Celebrity.update({'_id': celebrityId}, { $set: {name ,occupation, catchPhrase}})
+    .then(() => {
+        res.redirect('/celebrities')
+    })
+    .catch(next)
+}) 
+
+//DELETE
 router.post('/celebrities/delete/:id', (req,res,next) => {
-    console.log("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-    console.log(req.params.id);
-    console.log(req.body);
     let celebrityId = req.params.id;
     Celebrity.findOneAndDelete({'_id': celebrityId})
     .then(() => {

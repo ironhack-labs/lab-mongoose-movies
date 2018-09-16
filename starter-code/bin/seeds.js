@@ -1,32 +1,32 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 
 
 mongoose.connect(process.env.DBURL, {useNewUrlParser: true});
 
-const celebrities = [
+const movies = [
   {
-    name: 'Sasha Baron',
-    occupation: 'Comedian',
-    catchPhrase: 'Wicked'
+    title: 'EX machina',
+    genre: 'Suspenso',
+    plot: 'AI MASTER RACE'
   },
   {
-    name: 'Travis Fimmel',
-    occupation: "Acting",
-    catchPhrase: 'No catch phrase'
+    title: 'Scarface',
+    genre: "Drugs",
+    plot: 'Race to be king of drugs'
   },
   {
-    name: 'John Lennon',
-    occupation: 'Music Composer',
-    catchPhrase: 'Let it be | Imagine'
+    title: 'Mars',
+    genre: 'Adventure',
+    plot: 'COLONIZE MARS IS THE WAE!'
   }
 ]
-Celebrity.collection.drop();
+Movie.collection.drop();
 
 
-Celebrity.create(celebrities, (err) => {
+Movie.create(movies, (err) => {
   if (err) { throw(err) }
-  console.log(`Created ${celebrities.length} celebrities`)
+  console.log(`Created ${movies.length} movies`)
   mongoose.connection.close()
 });
