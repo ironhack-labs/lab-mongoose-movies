@@ -1,14 +1,12 @@
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .first-page {
   background-image: url("../images/holly.jpg");
   background-size: cover;
   height: 100vh;
-  width: 100vw;
-}
+  width: 100vw; }
 
 .first-page .cele {
   color: white;
@@ -22,8 +20,7 @@
   margin-left: 14%;
   padding-top: 10px;
   width: 18%;
-  text-align: center;
-}
+  text-align: center; }
 
 .first-page .movie {
   color: white;
@@ -37,15 +34,34 @@
   margin-left: 67%;
   padding-top: 10px;
   width: 15%;
-  text-align: center;
-}
+  text-align: center; }
 
 .movies {
   background-image: url("../images/movie-back.jpg");
   background-size: cover;
   width: 100vw;
-  height: 100vh;
-}
+  height: 100vh; }
+
+.celebrities {
+  background-image: url("../images/red-carpet.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; }
+
+.celebrities h2 {
+  margin-left: 71%;
+  font-size: 50px;
+  padding-top: 50px;
+  color: white; }
+
+.celebrities h3 {
+  margin-left: 77%;
+  padding-top: 83px;
+  font-size: 40px; }
+
+.celebrities h3 a {
+  text-decoration: none;
+  color: white; }
 
 .home {
   color: #010101;
@@ -59,8 +75,14 @@
   padding-top: 10px;
   width: 13%;
   text-align: center;
-  font-weight: bolder;
-}
+  font-weight: bolder; }
+
+.home.btn {
+  color: white;
+  border: 5px solid black;
+  font-size: 25px;
+  width: 7%;
+  margin-top: 5%; }
 
 .add {
   color: #010101;
@@ -74,45 +96,56 @@
   padding-top: 10px;
   width: 13%;
   text-align: center;
-  font-weight: bolder;
-}
+  font-weight: bolder; }
 
 .each {
   display: flex;
   flex-direction: column;
-  margin-left: 2%;
-}
+  margin-left: 2%; }
+
+.each-cele {
+  display: flex;
+  flex-direction: column;
+  margin-left: 77%;
+  font-size: 33px;
+  color: white; }
+
+.each-cele a {
+  color: white;
+  text-decoration: none;
+  padding-top: 10px; }
+
+.each-cele .btn {
+  width: 189px;
+  height: 35px; }
 
 .title {
   font-size: 572px;
-    margin-top: 5%;
-    color: white;
-}
+  margin-top: 5%;
+  color: white; }
 
 .title p {
   font-size: 10%;
-  padding-bottom: 13px;
-}
+  padding-bottom: 13px; }
 
-.btn-delete{
+.btn-delete {
   color: #010101;
-    border: 2px solid #010101;
-    font-size: 18px;
-    text-decoration: none;
-    border-radius: 2em/2em;
-    padding-top: 5px;
-    width: 11%;
-    text-align: center;
-    font-weight: bolder;
-    background-color: #8a2e11;
-}
+  border: 2px solid #010101;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 2em/2em;
+  padding-top: 5px;
+  width: 11%;
+  text-align: center;
+  font-weight: bolder;
+  background-color: #8a2e11; }
 
 .list-movies a {
   font-size: 40px;
-    text-decoration: none;
-    color: #8a2e11;
-}
+  text-decoration: none;
+  color: #8a2e11; }
 
-.edit{
-  margin-left: 2%;
-}
+.edit {
+  margin-left: 2%; }
+
+/*# sourceMappingURL=style.css.map */
