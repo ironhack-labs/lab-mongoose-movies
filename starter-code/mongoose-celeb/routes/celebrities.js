@@ -23,6 +23,12 @@ const Celebrity = require('../models/celebrity.js');
     .catch(e => next(e));
   });
 
+  router.get('/:celebrityId/delete', (req, res) => {
+    Celebrity.findByIdAndRemove(req.params.celebrityId)
+    .then(() => res.redirect('/celebrities'))
+    .catch(e => next(e));    
+  });
+
   router.get('/:celebrityId', (req, res, next) => {
     Celebrity.find({_id: req.params.celebrityId})
     .then((data) => {
