@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/celebrity");
+const Movie = require("../models/movie");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("");
+  res.render("index");
 });
 
 router.get("/celebrity", (req, res, next) => {
@@ -76,6 +77,18 @@ router.post("/celebrities/:id/editone", (req, res) => {
     .then(() => {
       console.log(Celebrity);
       res.redirect("/celebrity");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+
+router.get("/movies", (req, res, next) => {
+  Movie.find()
+    .then(movies => {
+      res.render("./movies/index", { movies });
+      console.log(movies);
     })
     .catch(err => {
       console.log(err);
