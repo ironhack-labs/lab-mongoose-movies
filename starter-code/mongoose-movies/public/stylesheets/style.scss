@@ -1,8 +1,33 @@
-body {
-  padding: 50px;
+$color:#00B7FF;
+body,html {
+  padding: 0;
+  margin:0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color:$color;
+}
+header,footer{
+  background: $color;
+  padding:1em 2em;
+  color:white;
+  position:fixed;
+  width: 100%;
+}
+header{
+  top:0;
+}
+section{
+  margin:6em 0;
+  padding:2em;
+  nav{
+    padding:0 0 1em 0;
+  }
+  form{
+    display:inline;
+  }
+}
+footer{
+  bottom:0;
 }
