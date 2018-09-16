@@ -1,0 +1,7 @@
+<h2>{{title}}</h2>
+<form action="/celebrities/{{celebrity._id}}" method="post">
+	<input type="text" name="name" value="{{celebrity.name}}" placeholder="Name *" required>
+	<input type="text" name="occupation" value="{{celebrity.occupation}}" placeholder="Occupation *">
+	<input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}" placeholder="catchPhrase *" required>
+	<button type="submit">Create a new celebrity</button>
+</form>
