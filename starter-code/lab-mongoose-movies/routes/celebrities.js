@@ -37,8 +37,7 @@ router.get('/:id/edit', (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(celeb => {
       res.render('celebrities/edit', {celeb})
-    }).catch(next)
-    
+    }).catch(next)  
 })
 //POST EDIT
 router.post('/:id', (req, res, next) => {
@@ -47,19 +46,17 @@ router.post('/:id', (req, res, next) => {
     .then(celeb => {
       let stringId = encodeURIComponent(celeb._id);
       res.redirect('/celebrities/' + stringId);
-    }).catch(next)
-    
+    }).catch(next) 
 })
 
-//POST DELETE CELEBRITY
+//POST DELETE
 router.post('/:id/delete', (req, res, next) => {
   const {celebId} = req.body;
   Celebrity.findByIdAndRemove(celebId)
     .then(removed => {
       console.log('Removed Celebrity', removed);
       res.redirect('/celebrities');
-    }).catch(next)
-    
+    }).catch(next)  
 })
 
 module.exports = router;
