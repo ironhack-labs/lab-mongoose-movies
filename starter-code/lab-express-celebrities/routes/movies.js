@@ -15,6 +15,11 @@ router.get('/', (req, res, next) => {
 		})
 });
 
+//(C)RUD -> Show
+router.get('/new', (req, res, next) => {
+	res.render('movies/new', {title: 'Create a new movie'});
+});
+
 //C(R)UD -> Retrieve One
 router.get('/:id', (req, res, next) => {
 	const id = req.params.id;
@@ -27,6 +32,20 @@ router.get('/:id', (req, res, next) => {
 		console.log('Error on retrieving the detail of the movie', e);
 		next(e);
 	})
+});
+
+//(C)RUD -> Create
+router.post('/', (req, res, next) => {
+	const { title, genre, plot } = req.body;
+	const newMovie = new Movie({ title, genre, plot });
+	newMovie.save()
+		.then( movie => {
+			res.redirect('/movies');
+		})
+		.catch( e => {
+			console.log('Error on creating a new movie', e);
+			res.render('movies/new', {title: 'Create a new movie'});
+		})
 });
 
 module.exports = router;
