@@ -27,9 +27,9 @@ router.get('/celebrities', (req, res, next) => {
 
 router.get('/celebrities/:id', (req, res, next) => {
   let celebrityId = req.params.id;
-  Celebrity.findOne({"_id": celebrityId})  
+  Celebrity.findOne({'_id': celebrityId})  
   .then(celebrities => { //te celebrities to coleccion z mongodb compass
-    res.render('celebrities/show', {celebrities})  //te celebrities to coleccion z mongodb compass  
+    res.render('celebrities/show', celebrities)  //te celebrities to coleccion z mongodb compass  
   })
   .catch(e => {
     console.log(e)
@@ -46,20 +46,35 @@ router.post('/new', (req, res) => {
   const newCelebrity = new Celebrity({ name, occupation, catchPhrase})
   newCelebrity.save( err => {
     if(err) {return next(err)}
-    res.redirect("/celebrities");
+    res.redirect('/celebrities');
 
   })
 });
 
 router.post('/celebrities/:id/delete', (req, res) => {
-  Celebrity.findByIdAndRemove(req.params.id, () => res.redirect("/celebrities"))
+  Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'))
 })
 
+router.get('/celebrities/edit/:id', (req, res, next) => {
+  let celebrityId = req.params.id;
+  Celebrity.findOne({'_id': celebrityId})
+  .then(celebrities => {
+    res.render('celebrities/edit', celebrities) 
+  })
+  .catch(e => {
+    console.log(e)
+  })
+})
 
-  
+router.post('/celebrities/:id', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+    Celebrity.findOneAndUpdate({'_id': req.params.id}, {$set: {name, occupation, catchPhrase}}) 
+    .then(() => {
+      res.redirect('/celebrities')
+    })
+    .catch(next)
+  })
     
-
-
 
 
 module.exports = router;
