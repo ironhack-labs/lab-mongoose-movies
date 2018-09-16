@@ -6,6 +6,9 @@
 		<form action="/movies/{{this._id}}/delete" method="post">
 			<button type="submit">Delete</button>
 		</form>
+		<form action="/movies/{{this._id}}/edit" method="get">
+			<button type="submit">Update</button>
+		</form>
 	</li>
 	{{/each}}
 </ul>

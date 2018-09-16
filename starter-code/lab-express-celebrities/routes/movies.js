@@ -34,6 +34,20 @@ router.get('/:id', (req, res, next) => {
 	})
 });
 
+//CR(U)D -> Update Show
+router.get('/:id/edit', (req, res, next) => {
+	const id = req.params.id;
+	Movie.findById({_id:id})
+		.then(movie => {
+			console.log('movie', movie);
+			res.render('movies/edit', {movie, title: 'Edit a movie'});
+		})
+		.catch( e => {
+			console.log('Error on showing the form to update a movie', e);
+			next(e);
+		})
+})
+
 //(C)RUD -> Create
 router.post('/', (req, res, next) => {
 	const { title, genre, plot } = req.body;
@@ -48,6 +62,21 @@ router.post('/', (req, res, next) => {
 		})
 });
 
+//CR(U)D -> Update
+router.post('/:id', (req, res, next) => {
+	const id = req.params.id;
+	const { title, genre, plot } = req.body;
+
+	Movie.update({_id: id}, {$set: {title, genre, plot}}, { new: true })
+		.then( movie => {
+			console.log('movie', movie);
+			res.redirect('/movies');
+		})
+		.catch( e => {
+			console.log('Error on updating the movie', e);
+	 		next(e);
+		})
+});
 
 //CRU(D) -> Delete
 router.post('/:id/delete', (req, res, next) => {
