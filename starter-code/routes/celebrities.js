@@ -20,13 +20,15 @@ router.get ("/new", (req, res, next) => {
 router.post ("/new", (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body;
   new Celebrity({name, occupation, catchPhrase})
-  .save().then( celebrity => {
+  .save().then (()=> {
     res.redirect("/celebrities")
   })
   .catch (() => {
     res.render("celebrities/new")
   });
 });
+
+
 
 router.get ("/:id", (req, res, next) => {
   let celId = req.params.id;
@@ -37,6 +39,19 @@ router.get ("/:id", (req, res, next) => {
   .catch (err => {
     next(err)
   });
+});
+
+router.post ("/:id/delete", (req, res, next) => { 
+  // Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'));
+
+  let celId = req.params.id;
+  Celebrity.findByIdAndRemove(celId)
+    .then (() => {
+      res.redirect("/celebrities")
+    })
+    .catch(err => {
+      next(err)
+    });
 });
 
 module.exports = router;

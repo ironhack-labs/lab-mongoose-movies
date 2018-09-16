@@ -2,7 +2,17 @@
 
 <ul>
   {{#each celebrities}}
-    <li>{{this.name}} -- <a href="/celebrities/{{this._id}}">Go to the profile</a></li>
+    <li>
+      <div class="celeb">
+        {{this.name}}
+        &ensp;-- &ensp;
+        <a href="/celebrities/{{this._id}}">Go to the profile</a>
+        &ensp;-- &ensp;
+        <form action="/celebrities/{{this._id}}/delete" method="post">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+    </li>
   {{/each}}
 </ul>
 
