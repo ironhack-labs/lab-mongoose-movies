@@ -1,0 +1,77 @@
+html {
+  font-size: 16px; }
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem; }
+
+a {
+  color: #00B7FF;
+  text-decoration: none; }
+
+li {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+::placeholder {
+  color: #9d9d9d; }
+
+.btn-primary {
+  font-size: 1.125rem;
+  display: inline-block;
+  border: 1px solid #00B7FF;
+  border-radius: 6px;
+  padding: 8px 16px;
+  background-color: #00B7FF;
+  color: #FFF; }
+
+.list-celebrities .celebrities-name, .list-celebrities .movies-name, .list-movies .celebrities-name, .list-movies .movies-name {
+  padding-right: 20px; }
+
+.list-celebrities form, .list-movies form {
+  display: inline-block; }
+
+.list-celebrities .btn, .list-movies .btn {
+  font-size: 0.85rem;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer; }
+  .list-celebrities .btn:first-child, .list-movies .btn:first-child {
+    margin-right: 5px; }
+
+.list-celebrities .btn-primary, .list-movies .btn-primary {
+  margin-top: 20px; }
+
+.form-celebrities form, .form-movies form {
+  width: 30%; }
+
+.form-celebrities input, .form-celebrities textarea, .form-movies input, .form-movies textarea {
+  width: 100%;
+  display: block;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #00B7FF;
+  font-size: 1rem;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
+.form-celebrities textarea, .form-movies textarea {
+  font-style: italic; }
+
+.navigation {
+  margin-bottom: 50px; }
+  .navigation ul {
+    list-style-type: none;
+    padding-left: 0; }
+  .navigation li {
+    display: inline-block;
+    border: 1px solid #00B7FF; }
+    .navigation li a {
+      padding: 15px 30px; }
+      .navigation li a:hover {
+        color: #0092cc; }
+    .navigation li:first-child {
+      margin-right: 1px; }
+
+/*# sourceMappingURL=style.css.map */

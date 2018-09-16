@@ -1,0 +1,9 @@
+<section class="form-movies">
+	<h2>{{title}}</h2>
+	<form action="/movies/{{movie._id}}" method="post">
+		<input type="text" name="title" value="{{movie.title}}" placeholder="Title *" required>
+		<input type="text" name="genre" value="{{movie.genre}}" placeholder="Genre">
+		<textarea type="text" name="plot" value="" placeholder="Plot" rows="4" cols="50">{{movie.plot}}</textarea>
+		<button type="submit" class="btn btn-primary">Save</button>
+	</form>
+</section>
