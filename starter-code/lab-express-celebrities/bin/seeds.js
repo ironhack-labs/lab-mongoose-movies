@@ -1,46 +1,30 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/Celebrity');
+const Movie = require('../models/Movie');
 
 const dbName = 'lab-express-celebrities';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
-const celebrities = [{
-		name: "Carrie Fisher",
-		occupation: "Actress",
-		catchPhrase: "Stay afraid, but do it anyway. What’s important is the action. You don’t have to wait to be confident. Just do it and eventually the confidence will follow."
-	}, 
-	{
-		name: "Michelle Obama",
-		occupation: "Lawyer and Writer",
-		catchPhrase: "There is no magic to achievement. It's really about hard work, choices, and persistence." 
-	},
-	{
-		name: "Katherine Johnson",
-		occupation: "Mathematician",
-		catchPhrase: "Know how to learn. Then, want to learn."
-	},
-	{
-		name: "Emma Watson",
-		occupation: "Actress",
-		catchPhrase: "Believe in yourself, and go for it"
-	},
-	{
-		name: "Fabiola Gianotti",
-		occupation: "Scientist",
-		catchPhrase: "Never abandon your dreams. You may regret it for the rest of your life."
-	},
-	{
-		name: "Zaha Hadid",
-		occupation: "Architect",
-		catchPhrase: "You have to really believe not only in yourself; you have to believe that the world is actually worth your sacrifices."
-	}
-];
+const movies = [{
+	title: "Harry Potter and the Order of the Phoenix ",
+	genre: "Fantasy",
+	plot: "With their warning about Lord Voldemort's return scoffed at, Harry and Dumbledore are targeted by the Wizard authorities as an authoritarian bureaucrat slowly seizes power at Hogwarts."
+},
+{
+	title: "Star Wars: The Last Jedi",
+	genre: "Fantasy",
+	plot: "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares for battle with the First Order."
+},
+{
+	title: "Kill Bill",
+	genre: "Action",
+	plot: "After awakening from a four-year coma, a former assassin wreaks vengeance on the team of assassins who betrayed her."
+}];
 
-Celebrity.collection.drop();
+Movie.collection.drop();
 
-Celebrity.create(celebrities)
+Movie.create(movies)
 	.then(() => {
-		console.log(`Created ${celebrities.length} celebrity`);
+		console.log(`Created ${movies.length} movies`);
 		mongoose.connection.close();
 	})
 	.catch((e)=>{
