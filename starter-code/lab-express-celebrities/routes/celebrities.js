@@ -14,6 +14,25 @@ router.get('/', (req, res, next) => {
 		})
 });
 
+//(C)RUD -> Show
+router.get('/new', (req, res, next) => {
+	res.render('celebrities/new', {title: 'Create a new celebrity'});
+});
+
+router.post('/', (req, res, next) => {
+	const { name, occupation, catchPhrase } = req.body;
+	const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+	newCelebrity.save()
+		.then( celebrity => {
+			res.redirect('/celebrities');
+		})
+		.catch( e => {
+			console.log('Error on creating a new celebrity', e);
+			res.render('celebrities/new', {title: 'Create a new celebrity'});
+		})
+});
+
+
 router.get('/:id', (req, res, next) => {
 	const id = req.params.id;
 	Celebrity.findById({_id:id})
@@ -26,5 +45,7 @@ router.get('/:id', (req, res, next) => {
 		next(e);
 	})
 });
+
+
 
 module.exports = router;
