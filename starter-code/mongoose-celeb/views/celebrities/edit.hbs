@@ -1,0 +1,10 @@
+{{#each data}}
+<h2>Edit celebrity: {{this.name}}</h2>
+<form action="/celebrities/{{this._id}}" method="post">
+    <input type="text" name="name" id="name" value="{{this.name}}" class="col-md-3 my-2">
+    <input type="text" name="occupation" id="occupation" value="{{this.occupation}}" class="col-md-3 my-2">
+    <input type="text" name="catchPhrase" id="catchPhrase" value="{{this.catchPhrase}}" class="col-md-3 my-2">
+    <button type="submit" class="btn btn-outline-primary">Edit</button>
+</form>
+<a href="/celebrities" class="btn btn-outline-info">Back</a>
+{{/each}}

@@ -15,7 +15,7 @@ const Celebrity = require('../models/celebrity.js');
     res.render('celebrities/new');
   });
 
-  router.post('/new', (req, res) => {
+  router.post('/new', (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body;
     const celebrity = new Celebrity({name, occupation, catchPhrase});
     celebrity.save()
@@ -23,17 +23,29 @@ const Celebrity = require('../models/celebrity.js');
     .catch(e => next(e));
   });
 
-  router.get('/:celebrityId/delete', (req, res) => {
+  router.post('/:celebrityId/delete', (req, res, next) => {
     Celebrity.findByIdAndRemove(req.params.celebrityId)
     .then(() => res.redirect('/celebrities'))
     .catch(e => next(e));    
   });
 
+  router.get('/:celebrityId/edit', (req, res, next) => {
+    Celebrity.find({_id: req.params.celebrityId})
+    .then(data => res.render('celebrities/edit', {data}))
+    .catch(e => next(e));
+  });
+
+  router.post('/:celebrityId', (req, res, next) => {
+    const { name, occupation, catchPhrase } = req.body;
+    console.log(name, occupation, catchPhrase)
+    Celebrity.findByIdAndUpdate(req.params.celebrityId, {$set: {name, occupation, catchPhrase}})
+    .then(() => res.redirect('/celebrities'))
+    .catch(e => next(e));
+  });
+
   router.get('/:celebrityId', (req, res, next) => {
     Celebrity.find({_id: req.params.celebrityId})
-    .then((data) => {
-      res.render('celebrities/show', {data});
-    })
+    .then((data) => res.render('celebrities/show', {data}))
     .catch(e => next(e));
   });
 
