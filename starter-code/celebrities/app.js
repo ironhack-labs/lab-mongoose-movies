@@ -11,7 +11,7 @@ const path = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/celebrities', { useNewUrlParser: true })
+  .connect(`mongodb://localhost/celebs`, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -57,5 +57,7 @@ app.use('/', index);
 const celebrities = require('./routes/celebrities');
 app.use('/celebrities', celebrities);
 
+// const movies = require('./routes/movies');
+// app.use('/movies', movies);
 
 module.exports = app;

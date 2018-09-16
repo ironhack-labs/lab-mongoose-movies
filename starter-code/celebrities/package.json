@@ -1,10 +1,10 @@
 {
-  "name": "celebrities",
+  "name": "lab-mongoose-movies",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=celebrities:* nodemon ./bin/www",
+    "dev": "DEBUG=lab-mongoose-movies:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
