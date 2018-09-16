@@ -1,3 +1,4 @@
+// GENERIC
 html{
 	font-size: 16px;
 }
@@ -18,10 +19,21 @@ li {
 	padding-bottom: 10px;
 }
 
-.list-home {
-
+::placeholder{
+	color: #9d9d9d;
 }
 
+.btn-primary {
+	font-size:  1.125rem;
+	display: inline-block;
+	border: 1px solid #00B7FF;
+	border-radius: 6px;
+	padding: 8px 16px;
+	background-color: #00B7FF;
+	color: #FFF;
+}
+
+//LISTS
 .list-celebrities, .list-movies {
 	.celebrities-name, .movies-name{
 		padding-right: 20px;
@@ -38,14 +50,50 @@ li {
 			margin-right: 5px;
 		}
 	}
-	.celebrities-create, .movies-create {
-		font-size:  1.125rem;
-		display: inline-block;
+	.btn-primary {
 		margin-top: 20px;
-		border: 1px solid #00B7FF;
+	}
+}
+
+//FORMS
+.form-celebrities, .form-movies {
+	form {
+		width: 30%;
+	}
+	input, textarea {
+		width: 100%;
+		display: block;
+		padding: 8px;
 		border-radius: 6px;
-		padding: 8px 12px;
-		background-color: #00B7FF;
-		color: #FFF;
+		border: 1px solid #00B7FF;
+		font-size: 1rem;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	textarea {
+		font-style: italic;
+	}
+}
+
+.navigation {
+	margin-bottom: 50px;
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+	li {
+		display: inline-block;
+		border: 1px solid #00B7FF;
+		a{
+			padding: 15px 30px;
+			&:hover{
+				color: darken(#00B7FF, 10%);
+			}
+		}
+
+		&:first-child {
+			margin-right: 1px;
+		}
+
 	}
 }

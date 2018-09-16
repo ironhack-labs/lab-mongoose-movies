@@ -25,7 +25,6 @@ router.get('/:id', (req, res, next) => {
 	const id = req.params.id;
 	Movie.findById({_id:id})
 	.then(movie => {
-		console.log(movie);
 		res.render('movies/show', {movie, title: 'Movie Detail'});
 	})
 	.catch(e => {
@@ -39,7 +38,6 @@ router.get('/:id/edit', (req, res, next) => {
 	const id = req.params.id;
 	Movie.findById({_id:id})
 		.then(movie => {
-			console.log('movie', movie);
 			res.render('movies/edit', {movie, title: 'Edit a movie'});
 		})
 		.catch( e => {
@@ -69,7 +67,6 @@ router.post('/:id', (req, res, next) => {
 
 	Movie.update({_id: id}, {$set: {title, genre, plot}}, { new: true })
 		.then( movie => {
-			console.log('movie', movie);
 			res.redirect('/movies');
 		})
 		.catch( e => {

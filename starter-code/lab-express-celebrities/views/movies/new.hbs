@@ -1,7 +1,9 @@
-<h2>{{title}}</h2>
-<form action="/movies" method="post">
-	<input type="text" name="title" placeholder="Title *" required>
-	<input type="text" name="genre" placeholder="Genre">
-	<input type="text" name="plot" placeholder="Plot">
-	<button type="submit">Create a new movie</button>
-</form>
+<section class="form-movies">
+	<h2>{{title}}</h2>
+	<form action="/movies" method="post">
+		<input type="text" name="title" placeholder="Title *" required>
+		<input type="text" name="genre" placeholder="Genre">
+		<textarea type="text" name="plot" placeholder="Plot" rows="4" cols="50"></textarea>
+		<button type="submit" class="btn btn-primary">Create a New Movie</button>
+	</form>
+</section>

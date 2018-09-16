@@ -6,16 +6,16 @@
 		<a  class="movies-name" href="movies/{{this._id}}">{{this.title}}</a>
 		<form action="/movies/{{this._id}}/delete" method="post">
 			<button class="btn" type="submit">
-				<i class="far fa-trash-alt"></i>
-				</button>
+				Delete <i class="far fa-trash-alt"></i>
+			</button>
 		</form>
 		<form action="/movies/{{this._id}}/edit" method="get">
 			<button class="btn" type="submit">
-				<i class="fas fa-pencil-alt"></i>
+				Edit <i class="fas fa-pencil-alt"></i>
 			</button>
 		</form>
 	</li>
 	{{/each}}
 </ul>
-<a class="movies-create" href="/movies/new">Create a New Movie</a>
+<a class="btn-primary" href="/movies/new">Create a New Movie</a>
 </section>

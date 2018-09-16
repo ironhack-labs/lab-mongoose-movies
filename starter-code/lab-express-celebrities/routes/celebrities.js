@@ -25,7 +25,6 @@ router.get('/:id', (req, res, next) => {
 	const id = req.params.id;
 	Celebrity.findById({_id:id})
 	.then(celebrity => {
-		console.log(celebrity);
 		res.render('celebrities/show', {celebrity, title: 'Celebrity Detail'});
 	})
 	.catch(e => {
@@ -39,7 +38,6 @@ router.get('/:id/edit', (req, res, next) => {
 	const id = req.params.id;
 	Celebrity.findById({_id:id})
 		.then(celebrity => {
-			console.log('celebrity', celebrity);
 			res.render('celebrities/edit', {celebrity, title: 'Edit a celebrity'});
 		})
 		.catch( e => {
@@ -69,7 +67,6 @@ router.post('/:id', (req, res, next) => {
 
 	Celebrity.update({_id: id}, {$set: {name, occupation, catchPhrase}}, { new: true })
 		.then( celebrity => {
-			console.log('celebrity', celebrity);
 			res.redirect('/celebrities');
 		})
 		.catch( e => {
