@@ -26,11 +26,11 @@ mongoose
     Celebrity.collection.drop()
     return Celebrity.insertMany(celebrities)
   })
-  .then(()=>{
+  .then(() => {
     return Celebrity.find()
   })
   .then(cel => {
-    cel.forEach(cele => console.log(cele.name) )
+    cel.forEach(cele => console.log(cele.name))
     mongoose.disconnect()
   })
   .catch(err => {
