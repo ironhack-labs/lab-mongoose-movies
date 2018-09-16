@@ -1,3 +1,23 @@
+* {
+  font-family: 'Indie Flower', cursive;
+  padding: 3px;
+  margin: 0;
+  font-size: 24px; }
+
+h1 {
+  font-size: 40px; }
+
+p {
+  font-size: 28px; }
+
+.celeb {
+  color: blue;
+  display: inline; }
+
+.catchPhrase {
+  color: red;
+  display: inline; }
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
