@@ -1,0 +1,129 @@
+html, body {
+  height: 100%; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-flow: column nowrap; }
+
+a {
+  color: #00B7FF;
+  text-decoration: none; }
+
+nav {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+  background-color: chocolate; }
+  nav p {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: white; }
+  nav ul {
+    display: flex;
+    list-style: none; }
+    nav ul li {
+      padding: 0;
+      margin-left: 20px; }
+      nav ul li a {
+        color: white; }
+
+.container, header div, footer div, .all-elements, .add_element_form {
+  margin: auto;
+  max-width: 1240px;
+  box-sizing: border-box;
+  padding: 40px 20px; }
+
+header {
+  flex: 0 0 auto;
+  height: 50vh;
+  background-color: goldenrod;
+  color: white; }
+  header div {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center; }
+    header div h1 {
+      font-size: 50px;
+      font-weight: 600;
+      margin: 0;
+      padding-bottom: 20px; }
+    header div p {
+      font-size: 25px;
+      font-style: italic;
+      margin: 0; }
+
+main {
+  flex: 1 0 auto; }
+
+footer {
+  flex: 0 0 auto;
+  background-color: black;
+  color: white; }
+  footer div {
+    padding: 20px 20px; }
+    footer div p {
+      margin: 0; }
+
+.all-elements div {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: flex-end;
+  padding: 15px 0;
+  border-bottom: 1px solid black; }
+  .all-elements div h3 {
+    flex: 0 0 250px;
+    margin: 0; }
+  .all-elements div div, .all-elements div h4 {
+    flex: 0 0 250px;
+    margin: 0;
+    padding: 0;
+    border-bottom: none; }
+    .all-elements div div ul, .all-elements div h4 ul {
+      margin: 0;
+      padding: 0 0 0 15px; }
+  .all-elements div p:first-of-type {
+    flex: 1 0;
+    margin: 0; }
+  .all-elements div p {
+    flex: 0 0;
+    margin: 0; }
+    .all-elements div p + p {
+      margin-left: 10px; }
+
+.add_element_form form {
+  padding: 0 100px; }
+  .add_element_form form div {
+    display: flex;
+    padding-bottom: 15px; }
+    .add_element_form form div label {
+      display: block;
+      flex: 0 0 200px;
+      text-align: right;
+      padding-right: 30px; }
+    .add_element_form form div input {
+      display: block;
+      flex: 1 0; }
+  .add_element_form form input[type=submit] {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 40px;
+    background-color: gold;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    margin-top: 10px; }
+
+/*# sourceMappingURL=style.css.map */

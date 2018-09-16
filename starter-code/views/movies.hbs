@@ -1,0 +1,26 @@
+<main>
+  <div class="all-elements">
+    <div>
+      <h3>Title</h3>
+      <div>Genre</div>
+      <p>Description</p>
+    </div>
+    {{#each movies}}
+    <div>
+      <h3><a href="/movies/{{this._id}}">{{this.title}}</a></h3>
+      <div>
+        <ul>
+          {{#each this.genre}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <p>{{this.plot}}</p>
+      <p><a href="/movies/delete/{{this._id}}">Delete</a></p>
+    </div>
+    {{/each}}
+    <div>
+      <p><a href="/movies/new">Add a new movie!</a></p>
+    </div>
+  </div>
+</main>

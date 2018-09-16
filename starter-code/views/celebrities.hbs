@@ -1,0 +1,21 @@
+<main>
+  <div class="all-elements">
+    <div>
+      <h3>Name</h3>
+      <div>Occupation</div>
+      <p>Catch Phrase</p>
+    </div>
+    {{#each celebrities}}
+    <div>
+      <h3><a href="/celebrities/{{this._id}}">{{this.name}}</a></h3>
+      <h4>{{this.occupation}}</h4>
+      <p>"{{this.catchPhrase}}"</p>
+      <p><a href="/celebrities/delete/{{this._id}}">Delete</a></p>
+      {{!-- <p><a href="/celebrities/update/{{this._id}}">Update</a></p> --}}
+    </div>
+    {{/each}}
+    <div>
+      <p><a href="/celebrities/new">Add a new celebrity!</a></p>
+    </div>
+  </div>
+</main>
