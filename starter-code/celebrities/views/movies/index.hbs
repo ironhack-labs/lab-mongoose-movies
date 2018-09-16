@@ -1,0 +1,14 @@
+<h1>Lista de películas</h1>
+
+{{#each movies}}
+<div style="display:flex;padding:10px;">
+  <h2 class="celeb">{{this.title}}</h2>
+  <a href="/movies/detail/{{this.id}}">ver detalles de la película</a>
+  <form action="/movies/{{this.id}}/delete" method="POST">
+    <input type="submit" value="Borrar">
+  </form>
+</div>
+{{/each}}
+
+<a href="/movies/new"><button>Agregar otra película</button></a>
+<a href="/"><button>Vuelve a la página principal</button></a>
