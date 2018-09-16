@@ -22,7 +22,6 @@ router.get("/show/:id", (req, res) => {
   Celebrity.findById(req.params.id)
     .then(celebrities => {
       res.render("./celebrities/show", { celebrities });
-      console.log(celebrities);
     })
     .catch(err => {
       console.log(err);
@@ -43,6 +42,17 @@ router.post('/new/create', (req, res, next) => {
   .catch((err) => {
   console.log(err);
   })
+
+  router.post('/celebrities/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/celebrity")
+    })
+    .catch((err) => {
+    console.log(err);
+    })
+  })
+  
 
 });
 
