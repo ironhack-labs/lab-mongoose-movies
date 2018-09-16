@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Echema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const celebritySchema = new Echema({
+const celebritySchema = new Schema({
   name: String,
   occupation: String,
   catchPhrase: String
