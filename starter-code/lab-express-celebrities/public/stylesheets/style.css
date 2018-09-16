@@ -1,8 +1,41 @@
+html {
+  font-size: 16px; }
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 1.125rem; }
 
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+  text-decoration: none; }
+
+li {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.list-celebrities .celebrities-name, .list-celebrities .movies-name, .list-movies .celebrities-name, .list-movies .movies-name {
+  padding-right: 20px; }
+
+.list-celebrities form, .list-movies form {
+  display: inline-block; }
+
+.list-celebrities .btn, .list-movies .btn {
+  font-size: 0.85rem;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer; }
+  .list-celebrities .btn:first-child, .list-movies .btn:first-child {
+    margin-right: 5px; }
+
+.list-celebrities .celebrities-create, .list-celebrities .movies-create, .list-movies .celebrities-create, .list-movies .movies-create {
+  font-size: 1.125rem;
+  display: inline-block;
+  margin-top: 20px;
+  border: 1px solid #00B7FF;
+  border-radius: 6px;
+  padding: 8px 12px;
+  background-color: #00B7FF;
+  color: #FFF; }
 
 /*# sourceMappingURL=style.css.map */
