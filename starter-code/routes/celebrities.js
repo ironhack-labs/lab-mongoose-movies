@@ -50,14 +50,11 @@ router.get ("/:id/edit", (req, res, next) => {
   });
 });
 
-router.post("/:id", (res, req, next) => {
+router.post("/:id", (req, res, next) => {
   let {name, occupation, catchPhrase} = req.body;
-  let celId = req.params.id;
-  console.log(name)
-  console.log(celId)
-  Celebrity.findByIdAndUpdate(celId, {name, occupation, catchPhrase})
+  Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase})
   .then (() => {
-    res.redirect("celebrities")
+    res.redirect("/celebrities")
   })
   .catch (err => {
     next(err)
