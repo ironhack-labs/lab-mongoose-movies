@@ -1,14 +1,16 @@
 <h2>Page Heading</h2>
 
 {{#each celebrities}}
-<a href="celebrity/{{this._id}}">
+<a href="celebrities/{{this._id}}">
   <h5>{{this.name}}</h5>
 </a>
 <form action="/celebrities/{{this.id}}/delete" method="POST">
     <button type="submit" class="btn btn-success">Delete</button>
   </form>
-<form action="/celebrities/{{this.id}}/edit" method="POST">
-    <button type="submit" class="btn btn-success">Edit</button>
-  </form>
+<a href="/celebrities/{{this.id}}/edit"><button type="submit" class="btn btn-success">Edit</button></a>
 
 {{/each}}
+
+<form action="/celebrities/new">
+    <button type="submit" class="btn btn-success">ADD A NEW CELEB</button>
+  </form>

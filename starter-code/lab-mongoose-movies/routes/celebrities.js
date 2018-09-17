@@ -64,14 +64,11 @@ router.get('/:id/edit',(req,res,next)=>{
 })
 
 router.post('/:id/edit', (req, res, next) => {
-  const { name, occupation, catchphrase } = req.body;
-  Celebrity.update({_id: req.query.celebrity_id}, { $set: {name, occupation, catchphrase }})
-  .then((book) => {
-    res.redirect('/celebrities')
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+  const {id} = req.params
+  Celebrity.findByIdAndUpdate(id,{$set:req.body}, {new:true})
+  .then(celebrity=>{
+    res.redirect(`/celebrities/${id}`)
+  }).catch(e=>next(e))
 });
 
 module.exports = router;
