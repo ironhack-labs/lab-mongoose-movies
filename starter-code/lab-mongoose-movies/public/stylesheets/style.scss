@@ -1,0 +1,79 @@
+body {
+  padding: 20px;
+  font: 14px Helvetica, Arial, sans-serif;
+}
+
+.index {
+  background-image: url("http://www.pptbackgrounds.org/uploads/film-movies-movie-making-minimalism-creative-backgrounds-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  color: antiquewhite;
+  font-size: 5em;
+  font-family: 'Codystar', cursive;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  text-decoration-line: none;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.5em;
+}
+
+.titulo{
+  padding-top: 20%;
+  text-align: center;
+}
+
+.index > div {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.button1 {
+  font-size: 1em;
+  padding: 10%;
+  width: 200px;
+  border-radius: 40px;
+  border: 2px dotted;
+  background-color: transparent;
+  color: antiquewhite;
+
+}
+
+
+
+.c-list{
+  background-image: url("https://ak9.picdn.net/shutterstock/videos/25319519/thumb/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+
+}
+
+
+.c-list > div {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.each-celeb {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  line-height: 2em;
+}
+
+
+.movie {
+  background-image: url("https://i.ytimg.com/vi/2LoaD6tTB08/maxresdefault.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+
+

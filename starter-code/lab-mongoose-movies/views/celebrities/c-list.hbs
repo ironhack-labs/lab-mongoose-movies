@@ -1,0 +1,29 @@
+<link href="https://fonts.googleapis.com/css?family=Codystar" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Codystar|Libre+Baskerville" rel="stylesheet">
+
+<body class="c-list">
+    <a href="/"><button>Home</button></a>
+
+
+  <div>
+    <h1>Celebrities</h1>
+  </div>
+
+  <div class="each-celeb">
+    {{#each celebrities}}
+
+      <a href="/celebrities/c-list/detail/{{this._id}}">{{this.name}}</a>
+
+      <form action="/celebrities/c-list/{{this._id}}/delete" method="post">
+        <input type="submit" value="Remove">
+      </form>
+
+    {{/each}}
+  </div>
+
+  <div>
+    <a href="/celebrities/c-add"><button class="button1">Add a Celebrity</button></a>
+  </div>
+
+
+</body>
