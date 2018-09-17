@@ -1,0 +1,64 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #edf7f3; }
+
+.title {
+  color: #980a14;
+  font-size: 50px;
+  text-align: center; }
+
+.padre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px; }
+
+.padre a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border: 5px solid #03297b;
+  border-radius: 20px;
+  background-color: white;
+  padding: 25px; }
+
+.padre a:hover {
+  background-color: #f5f554; }
+
+.celeb {
+  background-image: url("/images/fama.jpg"); }
+
+.pelis {
+  background-image: url("/images/movies.jpg"); }
+
+.gen {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 340px;
+  width: 100%;
+  margin-bottom: 1px;
+  text-align: center;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.celebridades {
+  font-size: 20px; }
+
+.button {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border: 2px solid #03297b;
+  border-radius: 10px;
+  background-color: white;
+  padding: 15px; }
+
+.lista {
+  margin: 80px; }
+
+.b {
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */

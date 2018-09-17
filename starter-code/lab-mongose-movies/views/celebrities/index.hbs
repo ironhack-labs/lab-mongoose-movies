@@ -1,0 +1,15 @@
+<h2 class="title">Top celebridades - Nivel global 2018</h2><hr>
+
+<section>
+  <ol class="lista">
+    {{#each celebrities}}
+      <li>
+        <a href="/celebrities/show/{{this.id}}" class="celebridades">{{this.name}}</a>
+      </li>
+    {{/each}}
+  </ol>
+</section><hr><br>
+<div class="b">
+  <a href="/celebrities/new/" class="button">Crear nueva celebridad</a><br><br><br>
+  <a href="/">Back</a>
+</div>

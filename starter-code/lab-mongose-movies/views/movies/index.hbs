@@ -1,0 +1,14 @@
+<h2 class="title">Top películas - Nivel global</h2><hr>
+<section>
+  <ol class="lista">
+    {{#each movies}}
+      <li>
+        <a href="/movies/show/{{this.id}}" class="celebridades">{{this.title}}</a>
+      </li>
+    {{/each}}
+  </ol>
+</section><hr><br>
+<div class="b">
+  <a href="/movies/new/" class="button">Crear una nueva película</a><br><br><br>
+  <a href="/">Back</a>
+</div>
