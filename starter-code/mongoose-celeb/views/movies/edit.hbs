@@ -1,0 +1,10 @@
+{{#each data}}
+<h2>Edit movie: {{this.title}}</h2>
+<form action="/movies/{{this._id}}" method="post">
+    <input type="text" name="title" id="title" value="{{this.title}}" class="col-md-3 my-2">
+    <input type="text" name="genre" id="genre" value="{{this.genre}}" class="col-md-3 my-2">
+    <input type="text" name="plot" id="plot" value="{{this.plot}}" class="col-md-3 my-2">
+    <button type="submit" class="btn btn-outline-primary">Edit</button>
+</form>
+<a href="/movies" class="btn btn-outline-info">Back</a>
+{{/each}}

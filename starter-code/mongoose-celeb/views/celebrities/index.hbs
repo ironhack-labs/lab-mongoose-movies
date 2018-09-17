@@ -1,0 +1,13 @@
+<h2>Celebrities</h2>
+<ul class="list-group">
+    {{#each data}}
+    <div class="row my-2">
+        <li class="list-group-item col-md-3 mx-2">{{this.name}}</li>
+        <a href="/celebrities/{{this._id}}" class="mx-2 btn btn-outline-primary">See more details</a>
+        <a href="/celebrities/{{this._id}}/edit" class="mx-2 btn btn-outline-warning">Edit celebrity</a>
+        <a href="/celebrities/{{this._id}}/delete" class="mx-2 btn btn-outline-danger">Delete celebrity</a>
+
+    </div>
+    {{/each}}
+</ul>
+<a href="/celebrities/new" class="btn btn-outline-info">Add celebrity</a>

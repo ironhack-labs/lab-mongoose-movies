@@ -1,0 +1,8 @@
+{{#each data}}
+<h2>Celebrity: {{this.name}}</h2>
+<ul class="list-group">
+    <li class="list-group-item col-md-3 my-2">Occupation: {{this.occupation}}</li>
+    <li class="list-group-item col-md-3 my-2">Phrase: {{this.catchPhrase}}</li>
+</ul>
+<a href="/celebrities" class="btn btn-outline-info">Back</a>
+{{/each}}
