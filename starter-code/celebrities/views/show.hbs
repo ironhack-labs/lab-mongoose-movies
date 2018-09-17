@@ -1,0 +1,34 @@
+<div id="celebrities">
+<h2>{{name}}</h2>
+<strong>{{occupation}}</strong>
+<p>{{catchPhrase}}</p>
+<button><a href="/celebrities/edit/{{_id}}">Editar</a></button>
+<div>
+<br/>
+<form action="/celebrities/{{this.id}}/delete" method="POST">
+    <input type="submit" value="Remove">
+</form>
+</div>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
