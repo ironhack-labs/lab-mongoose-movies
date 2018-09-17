@@ -1,0 +1,10 @@
+<h2>Edicion de actores</h2>
+<form action="/celebrities/{{_id}}/edit" method="POST">
+  <label for="title">Nombre del famoso</label>
+  <input type="text" name="name" value="{{name}}">
+  <label for="title">Ocupacion del famoso</label>
+  <input type="text" name="occupation" value="{{occupation}}">
+  <label for="title">Frase famosa</label>
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+  <input type="submit" value="Editar">
+</form>
