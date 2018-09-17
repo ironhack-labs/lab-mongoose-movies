@@ -1,0 +1,17 @@
+<h2>Movies</h2>
+<div>
+{{#each movies}}
+<li>{{this.title}} 
+  - 
+  <a href="/movies/{{_id}}">Show more</a>
+  -
+  <a href="movies/delete/{{_id}}">Delete</a>
+  -
+  <a href="movies/edit/{{_id}}">Edit</a>
+</li>
+{{/each}}
+<br>
+  <a href="/movies/new"> Create new movie </a> 
+  <br>
+  <a href="/"> Go back to menu </a>
+</div>
