@@ -23,7 +23,7 @@ const Celebrity = require('../models/celebrity.js');
     .catch(e => next(e));
   });
 
-  router.post('/:celebrityId/delete', (req, res, next) => {
+  router.get('/:celebrityId/delete', (req, res, next) => {
     Celebrity.findByIdAndRemove(req.params.celebrityId)
     .then(() => res.redirect('/celebrities'))
     .catch(e => next(e));    
@@ -37,7 +37,6 @@ const Celebrity = require('../models/celebrity.js');
 
   router.post('/:celebrityId', (req, res, next) => {
     const { name, occupation, catchPhrase } = req.body;
-    console.log(name, occupation, catchPhrase)
     Celebrity.findByIdAndUpdate(req.params.celebrityId, {$set: {name, occupation, catchPhrase}})
     .then(() => res.redirect('/celebrities'))
     .catch(e => next(e));
