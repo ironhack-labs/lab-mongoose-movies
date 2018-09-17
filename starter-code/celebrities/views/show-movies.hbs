@@ -1,0 +1,22 @@
+<div id="movies">
+
+<h2>{{title}}</h2>
+<strong>{{genre}}</strong>
+<p>{{plot}}</p>
+ <button><a href="/movies/edit/{{_id}}">Editar</a></button> 
+<div>
+    <br/>
+<form action="/movies/{{this.id}}/delete" method="POST">
+<button type="submit" value="Remove"> Remove</button>
+</form> 
+ </div>
+ </div>
+
+
+
+
+
+
+
+
+

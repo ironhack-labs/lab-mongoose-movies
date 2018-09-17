@@ -1,0 +1,93 @@
+body {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 16px;
+  color: #fff;
+}
+
+a {
+  color: #5eb4d0;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer; 
+}
+
+#homepage-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh; 
+  width: 1400px;
+  margin:0 auto;
+}
+
+#celebrities {
+  text-align: center; 
+}
+
+#movies {
+  text-align: center; 
+}
+
+h1 {
+  text-align: center;
+  font-size: 80px;
+  color: #fff;
+  text-shadow: -1px 0 #2b7186, 0 1px #2b7186, 1px 0 #2b7186, 0 -1px #2b7186; 
+}
+
+h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 45px;
+  text-shadow: -1px 0 #2b7186, 0 1px #2b7186, 1px 0 #2b7186, 0 -1px #2b7186;
+ }
+
+#homepage-buttons {
+  text-align: center;
+  margin: 0 15px;
+ }
+
+button,#button {
+  padding: 20px 30px;
+  border: none;
+  border-radius: 50px !important;
+  background: #007388;
+  margin: 0 20px;
+  cursor: pointer;
+  width: 20%;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700; 
+}
+
+button:hover {
+  background: #0292ad; 
+}
+
+button a, button a:hover {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700; 
+}
+
+  label {
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+}
+
+input[type="text"] {
+  padding: 15px;
+  border-radius: 50px;
+  width: 40%;
+  margin:15px 0;
+}
+
+/*# sourceMappingURL=style.css.map */
