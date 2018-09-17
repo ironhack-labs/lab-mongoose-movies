@@ -1,0 +1,15 @@
+<h2>{{this.title}}</h2>
+
+<form action="/movies/{{this._id}}" method="POST">
+    
+    <label for="title">Name</label>
+    <input type="text" value="{{this.title}}" name="title">
+  
+    <label for="genre">genre</label>
+    <input type="text" name="genre" value="{{this.genre}}">
+  
+    <label for="plot">plot</label>
+    <input type="text" name="plot" value="{{this.plot}}">
+  
+    <button type="submit">ADD</button>
+  </form>
