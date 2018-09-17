@@ -1,0 +1,20 @@
+<section>
+    <h1>Choose one Celebrity</h1>
+    <ul id="celebrity-list">
+        {{#each celebrities}}
+        <li>
+            <p>{{name}}</p>
+            <p>
+                <a href="celebrities/{{_id}}">Details</a>
+                <form action="/celebrities/{{_id}}/delete" method="POST">
+                    <input type="hidden" name="celebrityId" value="{{_id}}">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="celebrities/{{_id}}/edit">Edit</a>
+            </p>
+        </li>
+        {{/each}}
+    </ul>
+    <a href="/celebrities/new">Add a new Celebrity</a>
+    <a href="/">Back</a>
+</section>
