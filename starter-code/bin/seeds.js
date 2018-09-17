@@ -1,27 +1,35 @@
 const mongoose = require('mongoose');
-// const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/celebrity');
 const Movie = require('../models/movie');
 
-const dbName = 'lab-mongoose-movies';
-mongoose.connect(`mongodb://localhost/${dbName}`);
+mongoose
+  .connect('mongodb://localhost/lab-mongoose-movies', {
+    useNewUrlParser: true
+  })
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
 
-// const celebrities = [
-//   {
-//    name: "Sheldon Cooper",
-//    occupation: "scientist",
-//    catchPhrase: "Bazinga!"
-//   },
-//   {
-//     name: "Steve Urkel",
-//     occupation: "inventor",
-//     catchPhrase: "Did I do that?"
-//   },
-//   {
-//     name: "Joey Tribbiani",
-//     occupation: "actor",
-//     catchPhrase: "How you doin'?"
-//   }
-// ]
+const celebrities = [
+  {
+   name: "Sheldon Cooper",
+   occupation: "scientist",
+   catchPhrase: "Bazinga!"
+  },
+  {
+    name: "Steve Urkel",
+    occupation: "inventor",
+    catchPhrase: "Did I do that?"
+  },
+  {
+    name: "Joey Tribbiani",
+    occupation: "actor",
+    catchPhrase: "How you doin'?"
+  }
+]
 
 const movies = [
   {
@@ -41,16 +49,17 @@ const movies = [
    }
 ]
 
-// Celebrity.create(celebrities)
-// .then (() => {
-//   console.log("Celebrities created")
-// })
-// .then (() => {
-//   mongoose.disconnect()
-// })
-// .catch (err => {
-//   console.log(err)
-// });
+Celebrity.collection.drop();
+Movie.collection.drop();
+
+
+Celebrity.create(celebrities)
+.then (() => {
+  console.log("Celebrities created")
+})
+.catch (err => {
+  console.log(err)
+});
 
 Movie.create(movies)
 .then (() => {

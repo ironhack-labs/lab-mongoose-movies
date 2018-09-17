@@ -1,7 +1,7 @@
 const express = require('express');	
 const router  = express.Router();
 
-const Celebrity = require("../models/Celebrity").default
+const Celebrity = require("../models/celebrity")
 
 router.get ("/", (req, res, next) => {
   Celebrity.find()
@@ -18,7 +18,7 @@ router.get ("/new", (req, res, next) => {
 });
 
 router.post ("/new", (req, res, next) => {
-  const {name, occupation, catchPhrase} = req.body;
+  let {name, occupation, catchPhrase} = req.body;
   new Celebrity({name, occupation, catchPhrase})
   .save().then (()=> {
     res.redirect("/celebrities")
@@ -39,9 +39,32 @@ router.get ("/:id", (req, res, next) => {
   });
 });
 
-router.post ("/:id/delete", (req, res, next) => { 
-  // Celebrity.findByIdAndRemove(req.params.id, () => res.redirect('/celebrities'));
+router.get ("/:id/edit", (req, res, next) => {
+  let celId = req.params.id;
+  Celebrity.findById(celId)
+  .then (celebrity => {
+    res.render("celebrities/edit",{celebrity})
+  })
+  .catch (err => {
+    next(err)
+  });
+});
 
+router.post("/:id", (res, req, next) => {
+  let {name, occupation, catchPhrase} = req.body;
+  let celId = req.params.id;
+  console.log(name)
+  console.log(celId)
+  Celebrity.findByIdAndUpdate(celId, {name, occupation, catchPhrase})
+  .then (() => {
+    res.redirect("celebrities")
+  })
+  .catch (err => {
+    next(err)
+  });
+});
+
+router.post ("/:id/delete", (req, res, next) => { 
   let celId = req.params.id;
   Celebrity.findByIdAndRemove(celId)
     .then (() => {
