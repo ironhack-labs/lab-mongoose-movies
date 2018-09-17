@@ -3,7 +3,7 @@
   <ul>
     {{#each celebs}}
     <li>
-      <p>{{this.name}}</p>
+      <h3>{{this.name}}</h3>
       <p>
       <a href="celebrities/{{this._id}}">See more</a> 
       <form action="/celebrities/{{this._id}}/delete" method="POST">
@@ -15,8 +15,7 @@
     </li>
     {{/each}}
   </ul>
-  <a href="/celebrities/new">ADD a new Celebrity</a>
-   - 
-  <a href="/">Go Back</a>
+  <a class="links" href="/celebrities/new">ADD a new Celebrity</a> 
+  <a class="links" href="/">Go Back</a>
 
 </section>
