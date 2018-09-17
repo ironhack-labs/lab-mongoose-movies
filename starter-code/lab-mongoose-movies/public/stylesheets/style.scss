@@ -1,0 +1,81 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#home{
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url('../images/cover.jpg');
+  background-size:cover;
+  a,h1{
+    margin:20px 40%;
+  }
+  h1{
+    width:250px;
+    font-size: 60px;
+    color:white;
+    margin-top:100px;
+  }
+  a{
+    width: 200px;
+    color:#6ea2b2;
+    background:white;
+    border-radius: 30px;
+    padding:20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+  }
+}
+
+
+#celebrities {
+
+  padding: 20px;
+  background: #CC0;
+  h1 {
+    padding: 20px;
+    font-size: 30px;
+
+  }
+  ul {
+    list-style: none;
+    font-size: 15px;
+  }
+
+  li {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    h3 {
+      width: 200px;
+    }
+    a {
+      text-align: center;
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+    }
+  }
+  .links{
+    width: 200px;
+    color:#6ea2b2;
+    background:white;
+    border-radius: 30px;
+    padding:10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 20px;
+  }
+}

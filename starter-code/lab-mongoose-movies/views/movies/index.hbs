@@ -1,0 +1,22 @@
+<section id="movies">
+  <h1>LIST OF MOVIES</h1>
+  <ul>
+    {{#each movies}}
+    <li>
+      <p>{{this.title}}</p>
+      <p>
+      <a href="movies/{{this._id}}">See more</a> 
+      <form action="/movies/{{this._id}}/delete" method="POST">
+        <input type="hidden" name="movieId" value="{{this._id}}">
+        <button type="submit">DELETE</button>
+      </form>
+      <a href="movies/{{this._id}}/edit">EDIT</a>
+      </p>
+    </li>
+    {{/each}}
+  </ul>
+  <a href="/movies/new">ADD a MOVIE</a>
+   - 
+  <a href="/">Go Back</a>
+
+</section>
