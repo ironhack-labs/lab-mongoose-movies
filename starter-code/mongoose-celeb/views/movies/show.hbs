@@ -1,0 +1,8 @@
+{{#each data}}
+<h2>Movie: {{this.title}}</h2>
+<ul class="list-group">
+    <li class="list-group-item col-md-3 my-2">Genre: {{this.genre}}</li>
+    <li class="list-group-item col-md-3 my-2">Plot: {{this.plot}}</li>
+</ul>
+<a href="/movies" class="btn btn-outline-info">Back</a>
+{{/each}}

@@ -1,0 +1,13 @@
+<h2>Movies</h2>
+<ul class="list-group">
+    {{#each data}}
+    <div class="row my-2">
+        <li class="list-group-item col-md-3 mx-2">{{this.title}}</li>
+        <a href="/movies/{{this._id}}" class="mx-2 btn btn-outline-primary">See more details</a>
+        <a href="/movies/{{this._id}}/edit" class="mx-2 btn btn-outline-warning">Edit movie</a>
+        <a href="/movies/{{this._id}}/delete" class="mx-2 btn btn-outline-danger">Delete movie</a>
+
+    </div>
+    {{/each}}
+</ul>
+<a href="/movies/new" class="btn btn-outline-info">Add movie</a>
