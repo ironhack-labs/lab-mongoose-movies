@@ -1,0 +1,19 @@
+<div class="lista">
+  <h2>Actualizar celebridad</h2>
+  <form action="/celebrities/edit/{{_id}}" method="post">
+  <p>
+    <label for="name">Nombre: </label>
+    <input type="text" name="name" placeholder="Nombre" id="name" value="{{name}}">
+  </p>
+  <p>
+    <label for="occupation">Ocupación: </label>
+    <input type="text" name="occupation" placeholder="Ocupación" id="occupation" value="{{occupation}}">
+  </p>
+  <p>
+    <label for="catchPhrase">Frase: </label>
+    <input type="text" name="catchPhrase" placeholder="Frase" id="catchPhrase" value="{{catchPhrase}}">
+  </p>
+  <input type="submit" value="Actualizar">
+</form> <hr><br>
+<a href="/celebrities/" class="button">Cancelar</a>
+</div>
