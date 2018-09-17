@@ -60,4 +60,13 @@ route.get('/:id/edit',(req,res,next)=>{
   })
 })
 
+route.post('/:id/edit',(req,res,nex)=>{
+  const {id} = req.params
+  Celebrity.findByIdAndUpdate(id,req.body)
+  .then(()=>{
+    res.redirect(`/celebrities/detail/${id}`)
+  })
+  .catch()
+})
+
 module.exports= route
