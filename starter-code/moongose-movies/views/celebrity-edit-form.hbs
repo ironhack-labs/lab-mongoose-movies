@@ -1,0 +1,23 @@
+<a href="/celebrities">back</a>
+
+<h2>Editar celebridad</h2>
+
+<form action="/celebrities/edit/{{_id}}" method="post" id="title">
+
+<p>
+  <label for="name">Nombre de la celebridad:</label>
+<input type="text" name="name" placeholder="{{name}}">
+</p>
+
+<p>
+  <label for="occupation">Ocupacion:</label>
+<input type="text" name="occupation" placeholder="{{occupation}}">
+</p>
+
+<p>
+  <label for="catchPhrase">Frase:</label>
+<textarea type="text" name="catchPhrase" placeholder="">{{catchPhrase}}</textarea>
+</p>
+
+<input type="submit" value="guardar">
+</form>

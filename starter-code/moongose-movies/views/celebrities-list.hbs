@@ -1,0 +1,26 @@
+<a href="/">back</a>
+<br><br>
+
+
+<h2>Lista de celebridades</h2>
+
+  <div>
+    {{#each celebrities}}
+      <h3>
+        <a href="/celebrities/celebrity-detail/{{this._id}}">{{this.name}}</a>
+        </h3>
+
+        <p>
+           <a href="/celebrities/edit/{{_id}}">Editar informacion</a>
+        </p>
+        
+        <br>
+        <br>
+    {{/each}}
+  <p>
+
+    <br>
+    <br>
+    <a href="/celebrities/new">Añade un personaje</a>
+    </p>
+</div>
