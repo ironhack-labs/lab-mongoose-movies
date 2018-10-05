@@ -1,0 +1,37 @@
+<form
+  {{#if celeb}}
+    action="/celebs/{{celeb._id}}"
+    {{else}}
+      action="/celebs"
+  {{/if}}
+ method="POST" enctype="application/x-www-form-urlencoded">
+
+  <input type="text" name="name" 
+    {{#if celeb}}
+      value="{{celeb.name}}"  
+      {{else}}
+        placeholder="Name"  
+    {{/if}}
+  >
+  <input type="text" name="occupation"
+    {{#if celeb}}
+      value="{{celeb.occupation}}"
+      {{else}}
+        placeholder="Ocuppation"
+    {{/if}}
+  >
+  <input type="text" name="catchPhrase"
+    {{#if celeb}}
+      value="{{celeb.catchPhrase}}"
+      {{else}}
+        placeholder="Catch phrase"   
+    {{/if}}
+  >
+  <button type="submit">
+    {{#if celeb}}
+      Edit
+      {{else}}
+        Add
+    {{/if}}
+  </button>
+</form>

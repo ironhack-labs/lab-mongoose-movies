@@ -1,0 +1,37 @@
+<form
+  {{#if movie}}
+    action="/movies/{{movie._id}}"
+    {{else}}
+      action="/movies"
+  {{/if}}
+ method="POST" enctype="application/x-www-form-urlencoded">
+
+  <input type="text" name="title" 
+    {{#if movie}}
+      value="{{movie.title}}"  
+      {{else}}
+        placeholder="Title"  
+    {{/if}}
+  >
+  <input type="text" name="genre"
+    {{#if movie}}
+      value="{{movie.genre}}"
+      {{else}}
+        placeholder="Genre"
+    {{/if}}
+  >
+  <input type="text" name="plot"
+    {{#if movie}}
+      value="{{movie.plot}}"
+      {{else}}
+        placeholder="Plot"
+    {{/if}}
+  >
+  <button type="submit">
+    {{#if movie}}
+      Edit
+      {{else}}
+        Add
+    {{/if}}
+  </button>
+</form>

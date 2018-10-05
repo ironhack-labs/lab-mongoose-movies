@@ -1,0 +1,14 @@
+<a href="/celebs/new">Create new</a>
+<ul>
+  {{#each celebs as |celeb|}}
+    <li>
+      <a href="/celebs/{{celeb._id}}">
+      {{celeb.name}}</a>
+      <br>
+      <a href="/celebs/{{celeb._id}}/edit">Edit</a>
+      <form action="/celebs/{{celeb._id}}/delete" method="POST" enctype="application/x-www-form-urlencoded">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
