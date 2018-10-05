@@ -1,11 +1,14 @@
 <h1>{{header}}</h1>
 
+{{#if celebritytables}}
 <ul>
-  {{#each celebritytables as |celebrity|}} 
-  <li>Name: {{celebrity.name}} - Occupation: {{celebrity.occupation}}</li>
-  {{/each}}
+  {{#each celebritytables as |celebrity|}}
+  <li> <a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a></li>
+    {{/each}}
 </ul>
-
+{{else}}
+<p>No hay celebridades</p>
+{{/if}}
 
 <p><a href="/">Return</a></p>
 {{!-- {{> authorForm}} --}}

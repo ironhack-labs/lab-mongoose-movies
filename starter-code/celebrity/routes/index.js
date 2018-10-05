@@ -19,4 +19,15 @@ router.get('/celebrities', (req, res) => {
     })
 })
 
+//RUTA PARA MOSTRAR DETALLES DE LAS CELEBRIDADES
+router.get('/celebrities/:id', (req, res) => {
+  Celebrity.findById(req.params.id)
+    .then(celebritytables => {
+      res.render("show", { //Vista show.hbs
+        header: celebritytables.name,
+        celebritytables
+      })
+    })
+})
+
 module.exports = router;
