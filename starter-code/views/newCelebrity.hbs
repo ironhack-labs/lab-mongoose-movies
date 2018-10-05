@@ -1,0 +1,28 @@
+<h2>Add a New Celebrity to the Library</h2>
+{{!-- 
+//what the heck is action?? is that the route? in the other page is /new not create
+
+//whats the difference between post and the other method i dont remember
+//whats the other way to do this besides form --}}
+
+<form action="/celebrities/create" method="post">
+
+<label>Name</label>
+<input type="text" name="name">
+<br>
+
+<label>Occupation</label>
+<input type="text" name="occupation">
+<br>
+
+<label>Catch phrase</label>  
+{{!-- //can this be input?? --}}
+
+<textarea name="catchPrase" cols="30" rows="10"></textarea>
+<br>
+
+
+<button type="submit">Save changes</button>
+
+
+</form>

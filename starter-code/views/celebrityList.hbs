@@ -1,0 +1,15 @@
+{{#each listOfCelebrities}}
+
+<p> Celebrity name: {{this.name}} </p>
+<a href="/celebrities/{{this._id}}">See Details</a>
+
+
+{{!-- wherever i see app.js and json whatever is where i do npm run dev --}}
+
+{{/each}}
+<br>
+<br>
+<br>
+<a href="/celebrities/new">Add New Celebrity</a>
+
+
