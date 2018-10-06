@@ -1,0 +1,19 @@
+<form
+        {{#if celebrity}} action="/celebrities/{{celebrity._id}}"
+        {{else}}action="/celebrities/new"{{/if}}method="post">
+
+    <label for="">Name:</label>
+    <input type="text" name="name" value="{{celebrity.name}}">
+
+    <label for="">Occupation:</label>
+   <input type="text" name="occupation" value="{{celebrity.occupation}}">
+
+    <label for="">Catch Phrase:</label>
+    <input type="text" name="catchPhrase" value="{{book.catchPhrase}}">
+
+    <button type="submit">
+        {{#if celebrity}} Editar
+        {{else}} Agregar
+        {{/if}}
+    </button>
+</form>

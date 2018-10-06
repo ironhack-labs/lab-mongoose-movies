@@ -1,0 +1,30 @@
+<h1>{{header}}</h1>
+
+<p>
+    <a href="/celebrities/new">Agregar celebridad</a>
+</p>
+
+{{#if celebrities}}
+
+<ul>
+  
+    {{#each celebrities as |celebrity|}}
+      <li>
+        <a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a>
+        </li>
+    {{/each}}
+  
+</ul>
+
+{{/if}}
+
+<form
+        {{#if celebrity}} action="/celebrities/:id/delete{{celebrity.name}}"
+        {{else}}action="/celebrities/:id/delete"{{/if}}method="post">
+
+    <label for="">Name:</label>
+    <input type="text" name="name" value="{{celebrity.name}}">
+
+    <button type="submit"> Eliminar celebridad
+    </button>
+</form>
