@@ -1,0 +1,24 @@
+<img src="/images/Celebrities.png">
+
+
+{{#if celebrities}}
+
+<ul>
+  
+    {{#each celebrities as |celebrity|}}
+      <li>
+        <h2><a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a></h2>
+        <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+        <div class="button__holder">
+    <h2>Erase celebrity! &rarr;</h2>
+    <button class="plus" type="submit"></button>
+</div>
+      </form>
+        </li>
+    {{/each}}
+  
+</ul>
+
+{{/if}}
+
+<p><a href="/celebrities/new" class="button4" style="background-color:#e97c16">Add celebrity</a></p>
