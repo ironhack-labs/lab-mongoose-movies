@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const celebritiesSchema = new Schema({
     name: String,
     occupation: String,
-    catchPhrase: String,
-    image: String
+    catchPhrase: String
 })
 
 module.exports = mongoose.model ("Celebrities", celebritiesSchema);

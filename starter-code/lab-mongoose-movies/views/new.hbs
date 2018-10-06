@@ -1,3 +1,5 @@
+<h1>Add celebrity that you want!</h1>
+
 <form
         {{#if celebrity}} action="/celebrities/{{celebrity._id}}"
         {{else}}action="/celebrities/new"{{/if}}method="post">
@@ -13,7 +15,7 @@
 
     <button type="submit">
         {{#if celebrity}} Editar
-        {{else}} Agregar
+        {{else}} Add
         {{/if}}
     </button>
 </form>

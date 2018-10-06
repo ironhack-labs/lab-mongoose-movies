@@ -7,8 +7,7 @@ const celebrities = [
     {
         name: "Arnold Schwarzenegger",
         occupation: "The best fucking action hero",
-        catchPhrase: "Hasta la vista baby",
-        image: ""
+        catchPhrase: "Hasta la vista baby"
     },
     {
         name: "Michael Jordan",
