@@ -1,0 +1,11 @@
+<img src="{{movies.image}}" alt="{{this.name}}">
+<h1>{{movies.title}}</h1>
+<h2>{{movies.genre}}</h2>
+<p>{{movies.plot}}</p>
+<form action="/">
+<button type="submit">Homepage</button>
+</form>
+<br>
+<form action="/movies/{{movies._id}}/edit">
+<button type="submit">Edit information</button>
+</form>

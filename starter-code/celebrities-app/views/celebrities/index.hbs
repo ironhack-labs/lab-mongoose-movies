@@ -1,0 +1,23 @@
+<h2>{{title}}</h2>
+<p>Welcome to {{title}}</p>
+
+{{#if celebrities}}
+<ul>
+  {{#each celebrities as |celeb|}}
+  <li><a href="/celebrities/{{celeb._id}}">{{celeb.name}}</a></li>
+  <form action="/celebrities/{{celeb.id}}/delete" method="POST">
+    <button type="submit">Delete celebrity</button>
+  </form>
+  {{/each}}
+</ul>
+{{else}}
+<p>No hay celebridades</p>
+{{/if}}
+
+<form action="/celebrities/add">
+  <button type="submit">Add new celebrities</button>
+</form>
+<br>
+<form action="/Movies">
+  <button type="submit">Show movies</button>
+</form>

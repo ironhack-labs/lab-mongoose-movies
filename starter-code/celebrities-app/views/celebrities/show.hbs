@@ -1,0 +1,11 @@
+<img src="{{celebrities.image}}" alt="{{this.name}}">
+<h1>{{celebrities.name}}</h1>
+<h2>{{celebrities.occupation}}</h2>
+<p>{{celebrities.catchPhrase}}</p>
+<form action="/">
+<button type="submit">Homepage</button>
+</form>
+<br>
+<form action="/celebrities/{{celebrities._id}}/edit">
+<button type="submit">Edit information</button>
+</form>

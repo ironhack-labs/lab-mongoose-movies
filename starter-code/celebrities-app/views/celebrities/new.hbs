@@ -1,0 +1,27 @@
+<h1>Add new celebrities</h1>
+
+<form {{#if celebrities}} action="/celebrities/{{celebrities._id}}" {{else}} action="/celebrities/add" {{/if}} method="post">
+  <label for="">Name:</label>
+  <input type="text" name="name" value="{{celebrities.name}}">
+  <br><br>
+  <label for="">Occupation:</label>
+  <input type="text" name="occupation" value="{{celebrities.occupation}}">
+  <br><br>
+  <label for="">Catch phrase:</label>
+  <input type="text" name="catchPhrase" value="{{celebrities.catchPhrase}}">
+  <br><br>
+  <label for="">Image_URL:</label>
+  <input type="text" name="image" value="{{celebrities.image}}">
+  <br><br>
+  <button type="submit">
+    {{#if celebrities}}
+    EDIT
+    {{else}}
+    Add new
+    {{/if}}
+  </button>
+</form>
+<br>
+<form action="/">
+<button type="submit">Return</button>
+</form>
