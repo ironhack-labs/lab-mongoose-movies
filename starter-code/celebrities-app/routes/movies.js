@@ -48,7 +48,7 @@ router.get("/m/:id/edit", (req,res)=>{
 router.post("/m/:id/edit", (req,res)=>{
   Movies.findByIdAndUpdate(req.params.id, { $set: req.body })
   .then((pelis)=>{
-    res.redirect("/m/${pelis._id}/edit")
+    res.redirect("/m")
   })
   .catch(e=>next(e))
 })
