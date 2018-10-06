@@ -1,38 +1,12 @@
-<!--<h2>{{title2}}</h2>
-<p>Welcome to {{title2}}</p>
-
-{{#if movies}}
-<ul>
-  {{#each movies}}
-  <li>
-    <a href="/movies/{{this._id}}">{{this.title}}</a>
-  </li>
-  <form action="/movies/{{this._id}}/delete" method="POST">
-    <button type="submit">Delete movie</button>
-  </form>
-  {{/each}}
-</ul>
-{{else}}
-<p>No hay peliculas</p>
-{{/if}}
-
-<form action="/movies/add">
-  <button type="submit">Add new movies</button>
-</form>
-<br>
-<form action="/">
-  <button type="submit">Return celebrities</button>
-</form>-->
-
 <h2>{{title2}}</h2>
 <p>Welcome to {{title2}}</p>
 
 {{#if pelis}}
 <ul>
-  {{#each pelis as |movie|}}
-  <li><a href="/Movies/{{movie._id}}">{{movie.title}}</a></li>
-  <form action="/Movies/{{movie.id}}/delete" method="POST">
-    <button type="submit">Delete celebrity</button>
+  {{#each pelis as |m|}}
+  <li><a href="/m/{{m._id}}">{{m.title}}</a></li>
+  <form action="/m/{{m.id}}/delete" method="POST">
+    <button type="submit">Delete movie</button>
   </form>
   {{/each}}
 </ul>
@@ -40,10 +14,10 @@
 <p>No hay celebridades</p>
 {{/if}}
 
-<form action="/Movie/add">
-  <button type="submit">Add new celebrities</button>
+<form action="/m/add">
+  <button type="submit">Add new Movies</button>
 </form>
 <br>
-<form action="/Movies">
-  <button type="submit">Show movies</button>
+<form action="/">
+  <button type="submit">Return celebrities</button>
 </form>

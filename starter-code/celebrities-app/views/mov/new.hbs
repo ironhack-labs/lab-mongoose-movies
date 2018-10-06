@@ -1,0 +1,27 @@
+<h1>Add new movies</h1>
+
+<form {{#if pelis}} action="/m/{{pelis._id}}" {{else}} action="/m/add" {{/if}} method="post">
+  <label for="">Title:</label>
+  <input type="text" name="title" value="{{pelis.title}}">
+  <br><br>
+  <label for="">Genre:</label>
+  <input type="text" name="genre" value="{{pelis.genre}}">
+  <br><br>
+  <label for="">Plot:</label>
+  <input type="text" name="plot" value="{{pelis.plot}}">
+  <br><br>
+  <label for="">Image_URL:</label>
+  <input type="text" name="image" value="{{pelis.image}}">
+  <br><br>
+  <button type="submit">
+    {{#if pelis}}
+    EDIT
+    {{else}}
+    Add new
+    {{/if}}
+  </button>
+</form>
+<br>
+<form action="/m">
+<button type="submit">Return</button>
+</form>

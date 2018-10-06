@@ -8,6 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 
 
 mongoose
@@ -50,10 +52,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Celebrities';
 app.locals.title2 = 'Movies';
 
-const movies = require('./routes/movies');
-
-
-const celebrities = require('./routes/celebrities');
 app.use('/', celebrities);
 app.use('/', movies);
 
