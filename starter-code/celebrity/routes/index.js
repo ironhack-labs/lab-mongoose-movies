@@ -30,6 +30,16 @@ router.post("/new",(request, response)=>{
   // })
 })
 
+//RUTA BORRAR REGISTROS
+router.get('/celebrities/:id/delete', (req, res) => {
+  Celebrity.findByIdAndDelete(req.params.id)
+  .then(celebritytables => {
+    res.render("delete", { //Vista delete.hbs
+      celebritytables
+    })
+  })
+})
+
 //RUTA PARA MOSTRAR DETALLES DE LAS CELEBRIDADES
 router.get('/celebrities/:id', (req, res) => {
   Celebrity.findById(req.params.id)
