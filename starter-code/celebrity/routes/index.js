@@ -19,6 +19,17 @@ router.get('/celebrities', (req, res) => {
     })
 })
 
+router.get('/new', (req,res) =>{
+  res.render("new")
+})
+
+router.post("/new",(request, response)=>{
+  Celebrity.create(request.body) //Trae la info del formulario
+  // .then(celebritytables=>{
+  //   response.redirect("/celebrities")
+  // })
+})
+
 //RUTA PARA MOSTRAR DETALLES DE LAS CELEBRIDADES
 router.get('/celebrities/:id', (req, res) => {
   Celebrity.findById(req.params.id)
@@ -29,5 +40,7 @@ router.get('/celebrities/:id', (req, res) => {
       })
     })
 })
+
+
 
 module.exports = router;
