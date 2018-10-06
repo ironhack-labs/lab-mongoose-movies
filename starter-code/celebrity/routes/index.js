@@ -25,9 +25,9 @@ router.get('/new', (req,res) =>{
 
 router.post("/new",(request, response)=>{
   Celebrity.create(request.body) //Trae la info del formulario
-  // .then(celebritytables=>{
-  //   response.redirect("/celebrities")
-  // })
+   .then(celebritytables=>{
+    response.redirect("/celebrities")
+  })
 })
 
 //RUTA BORRAR REGISTROS
