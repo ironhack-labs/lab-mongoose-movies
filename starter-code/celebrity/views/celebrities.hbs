@@ -1,0 +1,19 @@
+<h1>{{header}}</h1>
+
+{{#if celebritytables}}
+<ul>
+  {{#each celebritytables as |celebrity|}}
+  <li> <a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a></li>
+  <a href="/celebrities/{{celebrity._id}}/delete">Delete</a>
+{{!-- <button onclick="/celebrities/{{celebrity._id}}/delete" type="button">
+     Delete</button>     --}}
+     {{/each}}
+</ul>
+{{else}}
+<p>No hay celebridades</p>
+{{/if}}
+
+<p><a href="/new">Add celebrity</a></p>
+
+<p><a href="/">Return</a></p>
+{{!-- {{> authorForm}} --}}
