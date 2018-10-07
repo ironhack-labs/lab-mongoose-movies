@@ -1,0 +1,14 @@
+<a href="/movies">Regresar</a>
+
+<h2>{{movie.title}}</h2>
+<p><strong>Genre: </strong>{{movie.genre}}</p>
+<p><strong>Plot: </strong>{{movie.plot}}</p>
+
+<button onclick="document.getElementById('form').style.display = 'block'">¿Quieres editarme?</button>
+
+<div id="form">
+  {{> movieForm }}
+  <form action="/movies/details/{{movie._id}}/delete" method="POST"><br>
+    <button type="submit" class="delete">Delete</button>
+  </form>
+</div>
