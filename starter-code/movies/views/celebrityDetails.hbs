@@ -1,0 +1,14 @@
+<a href="/celebrities">Regresar</a>
+
+<h2>{{celebrity.name}}</h2>
+<p><strong>Occupation: </strong> {{celebrity.occupation}}</p>
+<p><strong>Catch Phrase: </strong> <i>"{{celebrity.catchPhrase}}"</i></p>
+
+<button onclick="document.getElementById('form').style.display = 'block'">¿Quieres editarme?</button>
+
+<div id="form">
+  {{> celebritiesForm }}
+  <form action="/celebrities/details/{{celebrity._id}}/delete" method="POST"><br>
+    <button type="submit" class="delete">Delete</button>
+  </form>
+</div>

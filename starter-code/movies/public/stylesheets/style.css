@@ -1,0 +1,18 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#form {
+  display: none;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}

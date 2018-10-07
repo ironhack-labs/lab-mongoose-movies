@@ -1,0 +1,13 @@
+<h2>{{header}}</h2>
+
+<ul>
+  {{#each movies as |movie|}}
+    <li>
+      <a href="/movies/details/{{movie._id}}">{{movie.title}}</a>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/movies/new">Agregar</a><br>
+
+<a href="/">Regresar</a>
