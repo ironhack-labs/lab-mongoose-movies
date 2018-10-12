@@ -1,0 +1,7 @@
+<h2>Heading</h2>
+{{#each movies}}
+<p>{{this.title}}</p>
+<a href="/movies/{{this.id}}">See more</a>
+<form action="movies/{{this.id}}/delete" method="POST"><button type="submit">Delete</button></form>
+{{/each}}
+<p><a href="/movies/add">Add a film!</a></p>
