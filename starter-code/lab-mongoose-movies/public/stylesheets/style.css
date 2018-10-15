@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(235, 137, 169);
+  text-align: center;
+}
+
+
+a {
+  color: rgb(255, 0, 76);
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5 {
+  color: rgb(255, 0, 76);
+}
+
+p, quote {
+  color: rgb(255, 0, 76);
+}
+
+button, input {
+  background-color: rgb(233, 180, 194);
+  color: rgb(255, 0, 76);
+  border: 0px;
+
+}

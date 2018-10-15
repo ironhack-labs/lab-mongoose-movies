@@ -1,0 +1,14 @@
+<h2>Celebrities</h2>
+<div class ="celebrity-container-flex">
+  <% celebrities.forEach((celebrity) => { %>
+  <div class ="celebrity-container">
+    <a href="/celebrities/<%= celebrity._id %>"> <%= celebrity.name %> </a>
+    <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+    <input type="submit" value="delete">
+    </form>
+    <a href="/celebrities/<%= celebrity._id %>/edit">Edit</a>
+    </div>
+    <br />
+  <% }) %>
+</div>
+<a href="/celebrities/new">Add Celebrity</a>
