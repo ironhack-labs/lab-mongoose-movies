@@ -26,15 +26,27 @@ router.post('/new', (req, res, next) => {
   const celebrity = req.body;
 
   Celebrity.save(celebrity)
-  .then(() => {
+  .then((result) => {
     console.log('Se han guardado los datos correctamente!')
-    res.redirect('/celebrities');
+    res.redirect('/celebrities/index');
   })
   .catch((error) => {
     console.error('Se ha producido un error', error);
     res.render('/celebrities/new');
   });
-  res.send('hola!')
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  const celebrity = req.body;
+  const id = req.params.id;
+
+  Celebrity.findByIdAndRemove(celebrity, id)
+  .then((result) => {
+    res.redirect(`/celebrities/${id}`);
+  })
+  .catch(error => {
+    console.log(error);
+  });
 });
 
 router.get('/:id', function(req, res, next) {

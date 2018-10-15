@@ -10,9 +10,15 @@
     <ul>
       <% result.forEach(celeb => { %>
           <li><a href="/celebrities/<%= celeb._id %>"><%= celeb.name %></a></li>
+          <h2>Edit your movie</h2>
+          <form action="/celebrities/<%= celeb._id %>/delete" method="post">
+            <input type="submit" value='remove'>
+          </form>
       <% }) %>
     </ul>
     <a href="/celebrities/new">Add your own favourite Celebrity!</a>
+
+
 
   </body>
 </html>
