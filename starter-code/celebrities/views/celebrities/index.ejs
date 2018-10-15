@@ -2,5 +2,10 @@
 <ul>
   <% celebrities.forEach( celebrity => { %>
     <li><a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></a></li>
+    <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+      <input type="submit" value="Delete">
+    </form>
+    <a href="/celebrities/<%= celebrity._id %>/edit">Edit</a>
   <% })%>
 </ul>
+<br><a href="/">Go back</a>

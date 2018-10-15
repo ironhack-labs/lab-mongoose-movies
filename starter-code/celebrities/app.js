@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
+
 // Routers
 const indexRouter = require("./routes/index");
 const celebritiesRouter = require("./routes/celebrities");
