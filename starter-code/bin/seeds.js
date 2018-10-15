@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Celebrity= require('../models/Celebrity.js')
+const Celebrity= require('../models/Movie.js')
 
 mongoose.connect('mongodb://localhost/Celebrities',{
   keepAlive: true,
@@ -9,19 +9,19 @@ mongoose.connect('mongodb://localhost/Celebrities',{
 
 const feed= [
   {
-    name: "Paquito",
-    occupation: 'Master del universo',
-    catchPhrase: 'Ola k Ase!'
+    title: "13 monitos",
+    genre: "action",
+    plot: "no idea",
   },
   {
-    name: "Roberto",
-    occupation: 'Minecraft Killer',
-    catchPhrase: 'Un cubito!!'
+    title: "er jobi",
+    genre: "epic",
+    plot: "no idea",
   },
   {
-    name: "Ernesto",
-    occupation: 'Playboy',
-    catchPhrase: 'El del seto'
+    title: "matriZ reloaded",
+    genre: "action",
+    plot: "no idea",
   }
 ]
 

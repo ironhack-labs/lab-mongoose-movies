@@ -7,11 +7,11 @@
   <title>Document</title>
 </head>
 <body>
-<h2><%= celebrities.name %></h2>
-<p><%= celebrities.occupation %></p>
-<p><%= celebrities.catchPhrase %></p>
-<a href="/celebrities/<%= celebrities._id %>/edit">Edit celebrity </a>
-<form action="/celebrities/<%= celebrities._id %>/delete" method="post">
+<h2><%= movies.title %></h2>
+<p><%= movies.genre %></p>
+<p><%= movies.plot %></p>
+<a href="/movies/<%= movies._id %>/edit">Edit movie </a>
+<form action="/movies/<%= movies._id %>/delete" method="post">
   <input type="submit" value="Delete">
 </form>
 

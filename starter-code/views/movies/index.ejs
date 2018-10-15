@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Movies</title>
+</head>
+<body>
+  <h2>Movies List</h2>
+  <div class="list">
+    <% movies.forEach(movie =>{ %>
+      <div class ="cards">
+      <a href="./movies/<%= movie._id %>"> <%= movie.title %></a>
+      </div>
+    <% }) %>
+    <a href="./movies/new"> Create a new movie </a>
+  </div>
+</body>
+</html>
