@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h2>This is the index page!</h1>
+    <ul>
+      <% result.forEach(celeb => { %>
+          <li><a href="/celebrities/<%= celeb._id %>"><%= celeb.name %></a></li>
+      <% }) %>
+    </ul>
+    <a href="/celebrities/new">Add your own favourite Celebrity!</a>
+
+  </body>
+</html>
