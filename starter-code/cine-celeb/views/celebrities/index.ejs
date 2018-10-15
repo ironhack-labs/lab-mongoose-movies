@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Index Celebrities</title>
+</head>
+<body>
+  <h2>List of Celebrities</h2>
+  <% celebrities.forEach(celebrity => { %>
+    <div> 
+    <hr/>
+      <span><b>Name:      </b> <%= celebrity.name %></span><br/><br/>
+      <span><a href="/celebrities/<%= celebrity._id %>">Mostrar Datos</a></span>
+      <br/><br/>
+      <form action="/celebrities/<%= celebrity._id %>/delete""<" method="post">
+        <input type="submit" value="Delete">
+      </form> <br/>
+      <span><a href="/celebrities/<%= celebrity._id %>/edit">Edit Celebrity</a></span><br/>
+      <br/>
+      
+    </div>
+  <% }) %>
+</body>
+</html>
