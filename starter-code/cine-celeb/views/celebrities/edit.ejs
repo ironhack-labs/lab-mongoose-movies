@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit</title>
+</head>
+<body>
+  <h1>Edit Celebrity</h1>
+  <form action="/celebrities/<%= celeb._id %>" method="post">
+    <label><b>Name:</b> </label> <input type="text" size="20" name="name" value="<%= celeb.name %>"><br/><br/>
+    <label><b>Occupation:</b> </label> <input type="text" size="20" name="occupation" value="<%= celeb.occupation %>"><br/><br/>
+    <label><b>catchPhrase:</b> </label> <input type="text" size="20" name="catchPhrase" value="<%= celeb.catchPhrase %>"><br/><br/>
+    <input type="submit" value="Send">
+  </form>
+
+</body>
+</html>
