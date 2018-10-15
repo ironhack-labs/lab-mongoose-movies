@@ -1,0 +1,7 @@
+<%= celebrity.name %>
+<%= celebrity.occupation %>
+<%= celebrity.catchPhrase %>
+<a href="<%= celebrity._id %>/edit">Edit the info</a>
+<form action="<%= celebrity._id %>/delete" method="POST">
+  <input type="submit" value="Delete">
+</form>
