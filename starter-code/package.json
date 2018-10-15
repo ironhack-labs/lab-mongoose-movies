@@ -17,6 +17,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
+    "http-errors": "^1.7.1",
     "mongoose": "^5.3.3"
   }
 }
