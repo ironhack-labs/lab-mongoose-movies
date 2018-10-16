@@ -6,3 +6,38 @@ body {
 a {
   color: #00B7FF;
 }
+
+body.body-error {
+  color: white;
+  background-color: blueviolet;
+  text-align: center;
+}
+
+body.body-not-found {
+  color: white;
+  background-color: blueviolet;
+  text-align: center;
+}
+
+div.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a.not-found-button p{
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 20px 30px;
+  color: white;
+}
+
+a.not-found-button {
+  text-decoration: none;
+}
