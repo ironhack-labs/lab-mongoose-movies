@@ -11,7 +11,9 @@ router.get('/', (req, res, next) => {
     res.render('celebrities/index', {celebrity});
   })
   .catch(error => {
-    console.log('error', error);
+    // console.log('error', error);  
+    const err = new Error ('Falló la conexión a las base de datos'); /* podemos crear nuestro propio error*/
+    next(err);
   })
 });
 
@@ -29,6 +31,8 @@ router.post('/add', (req, res, next) => {
   })
   .catch(error => { 
     console.log('Error', error);
+    const err = new Error ('Falló la conexión a las base de datos'); /* podemos crear nuestro propio error*/
+    next(err);
   })
 })
 
@@ -42,6 +46,8 @@ router.post('/:_id/delete', (req, res, next) => {
   })
   .catch(error => {
     console.log('error', error);
+    const err = new Error ('Falló la conexión a las base de datos'); /* podemos crear nuestro propio error*/
+    next(err);
   })
 })
 
@@ -55,6 +61,8 @@ router.get('/:_id/edit', (req, res, next) => {
  })
  .catch(error => {
    console.log('error', error)
+   const err = new Error ('Falló la conexión a las base de datos'); /* podemos crear nuestro propio error*/
+    next(err);
  })
 });
 
@@ -67,6 +75,8 @@ router.post('/:_id/', (req, res, next) => {
   })
   .catch(error => {
     console.log("Error updating celebrity", error)
+    const err = new Error ('Falló la conexión a las base de datos'); /* podemos crear nuestro propio error*/
+    next(err);
   })
 });
 
@@ -81,6 +91,8 @@ router.get('/:_id', (req, res, next) => {
   })
   .catch(error=>{
     console.log('error', error);
+    const err = new Error ('Falló la conexión a las base de datos'); /* podemos crear nuestro propio error*/
+    next(err);
   })
 });
 
