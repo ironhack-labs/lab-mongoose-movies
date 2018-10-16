@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<h1>Edita un actor</h1>
+<form action="/celebrities/<%= celebrity._id %>" method="post">
+  <label for="name">Nombre</label>
+  <input type="text" name="name"  value="<%= celebrity.name %>" id="celebrity-name">
+
+  <label for="director">Ocupación</label>
+  <input type="text" name="ocupation" value="<%= celebrity.ocupation %>" id="celebrity-ocupation">
+
+  <label for="catchPhrase">Frase</label>
+  <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>" id="celebrity-catchPhrase">
+ 
+  <input type="submit" value="send">
+</form>
+</body>
+</html>
