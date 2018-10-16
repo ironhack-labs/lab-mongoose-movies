@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h2><Celebrities></h2>
+    <ul class ="celebrity-container">
+      <% celebrities.forEach((celebrity) => { %>
+        <li> <%= celebrity.name %> </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
