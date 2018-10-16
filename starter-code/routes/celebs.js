@@ -6,7 +6,7 @@ const Celebrity = require('../models/celebmodel')
 router.get('/', function(req, res, next) {
   Celebrity.find()
   .then(celebrity => {
-    res.render('celeblist', {celebrity});
+    res.render('celebrities', {celebrity});
   })
   .catch(error => {
     console.log(error);
@@ -69,7 +69,7 @@ router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Celebrity.findById(id)
   .then(celebrity => {
-    res.render('celdetails', {celebrity})
+    res.render('celebrity', {celebrity})
   })
   .catch(error => {
     console.log(error);

@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const celebsRouter = require('./routes/celebs');
+const moviesRouter = require('./routes/movies');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/celebs', celebsRouter);
+app.use('/movies', moviesRouter);
 
 mongoose.connect('mongodb://localhost/celebritiesdb')
   .then(() => {
