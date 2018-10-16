@@ -1,0 +1,8 @@
+<h2>Celebrity</h2>
+<h3>Nombre: <%= celebrity.name %> </h3>
+<h3>Ocupación: <%= celebrity.occupation %> </h3>
+<h3>Frase célebre: <%= celebrity.catchPhrase %> </h3>
+<a href="/celebrities/<%= celebrity._id %>/edit">Editar</a>
+<form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+  <input type="submit" value="Eliminar">
+</form>

@@ -1,0 +1,9 @@
+<form action="/celebrities/<%= celebrity._id %>" method="post">
+  <label for="">Nombre</label>
+  <input type="text" name="name" value="<%= celebrity.name %>">
+  <label for="">Ocupación</label>
+  <input type="text" name="occupation" value="<%= celebrity.occupation %>">
+  <label for="">Frase célebre</label>
+  <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>">
+  <input type="submit" value="Enviar">
+</form>
