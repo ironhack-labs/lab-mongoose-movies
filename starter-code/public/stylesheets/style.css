@@ -1,8 +1,49 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+*{
+  padding:0;
+  margin:0;
+}
+
+/* ---- Navbar ---- */
+nav{
+  background:#121212;
+  padding:10px 20px;
+  font-size:20px;
+}
+nav a{
+  color:#fff;
+  text-decoration: none;
+  display:inline-block;
+  padding:0 10px;
+}
+
+/* ---- Error ---- */
+.error{
+  padding:30px;
+  margin:50px auto 0;
+  background: #f9f9f9;
+  box-shadow:2px 2px 5px black;
+  width:50%;
+  text-align:center;
+}
+.error img{
+  background:#d7dfed;
+  padding:20px;
+  border-radius:50%;
+  width:100px;
+}
+
+.error h1{
+  padding:10px 30px;
+  border-bottom:1px solid #823535;
+  color:#823535;
+}
+.error pre{
+  padding:20px;
 }

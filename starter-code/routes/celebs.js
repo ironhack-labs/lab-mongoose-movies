@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
     res.render('celebrities', {celebrity});
   })
   .catch(error => {
-    console.log(error);
+    next(error);
   })
 });
 
@@ -25,7 +25,7 @@ router.post('/', (req, res, next) => {
     res.redirect('/celebs');
   })
   .catch(error => {
-    console.log(error);
+    next(error);
   })
 })
 
@@ -37,7 +37,7 @@ router.get('/:id/edit', (req,res, next) => {
     res.render('crud/edit', {celebrity});
   })
   .catch(error => {
-    console.log(error);
+    next(error);
   })
 });
 
@@ -49,7 +49,7 @@ router.post('/:id/delete', (req, res, next) => {
     res.redirect('/celebs');
   })
   .catch(error => {
-    console.log(error);
+    next(error);
   })
 })
 
@@ -61,7 +61,7 @@ router.post('/:id', (req, res, next) => {
     res.redirect(`/celebs/${id}`);
   })
   .catch(error => {
-    console.log(error);
+    next(error);
   })
 })
 
@@ -72,7 +72,7 @@ router.get('/:id', (req, res, next) => {
     res.render('celebrity', {celebrity})
   })
   .catch(error => {
-    console.log(error);
+    next(error);
   })
 });
 

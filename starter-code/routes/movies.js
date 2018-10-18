@@ -9,6 +9,8 @@ router.get('/', (req, res, next) => {
     res.render('movies', {movies});
   })
   .catch(error => {
-    console.log(error);
+    next(error);
   })
 })
+
+module.exports = router
