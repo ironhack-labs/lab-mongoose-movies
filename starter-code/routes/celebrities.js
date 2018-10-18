@@ -2,6 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('../modules/celebrity.js');
+const Movie = require('../modules/movies.js');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 /*------------ Home Page ----------------- */
 
@@ -87,7 +90,15 @@ router.get('/:_id', (req, res, next) => {
   const id = req.params._id;
   Celebrity.findById(id)
   .then(celebrity => {
-    res.render('celebrities/show', {celebrity});
+    Movie.find()
+    .then(book => {  
+      res.render('celebrities/show', {celebrity, book})
+    })
+    .catch(error=>{
+      console.log('error', error);
+      const err = new Error ('Falló la conexión a las base de datos'); /* podemos crear nuestro propio error*/
+      next(err);
+    })
   })
   .catch(error=>{
     console.log('error', error);
@@ -96,4 +107,36 @@ router.get('/:_id', (req, res, next) => {
   })
 });
 
-module.exports = router;
+/*--------- Add favorite Books ----------*/
+
+router.get('/:_id/favorites', (req, res, next) => {
+  const id = req.params._id;
+
+  Celebrity.findById(id)
+  .then(celebrity => {
+    console.log(celebrity);
+  })
+  .catch(error=>{
+    console.log('error', error);
+    next(error);
+  })
+})
+
+router.post('/:_id/favorites', (req, res, next) => {
+  const idBook = req.body.book;
+  const idCelebrity = req.params._id;
+  Celebrity.findById(idCelebrity)
+  .populate('favoriteBooks')
+  .then(celebrity => {
+    console.log(celebrity);
+    celebrity.favoriteBooks.push(ObjectId(idBook));
+    celebrity.save();
+    res.redirect('/celebrities');
+  })
+  .catch(error=>{
+    console.log('error', error);
+    next(error);
+  })
+})
+
+ module.exports = router;

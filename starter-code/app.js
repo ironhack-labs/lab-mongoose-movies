@@ -4,6 +4,7 @@ const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const createError = require('http-errors');
+const morgan = require('morgan');
 
 const celebritiesRouter = require('./routes/celebrities');
 const moviesRouter = require('./routes/movies');
