@@ -9,11 +9,11 @@ Let's create an Express app with all the basic CRUD actions that will allow the 
 
 The user should be able to:
 
-**1. See the list of celebrities.**\
-**2. See the details of a celebrity.**\
-**3. Add new celebrities.**\
-**4. Update existing celebrities.**\
-**5. Delete celebrities.**\
+**1. See the list of celebrities**\
+**2. See the details of a celebrity**\
+**3. Add new celebrities**\
+**4. Update existing celebrities**\
+**5. Delete celebrities**
 
 But wait! That's not all!
 
@@ -32,13 +32,14 @@ The user should be able to:
 
 ## Requirements
 
-- [Fork this repo](https://guides.github.com/activities/forking/)
-- Then clone this repo.
+- Fork this repo
+- Clone this repo
 
 
 ## Submission
 
-- Upon completion, run the following commands
+- Upon completion, run the following commands:
+
 ```
 $ git add .
 $ git commit -m "done"
