@@ -34,7 +34,6 @@ The user should be able to:
 
 - [Fork this repo](https://guides.github.com/activities/forking/)
 - Then clone this repo.
-- Navigate into the folder you just cloned and create the project with the Irongenerator command.  
 
 
 ## Submission
