@@ -1,29 +1,7 @@
-![](https://i.imgur.com/1QgrNNw.png)
+![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# DE | Mongoose Movies
+# Mongoose Movies
 
-## Learning Goals
-
-
-- Development and understanding of the basic CRUD actions
-- Use Mongoose in an Express application
-- Implement the basic CRUD actions with 2 models in one application
-
-
-## Exercise
-## Requirements
-- [Fork this repo](https://guides.github.com/activities/forking/)
-- Clone your fork into your `~/code/labs` folder.
-- Navigate into the folder you just cloned and create the project with the Irongenerator command.  
-
-## Submission
-
-Upon completion, run the following commands
-```
-$ git add .
-$ git commit -m "done"
-$ git push origin master
-```
 
 ## Introduction
 Everyone likes celebrities, right? Well, even if you don't, now is your chance to create your own, better, fictional celebrities!
@@ -52,9 +30,30 @@ The user should be able to:
 **10. Delete movies.**\
 
 
+## Requirements
+
+- [Fork this repo](https://guides.github.com/activities/forking/)
+- Then clone this repo.
+- Navigate into the folder you just cloned and create the project with the Irongenerator command.  
+
+
+## Submission
+
+- Upon completion, run the following commands
+```
+$ git add .
+$ git commit -m "done"
+$ git push origin master
+```
+- Create Pull Request so your TAs can check up your work.
+
+
 ## Deliverables
 
 All the files that make your Express/Mongoose app must work. This includes your `celebrities.js` and `movies.js` routes files, as well as your `celebrity.js` and `movie.js` model files.
+
+
+## Instructions
 
 
 ## Iteration #1: The `Celebrity` Model
@@ -331,3 +330,5 @@ Review how you did this for the `Celebrity` model.
 
 
 # That's it!
+
+Happy Coding! :heart:
