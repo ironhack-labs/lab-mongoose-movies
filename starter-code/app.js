@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');  
 const express      = require('express');
 const favicon      = require('serve-favicon');
 const hbs          = require('hbs');
@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/starter', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
