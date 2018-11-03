@@ -1,7 +1,7 @@
 <h2>Celebrities</h2>
 
 {{#each celebrities}}
-  <h3>{{this.name}} </h3>
-  <a href="/celebrities/{{this.name}} ">Show me more</a>
+  <h3>{{this.name}} <a href="/celebrities/{{this._id}}/delete ">(delete)</a>, <a href="/celebrities/{{this._id}}/edit ">(edit)</a> </h3>
+  <a href="/celebrities/{{this._id}}">Show me more</a>
 
 {{/each}}
