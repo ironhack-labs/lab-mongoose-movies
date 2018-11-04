@@ -1,0 +1,14 @@
+  
+  <ul>
+    {{#each movie}}
+    <li>
+      <h2>{{{this.title}}}</h2>
+      <a href="/movies/{{this._id}}">See more</a>
+    </li>
+    {{/each}}
+
+  </ul>
+
+    <a class = "button" href="/new-movie">Add new Movie</a>
+
+

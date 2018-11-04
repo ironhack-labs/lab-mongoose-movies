@@ -1,49 +1,36 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF;
-  text-decoration: none;
-}
-
-
+  text-decoration: none; }
 
 ul {
   display: flex;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap; }
 
 li {
   list-style: none;
   margin: 20px 0;
   line-height: 0.7em;
-   width: 30%;
-
-}
+  width: 30%; }
 
 li img {
   height: 200px;
   /* width: 20%; */
-  /* height: auto; */
-}
+  /* height: auto; */ }
 
 li h2 {
   font-size: 1.3em;
-  padding-bottom: 5px;
-}
+  padding-bottom: 5px; }
 
 li p {
-  font-size: 1em;
-  
-}
+  font-size: 1em; }
 
 li a {
   font-size: 1em;
-  padding-top: 10px;
-
-}
+  padding-top: 10px; }
 
 .button {
   margin-top: 40px;
@@ -54,24 +41,19 @@ li a {
   padding: 10px;
   text-align: center;
   color: white;
-  border: 1px rgb(172, 172, 172) solid;
-}
-
+  border: 1px #acacac solid; }
 
 .input {
   display: block;
-  margin: 15px 0;
-}
-
+  margin: 15px 0; }
 
 .input p {
   display: inline-block;
-  width: 120px;
-}
-
+  width: 120px; }
 
 .error {
-  background-color: rgb(156, 52, 52);
+  background-color: #9c3434;
   padding: 10px;
-  color: white;
-}
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */

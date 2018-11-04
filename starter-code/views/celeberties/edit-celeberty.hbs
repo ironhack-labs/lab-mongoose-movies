@@ -1,0 +1,18 @@
+<h2>Edit Celeberty</h2>
+
+{{#if falseInput}}
+<div class="error">
+<p> Please fill out all fields in order to update the celeberty</p>
+</div>
+{{/if}}
+
+
+<form action="/celeberties/{{celeberty._id}}/edit-celeberty" method="post">
+  <span class = "input"><p>Name:</p> 
+  <input type="text" value= "{{celeberty.name}}" name="name"></span>
+  <span class = "input" ><p>Occupation: </p> 
+  <input type="text" value= "{{celeberty.occupation}}" name="occupation"></span>
+  <span class = "input"><p>Catch-Phrase: </p>
+  <input type="text" name="catchPhrase" value= "{{celeberty.catchPhrase}}"></span>
+  <button class = "button" type="submit">Edit</button>
+</form>

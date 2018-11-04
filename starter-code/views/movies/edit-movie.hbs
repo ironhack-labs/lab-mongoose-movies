@@ -1,0 +1,18 @@
+<h2>Edit Movie</h2>
+
+{{#if falseInput}}
+<div class="error">
+<p> Please fill out all fields in order to update the movie</p>
+</div>
+{{/if}}
+
+
+<form action="/movies/{{movie._id}}/edit-movie" method="post">
+  <span class = "input"><p>title:</p> 
+  <input type="text" value= "{{movie.title}}" name="title"></span>
+  <span class = "input" ><p>Occupation: </p> 
+  <input type="text" value= "{{movie.genre}}" name="genre"></span>
+  <span class = "input"><p>Plot: </p>
+  <input type="text" name="plot" value= "{{movie.plot}}"></span>
+  <button class = "button" type="submit">Edit</button>
+</form>
