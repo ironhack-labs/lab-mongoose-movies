@@ -1,31 +1,36 @@
 const mongoose = require('mongoose');
 const celebrityModel = require('../models/Celebrity.js');
+const movieModel = require('../models/Movie.js');
+
 
 
 const dbName = 'lab-4week-movies';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
 
-const celebrities = [
+const movies = [
   {
-  name: 'Kungen',
-  occupation: 'Being Kungen',
-  catchPhrase: 'Im Kungen'
+    title: 'test',
+    genre: 'test',
+    plot: 'test'
+  
   },
   {
-  name: 'Test 1',
-  occupation: 'Test 1',
-  catchPhrase: 'Test 1'
+    title: 'test2',
+    genre: 'test2',
+    plot: 'test2'
+  
   },
-  {
-    name: 'Santa Claus',
-    occupation: 'Santa Claus',
-    catchPhrase: 'Ho Ho Ho'
+    {
+    title: 'test3',
+    genre: 'test3',
+    plot: 'test3'
+  
   }
-] 
+]
 
 
-celebrityModel.create(celebrities)
+movieModel.create(movies)
   .then((data) => {
      console.log('The user is saved and its value is: ', data) })
 

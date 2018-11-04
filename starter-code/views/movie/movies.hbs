@@ -1,0 +1,44 @@
+<h2>MOVIES</h2>
+
+<ul>
+
+
+{{#each data}}
+
+<li>
+<p>{{title}}</p>
+
+
+
+{{!-- <a href="/movies/{{id}}">Please, more info!</a> --}}
+
+
+<form action="/movies/{{id}}" method="get">
+  <button type="button" class="btn btn-primary">Please, more info!</button>
+</form>
+
+<form action="/deletemovie/{{id}}" method="post">
+  <button type="button" class="btn btn-primary">Delete</button>
+</form>
+
+<form action="/editmovies/{{id}}" method="get">
+  <button type="button" class="btn btn-primary">Edit</button>
+</form>
+
+
+
+</li>
+
+
+{{/each}}
+
+</ul>
+
+<form action="/" method="get">
+  <button type="button" class="btn btn-primary">Home</button>
+</form>
+
+<form action="/new-movie" method="get">
+  <button type="button" class="btn btn-primary">Add A Movie</button>
+</form>
+

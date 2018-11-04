@@ -9,9 +9,14 @@
 <li>
 <p>{{name}}</p>
 <a href="/celebrities/{{id}}">Please, more info!</a>
-<form action="/celebrities/{{id}}/delete" method="post">
+
+<form action="/{{id}}/delete" method="post">
   <button>Delete</button>
 </form>
+
+<a href="/celebrities/{{id}}/edit">Edit</a>
+
+
 
 </li>
 

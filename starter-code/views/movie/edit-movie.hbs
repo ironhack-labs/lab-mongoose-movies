@@ -1,0 +1,8 @@
+<h2>EDIT MOVIE</h2>
+
+<form action="/save-edited-movie/{{data.id}}" method="post">
+  <input name="title" type="text" value="{{data.title}}">
+  <input name="genre" type="text" value="{{data.genre}}">
+  <input name="plot" type="text" value="{{data.plot}}">
+  <button type="submit">Edit</button>
+</form>
