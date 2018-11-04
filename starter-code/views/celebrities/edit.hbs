@@ -1,0 +1,15 @@
+<h2>Edit Celebrity</h2>
+
+{{#if error}}
+<div class="alert-red">
+    {{error}}
+</div>
+{{/if}}
+
+<form action="/celebrities" method="post">
+    Name: <input type="text" name="name"> <br>
+    Occupation: <input type="text" name="occupation"><br>
+    Catch Phrase: <input type="text" name="catchPhrase"><br>
+
+    <button type="submit">Edit Celebrity</button>
+</form>
