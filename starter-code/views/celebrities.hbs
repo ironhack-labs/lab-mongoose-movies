@@ -2,7 +2,12 @@
   <h1>Celebrities</h1>
   <ul>
     {{#each listOfCelebrities}}
-    <li>{{this.name}}</li>
+    <li>
+      <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+      <form action="/celebrities/{{this._id}}/delete" method="post"><button type="submit">Delete</button></form>
+      <form action="/celebrities/{{this._id}}/edit" method="get"><button type="submit">Edit</button></form>
+    </li>
     {{/each}}
   </ul>
+  <a href="/new-celebrities">Create new celebrity</a>
 </div>
