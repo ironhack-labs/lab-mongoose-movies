@@ -61,17 +61,17 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 })
 
 //Route to handle the edit form submission BONUS
-router.post('/celebrities/:id/edit', (req, res, next) => {
-    // Find the celebrity and update it with the info from the form
-    // Celebrity.findByIdAndUpdate(req.params.id, {
-    //     name: req.body.name,
-    //     occupation: req.body.occupation,
-    //     catchPhrase: req.body.catchPhrase,
-    // })
-    //     .then(celebrity => {
-    //         res.redirect('/celebrities/')
-    //     })
-})
+//router.post('/celebrities/:id/edit', (req, res, next) => {
+// Find the celebrity and update it with the info from the form
+// Celebrity.findByIdAndUpdate(req.params.id, {
+//     name: req.body.name,
+//     occupation: req.body.occupation,
+//     catchPhrase: req.body.catchPhrase,
+// })
+//     .then(celebrity => {
+//         res.redirect('/celebrities/')
+//     })
+//
 
 
 module.exports = router;
