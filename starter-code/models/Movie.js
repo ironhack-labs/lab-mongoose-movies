@@ -2,10 +2,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
-  
+const movieSchema = new Schema({
+  title: String,
+  genre: String,
+  plot: String  
   });
 
-const Book = mongoose.model("Book", bookSchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
-module.exports = Book;
+module.exports = Movie;
