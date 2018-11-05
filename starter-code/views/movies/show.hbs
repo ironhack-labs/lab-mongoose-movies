@@ -4,9 +4,13 @@
 <h1>Genre: {{movies.genre}} </h1>
 <h1>Plot: {{movies.plot}} </h1>
 <h1>Actors: 
-  
-  {{#each movies._actors}}
-  {{this.name}} -
+<hr>
+  {{#each movcelebs}}
+    {{this._actors.name}}
+  {{/each}}
+  <hr>
+  {{#each movcelebs._actors}}
+  {{this.name}}
   {{/each}}
   
   </h1>

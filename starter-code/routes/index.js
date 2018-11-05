@@ -26,11 +26,18 @@ router.get('/celebrities', (req,res,next) => {
 router.get('/celebrities/:id', (req,res,next) => {
   let id = req.params.id;
   Celebrity.findById(id)
-  // .populate('_movies')
+
   .then(celebrities =>{
-      console.log(celebrities)
-      res.render('show',{celebrities})
+    MovCeleb.find({
+      _actors: ObjectId(id)
     })
+    .populate('_movie')
+    .then(movcelebs =>{
+      console.log('CELEB', movcelebs)
+      res.render('show',{celebrities,movcelebs})
+    })
+
+  })
   })
 
 

@@ -27,19 +27,23 @@ router.post('/main/actor-assign', (req,res,next)=>{
     _actors: req.body._actor,
     _movie: req.body._movie,
   })
-  .then(movcelebs =>{
-    Celebrity.findByIdAndUpdate(movcelebs._actors,
-      {
-        $push:{_movies: movcelebs._movie}
-      });
-    Movie.findByIdAndUpdate(movcelebs._movie,
-      {
-        $push:{_actors: movcelebs._actors}
-      })
-      .then(()=>{
-        res.redirect('/movCelebs')
-      })
+  .then(()=>{
+    res.redirect('/movCelebs')
   })
+  
+  // .then(movcelebs =>{
+  //   Celebrity.findByIdAndUpdate(movcelebs._actors,
+  //     {
+  //       $push:{_movies: movcelebs._movie}
+  //     });
+  //   Movie.findByIdAndUpdate(movcelebs._movie,
+  //     {
+  //       $push:{_actors: movcelebs._actors}
+  //     })
+  //     .then(()=>{
+  //       res.redirect('/movCelebs')
+  //     })
+  // })
 
 })
 

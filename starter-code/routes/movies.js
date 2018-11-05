@@ -1,9 +1,9 @@
 const express = require('express');
 const router  = express.Router();
+const Celebrity = require('../models/Celebrity.js');
+const MovCeleb = require('../models/MovCeleb.js');
 const Movie = require('../models/Movie.js');
-
-
-
+const ObjectId = require('mongodb').ObjectID;
 
 // GET /movies/
 router.get('/', (req,res,next) => {
@@ -21,10 +21,17 @@ router.get('/', (req,res,next) => {
 router.get('/:id', (req,res,next) => {
   let id = req.params.id;
   Movie.findById(id)
-  .populate('_actors')
+
   .then(movies =>{
-    console.log('MOVIES', movies)
-    res.render('movies/show',{movies})
+    MovCeleb.find({
+      _movie: ObjectId(id)
+    })
+    .populate('_actors')
+    .then(movcelebs =>{
+      console.log('MOVCELEBS',movcelebs)
+      res.render('movies/show',{movies,movcelebs})
+    })
+
   })
   .catch(err =>{
     next()
@@ -34,6 +41,22 @@ router.get('/:id', (req,res,next) => {
 router.get('/add-new-movie', (req,res,next)=>{
   res.render('movies/add-new-movie')
 });
+// router.get('/:id', (req,res,next) => {
+//   let id = req.params.id;
+//   Movie.findById(id)
+//   .populate('_actors')
+//   .then(movies =>{
+//     console.log('MOVIES', movies)
+//     res.render('movies/show',{movies})
+//   })
+//   .catch(err =>{
+//     next()
+//   })
+// })
+
+// router.get('/add-new-movie', (req,res,next)=>{
+//   res.render('movies/add-new-movie')
+// });
 
 // /add-new GET page
 
