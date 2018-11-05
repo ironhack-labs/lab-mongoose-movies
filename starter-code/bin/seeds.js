@@ -1,6 +1,7 @@
 const Celebrity = require("../models/celebrity");
 const Movie = require("../models/movie");
 const mongoose = require("mongoose");
+
 const celebrities = [
   {
     name: "Kanye West",
@@ -21,17 +22,17 @@ const celebrities = [
   }
 ];
 
-async function fillDataBase(arr) {
-  let response = await Celebrity.insertMany(arr);
-  console.log(response);
-  if (response.length) {
-    console.log("Celebrities were added to database!");
-  } else {
-    console.log("Something went wrong!");
-  }
-}
+// async function fillDataBase(arr) {
+//   let response = await Celebrity.insertMany(arr);
+//   console.log(response);
+//   if (response.length) {
+//     console.log("Celebrities were added to database!");
+//   } else {
+//     console.log("Something went wrong!");
+//   }
+// }
 
-fillDataBase(celebrities);
+// fillDataBase(celebrities);
 
 const movies = [
   {
@@ -53,15 +54,15 @@ const movies = [
   }
 ];
 
-async function fillDataBase(arr, arr2) {
-  let response = await Movie.insertMany(arr);
-  let response2 = await Celebrity.insertMany(arr2);
+// async function fillDataBase(arr, arr2) {
+//   let response = await Movie.insertMany(arr);
+//   let response2 = await Celebrity.insertMany(arr2);
 
-  if (response.length && response2.length) {
-    console.log("Movies and celebrities  were added to database!");
-  } else {
-    console.log("Something went wrong!");
-  }
-}
+//   if (response.length && response2.length) {
+//     console.log("Movies and celebrities  were added to database!");
+//   } else {
+//     console.log("Something went wrong!");
+//   }
+// }
 
-fillDataBase(movies, celebrities);
+// fillDataBase(movies, celebrities);

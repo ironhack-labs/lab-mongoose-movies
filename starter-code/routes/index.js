@@ -1,6 +1,7 @@
 const express = require('express');
 const Celebrity = require('../models/celebrity')
 const Movie = require('../models/movie')
+const CelebrityMovieLink = require('../models/celebrity_movie')
 
 const router = express.Router();
 /* GET home page */
@@ -23,7 +24,6 @@ router.get('/celebrities', (req, res, next) => {
 router.get('/movies', (req, res, next) => {
   Movie.find()
     .then(moviesfromDB => {
-      // console.log("movie", moviesfromDB)
       res.render('movies', {
         listOfMovies: moviesfromDB
       })
@@ -31,16 +31,39 @@ router.get('/movies', (req, res, next) => {
     .catch(err => console.log(err))
 })
 
-/*Get celebrity details*/
+// /*Get celebrity details*/
+// router.get('/celebrities/:id', (req, res, next) => {
+//   let id = req.params.id
+//   Celebrity.findById(id)
+//     .then(celeb => {
+//       res.render('celebrity-detail', {
+//         celebrity: celeb
+//       })
+//     })
+//     .catch(err => console.log(err))
+// })
+/* Get celebrity with movies*/
 router.get('/celebrities/:id', (req, res, next) => {
   let id = req.params.id
   Celebrity.findById(id)
     .then(celeb => {
-      res.render('celebrity-detail', {
-        celebrity: celeb
-      })
+      var movies = []
+      CelebrityMovieLink.find({ celebrity_id: id })
+        .then(movie_celeb_link => {
+          movie_celeb_link.forEach(obj => {
+            Movie.findById(obj.movie_id)
+              .then(movie => {
+                movies.push(movie)
+              })
+          })
+        })
+        .then(sth => {
+          res.render('celebrity-detail', {
+            celebrity: celeb, movies: movies
+          })
+        })
+        .catch(err => console.log(err))
     })
-    .catch(err => console.log(err))
 })
 
 /*Get movie details*/
@@ -101,6 +124,29 @@ router.post('/new-movies', (req, res, next) => {
     })
 })
 
+/* Add a link to a movie or celebrity */
+router.get('/add-actor', (req, res, next) => {
+  Celebrity.find()
+    .then(celebs => {
+      Movie.find()
+        .then(movies => {
+          res.render('add-actor-to-movie', {
+            celebrities: celebs, movies: movies
+          })
+        })
+    })
+})
+
+/*Update the link to the actors and movies */
+router.post('/add-actor', (req, res, next) => {
+  // console.log(req.body)
+  CelebrityMovieLink.create([req.body])
+    .then(link => {
+      console.log(`Created ${link.length} Celebrity Movie links`)
+      res.redirect('/')
+    })
+})
+
 /*Delete a celebrity*/
 router.post('/celebrities/:id/delete', (req, res, next) => {
   let id = req.params.id
@@ -153,6 +199,17 @@ router.post('/movies/:id/edit', (req, res, next) => {
     plot: req.body.plot,
   })
     .then(something => { res.redirect('/movies') })
+})
+
+/*Search for movies by genre */
+router.get('/search-movie', (req, res, next) => {
+  res.render('search-movie')
+})
+router.post('/search-movie', (req, res, next) => {
+  console.log(req.body.genre)
+  let findIt = req.body.genre.toString()
+  Movie.find({ genre: findIt })
+    .then(movies => { console.log(movies), res.render('search-movie-result', { movies: movies }) })
 })
 
 module.exports = router;
