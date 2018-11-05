@@ -8,6 +8,9 @@ a {
   text-decoration: none;
 }
 
+.detail-page {
+  display: block;
+}
 
 
 ul {
@@ -43,6 +46,16 @@ li a {
   font-size: 1em;
   padding-top: 10px;
 
+}
+
+
+.error-message {
+  background: #F02B63;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
 }
 
 .button {

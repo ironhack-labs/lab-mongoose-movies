@@ -8,8 +8,7 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-router.use("/", celebertiesRoute)
-router.use("/", moviesRoute)
+
 
 
 module.exports = router;
