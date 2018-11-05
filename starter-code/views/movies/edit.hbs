@@ -1,0 +1,14 @@
+<h1>Edit movie</h1>
+
+{{#if error}}
+<div class="alert-red">
+  {{error}}
+</div>
+{{/if}}
+
+<form action="/movies/{{movie._id}}/edit" method="post">
+  Title: <input value="{{movie.title}}" type="text" name="title"> <br>
+  Genre: <input value="{{movie.genre}}" type="text" name="genre"><br>
+  Plot: <input value="{{movie.plot}}" type="text" name="plot"><br>
+  <button type="submit">Update movie</button>
+</form>
