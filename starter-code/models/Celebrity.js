@@ -3,10 +3,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 const celebritySchema = new Schema({
   name: String,
   occupation: String,
-  catchPhrase: String
+  catchPhrase: String,
+  _movies: [{type: Schema.Types.ObjectId, ref: 'Movie'}]
 
   });
 

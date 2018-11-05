@@ -14,17 +14,31 @@ router.get('/', (req,res,next)=>{
       res.render('movCelebs/main', {movies,celebrities})
     })
   })
+  .catch(err =>{
+    next()
+  })
 })
 
-router.post('/actor-assign', (req,res,next)=>{
+router.post('/main/actor-assign', (req,res,next)=>{
   
-  console.log('Actor Value',req.body.Actor)
+  console.log('Film Value',req.body._movie);
+  console.log('Actor Value',req.body._actor);
   MovCeleb.create({
-    movie: req.body.Movie,
-    actors: req.body.Actor,
+    _actors: req.body._actor,
+    _movie: req.body._movie,
   })
   .then(movcelebs =>{
-    console.log(movcelebs)
+    Celebrity.findByIdAndUpdate(movcelebs._actors,
+      {
+        $push:{_movies: movcelebs._movie}
+      });
+    Movie.findByIdAndUpdate(movcelebs._movie,
+      {
+        $push:{_actors: movcelebs._actors}
+      })
+      .then(()=>{
+        res.redirect('/movCelebs')
+      })
   })
 
 })

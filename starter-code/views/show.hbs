@@ -3,3 +3,11 @@
 <h1>Name: {{celebrities.name}} </h1>
 <h1>Occupation: {{celebrities.occupation}} </h1>
 <h1>Catch Phrase: {{celebrities.catchPhrase}} </h1>
+
+<h1>Movies: 
+  
+  {{#each celebrities._movies}}
+  {{this.title}} 
+  {{/each}}
+  
+  </h1>

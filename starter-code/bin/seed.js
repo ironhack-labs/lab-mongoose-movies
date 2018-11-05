@@ -59,8 +59,8 @@ MovCeleb.create(movCelbs)
 //   console.log(`Database updated with ${movies.length} movies!`);
 // });
 
-// Celebrity.create(celebrities)
-// .then(celebrities => {
-//   console.log(`Database updated with ${celebrities.length} celebs!`);
-// });
+Celebrity.create(celebrities)
+.then(celebrities => {
+  console.log(`Database updated with ${celebrities.length} celebs!`);
+});
 

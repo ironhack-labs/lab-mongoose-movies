@@ -1,7 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity.js');
-
+const MovCeleb = require('../models/MovCeleb.js');
+const Movie = require('../models/Movie.js');
+const ObjectId = require('mongodb').ObjectID;
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -24,10 +26,12 @@ router.get('/celebrities', (req,res,next) => {
 router.get('/celebrities/:id', (req,res,next) => {
   let id = req.params.id;
   Celebrity.findById(id)
+  // .populate('_movies')
   .then(celebrities =>{
-    res.render('show',{celebrities})
+      console.log(celebrities)
+      res.render('show',{celebrities})
+    })
   })
-})
 
 
 // /add-new GET page

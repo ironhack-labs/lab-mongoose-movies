@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const movcelebSchema = new Schema({
-  movie: {type: mongoose.Schema.ObjectId, ref: 'Movie' },
-  actors: {type: mongoose.Schema.ObjectId, ref: 'Celebrity'}
+  _movie: {type: Schema.Types.ObjectId, ref: 'Movie'},
+  _actors: {type: Schema.Types.ObjectId, ref: 'Celebrity'},
 
   });
 

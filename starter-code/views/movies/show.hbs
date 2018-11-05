@@ -3,3 +3,10 @@
 <h1>Title: {{movies.title}} </h1>
 <h1>Genre: {{movies.genre}} </h1>
 <h1>Plot: {{movies.plot}} </h1>
+<h1>Actors: 
+  
+  {{#each movies._actors}}
+  {{this.name}} -
+  {{/each}}
+  
+  </h1>

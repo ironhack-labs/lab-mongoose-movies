@@ -1,14 +1,14 @@
 
-<form action="/movCelebs/actor-assign" method="POST">
+<form action="/movCelebs/main/actor-assign" method="POST">
 
-Actor:  <select name="Actor" id="">
+Actor:  <select name="_actor" id="">
 {{#each celebrities}}
-<option value="{{this.name}} " >{{this.name}} </option>
+<option value="{{this._id}}" name="Act" >{{this.name}} </option>
 {{/each }}
 </select>
-Film:  <select name="Movie" id="">
+Film:  <select name="_movie" id="">
 {{#each movies}}
-<option value="{{this.title}}" >{{this.title}} </option>
+<option value="{{this._id}}" >{{this.title}} </option>
 {{/each }}
 </select>
 
