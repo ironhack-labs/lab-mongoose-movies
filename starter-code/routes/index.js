@@ -64,6 +64,7 @@ router.get('/celebrities/:id', (req, res, next) => {
         })
         .catch(err => console.log(err))
     })
+    .catch(err => { console.log(err) })
 })
 
 /*Get movie details*/
@@ -71,9 +72,22 @@ router.get('/movies/:id', (req, res, next) => {
   let id = req.params.id
   Movie.findById(id)
     .then(movie => {
-      res.render('movie-detail', {
-        movie: movie
-      })
+      var celebrities = []
+      CelebrityMovieLink.find({ movie_id: id })
+        .then(celeb_movie_link => {
+          celeb_movie_link.forEach(obj => {
+            Celebrity.findById(obj.celebrity_id)
+              .then(celebrity => {
+                celebrities.push(celebrity)
+              })
+          })
+        })
+        .then(sth => {
+          res.render('movie-detail', {
+            movie: movie, celebs: celebrities
+          })
+        })
+        .catch(err => { console.log(err) })
     })
     .catch(err => console.log(err))
 })
