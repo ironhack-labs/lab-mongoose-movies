@@ -253,22 +253,28 @@ router.post('/movies/:id/edit', (req, res, next) => {
 
 /*Search for movies by genre */
 router.get('/search-movie', (req, res, next) => {
-  res.render('search-movie')
+  if (req.query.genre) {
+    let genre = req.query.genre
+    let options = {}
+    if (req.query.sort) {
+      options = {
+        sort: {
+          title: req.query.sort === "asc" ? 1 : -1
+        }
+      }
+    }
+    Movie.find({ genre }, null, options)
+      .then(movies => {
+        res.render('search-movie', {
+          movies: movies,
+          linkAsc: `/search-movie?genre=${genre}&sort=asc`,
+          linkDesc: `/search-movie?genre=${genre}&sort=desc`,
+        })
+      })
+  }
+  else {
+    res.render('search-movie')
+  }
 })
-var lastSearch;
-router.post('/search-movie', (req, res, next) => {
-  console.log(req.body.genre)
-  let findIt = req.body.genre.toString()
-  lastSearch = findIt
-  console.log("Searched for", lastSearch)
-  Movie.find({ genre: findIt })
-    .then(movies => { console.log(movies), res.render('search-movie-result', { movies: movies }) })
-})
-// router.post('/search-movie/a', (req, res, next) => {
-//   console.log("Searched previous for", lastSearch)
-// })
-// router.post('/search-movie/b', (req, res, next) => {
-
-// })
 
 module.exports = router;
