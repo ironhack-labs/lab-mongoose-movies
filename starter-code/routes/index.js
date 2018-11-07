@@ -45,24 +45,47 @@ router.get('/movies', (req, res, next) => {
 /* Get celebrity with movies*/
 router.get('/celebrities/:id', (req, res, next) => {
   let id = req.params.id
-  Celebrity.findById(id)
-    .then(celeb => {
-      var movies = []
-      CelebrityMovieLink.find({ celebrity_id: id })
-        .then(movie_celeb_link => {
-          movie_celeb_link.forEach(obj => {
-            Movie.findById(obj.movie_id)
-              .then(movie => {
-                movies.push(movie)
-              })
-          })
-        })
-        .then(sth => {
-          res.render('celebrity-detail', {
-            celebrity: celeb, movies: movies
-          })
-        })
-        .catch(err => console.log(err))
+  // Celebrity.findById(id)
+  //   .then(celeb => {
+  //     var movies = []
+  //     CelebrityMovieLink.find({ celebrity_id: id })
+  //       .then(movie_celeb_link => {
+  //         movie_celeb_link.forEach(obj => {
+  //           Movie.findById(obj.movie_id)
+  //             .then(movie => {
+  //               movies.push(movie)
+  //             })
+  //         })
+  //       })
+  //       .then(sth => {
+  //         res.render('celebrity-detail', {
+  //           celebrity: celeb, movies: movies
+  //         })
+  //       })
+  //       .catch(err => console.log(err))
+  //   })
+  //   .catch(err => { console.log(err) })
+
+  // promise1
+  // .then(x => {
+  //   return Promise.all(arrayOfPromises)
+  // })
+  // .then(y => {
+  //   return promise3
+  // })
+
+
+  Promise.all([
+    Celebrity.findById(id),
+    CelebrityMovieLink.find({ celebrity_id: id }).populate("movie_id")
+  ])
+    .then(([celeb, movie_celeb_link]) => {
+      console.log("movie_celeb_link", movie_celeb_link);
+
+      res.render('celebrity-detail', {
+        celebrity: celeb,
+        movies: movie_celeb_link.map(x => x.movie_id)
+      })
     })
     .catch(err => { console.log(err) })
 })
@@ -70,26 +93,39 @@ router.get('/celebrities/:id', (req, res, next) => {
 /*Get movie details*/
 router.get('/movies/:id', (req, res, next) => {
   let id = req.params.id
-  Movie.findById(id)
-    .then(movie => {
-      var celebrities = []
-      CelebrityMovieLink.find({ movie_id: id })
-        .then(celeb_movie_link => {
-          celeb_movie_link.forEach(obj => {
-            Celebrity.findById(obj.celebrity_id)
-              .then(celebrity => {
-                celebrities.push(celebrity)
-              })
-          })
-        })
-        .then(sth => {
-          res.render('movie-detail', {
-            movie: movie, celebs: celebrities
-          })
-        })
-        .catch(err => { console.log(err) })
+  // Movie.findById(id)
+  //   .then(movie => {
+  //     var celebrities = []
+  //     CelebrityMovieLink.find({ movie_id: id })
+  //       .then(celeb_movie_link => {
+  //         celeb_movie_link.forEach(obj => {
+  //           Celebrity.findById(obj.celebrity_id)
+  //             .then(celebrity => {
+  //               celebrities.push(celebrity)
+  //             })
+  //         })
+  //       })
+  //       .then(sth => {
+  //         res.render('movie-detail', {
+  //           movie: movie, celebs: celebrities
+  //         })
+  //       })
+  //       .catch(err => { console.log(err) })
+  //   })
+  //   .catch(err => console.log(err))
+  Promise.all([
+    Movie.findById(id),
+    CelebrityMovieLink.find({ movie_id: id }).populate("celebrity_id")
+  ])
+    .then(([movie, movie_celeb_link]) => {
+      console.log("movie_celeb_link", movie_celeb_link);
+
+      res.render('movie-detail', {
+        movie: movie,
+        celebs: movie_celeb_link.map(x => x.celebrity_id)
+      })
     })
-    .catch(err => console.log(err))
+    .catch(err => { console.log(err) })
 })
 
 /*Call Add new celebrity page*/
