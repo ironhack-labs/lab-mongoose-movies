@@ -255,11 +255,20 @@ router.post('/movies/:id/edit', (req, res, next) => {
 router.get('/search-movie', (req, res, next) => {
   res.render('search-movie')
 })
+var lastSearch;
 router.post('/search-movie', (req, res, next) => {
   console.log(req.body.genre)
   let findIt = req.body.genre.toString()
+  lastSearch = findIt
+  console.log("Searched for", lastSearch)
   Movie.find({ genre: findIt })
     .then(movies => { console.log(movies), res.render('search-movie-result', { movies: movies }) })
 })
+// router.post('/search-movie/a', (req, res, next) => {
+//   console.log("Searched previous for", lastSearch)
+// })
+// router.post('/search-movie/b', (req, res, next) => {
+
+// })
 
 module.exports = router;
