@@ -17,6 +17,29 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new', {
+    title: "New Celebrity's Profile"
+  });
+});
+
+router.post('/new', (req, res, next) => {
+  const newCelebrity = new Celebrity({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  });
+  newCelebrity.save((err) => {
+    if (err) {
+      res.render('/new', {
+        title: "New Celebrity's Profile"
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+});
+
 router.get('/:id', (req, res, next) => {
   Celebrity.findOne({ _id: req.params.id })
     .then((celebrity) => {
@@ -26,28 +49,5 @@ router.get('/:id', (req, res, next) => {
       console.log(error);
     });
 });
-
-router.get('/celebrities/new', (req, res, next) => {
-  res.render('/celebrities/new', {
-    title: "New Celebrity's Profile"
-  });
-});
-
-// router.post('/', (req, res, next) => {
-//   const newCelebrity = new Celebrity({
-//     name: req.body.name,
-//     occupation: req.body.occupation,
-//     catchPhrase: req.body.catchPhrase
-//   });
-//   newCelebrity.save((err) => {
-//     if (err) {
-//       res.render('/new', {
-//         title: "New Celebrity's Profile"
-//       });
-//     } else {
-//       res.redirect('/');
-//     }
-//   });
-// });
 
 module.exports = router;

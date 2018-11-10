@@ -1,11 +1,11 @@
 <h1>{{ title }}</h1>
 <div>
-{{#each movies}}
-<h2><a href="/movies/{{ this._id }}">{{name}}</a></h2>
+{{#each movie}}
+<h2><a href="/movies/{{ this._id }}">{{title}}</a></h2>
 {{/each}}
 </div>
 <div>
-<a href="./">
-  Click here to add a new celebrity
+<a href="/movies/new">
+  Click here to add a new Movie
 </a>
 </div>

@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<form action="./new.hbs" method="POST">
+<form action="/celebrities/new" method="POST">
   <div>
     <label for="name"> Name </label>
     <input type="text" name="name" id="name">
@@ -12,9 +12,9 @@
     <label for="catchPhrase"> Catch Phrase </label>
     <input type="text" name="catchPhrase" id="catchPhrase">
   </div>
-  <button> Submit </button>
+  <button type="submit">Submit</button>
 </form>
 
-<button><a href="/">
+<button><a href="/celebrities">
   Back to Celebrity Inventory
 </a></button>
