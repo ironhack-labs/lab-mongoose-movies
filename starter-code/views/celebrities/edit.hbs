@@ -6,10 +6,9 @@
 </div>
 {{/if}}
 
-<form action="/celebrities/{{this._id}}" method="post">
+<form action="/celebrities/{{celebrity._id}}/edit" method="post">
     Name: <input value="{{celebrity.name}}" type="text" name="name"> <br>
     Occupation: <input value="{{celebrity.occupation}}" type="text" name="occupation"><br>
     Catch Phrase: <input value="{{celebrity.catchPhrase}}" type="text" name="catchPhrase"><br>
-
     <button type="submit">Edit Celebrity</button>
 </form>
