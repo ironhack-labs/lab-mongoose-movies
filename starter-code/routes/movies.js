@@ -51,5 +51,42 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+router.get('/:id/edit', function (req, res, next) {
+  Movie.findOne({ _id: req.params.id }, (err, theMovie) => {
+    if (err) { return next(err); }
+
+    res.render('movies/edit', {
+      title: `Edit ${theMovie.name}`,
+      movie: theMovie
+    });
+  });
+});
+
+
+router.post('/movies/:id', function (req, res, next) {
+  const updatedMovie = {
+    title: req.body.title,
+    plot: req.body.plot,
+    genre: req.body.genre
+  };
+  Movie.update({ _id: req.params.id }, updatedMovie, (err, theMovie) => {
+    if (err) { return next(err); }
+
+    res.redirect('/movies');
+  });
+});
+
+router.post('/movies/:id/delete', function (req, res, next) {
+  Movie.findOne({ _id: req.params.id }, (err, theMovie) => {
+    if (err) { return next(err); }
+
+    theMovie.remove((err) => {
+      if (err) { return next(err); }
+
+      res.redirect('/movies');
+    });
+  });
+});
+
 
 module.exports = router;

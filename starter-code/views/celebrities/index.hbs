@@ -1,11 +1,14 @@
 <h1>{{ title }}</h1>
 <div>
-{{#each celebrity}}
-<h2><a href="/celebrities/{{ this._id }}">{{name}}</a></h2>
-{{/each}}
+  {{#each celebrity}}
+  <h2><a href="/celebrities/{{ this._id }}">{{name}}</a></h2>
+    <a href="/celebrities/edit/{{this.id}}">
+    Click here to edit a celebrity
+  </a>
+  {{/each}}
 </div>
 <div>
-<a href="/celebrities/new">
-  Click here to add a new celebrity
-</a>
+  <a href="/celebrities/new">
+    Click here to add a new celebrity
+  </a>
 </div>
