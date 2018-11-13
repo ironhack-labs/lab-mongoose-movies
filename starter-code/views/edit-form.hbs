@@ -1,0 +1,18 @@
+<form action="/celebrities/{{oneCeleb._id}}/process-edit" method="POST">
+
+  <label>
+    Name :
+    <input type="text" name="name" value="{{oneCeleb.name}}">
+  </label>
+  <label>
+    Occupation :
+    <input type="text" name="occupation" value="{{oneCeleb.occupation}}">
+  </label>
+  <label>
+    Catchphrase :
+    <input type="text" name="catchPhrase" value="{{oneCeleb.catchPhrase}}">
+  </label>
+
+  <button>Edit</button>
+
+</form>
