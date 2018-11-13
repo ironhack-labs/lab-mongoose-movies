@@ -1,0 +1,26 @@
+<h2>Search Movies</h2>
+
+<form action="/movies/search" method="post">
+
+<select name="movie">
+    {{#each movie}} 
+    <option value="{{this.genre}}">{{this.genre}}</option>
+    {{/each}}
+   </select>
+
+   <button class = "button" type="submit">Search</button>
+    </form>  
+
+  <h2>{{genre.[0].genre}}</h2>
+    <table>
+    {{#each genre}} 
+      <tr>
+        <td>{{{this.title}}}</td>
+      </tr>
+      {{/each}}
+    </table>
+
+
+     {{#if errorMessage }}
+    <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}

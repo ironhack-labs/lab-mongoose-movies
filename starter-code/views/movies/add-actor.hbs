@@ -1,0 +1,11 @@
+<h2>Movie: {{movie.title}}</h2>
+  
+<h2>Actors:</h2>
+<form action="/movies/{{movie._id}}/add-actor" method="post">
+<select name="_celebertyId">
+    {{#each celeberty}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <button class = "button" type="submit">Add Actor</button>
+  </form>

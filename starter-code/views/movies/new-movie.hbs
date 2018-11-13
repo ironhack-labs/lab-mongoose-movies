@@ -1,0 +1,20 @@
+<h2>Add a new Movie</h2>
+{{#if falseInput}}
+<div class="error">
+<p> Please fill out all fields in order to add the movie</p>
+</div>
+{{/if}}
+
+
+
+<form action="/new-movie" method="post">
+  <span class = "input"><p>Title:</p> <input type="text" name="title"></span>
+  <span class = "input" ><p>Genre: </p> <input type="text" name="genre"></span>
+  <span class = "input"><p>Plot: </p><input type="text" name="plot"></span>
+  <select name="_celeberty">
+    {{#each celeberty}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <button class = "button" type="submit">Add</button>
+</form>
