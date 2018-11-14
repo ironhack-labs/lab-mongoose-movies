@@ -1,0 +1,13 @@
+<h1>
+    Celebrities
+</h1>
+
+
+{{#each allCelebs}}
+    <div class="celeb-list">
+        <img src="{{this.image}}" height="300vh">
+        <h2>{{this.name}}</h2>
+        <h4>{{this.occupation}}</h4>
+        <h3>{{this.catchPhrase}}</h3>
+    </div>
+{{/each}}
