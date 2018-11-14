@@ -12,5 +12,16 @@ router.get('/', (req, res, next) => {
   })
 });
 
+router.get('/:theID', (req, res, next)=>{
+  Celebrity.findById(req.params.theID)
+  .then((theCelebrity)=>{
+      res.render('celebrities/details', theCelebrity)
+  })
+  .catch((err)=>{
+      next(err);
+  })
+})
+
+
 
 module.exports = router;
