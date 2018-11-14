@@ -9,12 +9,22 @@ router.get('/', (req, res, next) => {
 
 router.get('/celebrities', (req, res, next) => {
   Celeb.find()
-    .then((moviesFromDB)=>{
-      res.render('celeb', {allCelebs: moviesFromDB});
+    .then((celebsFromDB)=>{
+      res.render('celeb', {allCelebs: celebsFromDB});
     })
     .catch((err)=>{
       next(err);
     })
 });
+
+router.get('/celebrities/:theID', (req, res, next)=>{
+  Celeb.findById(req.params.theID)
+  .then((specificsFromDB)=>{
+      res.render('celeb-det', {theSpecifics: specificsFromDB})
+  })
+  .catch((err)=>{
+      next(err);
+  })
+})
 
 module.exports = router;

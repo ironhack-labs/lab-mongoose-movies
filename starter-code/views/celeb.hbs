@@ -4,10 +4,9 @@
 
 
 {{#each allCelebs}}
-    <div class="celeb-list">
-        <img src="{{this.image}}" height="300vh">
-        <h2>{{this.name}}</h2>
-        <h4>{{this.occupation}}</h4>
-        <h3>{{this.catchPhrase}}</h3>
+    <div class="celeb-list-one">
+        <img class="celebImg" src="{{this.image}}">
+        <div class="celebName">{{this.name}}</div>
+        <a href="/celebrities/{{this._id}}">See Details</a>
     </div>
 {{/each}}
