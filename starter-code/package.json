@@ -15,10 +15,19 @@
     "hbs": "^4.0.1",
     "mongoose": "^5.3.6",
     "morgan": "^1.9.1",
+    "node-sass": "^4.10.0",
     "node-sass-middleware": "^0.11.0",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
-  }
+  },
+  "main": "app.js",
+  "bin": {
+    "starter-code": "seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
