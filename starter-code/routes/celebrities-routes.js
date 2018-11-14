@@ -12,6 +12,26 @@ router.get('/', (req, res, next) => {
   })
 });
 
+router.get('/new', (req, res, next) => {
+  Celebrity.find()
+  .then((allTheCelebs)=>{
+      res.render('celebrities/new-celebrity', {allTheCelebs})
+  })
+  .catch((err)=>{
+      next(err);
+  })
+});
+
+router.post('/create', (req, res, next)=>{
+      Celebrity.create(req.body)
+      .then(()=>{
+          res.redirect('/celebrities');
+      })
+      .catch((err)=>{
+          next(err)
+      })
+  })
+
 router.get('/:theID', (req, res, next)=>{
   Celebrity.findById(req.params.theID)
   .then((theCelebrity)=>{
@@ -20,7 +40,18 @@ router.get('/:theID', (req, res, next)=>{
   .catch((err)=>{
       next(err);
   })
-})
+});
+
+router.post('/:id/delete', (req, res, next)=>{
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then(()=>{
+      res.redirect('/celebrities')
+  })
+  .catch((err)=>{
+      next(err);
+  })
+});
+
 
 
 
