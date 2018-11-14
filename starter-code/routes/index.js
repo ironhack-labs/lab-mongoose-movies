@@ -2,7 +2,6 @@ const express = require('express');
 const router  = express.Router();
 const Celeb = require('../models/Celebrity');
 
-/* GET home page */
 router.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -10,7 +9,7 @@ router.get('/', (req, res, next) => {
 router.get('/celebrities', (req, res, next) => {
   Celeb.find()
     .then((celebsFromDB)=>{
-      res.render('celeb', {allCelebs: celebsFromDB});
+      res.render('views-celebs/celeb', {allCelebs: celebsFromDB});
     })
     .catch((err)=>{
       next(err);
@@ -20,7 +19,7 @@ router.get('/celebrities', (req, res, next) => {
 router.get('/celebrities/new', (req, res, next) => {
   Celeb.find()
   .then((allTheCelebs)=>{
-      res.render('new-celeb', {allTheCelebs})
+      res.render('views-celebs/new-celeb', {allTheCelebs})
   })
   .catch((err)=>{
       next(err);
@@ -51,7 +50,7 @@ router.post('/celebrities/:theID/delete', (req, res, next)=>{
 router.get('/celebrities/:theID/edit', (req, res, next)=>{
   Celeb.findById(req.params.theID)
     .then((theCeleb)=>{
-      res.render('edit', {theCeleb})
+      res.render('views-celebs/edit', {theCeleb})
   })
     .catch((err)=>{
       console.log(err);
@@ -72,7 +71,7 @@ router.post('/celebrities/:theID/update', (req, res, next)=>{
 router.get('/celebrities/:theID', (req, res, next)=>{
   Celeb.findById(req.params.theID)
     .then((specificsFromDB)=>{
-      res.render('celeb-det', {theSpecifics: specificsFromDB})
+      res.render('views-celebs/celeb-det', {theSpecifics: specificsFromDB})
   })
     .catch((err)=>{
       next(err);
