@@ -37,16 +37,6 @@ router.post('/celebrities/create', (req, res, next)=>{
   })
 })
 
-router.get('/celebrities/:theID', (req, res, next)=>{
-  Celeb.findById(req.params.theID)
-    .then((specificsFromDB)=>{
-      res.render('celeb-det', {theSpecifics: specificsFromDB})
-  })
-    .catch((err)=>{
-      next(err);
-  })
-})
-
 router.post('/celebrities/:theID/delete', (req, res, next)=>{
   Celeb.findByIdAndRemove(req.params.theID)
     .then(()=>{
@@ -58,5 +48,35 @@ router.post('/celebrities/:theID/delete', (req, res, next)=>{
   })
 })
 
+router.get('/celebrities/:theID/edit', (req, res, next)=>{
+  Celeb.findById(req.params.theID)
+    .then((theCeleb)=>{
+      res.render('edit', {theCeleb})
+  })
+    .catch((err)=>{
+      console.log(err);
+      next(err);
+  })
+})
+
+router.post('/celebrities/:theID/update', (req, res, next)=>{
+  Celeb.findByIdAndUpdate(req.params.theID, req.body)
+    .then(()=>{
+      res.redirect('/celebrities/'+req.params.theID);
+  })
+  .catch((err)=>{
+      next(err)
+  })
+})
+
+router.get('/celebrities/:theID', (req, res, next)=>{
+  Celeb.findById(req.params.theID)
+    .then((specificsFromDB)=>{
+      res.render('celeb-det', {theSpecifics: specificsFromDB})
+  })
+    .catch((err)=>{
+      next(err);
+  })
+})
 
 module.exports = router;
