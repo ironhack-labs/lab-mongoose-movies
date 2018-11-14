@@ -1,0 +1,20 @@
+<h2>Edit a Celebrity</h2>
+
+<form action="/celebrities/{{celebItem._id}}/edit-process" method="post">
+<label>
+  Name:
+  <input type="text" name="name" placeholder="Betty Boop" value="{{celebItem.name}}" />
+</label>
+
+<label>
+  Occupation:
+  <input type="text" name="occupation" placeholder="dancer" value="{{celebItem.occupation}}" />
+</label>
+
+<label>
+  Catch Phrase:
+  <input type="text" name="catchPhrase" placeholder="Poopoopidoo" value="{{celebItem.catchPhrase}}" />
+</label>
+
+  <button>Submit the Changes</button>
+</form>
