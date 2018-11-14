@@ -30,7 +30,18 @@ router.post('/create', (req, res, next)=>{
       .catch((err)=>{
           next(err)
       })
-  })
+})
+
+router.get('/:theIdThing/edit', (req, res, next)=>{
+    Celebrity.findById(req.params.theIdThing)
+    .then((theCelebrity)=>{
+        res.render('celebrities/edit', {theCelebrity: theCelebrity})    
+    })
+    .catch((err)=>{
+        next(err);
+    })
+});
+
 
 router.get('/:theID', (req, res, next)=>{
   Celebrity.findById(req.params.theID)
@@ -41,6 +52,16 @@ router.get('/:theID', (req, res, next)=>{
       next(err);
   })
 });
+
+router.post('/:id/update', (req, res, next)=>{
+  Celebrity.findByIdAndUpdate(req.params.id, req.body)
+  .then(()=>{
+      res.redirect('/celebrities/'+req.params.id);
+  })
+  .catch((err)=>{
+      next(err)
+  })
+})
 
 router.post('/:id/delete', (req, res, next)=>{
   Celebrity.findByIdAndRemove(req.params.id)
