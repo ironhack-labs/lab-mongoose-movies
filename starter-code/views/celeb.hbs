@@ -8,5 +8,8 @@
         <img class="celebImg" src="{{this.image}}">
         <div class="celebName">{{this.name}}</div>
         <a href="/celebrities/{{this._id}}">See Details</a>
+        <form action="/celebrities/{{this._id}}/delete" method="POST">
+            <button>Delete This Celeb</button>
+        </form>
     </div>
 {{/each}}

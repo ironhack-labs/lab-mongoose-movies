@@ -47,5 +47,16 @@ router.get('/celebrities/:theID', (req, res, next)=>{
   })
 })
 
+router.post('/celebrities/:theID/delete', (req, res, next)=>{
+  Celeb.findByIdAndRemove(req.params.theID)
+    .then(()=>{
+      res.redirect('/celebrities');
+  })
+    .catch((err)=>{
+      console.log(err);
+      next(err);
+  })
+})
+
 
 module.exports = router;
