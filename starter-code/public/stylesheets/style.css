@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.welcome {
+  background-color: black; }
+
+.editPersona {
+  background-color: red;
+  color: white; }
+
+.listPersona {
+  background-color: orange;
+  color: white; }
+
+.detailsPersona {
+  background-color: yellow;
+  color: darkblue; }
+
+.addPersona {
+  background-color: pink;
+  color: darkblue; }
+
+/*# sourceMappingURL=style.css.map */

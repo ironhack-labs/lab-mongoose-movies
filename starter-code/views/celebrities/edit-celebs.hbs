@@ -1,0 +1,27 @@
+<body class="editPersona">
+<h1>Update {{theCeleb.name}} 's information</h1>
+
+
+<form action="/celebrities/{{theCeleb._id}}/edit-celebs" method="POST">
+
+
+  <label for="">Name:</label>
+  <input type="text" name="title" value="{{theCeleb.name}}">
+
+
+  <label for="">Occupation:</label>
+  <input type="text" name="occupation" value="{{theCeleb.occupation}}">
+
+  <label for="">catchPhrase:</label>
+  <input type="text" name="catchPhrase" value="{{theCeleb.catchPhrase}}">
+
+
+  <label for="">Image Link:</label>
+  <input type="text" name="image" value="{{theCeleb.image}}">
+
+  <button type="submit">Save Changes</button>
+
+
+</form>
+
+</body>

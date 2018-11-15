@@ -1,0 +1,28 @@
+<body class="detailsPersona">
+
+<h1>
+{{title}}
+
+</h1>
+
+<h2>
+{{celeb.name}}
+</h2>
+
+
+<h3>
+{{catchPhrase}}
+</h3>
+
+
+
+<img src="{{image}}" alt="" style="width: 300px">
+
+
+
+<a href="/celebrities/{{_id}}/edit-celebs">Update Info</a>
+
+<form action="/celebrities/{{_id}}/delete" method="POST"> <button>Remove from list</button>
+</form>
+
+</body>
