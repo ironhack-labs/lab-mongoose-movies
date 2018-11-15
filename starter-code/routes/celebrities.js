@@ -42,7 +42,7 @@ router.post('/celeb/create', (req, res, next)=>{
   Celebrity.create(req.body)
   .then((x)=>{
     console.log(x)
-    res.redirect('/celebrities')
+    res.redirect('/new')
 
    })
    .catch((err)=>{
@@ -60,5 +60,22 @@ router.post('/celeb/:id/delete', (req, res, next)=>{
     next(err)
   })
 })
+
+
+router.get('/celeb/:id/edit', (req, res, next)=>{
+  Celebrity.findById(req.params.id)
+  .then((theCelebrity)=>{
+    res.render('edit', {celeb: theCelebrity})
+  })
+  .catch((err)=>{
+    next(err)
+  })
+
+})
+
+// router.get('/edit', (req, res, next)=>{
+//   res.render('edit')
+// })
+
 
 module.exports = router;

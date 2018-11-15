@@ -1,0 +1,34 @@
+
+<!--
+
+Add an <h2> tag for the page's heading.
+Add a <form> tag that makes a POST request to /celebrities/:id with the :id replaced by the actual celebrity's id.
+Add <input> tags inside the form for each attirbute of the celebrity.
+Bonus: When you render the edit form, make sure each of the input fields is pre-filled with the current value of the attribute for that celebrity
+Add a <button> tag inside the form so that the user can submit the form once they are done editing.
+
+-->
+
+<h2>EDIT PAGE</h2>
+
+<form action="/celeb/{{celeb._id}}">
+
+
+  <label>Name</label>
+  <input type="text" name="name" value="{{celeb.name}}">
+
+  <label>Occupation</label>
+  <input type="text" name="occupation" value="{{celeb.occupation}}">
+
+  <label>Catch Phrase</label>
+  <input  type="text" name="catchPhrase" value="{{celeb.catchPhrase}}">
+
+
+<button type="submit">Save</button>
+
+
+
+
+
+
+</form>

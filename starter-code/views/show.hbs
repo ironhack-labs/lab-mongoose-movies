@@ -7,12 +7,30 @@
 
 
 
+<div>
+<h1>
 {{celeb.name}}
+
+</h1>
+
+</div>
+<div>
 {{celeb.occupation}}
+
+</div>
+<div>
 {{celeb.catchPhrase}}
 
-<form action="/celebrities/{{celeb._id}}/delete" method="POST">
+</div>
+
+
+<form action="/celeb/{{celeb._id}}/delete" method="POST">
 
 <button type="delete">Delete</button>
 
+
 </form>
+
+<a href="/celeb/{{celeb._id}}/edit">
+<button type="submit">Edit Celebrity</button>
+</a>
