@@ -11,7 +11,8 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+//localhost/starter-code was wrong -- need the name to match the name of the colllection
+  .connect('mongodb://localhost/Celebrity', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -53,6 +54,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+//require is a method that always takes a path to a file
+const celebrities = require('./routes/celebrities')
+app.use('/', celebrities);
+// app.use('/', require('./routes/celebrities'));
 
 
 module.exports = app;
