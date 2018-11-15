@@ -11,49 +11,42 @@ mongoose.connect('mongodb://localhost/Celebrity', {useNewUrlParser: true})
   console.error('Error connecting to mongo', err)
 });
 
-const celebrities = [
-  {
-  name : "DJ Khaled",
-  occupation : "DJ",
-  catchPhrase : "DJ Khaled!"
-  },
-  {
-  name : "Tiger Woods",
-  occupation : "Professional Golfer",
-  catchPhrase : "Mr. Steal your girl"
-  },
-  {
-    name : "Rick Ross",
-    occupation : "Rapper",
-    catchPhrase : "Uhh"
-  }
-]
+// const celebrities = [
+//   {
+//   name : "DJ Khaled",
+//   occupation : "DJ",
+//   catchPhrase : "DJ Khaled!"
+//   },
+//   {
+//   name : "Tiger Woods",
+//   occupation : "Professional Golfer",
+//   catchPhrase : "Mr. Steal your girl"
+//   },
+//   {
+//     name : "Rick Ross",
+//     occupation : "Rapper",
+//     catchPhrase : "Uhh"
+//   }
+// ]
 
 const movies = [
   {
-  name : "blah",
-  occupation : "anotherblah",
-  catchPhrase : "third blah"
+  title : "blah",
+  genre : "anotherblah",
+  plot : "third blah"
   },
   {
-  name : "Tibvhdjs",
-  occupation : "Profvdaer",
-  catchPhrase : "Mvdarl"
+  title : "Tibvhdjs",
+  genre : "Profvdaer",
+  plot : "Mvdarl"
   },
   {
-    name : "Rivdass",
-    occupation : "Rddder",
-    catchPhrase : "Ubfds"
+    title : "Rivdass",
+    genre : "Rddder",
+    plot : "Ubfds"
   }
 ]
 
-Celebrity.create(celebrities)
-.then((response)=>{
-    console.log(response);
-})
-.catch((err)=>{
-  console.log(err);
-});
 Movie.create(movies)
 .then((response)=>{
     console.log(response);
@@ -61,3 +54,10 @@ Movie.create(movies)
 .catch((err)=>{
   console.log(err);
 });
+// Movie.create(movies)
+// .then((response)=>{
+//     console.log(response);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// });

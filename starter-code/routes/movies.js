@@ -13,11 +13,11 @@ router.get('/movies', (req, res, next)=>{
 })
 
 router.get('/movies/new', (req, res, next)=>{
-  res.render('movies/new-celeb');
+  res.render('movies/new-movie');
 })
 
 router.post('/movies/new', (req, res, next)=>{
-  Movies.create(req.body)
+  Movie.create(req.body)
   .then(()=>{
     res.redirect('/movies')
   })
@@ -29,7 +29,7 @@ router.post('/movies/new', (req, res, next)=>{
 router.post('/movies/:id/delete', (req, res, next)=>{
   Movie.findByIdAndRemove(req.params.id)
   .then((x)=>{
-    res.redirect("/celebrities")
+    res.redirect("/movies")
   })
   .catch((err)=>{
     next(err)

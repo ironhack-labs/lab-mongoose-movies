@@ -30,7 +30,7 @@ router.post('/celebrities/new', (req, res, next)=>{
 router.post('/celebrities/:id/delete', (req, res, next)=>{
   Celebrity.findByIdAndRemove(req.params.id)
   .then((x)=>{
-    console.log(x, "JHSJHSJHSJH");
+    // console.log(x, "JHSJHSJHSJH");
     res.redirect("/celebrities")
   })
   .catch((err)=>{
