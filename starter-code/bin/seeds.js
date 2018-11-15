@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
+const Movie = require('../models/Movie');
 
 mongoose.connect('mongodb://localhost/Celebrity', {useNewUrlParser: true})
 .then(x => {
@@ -28,7 +29,32 @@ const celebrities = [
   }
 ]
 
+const movies = [
+  {
+  name : "blah",
+  occupation : "anotherblah",
+  catchPhrase : "third blah"
+  },
+  {
+  name : "Tibvhdjs",
+  occupation : "Profvdaer",
+  catchPhrase : "Mvdarl"
+  },
+  {
+    name : "Rivdass",
+    occupation : "Rddder",
+    catchPhrase : "Ubfds"
+  }
+]
+
 Celebrity.create(celebrities)
+.then((response)=>{
+    console.log(response);
+})
+.catch((err)=>{
+  console.log(err);
+});
+Movie.create(movies)
 .then((response)=>{
     console.log(response);
 })
