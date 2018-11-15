@@ -4,6 +4,8 @@ const User       = require('../models/User');
 const bcrypt     = require('bcryptjs');
 const bcryptSalt = 10;
 
+const passport   = require("passport");
+
 
 
 router.get('/signup', (req, res, next) => {
@@ -65,7 +67,7 @@ router.post("/login", (req, res, next) => {
   User.findOne({username: username })
   .then(user => {
       if (!user) {
-        res.render("signup", {errorMessage: "Sorry, that username doesn't exist"});
+        res.render("index", {errorMessage: "Sorry, that username doesn't exist"});
         return;
       }
 
@@ -79,7 +81,7 @@ router.post("/login", (req, res, next) => {
 
         res.redirect("signup");
       } else {
-        res.render("login", {
+        res.render("users/login", {
           errorMessage: "Incorrect password"
         });
       }
@@ -89,5 +91,17 @@ router.post("/login", (req, res, next) => {
     next(error)
   })
 });
+
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/",
+  failureFlash: true,
+  passReqToCallback: true
+}));
+
+router.get('/logout', (req, res, next)=>{
+  req.logout();
+  res.redirect("/login");
+})
 
 module.exports = router;
