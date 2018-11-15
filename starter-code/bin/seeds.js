@@ -32,16 +32,19 @@ const celebrities = [
 const movies = [
   {
     title : "Willy Wonka and the Chocolate Factory",
+    celebrity: "Gene Wilder",
     genre: "Thriller",
     plot: "Little poor boy passes tests to win the Chocolate factory",
   },
   {
     title : "Space Jam 2 ",
+    celebrity: "Lebron James",
     genre: "Comedy & Family",
     plot: "Unknown yet",
   },
   {
     title : "Ironhack Massacre",
+    celebrity: "Nick Borbe",
     genre: "Horror/Suspense",
     plot: "One man must save the building from a murderer",
   },
@@ -55,10 +58,25 @@ const movies = [
 //     console.log(err);
 //   })
 
- Movie.create(movies)
-  .then((response)=>{
-      console.log(response);
+Celebrity.find()
+.then(theCelebsFromDB => {
+  movies.forEach(oneMovie => {
+    theCelebsFromDB.forEach(oneCeleb => {
+      if(oneMovie.celebrity === oneCeleb.name){
+        oneMovie.celebrity = oneCeleb._id
+      } else {
+        oneMovie.celebrity;
+      }
+    })
   })
+  Movie.create(movies)
+   .then((response)=>{
+       console.log(response);
+   })
+   .catch(err => {
+     console.log("err with movies ----- ", err);
+   })
+})
   .catch((err)=>{
-    console.log(err);
+    console.log("err with celebs ====== ", err);
   })
