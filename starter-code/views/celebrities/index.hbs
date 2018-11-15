@@ -1,0 +1,17 @@
+<h1>These are 3 Celebrities</h1>
+{{#each celebrities}}
+<div>
+    <a href="/celebrities/{{this._id}}"><p>{{this.name}}</p></a>
+    <p>{{this.occupation}}</p>
+    <p>{{this.catchPhrase}}</p>
+    <form action="/celebrities/{{this._id}}/delete" method="POST">
+    <button>Delete Star</button>
+    </form>
+    <form action="/celebrities/{{this._id}}/edit" method="GET">
+        <button>Edit</button>
+        </form>
+</div>
+{{/each}}
+
+
+<a href="/celebrities/new">Make a new Star</a>
