@@ -1,0 +1,16 @@
+<h1>Please Login</h1>
+
+<form action="/user/login" method="POST">
+
+  <label>Username: </label>
+  <input type="text" name="username" required>
+  <label>Password: </label>
+  <input type="password" name="password" required>
+
+<button>Log In</button>
+
+</form>
+
+{{#if message}}
+{{message}}
+{{/if}}
