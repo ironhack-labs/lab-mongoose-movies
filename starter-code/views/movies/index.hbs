@@ -4,6 +4,7 @@
     <a href= "/movies/{{this._id}}"><p>{{this.title}}</p></a>
     <p>{{this.genge}}</p>
     <p>{{this.plot}}</p>
+    <p>{{this.celebrity.name}}</p>
      <form action="/movies/{{this._id}}/delete" method="POST">
     <button>Delete Movie</button>
     </form>

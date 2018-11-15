@@ -10,5 +10,17 @@
 <label for="">catchPhrase</label>
 <input type="text" name="plot" value="{{theMovie.plot}}">
 
+<label for="">Star</label>
+<select name="celebrity" >
+{{#each allStars}}
+{{#if this.yes}}
+<option value="{{this._id}}" selected="selected">{{this.name}}</option>
+{{else}}
+<option value="{{this._id}}">{{this.name}}</option>
+{{/if}}
+{{/each}}
+
+</select>
+
 <button type="submit">Save changes</button>
 </form>

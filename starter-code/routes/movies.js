@@ -6,7 +6,7 @@ const Movie = require('../models/Movie');
 
 
 router.get('/movies', (req, res, next) => {
-    Movie.find()
+    Movie.find().populate('celebrity')
     .then((eachMovie)=>{   
         
         res.render('movies/index', {movies : eachMovie});
@@ -19,7 +19,16 @@ router.get('/movies', (req, res, next) => {
 
 
 router.get('/movies/new', (req,res,next)=>{
-    res.render('movies/newMovie')
+    Celebrity.find()
+    .then((allStars)=>{
+        res.render('movies/newMovie',{allStars});
+
+    })
+    .catch((err)=>{
+        next(err);
+    })
+
+
 })
 
 router.post('/movies/new', (req, res, next)=>{
@@ -62,7 +71,23 @@ router.post('/movies/:id/delete' , (req,res,next)=>[
  router.get('/movies/:id/edit', (req,res,next)=>{
     Movie.findById(req.params.id)
     .then((theMovie)=>{
-        res.render('movies/edit' , {theMovie: theMovie})
+        Celebrity.find()
+        .then((allStars)=>{
+            allStars.forEach((star)=>{
+                if(star._id.equals(theMovie.celebrity)){
+                    star.yes = true;
+                }
+            })
+
+            console.log(allStars)
+            res.render('movies/edit' , {theMovie: theMovie, allStars: allStars })
+
+        })
+        .catch((err)=>{
+            next(err)
+        })
+
+
     })
     .catch((err)=>{
         next(err)

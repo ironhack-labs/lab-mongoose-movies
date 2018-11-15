@@ -13,9 +13,22 @@
 <label for="">Plot</label>
 <input type="text" name="plot">
 
+<label for="">Celebrity</label>
+
+
+
+<select name="celebrity">
+{{#each allStars}}
+
+
+<option value="{{this._id}}">{{this.name}} </option>
+
+
+
+{{/each}}
+</select>
 
 <button type="submit">Add</button>
-
 
 </form>
 
