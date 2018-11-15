@@ -7,7 +7,7 @@ const Celebrity   = require('../models/Celebrity');
 router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
     .then((celebrityDB)=>{
-      res.render('celeb-page', {celebrities: celebrityDB});
+      res.render('Celeb/celeb-page', {celebrities: celebrityDB});
     })
     .catch((err)=>{
       next(err)
@@ -15,7 +15,7 @@ router.get('/celebrities', (req, res, next) => {
     })
 });
 router.get('/celebrities/new', (req, res, next) => {
-    res.render("new-celeb");
+    res.render("Celeb/new-celeb");
 });
 
 router.post('/celebrities/create', (req, res, next)=>{
@@ -31,7 +31,7 @@ router.post('/celebrities/create', (req, res, next)=>{
 router.get('/celebrities/:theIdThing/edit', (req, res, next)=>{
     Celebrity.findById(req.params.theIdThing)
     .then((celeb)=>{
-     res.render('celeb-edit', {celeb: celeb})
+     res.render('Celeb/celeb-edit', {celeb: celeb})
     })
     .catch((err)=>{
         next(err);
@@ -55,7 +55,7 @@ router.post('/celebrities/:id/update', (req, res, next)=>{
 router.get('/celebrities/:theID', (req, res, next)=>{
     Celebrity.findById(req.params.theID)
     .then((celebInfoFromDB)=>{
-        res.render('celebrity-details', {theCeleb: celebInfoFromDB})
+        res.render('Celeb/celebrity-details', {theCeleb: celebInfoFromDB})
     })
     .catch((err)=>{
         next(err);

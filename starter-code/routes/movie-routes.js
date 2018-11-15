@@ -6,7 +6,7 @@ const Movie   = require('../models/Movie');
 router.get('/movies', (req, res, next) => {
     Movie.find()
     .then((movieDB)=>{
-      res.render('movie-page', {movie: movieDB});
+      res.render('Films/movie-page', {movie: movieDB});
     })
     .catch((err)=>{
       next(err)
@@ -14,7 +14,7 @@ router.get('/movies', (req, res, next) => {
     })
 });
 router.get('/movies/new', (req, res, next) => {
-    res.render("new-movie");
+    res.render("Films/new-movie");
 });
 
 router.post('/movies/create', (req, res, next)=>{
@@ -30,7 +30,7 @@ router.post('/movies/create', (req, res, next)=>{
 router.get('/movies/:theIdThing/edit', (req, res, next)=>{
     Movie.findById(req.params.theIdThing)
     .then((theMovie)=>{
-     res.render('movie-edit', {theMovie: theMovie})
+     res.render('Films/movie-edit', {theMovie: theMovie})
     })
     .catch((err)=>{
         next(err);
@@ -54,7 +54,7 @@ router.post('/movies/:id/update', (req, res, next)=>{
 router.get('/movies/:theID', (req, res, next)=>{
     Movie.findById(req.params.theID)
     .then((movieInfoFromDB)=>{
-        res.render('movie-details', {theFilm: movieInfoFromDB})
+        res.render('Films/movie-details', {theFilm: movieInfoFromDB})
     })
     .catch((err)=>{
         next(err);

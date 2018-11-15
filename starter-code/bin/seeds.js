@@ -49,7 +49,7 @@ mongoose.connect('mongodb://localhost/express-cinema', {useNewUrlParser: true})
    
   ];
 
-
+  
   Movie.create(movies)
   .then((response)=>{
       console.log(response);
