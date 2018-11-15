@@ -4,7 +4,7 @@ const Movie   = require('../models/Movie');
 const Celebrity = require('../models/Celebrity');
 
 router.get('/', (req, res, next) => {
-  Movie.find().populate('celebrities')
+  Movie.find().populate('celebrity')
   .then((allTheMovies)=>{
       res.render('movies/movies', {movies: allTheMovies})
   })
