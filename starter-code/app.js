@@ -9,6 +9,13 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const session       = require("express-session");
+const bcrypt        = require("bcryptjs");
+const passport      = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const flash         = require("connect-flash")
+
+
 
 mongoose
   .connect('mongodb://localhost/express-cinema', {useNewUrlParser: true})
@@ -59,6 +66,10 @@ app.use('/', celebrities);
 
 const movies = require('./routes/movie-routes');
 app.use('/', movies);
+
+const user = require('./routes/user-routes');
+app.use('/', user);
+
 
 
 module.exports = app;
