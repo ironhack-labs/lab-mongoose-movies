@@ -33,6 +33,39 @@ router.post('/movies/create', (req, res, next)=>{
     })
   })
 
+  router.post('/movies/:theID/delete', (req, res, next)=>{
+    Movies.findByIdAndRemove(req.params.theID)
+      .then(()=>{
+        res.redirect('/movies');
+    })
+      .catch((err)=>{
+        console.log(err);
+        next(err);
+    })
+  })
+
+
+router.get('/movies/:theID/edit', (req, res, next)=>{
+    Movies.findById(req.params.theID)
+      .then((theMovie)=>{
+        res.render('views-movies/edit', {theMovie})
+    })
+      .catch((err)=>{
+        console.log(err);
+        next(err);
+    })
+  })
+  
+  router.post('/movies/:theID/update', (req, res, next)=>{
+    Movies.findByIdAndUpdate(req.params.theID, req.body)
+      .then(()=>{
+        res.redirect('/movies/'+req.params.theID);
+    })
+    .catch((err)=>{
+        next(err)
+    })
+  })
+
 
 router.get('/movies/:theID', (req, res, next)=>{
     Movies.findById(req.params.theID)

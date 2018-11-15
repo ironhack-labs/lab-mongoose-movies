@@ -4,7 +4,12 @@
         <div>{{this.title}}</div>
         <div>{{this.genre}}</div>
     <a href="/movies/{{this._id}}">See Details</a>
-   
+    <form action="/movies/{{this._id}}/delete" method="POST">
+            <button>Delete This Movie</button>
+        </form>
+        <form action="/movies/{{this._id}}/edit" method="GET">
+            <button>Edit this Movie</button>
+        </form>
      <br>
      <br>
 {{/each}}
