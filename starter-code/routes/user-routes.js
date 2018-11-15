@@ -1,9 +1,15 @@
 const express = require('express');
 const router = express.Router();
+
+
+
 const User = require('../models/User');
+
 const bcrypt  = require('bcryptjs');
 const bcryptSalt = 10;
 
+
+const passport = require('passport');
 
 
 router.get('/signup', (req,res,next)=>{
@@ -12,8 +18,8 @@ router.get('/signup', (req,res,next)=>{
 
 
 router.post('/signup', (req,res,next)=>{
-  const theUserName = req.body.theUserName;
-  const thePassWord = req.body.thePassWord;
+  const theUserName = req.body.username;
+  const thePassWord = req.body.password;
 
   if(theUserName === "" || thePassWord==="")
   {
@@ -46,54 +52,70 @@ router.post('/signup', (req,res,next)=>{
 
 
 router.get('/login', (req, res, next)=>{
-  res.render('login');
+  res.render('login' , {message: req.flash('error')});
   });
 
-router.post('/login', (req,res,next)=>{
-    const username = req.body.username;
-    const password = req.body.password;
+
+  // POST LOGIN
+router.post('/login', passport.authenticate("local", {
+
+  successRedirect: "/",
+  failureRedirect: '/signup',
+  failureFlash: true,
+  passReqToCallback: true
+
+}));
+
+
+// (req,res,next)=>{
+//     const username = req.body.username;
+//     const password = req.body.password;
     
 
-if(username === "" || password === "")
-{
-  res.render("login" , {errorMessage: "Indicate a username and a password to login"})
-  return;
-}
-User.findOne({username:username})
-.then((user)=>{
-  if(!user)
-  {
-    res.render('login', {errorMessage: "Sorry, that username does not exist"})
-    return;
-  }
-   if(bcrypt.compareSync(password, user.password))
-   {
-     req.session.currentUser = user;
-     res.redirect("/");
-   }
-   else 
-   {  
-     res.render('login', {errorMessage : "Incorrect password"});
-   }
+// if(username === "" || password === "")
+// {
+//   res.render("login" , {errorMessage: "Indicate a username and a password to login"})
+//   return;
+// }
+// User.findOne({username:username})
+// .then((user)=>{
+//   if(!user)
+//   {
+//     res.render('login', {errorMessage: "Sorry, that username does not exist"})
+//     return;
+//   }
+//    if(bcrypt.compareSync(password, user.password))
+//    {
+//      req.session.currentUser = user;
+//      res.redirect("/");
+//    }
+//    else 
+//    {  
+//      res.render('login', {errorMessage : "Incorrect password"});
+//    }
 
-})
-.catch((err)=>{
-  next(err);
-})
+// })
+// .catch((err)=>{
+//   next(err);
+// })
 
-});    //END OF POST 
+// });    //END OF POST 
 
 
 router.get('/logout', (req,res,next)=>{
-  req.session.destroy((err)=>{
-      res.redirect('/login')
-  })
+
+  req.logout();
+  res.redirect('/login')
+
+  // req.session.destroy((err)=>{
+  //     res.redirect('/login')
+  // })
   
 })
 
 router.get('/secret', (req, res, next) => {
-  if(req.session.currentUser){
-    res.render('secret', {theUser: req.session.currentUser});
+  if(req.user){
+    res.render('secret', {theUser: req.user});
   } else{
     res.redirect('/login');
   }

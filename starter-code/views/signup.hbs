@@ -2,17 +2,20 @@
 <form action="" method="POST">
 
 <label>Username</label>
-<input type="text" name="theUserName" required> 
+<input type="text" name="username" required> 
 
 
 <label >Password</label>
-<input type="text" name="thePassWord" required>
+<input type="text" name="password" required>
 
 
 <button>Submit</button>
 </form>
 
 
-{{#if errorMessage}}
-{{errorMessage}}
+{{#if message}}
+<h3>
+{{message}}
+
+</h3>
 {{/if}}
