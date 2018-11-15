@@ -11,9 +11,9 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/movies-projectOne', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! --0-0-- Database Name: "${x.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -53,6 +53,12 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebritiesRoutes = require('./routes/celebrities');
+app.use('', celebritiesRoutes);
+
+// const moviesRoutes = require('./routes/movies');
+// app.use('', moviesRoutes);
 
 
 module.exports = app;
