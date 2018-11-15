@@ -30,7 +30,7 @@ router.post('/create', (req, res, next)=>{
       .catch((err)=>{
           next(err)
       })
-})
+});
 
 router.get('/:theIdThing/edit', (req, res, next)=>{
     Celebrity.findById(req.params.theIdThing)
