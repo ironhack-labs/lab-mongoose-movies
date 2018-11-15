@@ -1,0 +1,18 @@
+<!-- Display tags with the celebrity's name, occupation and catchPhrase -->
+
+
+
+<h2>Show page</h2>
+
+
+
+
+{{celeb.name}}
+{{celeb.occupation}}
+{{celeb.catchPhrase}}
+
+<form action="/celebrities/{{celeb._id}}/delete" method="POST">
+
+<button type="delete">Delete</button>
+
+</form>

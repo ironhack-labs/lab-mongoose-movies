@@ -1,2 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+
+<h2>The Celebs </h2>
+{{#each theCelebs}}
+
+<a href="/celebrities/{{this._id}}">
+<h3>
+ {{this._id}} 
+{{this.name}}
+</h3>
+</a>
+
+{{/each}}
