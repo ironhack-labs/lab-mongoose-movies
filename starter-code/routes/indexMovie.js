@@ -5,7 +5,6 @@ const Movies = require('../models/Movies');
 router.get('/movies', (req, res, next) => {
     Movies.find()
         .then((allMovies)=>{
-            console.log('=-=-=-=-=-=-=-=-=',allMovies)
             res.render('views-movies/movies', {allMovies});
     })
         .catch((err)=>{
@@ -13,18 +12,44 @@ router.get('/movies', (req, res, next) => {
     })
 });
 
+//not working - only will redirect to login page, but it does console user.id
+// router.get('/movies', (req, res, next) => {
+//     if(!req.user || !req.user.admin){
+//         console.log("<><><><><><><><" + req.user)
+//         req.flash('error', 'page not available');
+//         res.redirect('/login')
+//         return;
+//     } else{
+//         Movies.find()
+//             .then((allMovies)=>{
+//                 res.render('views-movies/movies', {allMovies});
+//             })
+//             .catch((err)=>{
+//                 next(err);
+//             })
+//     }
+// });
+
 router.get('/movies/new', (req, res, next) => {
+    if(!req.user) {
+        req.flash('error', 'sorry you must be logged in to donate a book')
+        res.redirect('/login');
+    } else {
     Movies.find()
-    .then((allTheMovies)=>{
-        res.render('views-movies/new-movie', {allTheMovies})
-    })
-    .catch((err)=>{
-        next(err);
-    })
-  });
+        .then((allTheMovies)=>{
+            res.render('views-movies/new-movie', {allTheMovies})
+        })
+        .catch((err)=>{
+            next(err);
+        })
+    }
+});
 
 router.post('/movies/create', (req, res, next)=>{
-    Movies.create(req.body)
+    const newMovie = req.body;
+    newMovie.donor = req.user._id;
+
+    Movies.create(newMovie)
     .then(()=>{
         res.redirect('/movies');
     })
@@ -32,6 +57,7 @@ router.post('/movies/create', (req, res, next)=>{
         next(err)
     })
   })
+
 
   router.post('/movies/:theID/delete', (req, res, next)=>{
     Movies.findByIdAndRemove(req.params.theID)
@@ -68,7 +94,7 @@ router.get('/movies/:theID/edit', (req, res, next)=>{
 
 
 router.get('/movies/:theID', (req, res, next)=>{
-    Movies.findById(req.params.theID)
+    Movies.findById(req.params.theID).populate("donor")
       .then((specificsFromDB)=>{
         res.render('views-movies/movies-det', {theSpecifics: specificsFromDB})
     })

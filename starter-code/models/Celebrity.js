@@ -8,7 +8,6 @@ const celebSchema = new Schema({
     image: String
   });
 
-//3.1 you create the cat class using those rules
 const Celebrity = mongoose.model('Celebrity', celebSchema);
 
 

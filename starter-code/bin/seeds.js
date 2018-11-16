@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Movies = require('../models/Movies');
+const Users = require('../models/Movies');
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
@@ -10,26 +10,12 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
-  const movies = [
-      {
-          title: "The Notebook",
-          genre: "Romance",
-          plot: "Poor guy meets rich girl. They fall in love and eventually live happily ever after."
-      },
-      {
-          title: "The Lion",
-          genre: "Drama",
-          plot: "Child was adopted from Indian orphanage. 20 years later he returns to India to find his birth mother."
-      },
-      {
-          title: "Halloween",
-          genre: "Horror",
-          plot: "Michael Myers wants to kill his entire family"
-      }
-    ];
+  const users = [
+    
+  ]
 
 
-  Movies.create(movies)
+  Users.create(users)
   .then((response)=>{
       console.log(response);
   })
@@ -43,6 +29,26 @@ mongoose
 
 
 
+
+
+
+  // const movies = [
+  //   {
+  //       title: "The Notebook",
+  //       genre: "Romance",
+  //       plot: "Poor guy meets rich girl. They fall in love and eventually live happily ever after."
+  //   },
+  //   {
+  //       title: "The Lion",
+  //       genre: "Drama",
+  //       plot: "Child was adopted from Indian orphanage. 20 years later he returns to India to find his birth mother."
+  //   },
+  //   {
+  //       title: "Halloween",
+  //       genre: "Horror",
+  //       plot: "Michael Myers wants to kill his entire family"
+  //   }
+  // ];
 
 
   // const celebs = [

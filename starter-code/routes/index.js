@@ -6,6 +6,10 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+router.get('/home', (req, res, next) => {
+  res.render('home');
+});
+
 router.get('/celebrities', (req, res, next) => {
   Celeb.find()
     .then((celebsFromDB)=>{

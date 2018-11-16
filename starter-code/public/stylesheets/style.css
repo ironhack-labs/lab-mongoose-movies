@@ -1,16 +1,15 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00B7FF; }
+.homeTitle {
+  color: black;
+  font: 80px;
+  font-weight: bolder;
+  width: 30%;
+  text-align: center; }
 
-.celeb-list-one {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 5%; }
+.picDiv {
+  height: 100vh;
+  margin-left: 30%; }
 
 /*# sourceMappingURL=style.css.map */
