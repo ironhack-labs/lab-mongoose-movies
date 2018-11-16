@@ -17,21 +17,28 @@ router.get('/celebrities', (req, res, next) => {
   Celebrity.find().then(celebs => {
     res.render('celebrities/index', {celebs});
   })
+  .catch((error)=> {
+    console.log(error);
+    res.render('/');
+  });
 });
 
 router.get('/celebrities/:celebId/show', (req, res, next) => {
   debug(process.env.DEBUG);
   Celebrity.findById(req.params.celebId).then(celeb => {
     res.render('celebrities/show',{celeb})
-  })
+  }).catch((error)=> {
+    console.log(error);
+    res.render('celebrities/index');
+  });
 });
 
 
-router.get('/new', (req, res, next) => {
+router.get('/celebrities/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
-router.post('/new', (req, res, next) => {
+router.post('/celebrities/new', (req, res, next) => {
   const celeb = {
     name: req.body.name,
     occupation: req.body.occupation,
@@ -41,7 +48,8 @@ router.post('/new', (req, res, next) => {
     console.log(`Se ha creado la celebrity ${cel._id} ${cel.name} with ${cel.occupation} occupation and: "${cel.catchPhrase}" phrase`);
     res.redirect('/celebrities');
   })
-  .catch(()=> {
+  .catch((error)=> {
+    console.log(error);
     res.render('celebrities/new');
   });
 });
@@ -50,10 +58,35 @@ router.get('/celebrities/:celebId/delete', (req,res) => {
   Celebrity.findByIdAndDelete(req.params.celebId).then(()=> {
     res.redirect('/celebrities');
   })
-  .catch(()=> {
-    res.render('/celebrities/:celebId/show');
+  .catch((error)=> {
+    console.log(error)
+    res.render('celebrities/:celebId/show');
   });
 });
+
+router.get('/celebrities/:celebId/edit', (req,res) => {
+  Celebrity.findById(req.params.celebId).then(celeb => {
+    res.render('celebrities/edit', {celeb})
+  }).catch((error)=> {
+    console.log(error);
+    res.render('celebrities/:celebId/show');
+  });
+});
+
+
+router.post('/celebrities/:celebId/edit', (req,res) => {
+  const celeb = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  const celebId = req.params.celebId;
+  Celebrity.findByIdAndUpdate(celebId, celeb).then(() => {
+    //res.redirect(`/celebrities/${celebId}/show`);
+    res.redirect('/celebrities');
+  });
+});
+
 
 
 
