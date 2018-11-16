@@ -1,7 +1,7 @@
-const express = require('express');
-const Celebrity = require("../models/celebrity");
-const router = express.Router();
-// const Movie =require('..models/Movie');
+const express       = require('express');
+const Celebrity     = require("../models/celebrity");
+const router        = express.Router();
+// const Movie = require('..models/Movie');
 
 
 
@@ -30,15 +30,25 @@ router.get('/celebrities/:id', (req, res, next) => {
 
 
 // Adding New Celebrities to Database
-// router.get('/new', (req, res, next) => {
-
-// })
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new');
+});
 
 // req.body.description
-
 // Book.create
 // ({ req.body.author, })
 
+router.post('/celebrities/new', (req, res, next)=>{
+  const newCelebrity = req.body;
+    Celebrity.create(req.body)
+    .then(()=>{
+      res.redirect('celebrities/index');
+      //above - in {}, celebrities is the array being passed to the function, and allTheCelebs is arbitrary and just has to match the argument inside the .then callback.
+    })
+    .catch((err)=>{
+      next(err);
+    })
+  });
 
 
 
