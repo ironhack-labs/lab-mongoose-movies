@@ -4,10 +4,26 @@
 
 <h2>the underrated, drumroll please... {{this.name}}</h2>
 
-<a href="/celebrities/{{this._id}}">More Info</a>
+<a href="/celebrities/{{this._id}}/details">{{this.name}} Bio</a>
+<br><br>
+<form action="/celebrities/{{this._id}}/delete" method="POST">
+{{!-- how to style Delete button the way I want. truly, just need to know how to connect css/scss to several different files/folders --}}
+<button>DELETE</button>
+
+</form>
+
+<form action="/celebrities/{{this._id}}/edit" method="POST">
+
+<button>EDIT</button>
+
+</form>
 
   {{/each}}
      
      <br><br><br>
+
+<a href="/celebrities/new">Add</a>
+
+<br><br><br>
 
   <a href="/">Home</a>
