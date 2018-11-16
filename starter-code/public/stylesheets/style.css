@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+p {
+  margin: 2em; }
+
+.btn-add {
+  font-size: 3em;
+  position: absolute;
+  right: 40%; }
+
+.btn-add2 {
+  font-size: 3em;
+  position: absolute;
+  top: 40%;
+  right: 40%; }
+
+/*# sourceMappingURL=style.css.map */

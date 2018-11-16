@@ -1,0 +1,18 @@
+<div>
+  <h2>Editando...</h2>
+  <form method="POST" action="/movies/edit/{{movie._id}}">
+    <div>
+      <label>Titulo</label>
+      <input type="text" name="title" placeholder="nombre de la peli" value="{{movie.title}}">
+    </div>
+    <div>
+      <label>Genero</label>
+      <input type="text" name="genre" placeholder="Clasificalo" value="{{movie.genre}}">
+    </div>
+    <div>
+      <label>Argumento</label>
+      <input type="text" name="plot" placeholder="Lo que pasa" value="{{movie.plot}}">
+    </div>
+    <button class="btn-add" type="submit">MODIFICA LA MOVIE</button>
+  </form>
+</div>
