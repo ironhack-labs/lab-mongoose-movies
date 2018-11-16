@@ -27,5 +27,27 @@ router.get('/celebrities/:celebId/show', (req, res, next) => {
 });
 
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
+router.post('/new', (req, res, next) => {
+  const celeb = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  };
+  //const name = req.body.name;
+  //const occupation = req.body.occupation;
+  //const catchPhrase = req.body.catchPhrase;
+
+  Celebrity.create(celeb).then(cel => {
+    console.log(`Se ha creado la celebrity ${cel._id} ${cel.name} with ${cel.occupation} occupation and: "${cel.catchPhrase}" phrase`);
+    res.redirect('/celebrities');
+  })
+  .catch(()=> {
+    res.render('celebrities/new');
+  });
+});
 
 module.exports = router;
