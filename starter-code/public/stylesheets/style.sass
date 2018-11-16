@@ -1,6 +1,26 @@
-body
-  padding: 50px
+@import mixins
+
+html, body
+  padding: 0
+  margin: 0
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
 
-a
-  color: #00B7FF
+.img-fluid
+  width: 100%
+
+.container-fluid.main-container
+  height: calc(100vh - 49px)
+  margin: 0 auto
+  padding: 0
+  .containerr
+    height: calc(100vh - 49px)
+    width: 100%
+    &.home-container
+      background-image: url('https://pbs.twimg.com/media/BhxWutnCEAAtEQ6.jpg')
+      +flex_center
+      .homeTitle
+        color: white
+        font-size: calc(3vh + 3vw + 3em)
+        text-shadow: 0 0 10px black;
+    &.celebList-container, &.celebCreate-container, &.celebEdit-container, &.celebShow-container, &.movieList-container, &.movieCreate-container, &.movieEdit-container, &.movieShow-container
+      padding: 4em

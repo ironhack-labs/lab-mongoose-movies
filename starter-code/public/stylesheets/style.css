@@ -1,8 +1,29 @@
-body {
-  padding: 50px;
+html, body {
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00B7FF; }
+.img-fluid {
+  width: 100%; }
+
+.container-fluid.main-container {
+  height: calc(100vh - 49px);
+  margin: 0 auto;
+  padding: 0; }
+  .container-fluid.main-container .containerr {
+    height: calc(100vh - 49px);
+    width: 100%; }
+    .container-fluid.main-container .containerr.home-container {
+      background-image: url("https://pbs.twimg.com/media/BhxWutnCEAAtEQ6.jpg");
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center; }
+      .container-fluid.main-container .containerr.home-container .homeTitle {
+        color: white;
+        font-size: calc(3vh + 3vw + 3em);
+        text-shadow: 0 0 10px black; }
+    .container-fluid.main-container .containerr.celebList-container, .container-fluid.main-container .containerr.celebCreate-container, .container-fluid.main-container .containerr.celebEdit-container, .container-fluid.main-container .containerr.celebShow-container, .container-fluid.main-container .containerr.movieList-container, .container-fluid.main-container .containerr.movieCreate-container, .container-fluid.main-container .containerr.movieEdit-container, .container-fluid.main-container .containerr.movieShow-container {
+      padding: 4em; }
 
 /*# sourceMappingURL=style.css.map */

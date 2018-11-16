@@ -1,4 +1,6 @@
-<h2>{{title}}</h2>
-{{#each celebs}}
-  <p class="name"><a href="/celebrities/{{_id}}/show">{{name}}</a></p>
-{{/each}}
+<div class="containerr celebList-container">
+  <h2>Celebrities list</h2>
+  {{#each celebs}}
+    <p class="name"><a href="/celebrities/{{_id}}/show">{{name}}</a></p>
+  {{/each}}
+</div>

@@ -50,18 +50,15 @@ hbs.registerPartials(path.join(__dirname,'views/partials'));
 
 
 // default value for title local
-app.locals.title = 'Celebrities';
+app.locals.title = 'MovieCelebs';
 
 
-
-// const index = require('./routes/index');
-// app.use('/', index);
 
 const celebsRouter = require('./routes/celebsRouter');
 app.use('/', celebsRouter);
 
-// const moviesRouter = require('./routes/moviesRouter');
-// app.use('/movies', moviesRouter);
+const moviesRouter = require('./routes/moviesRouter');
+app.use('/', moviesRouter);
 
 
 module.exports = app;

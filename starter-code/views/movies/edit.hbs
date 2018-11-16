@@ -1,0 +1,18 @@
+<div class="containerr movieEdit-container">
+  <h2>Edit {{movie.title}}</h2>
+  <form method="POST" action="/movies/{{movie._id}}/edit">
+    <div class="">
+      <label>Title</label>
+      <input type="text" class="" name="title" placeholder="Groundhog Day" value="{{movie.title}}">
+    </div>
+    <div class="">
+      <label>Genre</label>
+      <input type="text" class="" name="genre" placeholder="Comedy" value="{{movie.genre}}">
+    </div>
+    <div class="">
+      <label>Plot</label>
+      <input type="text" class="" name="plot" placeholder="A weatherman finds himself inexplicably living the same day over and over again." value="{{movie.plot}}">
+    </div>
+    <button class="btn btn-primary" type="submit">Edit movie</button>
+  </form>
+</div>

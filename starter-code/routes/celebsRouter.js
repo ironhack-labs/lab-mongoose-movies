@@ -1,14 +1,13 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity');
-const Movie = require('../models/Movie');
 const app_name = require('../package.json').name;
 const debug = require('debug')(`${app_name}:indexRouter`);
 
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('home');
 });
 
 
@@ -45,7 +44,7 @@ router.post('/celebrities/new', (req, res, next) => {
     catchPhrase: req.body.catchPhrase
   };
   Celebrity.create(celeb).then(cel => {
-    console.log(`Se ha creado la celebrity ${cel._id} ${cel.name} with ${cel.occupation} occupation and: "${cel.catchPhrase}" phrase`);
+    console.log(`A celeb has born: ${cel._id} ${cel.name} with ${cel.occupation} occupation and: "${cel.catchPhrase}" phrase`);
     res.redirect('/celebrities');
   })
   .catch((error)=> {
