@@ -35,23 +35,63 @@ html, body {
         margin-bottom: 1em; }
       .container-fluid.main-container .containerr.celebEdit-container .btn, .container-fluid.main-container .containerr.celebCreate-container .btn, .container-fluid.main-container .containerr.movieEdit-container .btn, .container-fluid.main-container .containerr.movieCreate-container .btn {
         margin-top: 2em; }
-    .container-fluid.main-container .containerr.celebList-container, .container-fluid.main-container .containerr.movieList-container {
+    .container-fluid.main-container .containerr.celebList-container {
       display: flex;
       flex-flow: row wrap;
       justify-content: flex-start;
-      align-items: center; }
-      .container-fluid.main-container .containerr.celebList-container .card, .container-fluid.main-container .containerr.movieList-container .card {
+      align-items: flex-start; }
+      .container-fluid.main-container .containerr.celebList-container .card {
         width: 30%;
         margin: 0 4% 5% 0; }
-        .container-fluid.main-container .containerr.celebList-container .card img, .container-fluid.main-container .containerr.movieList-container .card img {
+        .container-fluid.main-container .containerr.celebList-container .card .card-body {
+          height: 100px; }
+        .container-fluid.main-container .containerr.celebList-container .card img {
           object-fit: cover;
           height: 30em; }
-        .container-fluid.main-container .containerr.celebList-container .card:nth-child(3n), .container-fluid.main-container .containerr.movieList-container .card:nth-child(3n) {
+        .container-fluid.main-container .containerr.celebList-container .card:nth-child(3n) {
           margin-right: 0; }
-    .container-fluid.main-container .containerr.celebShow-container, .container-fluid.main-container .containerr.movieShow-container {
+        .container-fluid.main-container .containerr.celebList-container .card.plusCard a {
+          height: 30em;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: center;
+          align-items: center; }
+          .container-fluid.main-container .containerr.celebList-container .card.plusCard a img {
+            margin-top: 5em;
+            object-fit: contain;
+            height: 15em; }
+    .container-fluid.main-container .containerr.celebShow-container {
       width: 50%; }
-      .container-fluid.main-container .containerr.celebShow-container img, .container-fluid.main-container .containerr.movieShow-container img {
+      .container-fluid.main-container .containerr.celebShow-container img {
         object-fit: cover;
         height: 40em; }
+    .container-fluid.main-container .containerr.movieList-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: flex-start; }
+      .container-fluid.main-container .containerr.movieList-container .card {
+        width: 18.7em;
+        margin: 0 4% 5% 0; }
+        .container-fluid.main-container .containerr.movieList-container .card .card-body {
+          height: 100px; }
+        .container-fluid.main-container .containerr.movieList-container .card img {
+          height: 25em; }
+        .container-fluid.main-container .containerr.movieList-container .card:nth-child(5n) {
+          margin-right: 0; }
+        .container-fluid.main-container .containerr.movieList-container .card.plusCard a {
+          height: 25em;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: center;
+          align-items: center; }
+          .container-fluid.main-container .containerr.movieList-container .card.plusCard a img {
+            margin-top: 8em;
+            object-fit: contain;
+            height: 10em; }
+    .container-fluid.main-container .containerr.movieShow-container {
+      width: 30%; }
+      .container-fluid.main-container .containerr.movieShow-container img {
+        height: 37em; }
 
 /*# sourceMappingURL=style.css.map */

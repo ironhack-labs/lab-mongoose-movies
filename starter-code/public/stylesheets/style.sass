@@ -36,19 +36,56 @@ html, body
       .btn
         margin-top: 2em
 
-    &.celebList-container, &.movieList-container
+    &.celebList-container
       +flex_row_fs
       .card
         width: 30%
         margin: 0 4% 5% 0
+        .card-body
+          height: 100px
         img
           object-fit: cover
           height: 30em
         &:nth-child(3n)
           margin-right: 0
+        &.plusCard
+          a
+            height: 30em
+            +flex_center
+            img
+              margin-top: 5em
+              object-fit: contain
+              height: 15em
 
-    &.celebShow-container, &.movieShow-container
+    &.celebShow-container
       width: 50%
       img
         object-fit: cover
         height: 40em
+
+    &.movieList-container
+      +flex_row_fs
+      .card
+        width: 18.7em
+        margin: 0 4% 5% 0
+        .card-body
+          height: 100px
+        img
+          //object-fit: contain
+          height: 25em
+        &:nth-child(5n)
+          margin-right: 0
+        &.plusCard
+          a
+            height: 25em
+            +flex_center
+            img
+              margin-top: 8em
+              object-fit: contain
+              height: 10em
+
+    &.movieShow-container
+      width: 30%
+      img
+        //object-fit: cover
+        height: 37em
