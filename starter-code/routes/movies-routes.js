@@ -1,10 +1,10 @@
-const express = require('express');
-const router  = express.Router();
-const Movie   = require('../models/Movie');
+const express   = require('express');
+const router    = express.Router();
+const Movie     = require('../models/Movie');
 const Celebrity = require('../models/Celebrity');
 
 router.get('/', (req, res, next) => {
-  Movie.find().populate('celebrity')
+  Movie.find()
   .then((allTheMovies)=>{
       res.render('movies/movies', {movies: allTheMovies})
   })
@@ -15,9 +15,9 @@ router.get('/', (req, res, next) => {
 
 
 router.get('/new', (req, res, next) => {
-  Movie.find()
-  .then((allTheMovies)=>{
-      res.render('movies/new-movie', {allTheMovies})
+  Celebrity.find()
+  .then((allTheCelebs)=>{
+      res.render('movies/new-movie', {allTheCelebs})
   })
   .catch((err)=>{
       next(err);
@@ -45,7 +45,7 @@ router.get('/:theIdThing/edit', (req, res, next)=>{
 });
 
 router.get('/:theID', (req, res, next)=>{
-  Movie.findById(req.params.theID)
+  Movie.findById(req.params.theID).populate('celebrity')
   .then((theMovie)=>{
       res.render('movies/details', theMovie)
   })

@@ -13,8 +13,8 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next)=> {
-  const theUsername = req.body.theUsername;
-  const thePassword = req.body.thePassword;
+  const theUsername = req.body.username;
+  const thePassword = req.body.password;
 
   if(theUsername === "" || thePassword === ""){
     res.redirect('/');
@@ -36,7 +36,10 @@ router.post('/signup', (req, res, next)=> {
             const hashPass = bcrypt.hashSync(thePassword, salt);
 
 
-            User.create({username: theUsername, password: hashPass})
+            User.create({
+              username: theUsername, 
+              password: hashPass,
+            })
             .then(()=>{
                 res.redirect('/');
             })
@@ -54,47 +57,10 @@ router.get('/login', (req, res, next)=> {
   res.render('users/login');
 });
 
-router.post("/login", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
-
-
-  if (username === "" || password === "") {
-    res.render("/", {errorMessage: "Indicate a username and a password to sign up"});
-    return;
-  }
-
-  User.findOne({username: username })
-  .then(user => {
-      if (!user) {
-        res.render("index", {errorMessage: "Sorry, that username doesn't exist"});
-        return;
-      }
-
-
-
-      if (bcrypt.compareSync(password, user.password)) {
-        // Save the login in the session!
-        req.session.currentUser = user;
-
-
-
-        res.redirect("signup");
-      } else {
-        res.render("users/login", {
-          errorMessage: "Incorrect password"
-        });
-      }
-
-  })
-  .catch(error => {
-    next(error)
-  })
-});
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/",
+  successRedirect: "/movies",
+  failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));

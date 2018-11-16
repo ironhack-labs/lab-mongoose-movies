@@ -5,6 +5,15 @@
   <label for="">Title:</label>
   <input type="text" name="title">
 
+  <label for="">Celebrity:</label>
+  
+  <select name="celebrity">
+
+   {{#each allTheCelebs}}
+    <option value="{{this._id}}">{{this.name}}</option>
+   {{/each}}
+  </select>
+
   <label for="">Genre:</label>
   <input type="text" name="genre">
 
