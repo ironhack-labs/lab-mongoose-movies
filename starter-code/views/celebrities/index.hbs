@@ -1,14 +1,21 @@
-<h2>List of Celebrities</h2>
+<div class="listContainer">
+  <h2>List of Celebrities</h2>
 
-<ul>
-{{#each celebrities}}
-<li>{{name}}</li>
-<a href="/celebrities/{{this._id}}">See more</a>
-<a href="/celebrities/{{this._id}}/delete">Delete</a>
-{{/each}}
+  <ul>
+    {{#each celebrities}}
+    <div class="listItem">
+      <li>{{name}}</li>
+      <a class="seeMore" href="/celebrities/{{this._id}}">See more</a>
+      <a class="delete" href="/celebrities/{{this._id}}/delete">Delete</a>
+    </div>
+    {{/each}}
 
-</ul>
+  </ul>
+</div>
 
-<a href="/celebrities/new">Create Celebrity</a>
-<a href="/">Back to Home</a>
+<div class="viewFooter">
+  <a class="new" href="/celebrities/new">Create Celebrity</a>
+  <a class="backHome" href="/">Back to Home</a>
+</div>
+
 

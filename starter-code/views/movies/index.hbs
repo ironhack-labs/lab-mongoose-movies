@@ -1,13 +1,20 @@
-<h2>List of Movies</h2>
+<div class="listContainer">
 
-<ul>
-{{#each movies}}
-<li>{{title}}</li>
-<a href="/movies/{{this._id}}">See more</a>
-<a href="/movies/{{this._id}}/delete">Delete</a>
-{{/each}}
+  <h2>List of Movies</h2>
 
-</ul>
+  <ul>
+    {{#each movies}}
+    <div class="listItem">
+    <li>{{title}}</li>
+    <a class="seeMore" href="/movies/{{this._id}}">See more</a>
+    <a class="delete" href="/movies/{{this._id}}/delete">Delete</a>
+    </div>
+    {{/each}}
 
-<a href="/movies/new">Create Movie</a>
-<a href="/">Back to Home</a>
+  </ul>
+</div>
+
+<div class="viewFooter">
+  <a class="new" href="/movies/new">Create Movie</a>
+  <a class="backHome" href="/">Back to Home</a>
+</div>

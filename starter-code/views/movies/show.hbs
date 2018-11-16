@@ -1,9 +1,15 @@
+<div class="detailContainer">
+
 <h2>Movie details</h2>
 <ul>
-  <li>{{movie.title}}</li>
-  <li>{{movie.genre}}</li>
-  <li>{{movie.plot}}</li>
+  <li><strong>Title </strong>{{movie.title}}</li>
+  <li><strong>Genre </strong>{{movie.genre}}</li>
+  <li><strong>Plot </strong>{{movie.plot}}</li>
 </ul>
 
-<a href="/movies/{{movie._id}}/edit">Edit</a>
-<a href="/movies/">Back to Movies</a>
+</div>
+
+<div class="viewFooter">
+<a class="new" href="/movies/{{movie._id}}/edit">Edit</a>
+<a class="backHome" href="/movies/">Back to Movies</a>
+</div>

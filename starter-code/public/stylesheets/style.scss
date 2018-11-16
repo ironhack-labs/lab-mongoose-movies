@@ -1,8 +1,158 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+html {
+  font-family: "Montserrat", sans-serif;
+  background-color: #d0f5ff;
 }
 
-a {
-  color: #00B7FF;
+header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.indexContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  a {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #008bb2;
+    border-radius: 20px;
+    width: 200px;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #008bb2;
+    &:hover {
+      background-color: #ff8a19;
+      color: white;
+    }
+  }
+}
+
+.listContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  .listItem {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    border: 1px solid #008bb2;
+    width: 300px;
+
+    padding: 20px 10px;
+    margin: 20px 10px;
+
+    border-radius: 5px;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .seeMore {
+    color: #008bb2;
+  }
+  .delete {
+    color: #ff7d00;
+  }
+}
+
+.viewFooter {
+  display: flex;
+  flex-flow: row nowrap;
+
+  justify-content: space-evenly;
+  align-content: center;
+
+  padding: 20px 10px;
+  a {
+    display: flex;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .new {
+    color: #b25800;
+  }
+  .backHome {
+    color: #008bb2;
+  }
+}
+
+.containerForm {
+  display: flex;
+  flex-flow: column nowrap;
+
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+
+    padding: 20px 10px;
+    .rowForm {
+      display: flex;
+      flex-flow: row nowrap;
+
+      width: 500px;
+
+      padding: 10px 10px;
+
+      justify-content: right;
+
+      label {
+        padding-right: 10px;
+      }
+      input {
+        background-color: #d0f5ff;
+        border: 1px solid #008bb2;
+
+        height: 20px;
+
+        width: 100%;
+      }
+    }
+
+    button {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+
+      border: 2px solid #008bb2;
+      border-radius: 20px;
+
+      width: 200px;
+      padding: 10px 20px;
+      margin: 10px;
+
+      text-decoration: none;
+      font-size: 18px; 
+      font-weight: bold;
+      background-color: #d0f5ff;
+      color: #008bb2;
+      &:hover {
+        background-color: #ff8a19;
+        color: white;
+      }
+    }
+  }
+}
+
+.detailContainer{
+  display: flex;
+  flex-flow: column nowrap;
+
+  ul{
+    list-style: none;
+  }
 }

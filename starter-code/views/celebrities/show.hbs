@@ -1,9 +1,17 @@
+
+<div class="detailContainer">
 <h2>Celebrity details</h2>
 <ul>
-  <li>{{celebrities.name}}</li>
-  <li>{{celebrities.occupation}}</li>
-  <li>{{celebrities.catchPhrase}}</li>
+  <li><strong>Name</strong> {{celebrities.name}}</li>
+  <li><strong>Occupation:</strong> {{celebrities.occupation}}</li>
+  <li><strong>Catch Phrase:</strong> {{celebrities.catchPhrase}}</li>
 </ul>
 
-<a href="/celebrities/{{celebrities._id}}/edit">Edit</a>
-<a href="/celebrities/">Back to Celebrities</a>
+</div>
+
+
+<div class="viewFooter">
+<a class="new" href="/celebrities/{{celebrities._id}}/edit">Edit</a>
+<a class="backHome" href="/celebrities/">Back to Celebrities</a>
+
+</div>
