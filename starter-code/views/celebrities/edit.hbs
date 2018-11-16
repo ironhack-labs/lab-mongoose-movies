@@ -1,17 +1,21 @@
 <div class="containerr celebEdit-container">
   <h2>Edit {{celeb.name}}</h2>
   <form method="POST" action="/celebrities/{{celeb._id}}/edit">
-    <div class="">
+    <div class="form-group">
+      <label>Image</label>
+      <input type="text" class="form-control" name="imgUrl" placeholder="https://m.media-amazon.com/images/M/MV5BODg3MzYwMjE4N15BMl5BanBnXkFtZTcwMjU5NzAzNw@@._V1_SY1000_CR0,0,812,1000_AL_.jpg" value="{{celeb.imgUrl}}">
+    </div>
+    <div class="form-group">
       <label>Name</label>
-      <input type="text" class="" name="name" placeholder="Angelina Jolie" value="{{celeb.name}}">
+      <input type="text" class="form-control" name="name" placeholder="Angelina Jolie" value="{{celeb.name}}">
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Ocuppation</label>
-      <input type="text" class="" name="occupation" placeholder="Actress" value="{{celeb.occupation}}">
+      <input type="text" class="form-control" name="occupation" placeholder="Actress" value="{{celeb.occupation}}">
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Phrase</label>
-      <input type="text" class="" name="catchPhrase" placeholder="you can lead o take a horse to water but you can’t make it drink" value="{{celeb.catchPhrase}}">
+      <input type="text" class="form-control" name="catchPhrase" placeholder="you can lead o take a horse to water but you can’t make it drink" value="{{celeb.catchPhrase}}">
     </div>
     <button class="btn btn-primary" type="submit">Edit celeb</button>
   </form>

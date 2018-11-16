@@ -1,6 +1,6 @@
 <div class="containerr celebList-container">
-  <h2>Celebrities list</h2>
+  {{!-- <h2>Celebrities list</h2> --}}
   {{#each celebs}}
-    <p class="name"><a href="/celebrities/{{_id}}/show">{{name}}</a></p>
+    {{> celebListPartial}}
   {{/each}}
 </div>

@@ -24,6 +24,34 @@ html, body {
         font-size: calc(3vh + 3vw + 3em);
         text-shadow: 0 0 10px black; }
     .container-fluid.main-container .containerr.celebList-container, .container-fluid.main-container .containerr.celebCreate-container, .container-fluid.main-container .containerr.celebEdit-container, .container-fluid.main-container .containerr.celebShow-container, .container-fluid.main-container .containerr.movieList-container, .container-fluid.main-container .containerr.movieCreate-container, .container-fluid.main-container .containerr.movieEdit-container, .container-fluid.main-container .containerr.movieShow-container {
-      padding: 4em; }
+      padding: 3em; }
+    .container-fluid.main-container .containerr.celebEdit-container, .container-fluid.main-container .containerr.celebCreate-container, .container-fluid.main-container .containerr.movieEdit-container, .container-fluid.main-container .containerr.movieCreate-container {
+      margin: 3em;
+      width: 40%;
+      height: max-content;
+      background-color: #eee;
+      border-radius: 1em; }
+      .container-fluid.main-container .containerr.celebEdit-container h2, .container-fluid.main-container .containerr.celebCreate-container h2, .container-fluid.main-container .containerr.movieEdit-container h2, .container-fluid.main-container .containerr.movieCreate-container h2 {
+        margin-bottom: 1em; }
+      .container-fluid.main-container .containerr.celebEdit-container .btn, .container-fluid.main-container .containerr.celebCreate-container .btn, .container-fluid.main-container .containerr.movieEdit-container .btn, .container-fluid.main-container .containerr.movieCreate-container .btn {
+        margin-top: 2em; }
+    .container-fluid.main-container .containerr.celebList-container, .container-fluid.main-container .containerr.movieList-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center; }
+      .container-fluid.main-container .containerr.celebList-container .card, .container-fluid.main-container .containerr.movieList-container .card {
+        width: 30%;
+        margin: 0 4% 5% 0; }
+        .container-fluid.main-container .containerr.celebList-container .card img, .container-fluid.main-container .containerr.movieList-container .card img {
+          object-fit: cover;
+          height: 30em; }
+        .container-fluid.main-container .containerr.celebList-container .card:nth-child(3n), .container-fluid.main-container .containerr.movieList-container .card:nth-child(3n) {
+          margin-right: 0; }
+    .container-fluid.main-container .containerr.celebShow-container, .container-fluid.main-container .containerr.movieShow-container {
+      width: 50%; }
+      .container-fluid.main-container .containerr.celebShow-container img, .container-fluid.main-container .containerr.movieShow-container img {
+        object-fit: cover;
+        height: 40em; }
 
 /*# sourceMappingURL=style.css.map */

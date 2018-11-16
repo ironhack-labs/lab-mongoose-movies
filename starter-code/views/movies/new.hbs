@@ -1,17 +1,21 @@
 <div class="containerr movieCreate-container">
   <h2>New movie</h2>
   <form method="POST" action="/movies/new">
-    <div class="">
+    <div class="form-group">
+      <label>Image</label>
+      <input type="text" class="form-control" name="imgUrl" placeholder="https://pics.filmaffinity.com/groundhog_day-111669822-large.jpg">
+    </div>
+    <div class="form-group">
       <label>Title</label>
-      <input type="text" class="" name="title" placeholder="Groundhog Day">
+      <input type="text" class="form-control" name="title" placeholder="Groundhog Day">
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Genre</label>
-      <input type="text" class="" name="genre" placeholder="Comedy">
+      <input type="text" class="form-control" name="genre" placeholder="Comedy">
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Plot</label>
-      <input type="text" class="" name="plot" placeholder="A weatherman finds himself inexplicably living the same day over and over again.">
+      <input type="text" class="form-control" name="plot" placeholder="A weatherman finds himself inexplicably living the same day over and over again.">
     </div>
     <button class="btn btn-primary" type="submit">Create movie</button>
   </form>

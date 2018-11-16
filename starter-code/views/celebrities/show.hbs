@@ -1,9 +1,5 @@
 <div class="containerr celebShow-container">
   {{#with celeb}}
-    <h2>{{name}}</h2>
-    <p class="occupation">{{occupation}}</p>
-    <p class="phrase">{{catchPhrase}}</p>
-    <a href="/celebrities/{{_id}}/edit" class="btn btn-success">edit</a>
-    <a href="/celebrities/{{_id}}/delete" class="btn btn-danger">delete</a>
+    {{> celebPartial}}
   {{/with}}
 </div>

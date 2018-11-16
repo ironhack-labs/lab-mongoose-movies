@@ -34,6 +34,7 @@ router.get('/movies/new', (req, res, next) => {
 
 router.post('/movies/new', (req, res, next) => {
   const movie = {
+    imgUrl: req.body.imgUrl,
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot
@@ -70,6 +71,7 @@ router.get('/movies/:movId/edit', (req,res) => {
 
 router.post('/movies/:movId/edit', (req,res) => {
   const movie = {
+    imgUrl: req.body.imgUrl,
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot

@@ -50,7 +50,7 @@ hbs.registerPartials(path.join(__dirname,'views/partials'));
 
 
 // default value for title local
-app.locals.title = 'MovieCelebs';
+app.locals.title = 'Movies&Celebs';
 
 
 

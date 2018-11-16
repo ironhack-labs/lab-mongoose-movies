@@ -39,6 +39,7 @@ router.get('/celebrities/new', (req, res, next) => {
 
 router.post('/celebrities/new', (req, res, next) => {
   const celeb = {
+    imgUrl: req.body.imgUrl,
     name: req.body.name,
     occupation: req.body.occupation,
     catchPhrase: req.body.catchPhrase
@@ -75,6 +76,7 @@ router.get('/celebrities/:celebId/edit', (req,res) => {
 
 router.post('/celebrities/:celebId/edit', (req,res) => {
   const celeb = {
+    imgUrl: req.body.imgUrl,
     name: req.body.name,
     occupation: req.body.occupation,
     catchPhrase: req.body.catchPhrase

@@ -1,17 +1,21 @@
 <div class="containerr celebCreate-container">
   <h2>New celebrity</h2>
   <form method="POST" action="/celebrities/new">
-    <div class="">
+    <div class="form-group">
+      <label>Image</label>
+      <input type="text" class="form-control" name="imgUrl" placeholder="https://m.media-amazon.com/images/M/MV5BODg3MzYwMjE4N15BMl5BanBnXkFtZTcwMjU5NzAzNw@@._V1_SY1000_CR0,0,812,1000_AL_.jpg">
+    </div>
+    <div class="form-group">
       <label>Name</label>
-      <input type="text" class="" name="name" placeholder="Angelina Jolie">
+      <input type="text" class="form-control" name="name" placeholder="Angelina Jolie">
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Ocuppation</label>
-      <input type="text" class="" name="occupation" placeholder="Actress">
+      <input type="text" class="form-control" name="occupation" placeholder="Actress">
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Phrase</label>
-      <input type="text" class="" name="catchPhrase" placeholder="you can lead o take a horse to water but you can’t make it drink">
+      <input type="text" class="form-control" name="catchPhrase" placeholder="you can lead o take a horse to water but you can’t make it drink">
     </div>
     <button class="btn btn-primary" type="submit">Create celeb</button>
   </form>

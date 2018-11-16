@@ -23,4 +23,32 @@ html, body
         font-size: calc(3vh + 3vw + 3em)
         text-shadow: 0 0 10px black;
     &.celebList-container, &.celebCreate-container, &.celebEdit-container, &.celebShow-container, &.movieList-container, &.movieCreate-container, &.movieEdit-container, &.movieShow-container
-      padding: 4em
+      padding: 3em
+
+    &.celebEdit-container, &.celebCreate-container, &.movieEdit-container, &.movieCreate-container
+      margin: 3em
+      width: 40%
+      height: max-content
+      background-color: #eee
+      border-radius: 1em
+      h2
+        margin-bottom: 1em
+      .btn
+        margin-top: 2em
+
+    &.celebList-container, &.movieList-container
+      +flex_row_fs
+      .card
+        width: 30%
+        margin: 0 4% 5% 0
+        img
+          object-fit: cover
+          height: 30em
+        &:nth-child(3n)
+          margin-right: 0
+
+    &.celebShow-container, &.movieShow-container
+      width: 50%
+      img
+        object-fit: cover
+        height: 40em
