@@ -8,7 +8,7 @@ const MovieSchema = new Schema ({
     genre : String,
     plot : String,
     celebrity: {type: Schema.Types.ObjectId, ref: 'Celebrity'},
-
+    watcher: {type:Schema.Types.ObjectId, ref: 'User'}
 })
 
 const Movie = mongoose.model('Movie', MovieSchema)

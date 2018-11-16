@@ -1,0 +1,16 @@
+<h1>welcome yo your Progile {{user.username}} </h1>
+
+
+
+
+<h2>Movies, you have watched </h2>
+
+<ul>  
+{{#each movie}}
+<li>
+ <a href="/movies/{{this._id}}">
+ {{this.title}}</a>
+</li>
+
+{{/each}}
+</ul>

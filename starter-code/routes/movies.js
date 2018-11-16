@@ -6,10 +6,17 @@ const Movie = require('../models/Movie');
 
 
 router.get('/movies', (req, res, next) => {
+    if(!req.user){
+
+        req.flash('error', 'page not available');
+        res.redirect('/login')
+        return;
+
+    }
     Movie.find().populate('celebrity')
     .then((eachMovie)=>{   
         
-        res.render('movies/index', {movies : eachMovie});
+        res.render('movies/index', {movies : eachMovie , message : req.flash('error')});
     })
     .catch((err)=>{
         next(err)
@@ -19,6 +26,11 @@ router.get('/movies', (req, res, next) => {
 
 
 router.get('/movies/new', (req,res,next)=>{
+    if(!req.user){
+        req.flash('error', 'sorry you must be loggeed in to create movie');
+        res.redirect('login')
+        return;
+    }
     Celebrity.find()
     .then((allStars)=>{
         res.render('movies/newMovie',{allStars});
@@ -32,7 +44,11 @@ router.get('/movies/new', (req,res,next)=>{
 })
 
 router.post('/movies/new', (req, res, next)=>{
-Movie.create(req.body)
+
+    const NewMovie = req.body;
+    NewMovie.watcher = req.user._id;
+
+Movie.create(NewMovie)
 .then(()=>{
     res.redirect('/movies')
 })
@@ -43,7 +59,8 @@ Movie.create(req.body)
 })
 
 router.get('/movies/:id', (req, res, next) => {
-    Movie.findById(req.params.id)
+    
+    Movie.findById(req.params.id).populate('celebrity').populate('watcher')
     .then((eachMovie)=>{   
         res.render('movies/showMovie', {pickedMovie : eachMovie});
     })
@@ -55,7 +72,8 @@ router.get('/movies/:id', (req, res, next) => {
 
 
 
-router.post('/movies/:id/delete' , (req,res,next)=>[
+router.post('/movies/:id/delete' , (req,res,next)=>{
+    if(req.user.admin){
     Movie.findByIdAndRemove(req.params.id)
     .then(()=>{
         res.redirect('/movies')
@@ -63,7 +81,14 @@ router.post('/movies/:id/delete' , (req,res,next)=>[
     .catch((err)=>{
         next(err)
     })
- ])
+    }
+    else{
+        req.flash('error', "you have to be admin to delete movie")
+        res.redirect('/movies')
+
+    }
+
+})
 
 
 
