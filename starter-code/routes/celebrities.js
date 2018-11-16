@@ -4,6 +4,8 @@ const router = express.Router();
 // const Movie =require('..models/Movie');
 
 
+
+// Main Celebrities List Page
 router.get('/celebrities', (req, res, next) =>{
   Celebrity.find()
   .then((allTheCelebs)=>{
@@ -15,11 +17,11 @@ router.get('/celebrities', (req, res, next) =>{
   })
 });
 
+// Individual Celebrity Page
 router.get('/celebrities/:id', (req, res, next) => {
-    let celebrityId = req.params.id;
-      Celebrity.findOne({'_id': celebrityId})
-          .then(celebrity => {
-            res.render("celebrity-info", { celebrity })
+      Celebrity.findById(req.params.id)
+          .then((theCelebrity) => {
+            res.render("celebrities/details", theCelebrity)
           })
           .catch(err =>{
             next(err)
@@ -27,8 +29,15 @@ router.get('/celebrities/:id', (req, res, next) => {
 });
 
 
+// Adding New Celebrities to Database
+// router.get('/new', (req, res, next) => {
 
+// })
 
+// req.body.description
+
+// Book.create
+// ({ req.body.author, })
 
 
 
