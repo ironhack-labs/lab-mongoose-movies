@@ -15,7 +15,7 @@ const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash         = require("connect-flash")
 
-
+const User          = require('./models/User');
 
 mongoose
   .connect('mongodb://localhost/express-cinema', {useNewUrlParser: true})
@@ -56,7 +56,44 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
 
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(flash());
+
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 const index = require('./routes/index');
 app.use('/', index);
