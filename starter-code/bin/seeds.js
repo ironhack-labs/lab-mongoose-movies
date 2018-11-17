@@ -13,7 +13,7 @@ const celebrity = [
   {
     name: 'Beyonce',
     occupation: 'singer',
-    catchPhrase: 'I love sing'
+    catchPhrase: 'I love pepe'
   },
   {
     name:  'Daffy Duck',

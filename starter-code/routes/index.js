@@ -52,3 +52,15 @@ router.post('/new', (req, res, next) => {
     .catch(error => res.redirect('new'));
 })
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  let celebrityId = req.params.id;
+
+  Celebrity.findByIdAndRemove({'_id': celebrityId})
+  .then(Celebrity => {
+    res.redirect('/celebrities');
+    })
+  .catch(error => console.log(error));
+
+
+
+})
