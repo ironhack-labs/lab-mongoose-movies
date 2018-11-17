@@ -60,7 +60,7 @@ router.get('/celebrities/:celebId/delete', (req,res) => {
   })
   .catch((error)=> {
     console.log(error)
-    res.render('celebrities/:celebId/show');
+    res.render(`celebrities/${req.params.celebId}/show`);
   });
 });
 
@@ -69,7 +69,7 @@ router.get('/celebrities/:celebId/edit', (req,res) => {
     res.render('celebrities/edit', {celeb})
   }).catch((error)=> {
     console.log(error);
-    res.render('celebrities/:celebId/show');
+    res.render(`celebrities/${req.params.celebId}/show`);
   });
 });
 

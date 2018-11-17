@@ -55,7 +55,7 @@ router.get('/movies/:movId/delete', (req,res) => {
   })
   .catch((error)=> {
     console.log(error)
-    res.render('movies/:movId/show');
+    res.render(`movies/${req.params.movId}/show`);
   });
 });
 
@@ -64,7 +64,7 @@ router.get('/movies/:movId/edit', (req,res) => {
     res.render('movies/edit', {movie})
   }).catch((error)=> {
     console.log(error);
-    res.render('movies/:movId/show');
+    res.render(`movies/${req.params.movId}/show`);
   });
 });
 
