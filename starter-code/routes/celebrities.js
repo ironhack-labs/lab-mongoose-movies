@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-router.get("/celebrities", (req, res, next) => {
+router.get("/celebrities", (req, res) => {
   Celebrity.find()
     .then((celebrities) => {
       res.render("celebrities", { celebrities })
@@ -19,7 +19,9 @@ router.get("/celebrities", (req, res, next) => {
     })
 })
 
-router.get("/celebrities/:id", (req, res, next) => {
+//FIND CELEBRITIES BY ID
+
+router.get("/celebrities/:id", (req, res) => {
   Celebrity.findById(req.params.id)
     .then((celebrities) => {
       res.render("./celebrities/show", { celebrities })
@@ -29,11 +31,16 @@ router.get("/celebrities/:id", (req, res, next) => {
     })
 })
 
-router.get("/celebrities/new", (req, res, next) => {
+
+// The error is in finding each celebrity by its idCastError: Cast to ObjectId failed for value "new" at path "_id" for model "Celebrity"
+
+
+//NEW CELEBRITY
+router.get("/celebrities/new", (req, res) => {
   res.render("./celebrities/new")
 })
 
-router.post("/celebrities", (req, res, next) => {
+router.post("/celebrities", (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
   const newCelebrity = new Celebrity({name, occupation, catchPhrase})
   console.log(newCelebrity)
@@ -46,4 +53,21 @@ router.post("/celebrities", (req, res, next) => {
     })
 })
 
+//DELETING CELEBRITIES
+router.post("/celebrities/:id/delete",(req, res)=>{
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then(()=>{
+    res.redirect("/celebrities")
+  })
+  .catch((err)=>{
+    console.log("error while deleting celebrity"+err)
+  })
+})
+
+
 module.exports = router;
+
+
+// Use the Celebrity model's findByIdAndRemove method to delete the celebrity by its id.
+// If there's an error, call the route's next function and return the error
+// If there is no error, redirect to the list of celebrities page.
