@@ -38,15 +38,13 @@ router.get('/new', (req, res, next) => {
 
 router.post('/new', (req, res, next) => {
  
-  const newCelebrity = new Celebrity();
+  const newCelebrity = new Celebrity({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  })
 
-
-    newCelebrity.name = req.body.name,
-    newCelebrity.occupation = req.body.occupation,
-    newCelebrity.catchPhrase = req.body.catchPhrase
-
-
-
+  
   newCelebrity.save()
     .then((newCelebrity) => {
       res.redirect('celebrities');
