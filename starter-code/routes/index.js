@@ -19,7 +19,7 @@ router.get('/celebrities', (req, res, next) => {
 });
 
 
-/* GET celebrities special page */
+/* GET celebrities detail's page */
 router.get('/celebrities/:id', (req, res, next) => {
 
   let celebrityId = req.params.id;
@@ -27,7 +27,30 @@ router.get('/celebrities/:id', (req, res, next) => {
   .then(celebrity => {
     res.render('celebrities/show', {celebrity})
     })
-  .catch(error => {
-      console.log(error)
-    }) 
+  .catch(error => console.log(error)) 
 });
+
+/* GET new celebrities page */
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
+
+router.post('/new', (req, res, next) => {
+ 
+  const newCelebrity = new Celebrity();
+
+
+    newCelebrity.name = req.body.name,
+    newCelebrity.occupation = req.body.occupation,
+    newCelebrity.catchPhrase = req.body.catchPhrase
+
+
+
+  newCelebrity.save()
+    .then((newCelebrity) => {
+      res.redirect('celebrities');
+  })
+    .catch(error => res.redirect('new'));
+})
+
