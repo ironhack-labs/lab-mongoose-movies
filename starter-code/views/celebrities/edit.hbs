@@ -1,0 +1,17 @@
+<h2>Edit {{celebrities.name}}: </h2>
+
+<form method="POST" action="/{{edit._id}}"">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" placeholder="{{celebrities.name}}" value="{{celebrities.name}}">
+  </div>
+  <div class="form-group">
+    <label>Position</label>
+    <input type="text" class="form-control" name="occupation" placeholder="{{celebrities.occupation}}" value="{{celebrities.occupation}}">
+  </div>
+  <div class="form-group">
+    <label>Catch Phrase</label>
+    <input type="text" class="form-control" name="catchPhrase" placeholder="{{celebrities.catchPhrase}}" value="{{celebrities.catchPhrase}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Edit player</button>
+</form>
