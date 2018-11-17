@@ -15,5 +15,19 @@ router.get('/celebrities', (req, res, next) => {
   .then(celebrity => {
     res.render('celebrities',  {celebrity})
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+});
+
+
+/* GET celebrities special page */
+router.get('/celebrities/:id', (req, res, next) => {
+
+  let celebrityId = req.params.id;
+  Celebrity.findOne({'_id': celebrityId})
+  .then(celebrity => {
+    res.render('celebrities/show', {celebrity})
+    })
+  .catch(error => {
+      console.log(error)
+    }) 
 });
