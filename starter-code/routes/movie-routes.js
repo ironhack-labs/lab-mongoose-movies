@@ -4,6 +4,11 @@ const Movie   = require('../models/Movie');
 
 
 router.get('/movies', (req, res, next) => {
+    if(!req.user){
+        req.flash('error', 'page not available');
+        res.redirect('/signup')
+        return;
+    } else{
     Movie.find()
     .then((movieDB)=>{
       res.render('Films/movie-page', {movie: movieDB});
@@ -12,13 +17,22 @@ router.get('/movies', (req, res, next) => {
       next(err)
   
     })
+ }
 });
 router.get('/movies/new', (req, res, next) => {
+    if(!req.user) {
+        req.flash('error', 'You must be logged in to add a Movie')
+        res.redirect('/login');
+    } else{ 
     res.render("Films/new-movie");
+    }
 });
 
 router.post('/movies/create', (req, res, next)=>{
-    Movie.create(req.body)
+    const newMovie = req.body;
+    newMovie.addedBy = req.user._id;
+    
+    Movie.create(newMovie)
     .then(()=>{
         res.redirect('/movies');
     })
@@ -52,7 +66,7 @@ router.post('/movies/:id/update', (req, res, next)=>{
 
 
 router.get('/movies/:theID', (req, res, next)=>{
-    Movie.findById(req.params.theID)
+    Movie.findById(req.params.theID).populate('addedBy')
     .then((movieInfoFromDB)=>{
         res.render('Films/movie-details', {theFilm: movieInfoFromDB})
     })

@@ -5,6 +5,9 @@ const Celebrity   = require('../models/Celebrity');
 
 
 router.get('/celebrities', (req, res, next) => {
+    if(!req.user) {
+        res.redirect('/signup');
+    } else{ 
     Celebrity.find()
     .then((celebrityDB)=>{
       res.render('Celeb/celeb-page', {celebrities: celebrityDB});
@@ -13,6 +16,7 @@ router.get('/celebrities', (req, res, next) => {
       next(err)
   
     })
+  }
 });
 router.get('/celebrities/new', (req, res, next) => {
     res.render("Celeb/new-celeb");

@@ -1,14 +1,20 @@
 <h1>Signup</h1>
 
-<form action="/signup" method="POST">
+<form action="/signup" method="POST" enctype="multipart/form-data">
 
-<label>Username</label>
-<input type="text" name="username" required>
+ <label>Username</label>
+ <input type="text" name="username" required>
 
-<label>Password</label>
-<input type="text" name="password" required>
+ <label>Password</label>
+ <input type="text" name="password" required>
 
-<button>Submit</button>
+ <label>First Name</label>
+<input type="text" name="firstName" required>
+
+<label>Last Name</label>
+<input type="text" name="lastName" required>
+
+ <button>Submit</button>
 
 </form>
 
@@ -17,3 +23,6 @@
 {{message}}
 </h3>
 {{/if}}
+
+
+<h4>Already have an account <a href="/login">Login</a></h4>
