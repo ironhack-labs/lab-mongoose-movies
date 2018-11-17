@@ -15,8 +15,8 @@ const dataCelebrities = [
     catchPhrase: "Si hay algo en nosotros verdaderamente divino, es la voluntad. Por ella afirmamos la personalidad, templamos el carácter, desafiamos la adversidad, reconstruimos el cerebro y nos superamos diariamente."
   },
   {
-    name: "Nadal Riera",
-    occupation: "ironHackStudent",
+    name: "anonymous",
+    occupation: "Driver",
     catchPhrase: "only two types of people wear sunglasses inside a building, blind people and A-holes"
   },
 ]
