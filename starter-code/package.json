@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "DEBUG=starter-code:* nodemon ./bin/www",
-    "dev-windows": "nodemon ./bin/www"
+    "dev-windows": "nodemon ./bin/www",
+    "start-dev": "nodemon -e js, json, hbs ./bin.wwww"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -19,6 +20,12 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "nodemon": "^1.12.1"
   }
 }
