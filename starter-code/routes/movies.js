@@ -17,25 +17,24 @@ router.get('/', (req, res, next) => {
 });
 
 
-// router.get('/new', (req, res, next) => {
-//     res.render('celebrities/new');
-// });
+router.get('/new', (req, res, next) => {
+    res.render('movies/new');
+});
 
-// router.post('/new', (req, res, next) => {
+router.post('/new', (req, res, next) => {
 
-//     const { name, occupation, catchPhrase } = req.body;
-//     const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+    const { title, genre, plot } = req.body;
+    const newMovie = new Movie({ title, genre, plot });
 
-//     newCelebrity.save()
-//         .then((celebrity) => {
-//             console.log(celebrity);
-//             res.redirect('/celebrities/');
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             return res.render('celebrities/new', { errorMessage: "There was an error, please resend the form" });
-//         })
-// });
+    newMovie.save()
+        .then((movie) => {
+            res.redirect('/movies/');
+        })
+        .catch(err => {
+            console.log(err);
+            return res.render('movies/new', { errorMessage: "There was an error, please resend the form" });
+        })
+});
 
 router.get('/show/:movieId', (req, res, next) => {
 
