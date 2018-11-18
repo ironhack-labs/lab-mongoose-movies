@@ -16,6 +16,10 @@ router.get('/', (req, res, next) => {
         })
 });
 
+router.get('/new', (req, res, next) => {
+    res.render('celebrities/new');
+});
+
 router.post('/new', (req, res, next) => {
 
     const { name, occupation, catchPhrase } = req.body;
@@ -46,11 +50,15 @@ router.get('/show/:celebrityId', (req, res, next) => {
         })
 });
 
-router.get('/new', (req, res, next) => {
-    console.log('entro');
-    res.render('celebrities/new');
+router.post('/:id/delete', (req, res, next) => {
+    let id = req.params.id;
+
+    Celebrity.findByIdAndRemove(id, (err, todo) => {
+
+        if (err) return res.status(500).send(err);
+
+        return res.redirect('/celebrities/');
+    });
 });
-
-
 
 module.exports = router;
