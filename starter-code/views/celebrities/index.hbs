@@ -1,5 +1,6 @@
-<a href="/">Go to Home</a>
+<p><a href="/">Go to Home</a></p>
+<p><a href="/celebrities/new">Add new celebrity</a></p>
 <h2>Celebrities</h2>
 {{#each celebrity}}
-<p>Name: <a href="/celebrities/{{this.id}}">{{this.name}}</a></p>
+<p>Name: <a href="/celebrities/show/{{this.id}}">{{this.name}}</a></p>
 {{/each}}
