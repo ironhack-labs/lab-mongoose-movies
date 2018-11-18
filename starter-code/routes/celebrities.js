@@ -42,8 +42,7 @@ router.get("/celebrities/new", (req, res) => {
 
 router.post("/celebrities", (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
-  const newCelebrity = new Celebrity({name, occupation, catchPhrase})
-  console.log(newCelebrity)
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase })
   newCelebrity.save()
     .then(() => {
       res.redirect("/celebrities")
@@ -54,20 +53,43 @@ router.post("/celebrities", (req, res) => {
 })
 
 //DELETING CELEBRITIES
-router.post("/celebrities/:id/delete",(req, res)=>{
+router.post("/celebrities/:id/delete", (req, res) => {
   Celebrity.findByIdAndRemove(req.params.id)
-  .then(()=>{
-    res.redirect("/celebrities")
-  })
-  .catch((err)=>{
-    console.log("error while deleting celebrity"+err)
-  })
+    .then(() => {
+      res.redirect("/celebrities")
+    })
+    .catch((err) => {
+      console.log("error while deleting celebrity" + err)
+    })
+})
+
+//EDITING CELEBRITIES
+router.get("/celebrities/:id/edit", (req, res) => {
+  Celebrity.findById(req.params.id)
+    .then((celebrities) => {
+      res.render("./celebrities/edit", { celebrities })
+    })
+    .catch((err) => {
+      console.log("error while editing" + err)
+    })
+})
+
+router.post("/celebrities/:id", (req, res) => {
+  const { name, occupation, catchPhrase } = req.body
+  Celebrity.update(
+    { _id: req.params.id },
+    { $set: { name, occupation, catchPhrase } },
+    { new: true }
+  )
+    .then(() => {
+      console.log(Celebrity)
+      res.redirect("/celebrities/")
+    })
+    .catch((err) => {
+      console.log("error while editing" + err)
+    })
 })
 
 
+
 module.exports = router;
-
-
-// Use the Celebrity model's findByIdAndRemove method to delete the celebrity by its id.
-// If there's an error, call the route's next function and return the error
-// If there is no error, redirect to the list of celebrities page.
