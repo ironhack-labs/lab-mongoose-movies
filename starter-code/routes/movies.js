@@ -14,6 +14,14 @@ router.get('/new', (req, res, next) => {
   res.render('movies/new')
 })
 
+router.get('/:_id/edit', (req, res, next) => {
+  Movie.findById(req.params._id)
+    .then((movie) => {
+      res.render('movies/edit', { movie })
+    })
+    .catch(error => console.log("Error to edit the movie" + error))
+})
+
 router.get('/:_id', (req, res, next) => {
   Movie.findById(req.params._id)
     .then(movie => {
@@ -35,6 +43,18 @@ router.post('/', (req, res, next) => {
       console.log("Error to add a new movie" + error)
       res.redirect('movies/new')
     })
+})
+
+router.post('/:_id', (req, res, next) => {
+  movieEdited = {}
+  movieEdited.title = req.body.title;
+  movieEdited.genre = req.body.genre;
+  movieEdited.plot = req.body.plot;
+  Movie.findByIdAndUpdate(req.params._id, movieEdited)
+    .then(() => {
+      res.redirect('/movies')
+    })
+    .catch(error => console.log("Error to update a movie" + error))
 })
 
 router.post('/:_id/delete', (req, res, next) => {
