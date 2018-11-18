@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/Celebrity');
 
-const dbName = 'lab-mongoose-movies';
-mongoose.connect(`mongodb://localhost/${dbName}`);
+const dbName = 'celebrities';
+mongoose.connect(`mongodb://localhost/celebrities`);
 
 const celebrities = [
   {
