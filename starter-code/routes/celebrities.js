@@ -39,6 +39,24 @@ router.get('/celebrities/:id', (req, res, next) => {
         })
 })
 
+router.post('/celebrities/:id', (req, res, next) => {
+    const { name, occupation, catchphrase } = req.body;
+    console.log("here: " + req.params.id + "\n object:" + name + " " + occupation + " " + catchphrase);
+    // let editCeleb = new Celeb({ name, occupation, catchphrase });
+
+    Celeb.findByIdAndUpdate(req.params.id, { name, occupation, catchphrase })
+        .then(() => {
+            console.log('success');
+            res.redirect('/celebrities');
+        })
+        .catch((err) => {
+            console.log('failed');
+            next();
+            return err
+        })
+
+})
+
 router.get('/celebrities/new', (req, res, next) => {
     res.render('celebrities/new')
 })
@@ -48,16 +66,16 @@ router.post('/celebrities/new', (req, res, next) => {
     let newCeleb = new Celeb({ name, occupation, catchphrase })
 
     newCeleb.save()
-    .then((celeb) =>{
-        res.redirect('/celebrities/');
-    })
-    .catch((err) => {
-        console.log(err);
-        res.render('celebrities/new');
-    })
+        .then((celeb) => {
+            res.redirect('/celebrities/');
+        })
+        .catch((err) => {
+            console.log(err);
+            res.render('celebrities/new');
+        })
 })
 
-router.post('/celebrities/:id/delete', (req,res,next) => {
+router.post('/celebrities/:id/delete', (req, res, next) => {
 
     Celeb.findByIdAndDelete(req.params.id)
         .then(() => {
@@ -66,8 +84,21 @@ router.post('/celebrities/:id/delete', (req,res,next) => {
         .catch((err) => {
             res.redirect('/');
             next();
-            return err 
+            return err
         })
 })
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+
+    Celeb.findById(req.params.id)
+        .then((celeb) => {
+            res.render('celebrities/edit', celeb);
+        })
+        .catch((err) => {
+            next();
+            return err
+        })
+})
+
 
 module.exports = router;
