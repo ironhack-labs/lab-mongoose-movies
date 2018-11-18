@@ -1,15 +1,15 @@
 <div class="buttonsSection">
-  <a id="backButton" href="/celebrities"><i class="fas fa-arrow-left"></i></a>
+  <a id="backButton" href="/movies"><i class="fas fa-arrow-left"></i></a>
 </div>
 <section class="new">
   <div class="formSave">
-    <h1>Edit Celebrity</h1>
-    {{#each celebrity}}
+    <h1>Edit Movie</h1>
+    {{#each movie}}
     <img src="{{this.img}}" alt="">
-    <form id="myForm" action="/celebrities/{{this._id}}" method="post" accept-charset="utf-8">
-      <input placeholder="Name" type="text" name="name" id="" required value="{{this.name}}">
-      <input placeholder="Occupation" type="text" name="occupation" id="" required value='{{this.occupation}}'>
-      <textarea placeholder="Phrase" rows="4" cols="50" name="catchPhrase" form="myForm">{{this.catchPhrase}}</textarea>
+    <form id="myForm" action="/movies/{{this._id}}" method="post" accept-charset="utf-8">
+      <input placeholder="Name" type="text" name="title" id="" required value="{{this.title}}">
+      <input placeholder="Occupation" type="text" name="genre" id="" required value='{{this.genre}}'>
+      <textarea placeholder="Phrase" rows="4" cols="50" name="plot" form="myForm">{{this.plot}}</textarea>
       <button class="saveButton" type="submit">Update</button>
     </form>
     {{/each}}

@@ -167,7 +167,6 @@ a {
     height: 200px;
     border-radius: 50%;
     margin-bottom: 40px;
-    object-fit: contain;
   }
 
   .formSave h1 {

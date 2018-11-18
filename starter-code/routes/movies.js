@@ -48,6 +48,36 @@ router.get('/movie/:id/delete', (req, res, next) => {
 
 
 
+// GET edit celebrity page
+router.get('/movie/:id/edit', (req, res, next) => {
+  let movieId = req.params.id;
+  Movie.find({_id: movieId})
+  .then(movie => {
+    res.render('movies/edit', {movie})
+  })
+  .catch(err => console.log(err))
+});
+
+
+// POST Edit Celebrity
+router.post('/:id', (req, res, next) => {
+
+  console.log(req.params.id);
+  console.log(req.body)
+
+  Movie.update({_id: req.params.id}, { $set: {title: req.body.title, genre: req.body.genre, plot: req.body.plot }})
+  .then(() => {
+    res.redirect('/movies');
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+
+  // console.log('hola');
+});
+
+
+
 
 
 module.exports = router;
