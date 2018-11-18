@@ -1,9 +1,10 @@
 <h2>movies</h2>
 {{#each movies}}
 <div class="movie">
-  <p><a href="/movies/{{this.id}}">{{this.name}}</a></p>
+  <p><a href="/movies/{{this.id}}">{{this.title}}</a></p>
   <a href="/movies/{{this.id}}/edit"><button>Edit</button></a>
   <form action="/movies/{{this.id}}/delete" method="post"><button type="submit">Delete</button></form>
 </div>
 {{/each}}
 <a href="/movies/new"><button>Add a new movie</button></a>
+<a href="/">Go Back</a>
