@@ -58,6 +58,7 @@ router.post('/:id', (req, res, next) => {
       console.log(error)
     })
 })
+
 router.get('/:id', (req, res, next) => {
   let celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
