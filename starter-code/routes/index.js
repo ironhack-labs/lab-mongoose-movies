@@ -57,7 +57,7 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
   let celebrityId = req.params.id;
 
   Celebrity.findByIdAndRemove({'_id': celebrityId})
-  .then(Celebrity => {
+  .then(celebrity => {
     res.redirect('/celebrities');
     })
   .catch(error => console.log(error));
@@ -122,7 +122,18 @@ router.post('/newMovie', (req,res,next) =>{
     })
     .catch(error => res.redirect('/newMovie'))
 
+})
+
+router.post('/movies/:id/delete', (req, res, next)=>{
+  let movieId = req.params.id;
+  console.log(movieId)
+
+  Movie.findByIdAndRemove({'_id': movieId})
+  .then(movie => {
+    res.redirect('/movies');
+  })
+  .catch(error => console.log(error));
+
 
 
 })
-
