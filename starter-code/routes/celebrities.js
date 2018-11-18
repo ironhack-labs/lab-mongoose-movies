@@ -27,11 +27,9 @@ router.post('/new', (req, res, next) => {
 
     newCelebrity.save()
         .then((celebrity) => {
-            console.log(celebrity);
             res.redirect('/celebrities/');
         })
         .catch(err => {
-            console.log(err);
             return res.render('celebrities/new', { errorMessage: "There was an error, please resend the form" });
         })
 });
@@ -44,21 +42,18 @@ router.get('/show/:celebrityId', (req, res, next) => {
         .then(celebrityData => {
             return res.render('celebrities/show', { celebrityData });
         })
-        .catch(err => {
-            next();
-            return err;
-        })
+        .catch(err => next(err));
 });
 
 router.post('/:id/delete', (req, res, next) => {
     let id = req.params.id;
 
-    Celebrity.findByIdAndRemove(id, (err, todo) => {
+    Celebrity.findByIdAndRemove(id)
 
-        if (err) return res.status(500).send(err);
+    if (err) return res.status(500).send(err)
+        .then(() => res.redirect('/celebrities'))
+        .cath(err => next(err))
 
-        return res.redirect('/celebrities/');
-    });
 });
 
 router.post('/:id/edit', (req, res, next) => {
@@ -67,25 +62,19 @@ router.post('/:id/edit', (req, res, next) => {
         .then(celebrityData => {
             return res.render('celebrities/edit', { celebrityData });
         })
-        .catch(err => {
-            next();
-            return err;
-        })
+        .catch(err => next(err));
+
 });
 
-// router.post('/edit', (req, res, next) => {
+router.post('/edit', (req, res, next) => {
+    console.log('entro');
+    const {id} = req.body;
+    console.log(req.body);
+    const { name, occupation, catchPhrase } = req.body;
 
-//     const { _id, name, occupation, catchPhrase } = req.body;
-//     const newCelebrity = new Celebrity({ _id, name, occupation, catchPhrase });
-//     newCelebrity.update({ _id: newCelebrity._id }, { $set: { newCelebrity } }, { new: true })
-//         .then(() => {
-
-//             res.redirect('/celebrities/');
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             return res.render('celebrities/new', { errorMessage: "There was an error, please resend the form" });
-//         })
-// });
+    Celebrity.updateOne({ _id: id }, { $set: { name, occupation, catchPhrase } })
+        .then(() => res.redirect('/celebrities'))
+        .catch(err => next(err));
+});
 
 module.exports = router;

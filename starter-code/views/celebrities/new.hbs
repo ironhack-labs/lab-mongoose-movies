@@ -6,3 +6,7 @@
     <label for="catchPhrase">CatchPhrase: <input type="text" id="catchPhrase" name="catchPhrase"></label>
     <button type="submit">Create!</button>
 </form>
+
+{{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+{{/if}}
