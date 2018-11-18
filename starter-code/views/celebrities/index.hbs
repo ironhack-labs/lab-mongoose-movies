@@ -3,10 +3,11 @@
     <ul>
         {{#each allCelebrities}}
         <li>
-            <a href='/celebrities/show/{{this._id}}'>
-                {{this.name}}
-            </a>
+            <a href="/celebrities/show/{{this._id}}">{{this.name}}</a>
         </li>
+        <a href="/celebrities/delete">Delete</a>
         {{/each}}
     </ul>
 </div>
+
+<a href="/celebrities/new">New Celebrity</a>
