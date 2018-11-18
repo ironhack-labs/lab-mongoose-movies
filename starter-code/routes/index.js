@@ -103,3 +103,26 @@ router.get('/movies/:id', (req, res, next) => {
   .catch(error => console.log(error))
   
 })
+
+/* GET new movies page */
+router.get('/newMovie', (req, res, next) => {
+  res.render('movie/newMovie');
+})
+
+router.post('/newMovie', (req,res,next) =>{
+  const newMovie = new Movie({
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
+  })
+
+  newMovie.save()
+    .then((newMovie) => {
+      res.redirect('/movies');
+    })
+    .catch(error => res.redirect('/newMovie'))
+
+
+
+})
+
