@@ -29,19 +29,19 @@ const celebrities = [
 
 const movies = [
     {
-        name: 'seven',
+        title: 'seven',
         genre: 'Crime',
         plot: 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.'
     },
 
     {
-        name: 'Lords Of Dogtown',
+        title: 'Lords Of Dogtown',
         genre: 'Biography',
         plot: 'The film follows the surf and skateboarding trends that originated in Venice, California during the 1970s.'
     },
 
     {
-        name: 'Point Break',
+        title: 'Point Break',
         genre: 'Action',
         plot: 'An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.'
     }

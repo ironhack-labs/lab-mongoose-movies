@@ -20,13 +20,13 @@ routerCelebrities.get('/', (req,res,next) => {
  
  /* GET form new celebrity */
  
- routerCelebrities.get('/celebrities/new',(req,res,next) =>{
+ routerCelebrities.get('/new',(req,res,next) =>{
    res.render('celebrities/new');
  })
  
  /* GET specicy celebritie */
  
- routerCelebrities.get('/celebrities/:id', (req,res,next) =>{
+ routerCelebrities.get('/:id', (req,res,next) =>{
    let celebritieId = req.params.id;
  
    Celebrity.findOne({'_id':celebritieId})
@@ -40,7 +40,7 @@ routerCelebrities.get('/', (req,res,next) => {
  
  /* POST create new Celebrity */
  
- routerCelebrities.post('/celebrities', (req,res,next) => {
+ routerCelebrities.post('/', (req,res,next) => {
    
     var objCelebrity = {
       name: req.body.name,
@@ -67,7 +67,7 @@ routerCelebrities.get('/', (req,res,next) => {
  
  /* POST Delete celebrity*/
  
- routerCelebrities.post('/celebrities/:id/delete', (req,res,next)=>{
+ routerCelebrities.post('/:id/delete', (req,res,next)=>{
    let celebritieId = req.params.id;
  
    Celebrity.findByIdAndRemove({'_id':celebritieId})
@@ -80,7 +80,7 @@ routerCelebrities.get('/', (req,res,next) => {
  
  /* GET EDIT Celebrity */
  
- routerCelebrities.get('/celebrities/:id/edit', (req,res,next)=>{
+ routerCelebrities.get('/:id/edit', (req,res,next)=>{
     let celebritieId = req.params.id;
  
     Celebrity.findOne({'_id': celebritieId})
@@ -94,7 +94,7 @@ routerCelebrities.get('/', (req,res,next) => {
  
  /* POST EDIT Celebrity */
  
- routerCelebrities.post('/celebrities/:id',(req,res,next)=>{
+ routerCelebrities.post('/:id',(req,res,next)=>{
  
    let celebritieId = req.params.id;
  

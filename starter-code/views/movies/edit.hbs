@@ -1,0 +1,12 @@
+<h2>Edit Movie</h2>
+<h3>Actual Movie data</h3>
+<p> {{this.title}}</p>
+<p> {{this.genre}}</p>
+<p> {{this.plot}}</p>
+
+<form action="/movies/{{this._id}}" method="POST">
+    <input type="text" name="title" required>
+    <input type="text" name="genre" required>
+    <input type="text" name="plot" required>
+    <input type="submit">
+</form>
