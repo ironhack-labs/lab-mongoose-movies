@@ -36,16 +36,16 @@ router.get("/movies/new", (req, res) => {
 })
 
 router.post("/movies", (req, res) => {
-  const { title, genre, plot } = req.body
-  const newMovie = new Movie({ title, genre, plot })
+  const { title, genre, plot } = req.body;
+  const newMovie = new Celebrity({ title, genre, plot })
+  newMovie.save()
+    .then(() => {
+      res.redirect("/movies")
+    })
+    .catch((err) => {
+      console.log("Error while creating new movie" + err)
+    })
 })
-newMovie.save()
-  .then(() => {
-    res.redirect("/movies")
-  })
-  .catch((err) => {
-    console.log("Error while creating new movie" + err)
-  })
 //DELETE MOVIES
 
 router.post("/movies/:id/delete", (req, res) => {
@@ -59,5 +59,29 @@ router.post("/movies/:id/delete", (req, res) => {
 })
 
 //UPDATES MOVIES
+router.get("/movies/:id/edit", (req, res) => {
+  Movie.findById(req.params.id)
+    .then((movie) => {
+      res.render("/movie/edit", { movie })
+    })
+    .catch((err) => {
+      console.log("error while editing movie" + err)
+    })
+})
+
+router.post("/movies/:id", (req, res) => {
+  const { title, genre, plot } = req.body
+  Movie.update(
+    { _id: req.params.id },
+    { $set: { title, genre, plot } },
+    { new: true }
+  )
+    .then(() => {
+      res.redirect("/movies")
+    })
+    .catch((err) => {
+      console.log("error while updating movie" + err)
+    })
+})
 module.exports = router;
 

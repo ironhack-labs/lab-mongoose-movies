@@ -24,7 +24,7 @@ router.get("/celebrities", (req, res) => {
 router.get("/celebrities/:id", (req, res) => {
   Celebrity.findById(req.params.id)
     .then((celebrities) => {
-      res.render("./celebrities/show", { celebrities })
+      res.render("../celebrities/show", { celebrities })
     })
     .catch((err) => {
       console.log("The error is in finding each celebrity by its id" + err)
@@ -82,7 +82,7 @@ router.post("/celebrities/:id", (req, res) => {
     { new: true }
   )
     .then(() => {
-      console.log(Celebrity)
+      // console.log(Celebrity)
       res.redirect("/celebrities/")
     })
     .catch((err) => {
