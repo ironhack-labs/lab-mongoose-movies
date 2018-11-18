@@ -48,6 +48,15 @@ newMovie.save()
   })
 //DELETE MOVIES
 
+router.post("/movies/:id/delete", (req, res) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/movies")
+    })
+    .catch((err) => {
+      console.log("error while deleting movie" + err)
+    })
+})
 
 //UPDATES MOVIES
 module.exports = router;
