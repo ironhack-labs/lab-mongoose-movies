@@ -85,3 +85,36 @@ router.post('/celebrities/:id/delete', (req,res,next)=>{
     .catch(next)
 
 })
+
+/* GET EDIT Celebrity */
+
+router.get('/celebrities/:id/edit', (req,res,next)=>{
+   let celebritieId = req.params.id;
+
+   Celebrity.findOne({'_id': celebritieId})
+    .then(celebrity=>{
+        res.render('celebrities/edit', celebrity);
+    })
+    .catch(next)
+})
+
+
+
+/* POST EDIT Celebrity */
+
+router.post('/celebrities/:id',(req,res,next)=>{
+
+  let celebritieId = req.params.id;
+
+  var objCelebrity = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  }
+
+  Celebrity.findByIdAndUpdate(celebritieId, {$set: objCelebrity}, {new:true} )
+    .then(()=>{
+      res.redirect('/celebrities');
+    })
+    .catch(next)
+})

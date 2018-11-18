@@ -1,0 +1,12 @@
+<h2>Edit Celebrity</h2>
+<h3>Actual Celebrity data</h3>
+<p> {{this.name}}</p>
+<p> {{this.occupation}}</p>
+<p> {{this.catchPhrase}}</p>
+
+<form action="/celebrities/{{this._id}}" method="POST">
+    <input type="text" name="name" required>
+    <input type="text" name="occupation" required>
+    <input type="text" name="catchPhrase" required>
+    <input type="submit">
+</form>

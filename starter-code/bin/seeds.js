@@ -7,20 +7,20 @@ const celebrities = [
 
     {
         name: 'Gabriel Macht',
-        ocuppation: 'actor',
+        occupation: 'actor',
         catchPhrase: 'You always have a choice'
         
     },
 
     {
         name: 'Michael Jordan',
-        ocuppation: 'baskteball player',
+        occupation: 'baskteball player',
         catchPhrase: 'You must expect great things of yourself before you can do them'
     },
 
     {
         name: 'Dave Grohl',
-        ocuppation: 'Singer',
+        occupation: 'Singer',
         catchPhrase: 'I don´t belive in guilty pleasures'
     }
 ];
