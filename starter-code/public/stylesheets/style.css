@@ -1,12 +1,13 @@
 html, body {
   padding: 0px;
   margin: 0px;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
+  background-blend-mode: multiply,multiply;
   background-repeat: repeat-y;
-  color: #2C3144;
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(235, 235, 235);
   width: 100vw;
   height: 100%;
+  font-family: 'Questrial', sans-serif;
 }
 
 h1 {
@@ -21,25 +22,47 @@ a {
     padding: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
     align-items: center;
-
   }
 
-  .headerHome, .headerCelebrities {
-    font-size: 100px;
+  #homeSection h1  {
+    font-size: 130px;
+    margin-bottom: 50px;
+  }
+
+  .headerCelebrities {
+    font-size: 80px;
     margin-top: 100px;
-    color: #2C3144;
   }
 
-  .navHome {
-    margin-top: 500px;
+  .mainButton {
+    border: 1px solid white;
+    border-radius: 25px;
+    color: wihte;
+    padding: 10px;
+    font-size: 20px;
   }
+
+  /* .navHome {
+    margin-top: 500px;
+  } */
 
   .navHome a {
     text-decoration: none;
     font-size: 20px;
     margin:0px 20px;
-    color: #2C3144;
+    color:white;
+  }
+
+  .navHome a:hover {
+    text-decoration: none;
+    font-size: 20px;
+    margin:0px 20px;
+    color:#6D6D6D;
+    background: white;
   }
 
   #celebritiesSection{
@@ -51,6 +74,7 @@ a {
   }
 
   .buttonsSection{
+ 
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -60,7 +84,7 @@ a {
   .buttonsSection a {
     padding: 30px;
     font-size: 60px;
-    color: #2C3144;
+    color: white;
   }
 
   .celbritiesCards {
@@ -70,13 +94,47 @@ a {
     justify-content: space-between;
   }
 
+  .seeMoreButon {
+    border: 1px solid  rgb(39, 137, 218);
+    color:   rgb(39, 137, 218);
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .seeMoreButon:hover {
+    border: 1px solid   rgb(39, 137, 218);
+    color: white;
+    background:  rgb(39, 137, 218);
+  }
+
   .deleteButton {
-    color: red;
+    border: 1px solid  rgb(172, 0, 0);
+    color: rgb(172, 0, 0);
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .deleteButton:hover {
+    border: 1px solid  rgb(172, 0, 0);
+    color: white;
+    background:  rgb(172, 0, 0);
   }
 
 
   .editButton {
-    color: rgb(34, 116, 48);
+    color: rgb(70, 224, 96);
+    border: 1px solid rgb(70, 224, 96);
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .editButton:hover {
+    border: 1px solid rgb(27, 110, 41);
+    color: white;
+    background:rgb(27, 110, 41);
   }
 
   .celbritiesCards h1 {
@@ -158,7 +216,7 @@ a {
     flex-flow: column;
     width: 400px;
     height: 700px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
   }
 
@@ -170,6 +228,7 @@ a {
   }
 
   .formSave h1 {
+    color: #2C3144;
     font-size: 40px;
     margin: 40px 0px;
   }
@@ -210,6 +269,26 @@ a {
     width: 350px;
     height: 50px;
     margin: 10px 0px;
+  }
+
+  .mainTitle {
+    opacity: 1;
+    font-family: 'Questrial', sans-serif;
+    color: rgb(235, 235, 235);
+    text-shadow: 0px 0px 5px rgb(177, 177, 177);
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 3s;
+  }
+
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   
 
