@@ -9,17 +9,17 @@ const celebrities = [
 
   {
     name: "Vivien Leigh",
-    ocupation: "Actress",
+    occupation: "Actress",
     catchPhrase: "Tara! Home. I'll go home.And I'll think of some way to get him back. After all... tomorrow is another day."
   },
   {
     name: "Ingrid Bergman",
-    ocupation: "Actress",
+    occupation: "Actress",
     catchPhrase: "Play it once, Sam. For old times' sake."
   },
   {
     name: "Marilyn Monroe",
-    ocupation: "Actress",
+    occupation: "Actress",
     catchPhrase: "Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring."
   }
 
