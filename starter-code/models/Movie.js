@@ -6,6 +6,7 @@ const movieSchema = new Schema({
   genre: String,
   star: {type: Schema.Types.ObjectId, ref: 'Celebrity'},
   plot: String,
+  owner: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model("Movie", movieSchema);

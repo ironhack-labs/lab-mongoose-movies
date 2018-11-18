@@ -10,38 +10,47 @@ router.get("/login", (req, res, next)=>{
 })
 
 router.get("/signup", (req, res, next)=>{
-  res.render("users/signup")
+  res.render("users/signup", {message: req.flash("error")})
 })
 
 router.post("/signup", (req, res, next)=>{
-  if(req.body.username === "" || req.body.password === "") {
-    res.render("users/signup", {errorMessage: "Indicate a username and a password to sign up."});
-    return;
-  }
+  // if(req.body.username === "" || req.body.password === "") {
+  //   res.render("users/signup", {message: "Indicate a username and a password to sign up."});
+  //   return;
+  // }
   User.findOne({username: req.body.username})
   .then((user)=>{
     if(user !== null) {
-      res.render("users/signup", {errorMessage: "Sorry, that username is taken."});
-    return;
+      req.flash("error", "Username taken")
+      res.redirect("/user/signup");
+     return;
     }
+    const salt     = bcrypt.genSaltSync(bcryptSalt);
+    const hashPass = bcrypt.hashSync(req.body.password, salt);
+    req.body.password = hashPass;
+    req.body.admin = false;
+    User.create(req.body)
+    .then((newUser)=>{
+        req.login(newUser, (err) => {
+          if(err) {
+            req.flash("error", "Couldn't create the user, please try again later.");
+            res.redirect("/login");
+            return
+          }
+          res.redirect("/user/secret");
+        });
+    })
+    .catch((err)=>{
+        next(err);
+    });
+
   })
   .catch((err)=>{
     next(err)
   })
 
-  const salt     = bcrypt.genSaltSync(bcryptSalt);
-  const hashPass = bcrypt.hashSync(req.body.password, salt);
-
-
-  User.create({username: req.body.username, password: hashPass})
-  .then(()=>{
-      res.redirect('/');
-  })
-  .catch((err)=>{
-      next(err);
-  });
 });
-
+// Manual login
 // router.post("/login", (req, res, next)=>{
 //   if(req.body.username === "" || req.body.password === "") {
 //     res.render("users/login", {errorMessage: "Indicate a username and a password to log in."});
@@ -66,7 +75,7 @@ router.post("/signup", (req, res, next)=>{
 // })
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/user/login",
+  successRedirect: "/user/secret",
   failureRedirect: "/user/login",
   failureFlash: true,
   passReqToCallback: true
