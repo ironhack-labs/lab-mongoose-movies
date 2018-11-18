@@ -1,0 +1,13 @@
+<a href="/">Return</a>
+<h2>Movies</h2>
+{{#each movies}}
+<h3><a href="/movies/{{this.id}}">{{this.title}}</a></h3>
+
+{{!-- <a href="/celebrities/{{this.id}}/edit">Edit Moies</a> <br> <br> --}}
+
+{{!-- <form action="/celebrities/{{this.id}}/delete" method="POST">
+  <button type="submit">Submit Deletion of Celebrity</button>
+</form> --}}
+
+{{/each}}
+{{!-- <p><a href="/celebrities/new">Add your Own Celebrity</a></p> --}}

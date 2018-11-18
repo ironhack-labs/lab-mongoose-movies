@@ -51,6 +51,9 @@ mongoose
     return Movie.insertMany(movie)
     // return Celebrity.insertMany(celebrities)
   })
+  .then(() =>{
+    mongoose.connection.close();
+  })
   .catch(err => {
     console.error('Error connecting to mongo', err)
   });

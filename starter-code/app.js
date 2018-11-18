@@ -15,6 +15,9 @@ mongoose
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
+  .then(() =>{
+    mongoose.connection.close();
+  })
   .catch(err => {
     console.error('Error connecting to mongo', err)
   });
@@ -47,7 +50,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'IronCelebrities';
+app.locals.title = 'IronCelebrities and IronMovies';
 
 
 
@@ -55,7 +58,10 @@ const index = require('./routes/index');
 app.use('/', index);
 
 
-const celebrities = require("./routes/celebrities.js")
+const celebrities = require("./routes/celebrities")
 app.use("/", celebrities)
+
+const movies = require("./routes/movies")
+app.use("/", movies)
 
 module.exports = app;

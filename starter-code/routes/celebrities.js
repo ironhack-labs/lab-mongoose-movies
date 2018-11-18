@@ -15,7 +15,7 @@ router.get("/celebrities", (req, res) => {
       res.render("celebrities", { celebrities })
     })
     .catch((err) => {
-      console.log("The error is with rendering the celebrities")
+      console.log("error while listing celebrities"+err)
     })
 })
 
