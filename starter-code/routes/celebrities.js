@@ -26,8 +26,8 @@ router.post('/celebrities', (req, res, next) => {
   newCelebritie.occupation = req.body.occupation;
   newCelebritie.catchPhrase = req.body.catchPhrase;
   newCelebritie.save()
-  .then(celebrities => res.redirect("/celebrities"))
-  .catch(celebrities => res.redirect("/celebrities/new"))
+  .then(()=> res.redirect("/celebrities"))
+  .catch(() => res.redirect("/celebrities/new"))
 })
 
 router.post('/celebrities/:id/delete', (req,res,next) => {
