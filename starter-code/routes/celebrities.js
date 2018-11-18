@@ -23,7 +23,16 @@ router.get('/:_id', (req, res, next) => {
     .catch(error => console.log("Error to find a celebrity" + error))
 })
 
-router.post('/', (req, res, nex) => {
+router.post('/:_id/delete', (req, res, next) => {
+  console.log("hola")
+  Celebrity.findByIdAndRemove(req.params._id)
+    .then(() => {
+      res.redirect('/celebrities')
+    })
+    .catch(error => console.log("Error to remove a celebrity" + error))
+})
+
+router.post('/', (req, res, next) => {
   genericCelebrity.name = req.body.name;
   genericCelebrity.occupation = req.body.occupation;
   genericCelebrity.catchPhrase = req.body.catchPhrase;
@@ -36,4 +45,5 @@ router.post('/', (req, res, nex) => {
       res.redirect('celebrities/new')
     })
 })
+
 module.exports = router;
