@@ -1,0 +1,12 @@
+<div class="buttonsSection">
+<a id="backButton" href="/movies"><i  class="fas fa-arrow-left"></i></a>
+</div>
+
+<section class="celebritySection">
+  {{#each movie}}
+  <h1>{{this.title}}</h1>
+  <img src="{{this.img}}" alt="">
+  <h2>{{this.genre}}</h2>
+  <p style="padding: 0 300px;">{{this.plot}}</p>
+  {{/each}}
+</section>

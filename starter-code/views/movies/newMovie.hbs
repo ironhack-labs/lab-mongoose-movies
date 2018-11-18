@@ -1,0 +1,15 @@
+<div class="buttonsSection">
+  <a id="backButton" href="/movies"><i class="fas fa-arrow-left"></i></a>
+</div>
+<section class="new">
+  <div class="formSave">
+    <h1>New Movie</h1>
+    <img src="https://static1.squarespace.com/static/56d8b1ae22482ee6f4d072a7/56d8e6d31bbee06f68301020/56d8e74be32140be19d32228/1469728196445/default_movie.png?format=500w" alt="">
+    <form id="myForm" action="/movies/new" method="post" accept-charset="utf-8">
+      <input placeholder="Title" type="text" name="title" id="" required>
+      <input placeholder="Genre" type="text" name="genre" id="" required>
+      <textarea placeholder="Plot" rows="4" cols="50" name="plot" form="myForm"></textarea>
+      <button class="saveButton" type="submit">Save</button>
+    </form>
+  </div>
+</section>

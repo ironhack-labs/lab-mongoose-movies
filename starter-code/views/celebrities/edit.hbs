@@ -1,0 +1,17 @@
+<div class="buttonsSection">
+  <a id="backButton" href="/celebrities"><i class="fas fa-arrow-left"></i></a>
+</div>
+<section class="new">
+  <div class="formSave">
+    <h1>Edit Celebrity</h1>
+    {{#each celebrity}}
+    <img src="{{this.img}}" alt="">
+    <form id="myForm" action="/celebrities/{{this._id}}" method="post" accept-charset="utf-8">
+      <input placeholder="Name" type="text" name="name" id="" required value="{{this.name}}">
+      <input placeholder="Occupation" type="text" name="occupation" id="" required value='{{this.occupation}}'>
+      <textarea placeholder="Phrase" rows="4" cols="50" name="catchPhrase" form="myForm">{{this.catchPhrase}}</textarea>
+      <button class="saveButton" type="submit">Update</button>
+    </form>
+    {{/each}}
+  </div>
+</section>

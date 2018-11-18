@@ -1,0 +1,15 @@
+<div class="buttonsSection">
+<a id="backButton" href="/"><i  class="fas fa-arrow-left"></i></a>
+<a id="addButton" href="/celebrities/new"><i class="fas fa-plus-circle"></i></a>
+</div>
+
+<section id="celebritiesSection">
+  <div class="headerCelebrities">
+    <h1>Celebrities</h1>
+  </div>
+  <div class="celbritiesCards">
+    {{#each celebrities}}
+    {{> celebrityCard this}}
+    {{/each}}
+  </div>
+</section>
