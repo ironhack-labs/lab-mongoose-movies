@@ -26,38 +26,32 @@ const movies = [
 
 Movie.create(movies, (err) => {
   if (err) { throw (err) }
-  console.log(`Created ${movies.length} movies`)
   mongoose.connection.close()
 });
 
 
 
-// const dbName = "CelebDB";
+const celebrities = [
 
-// mongoose.connect(`mongodb://localhost/${dbName}`);
+  {
+    name: "Vivien Leigh",
+    occupation: "Actress",
+    catchPhrase: "Tara! Home. I'll go home.And I'll think of some way to get him back. After all... tomorrow is another day."
+  },
+  {
+    name: "Ingrid Bergman",
+    occupation: "Actress",
+    catchPhrase: "Play it once, Sam. For old times' sake."
+  },
+  {
+    name: "Marilyn Monroe",
+    occupation: "Actress",
+    catchPhrase: "Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring."
+  }
 
-// const celebrities = [
+];
 
-//   {
-//     name: "Vivien Leigh",
-//     occupation: "Actress",
-//     catchPhrase: "Tara! Home. I'll go home.And I'll think of some way to get him back. After all... tomorrow is another day."
-//   },
-//   {
-//     name: "Ingrid Bergman",
-//     occupation: "Actress",
-//     catchPhrase: "Play it once, Sam. For old times' sake."
-//   },
-//   {
-//     name: "Marilyn Monroe",
-//     occupation: "Actress",
-//     catchPhrase: "Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring."
-//   }
-
-// ];
-
-// Celebrity.create(celebrities, (err) => {
-//   if (err) { throw (err) }
-//   console.log(`Created ${celebrities.length} celebrities`)
-//   mongoose.connection.close()
-// });
+Celebrity.create(celebrities, (err) => {
+  if (err) { throw (err) }
+  mongoose.connection.close()
+});
