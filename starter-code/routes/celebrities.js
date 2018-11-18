@@ -20,6 +20,44 @@ router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
+
+router.post('/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      console.log(error)
+    })
+});
+
+// router.get('/:id/edit',(req,res,next)=>{
+//   res.render('celebrities/edit', celebrity);
+// })
+
+router.get('/:id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebrity => {
+      res.render('celebrities/edit', celebrity);
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
+router.post('/:id', (req, res, next) => {
+  let newCelebrity = {};
+  newCelebrity.name = req.body.name;
+  newCelebrity.occupation = req.body.occupation;
+  newCelebrity.catchPhrase = req.body.catchPhrase;
+  Celebrity.findByIdAndUpdate(req.params.id, newCelebrity)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
 router.get('/:id', (req, res, next) => {
   let celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
@@ -42,8 +80,8 @@ router.post('/', (req, res, next) => {
     })
     .catch(() => {
       res.redirect('/new');
-  })
-})
+    })
+});
 
 
 
