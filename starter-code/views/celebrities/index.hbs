@@ -2,5 +2,10 @@
 <div>
     {{#each celebrities}}
         <h2>{{this.name}}</h2>
+        <a href="/celebrities/{{this._id}}">Show More</a>
     {{/each}}
+</div>
+<div>
+    <h3>Create your Celebrity!!</h3>
+    <a href="/celebrities/new">Create new Celebriry</a>
 </div>
