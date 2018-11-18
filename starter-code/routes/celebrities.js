@@ -22,11 +22,11 @@ router.get('/celebrities/show/:id', (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.get('/celebrities/new', (req, res, next) => {
+router.get('/celebrities/new', (req, res) => {
   res.render('celebrities/new');
 });
 
-router.post('/celebrities', (req, res, next) => {
+router.post('/celebrities', (req, res) => {
   const { name, occupation, catchFrase } = req.body;
   if (req.body.name == '' || req.body.occupation == '' || req.body.catchPhrase == '') { res.redirect('celebrities/new'); }
   const newCelebrity = new Celebrity({
@@ -37,6 +37,12 @@ router.post('/celebrities', (req, res, next) => {
   newCelebrity.save()
     .then(() => res.redirect('celebrities'))
     .catch(() => { res.redirect('celebrities/new'); });
+});
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/celebrities'))
+    .catch(err => next(err));
 });
 
 module.exports = router;
