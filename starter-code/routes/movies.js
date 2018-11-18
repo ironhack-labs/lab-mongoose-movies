@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/Movie.js');
-const genericMovie = new Movie();
 
 router.get('/', (req, res, next) => {
   Movie.find({})
@@ -24,6 +23,7 @@ router.get('/:_id', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+  const genericMovie = new Movie();
   genericMovie.title = req.body.title;
   genericMovie.genre = req.body.genre;
   genericMovie.plot = req.body.plot;
@@ -36,6 +36,15 @@ router.post('/', (req, res, next) => {
       res.redirect('movies/new')
     })
 })
+
+router.post('/:_id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params._id)
+    .then(() => {
+      res.redirect('/movies')
+    })
+    .catch(error => console.log("Error to remove a movie" + error))
+})
+
 
 
 module.exports = router;
