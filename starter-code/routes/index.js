@@ -9,9 +9,20 @@ router.get('/', (req, res, next) => {
 
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find({})
+  .then(celebs=>{
+    console.log(celebs)
+    res.render('celebrities',{celebs: celebs});
+  })
+  .catch(err=>{
+
+  })
+});
+
+router.get('/celebrities/:id', (req, res, next) => {
+  Celebrity.findById(req.params.id)
   .then(celeb=>{
     console.log(celeb)
-    res.render('celebrities',{celeb: celeb});
+    res.render('celebrity',{celeb: celeb});
   })
   .catch(err=>{
 
