@@ -67,9 +67,8 @@ router.post('/:id/edit', (req, res, next) => {
 });
 
 router.post('/edit', (req, res, next) => {
-    console.log('entro');
-    const {id} = req.body;
-    console.log(req.body);
+
+    const { id } = req.body;
     const { name, occupation, catchPhrase } = req.body;
 
     Celebrity.updateOne({ _id: id }, { $set: { name, occupation, catchPhrase } })

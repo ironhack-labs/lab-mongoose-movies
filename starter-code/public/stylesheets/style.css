@@ -1,0 +1,53 @@
+/* GENERAL */
+
+a {
+    color:black;
+}
+
+a:hover {
+
+    color:rgb(61, 61, 61);
+}
+
+
+/* INDEX */
+
+#index-menu {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#index-menu h1 {
+
+    font-size: 5em;
+}
+
+#index-menu a {
+
+    font-size: 2em;
+}
+
+/* LIST */
+
+.celebrities,.movies {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.celebrities li, .movies li{
+
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: 2%;
+}
+
+
+.hidden_id{
+    display: none;
+}
