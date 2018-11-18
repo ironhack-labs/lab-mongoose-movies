@@ -3,10 +3,11 @@
     {{#each celebrity}}
       <p><a href="/celebrities/{{this._id}}">{{this.name}}</a></p>
       <form action="/celebrities/{{this._id}}/delete" method="POST">
-      <button type="submit">DELETE</button>
-      
-      <form action="/celebrities/{{this._id}}/edit" method="POST">
-        <button type="submit">EDIT</button>
+        <button type="submit">DELETE</button>
       </form>
+    
+      {{!-- <form action="/celebrities/{{this._id}}/edit" method="POST"> --}}
+        <button type="submit"><a href="/celebrities/{{this._id}}/edit">EDIT</a> </button>
+      {{!-- </form> --}}
     {{/each}}
       <p><a href="/new">Add a new celebrity</a></p>
