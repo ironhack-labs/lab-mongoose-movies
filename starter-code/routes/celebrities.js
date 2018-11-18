@@ -41,16 +41,12 @@ router.get('/celebrities/:id', (req, res, next) => {
 
 router.post('/celebrities/:id', (req, res, next) => {
     const { name, occupation, catchphrase } = req.body;
-    console.log("here: " + req.params.id + "\n object:" + name + " " + occupation + " " + catchphrase);
-    // let editCeleb = new Celeb({ name, occupation, catchphrase });
-
+    
     Celeb.findByIdAndUpdate(req.params.id, { name, occupation, catchphrase })
         .then(() => {
-            console.log('success');
             res.redirect('/celebrities');
         })
         .catch((err) => {
-            console.log('failed');
             next();
             return err
         })
