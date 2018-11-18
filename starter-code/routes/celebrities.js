@@ -85,7 +85,7 @@ router.post('/celebrities/:id', (req, res, next) => {
   editCelebrity.occupation = req.body.occupation;
   editCelebrity.catchPhrase = req.body.catchPhrase;
 
-  Celebrity.findByIdAndUpdate(req.params.id, editCelebrity)
+  Celebrity.Update(req.params.id, editCelebrity)
   .then(celebrity => {
     console.log(celebrity);
     res.redirect('/celebrities');
