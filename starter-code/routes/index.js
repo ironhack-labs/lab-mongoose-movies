@@ -10,7 +10,6 @@ router.get('/', (req, res, next) => {
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find({})
     .then(list => {
-      console.log(list);
       res.render('celebrities', { list });
     })
     .catch(err => {
@@ -21,7 +20,6 @@ router.get('/celebrities', (req, res, next) => {
 router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(celebrity => {
-      console.log(celebrity);
       res.render('celebrity', { celebrity });
     })
     .catch(err => {
@@ -62,11 +60,6 @@ router.post('/new', (req, res, next) => {
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
 
-  // let celebrity = new Celebrity();
-  // celebrity.name = req.body.name;
-  // celebrity.occupation = req.body.occupation;
-  // celebrity.catchPhrase = req.body.catchPhrase;
-
 
   // //Campos vacios
   // if (bodyName === '' || bodyOccupation === '' || bodyCatchPhrase === '') {
@@ -76,7 +69,7 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
   //   return
   // }
 
-Celebrity.findByIdAndRemove(req.params.id)
+  Celebrity.findByIdAndRemove(req.params.id)
     .then(() => {
       res.redirect('/celebrities')
     })
@@ -85,9 +78,33 @@ Celebrity.findByIdAndRemove(req.params.id)
     });
 
 });
+router.get('/edit/:id', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+  .then(celebrity =>{
+    res.render('edit',{celebrity});
+  });
+  
+});
 
+// router.post('/celebrities/:id', (req, res, next) => {
+//   let modifiedCelebrity = {
+//     name: req.body.name,
+//     occupation: req.body.occupation,
+//     catchPhrase: req.body.catchPhrase
+//   }
+//   console.log('pasa por el post')
+//   Celebrity.update({ _id: req.params.id }, { $set: {modifiedCelebrity} })
+//   .then(()=>{
+//     console.log('Pasa por update');
+//     res.redirect('/celebrities');
+//   })
+//   .catch(()=>{
+//     console.log('No updatea en Mongo');
+//   });  
+  
+  
 
-
+// });
 
 
 
