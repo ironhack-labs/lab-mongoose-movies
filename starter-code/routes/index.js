@@ -60,7 +60,19 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     res.redirect('/celebrities');
     })
   .catch(error => console.log(error));
-
-
-
 })
+
+// router.get('/celebrities/:id/edit', (req, res, next) => {
+//   let celebrityId = req.params.id;
+//   Celebrity.findById({'_id':celebrityId})
+//   .then(celebrity => {
+//     res.render('/celebrities/edit');
+//   })
+//   .catch(error => console.log(error))
+
+
+// })
+
+// router.post('/celebrities/:id', (req, res, next) => {
+
+// })
