@@ -20,6 +20,12 @@ router.get('/movies/:id', (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.get('/movies/:id/edit', (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then(movie => res.render('movies/edit', { movie }))
+    .catch(err => next(err));
+});
+
 router.post('/movies', (req, res, next) => {
   const addedMovie = new Movie();
 
@@ -32,6 +38,20 @@ router.post('/movies', (req, res, next) => {
   addedMovie.save()
     .then(() => res.redirect('/movies'))
     .catch(() => res.redirect('/movies/new'));
+});
+
+router.post('/movies/:id', (req, res, next) => {
+  const editedMovie = {};
+
+  if (req.body.title == '' || req.body.genre == '' || req.body.plot == '') res.redirect('/movies/edit');
+
+  editedMovie.title = req.body.title;
+  editedMovie.genre = req.body.genre;
+  editedMovie.plot = req.body.plot;
+
+  Movie.findByIdAndUpdate(req.params.id, editedMovie)
+    .then(() => res.redirect('/movies'))
+    .catch(() => res.redirect(`/movies/${req.params.id}/edit`));
 });
 
 router.post('/movies/:id/delete', (req, res, next) => {

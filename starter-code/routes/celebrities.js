@@ -49,9 +49,8 @@ router.post('/celebrities/:id', (req, res, next) => {
   editedCelebrity.occupation = req.body.occupation;
   editedCelebrity.catchPhrase = req.body.catchPhrase;
 
-  console.log(editedCelebrity);
   Celebrity.findByIdAndUpdate(req.params.id, editedCelebrity)
-    .then(item => res.redirect('/celebrities'))
+    .then(() => res.redirect('/celebrities'))
     .catch(() => res.redirect(`/celebrities/${req.params.id}/edit`));
 });
 
