@@ -22,7 +22,7 @@ router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(celebrity => {
       console.log(celebrity);
-      res.render('celebrity', {celebrity});
+      res.render('celebrity', { celebrity });
     })
     .catch(err => {
       console.log('No encuentra el personaje buscado')
@@ -35,11 +35,11 @@ router.get('/new', (req, res, next) => {
 
 router.post('/new', (req, res, next) => {
 
-let celebrity = new Celebrity();
-celebrity.name = req.body.name;
-celebrity.occupation = req.body.occupation;
-celebrity.catchPhrase = req.body.catchPhrase;
- 
+  let celebrity = new Celebrity();
+  celebrity.name = req.body.name;
+  celebrity.occupation = req.body.occupation;
+  celebrity.catchPhrase = req.body.catchPhrase;
+
 
   // //Campos vacios
   // if (bodyName === '' || bodyOccupation === '' || bodyCatchPhrase === '') {
@@ -48,23 +48,45 @@ celebrity.catchPhrase = req.body.catchPhrase;
   //   });
   //   return
   // }
-  //let celebrity = {name: bodyName, occupation: bodyOccupation, catchPhrase: bodyCatchPhrase}
-  
-  // Celebrity.create(celebrity, (err) => {
-  //   if (err) { throw(err) }
-  //   console.log(`Nueva celebrity creada`)
-  //   mongoose.connection.close()
-  // });
+
 
   celebrity.save()
-  .then(()=>{
-    res.redirect('/celebrities')
-  })
-  .catch(()=>{
-    //res.redirect('/new')
-  });
-  
+    .then(() => {
+      res.redirect('/celebrities')
+    })
+    .catch(() => {
+      //res.redirect('/new')
+    });
+
 });
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+
+  // let celebrity = new Celebrity();
+  // celebrity.name = req.body.name;
+  // celebrity.occupation = req.body.occupation;
+  // celebrity.catchPhrase = req.body.catchPhrase;
+
+
+  // //Campos vacios
+  // if (bodyName === '' || bodyOccupation === '' || bodyCatchPhrase === '') {
+  //   res.render("newError", {
+  //     errorMessage: "Ninguno de los campos debe estar empty"
+  //   });
+  //   return
+  // }
+
+Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/celebrities')
+    })
+    .catch(() => {
+      //res.redirect('/new')
+    });
+
+});
+
+
 
 
 
