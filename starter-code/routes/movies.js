@@ -50,16 +50,16 @@ router.get('/show/:movieId', (req, res, next) => {
         })
 });
 
-// router.post('/:id/delete', (req, res, next) => {
-//     let id = req.params.id;
+router.post('/:id/delete', (req, res, next) => {
+    let id = req.params.id;
 
-//     Celebrity.findByIdAndRemove(id, (err, todo) => {
+    Movie.findByIdAndRemove(id, (err, todo) => {
 
-//         if (err) return res.status(500).send(err);
+        if (err) return res.status(500).send(err);
 
-//         return res.redirect('/celebrities/');
-//     });
-// });
+        return res.redirect('/movies/');
+    });
+});
 
 // router.post('/:id/edit', (req, res, next) => {
 //     let id = req.params.id;
