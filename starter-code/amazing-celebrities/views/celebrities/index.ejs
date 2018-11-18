@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h2>This is the index page!</h1>
+    <ul>
+      <% result.forEach(celeb => { %>
+          <li><a href="/celebrities/<%= celeb._id %>"><%= celeb.name %></a></li>
+          <h2>Edit your movie</h2>
+          <form action="/celebrities/<%= celeb._id %>/delete" method="post">
+            <input type="submit" value='remove'>
+          </form>
+          <form action="/celebrities/<%= celeb._id %>/edit" method="get">
+            <input type="submit" value='edit'>
+          </form>
+          </br>
+      <% }) %>
+    </ul>
+    <a href="/celebrities/new">Add your own favourite Celebrity!</a>
+
+
+
+  </body>
+</html>
