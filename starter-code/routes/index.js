@@ -79,14 +79,22 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
 
 })
 
-// router.post('/celebrities/:id', (req, res, next) => {
-  // let celebrityId = req.params.id;
-  // Celebrity.findById({'_id':celebrityId})
-  // .then(celebrity => {
-  //   res.render('/celebrities/edit');
-  // })
-  // .catch(error => console.log(error))
-// })
+router.post('/celebrities/:id', (req, res, next) => {
+  
+  let editCelebrity =  new Celebrity({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  })
+
+
+  editCelebrity.save()
+    .then((editCelebrity) => {
+      res.redirect('/celebrities/edit');
+  })
+    .catch(error => res.redirect('new'));
+})
+  
 
 
 
