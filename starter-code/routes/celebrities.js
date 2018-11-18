@@ -20,6 +20,11 @@ router.get('/celebrities/:id', (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebrity => res.render('celebrities/edit', { celebrity }))
+    .catch(err => next(err));
+});
 
 router.post('/celebrities', (req, res, next) => {
   const addedCelebrity = new Celebrity();
@@ -34,6 +39,22 @@ router.post('/celebrities', (req, res, next) => {
     .then(() => res.redirect('/celebrities'))
     .catch(() => res.redirect('/celebrities/new'));
 });
+
+router.post('/celebrities/:id', (req, res, next) => {
+  const editedCelebrity = {};
+
+  if (req.body.name == '' || req.body.occupation == '' || req.body.catchPhrase == '') res.redirect('/celebrities/edit');
+
+  editedCelebrity.name = req.body.name;
+  editedCelebrity.occupation = req.body.occupation;
+  editedCelebrity.catchPhrase = req.body.catchPhrase;
+
+  console.log(editedCelebrity);
+  Celebrity.findByIdAndUpdate(req.params.id, editedCelebrity)
+    .then(item => res.redirect('/celebrities'))
+    .catch(() => res.redirect(`/celebrities/${req.params.id}/edit`));
+});
+
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
