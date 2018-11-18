@@ -40,7 +40,7 @@ router.post('/:_id', (req, res, next) => {
     .then(() => {
       res.redirect('/celebrities')
     })
-    .catch(error => console.log("Error to remove a celebrity" + error))
+    .catch(error => console.log("Error to update a celebrity" + error))
 })
 
 router.post('/:_id/delete', (req, res, next) => {
