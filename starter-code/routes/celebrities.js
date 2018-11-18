@@ -32,6 +32,19 @@ router.get('/celebrities/:id', (req, res, next) => {
     })
 });
 
+router.get('/celebrities/:id/edit', (req, res, next) => {
+
+  Celebrity.findById(req.params.id)
+    .then(celebrity => {
+      console.log(celebrity);
+      res.render('celebrities/edit', { celebrity });
+    })
+    .catch(err => {
+      console.error(err);
+    })
+});
+
+
 router.post('/celebrities', (req, res, next) => {
   const newCelebrity = new Celebrity();
 
@@ -59,7 +72,28 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     res.redirect('/celebrities');
   })
   .catch(err => console.log(err));
+});
 
+router.post('/celebrities/:id', (req, res, next) => {
+  const editCelebrity = new Celebrity();
+
+  if (req.body.name == '' || req.body.occupation == '' || req.body.catchPhrase == '') {
+    res.redirect('/celebrities/edit');
+  }
+
+  editCelebrity.name = req.body.name;
+  editCelebrity.occupation = req.body.occupation;
+  editCelebrity.catchPhrase = req.body.catchPhrase;
+
+  Celebrity.findByIdAndUpdate(req.params.id, editCelebrity)
+  .then(celebrity => {
+    console.log(celebrity);
+    res.redirect('/celebrities');
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/celebrities/${req.params.id}/edit`);    
+  })
 });
 
 module.exports = router;
