@@ -92,3 +92,14 @@ router.get('/movies', (req, res, next) => {
   })
   .catch(error => console.log(error));
 });
+
+router.get('/movies/:id', (req, res, next) => {
+
+  let movieId = req.params.id;
+  Movie.findById({_id: movieId})
+  .then(movie => {
+    res.render('movie/showDetails', {movie})
+  })
+  .catch(error => console.log(error))
+  
+})
