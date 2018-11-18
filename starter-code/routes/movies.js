@@ -29,10 +29,15 @@ router.post('/movies', (req, res, next) => {
   addedMovie.genre = req.body.genre;
   addedMovie.plot = req.body.plot;
 
-  console.log(addedMovie);
   addedMovie.save()
     .then(() => res.redirect('/movies'))
     .catch(() => res.redirect('/movies/new'));
+});
+
+router.post('/movies/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/movies'))
+    .catch(err => next(err));
 });
 
 module.exports = router;
