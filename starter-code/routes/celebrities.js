@@ -58,6 +58,30 @@ router.post("/celebrities/:id/delete",(req, res)=>{
 
 
 
+router.get("/celebrities/:id/edit", (req, res) => {
+  Celebrity.findById(req.params.id)
+    .then((celebrities) => {
+      res.render("./celebrities/edit", { celebrities })
+    })
+    .catch((err) => {
+      console.log("error while editing" + err)
+    })
+})
+ router.post("/celebrities/:id", (req, res) => {
+  const { name, occupation, catchPhrase } = req.body
+  Celebrity.update(
+    { _id: req.params.id },
+    { $set: { name, occupation, catchPhrase } },
+    { new: true }
+  )
+    .then(() => {
+      console.log(Celebrity)
+      res.redirect("/celebrities/")
+    })
+    .catch((err) => {
+      console.log("error while editing" + err)
+    })
+})
 
 
  module.exports = router;
