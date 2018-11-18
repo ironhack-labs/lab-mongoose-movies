@@ -16,6 +16,10 @@
     <a href="/movies/{{this.id}}">{{this.title}}</a>
     <br>
 
+    <form action="/movies/{{this.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+
     {{/each}}
 
     <br><br>
