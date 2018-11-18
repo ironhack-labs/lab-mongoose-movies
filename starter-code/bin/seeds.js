@@ -10,7 +10,6 @@ mongoose
   console.error('Error connecting to mongo', err)
 });
 
-
 const celebrityData = [
   {
     name: "Stephen King", 
