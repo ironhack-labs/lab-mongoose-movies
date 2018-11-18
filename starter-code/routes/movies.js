@@ -7,6 +7,8 @@ const Movie = require("../models/Movie")
 router.get('/', (req, res) => {
   res.render('index');
 });
+
+//FIND MOVIE
 router.get("/movies", (req, res) => {
   Movie.find()
     .then((movies) => {
@@ -18,16 +20,35 @@ router.get("/movies", (req, res) => {
     })
 })
 
-
+//FIND INDIVIDUAL MOVIE
 router.get("/movies/:id", (req, res) => {
   Movie.findById(req.params.id)
     .then((movie) => {
-      res.render("./movies/show", {movie})
+      res.render("./movies/show", { movie })
     })
     .catch((err) => {
       console.log("error while listing individual movies" + err)
     })
 })
+//CREATE NEW MOVIE
+router.get("/movies/new", (req, res) => {
+  res.render("movies/new")
+})
 
+router.post("/movies", (req, res) => {
+  const { title, genre, plot } = req.body
+  const newMovie = new Movie({ title, genre, plot })
+})
+newMovie.save()
+  .then(() => {
+    res.redirect("/movies")
+  })
+  .catch((err) => {
+    console.log("Error while creating new movie" + err)
+  })
+//DELETE MOVIES
+
+
+//UPDATES MOVIES
 module.exports = router;
 
