@@ -3,7 +3,7 @@
 {{#each movies}}
 <h3><a href="/movies/{{this.id}}">{{this.title}}</a></h3>
 
-{{!-- <a href="/celebrities/{{this.id}}/edit">Edit Moies</a> <br> <br> --}}
+<a href="/movies/{{this.id}}/edit">Edit Movies</a> <br> <br>
 
 <form action="/movies/{{this.id}}/delete" method="POST">
   <button type="submit">Submit Deletion of Movie</button>
