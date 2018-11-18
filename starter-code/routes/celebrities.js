@@ -61,4 +61,31 @@ router.post('/:id/delete', (req, res, next) => {
     });
 });
 
+router.post('/:id/edit', (req, res, next) => {
+    let id = req.params.id;
+    Celebrity.findById(id)
+        .then(celebrityData => {
+            return res.render('celebrities/edit', { celebrityData });
+        })
+        .catch(err => {
+            next();
+            return err;
+        })
+});
+
+// router.post('/edit', (req, res, next) => {
+
+//     const { _id, name, occupation, catchPhrase } = req.body;
+//     const newCelebrity = new Celebrity({ _id, name, occupation, catchPhrase });
+//     newCelebrity.update({ _id: newCelebrity._id }, { $set: { newCelebrity } }, { new: true })
+//         .then(() => {
+
+//             res.redirect('/celebrities/');
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             return res.render('celebrities/new', { errorMessage: "There was an error, please resend the form" });
+//         })
+// });
+
 module.exports = router;

@@ -8,8 +8,12 @@
         <form action="/celebrities/{{this._id}}/delete" method="POST">
             <button type="submit">Delete</button>
         </form>
+        <form action="/celebrities/{{this._id}}/edit" method="POST">
+            <button type="submit" disabled="true">Edit</button>
+        </form>
         {{/each}}
     </ul>
 </div>
 
 <a href="/celebrities/new">New Celebrity</a>
+<a href="/movies/new">New Movie</a>
