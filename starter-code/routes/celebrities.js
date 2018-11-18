@@ -11,4 +11,18 @@ router.get('/celebrities', (req, res, next) => {
     .catch(err => next(err))
 });
 
+router.get('/celebrities/:celebId', (req, res, next) => {
+  const id = req.params.celebId;
+
+  Celebrity.findById(id)
+    .then(celebrity => {
+      console.log(celebrity)
+      res.render("celebrities/show", { celebrity });
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  
+});
+
 module.exports = router;
