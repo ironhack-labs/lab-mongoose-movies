@@ -32,9 +32,6 @@ router.get('/movies/:id', (req, res, next) => {
     })
 });
 
-
-
-
 router.post('/movies', (req, res, next) => {
   const newMovie = new Movie();
 
@@ -52,6 +49,15 @@ router.post('/movies', (req, res, next) => {
       res.redirect('/movies');
     })
     .catch(err => console.log(err));
+});
+
+router.post('/movies/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+  .then(movie => {
+    console.log(movie);
+    res.redirect('/movies');
+  })
+  .catch(err => console.log(err));
 });
 
 
