@@ -1,26 +1,28 @@
 const mongoose = require("mongoose");
-const Celebrity = require("../models/celebrity.js");
+const Celebrity = require("../models/Celebrity.js");
 
-mongoose.connect(`mongodb://localhost/celebrities`, { useNewUrlParser: true } );
+const dbName = 'celebrities';
+mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const celebrities = [
   {
-    name: "Daniel Craig",
-    occupation: "Actor",
-    catchPhrase: "The name is Bond, James Bond"
+    name: "Teo",
+    occupation: "Teacher Assistant",
+    catchPhrase: "Google it"
   },
   {
-    name: "Woody",
-    occupation: "Toy Story character",
-    catchPhrase: "You're my favorite deputy!"
+    name: "Giorgio",
+    occupation: "Teacher Assistant",
+    catchPhrase: "Dani quindi gli spaghetti non sono scritti!"
   },
   {
-    name: "Lady Gaga",
-    occupation: "Singer",
-    catchPhrase: "Im obsessively opposed to the typical"
+    name: "Diego",
+    occupation: "Teacher Assistant",
+    catchPhrase: "Refactorizes!"
   }
 ];
  Celebrity.collection.drop();
+ 
 Celebrity.create(celebrities)
   .then(() => console.log("Celebs created on DB"))
   .then(() => mongoose.disconnect());
