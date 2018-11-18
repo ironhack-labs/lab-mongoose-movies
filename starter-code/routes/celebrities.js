@@ -15,4 +15,10 @@ router.get('/celebrities', (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.get('/celebrities/:id', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebrity => res.render('celebrities/show', { celebrity }))
+    .catch(err => next(err));
+});
+
 module.exports = router;
