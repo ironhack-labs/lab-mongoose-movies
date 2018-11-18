@@ -72,3 +72,16 @@ router.post('/celebrities', (req,res,next) => {
       req.redirect('/celebrities');
     })
 })
+
+/* POST Delete celebrity*/
+
+router.post('/celebrities/:id/delete', (req,res,next)=>{
+  let celebritieId = req.params.id;
+
+  Celebrity.findByIdAndRemove({'_id':celebritieId})
+    .then(()=>{
+       res.redirect('/celebrities');
+    })
+    .catch(next)
+
+})
