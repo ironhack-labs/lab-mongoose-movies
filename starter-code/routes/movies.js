@@ -32,6 +32,18 @@ router.get('/movies/:id', (req, res, next) => {
     })
 });
 
+router.get('/movies/:id/edit', (req, res, next) => {
+
+  Movie.findById(req.params.id)
+    .then(movie => {
+      console.log(movie);
+      res.render('movies/edit', { movie });
+    })
+    .catch(err => {
+      console.error(err);
+    })
+});
+
 router.post('/movies', (req, res, next) => {
   const newMovie = new Movie();
 
@@ -53,13 +65,33 @@ router.post('/movies', (req, res, next) => {
 
 router.post('/movies/:id/delete', (req, res, next) => {
   Movie.findByIdAndRemove(req.params.id)
-  .then(movie => {
-    console.log(movie);
-    res.redirect('/movies');
-  })
-  .catch(err => console.log(err));
+    .then(movie => {
+      console.log(movie);
+      res.redirect('/movies');
+    })
+    .catch(err => console.log(err));
 });
 
+router.post('/movies/:id', (req, res, next) => {
+  const editMovie = new Movie();
 
+  if (req.body.title == '' || req.body.genre == '' || req.body.plot == '') {
+    res.redirect('/movies/edit');
+  }
+
+  editMovie.title = req.body.title;
+  editMovie.genre = req.body.genre;
+  editMovie.plot = req.body.plot;
+
+  Movie.findByIdAndUpdate(req.params.id, editMovie)
+    .then(movie => {
+      console.log(movie);
+      res.redirect('/movies');
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/movies/${req.params.id}/edit`);
+    })
+});
 
 module.exports = router;

@@ -1,0 +1,10 @@
+<h2>{{movie.title}}</h2>
+<form action="/movies/{{this.id}}" method="POST">
+  <label>Title</label>
+  <input id="inputTitle" type="text" name="name" placeholder="{{movie.title}}">
+  <label>Genre</label>
+  <input id="inputGenre" type="text" name="occupation" placeholder="{{movie.title}}">
+  <label>Plot</label>
+  <input id="inputPlot" type="text" name="catchPhrase" placeholder="{{movie.title}}">
+  <button type="submit">Edit</button>
+</form>

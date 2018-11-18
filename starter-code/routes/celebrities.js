@@ -7,11 +7,10 @@ router.get('/celebrities', (req, res, next) => {
 
   Celebrity.find()
     .then(celebrities => {
-      console.log(celebrities);
       res.render("celebrities/index", { celebrities });
     })
     .catch(error => {
-      console.log(error);
+      console.error(err);
       next(err);
     })
 });
@@ -24,7 +23,6 @@ router.get('/celebrities/:id', (req, res, next) => {
 
   Celebrity.findById(req.params.id)
     .then(celebrity => {
-      console.log(celebrity);
       res.render('celebrities/show', { celebrity });
     })
     .catch(err => {
@@ -36,7 +34,6 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
 
   Celebrity.findById(req.params.id)
     .then(celebrity => {
-      console.log(celebrity);
       res.render('celebrities/edit', { celebrity });
     })
     .catch(err => {
@@ -58,7 +55,6 @@ router.post('/celebrities', (req, res, next) => {
 
   newCelebrity.save()
     .then(celebrity => {
-      console.log(celebrity);
       res.redirect('/celebrities');
     })
     .catch(err => console.log(err));
@@ -67,11 +63,10 @@ router.post('/celebrities', (req, res, next) => {
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
-  .then(celebrity => {
-    console.log(celebrity);
-    res.redirect('/celebrities');
-  })
-  .catch(err => console.log(err));
+    .then(celebrity => {
+      res.redirect('/celebrities');
+    })
+    .catch(err => console.log(err));
 });
 
 router.post('/celebrities/:id', (req, res, next) => {
@@ -86,14 +81,13 @@ router.post('/celebrities/:id', (req, res, next) => {
   editCelebrity.catchPhrase = req.body.catchPhrase;
 
   Celebrity.Update(req.params.id, editCelebrity)
-  .then(celebrity => {
-    console.log(celebrity);
-    res.redirect('/celebrities');
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect(`/celebrities/${req.params.id}/edit`);    
-  })
+    .then(celebrity => {
+      res.redirect('/celebrities');
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/celebrities/${req.params.id}/edit`);
+    })
 });
 
 module.exports = router;
