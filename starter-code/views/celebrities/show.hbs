@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Celebrities</title>
+    <title>Details</title>
 </head>
 <body>
-    <h2>Welcome to the celebrities home page</h2>
-    
-    {{#each celebs}}
-    <a href="/celebrities/{{this.id}}">{{this.name}}</a>
-    <br>
-    {{/each}}
+    <h2>Celebrity details:</h2>
+
+    <p>{{details.name}}</p>
+    <p>{{details.occupation}}</p>
+    <p>{{details.catchphrase}}</p>
     
 </body>
 </html>
