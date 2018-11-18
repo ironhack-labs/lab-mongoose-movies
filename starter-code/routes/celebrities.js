@@ -3,10 +3,15 @@ const router = express.Router();
 
 const Celeb = require('../models/celeb');
 
+const bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded({ extended: true }));
+
+
+
 
 /* GET home page */
 router.get('/celebrities', (req, res, next) => {
-    console.log(Celeb.find())
+
     Celeb.find()
         .then((celebs) => {
             res.render('celebrities/index', { celebs })
@@ -23,15 +28,46 @@ router.get('/celebrities/:id', (req, res, next) => {
 
     let celebId = req.params.id;
     Celeb.findById(celebId)
-    .then((details) => {
-        res.render('celebrities/show', {details});
+        .then((details) => {
+            res.render('celebrities/show', { details });
+        })
+        .catch((err) => {
+            if (err) {
+                next();
+                return err
+            }
+        })
+})
+
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new')
+})
+
+router.post('/celebrities/new', (req, res, next) => {
+    const { name, occupation, catchphrase } = req.body;
+    let newCeleb = new Celeb({ name, occupation, catchphrase })
+
+    newCeleb.save()
+    .then((celeb) =>{
+        res.redirect('/celebrities/');
     })
     .catch((err) => {
-        if (err) {
-            next();
-            return err
-        }
+        console.log(err);
+        res.render('celebrities/new');
     })
+})
+
+router.post('/celebrities/:id/delete', (req,res,next) => {
+
+    Celeb.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect('/celebrities');
+        })
+        .catch((err) => {
+            res.redirect('/');
+            next();
+            return err 
+        })
 })
 
 module.exports = router;

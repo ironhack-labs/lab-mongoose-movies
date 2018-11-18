@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add celebrities</title>
+</head>
+
+<body>
+    <h2>Add a new celebrity to the database:</h2>
+
+    <form action="/celebrities/new" method="POST">
+
+        <label for="celeb-name">Name</label>
+        <input id="celeb-name" type="text" name="name">
+
+        <label for="celeb-occupation">Occupation</label>
+        <input id="celeb-occupation" type="text" name="occupation">
+        
+        <label for="celeb-catchphrase">Catchphrase</label>
+        <input id="celeb-catchphrase" type="text" name="catchphrase">
+
+        <input type="submit" value="Add celebrity">
+
+    </form>
+
+    <a href="/celebrities">Celebrities List</a>
+    <br>
+    <a href="/"> back to Home</a>
+</body>
+
+</html>
