@@ -1,7 +1,7 @@
 <h2>Celebrities:</h2>
 <ul>
 {{#each celebrities}}
-<a href="/celebrities/{{_id}}""><li>{{this.name}}</li></a>
+<a href="/celebrities/{{this._id}}"><li>{{this.name}}</li></a>
 {{/each}}
 </ul>
-
+<a href="/celebrities/new">Add a new celebrity</a>

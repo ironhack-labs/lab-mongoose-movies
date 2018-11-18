@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity.js');
+const genericCelebrity = new Celebrity();
 
 router.get('/', (req, res, next) => {
   Celebrity.find({})
@@ -10,6 +11,10 @@ router.get('/', (req, res, next) => {
     .catch(error => console.log("Error to find celebrities" + error))
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new')
+})
+
 router.get('/:_id', (req, res, next) => {
   Celebrity.findById(req.params._id)
     .then(celebrity => {
@@ -18,4 +23,17 @@ router.get('/:_id', (req, res, next) => {
     .catch(error => console.log("Error to find a celebrity" + error))
 })
 
+router.post('/', (req, res, nex) => {
+  genericCelebrity.name = req.body.name;
+  genericCelebrity.occupation = req.body.occupation;
+  genericCelebrity.catchPhrase = req.body.catchPhrase;
+  genericCelebrity.save()
+    .then(() => {
+      res.redirect('/celebrities')
+    })
+    .catch(error => {
+      console.log("Error to add a new celebrity" + error)
+      res.redirect('celebrities/new')
+    })
+})
 module.exports = router;
