@@ -44,11 +44,22 @@ router.post('/celebrities', (req, res, next) => {
   newCelebrity.catchPhrase = req.body.catchPhrase;
 
   newCelebrity.save()
+    .then(celebrity => {
+      console.log(celebrity);
+      res.redirect('/celebrities');
+    })
+    .catch(err => console.log(err));
+});
+
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
   .then(celebrity => {
     console.log(celebrity);
     res.redirect('/celebrities');
   })
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
+
 });
 
 module.exports = router;
