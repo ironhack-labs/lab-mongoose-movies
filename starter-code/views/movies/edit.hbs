@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit movie</title>
+</head>
+
+<body>
+    <h2>Edit movie:</h2>
+
+    <form action="/movies/{{this.id}}" method="post">
+
+        <label for="movie-title">Title</label>
+        <input id="movie-title" type="text" name="title" value="{{this.title}}">
+
+        <label for="movie-genre">Genre</label>
+        <input id="movie-genre" type="text" name="genre" value="{{this.genre}}">
+
+        <label for="movie-plot">Plot</label>
+        <input id="movie-plot" type="text" name="plot" value="{{this.plot}}">
+
+        <input type="submit" value="Edit movie">
+
+    </form>
+
+</body>
+
+</html>
