@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/movies', (req, res, next) => {
-    
+
     Movie.find()
     .then((movies) => {
         res.render('movies/index', {movies});
@@ -18,5 +18,20 @@ router.get('/movies', (req, res, next) => {
     })
 })
 
+
+router.get('/movies/:id', (req, res, next) => {
+
+    let movieId = req.params.id;
+    Movie.findById(movieId)
+        .then((details) => {
+            res.render('movies/show', { details });
+        })
+        .catch((err) => {
+            if (err) {
+                next();
+                return err
+            }
+        })
+})
 
 module.exports = router;
