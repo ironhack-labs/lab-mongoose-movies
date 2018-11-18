@@ -1,12 +1,24 @@
-<h2>Edit Celebrity</h2>
-<h3>Actual Celebrity data</h3>
-<p> {{this.name}}</p>
-<p> {{this.occupation}}</p>
-<p> {{this.catchPhrase}}</p>
+<div class="body-movies-index">
+    <h2>Edit Celebrity</h2>
+    <div class="items-edit">
+        <div class="default-items">
+            <h3>Current Data</h3>
+            <p><span>Name: </span> {{this.name}}</p>
+            <p><span>Occupation: </span> {{this.occupation}}</p>
+            <p><span>Plot Summary</span> {{this.catchPhrase}}</p>
+        </div>
+        <div class="form-edit">
+            <form action="/celebrities/{{this._id}}" method="POST">
+                <input type="text" name="name" required>
+                <input type="text" name="occupation" required>
+                <input type="text" name="catchPhrase" required>
+                <button type="submit"> Edit</button>
+            </form>
+            <div class="button-back">
+                  <a  href="/celebrities">Back</a>
+            </div>
+        </div>
+    </div>
 
-<form action="/celebrities/{{this._id}}" method="POST">
-    <input type="text" name="name" required>
-    <input type="text" name="occupation" required>
-    <input type="text" name="catchPhrase" required>
-    <input type="submit">
-</form>
+
+</div>

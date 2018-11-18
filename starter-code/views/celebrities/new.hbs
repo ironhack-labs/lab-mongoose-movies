@@ -1,7 +1,18 @@
-<h2> Add a new Celebrity</h2>
-<form action="/celebrities" method="POST">
-    <p> Name: <input type="text" name="name"> </p>
-    <p>Occupation: <input type="text" name="occupation" > </p>
-    <p> CatchPhrase <input type="text" name="catchPhrase"> </p>
-    <input type="submit">
-</form>
+<div class="body-movies-index">
+    <h2> Add a new Celebrity</h2>
+    <div class="items-edit">
+        <div class="form-edit">
+            <form action="/celebrities" method="POST">
+                <input type="text" name="name" placeholder="Name" required> </p>
+                <input type="text" name="occupation" placeholder="Occupation" required> </p>
+                <input type="text" name="catchPhrase" placeholder="CatchPhrase" required> </p>
+                <button type="submit">Create</button>
+            </form>
+            <div class="button-back">
+                <a href="/celebrities">Back</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

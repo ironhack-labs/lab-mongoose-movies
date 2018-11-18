@@ -1,8 +1,188 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
+
+
+/* Main index */
+.container-index {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-image: url("../images/moviesBackground.jpg");
+  background-size: cover;
+  height: 50rem;
+}
+
+.container-index > div{
+  padding: 10rem;
+}
+
+.container-index h1, h1> a{
+  font-size: 5rem;
+  font-weight: bolder;
+  color: rgb(241, 185, 42);
+  text-shadow: 5px 5px black;
+}
+
+.container-index p {
+  margin: 3rem 0;
+}
+
+
+/* Movies & Celebrities Index */
+
+.body-movies-index{
+  background-color: lightgray;
+  height: 70rem;
+}
+
+.container{
+  display: flex;
+}
+
+.body-movies-index > h2,h1{
+  text-align: center;
+  font-size: 5rem;
+  padding: 2rem;
+  font-weight: bolder;
+  color: rgb(241, 185, 42);
+  text-shadow: 5px 5px rgb(165, 160, 160);
+}
+
+.items-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.title-list{
+  padding: 3rem;
+}
+
+.title-list h2{
+  font-size: 3rem;
+  color: rgba(255, 255, 255,0.3);
+  font-weight: bolder;
+  text-shadow: 1px 1px black;
+  
+}
+
+.title-list a{
+  text-decoration: none;
+  text-align: center;
+  color: rgb(236, 86, 49);
+}
+
+.buttons-list{
+  padding:  0 3rem;
+}
+
+.button{
+  margin: 5px;
+  padding: 15px 0;
+  width: 100px;
+  border-radius: 20px;
+  background-color: rgb(240, 193, 78);
+  color: rgb(146, 73, 42);
+  font-weight: bold;
+}
+
+.new-item{
+  padding: 3rem 10rem;
+  text-align: center;
+  height: 20px;
+}
+
+.new-item h3>a{
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: rgb(205, 60, 52);
+}
+
+/* Movies & Celebrities details */
+
+.items-details{
+  width: 70%;
+  margin: auto;
+}
+
+.items-details p{
+  color: white;
+  font-size: 2rem;
+
+}
+
+.items-details span{
+  font-size: 2rem;
+  color: rgb(205, 60, 52);
+}
+
+.button-back{
+  text-align: center;
+}
+
+.button-back a{
+  padding: 3rem;
+  font-size: 3rem;
+  text-decoration: none;
+  font-weight: bolder;
+  color: rgb(241, 185, 42);
+}
+
+
+/* Movies & Celebrities edit */
+
+.items-edit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.default-items{
+  width: 70%;
+}
+
+.default-items h3{
+  font-size: 2rem;
+  color: rgb(82, 80, 80);
+  font-weight: 300;
+}
+
+.default-items p{
+  font-size: 1.5rem;
+  color: rgba(97, 95, 95, 0.5);
+}
+
+
+.default-items span{
+  color: rgb(205, 60, 52);
+}
+
+.form-edit >form{
+ margin-top: 50px;
+ display: flex;
+ flex-direction: column;
+ width: 800px;
+}
+
+.form-edit >form>input{
+  padding: 20px;
+}
+
+.form-edit >form>button{
+  width: 30%;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(240, 193, 78) ;
+  color: rgb(205, 60, 52);
+  font-size: 1.5rem;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+

@@ -1,17 +1,28 @@
-<h2> Celebrities </h2>
-<div>
-    {{#each celebrities}}
-        <h2>{{this.name}}</h2>
-        <a href="/celebrities/{{this._id}}">Show More</a>
-        <form action="/celebrities/{{this._id}}/delete" method="POST">
-            <input type="submit" value="Delete Celebrity">
-        </form>
-        <form action="/celebrities/{{this._id}}/edit" method="GET">
-            <input type="submit" value="Edit Celebrity">
-        </form>
-    {{/each}}
-</div>
-<div>
-    <h3>Create your Celebrity!!</h3>
-    <a href="/celebrities/new">Create new Celebriry</a>
+<div class="body-movies-index">
+    <h2> Celebrities </h2>
+    <div class="container">
+        <div class="items-list">
+            {{#each celebrities}}
+            <div class="title-list">
+                <h2>{{this.name}}</h2>
+                <a href="/celebrities/{{this._id}}">Show More</a>
+            </div>
+            <div class="buttons-list">
+                <form action="/celebrities/{{this._id}}/delete" method="POST">
+                    <button class="button" type="submit"> Delete Celebrity </button>
+                </form>
+                <form action="/celebrities/{{this._id}}/edit" method="GET">
+                    <button class="button" type="submit">Edit Celebrity</button>
+                </form>
+            </div>
+            {{/each}}
+           
+        </div>
+         <div class="new-item">
+                <h3> <a href="/celebrities/new">Create your Celebritie!</a></h3>
+            </div>
+    </div>
+    <div class="button-back">
+        <a href="/">Back</a>
+    </div>
 </div>

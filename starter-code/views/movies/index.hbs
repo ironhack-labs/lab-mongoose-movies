@@ -1,17 +1,28 @@
-<h2> Movies </h2>
-<div>
-    {{#each movies}}
-        <h2>{{this.title}}</h2>
-        <a href="/movies/{{this._id}}">Show More</a>
-        <form action="/movies/{{this._id}}/delete" method="POST">
-            <input type="submit" value="Delete Movie">
-        </form>
-        <form action="/movies/{{this._id}}/edit" method="GET">
-            <input type="submit" value="Edit Movie">
-        </form>
-    {{/each}}
-</div>
-<div>
-    <h3>Create your Movie!!</h3>
-    <a href="/movies/new">Create new Movie</a>
+<div class="body-movies-index">
+    <h2> Movies </h2>
+    <div class="container">
+        <div class="items-list">
+            {{#each movies}}
+            <div class="title-list">
+                <h2>{{this.title}}</h2>
+                <a href="/movies/{{this._id}}">Show More</a>
+            </div>
+            <div class="buttons-list">
+                <form action="/movies/{{this._id}}/delete" method="POST">
+                    <button class="button" type="submit">Delete Movie</button>
+                </form>
+                <form action="/movies/{{this._id}}/edit" method="GET">
+                    <button class="button" type="submit"> Edit Movie </button>
+                </form>
+            </div>
+            {{/each}}
+
+        </div>
+        <div class="new-item">
+            <h3> <a href="/movies/new">Create your Movie!</a></h3>
+        </div>
+    </div>
+    <div class="button-back">
+        <a href="/">Back</a>
+    </div>
 </div>
