@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add movies</title>
+</head>
+
+<body>
+    <h2>Add a new movie to the database:</h2>
+
+    <form action="/movies/new" method="POST">
+
+        <label for="movie-title">Title</label>
+        <input id="movie-title" type="text" name="title">
+
+        <label for="movie-genre">Genre</label>
+        <input id="movie-genre" type="text" name="genre">
+        
+        <label for="movie-plot">Plot</label>
+        <input id="movie-plot" type="text" name="plot">
+
+        <input type="submit" value="Add Movie">
+
+    </form>
+
+    <a href="/movies">Movies List</a>
+    <br>
+    <a href="/"> back to Home</a>
+</body>
+
+</html>

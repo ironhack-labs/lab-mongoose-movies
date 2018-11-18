@@ -34,4 +34,23 @@ router.get('/movies/:id', (req, res, next) => {
         })
 })
 
+router.get('/movies/new', (req, res, next) => {
+    res.render('movies/new')
+})
+
+router.post('/movies/new', (req, res, next) => {
+    const { title, genre, plot } = req.body;
+    let newMovie = new Movie({ title, genre, plot })
+
+    newMovie.save()
+        .then((movie) => {
+            res.redirect('/movies/');
+        })
+        .catch((err) => {
+            console.log(err);
+            res.render('movies/new');
+        })
+})
+
+
 module.exports = router;
