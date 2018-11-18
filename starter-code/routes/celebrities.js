@@ -35,4 +35,10 @@ router.post('/celebrities', (req, res, next) => {
     .catch(() => res.redirect('/celebrities/new'));
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/celebrities'))
+    .catch(err => next(err));
+});
+
 module.exports = router;
