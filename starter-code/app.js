@@ -54,5 +54,13 @@ app.locals.title = 'Celebrities DB';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrities = require('./routes/celebrities');
+app.use('/', celebrities);
+app.use('/new', celebrities);
+
+const movies = require('./routes/movies');
+app.use('/', movies);
+app.use('/new', movies);
+
 
 module.exports = app;
