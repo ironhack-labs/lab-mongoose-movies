@@ -4,6 +4,11 @@
 
 <div class="list">
   {{#each celebrities}}
+  <div class="element">
     <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
   {{/each}}
 </div>

@@ -23,27 +23,29 @@ router.post('/celebrities', (req, res, next) => {
 
   celebrity.save()
     .then((celebrity) => {
-      res.redirect('celebrities');
+      res.redirect('/celebrities');
     })
-    .catch((err) => {
-      console.log(err);
-      res.redirect('celebrities/new')
-    });
+    .catch((err) => next(err));
 });
 
-router.get('/celebrities/:celebId', (req, res, next) => {
-  const id = req.params.celebId;
+router.get('/celebrities/:id', (req, res, next) => {
+  const id = req.params.id;
   
   Celebrity.findById(id)
   .then(celebrity => {
     console.log(celebrity)
     res.render("celebrities/show", { celebrity });
   })
-  .catch(error => {
-    console.log(error)
-  })
+  .catch(err => next(err))
   
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  const id = req.params.id;
+
+  Celebrity.findByIdAndRemove(id)
+    .then(() => res.redirect('/celebrities'))
+    .cath(err => next(err))
+})
 
 module.exports = router;
