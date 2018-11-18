@@ -16,6 +16,10 @@ router.get('/movies', (req, res, next) => {
     })
 });
 
+router.get('/movies/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
 router.get('/movies/:id', (req, res, next) => {
 
   Movie.findById(req.params.id)
@@ -26,6 +30,28 @@ router.get('/movies/:id', (req, res, next) => {
     .catch(err => {
       console.error(err);
     })
+});
+
+
+
+
+router.post('/movies', (req, res, next) => {
+  const newMovie = new Movie();
+
+  if (req.body.title == '' || req.body.genre == '' || req.body.plot == '') {
+    res.redirect('/movies/new');
+  }
+
+  newMovie.title = req.body.title;
+  newMovie.genre = req.body.genre;
+  newMovie.plot = req.body.plot;
+
+  newMovie.save()
+    .then(movie => {
+      console.log(movie);
+      res.redirect('/movies');
+    })
+    .catch(err => console.log(err));
 });
 
 
