@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity')
+const Movie = require('../models/Movie')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -15,7 +16,7 @@ router.get('/celebrities', (req, res, next) => {
   .then(celebrity => {
     res.render('celebrities',  {celebrity})
   })
-  .catch(err => console.log(err));
+  .catch(error => console.log(error));
 });
 
 
@@ -76,3 +77,18 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 // router.post('/celebrities/:id', (req, res, next) => {
 
 // })
+
+
+
+
+///////////////////////////////////////
+///MOVIE'S ROUTE///////////////////////
+///////////////////////////////////////
+
+router.get('/movies', (req, res, next) => {
+  Movie.find()
+  .then(movie => {
+    res.render('movie/movieList', {movie})
+  })
+  .catch(error => console.log(error));
+});
