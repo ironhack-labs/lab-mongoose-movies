@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/Celebrity');
 
-mongoose
-  .connect('mongodb://localhost/celebritiesDB', { useNewUrlParser: true })
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+const dbName = "CelebDB";
+
+mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const celebrities = [
 
