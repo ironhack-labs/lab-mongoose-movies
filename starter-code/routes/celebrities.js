@@ -14,7 +14,7 @@ router.get('/celebrities/new', (req, res, next) => {
   res.render('celebrities/new')
 });
 
-router.post('/celebrities/new', (req, res, next) => {
+router.post('/celebrities', (req, res, next) => {
   const celebrity = new Celebrity({
     name: req.body.name,
     occupation: req.body.occupation,
@@ -23,11 +23,11 @@ router.post('/celebrities/new', (req, res, next) => {
 
   celebrity.save()
     .then((celebrity) => {
-      res.redirect('/celebrities');
+      res.redirect('celebrities');
     })
     .catch((err) => {
       console.log(err);
-      res.render('celebrities/new')
+      res.redirect('celebrities/new')
     });
 });
 
