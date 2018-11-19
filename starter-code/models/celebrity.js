@@ -8,5 +8,6 @@ const celebritySchema = new Schema({
 })
 
 const Celebrity=mongoose.model('Celebrity',celebritySchema);
+
 module.exports = Celebrity;
 
