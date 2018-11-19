@@ -11,15 +11,15 @@ const path          = require('path');
 const session       = require("express-session");
 const bcrypt        = require("bcryptjs");
 const passport      = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
 // const flash         = require("connect-flash");
-const User          = require('./models/User');
-// const userRoutes        = express.Router();
-const Routes        = require("router");
+const user          = require('./models/User');
+
+
+
 
 
 // require('./config/passport');
-mongoose.Promise = Promise;
+
 mongoose
 
   .connect('mongodb://localhost/Celebrity', {useNewUrlParser: true})
@@ -37,21 +37,21 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 
-Routes.get('/login', (req, res, next)=>{  
-  res.render('User/login', { "message": "error" })
-})
+// userRoutes.get('/login', (req, res, next)=>{  
+//   res.render('User/login', { "message": "error" })
+// })
 
-Routes.post("/login", passport.authenticate("local", {
-  successRedirect: "/landing-page",
-  failureRedirect: "/landing-page",
-  failureFlash: true,
-  passReqToCallback: true
-}));
-// Middleware Setup
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// userRoutes.post("/login", passport.authenticate("local", {
+//   successRedirect: "/landing-page",
+//   failureRedirect: "/landing-page",
+//   failureFlash: true,
+//   passReqToCallback: true
+// }));
+// // Middleware Setup
+// app.use(logger('dev'));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(cookieParser());
 
 // Express View engine setup
 
