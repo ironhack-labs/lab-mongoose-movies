@@ -1,0 +1,11 @@
+<div class="buttonsSection">
+<a id="backButton" href="/celebrities"><i  class="fas fa-arrow-left"></i></a>
+</div>
+ <section class="celebritySection">
+  {{#each celebrity}}
+  <h1>{{this.name}}</h1>
+  <img src="{{this.img}}" alt="">
+  <h2>{{this.occupation}}</h2>
+  <p>{{this.catchPhrase}}</p>
+  {{/each}}
+</section> 
