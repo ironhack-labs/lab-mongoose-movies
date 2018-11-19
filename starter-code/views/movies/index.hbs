@@ -1,0 +1,10 @@
+<h3><a href="/movies/new"><button>Add a new movie</button></a></h3>
+
+<h2>Esta página muestra todAs las movies de Mongo</h2>
+
+{{#each list}}
+<h3><a href="/movies/{{this.id}}">{{this.title}}</a></h3>
+<form action="/movies/{{this.id}}/delete" method="post">
+    <input type="submit" value="Delete">
+</form>
+{{/each}}
