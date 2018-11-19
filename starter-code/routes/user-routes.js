@@ -6,52 +6,24 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 const passport = require("passport");
+const username = require("../models/User");
 
 
-// app.use(flash());
-// userRoutes.get('/login', (req, res, next)=>{  
-//     res.render('User/login', { "message": "error" })
-// })
 
-// userRoutes.post("/login", passport.authenticate("local", {
-//     successRedirect: "/landing-page",
-//     failureRedirect: "/landing-page",
-//     failureFlash: true,
-//     passReqToCallback: true
-// }));
+userRoutes.get('/login', (req, res, next)=>{  
+    res.render('User/login', { message: req.flash("error") })
+})
 
 
-// app.use(flash());
-// passport.use(new LocalStrategy((username, password, next) => {
 
 
-  userRoutes.get('/landing-page', (req, res, next)=>{
-      res.render('User/landing-page')
-  });
-
-userRoutes.get("/signup", (req, res, next) => {
-  res.render("User/signup");
-});
-
-userRoutes.get("/login", (req, res, next) => {
-    res.render("User/login");
-  });
-
-//   User.findOne({username}, (err, user) => {
-//     if (err) {
-//       return next(err);
-//     }
-//     if (!user) {
-//       return next(null, false, { message: "Incorrect username" });
-//     }
-//     if (!bcrypt.compareSync(password, user.password)) {
-//       return next(null, false, { message: "Incorrect password" });
-//     }
-
-//     return next(null, user);
-//   });
-
-
+  userRoutes.post("/login", passport.authenticate("local", {
+    successRedirect: "/landing-page",
+    failureRedirect: "/login",
+    failureFlash: true,
+    passReqToCallback: true
+  
+  }));
 userRoutes.post("/signup", (req, res, next) => {
     // const username = req.body.username;
     // const password = req.body.password;
@@ -61,8 +33,8 @@ userRoutes.post("/signup", (req, res, next) => {
     //     return;
     // }
     User.findOne({ username: req.body.username })
-    .then(User => {
-        if (User !== null) {
+    .then(anyUser => {
+        if (anyUser !== null) {
         res.render("User/signup", { message: "The username already exists" });
         return;
         }
@@ -73,7 +45,7 @@ userRoutes.post("/signup", (req, res, next) => {
             password: hashPass
         })
         .then(()=>{
-            res.redirect('User/landing-page');
+            res.redirect('/landing-page');
 
         })
         .catch((err)=>{
@@ -83,6 +55,18 @@ userRoutes.post("/signup", (req, res, next) => {
     .catch(err => {
         next(err);
     })
+});
+
+userRoutes.get('/landing-page', (req, res, next)=>{
+    res.render('User/landing-page');
+});
+
+userRoutes.get("/signup", (req, res, next) => {
+res.render("User/signup");
+});
+
+userRoutes.get("/login", (req, res, next) => {
+  res.render("User/login");
 });
 
 

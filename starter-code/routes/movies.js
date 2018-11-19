@@ -54,12 +54,12 @@ router.get('/movies/:id', (req, res, next)=>{
   Movie.findById(req.params.id)
   .then((movies)=>{
     console.log('movie info ----------- ', movies)
-    // if(!movies.length){
-    //   res.redirect('/movies')
-    // } else {
+    if(!movies.length){
+      res.redirect('/movies')
+    } else {
       res.render('movies/movie-details', movies);
-    // }
-        // res.render('celebrities/celebrity-details', celebrities)
+    }
+        res.render('celebrities/celebrity-details', celebrities)
   })
   .catch((err)=>{
     // console.log("err===========")

@@ -11,14 +11,11 @@ const path          = require('path');
 const session       = require("express-session");
 const bcrypt        = require("bcryptjs");
 const passport      = require("passport");
-// const flash         = require("connect-flash");
-const user          = require('./models/User');
+const flash         = require("connect-flash");
+const User          = require('./models/User');
+const LocalStrategy = require("passport-local").Strategy;
 
 
-
-
-
-// require('./config/passport');
 
 mongoose
 
@@ -37,21 +34,12 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 
-// userRoutes.get('/login', (req, res, next)=>{  
-//   res.render('User/login', { "message": "error" })
-// })
 
-// userRoutes.post("/login", passport.authenticate("local", {
-//   successRedirect: "/landing-page",
-//   failureRedirect: "/landing-page",
-//   failureFlash: true,
-//   passReqToCallback: true
-// }));
 // // Middleware Setup
-// app.use(logger('dev'));
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Express View engine setup
 
@@ -83,22 +71,24 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-// app.use(flash());
-// passport.use(new LocalStrategy((username, password, next) => {
-//   User.findOne({username}, (err, user) => {
-//     if (err) {
-//       return next(err);
-//     }
-//     if (!user) {
-//       return next(null, false, { message: "Incorrect username" });
-//     }
-//     if (!bcrypt.compareSync(password, user.password)) {
-//       return next(null, false, { message: "Incorrect password" });
-//     }
+app.use(flash());
 
-//     return next(null, user);
-//   });
-// }));
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({username}, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
 
 app.use(session({
   secret: "our-passport-local-strategy-app",
