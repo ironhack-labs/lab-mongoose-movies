@@ -1,9 +1,19 @@
 const mongoose = require ("mongoose");
 const Celebrity = require ("../models/Celebrity");
 
-const data = "movies";
-mongoose.connect('mongodb://localhost/movies');
 
+
+mongoose
+	.connect('mongodb://localhost/movies', {
+		useNewUrlParser: true
+	})
+	.then(x => {
+		console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+	})
+	.catch(err => {
+		console.error('Error connecting to mongo', err)
+  });
+  
 const celebrities = [
   {
     name: "Quentin Tarantino",
@@ -32,3 +42,4 @@ Celebrity.create(celebrities, err => {
   mongoose.connection.close();
 });
 
+Celebrity.insertMany(celebrities);
