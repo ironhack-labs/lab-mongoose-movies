@@ -36,8 +36,7 @@ router.post("/", (req, res, next) => {
     .then(() => {
       res.redirect("/celebrities");
     })
-    
-});
+  });
 
 /* POST delete celebrity */
 router.post("/:id/delete", (req, res, next) => {
@@ -45,8 +44,7 @@ router.post("/:id/delete", (req, res, next) => {
     .then(() => {
       res.redirect("/celebrities");
     })
-  
-});
+  });
 
 /* POST edit celebrity */
 router.post("/:id", (req, res, next) => {
@@ -55,6 +53,6 @@ router.post("/:id", (req, res, next) => {
     .then(() => {
       res.redirect("/celebrities");
     })
-    
-});
+  });
 
+module.exports = router;
