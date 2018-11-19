@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Movie  = require('../models/Movie');
-const mongoose = require('../node_modules/mongoose');
+const mongoose = require('mongoose');
 
 
 router.get('/movies', (req, res, next)=>{
@@ -41,12 +41,10 @@ router.post('/movies/:id/delete', (req, res, next)=>{
 
 router.get('/movies/:id', (req, res, next)=>{
 
-  // console.log("=== ", req.params.id)
-  // if(!req.params.id.Types.ObjectId){
-  //   res.redirect('/movies')
-  // }
-  // mongoosxe.types.objectidis valid is checking if the id matches any of the movies ids and if not redirects to the entire movies page
   console.log("=== ", req.params.id)
+
+  // mongoosxe.types.objectidis valid is checking if the id matches any of the movies ids and if not redirects to the entire movies page
+  // console.log("=== ", req.params.id)
   if(!mongoose.Types.ObjectId.isValid(req.params.id)){
     res.redirect('/movies')
   }
@@ -54,13 +52,9 @@ router.get('/movies/:id', (req, res, next)=>{
   Movie.findById(req.params.id)
   .then((movies)=>{
     console.log('movie info ----------- ', movies)
-    if(!movies.length){
-      res.redirect('/movies')
-    } else {
+   
       res.render('movies/movie-details', movies);
-    }
-        res.render('celebrities/celebrity-details', celebrities)
-  })
+    })
   .catch((err)=>{
     // console.log("err===========")
       next(err);

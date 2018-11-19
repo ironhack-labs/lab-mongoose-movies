@@ -7,6 +7,7 @@ const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 const passport = require("passport");
 const username = require("../models/User");
+const session       = require("express-session");
 
 
 
@@ -24,6 +25,8 @@ userRoutes.get('/login', (req, res, next)=>{
     passReqToCallback: true
   
   }));
+
+
 userRoutes.post("/signup", (req, res, next) => {
     // const username = req.body.username;
     // const password = req.body.password;
@@ -58,16 +61,19 @@ userRoutes.post("/signup", (req, res, next) => {
 });
 
 userRoutes.get('/landing-page', (req, res, next)=>{
+    console.log("========", req.user)
+    session.currentUser = req.user;
     res.render('User/landing-page');
+    // res.render('User/landing-page')
 });
-
+// refer to marcos monster project for username to appear on each page^^^^^^
 userRoutes.get("/signup", (req, res, next) => {
 res.render("User/signup");
 });
 
-userRoutes.get("/login", (req, res, next) => {
-  res.render("User/login");
-});
+// userRoutes.get("/login", (req, res, next) => {
+//   res.render("User/login");
+// });
 
 
 

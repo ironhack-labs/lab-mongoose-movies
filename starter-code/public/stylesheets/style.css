@@ -33,4 +33,9 @@ a {
 .movie-title {
   text-decoration: underline; }
 
+#celeb-box {
+  border: 1px solid black;
+  width: 200px;
+  text-align: center; }
+
 /*# sourceMappingURL=style.css.map */

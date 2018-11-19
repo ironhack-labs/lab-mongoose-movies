@@ -96,6 +96,12 @@ app.use(session({
   saveUninitialized: true
 }));
 
+console.log(">>>>>>>>>>>>>>>>>>>> ", session.currentUser)
+
+app.locals.currentUser = session.currentUser;
+
+console.log(">>>>>>>>>>>>>>>>>>>> ", app.locals.currentUser)
+
 app.use(passport.initialize());
 app.use(passport.session());
 
