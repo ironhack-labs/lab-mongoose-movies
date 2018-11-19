@@ -73,7 +73,7 @@ userRoutes.post("/login", passport.authenticate("local", {
   userRoutes.get('/profile', (req, res, next)=>{
     if(!req.user){
         req.flash('error', 'page not available');
-        res.redirect('/signup')
+        res.redirect('/login')
         return;
     } else{
     Movie.find({addedBy: req.user._id})
@@ -87,5 +87,6 @@ userRoutes.post("/login", passport.authenticate("local", {
     })
  }
 })
+
 
 module.exports = userRoutes;

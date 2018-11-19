@@ -5,7 +5,6 @@ const Movie   = require('../models/Movie');
 
 router.get('/movies', (req, res, next) => {
     if(!req.user){
-        req.flash('error', 'page not available');
         res.redirect('/signup')
         return;
     } else{
@@ -21,7 +20,6 @@ router.get('/movies', (req, res, next) => {
 });
 router.get('/movies/new', (req, res, next) => {
     if(!req.user) {
-        req.flash('error', 'You must be logged in to add a Movie')
         res.redirect('/login');
     } else{ 
     res.render("Films/new-movie");
