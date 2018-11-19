@@ -5,4 +5,32 @@ body {
 a {
   color: #00B7FF; }
 
+.error-message {
+  color: red;
+  font-weight: bold; }
+
+.list-button {
+  background-color: blue;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-radius: 20px;
+  color: white; }
+
+.new-movie-btn {
+  background-color: green;
+  color: white;
+  height: 25px;
+  border-radius: 10px; }
+
+.each-movie-border {
+  border: 1px solid black;
+  width: 400px;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px; }
+
+.movie-title {
+  text-decoration: underline; }
+
 /*# sourceMappingURL=style.css.map */

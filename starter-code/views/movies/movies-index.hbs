@@ -1,14 +1,12 @@
 <h1>List of Movies</h1>
-
-
-
-
+<a href="/movies/new"><button class="new-movie-btn">Add a new movie</button></a>
+<hr>
 {{#each movies}}
-
-<h2>{{this.title}}</h2>
-<a href="/movies/{{this._id}}">See Details</a>
-<a href="/movies/new">Add a movie</a>
-
-
-
+<div class="each-movie-border">
+<h3 class="movie-title">{{this.title}}</h3>
+<a href="/movies/{{this._id}}">More Info</a>
+</div>
 {{/each}}
+<br>
+<br>
+
