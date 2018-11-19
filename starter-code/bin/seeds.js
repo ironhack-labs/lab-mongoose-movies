@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/Celebrity.js");
 
-const dbName = 'celebrities';
-mongoose.connect(`mongodb://localhost/${dbName}`);
+const database = 'celebrities';
+mongoose.connect(`mongodb://localhost/${database}`);
 
 const celebrities = [
   {
@@ -22,6 +22,7 @@ const celebrities = [
   }
 ];
  Celebrity.collection.drop();
+
  
 Celebrity.create(celebrities)
   .then(() => console.log("Celebs created on DB"))

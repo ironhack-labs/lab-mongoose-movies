@@ -1,11 +1,14 @@
-const express = require('express');
+
+// Dependencies
+ 
+ const express = require('express');
  const router  = express.Router();
  const Celebrity = require('../models/Celebrity');
 
 
 
 
-
+// Create Celeb
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebrities => res.render('celebrities/index', { celebrities }))
@@ -20,7 +23,7 @@ router.get('/celebrities/:id', (req, res, next) => {
 
 
 
-
+// Add
 
 router.get("/celebrities/new", (req, res, next) => {
   res.render("./celebrities/new")
@@ -35,7 +38,7 @@ router.get("/celebrities/new", (req, res, next) => {
       res.redirect("/celebrities")
     })
     .catch((error) => {
-      console.log("error while creating new celebrities" + error)
+      console.log("error creating new celebrities" + error)
     })
 })
 
@@ -43,7 +46,7 @@ router.get("/celebrities/new", (req, res, next) => {
 
 
 
-
+// Delete
 router.post("/celebrities/:id/delete",(req, res)=>{
   Celebrity.findByIdAndRemove(req.params.id)
   .then(()=>{
@@ -56,7 +59,7 @@ router.post("/celebrities/:id/delete",(req, res)=>{
 
 
 
-
+// Celebrities
 
 router.get("/celebrities/:id/edit", (req, res) => {
   Celebrity.findById(req.params.id)
