@@ -2,5 +2,11 @@
   <h2>Celebrities Web Site</h2>
   {{#each celebrities}}
   <li>{{name}}</li>
+  <a href="/celebrities/celebrity/{{_id}}">See More About</a>
+  <a href="/celebrities/celebrity/{{_id}}/edit">Edit</a>
+  <a href="/celebrities/celebrity/{{_id}}/delete">Delete</a>
   {{/each}}
+  <br>
+  <a href="/celebrities/new">New Celebrity</a>
 </div>
+
