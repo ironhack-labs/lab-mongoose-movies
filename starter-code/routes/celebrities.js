@@ -29,6 +29,19 @@ router.get('/celebrities/new',(req, res, next) => {
         res.render('celebrities/new', { celebrities })
     .catch(err =>{next(err)}));
 }); 
+
+router.post('/celebrities',(req,res,next)=>{
+    const {name,occupation,catchPhrase}=req.bod;
+    const newCelebrity = new Celebrity({name,occupation,catchPhrase})
+    newCelebrity.save()
+    .then(()=>{
+        res.redirect('/celebrities')
+    })
+    .catch((err)=> {
+        console.log('error creating new celebrities' + err)
+    })
+})
+
 router.post('/celebrities/:id/delete',(req, res) => {
   Celebrity.findByIdAndRemove()
   .then((celebrity) => {
