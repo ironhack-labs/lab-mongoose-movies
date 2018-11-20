@@ -1,0 +1,26 @@
+
+<body class="listPersona">
+
+<h1>
+Celebrities
+</h1>
+
+{{#each celebs}}
+
+<a href="celeb/{{this._id}}">{{this.name}}</a>
+
+<img src="{{this.image}}" alt="" style="width: 200px"> 
+
+
+{{/each}}
+
+
+<a href="/detailsC{{this._id}}">See Details</a>
+
+<a href="/celebrities/addC">Add a Celebrity to the list</a>
+
+
+
+
+
+</body>

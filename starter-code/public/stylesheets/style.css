@@ -8,20 +8,47 @@ a {
 .welcome {
   background-color: black; }
 
+.welcomeBtn {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50%; }
+
+.button:hover {
+  background-color: #4CAF50;
+  /* Green */
+  color: white; }
+
+.button2:hover {
+  background-color: lightskyblue;
+  color: darkblue; }
+
 .editPersona {
-  background-color: red;
+  background-color: plum;
   color: white; }
 
 .listPersona {
-  background-color: orange;
-  color: white; }
+  background-color: lightgreen;
+  color: darkslategray; }
 
 .detailsPersona {
-  background-color: yellow;
+  background-color: lightyellow;
   color: darkblue; }
+
+.detailsPelicula {
+  background-color: grey;
+  color: black; }
 
 .addPersona {
   background-color: pink;
   color: darkblue; }
+
+.listMovie {
+  background-color: lightskyblue;
+  color: darkolivegreen; }
 
 /*# sourceMappingURL=style.css.map */

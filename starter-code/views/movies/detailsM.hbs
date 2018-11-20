@@ -1,0 +1,15 @@
+<body class="detailsPelicula">
+
+
+<h1>More details about {{this.title}}</h1>
+<h2>Genre: {{this.genre}}</h2>
+<h3>Plot: {{this.plot}}</h3>
+ 
+
+<a href="/movies/{{_id}}/editM">Edit This Movie</a>
+
+<form action="/movies/{{_id}}/deleteM" method="POST"><button>Delete this movie from the list</button>
+</form> 
+</body>
+
+

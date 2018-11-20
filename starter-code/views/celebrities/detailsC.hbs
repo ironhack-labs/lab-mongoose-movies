@@ -1,0 +1,21 @@
+<body class="detailsPersona">
+
+<h2>Name: {{this.name}}</h2><br>
+<img src="{{this.image}}" alt="" style="width: 200px"> 
+
+<h3>Occupation: {{this.occupation}}</h3><br>
+
+<h3>Catchphrase: {{this.catchPhrase}}</h3><br>
+
+
+<a href="/celebrities/{{_id}}/edit"> Edit this information</a>
+
+
+
+ <form action="/celebrities/{{_id}}/delete" method="POST"><button>Delete this celebrity from the list</button>
+</form> 
+
+</body>
+
+
+
