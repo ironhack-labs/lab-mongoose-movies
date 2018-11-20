@@ -1,0 +1,32 @@
+<h1>the movie edit page</h1>
+<form action="/movies/{{theMovie._id}}">
+
+
+  <label>Title</label>
+  <input type="text" name="title" value="{{theMovie.title}}">
+
+  <label>Director</label>
+  <input type="text" name="director" value="{{theMovie.director}}">
+
+  <label>Stars</label>
+  <input  type="text" name="stars" value="{{theMovie.stars}}">
+
+   <label>Image</label>
+  <input  type="text" name="image" value="{{theMovie.image}}">
+
+
+ <label>Description</label>
+  <input  type="text" name="description" value="{{theMovie.description}}">
+
+   <label>Showtimes</label>
+  <input  type="text" name="showtimes" value="{{theMovie.showtimes}}">
+
+
+<button type="submit">Save</button>
+
+
+
+
+
+
+</form>

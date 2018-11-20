@@ -43,7 +43,7 @@ router.post('/celeb/create', (req, res, next)=>{
   Celebrity.create(req.body)
   .then((x)=>{
     console.log(x)
-    res.redirect('/new')
+    res.redirect('/celebrities')
 
    })
    .catch((err)=>{

@@ -1,0 +1,32 @@
+
+
+<h1>
+{{theMovie.title}}  
+</h1>
+
+<h2>
+    directed by {{theMovie.director}}
+</h2>
+
+<h4>{{theMovie.description}}</h4>
+
+
+<img src="{{theMovie.image}}" alt="">
+
+
+<h3>Cast</h3>
+<ul>
+    {{#each theMovie.stars}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+
+<h3>Showtimes</h3>
+<ul>
+{{#each theMovie.showtimes}}
+      <li>{{this}}</li>
+{{/each}}
+</ul>
+
+
+<span><a href="/movie-views/{{theMovie._id}}/edit-movie">Edit</a></span>

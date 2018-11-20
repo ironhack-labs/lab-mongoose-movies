@@ -116,6 +116,12 @@ app.use(passport.session());
 const celebsRoute = require('./routes/celebrities');
 app.use('/', celebsRoute);
 
+const movies = require('./routes/movieroutes/movies-routes')
+app.use('/', movies)
+
+
+
+
 const index = require('./routes/index');
 app.use('/', index);
 

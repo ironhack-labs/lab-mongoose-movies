@@ -1,25 +1,45 @@
 const mongoose = require('mongoose');
 
-const celebArr = [
+// const celebArr = [
+//   {
+//     name: 'Pootie Tang',
+//     occupation: 'Vigilante',
+//     catchPhrase: 'Wah Dah Tay'
+//   },
+
+//   {
+//     name: 'Pac-Man',
+//    occupation: 'Ghost-Hunter',
+//   catchPhrase: 'Wonka Wonka',
+// },
+//   {
+//     name: 'Mario',
+//     occupation: 'Plumer',
+//     catchPhrase: `Its me, Mario!`
+//   },
+
+// ]
+
+
+const movieArr = [
   {
-    name: 'Pootie Tang',
-    occupation: 'Vigilante',
-    catchPhrase: 'Wah Dah Tay'
+    title: 'Star Wars',
+    genre: 'Action',
+    plot: 'Guys saves princess in a galaxy far far away'
   },
 
   {
-    name: 'Pac-Man',
-   occupation: 'Ghost-Hunter',
-  catchPhrase: 'Wonka Wonka',
+    title: 'Scream',
+   genre: 'Horror',
+  plot: 'Seriel Prank caller killer',
 },
   {
-    name: 'Mario',
-    occupation: 'Plumer',
-    catchPhrase: `Its me, Mario!`
+    title: 'Liar Liar',
+    genre: 'Comedy',
+    plot: `Lawyer cant lie for 24hours`
   },
 
 ]
-
 mongoose.connect('mongodb://localhost/celebrities', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')

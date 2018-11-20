@@ -1,0 +1,23 @@
+
+
+
+
+<h1>Celebrity Info</h1>
+
+<div>
+<p>Hello my name is {{celeb.name}}</p>
+</div>
+<div>
+<p>I am know for being a(n) {{celeb.occupation}}</p>
+</div>
+<div>
+<p>I am know for saying "{{celeb.catchPhrase}}"</p>
+</div>
+
+<a href="/celeb/{{celeb._id}}/edit"><button type="submit">Edit Info</button></a>
+{{!-- <a href="/celebrities"><button type="submit">Delete</button></a> --}}
+
+
+<form action="/celeb/{{celeb._id}}/delete" method="POST">
+    <button>Delete Celebrity</button>
+</form>
