@@ -18,6 +18,7 @@ router.get('/movies', (req, res, next) => {
     })
  }
 });
+
 router.get('/movies/new', (req, res, next) => {
     if(!req.user) {
         res.redirect('/login');
@@ -49,7 +50,6 @@ router.get('/movies/:theIdThing/edit', (req, res, next)=>{
     })
 });
 
-
 router.post('/movies/:id/update', (req, res, next)=>{
 
     Movie.findByIdAndUpdate(req.params.id, req.body)
@@ -61,8 +61,6 @@ router.post('/movies/:id/update', (req, res, next)=>{
     })
 })
 
-
-
 router.get('/movies/:theID', (req, res, next)=>{
     Movie.findById(req.params.theID).populate('addedBy')
     .then((movieInfoFromDB)=>{
@@ -72,6 +70,7 @@ router.get('/movies/:theID', (req, res, next)=>{
         next(err);
     })
 })
+
 router.post('/movies/:id/delete', (req, res, next)=>{
     Movie.findByIdAndRemove(req.params.id)
     .then(()=>{
@@ -81,8 +80,5 @@ router.post('/movies/:id/delete', (req, res, next)=>{
         next(err);
     })
 })
-
-
-
 
 module.exports = router;

@@ -18,6 +18,7 @@ router.get('/celebrities', (req, res, next) => {
     })
   }
 });
+
 router.get('/celebrities/new', (req, res, next) => {
     res.render("Celeb/new-celeb");
 });
@@ -42,7 +43,6 @@ router.get('/celebrities/:theIdThing/edit', (req, res, next)=>{
     })
 });
 
-
 router.post('/celebrities/:id/update', (req, res, next)=>{
 
     Celebrity.findByIdAndUpdate(req.params.id, req.body)
@@ -54,8 +54,6 @@ router.post('/celebrities/:id/update', (req, res, next)=>{
     })
 })
 
-
-
 router.get('/celebrities/:theID', (req, res, next)=>{
     Celebrity.findById(req.params.theID)
     .then((celebInfoFromDB)=>{
@@ -65,6 +63,7 @@ router.get('/celebrities/:theID', (req, res, next)=>{
         next(err);
     })
 })
+
 router.post('/celebrities/:id/delete', (req, res, next)=>{
     Celebrity.findByIdAndRemove(req.params.id)
     .then(()=>{
@@ -74,7 +73,6 @@ router.post('/celebrities/:id/delete', (req, res, next)=>{
         next(err);
     })
 })
-
 
 module.exports = router;
   

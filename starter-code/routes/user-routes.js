@@ -48,11 +48,17 @@ userRoutes.post("/signup", (req, res, next) => {
         
                 res.redirect('/profile');
               });
+
         })
         .catch((err)=>{
-            next(err);
+            next(err)
         });
-    });
+
+    })
+    .catch((err)=>{
+        next(err)
+    })
+    
 });
 
 userRoutes.get('/login', (req, res, next)=>{  
@@ -64,13 +70,14 @@ userRoutes.post("/login", passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
-  }));
+}));
 
-  userRoutes.get('/logout', (req, res, next)=>{
+userRoutes.get('/logout', (req, res, next)=>{
     req.logout();
     res.redirect("/");
-  })
-  userRoutes.get('/profile', (req, res, next)=>{
+})
+
+userRoutes.get('/profile', (req, res, next)=>{
     if(!req.user){
         req.flash('error', 'page not available');
         res.redirect('/login')
