@@ -97,6 +97,4 @@ const user = require('./routes/user-routes')
 app.use('/' , user)
 
 
-
-
 module.exports = app;

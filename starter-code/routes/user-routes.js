@@ -14,12 +14,36 @@ const passport             = require('passport');
 const Movie                = require('../models/Movie');
 
 
+const uploader             = require('../config/cloud');
+
+
+
+// API
+
+
+
+
+router.get('/api/users', (req,res,next)=>{
+
+  if(req.user){
+
+    User.find()
+    .then((eachUser)=>{
+      res.json(eachUser);
+    })
+    .catch((err)=>{
+      next(err)
+    })
+  }
+})
+
+
 router.get('/signup', (req,res,next)=>{
   res.render('signup' , {message : req.flash('error')})
 });
 
 
-router.post('/signup', (req,res,next)=>{
+router.post('/signup', uploader.single('the-picture'), (req,res,next)=>{
 
   User.findOne({username: req.body.username})
   .then((theUser)=>{
@@ -33,7 +57,9 @@ router.post('/signup', (req,res,next)=>{
     User.create({
       username: req.body.username,
       password: theHash,
-      admin: false
+      admin: false,
+      profilePic: req.file.url
+
     })
     .then((theUser)=>{
       req.login(theUser, (err)=>{
@@ -67,35 +93,6 @@ router.post('/signup', (req,res,next)=>{
       next(err);
     })
   })
-  // const theUserName = req.body.username;
-  // const thePassWord = req.body.password;
-
-  // if(theUserName === "" || thePassWord==="")
-  // {
-  //   res.render("signup", {errorMessage: "Indicate a username and a password to sign up"});
-  //   return;
-  // }
-
-  // User.findOne({username: theUserName})
-  // .then(user =>{
-  //   if(user !== null){
-  //     res.render("signup", {errorMessage: "Sorry, that username is already taken"})
-  //     return;
-  //   }
-
-  // const salt = bcrypt.genSaltSync(bcryptSalt);
-  // const hashPass = bcrypt.hashSync(thePassWord, salt);
-  
-  // User.create({username: theUserName, password:hashPass})
-  // .then(()=>{
-  //   res.redirect('/')
-  // })
-  // .catch((err)=>{
-  //   next(err)
-  // });
-
-  // });     // End of FIND
-
 
    //End of POST 
 

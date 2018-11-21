@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username : {type: String, required : true},
   password : String,
-  admin: Boolean
+  admin: Boolean,
+  profilePic: String
 },
 {
   timestamps: true
