@@ -61,7 +61,7 @@ router.post('/celebrities/:id/delete', (req, res, next)=>{
 router.get('/celebrities/:id/edit', (req, res, next)=>{
   Celebrity.findById(req.params.id)
     .then((celebrity)=>{
-      res.render('/celebrities/edit', {celebrity})
+      res.render('celebrities/edit', {celebrity})
     })
     .catch((err)=>{
       next(err);
