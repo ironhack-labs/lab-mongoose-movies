@@ -1,0 +1,11 @@
+<h2>Página de peliculas</h2>
+<div>
+  {{#each peliculas}}
+  <p>{{this.title}}</p><br>
+  <a href="/movies/{{this._id}}">Haz click para mas detalles</a>
+  <hr>
+  {{/each}}
+  <br>
+  
+  <a href="/movies/new">Crear nueva pelicula</a>
+</div>

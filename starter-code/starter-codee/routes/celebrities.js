@@ -8,7 +8,7 @@ router.get('/new',(req,res,next)=>{
 router.post('/new',(req,res)=>{
   Celebrity.create(req.body)
   .then(celebridad=>{
-    res.render('celebrities/index',celebridad)
+    res.redirect('/celebrities/index')
   }).catch(error=>{
     res.render('celebrities/detail',{celebridad:req.body,error})
   })

@@ -1,27 +1,27 @@
 const mongoose = require('mongoose')
-const Celebrity = require('../models/Celebrity')
+const Movie = require('../models/Movie')
 
 const dbname = 'celebrities'
 mongoose.connect(`mongodb://localhost/${dbname}`)
 
-const celebrities= [
-  {name:"Tom Cruise",
-  occupation:"actor",
-  catchPhrase:"Ve mis peliculas"
+const movies= [
+  {title:"Guerra de los mundos",
+  genre:"ciencia y ficcion",
+  plot:"Pelicula muy buena de invasion de aliens"
   },
-  {name:"Omar Fierro",
-  occupation:"conductor, chef y actor",
-  catchPhrase:"toda mi vida he sido un tragon"
+  {title:"Inception",
+  genre:"Ciencia ficcion",
+  plot:"pelicula muy confusa, con final raro"
 },
-  {name:"Salma Hayek",
-  occupation:"actriz",
-  catchPhrase:"Vamos a actuar"
+  {title:"Hobbit",
+  genre:"fantasia",
+  plot:"Historia de un hobbit y sus aventuras"
 
   }
 ]
-Celebrity.create(celebrities)
-.then(celebrity=>{
-  console.log(`Se han creado ${celebrity.length}`)
+Movie.create(movies)
+.then(movie=>{
+  console.log(`Se han creado ${movie.length}`)
   mongoose.connection.close()
 }).catch(err=>{
   console.log(err)
