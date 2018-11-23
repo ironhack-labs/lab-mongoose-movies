@@ -1,0 +1,18 @@
+<div>
+  <h1>Add new Celebrity</h1>
+  <form action="{{action}}" method="POST">
+    <p>
+      Name:
+      <input type="text" name="name" value="{{celebrity.name}}">
+    </p>
+    <p>
+      Occupation:
+      <input type="text" name="occupation" value="{{celebrity.occupation}}">
+    </p>
+    <p>
+      Catch Phrase:
+      <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+    </p>
+    <input type="submit" value="Save Celebrity">
+  </form>
+</div>

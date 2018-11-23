@@ -22,4 +22,20 @@ router.get('/detail/:id',(req, res, next)=>{
     })
 })
 
+//Create Celebrities
+router.get('/new',(req, res)=>{
+  const action = '/celebrities/new'
+  res.render('celebrities/form',{action})
+})
+
+router.post('/new',(req, res)=>{
+  Celebrity.create(req.body)
+    .then(celebrity=>{
+      res.redirect('/celebrities')
+    }).catch(error=>{
+      console.log(error)
+      res.render('celebrities/form',{celebrity:req.body,error})
+    })
+})
+
 module.exports = router
