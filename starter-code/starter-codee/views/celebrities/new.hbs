@@ -1,0 +1,20 @@
+<div>
+  <h2>Añade una nueva estrella</h2>
+   <div>{{error}}</div> 
+  <form action="/celebrities/new" method="POST" >
+  <p>
+    Name:
+    <input type="text" name="name" value='{{celebridad.name}}'>
+  </p>
+  <p>
+    Ocupacion:
+    <input type="text" name="occupation" value="{{celebridad.occupation}}">
+  </p>
+  <p>
+    Frase:
+    <input type="text" name="catchPhrase" value="{{celebridad.catchPhrase}}">
+  </p>
+  <input type="submit" value="Guardalo!!">
+
+  </form>
+</div> 
