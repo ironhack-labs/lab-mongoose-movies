@@ -10,17 +10,17 @@ const celebrities = [
   {
     name : "Brendan Fraser",
     occupation: "Actor",
-    cacatchPhrase: "oh my god"
+    catchPhrase: "oh my god"
   },
   {
     name : "Rene Stiller",
     occupation: "Astromático",
-    cacatchPhrase: "a huevo"
+    catchPhrase: "a huevo"
   },
   {
     name : "BlisS",
     occupation: "Dev",
-    cacatchPhrase: "polloyón"
+    catchPhrase: "polloyón"
   }
 ];
 
