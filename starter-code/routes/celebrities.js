@@ -55,4 +55,27 @@ router.post('/:id/delete',(req, res)=>{
     }).catch(e=>next(e))
 })
 
+
+
+//Update Celebrities
+router.get('/:id/update',(req, res, next)=>{
+  const {id} = req.params
+  const action = `/celebrities/${id}/update`
+  Celebrity.findById(id)
+    .then(celebrity=>{
+      res.render('celebrities/form',{celebrity,action})
+    }).catch(e=>next(e))
+})
+
+router.post('/:id/update',(req, res, next)=>{
+  const {id} = req.params
+  Celebrity.findByIdAndUpdate(id,{$set:req.body},{new:true})
+    .then(celebrity=>{
+      res.redirect(`/celebrities/detail/${id}`)
+    }).catch(error=>{
+      res.render('celebrities/form',{celebrity:req.body,error})
+    })
+})
+
+
 module.exports = router
