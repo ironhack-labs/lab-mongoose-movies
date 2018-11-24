@@ -1,5 +1,8 @@
 <h2>Movies</h2>
 {{#each movies}}
-<a href="/movies/detail/{{this._id}}">{{this.title}}</a>
+<a href="/movies/detail/{{this._id}}">{{this.title}} | </a>
 {{/each}}
-<a href="/">Go back to movies</a>
+<hr>
+<a href="/movies/new">Add movie</a>
+<hr>
+<a href="/">Go back to index</a>

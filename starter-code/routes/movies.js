@@ -22,4 +22,20 @@ router.get('/detail/:id',(req, res, next)=>{
     })
 })
 
+//Create Movies
+router.get('/new',(req, res)=>{
+  const action = '/movies/new'
+  res.render('movies/form',{action})
+})
+
+router.post('/new',(req, res)=>{
+  Movie.create(req.body)
+    .then(movie=>{
+      res.redirect('/movies')
+    }).catch(error=>{
+      console.log(error)
+      res.render('movies/form',{celebrity:req.body,error})
+    })
+})
+
 module.exports = router

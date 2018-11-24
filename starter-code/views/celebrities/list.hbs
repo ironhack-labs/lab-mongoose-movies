@@ -1,5 +1,8 @@
 <h2>Celebrities</h2>
 {{#each celebrities}}
-<a href="/celebrities/detail/{{this._id}}">{{this.name}}</a>
+<a href="/celebrities/detail/{{this._id}}">{{this.name}} | </a>
 {{/each}}
-<a href="/">Go back to celebrities</a>
+<hr>
+<a href="/celebrities/new">Add Celebrity</a>
+<hr>
+<a href="/">Go back to index</a>

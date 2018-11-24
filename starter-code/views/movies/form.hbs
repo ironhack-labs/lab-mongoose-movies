@@ -1,0 +1,18 @@
+<div>
+  <h1>Add new Movie</h1>
+  <form action="{{action}}" method="POST">
+    <p>
+      Title:
+      <input type="text" name="title" value="{{movie.title}}">
+    </p>
+    <p>
+      Genre:
+      <input type="text" name="genre" value="{{movie.genre}}">
+    </p>
+    <p>
+      Plot:
+      <input type="text" name="plot" value="{{movie.plot}}">
+    </p>
+    <input type="submit" value="Save Movie">
+  </form>
+</div>
