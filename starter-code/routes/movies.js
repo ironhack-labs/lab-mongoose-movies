@@ -55,4 +55,24 @@ router.post('/:id/delete',(req, res)=>{
     }).catch(e=>next(e))
 })
 
+//Update Movies
+router.get('/:id/update',(req, res, next)=>{
+  const {id} = req.params
+  const action = `/movies/${id}/update`
+  Movie.findById(id)
+    .then(movie=>{
+      res.render('movies/form',{movie,action})
+    }).catch(e=>next(e))
+})
+
+router.post('/:id/update',(req, res, next)=>{
+  const {id} = req.params
+  Movie.findByIdAndUpdate(id,{$set:req.body},{new:true})
+    .then(movie=>{
+      res.redirect(`/movies/detail/${id}`)
+    }).catch(error=>{
+      res.render('movies/form',{movie:req.body,error})
+    })
+})
+
 module.exports = router
