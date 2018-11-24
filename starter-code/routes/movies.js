@@ -38,4 +38,21 @@ router.post('/new',(req, res)=>{
     })
 })
 
+//Delete Movies
+router.get('/:id/delete',(req, res, next)=>{
+  const {id} = req.params
+  Movie.findById(id)
+    .then(movie=>{
+      res.render('movies/delete',movie)
+    }).catch(e=>next(e))
+})
+
+router.post('/:id/delete',(req, res)=>{
+  const {id} = req.params
+  Movie.findByIdAndRemove(id)
+    .then(movie=>{
+      res.redirect('/movies')
+    }).catch(e=>next(e))
+})
+
 module.exports = router
