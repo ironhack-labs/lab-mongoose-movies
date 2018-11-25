@@ -2,8 +2,9 @@
 
 <div>
   {{#each celebrities}}
-    <span">{{this.name}}</span>
-    <span">{{this.occupation}}</span>
-    <span">{{this.catchPhrase}}</span>
+    <p>{{this.name}}</p>
+    <p>{{this.occupation}}</p>
+    <p>{{this.catchPhrase}}</p>
+    <a href="/celebrity/detailCelebrity/{{this._id}}">View more...</a>
   {{/each}}
 </div>
