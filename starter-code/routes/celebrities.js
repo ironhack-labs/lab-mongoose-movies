@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Celebrity = require('../models/Celebrity')
 
-router.get('/',(req,res,next)=>{
+router.get('/list',(req,res,next)=>{
     Celebrity.find()
         .then(celebrities=>{
             res.render('celebrity/getCelebrity',{celebrities})
@@ -22,4 +22,19 @@ router.get('/detailCelebrity/:id',(req,res,next) =>{
             next(e)
         })
 })
+router.get('/new',(req,res,next) =>{
+    res.render('celebrity/new')
+})
+
+router.post('/new',(req, res, next)=>{
+    //const {id} = req.params
+    //req.body['storeID'] = tiendaId
+    Celebrity.create(req.body)
+        .then(celebrity=>{
+            res.send(`Succes ${celebrity.name} created`)
+        }).catch(e=>{
+        res.render('celebrity/new',{tiendita:req.body,e})
+    })
+})
+
 module.exports = router

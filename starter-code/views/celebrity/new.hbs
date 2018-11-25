@@ -1,0 +1,22 @@
+<div>
+    <h1>Crea una Celebridad!!!</h1>
+    <div>{{error}}</div>
+    <form action="/celebrity/new" method="POST">
+        <p>
+            Nombre:
+            <input type="text" name="name" value="{{celebrity.name}}">
+        </p>
+        <p>
+            Ocupacion:
+            <input type="text" name="occupation" value="{{celebrity.occupation}}">
+        </p>
+        <p>
+            Frase:
+            <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+        </p>
+        <p>
+            <input type="submit" value="Guardar :)">
+        </p>
+    </form>
+
+</div>
