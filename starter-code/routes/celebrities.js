@@ -48,4 +48,26 @@ router.get('/delete/:id',(req,res,next) => {
         })
 })
 
+router.get('/:id/edit',(req,res,next) =>{
+    const {id} = req.params
+    Celebrity.findById(id)
+        .then(celebrity => {
+            res.render('celebrity/edit',celebrity)
+        })
+        .catch(e => {
+            next(e)
+        })
+})
+
+router.post('/:id',(req,res,next) =>{
+    const {id} = req.params
+    const {name, occupation, catchPhrase} = req.body
+    Celebrity.findOneAndUpdate(id,{$set :{name, occupation, catchPhrase}})
+        .then(celebrity => {
+            res.redirect('list')
+        })
+        .catch(e => {
+            next(e)
+        })
+})
 module.exports = router

@@ -33,7 +33,7 @@ router.post('/new',(req, res, next)=>{
         .then(movie=>{
             res.send(`Succes ${movie.name} created`)
         }).catch(e=>{
-        res.render('movie/new',e})
+        res.render('movie/new',e)
     })
 })
 
