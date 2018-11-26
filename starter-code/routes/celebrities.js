@@ -21,5 +21,19 @@ router.get('/:id',(req, res, next)=>{
 })
 
 
+router.get('/new',(req,res)=>{
+  res.render('celebrities/new')
+})
+
+ router.post('/new',(req, res)=>{
+  Celebrity.create(req.body)
+    .then(celebrity=>{
+      res.redirect('/celebrities')
+    }).catch(error=>{
+      res.render('celebrities/new',{celebrity:req.body,error})
+    })
+})
+
+
 
 module.exports = router
