@@ -1,0 +1,22 @@
+<div>
+    <h1>Crea una Peli!!!</h1>
+    <div>{{error}}</div>
+    <form action="/movie/new" method="POST">
+        <p>
+            Titulo:
+            <input type="text" name="title" value="{{movie.title}}">
+        </p>
+        <p>
+            Genero:
+            <input type="text" name="genre" value="{{movie.genre}}">
+        </p>
+        <p>
+            Plot:
+            <input type="text" name="plot" value="{{movie.plot}}">
+        </p>
+        <p>
+            <input type="submit" value="Guardar :3">
+        </p>
+    </form>
+
+</div>

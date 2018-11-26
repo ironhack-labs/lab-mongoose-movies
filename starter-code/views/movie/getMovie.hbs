@@ -1,0 +1,10 @@
+<h1>Celebridades</h1>
+
+<div>
+    {{#each movies}}
+        <p>{{this.title}}</p>
+        <p>{{this.genre}}</p>
+        <p>{{this.plot}}</p>
+        <a href="/movie/detailMovie/{{this._id}}">View more...</a>
+    {{/each}}
+</div>

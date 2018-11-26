@@ -37,4 +37,15 @@ router.post('/new',(req, res, next)=>{
     })
 })
 
+router.get('/delete/:id',(req,res,next) => {
+    const {id} = req.params
+    Celebrity.findByIdAndRemove(id)
+        .then(celebrity => {
+            res.send(`Succes ${celebrity.name} deleted`)
+        })
+        .catch(e => {
+            next(e)
+        })
+})
+
 module.exports = router
