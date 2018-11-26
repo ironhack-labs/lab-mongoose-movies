@@ -35,5 +35,25 @@ router.get('/new',(req,res)=>{
 })
 
 
+router.get('/:id/delete',(req, res, next)=>{
+  const {id} = req.params
+  Celebrity.findById(id)
+    .then(celebrity=>{
+      res.render('celebrities/delete',celebrity)
+    }).catch(e=>next(e))
+})
+ router.post('/:id/delete',(req, res)=>{
+  const {id} = req.params
+  Celebrity.findByIdAndRemove(id)
+    .then(celebrity=>{
+      res.redirect('/celebrities')
+    }).catch(e=>next(e))
+})
+
+
+
+
+
+
 
 module.exports = router
