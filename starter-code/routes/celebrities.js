@@ -22,7 +22,9 @@ router.get('/:id',(req, res, next)=>{
 
 
 router.get('/new',(req,res)=>{
-  res.render('celebrities/new')
+  const action='/celebrities'
+    res.render('celebrities/new')
+
 })
 
  router.post('/new',(req, res)=>{

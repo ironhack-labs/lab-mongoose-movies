@@ -1,8 +1,26 @@
 body {
-  padding: 50px;
+  padding:0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.inicio{
+  padding-top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_D_Hollywood_T1_aepg_5120605416_7a5b3fc328_o_1280x642.jpg');
+  text-align: center;
+  background-size: cover
+}
+
+.inicio h1{
+  font-size: 4em
+}
+
+.inicio h2{
+  font-size: 3em
 }
