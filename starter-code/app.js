@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/lab-celebrities', {useNewUrlParser: true}) //toujours changer le nombre de la bdd
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -45,14 +45,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
+// DEFINE ROUTES
+const index = require ('./routes/index');  //always pour la page index principale
+app.use("/", index); //always pour la page index principale
+const celebrities  = require ('./routes/celebrities');
+app.use("/", celebrities); //pour celebrities
+
+
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-
-
-
-const index = require('./routes/index');
-app.use('/', index);
 
 
 module.exports = app;
