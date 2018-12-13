@@ -1,0 +1,8 @@
+<h1>Celebrities</h1>
+{{#each celebrities}}
+        <h2>{{this.name}}</h2> 
+        <p>{{this.name}} is a {{this.occupation}}</p> 
+        <p>His/her most famous quote is : "{{this.catchPhrase}}"</p> 
+        <a href="celebrities/{{this.id}}">get details</a> 
+
+{{/each}}
