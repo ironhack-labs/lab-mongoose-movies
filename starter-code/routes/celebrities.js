@@ -31,6 +31,44 @@ router.post("/celebrities/new", (req, res, next) => {
     });
 });
 
+//Deleting Celebrities
+router.post("/celebrities/:id/delete", (req, res, next) => {
+  let celebrityId = req.params.id;
+  Celebrity.findByIdAndRemove({ _id: celebrityId })
+    .then(celebrity => {
+      res.redirect("/celebrities");
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+//Editing Celebrities
+router.get("/celebrities/edit/:id", (req, res, next) => {
+  Celebrity.findOne({ _id: req.params.id })
+    .then(celebrityEdit => {
+      res.render("celebrities/edit", { celebrityEdit });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+router.post("/celebrities/edit/:id", (req, res, next) => {
+  const { name, occupation, catchPhase } = req.body;
+  Celebrity.update(
+    { _id: req.params.id },
+    { $set: { name, occupation, catchPhase } },
+    { new: true }
+  )
+    .then(celebrity => {
+      res.redirect("/celebrities" + req.params.id);
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 //The Celebrity Details Page
 router.get("/celebrities/:id", (req, res, next) => {
   let celebrityId = req.params.id;
