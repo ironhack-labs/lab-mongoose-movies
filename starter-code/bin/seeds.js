@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrities');
+const Movie = require('../models/movies');
 
 const dbName = 'celebrities';
 mongoose.connect(`mongodb://localhost/${dbName}`);
@@ -39,3 +40,23 @@ Celebrity.create(celebrities, (err) => {
     console.log(`Created ${celebrities.length} celebrities`)
     mongoose.connection.close()
 });
+
+
+const movies = [
+    {
+        title: "Monsieur Toñio & his friends",
+        genre: "Horror",
+        plot: "Ouais ouais"
+    },
+    {
+        title: "Un gilet jaune amoureux",
+        genre: "Comedy",
+        plot: "Somewehere in Paris during a demonstration, someone felt in love."
+    }
+]
+   
+Movie.create(movies, (err) => {
+        if (err) { throw (err) }
+        console.log(`Created ${movies.length} movies`)
+        mongoose.connection.close()
+    });
