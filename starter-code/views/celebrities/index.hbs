@@ -1,8 +1,14 @@
 <h1>Celebrities</h1>
+<button><a href="/celebrities/new">Want to add a new celebrity to the list?</a></button>
+
 {{#each celebrities}}
         <h2>{{this.name}}</h2> 
         <p>{{this.name}} is a {{this.occupation}}</p> 
         <p>His/her most famous quote is : "{{this.catchPhrase}}"</p> 
         <a href="celebrities/{{this.id}}">get details</a> 
+        <form action="/celebrities/{{this.id}}/delete" method="post">
+        <button type="submit">DELETE</button>
+        </form>
+        <a href="/celebrities/edit/{{this.id}}">EDIT</a>
 
 {{/each}}
