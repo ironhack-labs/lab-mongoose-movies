@@ -5,6 +5,11 @@
     <form action="/movies/{{this._id}}/delete" method="post">
     <button type="submit">DELETE</button>
     </form> 
+
+    <form action="/movies/{{this._id}}/edit" method="get">
+    <button type="submit">EDIT</button>
+    </form> 
+
 {{/each}} 
 <br>
 <a href="/movies/new"> Add a Movie </a> 

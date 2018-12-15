@@ -9,7 +9,7 @@ router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
       //console.log(celebrities);
-      res.render("celebrities", { celebrities });
+      res.render("celebrities/index", { celebrities });
     })
     .catch(error => {
       console.log(error)
@@ -35,8 +35,8 @@ router.post('/celebrities/new', (req, res, next) => {
 });
 
 /* EDIT Documents */
-router.get('/celebrities/edit', (req, res, next) => {
-  Celebrity.findOne({_id: req.query.celebrity_id})
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  Celebrity.findOne({_id: req.params.id})
   .then((celebrity) => {
     res.render("celebrities/edit", {celebrity});
   })
@@ -46,18 +46,18 @@ router.get('/celebrities/edit', (req, res, next) => {
 });
 
 
-router.post('/celebrities/edit', (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body;
-  Celebrity.update({_id: req.query.celebrity_id}, { $set: {name, occupation, catchPhrase }})
-  .then((celebrity) => {
-    res.redirect('/celebrities');
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+
+/* GET celebrities details page */
+router.get('/celebrities/:id', (req, res, next) => {
+  let celebrityId = req.params.id;
+  Celebrity.findOne({_id: celebrityId})
+    .then(celebrity => {
+      res.render("celebrities/show", { celebrity })
+    })
+    .catch(error => {
+      console.log(error)
+    })
 });
-
-
 
 /* POST route to delete celebrity */
 router.post('/celebrities/:id/delete', (req, res, next) => {
@@ -71,16 +71,17 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     })
 });
 
-/* GET celebrities details page */
-router.get('/celebrities/:id', (req, res, next) => {
-  let celebrityId = req.params.id;
-  Celebrity.findOne({_id: celebrityId})
-    .then(celebrity => {
-      res.render("celebrities/show", { celebrity })
-    })
-    .catch(error => {
-      console.log(error)
-    })
+/* POST route to edit celebrity */
+router.post('/celebrities/:id', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.findByIdAndUpdate({_id: req.params.id}, {name, occupation, catchPhrase})
+  // Celebrity.update({_id: req.params.id}, { $set: {name, occupation, catchPhrase }})
+  .then((celebrity) => {
+    res.redirect('/celebrities');
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 });
 
 module.exports = router;

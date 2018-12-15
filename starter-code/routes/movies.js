@@ -34,16 +34,15 @@ router.post('/movies/new', (req, res, next) => {
   })
 });
 
-/* POST route to delete celebrity */
-router.post('/movies/:id/delete', (req, res, next) => {
-  let movieId = req.params.id;
-  Movie.findByIdAndRemove({_id: movieId})
-    .then(movie => {
-      res.redirect('/movies');
-    })
-    .catch(error => {
-      console.log(error)
-    })
+/* EDIT Documents */
+router.get('/movies/:id/edit', (req, res, next) => {
+  Movie.findOne({_id: req.params.id})
+  .then((movie) => {
+    res.render("movies/edit", {movie});
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 });
 
 /* GET movies details page */
@@ -57,5 +56,32 @@ router.get('/movies/:id', (req, res, next) => {
       console.log(error)
     })
 });
+
+/* POST route to delete celebrity */
+router.post('/movies/:id/delete', (req, res, next) => {
+  let movieId = req.params.id;
+  Movie.findByIdAndRemove({_id: movieId})
+    .then(movie => {
+      res.redirect('/movies');
+    })
+    .catch(error => {
+      console.log(error)
+    })
+});
+
+/* POST route to edit celebrity */
+router.post('/movies/:id', (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  Movie.findByIdAndUpdate({_id: req.params.id}, {title, genre, plot})
+  // Celebrity.update({_id: req.params.id}, { $set: {name, occupation, catchPhrase }})
+  .then((movie) => {
+    res.redirect('/movies');
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+});
+
+
 
 module.exports = router;
