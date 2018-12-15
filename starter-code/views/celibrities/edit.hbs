@@ -1,0 +1,16 @@
+<h2>Edit</h2>
+
+<form action="/celibrities/{{celibrity._id}}/edit" method="post">
+  <label for="">Name:</label>
+  <input type="text" name="name" value="{{celibrity.name}}">
+
+  <label for=""> Occupation:</label>
+  <input type="text" name="occupation" value="{{celibrity.occupation}}">
+
+  <label for="">¨CatchPhrase:</label>
+  <input type="text" name="catchPhrase" value="{{celibrity.catchPhrase}}">
+
+  <button type="submit">EDIT</button>
+
+</form>
+

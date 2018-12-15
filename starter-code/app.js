@@ -5,6 +5,12 @@ const cookieParser = require('cookie-parser');
 const express      = require('express');
 const favicon      = require('serve-favicon');
 const hbs          = require('hbs');
+
+// const index = require('./routes/index')
+// const users = require('./routes/users')
+const celibrities = require('./routes/celibrities')
+const movies = require('./routes/movies')
+
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
@@ -49,10 +55,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
 const index = require('./routes/index');
 app.use('/', index);
+app.use('/', celibrities);
+app.use('/', movies);
+
+// app.use('/', index);
 
 
 module.exports = app;
+
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
