@@ -42,50 +42,39 @@ router.post('/movies/new', (req, res, next) => {
       })
     });
 
-  // router.get('/celebrities/:id', (req, res, next) => {
-  //   let celebId = req.params.id;
-  //   Celebrity.findOne({'_id': celebId})
-  //     .then(celebrity => {
-  //       res.render("celebrities/show", { celebrity });
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //     })
-  //   });
 
+    router.post('/movies/:id/delete', (req, res, next) => {
+      let movId = req.params.id;
+      Movie.findByIdAndRemove(movId)
+      .then(movie => {
+        res.redirect('/movies');
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    });
 
-  //   router.post('/celebrities/:id/delete', (req, res, next) => {
-  //     let celebId = req.params.id;
-  //     Celebrity.findByIdAndRemove(celebId)
-  //     .then(celebrity => {
-  //       res.redirect('/celebrities');
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  //   });
-
-  //   router.get('/celebrities/edit/:id', (req, res, next) => {
-  //     let celebId = req.params.id;
-  //     Celebrity.findOne({'_id': celebId})
-  //       .then(celebrity => {
-  //         res.render("celebrities/edit", { celebrity });
-  //       })
-  //       .catch(error => {
-  //         console.log(error)
-  //       })
-  //     });
+    router.get('/movies/edit/:id', (req, res, next) => {
+      let movId = req.params.id;
+  Movie.findOne({'_id': movId})
+        .then(movie => {
+          res.render("movies/edit", { movie });
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      });
       
-  //     router.post('/celebrities/edit/:id', (req, res, next) => {
-  //       const { name, occupation, catchPhrase } = req.body;
-  //       Celebrity.update({_id: req.params.id}, { $set: {name, occupation, catchPhrase}}, {new:true})
-  //       .then(celebrity => {
-  //         res.redirect('/celebrities/'+req.params.id);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       })
-  //     });
+      router.post('/movies/edit/:id', (req, res, next) => {
+        const { title, genre, plot } = req.body;
+        Movie.update({_id: req.params.id}, { $set: {title, genre, plot}}, {new:true})
+        .then(movie => {
+          res.redirect('/movies/'+req.params.id);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+      });
   
 
 module.exports = router;
