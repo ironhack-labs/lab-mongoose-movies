@@ -19,8 +19,8 @@ router.get("/celebrities/new", (req, res, next) => {
 });
 
 router.post("/celebrities/new", (req, res, next) => {
-  const { name, occupation, catchPhase } = req.body;
-  const newCelebrity = new Celebrity({ name, occupation, catchPhase });
+  const { name, occupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
   newCelebrity
     .save()
     .then(celebrityDoc => {
@@ -55,10 +55,10 @@ router.get("/celebrities/edit/:id", (req, res, next) => {
 });
 
 router.post("/celebrities/edit/:id", (req, res, next) => {
-  const { name, occupation, catchPhase } = req.body;
+  const { name, occupation, catchPhrase } = req.body;
   Celebrity.update(
     { _id: req.params.id },
-    { $set: { name, occupation, catchPhase } },
+    { $set: { name, occupation, catchPhrase } },
     { new: true }
   )
     .then(celebrity => {

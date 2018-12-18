@@ -1,0 +1,13 @@
+<h2>Edit</h2>
+<form action="/mvies/edit/{{movieEdit._id}}" method="post">
+    <label for="">Title :</label>
+    <input type="text" name="title" value="{{movieEdit.title}}">
+
+    <label for="">Genre :</label>
+    <input type="text" name="genre" value="{{movieEdit.genre}}">
+
+    <label for="">CatchPhase:</label>
+    <input type="text" name="plot" value="{{movieEdit.plot}}">
+
+    <button type="submit">EDIT</button>
+</form>

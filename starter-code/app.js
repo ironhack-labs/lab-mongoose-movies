@@ -7,6 +7,7 @@ const favicon = require("serve-favicon");
 const hbs = require("hbs");
 const index = require("./routes/index");
 const celebrities = require("./routes/celebrities");
+const movies = require("./routes/movies");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
@@ -58,5 +59,6 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 app.use("/", index);
 app.use("/", celebrities);
+app.use("/", movies);
 
 module.exports = app;
