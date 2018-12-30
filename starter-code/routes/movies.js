@@ -12,6 +12,25 @@ router.get('/movies', (req, res, next) => {
       })
   });
 
+  //Add new movies 
+  router.get('/movies/new',(req, res, next)=>{
+    res.render ('movies/new');
+});
+
+router.post('/movies/new', (req, res, next) => { //pour prendre les valeurs du formulaire pour les ajouter à notre bdd mongo
+    const { title, genre, plot } = req.body; //obligatoire pour passer ensuite les valeurs à Celeb
+    const newMovie = new Movie ({ title, genre, plot})
+    newMovie.save()
+    .then((movie) => {
+      res.redirect('/movies');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  });
+ 
+ //TOUJOURS PLACER LES req.params en fin de code (avant le module.exports) 
+
 router.get('/movies/:id', (req, res, next) => {  //pour afficher le detail par movie dans show.hbs
   let movieId = req.params.id;
   Movie.findOne({_id: movieId}) 
