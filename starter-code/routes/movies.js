@@ -28,9 +28,21 @@ router.post('/movies/new', (req, res, next) => { //pour prendre les valeurs du f
       console.log(error);
     })
   });
- 
- //TOUJOURS PLACER LES req.params en fin de code (avant le module.exports) 
 
+  //TOUJOURS PLACER LES req.params en fin de code (avant le module.exports) 
+
+//Delete movie
+router.post('/movies/:id/delete', (req, res, next) => { 
+  let movieId = req.params.id;
+  Movie.findByIdAndRemove({_id: movieId})
+  .then(movie => {
+    res.redirect("/movies")
+  })
+  .catch(error => {
+    console.log(error)
+  })
+})  
+ 
 router.get('/movies/:id', (req, res, next) => {  //pour afficher le detail par movie dans show.hbs
   let movieId = req.params.id;
   Movie.findOne({_id: movieId}) 

@@ -3,5 +3,8 @@
     <p>
         <a href="/movies/{{this._id}}">{{this.title}}</a> 
     </p>
+    <form action="/movies/{{this._id}}/delete" method="post">
+        <button type="submit">DELETE</button>
+    </form>
 {{/each}}
 <p><a href="/movies/new">ADD NEW MOVIE</a></p>
