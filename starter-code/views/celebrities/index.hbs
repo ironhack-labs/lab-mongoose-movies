@@ -2,5 +2,14 @@
 
 {{#each celebrityArray}}
 <a href="/celebrities/{{this._id}}">{{this.name}}
-</a> <br>
+</a>
+<form action="/celebrities/{{this._id}}/delete" method="post">
+  <button type="submit">Delete</button>
+</form>
+<form action="/celebrities/{{this._id}}/edit" method="get">
+  <button type="submit">Edit</button>
+</form>
+<br>
 {{/each}}
+
+<a href="/celebrities/new">Add new celebrity</a>
