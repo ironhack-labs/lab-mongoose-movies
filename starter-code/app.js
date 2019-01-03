@@ -31,25 +31,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
       
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-// DEFINE ROUTES
-const index = require ('./routes/index');  //always pour la page index principale
-app.use("/", index); //always pour la page index principale
+//ROUTES
+const index = require ('./routes/index');  
+app.use("/", index); 
+//celebrities route
 const celebrities  = require ('./routes/celebrities');
-app.use("/", celebrities); //pour celebrities
+app.use("/", celebrities);
+//movies route
+const movies  = require ('./routes/movies');
+app.use("/", movies);
+
 
 
 
