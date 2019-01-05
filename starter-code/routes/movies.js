@@ -37,8 +37,8 @@ router.get('/movies/new', (req, res, next) => {
 });
 
 router.post('/movies/new', (req, res, next) => {
-  const { title, genre, plot } = req.body;
-  const newMovie = new Movie({ title, genre, plot });
+  const { title, genre, plot, image } = req.body;
+  const newMovie = new Movie({ title, genre, plot, image });
   newMovie.save()
   .then(movie => {
       res.redirect('/movies');

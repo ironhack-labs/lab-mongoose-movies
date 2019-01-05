@@ -9,6 +9,14 @@
 
   <label for="">Phrase:</label>
   <input type="text" name="catchPhrase">
-
+  <br>
+  <br>
+  <h3>Movies Acted:</h3> 
+  {{#each movies}}
+    <li>{{title}}</li>
+    <input type="checkbox" name="moviesActed[]" value="{{_id}}">
+  {{/each}}
+  <br>
+  <br>
   <button type="submit">CREATE</button>
 </form>

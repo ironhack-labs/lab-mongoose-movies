@@ -5,4 +5,23 @@ body {
 a {
   color: #00B7FF; }
 
+.movie-container {
+  display: flex;
+  justify-content: flex-start; }
+
+ul li {
+  display: inline-block;
+  float: inherit;
+  width: 33%;
+  vertical-align: middle;
+  box-sizing: border-box;
+  text-align: center; }
+
+li {
+  list-style-type: none; }
+
+img {
+  height: 10%;
+  width: 10%; }
+
 /*# sourceMappingURL=style.css.map */

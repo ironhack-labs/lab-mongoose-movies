@@ -6,3 +6,39 @@ body {
 a {
   color: #00B7FF;
 }
+
+.movie-container {
+  display: flex;
+  // align-items: center;
+  justify-content: flex-start
+}
+
+// .celebrity-container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-start;
+// }
+
+// ul {
+//   list-style: none;
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+ul li {
+  display: inline-block;
+  float: inherit;
+  width: 33%;
+  vertical-align: middle;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+li {
+list-style-type: none;
+}
+
+img {
+  height: 10%;
+  width: 10%;
+}
