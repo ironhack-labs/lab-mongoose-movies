@@ -1,0 +1,26 @@
+<h1>CELEBRITIES</h1>
+
+<div>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Ocupación</th>
+    </tr>
+    {{#each celebrities}}
+    <tr>
+      <td><a href="/celebrities/{{this._id}}">{{this.name}}</a></td>
+      <td>{{this.occupation}}</td>
+      <td>
+      <form action="/celebrities/{{this._id}}/delete" method="post">
+        <button type="submit" name="button">Eliminar</button>
+      </form> 
+      </td>
+      <td>
+        <a href="/celebrities/edit?celebrity_id={{this._id}}" class="edit-button">Editar</a>
+      </td>
+    </tr>
+    {{/each}}
+  </table>
+  <a href="/celebrities/add" class="edit-button">Agregar nueva estrellar</a>
+</div>
+
