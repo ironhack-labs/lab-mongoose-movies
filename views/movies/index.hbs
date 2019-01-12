@@ -1,0 +1,12 @@
+<h2>Películas y todo eso</h2>
+
+{{#each movies}}
+<ul>
+  <li>
+    La película de hoy se llama <a href="/movies/{{this._id}}">{{this.title}}</a> - <form action="/movies/{{this._id}}/delete" method ="POST">
+<button>Eliminar</button></form>
+<form action="/movies/{{this._id}}/edit" method ="GET">
+<button>Editar</button></form>
+  </li>
+</ul>
+{{/each}}

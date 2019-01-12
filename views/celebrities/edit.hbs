@@ -1,0 +1,10 @@
+<h2>AquÍ seguimos y hasta ahora funciona todo</h2>
+<form action="/celebrities/{{celebrity._id}}" method="post">
+ <label for="name">Nombre</label>
+ <input type="text" name="name" value={{celebrity.name}}>
+  <label for="occupation">Ocupación</label>
+ <input type="text" name="occupation" value={{celebrity.occupation}}>
+  <label for="catchPhrase">Frase</label>
+ <input type="text" name="catchPhrase" value={{celebrity.catchPhrase}}>
+ <button type="submit" name="button">Editar</button>
+</form>
