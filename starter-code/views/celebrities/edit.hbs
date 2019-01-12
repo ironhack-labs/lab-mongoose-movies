@@ -1,0 +1,12 @@
+<form action="/celebrities/edit?celeb_id={{celebridad._id}}" method="post">
+  <label for="nombre">Nombre:</label>
+  <input type="text" name="name" value="{{celebridad.name}}" placeholder="Nombre">
+  <br>
+  <label for="ocupacion">Ocupacion:</label>
+  <input type="text" name="ocupation" value="{{celebridad.ocupation}}" placeholder="Ocupacion">
+  <br>
+  <label for="frase">Frase:</label>
+  <input type="text" name="catchPhrase" value="{{celebridad.catchPhrase}}" placeholder="Frase">
+  <br>
+  <button type="submit" name="button">Guardar</button>
+</form>
