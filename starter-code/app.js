@@ -9,9 +9,16 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const session       = require("express-session");
+const bcrypt        = require("bcryptjs");
+const passport      = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const flash         = require("connect-flash")
+
+const User          = require('./models/User');
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/express-cinema', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -49,10 +56,57 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
 
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(flash());
+
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrities = require('./routes/celebrity-routes');
+app.use('/', celebrities);
+
+const movies = require('./routes/movie-routes');
+app.use('/', movies);
+
+const user = require('./routes/user-routes');
+app.use('/', user);
+
 
 
 module.exports = app;

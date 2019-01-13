@@ -1,0 +1,21 @@
+<h1>
+{{theFilm.title}}  
+</h1>
+
+<h2>
+    Genre:  {{theFilm.genre}}
+</h2>
+
+<h3>
+   Plot:  {{theFilm.plot}}
+</h3>
+
+<p>Added By {{theFilm.addedBy.firstName}}  {{theFilm.addedBy.lastName}}</p>
+
+<a href="/movies"> <button>Back</button></a>
+<a href="/movies/{{theFilm._id}}/edit"><button>Edit This Movie</button></a>
+
+<hr>
+<form action="/movies/{{theFilm._id}}/delete" method="POST">
+    <button>Delete This</button>
+</form>

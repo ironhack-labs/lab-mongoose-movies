@@ -1,0 +1,17 @@
+<h1>Welcome to your Profile, {{user.firstName}} {{user.lastName}}</h1>
+
+
+
+</div>
+
+<h2>Movies added by {{user.username}}</h2>
+        <ul>
+        {{#each movies}}
+        <li>
+            <a href="/movies/{{this._id}}">
+            {{this.title}}
+            </a>
+        </li>
+
+{{/each}}
+</ul>
