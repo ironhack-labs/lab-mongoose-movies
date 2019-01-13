@@ -1,0 +1,7 @@
+<a href="/celebrities/create">New Celebrity</a>
+
+<ul>
+  {{#each celebrities as |celebrity| }}
+    <li> {{ celebrity.name }} <a href="/celebrities/{{ celebrity._id }}">Ver</a></li>
+  {{/each }}
+</ul>

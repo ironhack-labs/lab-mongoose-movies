@@ -1,0 +1,31 @@
+<a class="btn btn-primary mb-3" href="/movies/create">New Movie</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Plot</th>
+      <th>Celebrity</th>
+      <th>info</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each movies as |movie| }}
+      <tr>
+        <td>
+          <a href="/movies/{{movie._id}}/edit">{{ movie.title }}</a>
+        </td>
+        <td>{{ movie.genre }}</td>
+        <td>{{ movie.plot }}</td>
+        <td>
+          <a href="/celebrities/{{movie.celebrity._id}}">{{movie.celebrity.name}}</a>
+        </td>
+        <td>
+          <a class="btn btn-primary" href="/movies/{{movie._id}}">Details</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
