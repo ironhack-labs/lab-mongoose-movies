@@ -17,6 +17,74 @@
   outline: none;
 }
 
+
+
+.div-body{
+  margin-top: -100px;
+  width: 100vw;
+  height: 100vh;
+  background: url('../img/background-movie-list(2).jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.new-movie:hover{
+  background-color: #18A5D5;
+  padding: 13px 40px;
+  border: 3px solid transparent;
+  margin-top: 10px;
+}
+
+.new-movie{
+  background-color: transparent;
+  padding: 13px 40px;
+  border: 3px solid white;
+  margin-top: 10px;
+}
+
+.movie-table{
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  border: 20px solid white;
+  border-radius: 15px;
+  color: grey;
+  text-align: left;
+  -webkit-box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
+-moz-box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
+box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
+}
+
+.more-movies{
+  color: #7e7e7e;
+  background: transparent;
+  border: 2px solid #ffe066;
+  padding: 5px 24px;
+}
+
+.more-movies:hover{
+  color: #7e7e7e;
+  background: rgba(0,0,250,0.2);
+  color: white;
+  border: 2px solid transparent;
+  padding: 5px 24px;
+}
+
+td{
+
+  border-top: 1px solid #ffe066 !important;
+  font-weight: 300;
+}
+
+th{
+  padding: 20px;
+  border-bottom: 1px solid orange !important;
+  color: black;
+  font-weight: 300;
+}
+
 nav{
   z-index: 10000;
 }
@@ -109,7 +177,8 @@ nav{
 }
 
 .navbar-brand {
-  color: #f8ff8e !important;
+  color: white !important;
+  padding: 20px;
 }
 
 .mr-auto {
@@ -343,6 +412,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  .movie-table{
+    font-size: 0.8rem;
+    border: 10px solid white;
+
+  }
+  .movil-none{
+    display: none;
+  }
   .movie-title, .celebrity-title{
     font-size: 2rem;
   }

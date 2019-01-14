@@ -1,13 +1,18 @@
-<a class="btn btn-primary mb-3" href="/movies/create">New Movie</a>
 
-<table class="table">
+<div class="div-body">
+  <div class="container">
+
+  
+<h1 class="initial-title movie-title">MOVIES</h1>
+<p class="first-p roboto">An awesome list with awesome movies</p>
+<table class="table movie-table">
   <thead>
     <tr>
       <th>Title</th>
       <th>Genre</th>
       <th>Plot</th>
       <th>Celebrity</th>
-      <th>info</th>
+      <th class="movil-none">More Info</th>
     </tr>
   </thead>
 
@@ -22,10 +27,20 @@
         <td>
           <a href="/celebrities/{{movie.celebrity._id}}">{{movie.celebrity.name}}</a>
         </td>
-        <td>
-          <a class="btn btn-primary" href="/movies/{{movie._id}}">Details</a>
+        <td class="movil-none">
+          <a class="btn btn-primary more-movies" href="/movies/{{movie._id}}">Details</a>
         </td>
       </tr>
+      
     {{/each}}
+    
   </tbody>
+  
+ 
 </table>
+
+
+
+<a class="btn btn-primary mb-3 new-movie" href="/movies/create">New Movie</a>
+ </div>
+ </div>
