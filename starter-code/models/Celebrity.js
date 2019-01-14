@@ -8,7 +8,13 @@ const celebritySchema = new Schema({
     enum: ["Actor", "Singer", "Comedian"]
   },
   catchPhrase: String
-})
+}, {collection: "celebrities"})
 
 const Celebrity = mongoose.model("Celebrity", celebritySchema);
 module.exports = Celebrity;
+
+
+
+
+
+

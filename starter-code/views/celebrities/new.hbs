@@ -1,13 +1,14 @@
 <h2>Create a Celebrity</h2>
 <form action="/celebrities" method="POST">
   <label for="name">Name</label>
-  <input type="text" name="name" value="" placeholder="Name of the artist">
+  <input type="text" name="name" value="" placeholder="Name of the artist" required>
 <br>
   <label for="ocupation">Ocupation</label>
-  <input type="text" name="occupation" value="" placeholder="Ocupation">
+  <input type="text" name="occupation" value="" placeholder="Ocupation" required>
 <br>
-  <label for="catchPhrse">your favorite phrase</label>
-  <input type="text" name="catchPhrse" value="" placeholder="Catch Phrase">
+  <label for="catchPhrase">your favorite phrase</label>
+  <input type="text" name="catchPhrase" value="" placeholder="Catch Phrase" required>
 <br>
 <button type="submit" name="button">Create Artist</button>
+<a href="/celebrities">back to the main page</a>
 </form>

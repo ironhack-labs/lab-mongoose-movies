@@ -12,7 +12,7 @@ const celebrities = [
   },
   {
     name: "Samuel L. Jackson",
-    occupation: "Comedian",
+    occupation: "Actor",
     catchPhrase: "Enough is enough! I had enough with the mother fucking snakes in this mother fucking plane!"
   },
   {
