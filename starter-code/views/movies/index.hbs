@@ -3,10 +3,16 @@
 {{#each movies}}
   <h2>Title: {{this.title}}</h2>
   <a href="/movies/{{this.id}}">Want to know more about {{this.title}}??</a>
-  <br>
-  <br>
-{{/each}}
+    <br>
+  <a href="/movies/{{this.id}}/edit">Something wrong? Edit the info here</a>
+  <form action="/movies/{{this._id}}/delete" method="POST">
+    <h4>Wanna delete this movie?</h4>
+    <button type="submit">Delete movie</button>
+  </form>
 
-<a href="/movies/add">Add a new movie to your list!</a>
+{{/each}}
+<br>
+<br>
+<a href="/movies/add">Add a new movie to your list! (click here)</a>
 
 

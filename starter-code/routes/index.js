@@ -102,6 +102,33 @@ router.post("/movies", (req, res) =>{
   .catch(err => console.log(err))
 })
 
+router.post("/movies/:id/delete" , (req, res) =>{
+  let movieId = req.params.id;
+  Movie.deleteOne({"_id" : movieId})
+  .then(
+    res.redirect(301, "/movies")
+  )
+  .catch(err => console.log(err))
+})
+
+router.get("/movies/:id/edit", (req, res) =>{
+  let movieId = req.params.id;
+  Movie.findById({"_id" : movieId})
+  .then( movie =>{
+    res.render("movies/edit", { movie })
+  })
+})
+
+router.post("/movies/:id", (req, res) =>{
+  let movieId = req.params.id;
+  const {title, genre, plot } = req.body;
+  Movie.updateOne({"_id" : movieId}, {$set: {title, genre, plot}})
+  .then(movie =>{
+    res.redirect(301, "/movies")
+  })
+  .catch(err => console.log(err))
+})
+
 router.get("/movies/:id", (req, res) =>{
   let movieId = req.params.id;
   //console.log(movieId);
