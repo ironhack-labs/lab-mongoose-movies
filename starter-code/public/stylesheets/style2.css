@@ -1,0 +1,9 @@
+#styleBody{
+    background-color: rgb(11,67,203);
+    color: #FFF;
+}
+body{
+  background-image: url("https://www.ecestaticos.com/imagestatic/clipping/505/88e/50588e9382849580468112db15288ad1/por-que-se-comen-palomitas-en-el-cine-en-vez-de-otros-snacks.jpg?mtime=1534428647");
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
