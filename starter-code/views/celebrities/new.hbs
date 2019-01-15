@@ -3,39 +3,27 @@
 
         <h2>Create a new Celebrity</h2>
 
-
-        <form action="/celebrity/main/celebrities" method="post">
-            <div class="form-group">
-                <label for="name">Celebrity name:</label>
-                <input type="text" name="name" class="form-control" placeholder="Name">
-            </div>
-
-            <div class="form-group">
-                <label for="occupation">Celebrity Occupation:</label>
-                <input type="text" name="occupation" class="form-control" placeholder="Occupation">
-            </div>
-
-            <button type="Submit" class="btn btn-large btn-block btn-success">Create</button>
-        </form>
-
-
-
-
-
-
-        <form action="/celebrity/main/celebrities" method="post">
-            <div class="row">
-                <div class="col">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form class="form-horizontal" action="/celebrity/main/celebrities" method="post">
+                <div class="form-group">
+                    <label for="name">Celebrity name:</label>
                     <input type="text" name="name" class="form-control" placeholder="Name">
                 </div>
-                <div class="col">
+
+                <div class="form-group">
+                    <label for="occupation">Celebrity Occupation:</label>
                     <input type="text" name="occupation" class="form-control" placeholder="Occupation">
                 </div>
-                <div class="col">
-                    <input type="text" name="catchPhrase" class="form-control" placeholder="Catch Phrase">
+
+                <div class="form-group">
+                    <label for="catchPhrase">Celebrity catch phrase:</label>
+                    <input type="text" name="catchPhrase" class="form-control" placeholder="catchPhrase">
                 </div>
-            </div>
-            <button type="Submit" class="btn btn-large btn-block btn-success">Create</button>
-        </form>
+                <button type="Submit" class="btn btn-large btn-block btn-success">Create</button>
+
+                <a href="/celebrity/main/celebrities" id="create-celeb" class="btn btn-large btn-block btn-primary">Return
+                    to list</a>
+            </form>
+        </div>
     </div>
 </div>
