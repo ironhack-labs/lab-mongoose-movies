@@ -2,20 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h2>Celebrity list</h2>
+                <h2>Movies list</h2>
                 <hr>
             </div>
         </div>
         <div class="row">
-            {{#each celebrity}}
+            {{#each movies}}
             <div class="col-md-3">
                 <div class="card text-black bg-light mb-2 shadow-sm image">
-                    <h1>{{this.name}}</h1>
+                    <h1>{{this.title}}</h1>
 
                     <div class="col-md-10 col-sm-10 text-center">
-                        <a href="celebrities/{{this._id}}" class="btn btn-sm btn-primary">see details</a>
+                        <a href="movies/{{this._id}}" class="btn btn-sm btn-primary">see details</a>
 
-                        <form action="celebrities/delete" method="post">
+                        <form action="movies/delete" method="post">
                             <input type="text" value="{{this._id}}" name="id" style="display:none">
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             {{/each}}
-            <a href="celebrities/new" class="btn btn-sm btn-primary">Create a new Celebrity</a>
+            <a href="movies/new" class="btn btn-sm btn-primary">Create a new Movie</a>
         </div>
     </div>
 </div>
