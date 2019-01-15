@@ -18,7 +18,9 @@ router.get("/celebrities", (req, res) => {
 //Iteration #4 add celebrities
 router.get("/celebrities/new", (req, res) => {
   let celebrityId = req.params.id;
-  Celebrity.findOne({ _id: celebrityId })
+  Celebrity.findOne({
+      _id: celebrityId
+    })
     .then(celeb => {
       res.render("celebrities/new", celeb);
     })
@@ -30,7 +32,9 @@ router.get("/celebrities/new", (req, res) => {
 //Iteration #3 celebrities details
 router.get("/celebrities/:id", (req, res) => {
   let celebrityId = req.params.id;
-  Celebrity.findOne({ _id: celebrityId })
+  Celebrity.findOne({
+      _id: celebrityId
+    })
     .then(celeb => {
       res.render("celebrities/show", celeb);
     })
@@ -41,8 +45,16 @@ router.get("/celebrities/:id", (req, res) => {
 
 //Insert a new Artists
 router.post("/celebrities", (req, res) => {
-  const { name, occupation, catchPhrase } = req.body;
-  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+  const {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body;
+  const newCelebrity = new Celebrity({
+    name,
+    occupation,
+    catchPhrase
+  });
   newCelebrity.save();
   Celebrity.find()
     .then(celebrity => {

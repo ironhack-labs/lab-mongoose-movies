@@ -7,20 +7,19 @@
     </div>
     <div class="row">
 
-        <div class="col-md-3">
-            <div class="card text-black bg-light mb-2 shadow-sm image">
-                <h1>{{this.name}}</h1>
-                <h6>
-                    Ocupation: {{this.occupation}}
-                </h6>
-                <h6>
-                    Catch Phrase: {{this.catchPhrase}}
-                </h6>
-                <div class="col-md-10 col-sm-10 text-center">
-                    <a href="celebrities/{{this._id}}" class="btn btn-sm btn-primary">see details</a>
+        <div class="col-md-12 offset-md-4">
+
+            <div class="card" style="width: 20rem">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{this.occupation}}</h6>
+                    <p class="card-text">Famous Catch Phrase: {{this.catchPhrase}}</p>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="new col-md-4 offset-md-5">
+        <a href="/celebrity/main/celebrities" id="create-celeb" class="btn btn-primary">Return to list</a>
     </div>
 </div>

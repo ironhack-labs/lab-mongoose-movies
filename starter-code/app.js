@@ -9,10 +9,18 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
+
+//Routes
+
+const index = require("./routes/index");
+const celebrities = require("./routes/celebrity/main");
+const movies = require("./routes/movie/main");
+
+
+
 mongoose
   .connect(
-    "mongodb://localhost/Celebrity",
-    {
+    "mongodb://localhost/Celebrity", {
       useNewUrlParser: true
     }
   )
@@ -60,9 +68,7 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-const index = require("./routes/index");
-const celebrities = require("./routes/celebrity/main");
-const movies = require("./routes/movie/main");
+//Use of routes
 
 app.use("/", index);
 app.use("/celebrity/main", celebrities);

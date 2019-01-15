@@ -8,23 +8,29 @@
         </div>
         <div class="row">
             {{#each celebrity}}
-            <div class="col-md-3">
-                <div class="card text-black bg-light mb-2 shadow-sm image">
-                    <h1>{{this.name}}</h1>
-
-                    <div class="col-md-10 col-sm-10 text-center">
-                        <a href="celebrities/{{this._id}}" class="btn btn-sm btn-primary">see details</a>
-
-                        <form action="celebrities/delete" method="post">
-                            <input type="text" value="{{this._id}}" name="id" style="display:none">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="card" style="width: 18rem;margin-right:20px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{this.occupation}}</h6>
+                        <p class="card-text">This is a Celebrity!!!.</p>
+                        <a href="celebrities/{{this._id}}" class="btn btn-sm btn-primary">See details</a>
+                        <span>
+                            <form action="celebrities/delete" method="post">
+                                <input type="text" value="{{this._id}}" name="id" style="display:none">
+                                <button type="submit" class="delete btn btn-sm btn-danger">Delete Celebrity</button>
+                            </form>
+                        </span>
                     </div>
                 </div>
             </div>
             {{/each}}
-            <a href="celebrities/new" class="btn btn-sm btn-primary">Create a new Celebrity</a>
+        </div>
+
+        <div class="row">
+            <div class="new col-md-4 offset-md-5">
+                <a href="celebrities/new" id="create-celeb" class="btn btn-primary">Create a new Celebrity</a>
+            </div>
         </div>
     </div>
 </div>
