@@ -1,24 +1,49 @@
+
+
+<div class="div-body-celebrities">
+<div class="container">
+  <div class="row">
+    <div class="col-xl-5 mx-auto col-md-8 col-12">
+      <p class="intro-form-movie">ADD MOVIE</p>
+      {{#if celebrity.isNew }}
+        <form action="/celebrities/create" method="post" id="new-movie-form">
+      {{else}}
+       <form action="/celebrities/{{celebrity.id}}/edit" method="post" id="new-movie-form">
+      {{/if}}
+
+  <div class="form-group">
+    <label for="title">NAME</label>
+    <input type="text" class="form-control" id="title" name="name" value="{{ celebrity.name }}">
+  </div>
+
+  <div class="form-group">
+    <label for="genre">OCCUPATION</label>
+    <input type="text" class="form-control" id="genre" name="occupation" value="{{ celebrity.occupation }}">
+  </div>
+
+  <div class="form-group">
+    <label for="plot">PLOT</label>
+    <textarea class="form-control" name="catchPhrase" rows=3 id="textarea">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      {{ celebrity.catchPhrase }}</textarea>
+  </div>
+
 {{#if celebrity.isNew }}
-  <form action="/celebrities/create" method="post">
+<div class="btn-group movie-form-group" role="group">
+   <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>CREATE</strong></button>
+   <a href="/celebrities" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong> </a>
+   </div>
 {{else}}
-  <form action="/celebrities/{{celebrity.id}}/edit" method="post">
+<div class="btn-group movie-form-group" role="group">
+   <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>SAVE</strong></button>
+   <a href="/celebrities" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong> </a>
+   </div>
+   
 {{/if}}
-
-  <div>
-    Name:<input type="text" name="name" value="{{ celebrity.name }}">
-  </div>
-
-  <div>
-    Occupation:<input type="occupation" name="occupation" value="{{ celebrity.occupation }}">
-  </div>
-
-  <div>
-    Phrase:<input type="catchPhrase" name="catchPhrase" value="{{ celebrity.catchPhrase }}">
-  </div>
-
-{{#if celebrity.isNew }}
-  <button type="submit">Create</button>
-{{else}}
-  <button type="submit">Save</button>
-{{/if}}
+ 
 </form>
+    </div>
+
+  </div>
+</div>
+</div>
+
