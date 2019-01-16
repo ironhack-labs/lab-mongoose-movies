@@ -1,0 +1,769 @@
+@font-face {
+  font-family: 'Heavitas';
+  src: url('../fonts/Heavitas.eot');
+  src: url('../fonts/Heavitas.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Heavitas.woff2') format('woff2'),
+    url('../fonts/Heavitas.woff') format('woff'),
+    url('../fonts/Heavitas.ttf') format('truetype'),
+    url('../fonts/Heavitas.svg#Heavitas') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  outline: none;
+}
+
+#new-movie-form {
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 500;
+}
+
+#new-celebrity-form {
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 500;
+}
+
+
+input,
+textarea,
+select {
+  border-radius: 0px !important;
+  border: none !important;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, orange 50%),
+    linear-gradient(135deg, orange 50%, transparent 50%),
+    linear-gradient(to right, orange, orange);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, orange, orange);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+select {
+
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#new-movie-form div input,
+#new-movie-form div select {
+  color: rgb(98, 98, 180);
+}
+
+#new-movie-form div textarea {
+  color: rgb(60, 144, 172);
+}
+
+
+#new-celebrity-form div input,
+#new-celebrity-form div select {
+  color: rgb(98, 98, 180);
+}
+
+#new-celebrity-form div textarea {
+  color: rgb(60, 144, 172);
+}
+
+.create,
+.back {
+  border: 1px solid white;
+  color: white;
+  border-radius: 0px !important;
+  padding: 10px 25px;
+}
+
+.create:hover,
+.back:hover {
+  border: 1px solid transparent;
+  color: white;
+  border-radius: 0px !important;
+  padding: 10px 25px;
+}
+
+.back:hover {
+  background-color: #F54A16 !important;
+}
+
+.create:hover {
+  background-color: rgb(60, 144, 172) !important;
+}
+
+.movie-form-group {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+
+.plot-detail {
+  word-wrap: break-word;
+}
+
+.plot {
+  text-overflow: ellipsis;
+  max-width: 200px;
+  white-space: nowrap !important;
+  overflow: hidden;
+}
+
+.movie-detail-form-group .btn {
+  margin: 10px;
+  border-radius: 0px;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+}
+
+.delete-button,
+.list-button,
+.edit-button {
+  border: 1px solid white;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: grey !important;
+}
+
+.list-button:hover {
+  background-color: rgba(60, 144, 172, 0.8) !important;
+}
+
+.delete-button:hover {
+  background-color: rgba(250, 0, 0, 0.8) !important;
+}
+
+.delete-button:hover,
+.list-button:hover,
+.edit-button:hover {
+  border: 1px solid white;
+  color: white;
+}
+
+.intro-form-movie {
+  font-family: 'Heavitas';
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.movie-info-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  margin-top: 10px;
+  padding: 25px;
+}
+
+.movie-info-container h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.movie-info-container h4,
+p {
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.random-movie {
+  -webkit-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+}
+
+.div-body,
+.div-body-detail-movie,
+.div-body-celebrities {
+  margin-top: -100px;
+  width: 100%;
+  height: 101.65vh;
+  background: url('../img/background-movie-list(6).jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.div-body-detail-movie {
+  background: url('../img/background-movie-list(6).jpg');
+}
+
+.div-body-celebrities {
+  background: url('../img/background-movie-list(10).jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+
+.new-movie:hover {
+  background-color: #247e9c;
+  padding: 13px 40px;
+  border: 3px solid transparent;
+  margin-top: 10px;
+}
+
+.edit-create:hover {
+  background-color: #3a3a3a;
+  border-radius: none !important;
+}
+
+.new-movie {
+  background-color: transparent;
+  padding: 13px 40px;
+  border: 3px solid white;
+  margin-top: 10px;
+}
+
+.movie-table {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  border: 20px solid white;
+  border-radius: 15px;
+  color: grey;
+  text-align: left;
+  -webkit-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+}
+
+.more-movies {
+  color: #7e7e7e;
+  background: transparent;
+  border: 2px solid #ffe066;
+  padding: 5px 24px;
+}
+
+.more-movies:hover {
+  color: #7e7e7e;
+  background: rgba(0, 0, 250, 0.2);
+  color: white;
+  border: 2px solid transparent;
+  padding: 5px 24px;
+}
+
+.more-celebrities {
+  color: #7e7e7e;
+  background: transparent;
+  border: 2px solid rgba(0, 0, 250, 0.2);
+  padding: 5px 24px;
+}
+
+.more-celebrities:hover {
+  color: #7e7e7e;
+  background: #ff6f00 !important;
+  color: white;
+  border: 2px solid transparent;
+  padding: 5px 24px;
+}
+
+.movie-table-list tbody tr td {
+  border-top: 1px solid #ffe066 !important;
+  font-weight: 300;
+}
+
+.new-celebrity:hover {
+  background-color: #ff6f00 !important;
+}
+
+.celebrity-info-container {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.movie-table-list thead tr th {
+  padding: 20px;
+  border-bottom: 1px solid orange !important;
+  color: black;
+  font-weight: 300;
+}
+
+.celebrities-table tbody tr td {
+  border-top: 1px solid #247e9c !important;
+  font-weight: 300;
+}
+
+.celebrities-table thead tr th {
+  padding: 20px;
+  border-bottom: 1px solid #247e9c !important;
+  color: black;
+  font-weight: 300;
+}
+
+nav {
+  z-index: 10000;
+}
+
+#background-gallery {
+  background-color: #18A5D5;
+}
+
+#background-gallery nav {
+  background-color: #fff3;
+}
+
+.card img {
+  max-width: 50px;
+}
+
+.card {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: 0.3s;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center
+}
+
+.product-info {
+  display: flex;
+  align-content: center;
+  justify-content: left;
+  flex-direction: column;
+  padding: 30px 0px;
+
+}
+
+.product-info h1 {
+  color: #f8ff8e;
+}
+
+.product-info h5,
+.product-info h6 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.product-info ul {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.product-image img {
+  max-width: 120px;
+}
+
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.card h5 {
+  color: #f8ff8e;
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.card h6 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  padding: 0px;
+}
+
+.card p,
+.product-info p,
+.product-info ul {
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: white;
+  font-size: 0.96rem;
+  line-height: 1.2rem;
+}
+
+.bold-word {
+  font-weight: bold;
+}
+
+.navbar-brand {
+  color: white !important;
+  padding: 20px;
+}
+
+.mr-auto {
+  display: flex;
+  align-items: flex-end;
+}
+
+.mr-auto li {
+  width: 200px;
+  text-align: right;
+  color: #f8ff8e !important;
+}
+
+.mr-auto li a {
+  text-align: right;
+  color: #f8ff8e !important;
+}
+
+body {
+  font-family: 'Heavitas';
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa-bars {
+  font-weight: 900;
+  color: white;
+  font-size: 45px !important;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.fa-1x {
+  font-size: 1.5rem;
+}
+
+.navbar-toggler.toggler-example {
+  cursor: pointer;
+}
+
+.product-absolute {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+
+.dark-pink-text {
+  color: #AC003A;
+}
+
+.dark-amber-text {
+  color: #ff6f00;
+}
+
+.dark-teal-text {
+  color: #004d40;
+}
+
+.button-intro {
+  padding: 7px 20px;
+  padding-top: 9px;
+  background-color: #00688B;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.default-font {
+  font-family: initial !important;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.first-p {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: white;
+  margin-top: -10px;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  background-color: transparent;
+}
+
+.movies-link {
+  font-size: 1rem !important;
+  padding: 10px 30px;
+  color: white !important;
+}
+
+.movies-link:hover {
+  font-weight: 500;
+}
+
+.initial-title {
+  font-size: 4rem;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+.movies-container {
+  padding-bottom: 30%;
+}
+
+.btn-movies:hover {
+  background-color: #3d8dad;
+  border: 2px solid transparent;
+}
+
+.btn-celebrities:hover {
+  background-color: #dcb11c;
+  border: 2px solid transparent;
+}
+
+.part-two-back {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 150ms linear;
+  background: url('../img/background-intro2.jpg');
+  background-position: center;
+  background-size: cover;
+  right: 0;
+  top: 0;
+  z-index: -2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.part-one-back {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 150ms linear;
+  background: url('../img/background-intro.jpg');
+  background-position: center;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#intro-beer {
+  height: 400px;
+  width: 320px;
+  margin-right: -160px;
+}
+
+.info-container {
+  position: absolute;
+  left: 175px;
+  color: #BFEFFF;
+}
+
+.info-container h1 {
+  color: #f8ff8e;
+  font-size: 3.3rem;
+  line-height: 3.3rem;
+}
+
+.info-container h5 {
+  color: #BBFFFF;
+}
+
+.random-button {
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+@media (max-width: 1250px) {
+  .info-container h1 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .product-absolute {
+    display: inherit;
+    top: inherit;
+    padding-top: 3rem;
+  }
+
+  .part-one-back {
+    justify-content: center;
+  }
+
+  #intro-beer {
+    margin-right: 0px;
+  }
+
+  .info-container {
+    position: absolute;
+    left: inherit;
+  }
+
+  .movie-title,
+  .celebrity-title {
+    font-size: 3rem;
+  }
+
+  .movies-container {
+    padding-bottom: 0px;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+  }
+
+  .part-one-back,
+  .part-two-back {
+    filter: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+  #new-movie-form {
+    padding: 20px;
+
+  }
+
+  #new-celebrity-form {
+    padding: 20px;
+
+  }
+
+  .movie-table {
+    font-size: 0.8rem;
+    border: 10px solid white;
+
+  }
+
+  .movil-none {
+    display: none;
+  }
+
+  .movie-title,
+  .celebrity-title {
+    font-size: 2rem;
+  }
+
+  .first-p {
+    font-size: 1rem;
+    padding-top: 10px;
+  }
+
+  .product-absolute {
+    display: inherit;
+    top: inherit;
+    padding-top: 3rem;
+  }
+
+  .part-one-back {
+    width: 100%;
+    height: 50%;
+  }
+
+  .part-two-back {
+    width: 100%;
+    height: 50%;
+    top: auto;
+    bottom: 0;
+  }
+
+  #intro-beer {
+    height: 400px;
+    margin-bottom: -200px;
+  }
+
+  .info-container {
+    text-align: center;
+  }
+
+  .info-container h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .info-container h5 {
+    font-size: 1rem;
+    font-weight: 1rem;
+  }
+
+  .mr-auto li {
+    text-align: center;
+    width: 100%;
+  }
+
+  .mr-auto li a {
+    text-align: center;
+  }
+
+  .mr-auto {
+    background-color: rgba(0, 171, 177, 0.9);
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .product-info {
+    padding: 30px 15px;
+  }
+}

@@ -1,0 +1,58 @@
+
+<div class="div-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 mx-auto col-md-8 col-12">
+        <p class="intro-form-movie">ADD MOVIE</p>
+
+          {{#if movie.isNew }}
+            <form action="/movies/create" method="post" id="new-movie-form">
+          {{else}}
+            <form action="/movies/{{movie.id}}/edit" id="new-movie-form" method="post">
+          {{/if}}
+
+            <div class="form-group">
+              <label for="title">TITLE</label>
+              <input type="text" class="form-control" id="title" name="title" value="{{movie.title}}">
+            </div>
+
+            <div class="form-group">
+              <label for="genre">GENRE</label>
+              <input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}">
+            </div>
+
+            <div class="form-group">
+              <label for="plot">PLOT</label>
+              <textarea class="form-control" name="plot" rows=3 id="textarea">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                {{movie.plot}}
+              </textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="celebrity">CELEBRITIES</label>
+              <select class="form-control minimal" name="celebrity">
+                {{#each celebrities as |celebrity|}}
+                  <option value="{{celebrity.id}}">{{celebrity.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+
+            {{#if movie.isNew }}
+              <div class="btn-group movie-form-group" role="group">
+                <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>CREATE</strong></button>
+                <a href="/movies" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong></a>
+              </div>
+            {{else}}
+              <div class="btn-group movie-form-group" role="group">
+                <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>SAVE</strong></button>
+                <a href="/movies" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong></a>
+              </div>
+            {{/if}}
+
+          </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
