@@ -9,7 +9,8 @@
   font-weight: normal;
   font-style: normal;
 }
-*{
+
+* {
   -webkit-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -17,26 +18,28 @@
   outline: none;
 }
 
-#new-movie-form{
-  padding:50px; 
-  background-color: rgba(0,0,0,0.4);
+#new-movie-form {
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
-  color:white;
+  color: white;
   font-weight: 500;
 }
 
-#new-celebrity-form{
-  padding:50px; 
-  background-color: rgba(0,0,0,0.7);
+#new-celebrity-form {
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
-  color:white;
+  color: white;
   font-weight: 500;
 }
 
 
-input, textarea, select{
+input,
+textarea,
+select {
   border-radius: 0px !important;
   border: none !important;
 }
@@ -45,7 +48,7 @@ select.minimal {
   background-image:
     linear-gradient(45deg, transparent 50%, orange 50%),
     linear-gradient(135deg, orange 50%, transparent 50%),
-    linear-gradient(to right,orange,orange);
+    linear-gradient(to right, orange, orange);
   background-position:
     calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px),
@@ -61,7 +64,7 @@ select.minimal:focus {
   background-image:
     linear-gradient(45deg, green 50%, transparent 50%),
     linear-gradient(135deg, transparent 50%, green 50%),
-    linear-gradient(to right, orange,orange);
+    linear-gradient(to right, orange, orange);
   background-position:
     calc(100% - 15px) 1em,
     calc(100% - 20px) 1em,
@@ -88,7 +91,7 @@ select {
 
   /* reset */
 
-  margin: 0;      
+  margin: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -96,122 +99,136 @@ select {
   -moz-appearance: none;
 }
 
-#new-movie-form div input, #new-movie-form div select{
- color: rgb(98, 98, 180);
+#new-movie-form div input,
+#new-movie-form div select {
+  color: rgb(98, 98, 180);
 }
-#new-movie-form div textarea{
+
+#new-movie-form div textarea {
   color: rgb(60, 144, 172);
 }
 
 
-#new-celebrity-form div input, #new-celebrity-form div select{
+#new-celebrity-form div input,
+#new-celebrity-form div select {
   color: rgb(98, 98, 180);
- }
- #new-celebrity-form div textarea{
-   color: rgb(60, 144, 172);
- }
+}
 
-.create, .back{
+#new-celebrity-form div textarea {
+  color: rgb(60, 144, 172);
+}
+
+.create,
+.back {
   border: 1px solid white;
   color: white;
   border-radius: 0px !important;
   padding: 10px 25px;
 }
 
-.create:hover, .back:hover{
+.create:hover,
+.back:hover {
   border: 1px solid transparent;
   color: white;
   border-radius: 0px !important;
   padding: 10px 25px;
 }
-.back:hover{
- background-color:#F54A16 !important;
+
+.back:hover {
+  background-color: #F54A16 !important;
 }
 
-.create:hover{
-  background-color:rgb(60, 144, 172) !important;
- }
+.create:hover {
+  background-color: rgb(60, 144, 172) !important;
+}
 
-.movie-form-group{
+.movie-form-group {
   display: flex;
   justify-content: space-evenly;
   align-content: space-between;
 }
 
-.plot-detail{
+.plot-detail {
   word-wrap: break-word;
 }
 
-.plot{
+.plot {
   text-overflow: ellipsis;
   max-width: 200px;
   white-space: nowrap !important;
   overflow: hidden;
 }
 
-.movie-detail-form-group .btn{
- margin: 10px;
- border-radius: 0px;
- padding: 10px;
- font-family: 'Roboto', sans-serif;
- text-transform: uppercase;
+.movie-detail-form-group .btn {
+  margin: 10px;
+  border-radius: 0px;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
 }
 
-.delete-button, .list-button, .edit-button{
+.delete-button,
+.list-button,
+.edit-button {
   border: 1px solid white;
-  color: white; 
+  color: white;
 }
 
-.edit-button:hover{
-  background-color: rgba(255,255,255,0.8)!important;
+.edit-button:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important;
   color: grey !important;
 }
 
-.list-button:hover{
-  background-color: rgba(60, 144, 172,0.8)!important;
+.list-button:hover {
+  background-color: rgba(60, 144, 172, 0.8) !important;
 }
 
-.delete-button:hover{
-  background-color:rgba(250,0,0,0.8) !important;
+.delete-button:hover {
+  background-color: rgba(250, 0, 0, 0.8) !important;
 }
 
-.delete-button:hover, .list-button:hover, .edit-button:hover{
+.delete-button:hover,
+.list-button:hover,
+.edit-button:hover {
   border: 1px solid white;
-  color: white; 
+  color: white;
 }
 
-.intro-form-movie{
+.intro-form-movie {
   font-family: 'Heavitas';
-  text-align:center;
-  color:white;
+  text-align: center;
+  color: white;
   font-size: 2.5rem;
 }
 
-.movie-info-container{
-  background-color: rgba(0,0,0,0.4);
+.movie-info-container {
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
-  margin-top:10px;
+  margin-top: 10px;
   padding: 25px;
 }
 
-.movie-info-container h4{
+.movie-info-container h4 {
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.movie-info-container h4,p{
+.movie-info-container h4,
+p {
   font-family: 'Roboto', sans-serif;
 
 }
 
-.random-movie{
-  -webkit-box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
-  -moz-box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
-  box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
+.random-movie {
+  -webkit-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
 }
 
-.div-body, .div-body-detail-movie, .div-body-celebrities{
+.div-body,
+.div-body-detail-movie,
+.div-body-celebrities {
   margin-top: -100px;
   width: 100%;
   height: 101.65vh;
@@ -223,96 +240,111 @@ select {
   justify-content: center;
 }
 
-.div-body-detail-movie{
+.div-body-detail-movie {
   background: url('../img/background-movie-list(6).jpg');
 }
 
-.div-body-celebrities{
+.div-body-celebrities {
   background: url('../img/background-movie-list(10).jpg');
   background-position: center;
   background-size: cover;
 }
 
 
-.new-movie:hover{
+.new-movie:hover {
   background-color: #247e9c;
   padding: 13px 40px;
   border: 3px solid transparent;
   margin-top: 10px;
 }
 
-.edit-create:hover{
+.edit-create:hover {
   background-color: #3a3a3a;
   border-radius: none !important;
 }
 
-.new-movie{
+.new-movie {
   background-color: transparent;
   padding: 13px 40px;
   border: 3px solid white;
   margin-top: 10px;
 }
 
-.movie-table{
+.movie-table {
   background-color: white;
   font-family: 'Roboto', sans-serif;
   border: 20px solid white;
   border-radius: 15px;
   color: grey;
   text-align: left;
-  -webkit-box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
--moz-box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
-box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
+  -webkit-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
+  box-shadow: 1px 2px 38px -11px rgba(0, 0, 0, 0.36);
 }
 
-.more-movies{
+.more-movies {
   color: #7e7e7e;
   background: transparent;
   border: 2px solid #ffe066;
   padding: 5px 24px;
 }
 
-.more-movies:hover{
+.more-movies:hover {
   color: #7e7e7e;
-  background: rgba(0,0,250,0.2);
+  background: rgba(0, 0, 250, 0.2);
   color: white;
   border: 2px solid transparent;
   padding: 5px 24px;
 }
 
-.movie-table-list tbody tr td{
-  border-top: 1px solid #ffe066 !important ;
+.more-celebrities {
+  color: #7e7e7e;
+  background: transparent;
+  border: 2px solid rgba(0, 0, 250, 0.2);
+  padding: 5px 24px;
+}
+
+.more-celebrities:hover {
+  color: #7e7e7e;
+  background: #ff6f00 !important;
+  color: white;
+  border: 2px solid transparent;
+  padding: 5px 24px;
+}
+
+.movie-table-list tbody tr td {
+  border-top: 1px solid #ffe066 !important;
   font-weight: 300;
 }
 
-.new-celebrity:hover{
-  background-color:  #ff6f00 !important;
+.new-celebrity:hover {
+  background-color: #ff6f00 !important;
 }
 
-.celebrity-info-container{
-background-color:  rgba(0,0,0,0.7)!important;
+.celebrity-info-container {
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-.movie-table-list thead tr th{
+.movie-table-list thead tr th {
   padding: 20px;
-  border-bottom: 1px solid orange!important ;
+  border-bottom: 1px solid orange !important;
   color: black;
   font-weight: 300;
 }
 
-.celebrities-table tbody tr td{
-  border-top: 1px solid #247e9c !important ;
+.celebrities-table tbody tr td {
+  border-top: 1px solid #247e9c !important;
   font-weight: 300;
 }
 
-.celebrities-table thead tr th{
+.celebrities-table thead tr th {
   padding: 20px;
   border-bottom: 1px solid #247e9c !important;
   color: black;
   font-weight: 300;
 }
 
-nav{
+nav {
   z-index: 10000;
 }
 
@@ -448,13 +480,13 @@ body {
   cursor: pointer;
 }
 
-.product-absolute{
+.product-absolute {
   width: 100vw;
-  height:100vh;
-  top:0;
+  height: 100vh;
+  top: 0;
   display: flex;
   align-items: center;
-  position: absolute; 
+  position: absolute;
 }
 
 .dark-pink-text {
@@ -480,13 +512,13 @@ body {
   cursor: pointer;
 }
 
-.default-font{
+.default-font {
   font-family: initial !important;
-  color:white;
+  color: white;
   font-size: 1.2rem;
 }
 
-.roboto{
+.roboto {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -497,49 +529,50 @@ body {
   margin-top: -10px;
 }
 
-.btn-outline{
+.btn-outline {
   border: 2px solid white;
   background-color: transparent;
 }
 
-.movies-link{
+.movies-link {
   font-size: 1rem !important;
   padding: 10px 30px;
   color: white !important;
 }
 
-.movies-link:hover{
+.movies-link:hover {
   font-weight: 500;
 }
 
-.initial-title{
+.initial-title {
   font-size: 4rem;
   color: white;
   margin: 0px;
   padding: 0px;
 }
 
-.movies-container{
+.movies-container {
   padding-bottom: 30%;
 }
 
-.btn-movies:hover{
+.btn-movies:hover {
   background-color: #3d8dad;
-  border:2px solid transparent;
+  border: 2px solid transparent;
 }
 
-.btn-celebrities:hover{
+.btn-celebrities:hover {
   background-color: #dcb11c;
-  border:2px solid transparent;
+  border: 2px solid transparent;
 }
 
 .part-two-back {
   position: absolute;
   width: 50%;
   height: 100%;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
-  -webkit-transition : -webkit-filter 150ms linear;
+  -webkit-transition: -webkit-filter 150ms linear;
   background: url('../img/background-intro2.jpg');
   background-position: center;
   background-size: cover;
@@ -557,9 +590,10 @@ body {
   position: absolute;
   width: 50%;
   height: 100%;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
-  -webkit-transition : -webkit-filter 150ms linear;
+  -webkit-transition: -webkit-filter 150ms linear;
   background: url('../img/background-intro.jpg');
   background-position: center;
   background-size: cover;
@@ -607,11 +641,12 @@ body {
 }
 
 @media (max-width: 1080px) {
-  .product-absolute{
+  .product-absolute {
     display: inherit;
     top: inherit;
     padding-top: 3rem;
-   }
+  }
+
   .part-one-back {
     justify-content: center;
   }
@@ -624,53 +659,63 @@ body {
     position: absolute;
     left: inherit;
   }
-  .movie-title, .celebrity-title{
+
+  .movie-title,
+  .celebrity-title {
     font-size: 3rem;
   }
-  .movies-container{
+
+  .movies-container {
     padding-bottom: 0px;
     padding: 50px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
   }
-  .part-one-back, .part-two-back{
+
+  .part-one-back,
+  .part-two-back {
     filter: none;
   }
 }
 
 @media (max-width: 768px) {
 
-  #new-movie-form{
-    padding:20px; 
+  #new-movie-form {
+    padding: 20px;
 
   }
 
-  #new-celebrity-form{
-    padding:20px; 
+  #new-celebrity-form {
+    padding: 20px;
 
   }
-  
-  .movie-table{
+
+  .movie-table {
     font-size: 0.8rem;
     border: 10px solid white;
 
   }
-  .movil-none{
+
+  .movil-none {
     display: none;
   }
-  .movie-title, .celebrity-title{
+
+  .movie-title,
+  .celebrity-title {
     font-size: 2rem;
   }
-  .first-p{
+
+  .first-p {
     font-size: 1rem;
     padding-top: 10px;
   }
-  .product-absolute{
-   display: inherit;
-   top: inherit;
-   padding-top: 3rem;
+
+  .product-absolute {
+    display: inherit;
+    top: inherit;
+    padding-top: 3rem;
   }
-  
+
   .part-one-back {
     width: 100%;
     height: 50%;

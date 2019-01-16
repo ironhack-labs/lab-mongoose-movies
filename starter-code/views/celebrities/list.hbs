@@ -2,40 +2,32 @@
 
 <div class="div-body-celebrities">
   <div class="container">
-
-  
-<h1 class="initial-title movie-title">CELEBRITIES</h1>
-<p class="first-p roboto">An awesome list with awesome celebrities</p>
-<table class="table movie-table celebrities-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Occupation</th>
-      <th class="movil-none">Phrase</th>
-      <th class="movil-none">More Info</th>
-    </tr>
-  </thead>
-
-  <tbody>
-     {{#each celebrities as |celebrity| }}
-      <tr>
-        <td>
-          <a href="/celebrities/{{celebrity._id}}">{{celebrity.name }}</a>
-        </td>
-        <td>{{ celebrity.occupation }}</td>
-        <td class="plot movil-none">{{ celebrity.catchPhrase }}</td>
-        <td class="movil-none">
-          <a class="btn btn-primary more-movies" href="/celebrities/{{celebrity._id}}">Details</a>
-        </td>
-      </tr>
-      
-    {{/each}}
-    
-  </tbody>
-  
- 
-</table>
-
-<a class="btn btn-primary mb-3 new-movie new-celebrity" href="/celebrities/create">New Celebrity</a>
- </div>
- </div>
+    <h1 class="initial-title movie-title">CELEBRITIES</h1>
+    <p class="first-p roboto">An awesome list with awesome celebrities</p>
+    <table class="table movie-table celebrities-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Occupation</th>
+          <th class="movil-none">Phrase</th>
+          <th class="movil-none">More Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each celebrities as |celebrity| }}
+          <tr>
+            <td>
+              <a href="/celebrities/{{celebrity._id}}">{{celebrity.name }}</a>
+            </td>
+            <td>{{ celebrity.occupation }}</td>
+            <td class="plot movil-none">{{ celebrity.catchPhrase }}</td>
+            <td class="movil-none">
+              <a class="btn btn-primary more-movies more-celebrities" href="/celebrities/{{celebrity._id}}">Details</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <a class="btn btn-primary mb-3 new-movie new-celebrity" href="/celebrities/create">New Celebrity</a>
+  </div>
+</div>

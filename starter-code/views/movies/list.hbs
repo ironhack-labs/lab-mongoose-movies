@@ -1,46 +1,35 @@
-
 <div class="div-body">
-  <div class="container">
-
-  
-<h1 class="initial-title movie-title">MOVIES</h1>
-<p class="first-p roboto">An awesome list with awesome movies</p>
-<table class="table movie-table movie-table-list">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Genre</th>
-      <th class="movil-none">Plot</th>
-      <th>Celebrity</th>
-      <th class="movil-none">More Info</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each movies as |movie| }}
-      <tr>
-        <td>
-          <a href="/movies/{{movie._id}}/edit">{{ movie.title }}</a>
-        </td>
-        <td>{{ movie.genre }}</td>
-        <td class="plot movil-none">{{ movie.plot }}</td>
-        <td>
-          <a href="/celebrities/{{movie.celebrity._id}}">{{movie.celebrity.name}}</a>
-        </td>
-        <td class="movil-none">
-          <a class="btn btn-primary more-movies" href="/movies/{{movie._id}}">Details</a>
-        </td>
-      </tr>
-      
-    {{/each}}
-    
-  </tbody>
-  
- 
-</table>
-
-
-
-<a class="btn btn-primary mb-3 new-movie" href="/movies/create">New Movie</a>
- </div>
- </div>
+  <div class="container"> 
+    <h1 class="initial-title movie-title">MOVIES</h1>
+    <p class="first-p roboto">An awesome list with awesome movies</p>
+    <table class="table movie-table movie-table-list">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th class="movil-none">Plot</th>
+          <th>Celebrity</th>
+          <th class="movil-none">More Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each movies as |movie| }}
+          <tr>
+            <td>
+              <a href="/movies/{{movie._id}}/edit">{{ movie.title }}</a>
+            </td>
+            <td>{{ movie.genre }}</td>
+            <td class="plot movil-none">{{ movie.plot }}</td>
+            <td>
+              <a href="/celebrities/{{movie.celebrity._id}}">{{movie.celebrity.name}}</a>
+            </td>
+            <td class="movil-none">
+              <a class="btn btn-primary more-movies" href="/movies/{{movie._id}}">Details</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <a class="btn btn-primary mb-3 new-movie" href="/movies/create">New Movie</a>
+  </div>
+</div>

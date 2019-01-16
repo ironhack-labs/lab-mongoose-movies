@@ -1,48 +1,49 @@
 
 
 <div class="div-body-celebrities">
-<div class="container">
-  <div class="row">
-    <div class="col-xl-5 mx-auto col-md-8 col-12">
-      <p class="intro-form-movie">ADD CELEBRITY</p>
-      {{#if celebrity.isNew }}
-        <form action="/celebrities/create" method="post" id="new-celebrity-form">
-      {{else}}
-       <form action="/celebrities/{{celebrity.id}}/edit" method="post" id="new-celebrity-form">
-      {{/if}}
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 mx-auto col-md-8 col-12">
+        <p class="intro-form-movie">ADD CELEBRITY</p>
 
-  <div class="form-group">
-    <label for="title">NAME</label>
-    <input type="text" class="form-control" id="title" name="name" value="{{ celebrity.name }}">
-  </div>
+        {{#if celebrity.isNew }}
+          <form action="/celebrities/create" method="post" id="new-celebrity-form">
+        {{else}}
+          <form action="/celebrities/{{celebrity.id}}/edit" method="post" id="new-celebrity-form">
+        {{/if}}
 
-  <div class="form-group">
-    <label for="genre">OCCUPATION</label>
-    <input type="text" class="form-control" id="genre" name="occupation" value="{{ celebrity.occupation }}">
-  </div>
+            <div class="form-group">
+              <label for="title">NAME</label>
+              <input type="text" class="form-control" id="title" name="name" value="{{ celebrity.name }}">
+            </div>
 
-  <div class="form-group">
-    <label for="plot">PLOT</label>
-    <textarea class="form-control" name="catchPhrase" rows=3 id="textarea">Lorem ipsum dolor sit amet, consectetur adipiscing elit.{{ celebrity.catchPhrase }}</textarea>
-  </div>
+            <div class="form-group">
+              <label for="genre">OCCUPATION</label>
+              <input type="text" class="form-control" id="genre" name="occupation" value="{{ celebrity.occupation }}">
+            </div>
 
-{{#if celebrity.isNew }}
-<div class="btn-group movie-form-group" role="group">
-   <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>CREATE</strong></button>
-   <a href="/celebrities" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong> </a>
-   </div>
-{{else}}
-<div class="btn-group movie-form-group" role="group">
-   <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>SAVE</strong></button>
-   <a href="/celebrities" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong> </a>
-   </div>
-   
-{{/if}}
- 
-</form>
+            <div class="form-group">
+              <label for="plot">PLOT</label>
+              <textarea class="form-control" name="catchPhrase" rows=3 id="textarea">Lorem ipsum dolor sit amet, consectetur adipiscing asdfihasdf
+                {{ celebrity.catchPhrase }}</textarea>
+            </div>
+
+            {{#if celebrity.isNew }}
+              <div class="btn-group movie-form-group" role="group">
+                <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>CREATE</strong></button>
+                <a href="/celebrities" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong> </a>
+              </div>
+            {{else}}
+              <div class="btn-group movie-form-group" role="group">
+                <button type="submit" class="btn create edit-create col-xl-5 col-12"><strong>SAVE</strong></button>
+                <a href="/celebrities" class="btn  back edit-create col-xl-5 col-12"><strong>BACK</strong> </a>
+              </div>
+            {{/if}}
+
+          </form>
+          
+      </div>
     </div>
-
   </div>
-</div>
 </div>
 

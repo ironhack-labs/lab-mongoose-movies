@@ -12,9 +12,13 @@ const app = express();
 require('./config/db.config');
 
 
-app.get('/', (req, res, next) => { res.render('index')});
+app.get('/', (req, res, next) => {
+  res.render('index')
+});
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static(__dirname + '/public'));
 
 app.set('views', __dirname + '/views');
