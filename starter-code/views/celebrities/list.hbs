@@ -11,7 +11,7 @@
     <tr>
       <th>Name</th>
       <th>Occupation</th>
-      <th>Phrase</th>
+      <th class="movil-none">Phrase</th>
       <th class="movil-none">More Info</th>
     </tr>
   </thead>
@@ -23,7 +23,7 @@
           <a href="/celebrities/{{celebrity._id}}">{{celebrity.name }}</a>
         </td>
         <td>{{ celebrity.occupation }}</td>
-        <td class="plot">{{ celebrity.catchPhrase }}</td>
+        <td class="plot movil-none">{{ celebrity.catchPhrase }}</td>
         <td class="movil-none">
           <a class="btn btn-primary more-movies" href="/celebrities/{{celebrity._id}}">Details</a>
         </td>
@@ -36,6 +36,6 @@
  
 </table>
 
-<a class="btn btn-primary mb-3 new-movie" href="/celebrities/create">New Celebrity</a>
+<a class="btn btn-primary mb-3 new-movie new-celebrity" href="/celebrities/create">New Celebrity</a>
  </div>
  </div>

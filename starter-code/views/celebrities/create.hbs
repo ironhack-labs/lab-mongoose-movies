@@ -4,11 +4,11 @@
 <div class="container">
   <div class="row">
     <div class="col-xl-5 mx-auto col-md-8 col-12">
-      <p class="intro-form-movie">ADD MOVIE</p>
+      <p class="intro-form-movie">ADD CELEBRITY</p>
       {{#if celebrity.isNew }}
-        <form action="/celebrities/create" method="post" id="new-movie-form">
+        <form action="/celebrities/create" method="post" id="new-celebrity-form">
       {{else}}
-       <form action="/celebrities/{{celebrity.id}}/edit" method="post" id="new-movie-form">
+       <form action="/celebrities/{{celebrity.id}}/edit" method="post" id="new-celebrity-form">
       {{/if}}
 
   <div class="form-group">
@@ -23,8 +23,7 @@
 
   <div class="form-group">
     <label for="plot">PLOT</label>
-    <textarea class="form-control" name="catchPhrase" rows=3 id="textarea">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      {{ celebrity.catchPhrase }}</textarea>
+    <textarea class="form-control" name="catchPhrase" rows=3 id="textarea">Lorem ipsum dolor sit amet, consectetur adipiscing elit.{{ celebrity.catchPhrase }}</textarea>
   </div>
 
 {{#if celebrity.isNew }}

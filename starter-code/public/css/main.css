@@ -26,6 +26,16 @@
   font-weight: 500;
 }
 
+#new-celebrity-form{
+  padding:50px; 
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  font-weight: 500;
+}
+
+
 input, textarea, select{
   border-radius: 0px !important;
   border: none !important;
@@ -92,6 +102,14 @@ select {
 #new-movie-form div textarea{
   color: rgb(60, 144, 172);
 }
+
+
+#new-celebrity-form div input, #new-celebrity-form div select{
+  color: rgb(98, 98, 180);
+ }
+ #new-celebrity-form div textarea{
+   color: rgb(60, 144, 172);
+ }
 
 .create, .back{
   border: 1px solid white;
@@ -265,6 +283,14 @@ box-shadow: 1px 2px 38px -11px rgba(0,0,0,0.36);
 .movie-table-list tbody tr td{
   border-top: 1px solid #ffe066 !important ;
   font-weight: 300;
+}
+
+.new-celebrity:hover{
+  background-color:  #ff6f00 !important;
+}
+
+.celebrity-info-container{
+background-color:  rgba(0,0,0,0.7)!important;
 }
 
 .movie-table-list thead tr th{
@@ -615,6 +641,11 @@ body {
 @media (max-width: 768px) {
 
   #new-movie-form{
+    padding:20px; 
+
+  }
+
+  #new-celebrity-form{
     padding:20px; 
 
   }

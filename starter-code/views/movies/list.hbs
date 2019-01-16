@@ -10,7 +10,7 @@
     <tr>
       <th>Title</th>
       <th>Genre</th>
-      <th>Plot</th>
+      <th class="movil-none">Plot</th>
       <th>Celebrity</th>
       <th class="movil-none">More Info</th>
     </tr>
@@ -23,7 +23,7 @@
           <a href="/movies/{{movie._id}}/edit">{{ movie.title }}</a>
         </td>
         <td>{{ movie.genre }}</td>
-        <td class="plot">{{ movie.plot }}</td>
+        <td class="plot movil-none">{{ movie.plot }}</td>
         <td>
           <a href="/celebrities/{{movie.celebrity._id}}">{{movie.celebrity.name}}</a>
         </td>

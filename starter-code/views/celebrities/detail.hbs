@@ -1,13 +1,34 @@
+
+
+<div class="div-body-celebrities">
+  <div class="container">
+  <div class="row">
+    <div class="col-xl-7 col-md-8 col-12 mx-auto">
+      <img src="https://picsum.photos/g/500/300/?random" alt="celebriy image loading ..."class="random-movie" width="100%;">
+<div class="movie-info-container celebrity-info-container"> 
 <h1>{{ celebrity.name }}</h1>
 
-<h2> {{ celebrity.occupation}} </h2>
 
-<p> {{ celebrity.catchPhrase }} </p>
-<a href="/celebrities">Back to list</a>
+
+<h4> {{ celebrity.occupation}} </h4>
+
+<p class="plot-detail"> <i>"{{ celebrity.catchPhrase }}"</i> </p>
+
+
 <div>
-  <a href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+  
 </div>
 
-<form action="/celebrities/{{celebrity._id}}/delete" method="post">
-  <button type="submit">Delete</button>
+<form action="/celebrities/{{ celebrity._id }}/delete" method="post">
+<div class="btn-group movie-form-group movie-detail-form-group" role="group">
+  <button type="submit" class="btn v col-xl-4 col-md-4 col-12 delete-button">Delete</button>
+  <a class="btn edit-create col-xl-4 col-md-4 col-12 edit-button" href="/celebrities/{{ celebrity._id }}/edit">Edit</a>
+  <a href="/celebrities" class="btn edit-create col-xl-4 col-md-4 col-12 list-button"> LIST</a>
 </form>
+</div>
+    </div>
+  
+</div>
+</div>
+</div>
+</div>
