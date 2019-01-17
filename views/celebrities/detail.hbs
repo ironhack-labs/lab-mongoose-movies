@@ -1,0 +1,22 @@
+
+<div class="card">
+  <h2 class="card-header">{{ celebrity.name }}</h2>
+  <div class="card-body">
+    <div>
+      <img style="height: 100px;" class="img-thumbnail float-left mr-3" src="{{ celebrity.photo }}" alt="">
+      <h5 class="card-title">Occupation: {{ celebrity.occupation }}</h5>
+      <h5 class="card-text">Catch Phrase: {{ celebrity.catchPhrase }}</h5>
+    </div>
+    
+    <div class="row col-12 mt-5">
+      <a href="/celebrities" class="btn btn-success">Back to list</a>
+      <form action="/celebrities/{{celebrity._id}}/edit" method="get">
+        <button class="btn btn-primary ml-3" type="submit">Edit</button>
+      </form>
+      <form action="/celebrities/{{celebrity._id}}/delete" method="post">
+        <button class="btn btn-danger ml-3" type="submit">Delete</button>
+      </form>
+    </div>
+    
+  </div>
+</div>

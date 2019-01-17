@@ -1,0 +1,19 @@
+{
+  "name": "lab-mongoose-movies",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -e js,hbs,css app"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "~4.16.0",
+    "hbs": "^4.0.1",
+    "mongoose": "^5.4.2",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

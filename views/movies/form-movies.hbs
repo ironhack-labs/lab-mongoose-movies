@@ -1,0 +1,40 @@
+{{#if movie.isNew }}
+  <form action="/movies/create" method="post">
+  <h1>Create a new Movie</h1>
+{{else}}
+  <form action="/movies/{{ movie.id }}/edit" method="post">
+  <h1>Edit the Movie</h1>
+{{/if}}
+
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" value="{{movie.title}}">
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <input type="text" class="form-control" id="gender" name="gender" value="{{movie.gender}}">
+  </div>
+
+  <div class="form-group">
+    <label for="production">Production</label>
+    <input type="text" class="form-control" id="production" name="production" value="{{movie.production}}">
+  </div>
+
+  <div class="form-group">
+    <label for="celebrity">Celebrity</label>
+    <select class="form-control" name="celebrity">
+      {{#each celebrities as |celebrity|}}
+        <option value="{{celebrity.id}}">{{celebrity.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+    <div class="form-group">
+        <label for="photo">Copy and Paste here the link for a Movie Photo</label>
+        <input class="form-control" name="photo">{{movie.photo}}</input>
+    </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

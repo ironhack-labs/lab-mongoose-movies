@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+        <img style="height: 100px;" class="img-thumbnail float-left mr-3" src="{{ movie.photo }}" alt="">
+        <h2>{{ movie.title }}</h2>
+        <h6>{{ movie.gender }}</h6>
+        <h6>{{ movie.production }}</h6>
+    </div>
+  <div class="card-body">
+      <div>
+        <img style="height: 100px;" class="img-thumbnail float-left mr-3" src="{{ celebrity.photo }}" alt="">
+        <h6>Celebrity Name: {{ celebrity.name }}</h6>
+        <h6 class="card-text">Occupation: {{ celebrity.occupation }}</h6>
+        <h6 class="card-text">Catch Phrase: {{ celebrity.catchPhrase }}</h6>
+     </div>
+    
+    <div class="row col-12 mt-5">
+      <a href="/movies" class="btn btn-success">Back to list</a>
+      <form action="/movies/{{movie._id}}/edit" method="get">
+        <button class="btn btn-primary ml-3" type="submit">Edit</button>
+      </form>
+      <form action="/movies/{{movie._id}}/delete" method="post">
+        <button class="btn btn-danger ml-3" type="submit">Delete</button>
+      </form>
+    </div>
+    
+  </div>
+</div>
