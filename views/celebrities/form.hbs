@@ -1,0 +1,31 @@
+{{#if celebrity.isNew }}
+  <form action="/celebrities/create" method="post">
+  <h1>Create a new Celebrity</h1>
+{{else}}
+  <form action="/celebrities/{{ celebrity.id }}/edit" method="post">
+  <h1>Edit the Celebrity</h1>
+{{/if}}
+
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" value="{{celebrity.name}}">
+  </div>
+
+  <div class="form-group">
+    <label for="occupation">Occupation</label>
+    <input type="text" class="form-control" id="occupation" name="occupation" value="{{celebrity.occupation}}">
+  </div>
+
+  <div class="form-group">
+    <label for="catchPhrase">CatchPhrase</label>
+    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+  </div>
+
+  <div class="form-group">
+    <label for="photo">Copy and Paste here the link for a Celebrity Photo</label>
+    <input class="form-control" name="photo">{{celebrity.photo}}</input>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

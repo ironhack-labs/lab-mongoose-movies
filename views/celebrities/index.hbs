@@ -1,0 +1,23 @@
+<h2>Celebrities</h2>
+<a class="btn btn-primary mb-3" href="/celebrities/create">New Celebrities</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Celebrity Name</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each celebrities as |celebrity| }}
+      <tr>
+        <td>{{ celebrity.name }}</td>
+        <td>
+          <a href="/celebrities/{{ celebrity._id }}">View more...</a> 
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<a class="btn btn-secondary mt-3" href="/movies">View the Movies</a>
