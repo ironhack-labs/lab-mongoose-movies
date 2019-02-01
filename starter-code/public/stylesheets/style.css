@@ -1,0 +1,15 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+.homeTitle {
+  color: black;
+  font: 80px;
+  font-weight: bolder;
+  width: 30%;
+  text-align: center; }
+
+.picDiv {
+  height: 100vh;
+  margin-left: 30%; }
+
+/*# sourceMappingURL=style.css.map */

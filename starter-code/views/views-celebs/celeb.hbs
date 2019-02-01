@@ -1,0 +1,18 @@
+<h1>
+    Celebrities
+</h1>
+
+
+{{#each allCelebs}}
+    <div class="celeb-list-one">
+        <img class="celebImg" src="{{this.image}}">
+        <div class="celebName">{{this.name}}</div>
+        <a href="/celebrities/{{this._id}}">See Details</a>
+        <form action="/celebrities/{{this._id}}/delete" method="POST">
+            <button>Delete This Celeb</button>
+        </form>
+        <form action="/celebrities/{{this._id}}/edit" method="GET">
+            <button>Edit this Celeb</button>
+        </form>
+    </div>
+{{/each}}

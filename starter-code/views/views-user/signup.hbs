@@ -1,0 +1,42 @@
+<br>
+<h1>Register A new Account</h1>
+<br>
+
+<form action="/user/signup" method="POST">
+<label>Username</label>
+<input type="text" name="username" required>
+
+<label>Password</label>
+<input type="text" name="password" required>
+
+<label>Profile Pic</label>
+<input type="text" name="image" required>
+
+<label>First Name</label>
+<input type="text" name="first" required>
+
+<label>Last Name</label>
+<input type="text" name="last" required>
+
+<label>Bio</label>
+<textarea name="bio" required cols="30" rows="10"></textarea>
+
+
+ <button>Create Account</button>
+<br>
+ <p class="account-message">
+    Do you already have an account?
+    <a href="/user/login">Login</a>
+  </p>
+
+</form>
+
+{{#if message}}
+<h4>{{message}}</h4>
+{{/if}}
+
+
+  
+
+
+
