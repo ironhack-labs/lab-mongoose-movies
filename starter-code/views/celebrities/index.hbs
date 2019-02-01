@@ -1,0 +1,14 @@
+<div class="row">
+  {{#each celebritiesList}}
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <a href="/celebrities/{{this.id}}" class="card-link">View Profile</a>
+        <a href="/edit/{{this.id}}" class="card-link">Edit</a>
+        <a href="/delete/{{this.id}}" class="card-link">Delete</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
