@@ -1,0 +1,6 @@
+<h1>/Celebrity List</h1>
+{{#each index}}
+<li>
+  <a href="celebrity-details/{{this._id}}">{{this.name}} - {{this.occupation}} - {{catchPhrase}}</a>
+</li>
+{{/each}}
