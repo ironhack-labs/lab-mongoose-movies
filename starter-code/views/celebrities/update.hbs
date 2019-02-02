@@ -1,0 +1,13 @@
+<h1>Update Celebrity</h1>
+
+<form action="/celebrities/{{celebrity._id}}/update" method="post">
+  <label for="">Name</label>
+  <input type="" name="name" id="" value="{{celebrity.name}}">
+  
+  <label for="">Occupation</label>
+  <input type="text" name="occupation" id="" value="{{celebrity.occupation}}">
+
+  <label for="">Catch Phrase</label>
+  <input type="text" name="catchPhrase" id="" value="{{celebrity.catchPhrase}}">
+  <button type="submit">Save Changes</button>
+</form>
