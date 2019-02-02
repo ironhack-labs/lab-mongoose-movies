@@ -1,0 +1,32 @@
+<form action="/celebrity/create" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="celebrity First Name">Celebrity First Name</label>
+      <input type="text" class="form-control" id="firstName" placeholder="Celebrity First Name" name="firstName">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="celebrity First Name">Celebrity Last Name</label>
+      <input type="text" class="form-control" id="lastName" placeholder="Celebrity Last Name" name="lastName">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="occupation">Occupation</label>
+      <select class="form-control" name="occupation">
+      <option>Actor</option>
+      <option>Singer</option>
+      <option>Comedian</option>
+      <option>Unknown</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="catchPhrase">Catch Phrase</label>
+      <input type="text" class="form-control" id="catchPhrase" placeholder="Catch Phrase" name="catchPhrase">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="image_url">Image URL</label>
+    <input type="text" class="form-control" id="image_url" placeholder="Image URL" name="image_url">
+  </div>
+  <button type="submit" class="btn btn-primary">Create New Celebrity</button>
+</form>

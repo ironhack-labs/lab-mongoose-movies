@@ -1,0 +1,16 @@
+<div class="row">
+      {{#each moviesFromDb}}
+        <li class="col celebrity-list">
+          <div class="card pb-1 h-80" style="width: 20rem;">
+            <img src={{this.image_url}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h3 class="card-title"> {{this.title}} </h3>
+              <h5 class="card-text tagline">{{this.genre}}</h5>
+              <p class="card-text movie-plot">Plot: {{this.plot}}</p>
+              <a href="/movie/{{this._id}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Movies Details</a>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+      </div>
+</div>

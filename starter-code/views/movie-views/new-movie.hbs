@@ -1,0 +1,31 @@
+<form action="/movie/create" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="Movie Title">Movie Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Movie Title" name="title">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Movie Genre">Movie Genre</label>
+      <input type="text" class="form-control" id="genre" placeholder="Movie Genre" name="genre">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="cast">Cast</label>
+      <select multiple class="form-control" name="cast">
+      {{#each celebritiesFromDb}}
+      <option value="{{this._id}}" >{{this.firstName}} {{this.lastName}}</option>
+      {{/each}}
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Plot">Plot</label>
+      <input type="text" class="form-control" id="plot" placeholder="Plot" name="plot">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="image_url">Image URL</label>
+    <input type="text" class="form-control" id="image_url" placeholder="Image URL" name="image_url">
+  </div>
+  <button type="submit" class="btn btn-primary">Create New Movie</button>
+</form>
