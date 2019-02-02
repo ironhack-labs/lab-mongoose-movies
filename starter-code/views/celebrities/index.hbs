@@ -3,6 +3,12 @@
 <div>
   <p>{{name}}</p>
   <a href="/celebrities/{{_id}}">Show more</a>
+  <form action="/celebrities/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
+  <form action="/celebrities/{{_id}}/edit" method="get">
+    <button type="submit">Edit</button>
+  </form>
 </div>
 {{/each}}
 <br>
