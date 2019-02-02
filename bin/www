@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 const http = require('http');
+const debug = require('debug');
+const app = require('../app');
 
-let app = require('../app');
-
-// catch 404 and render a not-found.hbs template
+// catch 404 and render a not-found.ejs template
 app.use((req, res, next) => {
   res.status(404);
   res.render('not-found');
@@ -21,10 +21,24 @@ app.use((err, req, res, next) => {
   }
 });
 
-let server = http.createServer(app);
+// Get port, store in Express and and create http server
 
-server.on('error', error => {
-  if (error.syscall !== 'listen') { throw error }
+const port = process.env.PORT || '3000';
+app.set('port', port);
+
+const server = http.createServer(app);
+
+// Listen on provided port, on all network interfaces.
+
+server.listen(port);
+server.on('listening', onListening);
+
+// Handle errors
+
+server.on('error', (error) => {
+  if (error.syscall !== 'listen') { 
+    throw error;
+  }
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -41,6 +55,16 @@ server.on('error', error => {
   }
 });
 
-server.listen(process.env.PORT, () => {
+// Event listener for HTTP server "listening" event.
+
+function onListening() {
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? `pipe ${addr}`
+    : `port ${addr.port}`;
+  debug(`Listening on ${bind}`);
+}
+
+server.listen(port, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
 });
