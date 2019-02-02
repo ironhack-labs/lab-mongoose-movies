@@ -37,7 +37,7 @@ let server = http.createServer(app);
 // server.on('listening', onListening);
 
 
-server.on('error', error => {
+server.on('error', (error) => {
   if (error.syscall !== 'listen') { throw error }
 
   // handle specific listen errors with friendly messages
