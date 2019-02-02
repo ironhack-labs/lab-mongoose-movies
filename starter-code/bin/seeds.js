@@ -7,19 +7,19 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const celebrities = [
   {
-    name: 'Narcisa Um',
-    occupation: 'Rica',
-    catchPhrase: 'Ai que loucura'
+    name: 'Ben Affleck',
+    occupation: 'Actor',
+    catchPhrase: 'I\'m batman!'
   },
   {
-    name: 'Narcisa Dois',
-    occupation: 'Rica',
-    catchPhrase: 'Ai que badalo'
+    name: 'Christian Bale',
+    occupation: 'Actor',
+    catchPhrase: 'I\'m real batman!'
   },
   {
-    name: 'Narcisa Tres',
-    occupation: 'Rica',
-    catchPhrase: 'Ai que doidera',
+    name: 'George Clooney',
+    occupation: 'Actor',
+    catchPhrase: 'I\'m the old batman!'
   }
 ];
 

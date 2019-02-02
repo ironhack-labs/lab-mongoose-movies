@@ -1,6 +1,16 @@
-<h1>/Celebrity List</h1>
-{{#each index}}
-<li>
-  <a href="celebrity-details/{{this._id}}">{{this.name}} - {{this.occupation}} - {{catchPhrase}}</a>
-</li>
-{{/each}}
+<div class="row justify-content-center text-center">
+  {{#each celebritiesList}}
+  <div class="col-sm-4">
+    <div class="card border border-primary">
+      <div class="card-body  mx-auto">
+        <h5 class="card-title">{{this.name}}</h5>
+        <a href="/celebrities/{{this.id}}" class="card-link">show profile</a>
+        <a href="/edit/{{this.id}}" class="card-link">edit</a>
+        <a href="/delete/{{this.id}}" class="card-link">delete</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<a href="/new" class="btn btn-outline-primary btn-block mt-5" role="button" aria-pressed="true">create new celebrity</a>
