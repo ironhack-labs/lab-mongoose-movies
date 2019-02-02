@@ -11,6 +11,21 @@ router.get('/', (req, res, next) => {
     })
     .catch((error) => {
       console.error(error);
+      next(() => error);
+    });
+});
+
+/* GET celebrity page */
+
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  celebritiesModel.findById(id)
+    .then((data) => {
+      console.log(data);
+      res.render('celebrities/show', { data });
+    })
+    .catch((error) => {
+      console.log(error);
       next(error);
     });
 });
