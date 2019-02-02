@@ -1,12 +1,18 @@
 const express = require('express');
-
+const celebritiesModel = require('../models/celebrity');
 const router = express.Router();
 
 /* GET celebrities page */
 
 router.get('/', (req, res, next) => {
-  console.log('Test celebrities route');
-  res.render('celebrities');
+  celebritiesModel.find()
+    .then((celebrities) => {
+      res.render('celebrities', { celebrities });
+    })
+    .catch((error) => {
+      console.error(error);
+      next(error);
+    });
 });
 
 module.exports = router;
