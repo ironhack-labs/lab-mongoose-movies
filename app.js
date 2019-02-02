@@ -24,6 +24,9 @@ const debug = require('debug')(`${appName}:${path.basename(__filename).split('.'
 
 const app = express();
 
+const indexRouter = require('./routes/index');
+const celebritiesRouter = require('./routes/celebrities');
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -48,9 +51,9 @@ app.set('layout', 'layouts/layout');
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-const index = require('./routes/index');
+// Routes
 
-app.use('/', index);
-
+app.use('/', indexRouter);
+app.use('/celebrities', celebritiesRouter);
 
 module.exports = app;
