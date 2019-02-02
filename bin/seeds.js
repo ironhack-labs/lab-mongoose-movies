@@ -1,3 +1,4 @@
+const app = require('../app');
 const celebritiesModel = require('../models/celebrity');
 
 const listCelebrities = [
