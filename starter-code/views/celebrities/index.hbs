@@ -1,7 +1,12 @@
 <h2>Celebrities</h2>
 {{#each celebrities}} <!--Hago referencia a la variable que he puesto en la línea {celebrities: allCelebritiesFromDB} del index.js-->
     <a href="/celebrities/{{this._id}}"><h4>{{this.name}}</h4></a>
+
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+    <button type="submit">Delete celebrity</button>
+    </form>
     
 {{/each}}
 
 <a href="/celebrities/new">Create new celebrity</a>
+

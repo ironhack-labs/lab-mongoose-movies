@@ -45,4 +45,14 @@ router.get('/celebrities/:celebrityId', (req, res, next) => {
     })
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then(celebrity => {
+    res.redirect('/celebrities')
+  })
+  .catch(error =>{
+    console.log('Error', error)
+  })
+})
+
 module.exports = router;
