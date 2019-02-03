@@ -5,7 +5,8 @@
   <li>
     <a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a>
     <form action="/celebrities/<%= celebrity.id %>/delete" method="POST">
-    <input type="submit" value="Delete">
+      <input type="submit" value="Delete"
+        onclick="return confirm('Are you sure you want to delete <%= celebrity.name%>?')">
     </form>
   </li>
 <% }) %>
