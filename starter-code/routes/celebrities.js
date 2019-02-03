@@ -26,7 +26,7 @@ router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findById(celebId)
     .then((data) => {
       const celebDetails = data;
-      res.render('celebrities/show', { celebDetails });
+      res.render('celebrities/show', { celebDetails, celebId });
     })
     .catch((err) => {
       console.log('an error happened: ', err);
@@ -57,6 +57,28 @@ router.post('/celebrities', (req, res, next) => {
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch((err) => {
+      console.log('An error happened: ', err);
+      next();
+    });
+});
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then((celebrity) => {
+      res.render('celebrities/edit', { celebrity });
+    })
+    .catch((err) => {
+      console.log('An error happened: ', err);
+      next();
+    });
+});
+
+router.post('/celebrities/:id', (req, res, next) => {
+  Celebrity.findByIdAndUpdate(req.params.id, { $set: req.body })
     .then(() => {
       res.redirect('/celebrities');
     })
