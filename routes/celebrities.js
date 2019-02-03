@@ -1,11 +1,12 @@
 const express = require('express');
-const celebritiesModel = require('../models/celebrity');
+const CelebritiesModel = require('../models/celebrity');
+
 const router = express.Router();
 
 /* GET celebrities page */
 
 router.get('/', (req, res, next) => {
-  celebritiesModel.find()
+  CelebritiesModel.find()
     .then((celebrities) => {
       res.render('celebrities', { celebrities });
     })
@@ -18,15 +19,36 @@ router.get('/', (req, res, next) => {
 /* GET new celebrity */
 
 router.get('/new', (req, res, next) => {
-  console.log('I am in new');
   res.render('celebrities/new');
+});
+
+/* POST new celebrity */
+
+router.post('/', (req, res) => {
+  console.log(req.body);
+  const celebrity = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  };
+
+  const newCelebrity = new CelebritiesModel(celebrity);
+  newCelebrity.save()
+    .then(() => {
+      console.log(`Succes adding ${celebrity.name}`);
+      res.render('index');
+    })
+    .catch((error) => {
+      console.log('Celebrity not saved', error);
+      res.render('celebrities/new');
+    });
 });
 
 /* GET celebrity page */
 
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
-  celebritiesModel.findById(id)
+  CelebritiesModel.findById(id)
     .then((data) => {
       res.render('celebrities/show', { data });
     })
