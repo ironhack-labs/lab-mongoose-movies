@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Celebrities</title>
 </head>
 <body>
-
-  <%- body %>
-
-  <script src="/javascripts/script.js"></script>
+  <h2>Celebrities</h2>
+  <% celebrities.forEach((celebrity) => { %>
+    <p><%= celebrity.name %></p>
+  <% }) %>
 </body>
 </html>

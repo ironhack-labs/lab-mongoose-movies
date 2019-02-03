@@ -24,4 +24,4 @@ const celebArray = [
 
 Celebrity.create(celebArray, () => {
   console.log('celebrity created');
-})
+});
