@@ -1,0 +1,22 @@
+{{!-- use METHOD POST when creating new instances in the DB through the form --}}
+
+{{!--          |-------------------------- --}}
+{{!-- router.post('/celebrities/create')     | --}}
+{{!--                  |                 | --}}
+<form action="/celebrity/create" method="post">
+
+  <label for="">First name:</label>
+  <input type="text" name="firstName" id="">
+  
+  <label for="">Last name:</label>
+  <input type="text" name="lastName" id="">
+
+  <label for="">Occupation:</label>
+  <input type="text" name="occupation" id="">
+
+  <label for="">Catch phrase:</label>
+  <input type="text" name="catchPhrase" id="">
+
+  <button type="submit">Add new celebrity</button>
+
+</form>

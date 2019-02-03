@@ -1,0 +1,28 @@
+{{!-- use METHOD POST when creating new instances in the DB through the form --}}
+
+{{!--          |-------------------------- --}}
+{{!-- router.post('/movie/create')     | --}}
+{{!--              |                   | --}}
+<form action="/movie/create" method="post">
+
+  <label for="">Title:</label>
+  <input type="text" name="title" id="">
+  
+  <label for="">Genre:</label>
+  <input type="text" name="genre" id="">
+
+  <label for="">Plot:</label>
+  <input type="text" name="plot" id="">
+
+{{!-- array of celebrities in the Cast --}}
+  <label for="">Cast:</label>
+    <select name="cast" id="" multiple="">
+      {{!-- multiple allows to select multiple options for cast members; otherwise only one can be selected as dropdown menu --}}
+      {{#each foundCelebritiesFromDB}}
+        <option value="{{this._id}}">{{this.firstName}} {{this.lastName}}</option>
+      {{/each}}
+    </select>
+
+  <button type="submit">Add new movie</button>
+
+</form>
