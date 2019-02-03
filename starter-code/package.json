@@ -1,6 +1,7 @@
 {
   "name": "starter-code",
   "version": "0.0.0",
+  "author": "github.com/diegormedia",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
