@@ -3,6 +3,37 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: grey; }
+
+.index {
+  font-size: 6em;
+  text-align: center; }
+
+.index a {
+  text-decoration: none;
+  color: #c90d94; }
+
+.index a:hover {
+  color: pink; }
+
+.index-celebrities h2 {
+  font-size: 3em;
+  color: purple;
+  text-align: center; }
+
+.index-celebrities h4 {
+  font-size: 1.5em; }
+
+.index-celebrities button {
+  border-color: #ba41ba;
+  background-color: #ba41ba;
+  color: white;
+  border-radius: 10px; }
+
+.new-celebrity {
+  padding: 30px 0; }
+
+.new-celebrity a {
+  color: purple; }
 
 /*# sourceMappingURL=style.css.map */

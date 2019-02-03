@@ -4,6 +4,8 @@ const Celebrity = require('../models/celebrity')
 const dbName = 'celebrity-project';
 mongoose.connect(`mongodb://localhost/${dbName}`)
 
+Celebrity.collection.drop();
+
 const celebrities = [
     {
         name: "Beyonce",
@@ -26,3 +28,21 @@ Celebrity.create(celebrities, (err) => {
     if (err) {throw(err)}
     mongoose.connection.close();
 });
+
+// const movies = [
+//     {
+//         title:
+//         genre:
+//         plot:
+//     },
+//     {
+//         title:
+//         genre:
+//         plot:
+//     },
+//     {
+//         title:
+//         genre:
+//         plot:
+//     }
+// ]

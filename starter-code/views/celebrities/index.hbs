@@ -1,3 +1,4 @@
+<div class="index-celebrities">
 <h2>Celebrities</h2>
 {{#each celebrities}} <!--Hago referencia a la variable que he puesto en la línea {celebrities: allCelebritiesFromDB} del index.js-->
     <a href="/celebrities/{{this._id}}"><h4>{{this.name}}</h4></a>
@@ -8,5 +9,9 @@
     
 {{/each}}
 
+<div class="new-celebrity">
 <a href="/celebrities/new">Create new celebrity</a>
+</div>
+
+</div>
 
