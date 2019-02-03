@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Celeb = require('../models/Celeb')
+const Movie = require('../models/Movie')
 
 mongoose.connect('mongodb://localhost/lab-mongoose-movies', {useNewUrlParser: true})
 .then(x => {
@@ -11,25 +11,52 @@ mongoose.connect('mongodb://localhost/lab-mongoose-movies', {useNewUrlParser: tr
 
 var rawData = [
   {
-    name: 'Julia Roberts',
-    occupation: 'actress',
-    catchPhrase: "live every day like its your first"
+    title: 'One Flew Over The Cuckoos Nest',
+    genre: 'drama',
+    plot: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
   },
   {
-    name: 'Tina Turner',
-    occupation: 'singer',
-    catchPhrase: "simply the best"
+    title: 'White Chicks',
+    genre: 'comedy',
+    plot: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
   },
   {
-    name: 'Thor',
-    catchPhrase: "Have you tried turning it off and on again?"
+    title: 'Goodbye Lenin',
+    genre: 'german',
+    plot: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
   }
 ]
 
-Celeb.create(rawData)
+Movie.create(rawData)
 .then(() => {
   console.log('Done')
 })
 .catch((err) => {
   console.log('Error', err)
 })
+
+
+// var rawData = [
+//   {
+//     name: 'Julia Roberts',
+//     occupation: 'actress',
+//     catchPhrase: "live every day like its your first"
+//   },
+//   {
+//     name: 'Tina Turner',
+//     occupation: 'singer',
+//     catchPhrase: "simply the best"
+//   },
+//   {
+//     name: 'Thor',
+//     catchPhrase: "Have you tried turning it off and on again?"
+//   }
+// ]
+
+// Celeb.create(rawData)
+// .then(() => {
+//   console.log('Done')
+// })
+// .catch((err) => {
+//   console.log('Error', err)
+// })

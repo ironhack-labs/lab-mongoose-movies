@@ -1,8 +1,38 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.all {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.box {
+  // border: 1px solid green;
+  padding: 0 0 20px;
+}
+
+a, button {
+  // padding: 10px;
+  margin: 20px 0 0;
+}
+
+.title {
+  // border: 1px solid red;
+  padding: 10px 0 20px;
+}
+
+form {
+  // border: 1px solid black;
+  line-height: 3;
 }

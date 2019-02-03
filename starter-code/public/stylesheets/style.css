@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
+
+nav {
+  display: flex;
+  justify-content: space-around; }
+
+.all {
+  display: flex;
+  flex-flow: column nowrap; }
+
+.box {
+  padding: 0 0 20px; }
+
+a, button {
+  margin: 20px 0 0; }
+
+.title {
+  padding: 10px 0 20px; }
+
+form {
+  line-height: 3; }
 
 /*# sourceMappingURL=style.css.map */
