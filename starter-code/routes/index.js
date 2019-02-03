@@ -18,6 +18,17 @@ router.get('/celebrities', (req, res, next) => {
     })
 });
 
+router.get('/celebrities/:celebrityId', (req, res, next) =>{
+  console.log(req.params.celebrityId)
+  Celebrity.findById(req.params.celebrityId)
+    .then(theCelebrity =>{
+      res.render('celebrities/show', {show: theCelebrity})
+    })
+    .catch(error =>{
+      console.log('Error with show celebrity', error)
+    })
+})
+
 
 
 
