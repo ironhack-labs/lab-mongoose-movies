@@ -1,5 +1,6 @@
 const app = require('../app');
 const celebritiesModel = require('../models/celebrity');
+const moviesModel = require('../models/movie');
 
 const listCelebrities = [
   {
@@ -20,5 +21,28 @@ const listCelebrities = [
 ];
 
 celebritiesModel.create(listCelebrities)
+  .then(data => console.log('Data added', data))
+  .catch(error => console.log('Couldn\'t add files', error));
+
+const listMovies = [
+  {
+    title: 'De perdidos al río',
+    genre: 'Drama',
+    plot: 'Intergalactic drama show',
+  },
+  {
+    title: 'Condemor de la pradera',
+    genre: 'Thriller',
+    plot: 'Top level cowboy movie',
+  },
+  {
+    title: 'Apocalipsis Samurai',
+    genre: 'Comedy',
+    plot: 'Life in a fallout Samurai style Vegas',
+  },
+];
+
+
+moviesModel.create(listMovies)
   .then(data => console.log('Data added', data))
   .catch(error => console.log('Couldn\'t add files', error));
