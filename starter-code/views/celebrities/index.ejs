@@ -1,7 +1,7 @@
 <h2>Celebrities</h2>
 
 <ul>
-<% celebrities.forEach((celebrity) => { %>
+<% celebrities.sort((a,b) => a.name > b.name).forEach((celebrity) => { %>
   <li>
     <a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a>
     <form action="/celebrities/<%= celebrity.id %>/delete" method="POST">

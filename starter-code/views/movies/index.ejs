@@ -1,7 +1,7 @@
 <h2>Movies</h2>
 
 <ul>
-<% movies.forEach((movie) => { %>
+<% movies.sort((a,b) => a.title > b.title ).forEach((movie) => { %>
   <li>
     <a href="/movies/<%= movie.id %>"><%= movie.title %></a>
     <form action="/movies/<%= movie.id %>/delete" method="POST">
