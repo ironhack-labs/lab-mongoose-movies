@@ -55,4 +55,37 @@ router.post('/movies', (req, res, next) => {
     });
 });
 
+router.post('/movies/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/movies');
+    })
+    .catch((err) => {
+      console.log('An error happened: ', err);
+      next();
+    });
+});
+
+router.get('/movies/:id/edit', (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then((movie) => {
+      res.render('movies/edit', { movie });
+    })
+    .catch((err) => {
+      console.log('An error happened: ', err);
+      next();
+    });
+});
+
+router.post('/movies/:id', (req, res, next) => {
+  Movie.findByIdAndUpdate(req.params.id, { $set: req.body })
+    .then(() => {
+      res.redirect('/movies');
+    })
+    .catch((err) => {
+      console.log('An error happened: ', err);
+      next();
+    });
+});
+
 module.exports = router;
