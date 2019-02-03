@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const celebritySchema = require('../models/celebrity');
 
 mongoose
-  .connect('mongodb://localhost/celebrities', { useNewUrlParser: true })
+  .connect('mongodb://localhost/myDataBase', { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
