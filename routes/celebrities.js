@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
   newCelebrity.save()
     .then(() => {
       console.log(`Succes adding ${celebrity.name}`);
-      res.render('index');
+      res.redirect('celebrities');
     })
     .catch((error) => {
       console.log('Celebrity not saved', error);
@@ -52,6 +52,18 @@ router.get('/:id', (req, res, next) => {
     .then((data) => {
       res.render('celebrities/show', { data });
     })
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
+});
+
+/* POST delete celebrity */
+
+router.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  CelebritiesModel.findByIdAndRemove(id)
+    .then(() => res.redirect('/celebrities'))
     .catch((error) => {
       console.log(error);
       next(error);

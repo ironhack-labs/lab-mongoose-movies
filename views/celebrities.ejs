@@ -3,6 +3,9 @@
 <ul>
   <% celebrities.forEach(function(celebrity){ %>
     <li><a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a></li>
+    <form action="/celebrities/<%= celebrity.id %>/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
   <% }); %>
 </ul>
 
