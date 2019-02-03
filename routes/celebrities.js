@@ -8,7 +8,9 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   CelebritiesModel.find()
     .then((celebrities) => {
-      res.render('celebrities', { celebrities });
+      res.render('celebrities', {
+        celebrities
+      });
     })
     .catch((error) => {
       console.error(error);
@@ -47,11 +49,57 @@ router.post('/', (req, res) => {
 /* GET celebrity page */
 
 router.get('/:id', (req, res, next) => {
-  const { id } = req.params;
+  const {
+    id
+  } = req.params;
   CelebritiesModel.findById(id)
-    .then((data) => {
-      res.render('celebrities/show', { data });
+    .then((celebrity) => {
+      res.render('celebrities/show', {
+        celebrity
+      });
     })
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
+});
+
+/* GET edit celebrity */
+
+router.get('/:id/edit', (req, res, next) => {
+  const {
+    id
+  } = req.params;
+  CelebritiesModel.findById(id)
+    .then((celebrity) => {
+      res.render('celebrities/edit', {
+        celebrity
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
+});
+
+/* POST edit celebrity */
+
+router.post('/celebrities/:id', (req, res, next) => {
+  const {
+    id
+  } = req.params;
+  const updatedCelebrity = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  };
+  CelebritiesModel.findByIdAndUpdate(
+    id,
+    updatedCelebrity, {
+      new: true,
+    },
+  )
+    .then(() => res.redirect('/celebrities'))
     .catch((error) => {
       console.log(error);
       next(error);
@@ -61,7 +109,9 @@ router.get('/:id', (req, res, next) => {
 /* POST delete celebrity */
 
 router.post('/:id/delete', (req, res, next) => {
-  const { id } = req.params;
+  const {
+    id
+  } = req.params;
   CelebritiesModel.findByIdAndRemove(id)
     .then(() => res.redirect('/celebrities'))
     .catch((error) => {
