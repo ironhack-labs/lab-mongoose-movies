@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   CelebritiesModel.find()
     .then((celebrities) => {
-      res.render('celebrities', {
+      res.render('celebrities/celebrities', {
         celebrities,
       });
     })
