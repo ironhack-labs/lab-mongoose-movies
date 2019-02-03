@@ -4,15 +4,14 @@ const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
 const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
   .then(x => {
+    const seeds = require('./bin/seeds.js');
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
@@ -38,21 +37,17 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
-
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
-const index = require('./routes/index');
-app.use('/', index);
-
+const indexRoute = require('./routes/index');
+const celebritiesRoute = require('./routes/celebrities');
+app.use('/', indexRoute);
+app.use('/celebrities', celebritiesRoute);
 
 module.exports = app;

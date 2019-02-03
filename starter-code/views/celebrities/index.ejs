@@ -1,0 +1,8 @@
+<h2>Here is the list of celebrities</h2>
+<% celebrities.forEach((celebrity) => { %>
+  <p><a href="/celebrities/<%= celebrity._id %>"><%= celebrity.name %></a></p>
+  <form action="/celebrities/<%= celebrity._id %>/delete" method="post">
+    <input type="submit" value="Delete">
+  </form>
+<% }) %>
+<a href="/celebrities/new">Add new celebrity</a>
