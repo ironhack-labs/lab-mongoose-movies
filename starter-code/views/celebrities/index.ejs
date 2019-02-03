@@ -1,18 +1,18 @@
-<h2>Celebrities</h2>
-
-<ul>
-<% celebrities.sort((a,b) => a.name > b.name).forEach((celebrity) => { %>
-  <li>
-    <a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a>
-    <form action="/celebrities/<%= celebrity.id %>/delete" method="POST">
-      <input type="submit" value="Delete"
-        onclick="return confirm('Are you sure you want to delete <%= celebrity.name%>?')">
-    </form>
-    <form action="/celebrities/<%= celebrity.id %>/edit">
-      <input type="submit" value="Edit">
-    </form>
-  </li>
-<% }) %>
-</ul>
-
-<a href="/celebrities/new">Create a new celebrity</a>
+<div class="database-index-container">
+  <h2>Celebrities</h2>
+  <ul class="database-list">
+  <% celebrities.sort((a,b) => a.name > b.name).forEach((celebrity) => { %>
+    <li class="database-list-item">
+      <a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a>
+      <form action="/celebrities/<%= celebrity.id %>/delete" method="POST">
+        <input type="submit" value="Delete"
+          onclick="return confirm('Are you sure you want to delete <%= celebrity.name%>?')">
+      </form>
+      <form action="/celebrities/<%= celebrity.id %>/edit">
+        <input type="submit" value="Edit">
+      </form>
+    </li>
+  <% }) %>
+  </ul>
+  <a href="/celebrities/new" class="button">Create a new celebrity</a>
+</div>

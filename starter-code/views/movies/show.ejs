@@ -1,6 +1,8 @@
-<h2>Movie Details</h2>
-<p><%= movie.title %></p>
-<p><%= movie.genre %></p>
-<p><%= movie.plot %></p>
-<a href="/movies/<%= movieId %>/edit">Edit movie</a>
-<a href="/movies">Go back to movie list</a>
+<div class="database-index-container">
+  <h2>Movie Details</h2>
+  <p><%= movie.title %></p>
+  <p><%= movie.genre %></p>
+  <p><%= movie.plot %></p>
+  <a href="/movies/<%= movieId %>/edit" class="button">Edit movie</a>
+  <a href="/movies" class="button">Go back to movie list</a>
+</div>

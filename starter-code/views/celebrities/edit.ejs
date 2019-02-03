@@ -1,13 +1,15 @@
-<h2>Edit celebrity</h2>
-<form action="/celebrities/<%= celebrity.id %>" method="POST">
-  <label for="name">Name</label>
-  <input type="text" name="name" value="<%= celebrity.name %>">
-  <label for="occupation">Occupation</label>
-  <input type="text" name="occupation" value="<%= celebrity.occupation %>">
-  <label for="catchPhrase">Catch Phrase</label>
-  <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>">
-  <input type="submit" value="Submit">
-</form>
+<div class="database-index-container">  
+  <h2>Edit celebrity</h2>
+  <form class="form" action="/celebrities/<%= celebrity.id %>" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" value="<%= celebrity.name %>">
+    <label for="occupation">Occupation</label>
+    <input type="text" name="occupation" value="<%= celebrity.occupation %>">
+    <label for="catchPhrase">Catch Phrase</label>
+    <input type="text" name="catchPhrase" value="<%= celebrity.catchPhrase %>">
+    <input type="submit" value="Submit" class="button submit-button">
+  </form>
 
-<a href="/celebrities/<%= celebrity.id %>">Go back to details</a>
-<a href="/celebrities">Go back to celebrities list</a>
+  <a href="/celebrities/<%= celebrity.id %>" class="button">Go back to details</a>
+  <a href="/celebrities" class="button">Go back to celebrities list</a>
+</div>

@@ -1,18 +1,18 @@
-<h2>Movies</h2>
-
-<ul>
-<% movies.sort((a,b) => a.title > b.title ).forEach((movie) => { %>
-  <li>
-    <a href="/movies/<%= movie.id %>"><%= movie.title %></a>
-    <form action="/movies/<%= movie.id %>/delete" method="POST">
-      <input type="submit" value="Delete" 
-        onclick="return confirm('Are you sure you want to delete <%= movie.title%>?')">
-    </form>
-    <form action="/movies/<%= movie.id %>/edit">
-      <input type="submit" value="Edit">
-    </form>
-  </li>
-<% }) %>
-</ul>
-
-<a href="/movies/new">Create a new movie</a>
+<div class="database-index-container">
+  <h2>Movies</h2>
+  <ul class="database-list">
+  <% movies.sort((a,b) => a.title > b.title ).forEach((movie) => { %>
+    <li class="database-list-item">
+      <a href="/movies/<%= movie.id %>"><%= movie.title %></a>
+      <form action="/movies/<%= movie.id %>/delete" method="POST">
+        <input type="submit" value="Delete" 
+          onclick="return confirm('Are you sure you want to delete <%= movie.title%>?')">
+      </form>
+      <form action="/movies/<%= movie.id %>/edit">
+        <input type="submit" value="Edit">
+      </form>
+    </li>
+  <% }) %>
+  </ul>
+  <a href="/movies/new" class="button">Create a new movie</a>
+</div>
