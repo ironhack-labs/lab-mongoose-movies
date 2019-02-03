@@ -47,6 +47,16 @@ router.post('/celebrities', (req, res, next) => {
     });
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  celebritiesSchema
+    .findByIdAndRemove(req.params.id)
+    .then(done => {
+      console.log('The next element was deleted from database: ', done);
+      res.redirect('/celebrities/index');
+    })
+    .catch(err => console.log('An error ocurred: ', err));
+});
+
 module.exports = router;
 
 /*
