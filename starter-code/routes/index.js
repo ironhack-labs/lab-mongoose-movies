@@ -18,8 +18,24 @@ router.get('/celebrities', (req, res, next) => {
     })
 });
 
-router.get('/celebrities/:celebrityId', (req, res, next) =>{
-  console.log(req.params.celebrityId)
+router.get('/celebrities/new', (req, res, next) =>{
+  res.render('celebrities/new')
+});
+
+router.post('/celebrities/new', (req, res, next) =>{
+  const {name, occupation, catchPhrase} = req.body;
+  const newCelebrity = new Celebrity ({name, occupation, catchPhrase});
+
+  newCelebrity.save()
+  .then((celebrity) =>{
+    res.redirect('/celebrities')
+  })
+  .catch((error) =>{
+    res.redirect('celebrities/new')
+  })
+})
+
+router.get('/celebrities/:celebrityId', (req, res, next) => {
   Celebrity.findById(req.params.celebrityId)
     .then(theCelebrity =>{
       res.render('celebrities/show', {show: theCelebrity})
@@ -27,9 +43,6 @@ router.get('/celebrities/:celebrityId', (req, res, next) =>{
     .catch(error =>{
       console.log('Error with show celebrity', error)
     })
-})
-
-
-
+});
 
 module.exports = router;

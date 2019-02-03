@@ -24,6 +24,5 @@ const celebrities = [
 
 Celebrity.create(celebrities, (err) => {
     if (err) {throw(err)}
-    console.log(`Create ${celebrities.length} celebrities`)
     mongoose.connection.close();
 });
