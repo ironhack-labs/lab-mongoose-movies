@@ -34,4 +34,25 @@ router.get('/movies/:id', (req, res, next) => {
     });
 });
 
+router.get('/movies/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
+router.post('/movies', (req, res, next) => {
+  const newMov = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+  };
+  const newMovie = new Movie(newMov);
+  newMovie.save()
+    .then(() => {
+      res.redirect('/movies');
+    })
+    .catch((err) => {
+      console.log('an error happened: ', err);
+      res.render('movies/new');
+    });
+});
+
 module.exports = router;
