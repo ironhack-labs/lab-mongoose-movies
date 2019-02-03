@@ -8,6 +8,9 @@
       <input type="submit" value="Delete"
         onclick="return confirm('Are you sure you want to delete <%= celebrity.name%>?')">
     </form>
+    <form action="/celebrities/<%= celebrity.id %>/edit">
+      <input type="submit" value="Edit">
+    </form>
   </li>
 <% }) %>
 </ul>
