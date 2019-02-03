@@ -15,13 +15,19 @@ router.get('/', (req, res, next) => {
     });
 });
 
+/* GET new celebrity */
+
+router.get('/new', (req, res, next) => {
+  console.log('I am in new');
+  res.render('celebrities/new');
+});
+
 /* GET celebrity page */
 
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
   celebritiesModel.findById(id)
     .then((data) => {
-      console.log(data);
       res.render('celebrities/show', { data });
     })
     .catch((error) => {
