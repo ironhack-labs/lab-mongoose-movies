@@ -48,12 +48,25 @@ $ git push origin master
 - Create Pull Request so your TAs can check up your work.
 
 
-## Deliverables
-
-All the files that make your Express/Mongoose app must work. This includes your `celebrities.js` and `movies.js` routes files, as well as your `celebrity.js` and `movie.js` model files.
-
-
 ## Instructions
+
+### Iteration 0 | Initialize the project
+
+After forking and cloning the project, you will have to add a `starter_code/.env` file:
+
+```
+PORT=3000
+```
+
+And you have to install all the dependencies:
+
+
+```sh
+$ cd starter_code
+$ npm install
+```
+
+Now you are ready to start 🚀
 
 
 ## Iteration #1: The `Celebrity` Model
