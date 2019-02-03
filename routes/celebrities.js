@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
   CelebritiesModel.find()
     .then((celebrities) => {
       res.render('celebrities', {
-        celebrities
+        celebrities,
       });
     })
     .catch((error) => {
@@ -55,7 +55,7 @@ router.get('/:id', (req, res, next) => {
   CelebritiesModel.findById(id)
     .then((celebrity) => {
       res.render('celebrities/show', {
-        celebrity
+        celebrity,
       });
     })
     .catch((error) => {
@@ -73,7 +73,7 @@ router.get('/:id/edit', (req, res, next) => {
   CelebritiesModel.findById(id)
     .then((celebrity) => {
       res.render('celebrities/edit', {
-        celebrity
+        celebrity,
       });
     })
     .catch((error) => {
@@ -84,15 +84,17 @@ router.get('/:id/edit', (req, res, next) => {
 
 /* POST edit celebrity */
 
-router.post('/celebrities/:id', (req, res, next) => {
+router.post('/:id', (req, res, next) => {
   const {
-    id
+    id,
   } = req.params;
+
   const updatedCelebrity = {
     name: req.body.name,
     occupation: req.body.occupation,
     catchPhrase: req.body.catchPhrase,
   };
+
   CelebritiesModel.findByIdAndUpdate(
     id,
     updatedCelebrity, {
