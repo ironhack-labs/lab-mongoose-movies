@@ -10,11 +10,23 @@ const dbName = 'lab-mongoose-movies';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
 router.get('/celebrities', (req, res, next) => {
-  console.log('in celebrities');
   Celebrity.find()
     .then((data) => {
       const celebrities = data;
       res.render('celebrities/index', { celebrities });
+    })
+    .catch((err) => {
+      console.log('an error happened: ', err);
+      next();
+    });
+});
+
+router.get('/celebrities/:id', (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findById(celebId)
+    .then((data) => {
+      const celebDetails = data;
+      res.render('celebrities/show', { celebDetails });
     })
     .catch((err) => {
       console.log('an error happened: ', err);
