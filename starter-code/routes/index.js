@@ -7,6 +7,10 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
 router.get('/celebrities/index', (req, res, next) => {
   celebritiesSchema
     .find()
@@ -19,6 +23,28 @@ router.get('/celebrities/:id', (req, res, next) => {
     .findById(req.params.id, { _id: 0 })
     .then(celebrity => res.render('celebrities/show', { celebrity }))
     .catch(err => console.log('An error ocurred: ', err));
+});
+
+router.post('/celebrities', (req, res, next) => {
+  if (req.body.name == '' || req.body.occupation == '' || req.body.catchphrase == '') {
+    res.render('celebrities/new', {
+      errorMessage: 'Please fill all the fields'
+    });
+  }
+  celebritiesSchema
+    .create({
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchphrase: req.body.catchphrase
+    })
+    .then(done => {
+      console.log(done);
+      res
+        .render('celebrities/new', {
+          successMessage: 'Celebrity saved successfully'
+        })
+        .catch(err => console.log('An error ocurred:', err));
+    });
 });
 
 module.exports = router;
