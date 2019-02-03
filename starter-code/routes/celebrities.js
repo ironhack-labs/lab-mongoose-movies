@@ -55,4 +55,15 @@ router.post('/celebrities', (req, res, next) => {
     });
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch((err) => {
+      console.log('An error happened: ', err);
+      next();
+    });
+});
+
 module.exports = router;
