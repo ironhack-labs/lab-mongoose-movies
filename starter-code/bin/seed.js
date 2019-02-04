@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Celebrity = require("../views/models/celebrity");
+const Celebrity = require("../models/celebrity");
 
 Celebrity.collection.drop();
 
