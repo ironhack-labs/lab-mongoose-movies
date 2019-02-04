@@ -8,10 +8,11 @@ const favicon = require('serve-favicon');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
+  .connect('mongodb://localhost/mongoose-movies', { useNewUrlParser: true })
   .then( x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -45,6 +46,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
+app.set('layout extractScripts', true);
+app.set('layout extractStyles', true);
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';

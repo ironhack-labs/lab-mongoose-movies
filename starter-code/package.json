@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
     "dev": "DEBUG=starter-code:* nodemon ./bin/www",
-    "dev-windows": "nodemon ./bin/www"
+    "dev-windows": "nodemon ./bin/www",
+    "seed": "node ./bin/seeds.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -14,6 +15,7 @@
     "dotenv": "^6.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
     "hbs": "^4.0.1",
     "mongoose": "^5.3.6",
     "morgan": "^1.9.1",
