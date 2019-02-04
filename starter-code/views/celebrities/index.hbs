@@ -1,9 +1,14 @@
-<h2>WAS QUOI</h2>
+<h2>CELEBRITIES</h2>
 
-<div class="row">
+<div>
   {{#each celeb}}
     <div>
-      <a href="celebritiesindex/show/{{this.id}}">{{this.name}}</a>
+      <a href="celebrities/show/{{this.id}}">{{this.name}}</a>
+      <form action="celebrities/{{this.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
     </div>
   {{/each}}
 </div>
+<br>
+<a href="celebrities/new">Add a celebrity</a>

@@ -3,11 +3,8 @@ const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
   title: String,
-  director: String,
-  stars: [],
-  image: String,
-  description: String,
-  showtimes: []
+  genre: String,
+  plot: String
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
