@@ -12,4 +12,4 @@ const celebritySchema = new Schema({
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema);
 
-module.exports = Product;
+module.exports = Celebrity;

@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
+const index = require('./routes/index');
+const celebrities = require('./routes/celebrities');
 
 mongoose
   .connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
@@ -48,9 +50,8 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-const index = require('./routes/index');
-
 app.use('/', index);
+app.use('/celebrities', celebrities);
 
 
 module.exports = app;
