@@ -1,9 +1,6 @@
 <h2>All Celebrities</h2>
 <ul>
-
   {{#each celebrities}}
-    <li>
-      {{!-- <h3>Name: {{this.name}}</h3> --}}
       <li><a href="/celebrities/{{this._id}}">  {{this.name}} </a> </li>
       <a href="/celebrities/{{this._id}}/edit" class="edit-button">EDIT</a>
       <br>

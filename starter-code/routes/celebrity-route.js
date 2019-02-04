@@ -34,7 +34,7 @@ router.post('/create', (req, res, next) =>{
       console.log("New author created: ", newCelebrity);
       res.redirect('/celebrities')
     })
-    .catch(err => console.log("Error while creating a new author: ", err));
+    .catch(err => console.log("Error while creating a new celebrity: ", err));
 })
 
 
@@ -75,9 +75,13 @@ router.get('/:id/edit', (req, res, next) =>{
 
 //localhost:3000/5c55e5ff0e91171f0de4b179/update
 //post route to update changes
-router.post('/:id/update', (req, res, next) =>{
+router.post('/:id/edit', (req, res, next) =>{
   console.log('Updates are: ', req.body)
-  Celebrity.findByIdAndUpdate(req.params.id)
+  Celebrity.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  })
     .then(updatedCelebrity => {
       console.log('Is this updated: ', updatedCelebrity)
       res.redirect(`/celebrities/${req.params.id}`)
