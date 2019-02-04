@@ -7,11 +7,18 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   Movie.find({})
     .then((movies) => {
-      console.log('okb');
       res.render('movies/index', { movies });
     })
     .catch(next);
 });
 
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  Movie.findById(id)
+    .then((movie) => {
+      res.render('movies/show', { movie });
+    })
+    .catch(next);
+});
 
 module.exports = router;
