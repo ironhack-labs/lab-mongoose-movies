@@ -1,0 +1,9 @@
+<h2>CELEBRITIES</h2>
+<div>
+{{#each cbty}}
+<h2>{{this.name}}</h2>
+    <a href="/celebrities/{{this._id}}">See more</a>
+{{/each}}
+</div>
+
+<a href="/celebrities/new">new celebrity</a>
