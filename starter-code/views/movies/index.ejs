@@ -5,11 +5,11 @@
     <li class="database-list-item">
       <a href="/movies/<%= movie.id %>"><%= movie.title %></a>
       <form action="/movies/<%= movie.id %>/delete" method="POST">
-        <input type="submit" value="Delete" 
+        <input type="submit" value="&#xf2ed" 
           onclick="return confirm('Are you sure you want to delete <%= movie.title%>?')">
       </form>
       <form action="/movies/<%= movie.id %>/edit">
-        <input type="submit" value="Edit">
+        <input type="submit" value="&#xf044">
       </form>
     </li>
   <% }) %>

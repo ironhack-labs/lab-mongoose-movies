@@ -120,4 +120,9 @@ h2 {
 .submit-button {
   margin-top: 2rem; }
 
+input[type="submit"] {
+  font-family: "Font Awesome 5 Free";
+  font-size: 1.3333333333333333em;
+  font-weight: 900; }
+
 /*# sourceMappingURL=style.css.map */
