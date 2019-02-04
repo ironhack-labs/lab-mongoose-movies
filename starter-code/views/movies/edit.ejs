@@ -1,0 +1,17 @@
+<h2>Edit Movie</h2>
+
+<form action="/movies/<%= movie.id%>" method="post">
+  <div class="form-row">
+    <label for="">Title</label>
+    <input type="text" name="title" value="<%= movie.title%>" required>
+  </div>
+  <div class="form-row">
+    <label for="">Genre</label>
+    <input type="text" name="genre" value="<%= movie.genre%>">
+  </div>
+  <div class="form-row">
+      <label for="">Plot</label>
+      <input type="text" name="plot" value="<%= movie.plot%>" >
+  </div>
+  <input type="submit" value="update">
+</form>

@@ -34,11 +34,30 @@ router.get('/:id', (req, res, next) => {
     .catch(next);
 });
 
+router.post('/:id', (req, res, next) => {
+  const { id } = req.params;
+  const { title, genre, plot } = req.body;
+  Movie.findByIdAndUpdate(id, { title, genre, plot })
+    .then((movie) => {
+      res.redirect('/movies');
+    })
+    .catch(next);
+});
+
 router.post('/:id/delete', (req, res, next) => {
   const { id } = req.params;
   Movie.findByIdAndRemove(id)
     .then((movie) => {
       res.redirect('/movies');
+    })
+    .catch(next);
+});
+
+router.get('/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  Movie.findById(id)
+    .then((movie) => {
+      res.render('movies/edit', { movie });
     })
     .catch(next);
 });
