@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 
-console.log(Celebrity);
-
 const celebrities = [
   {
     name: 'Tom Cruise',
@@ -20,8 +18,6 @@ const celebrities = [
     catchPhrase: 'hahaha',
   },
 ];
-
-console.log(celebrities);
 
 mongoose.connect('mongodb://localhost:27017/mongoose-movies', { useNewUrlParser: true })
   .then(() => {
