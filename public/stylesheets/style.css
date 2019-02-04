@@ -3,6 +3,80 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+  text-decoration: none; }
+
+ul {
+  list-style: none;
+  padding: 2rem; }
+
+html {
+  background-image: url("../images/background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.container {
+  display: flex;
+  flex-direction: column; }
+
+.title-container {
+  display: flex;
+  flex-direction: column; }
+
+.main-title {
+  font-size: 7rem;
+  margin-top: 3rem;
+  color: white; }
+
+.subtitle {
+  font-size: 3rem;
+  color: white; }
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 5rem; }
+
+.button {
+  text-decoration: none;
+  padding: 2rem 5rem;
+  background-color: rgba(193, 66, 66, 0.9);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin: 4rem;
+  border-radius: 25px; }
+
+.list-container {
+  background-color: rgba(0, 5, 10, 0.3);
+  width: 40%;
+  margin: 0 auto;
+  padding: 1rem; }
+
+.list-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem; }
+
+.list-element {
+  font-size: 2rem; }
+
+.icon {
+  background: none;
+  border: none;
+  font-size: 2rem; }
+
+.delete {
+  color: tomato; }
+
+.add-element {
+  margin-left: 45%; }
+
+.navigation-links {
+  text-transform: uppercase; }
+
+/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */

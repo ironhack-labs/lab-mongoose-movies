@@ -1,13 +1,14 @@
-<h2>Movies!!!!!!!!!</h2>
+<a class="navigation-links icon" href="/"><i class="fas fa-home"></i> HOME</a>
+<h2 class="main-title">Movies archive</h2>
 
-<ul>
-  <% movies.forEach(function(movie){ %>
-    <li><a href="/movies/<%= movie.id %>"><%= movie.title %></a></li>
-    <form action="/movies/<%= movie.id %>/delete" method="post">
-      <button type="submit">Delete</button>
-    </form>
-  <% }); %>
-</ul>
-
-<a href="/">Home</a>
-<a href="/movies/new">Add a movie</a>
+<div class="list-container">
+  <ul>
+    <% movies.forEach(function(movie){ %>
+      <li class="list-row"><a href="/movies/<%= movie.id %>" class="list-element"><%= movie.title %></a></li>
+      <form action="/movies/<%= movie.id %>/delete" method="post">
+      <button type="submit" class="icon delete"><i class="fas fa-eraser"></i></button>
+      </form>
+    <% }); %>
+  </ul>
+  <a class="icon add-element" href="/movies/new"><i class="fas fa-plus-circle"></i></a>
+</div>

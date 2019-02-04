@@ -1,13 +1,15 @@
-<h2>Celebrities!!!!!!!!!</h2>
+<a class="navigation-links icon" href="/"><i class="fas fa-home"></i> HOME</a>
+<h2 class="main-title">Celebrities archive</h2>
 
-<ul>
-  <% celebrities.forEach(function(celebrity){ %>
-    <li><a href="/celebrities/<%= celebrity.id %>"><%= celebrity.name %></a></li>
-    <form action="/celebrities/<%= celebrity.id %>/delete" method="post">
-      <button type="submit">Delete</button>
-    </form>
-  <% }); %>
-</ul>
-
-<a href="/">Home</a>
-<a href="/celebrities/new">Add a celebrity</a>
+<div class="list-container">
+  <ul>
+    <% celebrities.forEach(function(celebrity){ %>
+      <li class="list-row"><a href="/celebrities/<%= celebrity.id %>" class="list-element"><%= celebrity.name %></a>
+      <form action="/celebrities/<%= celebrity.id %>/delete" method="post">
+        <button type="submit" class="icon delete"><i class="fas fa-eraser"></i></button>
+      </form>
+      </li>
+    <% }); %>
+  </ul>
+  <a class="icon add-element" href="/celebrities/new"><i class="fas fa-plus-circle"></i></a>
+</div>
