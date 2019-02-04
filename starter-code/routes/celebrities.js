@@ -1,21 +1,25 @@
 const express = require('express');
 const router  = express.Router();
+const Celebrity = require('../models/celebrities')
 
 
-
-router.get('/celebrities.hbs',(req,res,next)=>{
+router.get('/',(req,res,next)=>
+{
+  
   Celebrity.find()
-  console.log(Celebrity)
-  .then(celebrities =>{
+ 
+  .then(celebrities =>
+  {
     res.render('celebrities',{celebrities})
   })
-  .catch(error => {
+  .catch(error => 
+  {
     console.log('Error is',error)
     next()
   })
 })
 
-router.get('/celebrities/:id',(req,res,next)=>{
+router.get('/:id',(req,res,next)=>{
   celebrities.findById(req.params.id)
   .then(celebrities =>{
     res.render('celebrities/show',{celebrities})
