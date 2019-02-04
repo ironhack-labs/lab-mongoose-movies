@@ -1,0 +1,10 @@
+<h1>Celebrities</h1>
+<%celebrities.forEach((celebrity)=> {%>
+<ul>
+  <li>
+    <h2><a href="/celebrities/<%=celebrity.id%>"><%=celebrity.name %></a></h2>
+    <p><%=celebrity.occupation %></p>
+    <p><%=celebrity.catchPhrase%></p>
+  </li>
+</ul>
+<%});%>
