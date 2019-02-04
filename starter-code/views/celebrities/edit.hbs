@@ -1,0 +1,16 @@
+<div>
+  <h2>edit celebrity</h2> 
+  <form {{!-- action="celebrities/{{_id}}/edit" --}} method="POST">   {{!-- por qué tengo que quitar aquí el action? --}}  
+    <label for="name">name:</label>
+    <input id="name" type="text" name="name" placeholder={{name}}>
+
+    <label for="occupation">occupation:</label>
+    <input id="occupation" type="text" name="occupation" placeholder={{occupation}}>
+
+    <label for="catchPhrase">catchPhrase:</label>
+    <input id="catchPhrase" type="text" name="catchPhrase" placeholder={{catchPhrase}}>
+
+    <button type="submit">edit celebrity</button>
+  </form>
+</div>
+
