@@ -1,4 +1,6 @@
 const Celebrity = require('../models/celebrity.js');
+const Movie = require('../models/movie.js');
+const mongoose = require('mongoose');
 
 const celebrities = [
   {
@@ -18,13 +20,50 @@ const celebrities = [
   }
 ];
 
-Celebrity.deleteMany()
+const movies = [
+  {
+    title: 'Equalizer',
+    genre: 'Action',
+    plot: 'Killing and revenge'
+  },
+  {
+    title: 'The Hobbit',
+    genre: 'Adventure',
+    plot: 'Quest to find the ring'
+  },
+  {
+    title: 'Pulp Fiction',
+    genre: 'Drama',
+    plot: 'Life in LA'
+  }
+];
+
+// Populate DB with celebrities
+// mongoose.connect('mongodb://localhost:27017/movies', { useNewUrlParser: true })
+//   .then(() => {
+//     console.log('connected to db');
+//     return Celebrity.create(celebrities);
+//   }).then((data) => {
+//     console.log('created data', data);
+//   }).then(() => {
+//     mongoose.connection.close();
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//     mongoose.connection.close();
+//   });
+
+// Populate DB with movies
+mongoose.connect('mongodb://localhost:27017/movies', { useNewUrlParser: true })
   .then(() => {
-    return Celebrity.create(celebrities);
+    console.log('connected to db');
+    return Movie.create(movies);
+  }).then((data) => {
+    console.log('created data', data);
+  }).then(() => {
+    mongoose.connection.close();
   })
-  .then((result) => {
-    console.log('DB was seeded with: ', result);
-  })
-  .catch((err) => {
-    console.log(err);
+  .catch((error) => {
+    console.log(error);
+    mongoose.connection.close();
   });
