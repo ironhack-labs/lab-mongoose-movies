@@ -1,3 +1,5 @@
+//Datos de prueba para poder montar la aplicación o web al final en Real no se utilizan las seeds.js 
+
 const moongose = require ('mongoose')
 moongose.connect('mongodb://localhost/celebrities')
 
@@ -29,6 +31,7 @@ const celebrities = [
  Celebrity.insertMany (celebrities)
   .then (() => {
     console.log('Database imported')
+    moongose.disconnect()
   })
   .catch( error => {
     console.log(error)

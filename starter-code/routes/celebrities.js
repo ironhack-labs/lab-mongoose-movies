@@ -15,12 +15,14 @@ router.get('/celebrities', (req, res, next) =>{
 })
 
 router.get('/celebrities/:id', (req, res, next) => {
-  Celebrity.findOne()
+  Celebrity.findById(req.params.id)
   .then( data =>{
-    console.log({data})
+    console.log(data)
+    // res.json(data)
     res.render('celebrities/show', {data})
   })
   .catch( () => {
+    next()
     res.send('An error has ocurred')
   })
 })

@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
 mongoose
   .connect('mongodb://localhost/celebrities', {useNewUrlParser: true})
   .then(x => {
@@ -58,6 +59,6 @@ const celebrities = require('./routes/celebrities');
 app.use('/', celebrities);
 
 
-app.listen(3000)
+app.listen(process.env.PORT)
 
 module.exports = app;
