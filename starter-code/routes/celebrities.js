@@ -19,9 +19,7 @@ router.post('/', (req, res, next) => {
     .then((result) => {
       res.redirect('/celebrities');
     })
-    .catch((err) => {
-      next(err);
-    });
+    .catch(next);
 });
 
 router.get('/new', (req, res, next) => {
