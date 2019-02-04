@@ -5,4 +5,16 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none; 
+}
+.nav{
+  display:flex;
+  align-content: space-around
+
+}
+.nav li{
+  text-decoration: none;
+  margin-left:1rem;
+  list-style: none;
+  color:black
 }
