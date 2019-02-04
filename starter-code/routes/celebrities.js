@@ -25,4 +25,23 @@ router.get('/celebrities/:id', (req, res, next) => {
   })
 })
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new')
+})
+
+router.post('/celebrities', (req, res, next) => {
+  Celebrity.create ( {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  })
+  .then (data => {
+    res.redirect('/celebrities')
+  })
+  .catch (error => {
+    console.log('An error ocurred')
+  })
+
+})
+
 module.exports = router;
