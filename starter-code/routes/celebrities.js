@@ -13,6 +13,21 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+router.post('/', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
+    .then((result) => {
+      res.redirect('/celebrities');
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Celebrity.findById(id)
@@ -21,5 +36,15 @@ router.get('/:id', (req, res, next) => {
     })
     .catch(next);
 });
+
+router.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  Celebrity.findByIdAndRemove(id)
+    .then((celebrity) => {
+      res.redirect('/celebrities');
+    })
+    .catch(next);
+});
+
 
 module.exports = router;
