@@ -1,8 +1,12 @@
 <h2 class="main-title">Celebrity details</h2>
 
-<h3 class="subtitle"><%= celebrity.name %></h3>
-<p><%= celebrity.occupation %></p>
-<p><%= celebrity.catchPhrase %>.</p>
-<a href="/celebrities/<%= celebrity.id %>/edit">Edit</a>
+<div class="list-container">
+  <div class="list-row">
+    <h3 class="name"><%= celebrity.name %></h3>
+    <a class="icon" href="/celebrities/<%= celebrity.id %>/edit"><i class="fas fa-edit"></i></a>
+  </div>
+  <p class="text"><%= celebrity.occupation %></p>
+  <p class="text"><%= celebrity.catchPhrase %>.</p>
 
-<a href="/celebrities">Go back</a>
+  <a class="icon" href="/celebrities"><i class="fas fa-undo"></i></a>
+</div>
