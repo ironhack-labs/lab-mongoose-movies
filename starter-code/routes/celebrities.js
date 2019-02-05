@@ -9,6 +9,11 @@ router.get('/', (req, res, next) => {
     .then((celebrities) => {
       res.render('celebrities/index', { celebrities });
     })
+    .catch(next);
+});
+
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new')
     .catch((err) => {
       console.log(err);
     });
@@ -20,13 +25,17 @@ router.get('/:id', (req, res, next) => {
     .then((celebrity) => {
       res.render('celebrities/show', { celebrity });
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch(next);
 });
 
-router.get('/new', (req, res, next) => {
-  res.render('celebrities/new')
+
+router.post('/', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
+    .then((result) => {
+      result.save();
+      res.redirect('/celebrities');
+    })
     .catch((err) => {
       console.log(err);
     });
