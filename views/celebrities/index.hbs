@@ -1,0 +1,12 @@
+<h2>Celebrities</h2>
+
+<ul>
+  {{#each celebrityArray}}
+  <li>
+    <p>
+      <!-- embed the ID of the book into the address of its page -->
+      <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+    </p>
+  </li>
+  {{/each}}
+</ul>
