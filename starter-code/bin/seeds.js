@@ -24,7 +24,7 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-Book.create(celebrityData)
+Celebrity.create(celebrityData)
   .then(celebrityResults => {
     console.log(`Inserted ${celebrityResults.length} CELEBRITIES!`);
   })
