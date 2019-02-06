@@ -21,7 +21,12 @@ router.get("/celebrities", (req, res, next) => {
     .catch(err => next(err));
 });
 
-/* Celebrity detail */
+/* Celebrity add */
+router.get("/celebrities/new", (req, res, next) => {
+  res.render("celebrities/new.hbs");
+});
+
+/* Celebrity show */
 router.get("/celebrities/:celebrityId", (req, res, next) => {
   const { celebrityId } = req.params;
 
