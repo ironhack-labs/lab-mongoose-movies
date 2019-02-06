@@ -1,0 +1,17 @@
+<h2>Edit your celebrity</h2>
+
+<form action="/celebrities/{{celebrityItem._id}}/process-edit" method="POST">
+  <label> Name:
+    <input type="text" name="name" value={{celebrityItem.name}} placeholder="New name">
+  </label>
+
+  <label> Occupation:
+    <input type="text" name="occupation" value={{celebrityItem.occupation}} placeholder="New occupation">
+  </label>
+
+  <label> Catch Phrase:
+    <input type="text" name="catchPhrase" value={{celebrityItem.catchPhrase}} placeholder="New catch phrase">
+  </label>
+
+  <button>Submit</button>
+</form>

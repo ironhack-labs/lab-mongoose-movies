@@ -35,4 +35,37 @@ router.post("/process-celebrity", (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.get("/celebrities/:celebrityId/delete", (req, res, next) => {
+  const { celebrityId } = req.params;
+  Celebrity.findByIdAndRemove(celebrityId)
+    .then(celebrityDoc => {
+      res.redirect("/celebrities");
+    })
+    .catch(err => next(err));
+});
+
+router.get("/celebrities/:celebrityId/edit", (req, res, next) => {
+  const { celebrityId } = req.params;
+  Celebrity.findById(celebrityId)
+    .then(celebrityDoc => {
+      res.locals.celebrityItem = celebrityDoc;
+      res.render("celebrities/celebrity-edit.hbs");
+    })
+    .catch();
+});
+
+router.post("/celebrities/:celebrityId/process-edit", (req, res, next) => {
+  const { celebrityId } = req.params;
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.findByIdAndUpdate(
+    celebrityId,
+    { $set: { name, occupation, catchPhrase } },
+    { runValidators: true }
+  )
+    .then(celebrityDoc => {
+      res.redirect(`/celebrities/${celebrityDoc._id}`);
+    })
+    .catch(err => next(err));
+});
+
 module.exports = router;
