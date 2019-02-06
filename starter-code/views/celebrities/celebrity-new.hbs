@@ -1,0 +1,18 @@
+<h3>Add a new Celebrity</h3>
+
+<form action="/process-form-{{form}}/{{celeb._id}}" method="POST">
+  <label for="">Name :
+    <input type="text" name="name" id="" value="{{celeb.name}}" />
+  </label>
+  <br />
+  <label for="">Occupation :
+    <input type="text" name="occupation" value="{{celeb.occupation}}"/>
+  </label>
+  <br />
+  <label for="">CatchPhrase :
+    <input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}" />
+  </label>
+  <br />
+  <button>Submit Form</button>
+
+</form>

@@ -1,0 +1,8 @@
+<h2>Celebritie's List</h2>
+{{#each celebrity}}
+<h3> <a href="/celebrities/{{this._id}}">{{this.name}}</a> - {{this.occupation}} </h3>
+<p><strong> CatchPhrase </strong> {{this.catchPhrase}} </p>
+<a href="/celebrities/delete/{{this._id}}">Delete</a>
+<br/>
+<br/>
+{{/each}}

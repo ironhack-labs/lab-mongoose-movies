@@ -1,0 +1,8 @@
+<h2>Movie's List</h2>
+{{#each movie}}
+<h3> <a href="/movies/{{this._id}}">{{this.title}}</a> - {{this.genre}} </h3>
+<p><strong> Plot </strong> {{this.plot}} </p>
+<a href="/movies/delete/{{this._id}}">Delete</a>
+<br/>
+<br/>
+{{/each}}

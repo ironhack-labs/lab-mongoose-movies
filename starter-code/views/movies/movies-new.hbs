@@ -1,0 +1,18 @@
+<h3>Add a new Movie</h3>
+
+<form action="/process-form-movie-{{form}}/{{movie._id}}" method="POST">
+  <label for="">Title :
+    <input type="text" name="title" id="" value="{{movie.title}}" />
+  </label>
+  <br />
+  <label for="">Genre :
+    <input type="text" name="genre" value="{{movie.genre}}"/>
+  </label>
+  <br />
+  <label for="">Plot :
+    <textarea type="text" name="plot" value="{{movie.plot}}"></textarea>
+  </label>
+  <br />
+  <button>Submit Form</button>
+
+</form>
