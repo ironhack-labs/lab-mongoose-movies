@@ -33,5 +33,6 @@ router.get("/celebrities/:celebrityId", (req, res, next) => {
 
 module.exports = router;
 
-// router.get("/celebrities/:id", (req, res, next) => {
-//   Celebrity.
+router.get("/celebrities/new", (req, res, next) => {
+  res.render("celebrities/new.hbs");
+});
