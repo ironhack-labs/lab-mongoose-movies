@@ -1,10 +1,14 @@
 <h2>Celebrity Home Page</h2>
 
+<nav>
 
+  <a href="/celebrities/new">Make New Celebrity</a>
+
+</nav>
 <ul>
   {{#each celebrityArray}}
   <li>
-    <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+    {{this.name}}
   </li>
   <li>
     <a href="/celebrities/{{this._id}}">Celebrity Details!</a>
