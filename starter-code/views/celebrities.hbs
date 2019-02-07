@@ -1,0 +1,21 @@
+<h2>meet our celebs!</h2>
+
+<ul>
+  {{#each celebArray}}
+  <li>
+    <a href="/celebrities/{{this._id}}">{{this.name}} </a>
+    <form method="POST" action="/celebrities/{{this._id}}/delete">
+      <button>Delete</button>
+    </form>
+
+  </li>
+  {{/each}}
+
+</ul>
+
+{{#if deletedCeleb}}
+<div>{{deletedCeleb.name}} was deleted!</div>
+{{/if}}
+
+
+<a href="/celebrities/new">add a celeb!</a>
