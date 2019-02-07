@@ -55,6 +55,18 @@ router.post("/process-celeb", (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.get("/celebrities/:celebId/delete", (req, res, next) => {
+  const {
+    celebId
+  } = req.params;
+  Celebrities.findByIdAndRemove(celebId)
+    .then(celebDoc => {
+      res.redirect("/");
+
+    })
+    .catch(err => next(err))
+})
+
 // Netflix style of address - PATH PARAMS
 router.get("/celebrities/:celebId/edit", (req, res, next) => {
   const {
@@ -68,15 +80,3 @@ router.get("/celebrities/:celebId/edit", (req, res, next) => {
     .catch(err => next(err))
 });
 module.exports = router
-
-router.get("/celebrities/:celebId/delete", (req, res, next) => {
-  const {
-    celebId
-  } = req.params;
-  Celebrities.findByIdAndRemove(celebId)
-    .then(celebDoc => {
-      res.redirect("/celebrities");
-
-    })
-    .catch(err => next(err))
-})
