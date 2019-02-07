@@ -1,0 +1,17 @@
+<h2>
+  Here a list of our celebrities
+</h2>
+
+<ul>
+
+  {{#each celebArray }}
+  <li> Name :
+    <a href="/celebrities/{{this._id}}"> {{this.name}} </a>
+
+
+  </li>
+
+
+  {{/each}}
+
+</ul>
