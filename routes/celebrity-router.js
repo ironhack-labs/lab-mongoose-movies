@@ -19,6 +19,23 @@ router.get("/celebrities", (req, res, next) => {
     .catch(err => next(err));
 });
 
+// #4 Adding new celebrities
+// move this above the celebrityID router, otherwise it would call the celebrity ID page every time
+router.get("/celebrities/new", (req, res, next) => {
+  res.render("celebrities/new.hbs");
+});
+router.post("/process-add", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+
+  Celebrity.create({ name, occupation, catchPhrase })
+    .then(celebrityDoc => {
+      res.redirect("celebrities/show.hbs");
+    })
+    .catch(err => {
+      res.redirect("celebrities/new.hbs");
+    });
+});
+
 router.get("/celebrities/:celebrityId", (req, res, next) => {
   // get the ID from the address (it's inside of req.params)
   const { celebrityId } = req.params;
