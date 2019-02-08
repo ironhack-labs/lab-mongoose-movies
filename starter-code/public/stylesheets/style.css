@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+/*# sourceMappingURL=style.css.map */
+
+nav{
+  background: lightsalmon;
+  display: flex;
+  flex-wrap: wrap;
+}
+nav > * {
+  padding: 10px 20px;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}

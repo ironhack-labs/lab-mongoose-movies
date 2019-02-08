@@ -1,0 +1,15 @@
+<h2>Edit {{name}}</h2>
+
+<form action="/celebrities/{{_id}}/edit" method="post">
+<p>Name
+  <input type="text" name="name" value="{{name}}">
+</p>
+<p>Profession
+  <input type="text" name="occupation" value="{{occupation}}">
+</p>
+<p>Most popular quote
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+</p>
+
+<input type="submit">
+</form>
