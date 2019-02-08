@@ -1,0 +1,19 @@
+{{#if message}}
+  <h4 style="color:red">{{message}}</h4>
+{{/if}}
+
+<h2>Add a new Movie</h2>
+<form action="/movies/new" method="POST">
+<p>Title:
+  <input name="title" type="text">
+</p>
+<p>Genre:
+  <input name="genre" type="text">
+</p>
+<p>Plot:
+  <textarea name="plot" cols="30" rows="10"></textarea>
+</p>
+<input type="submit" value="Add">
+</form>
+<br>
+<a href="/movies"><button>Cancel</button></a>

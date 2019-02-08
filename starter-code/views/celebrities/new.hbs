@@ -1,0 +1,19 @@
+{{#if message}}
+  <h4 style="color:red">{{message}}</h4>
+{{/if}}
+
+<h2>Add a new Celebrity</h2>
+<form action="/celebrities/new" method="POST">
+<p>Name:
+  <input name="name" type="text">
+</p>
+<p>Occupation:
+  <input name="occupation" type="text">
+</p>
+<p>Catchphrase:
+  <input name="catchphrase" type="text">
+</p>
+<input type="submit" value="Add">
+</form>
+<br>
+<a href="/celebrities"><button>Cancel</button></a>
