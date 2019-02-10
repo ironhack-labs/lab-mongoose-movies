@@ -1,9 +1,10 @@
 const express = require('express');
-const router  = express.Router();
 
-/* GET home page */
+const router = express.Router();
+
+/* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', { title: 'Movies Exercise' });
 });
 
 module.exports = router;
