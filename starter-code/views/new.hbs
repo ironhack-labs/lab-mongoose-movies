@@ -1,0 +1,19 @@
+{{#if message}}
+    <h2 style="background:green; color:white; height:40px">{{message}}</h2>
+{{/if}}
+<h2>Add your celebrity</h2>
+<form action="/celebrities/new" method="post">
+    <p>
+        Name:
+        <input name="name" type="text">
+    </p>
+    <p>
+        Occupation:
+        <input name="occupation" type="text">
+    </p>
+    <p>
+        Catch phrase:
+        <input name="plot" type="text">
+    </p>
+    <input type="submit" value="Add Celebrity">
+</form>
