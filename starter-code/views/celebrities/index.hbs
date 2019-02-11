@@ -1,0 +1,15 @@
+<h2>Celebridades</h2>
+<section class="container">
+    {{#each celebrities}}
+   <a href="/celebrities/{{this._id}}" >
+
+       <div class="card">
+           <h3>{{this.name}}</h3>
+       </div>
+    </a>
+    <form action="/celebrities/{{this.id}}/delete" method="post">
+        <button>Delete</button>
+    </form>
+
+    {{/each}}
+</section>
