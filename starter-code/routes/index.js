@@ -8,12 +8,21 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+//dispay nombres
 router.get('/celebs', (req, res)=>{
   Celeberty.find({}).then(myCelebs => {
-    // console.log(myCelebs);
-      res.render('celeberties', {celebs:myCelebs})
+  res.render('celeberties', {celebs:myCelebs})
   }).catch(err => {console.log(err)})
 
+})
+// dsiplay details
+router.get('/details/:id', (req, res, next)=>{
+  Celeberty.findById(req.params.id).then(thisCeleb =>{
+    // console.log(thisCeleb);
+    res.render('celebDetails', {details:thisCeleb})
+    }).catch(err => {
+    console.log('Error while retrieving movie details: ', err);
+  })
 })
 
 module.exports = router;
