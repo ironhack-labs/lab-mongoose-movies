@@ -24,5 +24,22 @@ router.get('/details/:id', (req, res, next)=>{
     console.log('Error while retrieving movie details: ', err);
   })
 })
+//add new
+router.get('/celebs/new', (req, res)=>{
+  res.render('new')
+})
+
+// catch add new
+router.post('/celebrities/new',(req, res)=>{
+  const newCeleb = {
+    name: req.body.firstname,
+    Occupation: req.body.Occupation,
+    Phrase: req.body.Phrase
+  }
+  new Celeberty(newCeleb).save().then(celeb =>{
+    res.redirect('/celebs')
+  })
+})
+
 
 module.exports = router;
