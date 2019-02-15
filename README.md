@@ -183,7 +183,7 @@ Okay, the next step is to make it so the user can **add new movies to the databa
 
 Review how you did this for the `celebrity` model.
   - Create 2 new routes, one to render page with the form on it, and one to send the data to after the form is filled out
-    - In the GET route that displays the form to create a new movie (which renders the `movies/new-movie.hbs`), make sure you pass all the celebrities from your database so your users can choose which ones are in the cast of the movie you're just creating (**hint**: You will have to use [<select multiple>](https://www.w3schools.com/tags/att_select_multiple.asp) tag)
+    - In the GET route that displays the form to create a new movie (which renders the `movies/new-movie.hbs`), make sure you pass all the celebrities from your database so your users can choose which ones are in the cast of the movie you're just creating (**hint**: You will have to use [select multiple](https://www.w3schools.com/tags/att_select_multiple.asp) tag)
   - Make sure the form is making a POST request to the other route you just created (`/movies/create`)
   - In your post route, create an object with all the info you just received from the form. (Remember, `req.body`)
   - Use this object to create a new movie in the database and redirect back to the page with your list of all movies
