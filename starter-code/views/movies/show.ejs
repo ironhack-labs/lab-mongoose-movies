@@ -1,0 +1,9 @@
+<h2><%= movie.title.toUpperCase() %></h2>
+
+<form action="/movies" method="get">
+  <label for="Genre">Genre</label>
+  <input type="text" name="Genre" id="Genre" value="<%= movie.genre %>">
+  <label for="Plot">Plot</label>
+  <input type="text" name="Plot" id="Plot" value="<%= movie.plot %>">
+  <input type="submit" value="Show Movies">
+</form>

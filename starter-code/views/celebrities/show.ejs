@@ -1,0 +1,9 @@
+<h2><%= celebrity.name.toUpperCase() %></h2>
+
+<form action="/celebrities" method="get">
+  <label for="Ocupation">Ocupation</label>
+  <input type="text" name="Ocupation" id="Ocupation" value="<%= celebrity.ocupation %>">
+  <label for="CatchPhrase">CatchPhrase</label>
+  <input type="text" name="CatchPhrase" id="CatchPhrase" value="<%= celebrity.catchPhrase %>">
+  <input type="submit" value="Show Celebrities">
+</form>
