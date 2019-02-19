@@ -1,0 +1,18 @@
+<h2>Celebrity List</h2>
+<a href="/">Return to home page</a>
+<br>
+<br>
+{{#each celebs}}
+  <h4>Name: {{name}}</h4>
+  <p>Occupation: {{occupation}}</p>
+  <p>Catch Phrase: {{catchPhrase}}</p>
+  <a href="/celebrities/{{_id}}">See details</a>
+  <br>
+  <br>
+  <a href="/celebrities/{{_id}}/edit">Edit Celebrity</a>
+  <br>
+  <br>
+  <form action="/celebrities/{{_id}}/delete" method="POST" style="color: red;"><button type="submit">DELETE CELEBRITY</button></form>
+  <br>
+  <br>
+{{/each}}

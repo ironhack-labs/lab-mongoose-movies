@@ -1,0 +1,26 @@
+<h2>Add New Celebrity:</h2>
+<br>
+<br>
+<form action="/celebrities" method="POST">
+  <label for="name">Enter Name:</label>
+  <input type="text" name="name" id="name" required="true">
+  <br>
+  <br>
+  <label for="occupation" name="occupation" id="occupation">Enter Occupation:</label>
+  <input type="text" name="occupation" id="occupation" required="true">
+  <br>
+  <br>
+  <label for="catchPhrase">Enter Catch Phrase: </label>
+  <input type="text" name="catchPhrase" id="catchPhrase" required="true">
+  <br>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+<br>
+<br>
+{{#if success}}
+<p style="color: green">SUCCESS! YOU ADDED THE CELEBRITY TO THE DATABASE</p>
+{{/if}}
+<br>
+<br>
+<a href="/">Return to home page</a>
