@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/celebrity.js');
 
 mongoose.connect(`mongodb://localhost/celebrity-db`);
 
@@ -25,6 +25,6 @@ const celebrities = [
 
 Celebrity.create(celebrities, (err) => {
   if (err) { throw (err) }
-  console.log(`Created ${celebrities.length} movies`)
+  console.log(`Created ${celebrities.length} celebrities`)
   mongoose.connection.close();
 });
