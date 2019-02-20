@@ -20,7 +20,7 @@ router.get('/celebrities', (req, res, next) => {
   })
 });
 /* ADD CELEBS */
-router.get('/new', (req, res) => {
+router.get('/celebrities/new', (req, res) => {
   //console.log('newasdfadsf')
   res.render('celebrities/new');
 });
@@ -48,7 +48,7 @@ router.get('/celebrities/:celebId', (req, res, next) => {
   })
 });
 
-router.post('/new', (req, res, next) => {
+router.post('/celebrities/new', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   const newCeleb = new Celebrity({ name, occupation, catchPhrase});
   newCeleb.save()
@@ -59,5 +59,29 @@ router.post('/new', (req, res, next) => {
     console.log(error);
   })
 });
+
+
+/*EDIT CELEB INFO */
+router.get('/edit/:id', (req,res,next) => {
+  Celebrity.findById(req.params.id)
+  .then(theCeleb => {
+    res.render('celebrities/edit', {celeb: theCeleb});
+  })
+  .catch(error => {
+    console.log('Error while retrieving celeb details: ', error);
+  })
+});
+
+router.post('/edit/:id', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.updateOne({_id: req.params.id}, { $set: {name, occupation, catchPhrase}}, {new: true})
+  .then((celeb) => {
+    res.redirect('/celebrities');
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+});
+
 
 module.exports = router;
