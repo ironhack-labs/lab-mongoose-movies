@@ -1,2 +1,20 @@
+
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+ {{#each movies}}
+ <form action="/delete/{{_id}}" method="GET">
+<h1>{{title}}</h1>
+<h2>{{_id}}</h2>
+<button type="submit">Delete</button>
+
+ </form>
+{{/each}}
+
+
+
+<form action="/search" method="get">
+  Title: <input name="title"><br>
+  <input type="submit" value="Submit">
+</form>
+
