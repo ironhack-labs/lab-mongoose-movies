@@ -1,0 +1,7 @@
+<h2>List of celebrities</h2>
+<div class="names-container">
+  {{#each CelebritySchema}}
+    <h3>{{name}}</h3>
+    <a href="/celebrities/{{_id}}">Click here</a>
+  {{/each}}
+</div>
