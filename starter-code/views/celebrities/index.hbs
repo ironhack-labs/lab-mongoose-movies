@@ -2,6 +2,11 @@
 <div class="names-container">
   {{#each CelebritySchema}}
     <h3>{{name}}</h3>
-    <a href="/celebrities/{{_id}}">Click here</a>
+    <a href="/celebrities/{{_id}}">See details</a>
+    <form method="POST" action="/celebrities/{{_id}}/delete">
+      <input type="submit" value="Delete">
+    </form>
+    <a href="/celebrities/{{_id}}/edit">Edit celebrity</a>
   {{/each}}
 </div>
+<a href="/new">Add new celebrity</a>

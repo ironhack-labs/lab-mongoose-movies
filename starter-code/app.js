@@ -54,11 +54,12 @@ const express = require('express');
 const app = express();
 const hbs = require('hbs');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 
 app.set('view engine', 'hbs');
 app.set('views',__dirname + '/views');
-hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }))
 
 mongoose.connect('mongodb://localhost/celebrities', { useNewUrlParser: true }, function(err) {
     if(err) console.log("ERROR")

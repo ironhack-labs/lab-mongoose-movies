@@ -1,5 +1,8 @@
 const express = require('express');
 const router  = express.Router();
+const bodyParser = require('body-parser')
+
+router.use(bodyParser.urlencoded({ extended: false }))
 
 const CelebritySchema = require('../models/Celebrity.js')
 
@@ -17,20 +20,67 @@ router.get('/celebrities/:id', (req, res) => {
   })
 })
 
-router.get('/celebrities/new', (req, res) => {
-  res.render('celebrities/new.hbs', {CelebritySchema})
+router.get('/new', (req, res) => {
+  res.render('celebrities/new.hbs')
 })
-
-// const bodyParser   = require('body-parser');
 
 router.post('/celebrities', (req, res) => {
   let newCelebrity = {
-    name: req.param.apply,
-    occupation: req.param.apply,
-    catchPhrase: req.param.apply,
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
   }
-  res.send('POST request to the homepage');
-});
+  CelebritySchema.create(newCelebrity, (err) => {
+    if(err) res.status(500).send("Celebrity not added")
+    else res.redirect('/celebrities')
+  })
+  // CelebritySchema.create(newCelebrity, (err) => {
+  //   if(err) res.status(500).send("Celebrity not added")
+  //   else res.status(200).send("New celebrity added")
+  // })
+  // CelebritySchema.save((err) => {
+  //   if(err) res.render('celebrities/new.hbs', {CelebritySchema})
+  //   else res.redirect('/celebrities')
+  // })
+})
+
+router.post('/celebrities/:id/delete', (req, res) => {
+  CelebritySchema.findByIdAndRemove(req.params.id, (err) => {
+    if(err) res.status(500).send("Celebrity not removed")
+    else res.redirect('/celebrities')
+  })
+})
+
+router.get('/celebrities/:id/edit', (req, res) => {
+  CelebritySchema.findById(req.params.id, (err, CelebritySchema) => {
+    if (err) res.status(500).send("Could not edit celebrity")
+    else res.render('celebrities/edit.hbs', CelebritySchema)
+  })
+})
+
+// router.post('/celebrities/:id', (req, res) => {
+//   let editCelebrity = {
+//     name: req.body.name,
+//     occupation: req.body.occupation,
+//     catchPhrase: req.body.catchPhrase
+//   }
+//   CelebritySchema.update(req.params.id, editCelebrity, {upsert: true}, (err) => {
+//     if(err) res.status(500).send("Celebrity not edited")
+//     else res.redirect('/celebrities')
+//   })
+// })
+
+router.post('/celebrities/:id', (req, res) => {
+  let editCelebrity = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  }
+  CelebritySchema.findByIdAndUpdate(req.params.id, editCelebrity, {upsert: true}, (err) => {
+    if(err) res.status(500).send("Celebrity not edited")
+    else res.redirect('/celebrities')
+  })
+})
 
 module.exports = router;
 
