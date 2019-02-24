@@ -1,0 +1,15 @@
+{{!-- Use a forEach loop to display tags with each celebrity's name. --}}
+
+<h1>Welcome to my celebrities's database</h1>
+
+{{#each allCelebrities}}
+<h1>{{name}}</h1>
+ <a href="/celebrities/{{id}}">see more</a>
+<form action="/celebrities/{{this._id}}/delete" method="POST">
+<a href="/celebrities/{{this._id}}/edit">edit</a>
+<button type="submit">Delete</button>
+  </form>
+{{/each}}
+
+<a href="/celebrities/new">You can add a new celebrity</a> 
+
