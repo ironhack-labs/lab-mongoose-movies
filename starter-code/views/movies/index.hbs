@@ -1,0 +1,14 @@
+{{!-- Use a forEach loop to display tags with each movie's name --}}
+<h1>Welcome to my gore movies database</h1>
+
+{{#each allMovies}}
+<h1>{{title}}</h1>
+<a href="/movies/{{id}}">see more</a>
+<form action="/movies/{{this._id}}/delete" method="POST">
+<a href="/movies/{{this._id}}/edit">edit</a>
+<button type="submit">Delete</button>
+  </form>
+{{/each}}
+
+<a href="/movies/new">You can add a new movie</a> 
+
