@@ -10,7 +10,7 @@ app.post('/celebrities', (req, res) => {
       occupation: req.body.occupation,
       catchPhrase: req.body.catchphrase
     }
-    Celebrity.create(newCelebrity, err => err ? res.status(500).send() : res.status(200).redirect('back'));
+    Celebrity.create(newCelebrity, err => err ? res.status(500).send() : res.status(200).redirect('/'));
   });
 
   module.exports = app;

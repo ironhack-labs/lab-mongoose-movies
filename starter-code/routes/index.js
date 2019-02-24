@@ -3,12 +3,8 @@ const app  = express();
 const MyMovieModel = require('../models/movie');
 
 app.get('/', (req, res) =>{ 
-  MyMovieModel.find({},  (err, movies) => {
-      if(err) res.send(err)
-      else {
-        res.render('index', {movies})
-      } 
-    })})
+  MyMovieModel.find({}, (err, movies) => err ? res.send(err) : res.render('index', {movies}))
+});
 
 
 module.exports = app;

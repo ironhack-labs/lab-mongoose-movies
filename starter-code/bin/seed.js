@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
+const MyMovieModel = require('../models/movie');
 
 mongoose
   .connect('mongodb://localhost/Movies', {useNewUrlParser: true})
@@ -10,23 +11,33 @@ mongoose
     console.error('Error connecting to mongo', err)
   });  
 
-const celebArray = [{
-    name: "Jelte",
-    occupation: "developer",
-    catchPhrase: "What the frog?"
+//   title: String,
+//   genre: String,
+//   plot: String,
+//   rating: Number
+
+const movieArray = [{
+    title: "Lock stock and two smokin'barrel",
+    genre: "adventure",
+    plot: "crazy people with shotguns go on adventure",
+    rating: 5
 }, {
-    name: "Martin",
-    occupation: "full-stack",
-    catchPhrase: "my phone!!"
+    title: "Kermit de kikker",
+    genre: "cartoon",
+    plot: "What the frog?",
+    rating: 8
 }, {
-    name: "Jan-Pieter",
-    occupation: "football-player",
-    catchPhrase: "I'm loosing my mind"
+    title: "Cinderella",
+    genre: "fairytale",
+    plot: "girl loses her shoe and falls in love with a prince",
+    rating: 9
 }]
 
 
-Celebrity.remove({}, () => {
-    for (let i = 0; i < celebArray.length; i++) {
-        Celebrity.create(celebArray[i]);
+MyMovieModel.remove({}, () => {
+    for (let i = 0; i < movieArray.length; i++) {
+        MyMovieModel.create(movieArray[i]);
     }
 })
+
+
