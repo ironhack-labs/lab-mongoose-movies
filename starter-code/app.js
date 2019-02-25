@@ -17,8 +17,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/', require('./routes/new'));
 app.use('/', require('./routes/index'));
-app.use('/new', require('./routes/new'));
+
 app.use('/celebrities', require('./routes/celebrities/all-celebrities'));
 app.use('/celebrities', require('./routes/celebrities/delete'));
 app.use('/', require('./routes/show'));
