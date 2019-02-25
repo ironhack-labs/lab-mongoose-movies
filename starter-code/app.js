@@ -4,8 +4,7 @@ const mongoose     = require('mongoose');
 const path         = require('path');
 const Schema       = mongoose.Schema;
 const app          = express();
-// const Celebrity    = require('./models/celebrity');
-
+const Celebrity    = require('./models/celebrity');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -18,21 +17,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-//movies routes
 app.use('/', require('./routes/index'));
+app.use('/new', require('./routes/new'));
+app.use('/celebrities', require('./routes/celebrities/all-celebrities'));
+app.use('/celebrities', require('./routes/celebrities/delete'));
 app.use('/', require('./routes/show'));
 app.use('/', require('./routes/edit'));
-app.use('/', require('./routes/new'));
 app.use('/', require('./routes/delete'));
-
-//celebrities routes
-app.use('/', require('./routes/celebrities/all-celebrities'));
-app.use('/', require('./routes/celebrities/delete'));
 app.use('/', require('./routes/celebrities/edit'));
 app.use('/', require('./routes/celebrities/new'));
 app.use('/', require('./routes/celebrities/show'));
-
 
 app.listen(3000, ()=> console.log("ja? movies graag!"))
 
