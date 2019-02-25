@@ -1,2 +1,31 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="site-top">
+  <a href="/new">Create new movie</a>
+  <a href="/celebrities">Celebrities</a>
+</div>
+
+<div class="header">
+<h1>Awesome Movie Database</h1>
+<p>Welcome to my awesome movie database</p>
+</div>
+
+<div class="movie-container">
+
+ {{#each movies}}
+    <form id="form" action="/{{_id}}/delete" method="GET">
+      <h2 name="title" id="title">{{title}}</h2>
+      <h3>Genre: {{genre}}</h3>
+      <h4>Plot: {{plot}}</h4>
+      <h4>Rating: {{rating}}</h4>
+      <div class="buttons">
+        <button type="submit">Delete</button>
+        <button type="button" ><a id="button-link" href="/{{id}}/edit">Edit</a></button>
+      </div>
+      <a href="/{{id}}">Show movie</a>
+  </form>
+{{/each}}
+
+</div>
+
+
+
+
