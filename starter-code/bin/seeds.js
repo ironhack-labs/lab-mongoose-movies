@@ -5,25 +5,6 @@ mongoose.connect('mongodb://localhost/mongooseMovies', { useNewUrlParser: true }
     else console.log("connected")
 })
 
-// const Celebrity = require('../models/Celebrity.js')
-
-// var newCeleb = [
-//   {name: "name1",
-//   occupation: "occupation1",
-//   catchPhrase: "catchPhrase1"},
-//   {name: "name2",
-//   occupation: "occupation2",
-//   catchPhrase: "catchPhrase2"},
-//   {name: "name3",
-//   occupation: "occupation3",
-//   catchPhrase: "catchPhrase3"}
-// ]
-
-// Celebrity.create(newCeleb, (err) => {
-//   if(err) console.log(err)
-//   else console.log("instance added")
-// })
-
 const Movie = require('../models/Movie.js')
 
 var newMovies = [
