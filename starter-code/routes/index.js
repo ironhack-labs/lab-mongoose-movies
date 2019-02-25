@@ -6,8 +6,4 @@ router.get('/', (req, res) => {
   res.render('index.hbs');
 });
 
-// router.get('/', (req, res) => {
-//   res.send();
-// });
-
 module.exports = router;

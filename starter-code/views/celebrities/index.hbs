@@ -1,6 +1,6 @@
 <h2>List of celebrities</h2>
 <div class="names-container">
-  {{#each CelebritySchema}}
+  {{#each Celebrity}}
     <h3>{{name}}</h3>
     <a href="/celebrities/{{_id}}">See details</a>
     <form method="POST" action="/celebrities/{{_id}}/delete">
