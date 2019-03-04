@@ -6,7 +6,7 @@ const Celebrity = require('../models/Celebrity')
 Router.get("/", (req, res) => {
   Celebrity.find()
   .then(celebrities   => res.render("celebrities/index", {celebrities}) )
-  .catch(err    => console.log('Error', err))
+  .catch(err    => next(err))
 })
 
 Router.get("/details/:id", (req, res) => {
@@ -16,7 +16,7 @@ Router.get("/details/:id", (req, res) => {
     console.log(celebrity)
     res.render("celebrities/show", {celebrity}) 
   })
-  .catch(err    => console.log('Error', err))
+  .catch(err    => next(err))
 })
 
 
@@ -26,7 +26,7 @@ Router.post("/details/:id/delete", (req, res) => {
     console.log(celebrity)
     res.redirect('/celebrities') 
   })
-  .catch(err    => console.log('Error', err))
+  .catch(err    => next(err))
 })
 
 
@@ -53,7 +53,7 @@ Router.get("/details/:id/edit", (req, res) => {
   .then(celebrity   => {
     res.render("celebrities/edit", {celebrity}) 
   })
-  .catch(err    => console.log('Error', err))
+  .catch(err    => next(err))
 })
 
 Router.post("/details/:id", (req, res) => {
@@ -62,7 +62,7 @@ Router.post("/details/:id", (req, res) => {
 
   Celebrity.updateOne({_id: req.params.id}, { $set: {name, occupation, catchPhrase }})
   .then(()    => res.redirect('/celebrities'))
-  .catch(error  => console.log(`Error updating celebrity: ${error}`))
+  .catch(err  => next(err))
 })
 
 module.exports = Router

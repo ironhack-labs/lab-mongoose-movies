@@ -1,31 +1,32 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const Celebrity = require("../models/Celebrity");
+const Movie = require("../models/Movie");
 
 mongoose.connect(process.env.DB)
 .then(() => {
   console.log("connect to mongoose");
 })
 .then(() => {
-  return Celebrity.insertMany([
+  return Movie.insertMany([
     {
-      name: "Isabella",
-      occupation:"Scort",
-      catchPhrase: "Qué paso en el baño?"
+      title: "Dark City",
+      genre:"Drama",
+      plot: "Something happens somewhere"
     },
     {
-      name: "Hassan",
-      occupation:"Taxi driver",
-      catchPhrase: "Lo importante es la cantidad"
+      title: "Red City",
+      genre:"Sci-fi",
+      plot: "Giant cows are here"
     },
     {
-      name: "Pepe",
-      occupation:"Sex-symbol",
-      catchPhrase: "Hola bebé"
+      title: "Blue city",
+      genre:"Comedy",
+      plot: "Sex, drugs and rock n roll"
     }
   ])
 })
-.then(celebs => {
-  console.log(celebs);
+.then(movies => {
+  console.log(movies);
   mongoose.connection.close();
 })
