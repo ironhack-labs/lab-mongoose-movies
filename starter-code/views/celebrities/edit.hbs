@@ -1,0 +1,15 @@
+<h2>Edit celebrity in DDBB</h2>
+
+<form action="/celebrities/details/{{celebrity._id}}" method="post">
+  <label for="">Name:</label>
+  <input type="text" name="name" value={{celebrity.name}}> <br><br>
+
+  <label for="">Occupation:</label>
+  <input type="text" name="occupation" value={{celebrity.occupation}}> <br><br>
+
+  <label for="">CatchPhrase:</label>
+  <input type="text" name="catchPhrase" value={{celebrity.catchPhrase}}> <br><br>
+  
+
+  <button type="submit">EDIT</button>
+</form>
