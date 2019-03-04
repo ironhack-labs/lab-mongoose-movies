@@ -1,0 +1,10 @@
+
+<h2>Movies Index</h2>
+{{#each movie}}
+  <p><a href="/movies/{{_id}}">Titulo: {{title}}</a></p>
+  <form action="/movies/{{_id}}/delete" method="POST">
+  <button type="submit">Borrar Peli :(</button>
+  </form>
+  
+  <p>--------------------------------------------------</p>
+{{/each}}
