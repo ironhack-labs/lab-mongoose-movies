@@ -1,0 +1,21 @@
+<h1>List of powerful woman </h1>
+
+{{#each celebrities}}
+
+<a href="/celebrities/details/{{_id}}"> {{name}}</a>
+<br>
+
+<form action="/celebrities/details/{{this.id}}/delete" method="post">
+    <button type="submit">delete me ;(</button>
+</form>
+
+<br>
+
+<form action="/celebrities/details/{{id}}/edit" method="get">
+    <button type="submit">edit me :)</button>
+</form>
+<br>
+
+{{/each}}
+<br>
+<a href="/celebrities/new">NEW CELEBRITY</a>

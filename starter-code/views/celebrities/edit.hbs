@@ -1,0 +1,16 @@
+<h2>Edit our female celebrity to our DataBase</h2>
+
+<form action="/celebrities/{{Celebrity._id}}" method="post">
+    <label for="">Name:</label>
+    <input type="text" name="name" value={{Celebrity.name}}> <br><br>
+
+    <label for="">Occupation:</label>
+    <input type="text" name="occupation" value={{Celebrity.occupation}}> <br><br>
+
+    <label for="">CatchPhrase:</label>
+    <input type="text" name="catchPhrase" value={{Celebrity.catchPhrase}}> <br><br>
+
+
+
+    <button type="submit">EDITED</button>
+</form>
