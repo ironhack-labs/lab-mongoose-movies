@@ -57,4 +57,11 @@ app.use('/', index);
 const celebs = require('./routes/celebrities')
 app.use('/celebrities', celebs);
 
+const movies = require('./routes/movies')
+app.use('/movies', movies)
+
+app.listen("3000", () => {
+  console.log("Corriendo en el 3000");
+});
+
 module.exports = app;
