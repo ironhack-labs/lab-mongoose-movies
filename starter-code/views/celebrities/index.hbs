@@ -1,0 +1,13 @@
+<h1>Celebrities</h1>
+<ul>
+    {{#each celebrities as |celebrity|}}
+    <li>
+        {{celebrity.name}}
+        <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+            <button type="submit">Borrar</button>
+        </form>
+    </li>
+    {{/each}}
+</ul>
+
+<p>quieres crear una celebrity? <a href="/celebrities/new">picatelo</a></p>
