@@ -20,5 +20,18 @@ router.get("/celebrities/:id",(request, response) => {
 	    response.render("celebrities/show",celebrity)
 	})
 })
+
+
+router.post("/celebrities" ,(request,response) =>{
+    Celebrity.create(request.body)
+	.then(()=>{
+	    response.redirect("/celebrities")
+	})
+	.catch(()=>{
+	    response.render("celebrities/new")
+	})
+})
+
+
 module.exports = router;
 
