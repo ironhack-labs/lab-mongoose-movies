@@ -1,0 +1,34 @@
+{{#if title}}
+<h2> Editing {{title}}</h2>
+{{else}}
+<h2> Creating your Movie</h2>
+{{/if}}
+
+<form 
+{{#if _id}}
+action =""
+{{else}}
+action ="/movies/new"
+{{/if}} 
+method ="POST">
+    <div>
+        <label for "">
+            Title:
+            <input type="text" name="title" value="{{title}}">
+        </label>
+    </div>
+    <div>
+        <label for "">
+            Genre:
+            <input type="text" name="genre" value ="{{genre}}">
+        </label>
+    </div>
+    <div>
+        <label for "">
+            Plot:
+            <textarea name="plot" id="" cols="30" rows="10">{{plot}}</textarea>
+        </label>
+    </div>
+    <button type="submit"> save </button>
+</form>
+
