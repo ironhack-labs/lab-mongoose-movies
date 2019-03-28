@@ -12,3 +12,13 @@ router.get("/celebrities" ,(request, response) => {
 	})
 });
 
+
+router.get("/celebrities/:id",(request, response) => {
+    const {id} = request.params;
+    Celebrity.findById(id)
+	.then(celebrity=>{
+	    response.render("celebrities/show",celebrity)
+	})
+})
+module.exports = router;
+
