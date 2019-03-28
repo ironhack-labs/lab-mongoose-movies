@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Movie =require ("../models/Movie");
+const Celebrity =require ("../models/Celebrity");
+
 
 mongoose.connect('mongodb://localhost/starter-code', {useNewUrlParser: true});
 
@@ -22,3 +24,16 @@ plot:"Lankester Merrin, a veteran Catholic priest who performed an exorcism in t
   .catch(err =>{
       console.log(err);
   })
+
+  const celebrities = [{name:"Nicole Kidman",occupation:"Actress",catchPhrase:"You don't have to be naked to be sexy."},
+  {name:"Taylor Swift",occupation:"Singer",catchPhrase:"People haven't always been there for me but music always has."},
+  {name:"Katy Perry",occupation:"Singer",catchPhrase:"I'm happy, I'm in a good place, I'm looking forward to my future."}];
+
+  Celebrity.create(celebrities)
+  .then(celebrities =>{
+      console.log(`se crearon ${celebrities.length}  Estrellas`);
+      mongoose.connection.close()
+  })
+  .catch(err =>{
+      console.log(err);
+  });

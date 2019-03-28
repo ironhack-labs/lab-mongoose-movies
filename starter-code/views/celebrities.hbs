@@ -1,0 +1,14 @@
+<h1>Celebrities</h1>
+<ul>
+    {{#each celebrities as |c|}}
+    <li>   
+        <a  href ="/celebrities/detail/{{c._id}}"> 
+        <strong>{{c.name}}</strong>
+        </a>
+        <div>
+        </div>
+          </li>
+    {{/each}}
+</ul>
+
+<p><a href ="/celebrities/new"><button> new </button></a></p>
