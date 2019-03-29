@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: sienna; }
+
+/*# sourceMappingURL=style.css.map */
+
+#back-img {
+  background-image: url(https://www.yatzer.com/sites/default/files/article_images/3322/11-Collage-art-Illustrations-by-Sammy-Slabbinck-yatzer.jpg);
+  background-size: cover;
+  height: 92vh;
+  width: 100vw;
+}
+
+#back-col {
+  background-color: papayawhip;
+  height: 200vh;
+  width: 100vw; 
+}
+
+#marg {
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+form {
+  width: 50vw;
+}

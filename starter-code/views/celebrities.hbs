@@ -1,0 +1,24 @@
+<div id="back-col">
+  <div id="marg">
+    <h1>CELEBRITIES</h1>
+    <a class="btn" href="/celebrities/newCeleb">New celebrity</a>
+    <ul>
+      {{#each celebrities as |celebrity|}}
+    <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-content">
+          <a href="/celebrities/{{celebrity._id}}">
+          <span class="card-title">{{celebrity.name}}</span></a>
+        </div>
+        <div class="card-action">
+          <a href="/celebrities/{{celebrity._id}}/edit">Editar</a>
+          <a href="/celebrities/{{celebrity._id}}/delete">Eliminar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+      {{/each}}
+    </ul>
+  </div>
+</div>

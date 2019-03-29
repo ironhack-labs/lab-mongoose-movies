@@ -1,0 +1,37 @@
+<div id="back-col">
+  <div id="marg">
+    {{#if name}}
+  <h2>Editando {{name}}</h2>
+{{else}}
+  <h2>Creando celebridad</h2>
+{{/if}}
+
+<form 
+{{#if _id}}
+  action="/celebrities/{{id}}/edit" 
+{{else}}
+  action="/celebrities/newCeleb"
+{{/if}}
+  method="POST">
+  <div>
+    <label for="">
+      Name:
+      <input type="text" name="name" value="{{name}}">
+    </label>
+  </div>
+  <div>
+    <label for="">
+      Occupation:
+      <input type="text" name="occupation" value="{{occupation}}">
+    </label>
+  </div>
+  <div>
+    <label for="">
+      Catch phrase:
+      <textarea name="catchPhrase" id="" cols="30" rows="10">{{catchPhrase}}</textarea>
+    </label>
+  </div><br>
+  <button class="btn" type="submit">Submit</button>
+</form>
+  </div>
+</div>

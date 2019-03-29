@@ -1,0 +1,37 @@
+<div id="back-col">
+  <div id="marg">
+    {{#if title}}
+  <h2>Editando {{title}}</h2>
+{{else}}
+  <h2>Creando película</h2>
+{{/if}}
+
+<form 
+{{#if _id}}
+  action="/movies/{{_id}}/edit" 
+{{else}}
+  action="/movies/newMov"
+{{/if}}
+  method="POST">
+  <div>
+    <label for="">
+      Title:
+      <input type="text" name="title" value="{{title}}">
+    </label>
+  </div>
+  <div>
+    <label for="">
+      Genre:
+      <input type="text" name="genre" value="{{genre}}">
+    </label>
+  </div>
+  <div>
+    <label for="">
+      Plot:
+      <textarea name="plot" id="" cols="30" rows="10">{{plot}}</textarea>
+    </label>
+  </div><br>
+  <button class="btn" type="submit">Submit</button>
+</form>
+  </div>
+</div>
