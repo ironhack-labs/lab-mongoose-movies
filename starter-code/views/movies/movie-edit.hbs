@@ -1,0 +1,30 @@
+<form action="/movies/{{_id}}/edit" method="post">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value={{title}}>
+  </div>
+  <div>
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" value={{genre}}>
+  </div>
+  <div>
+    <label for="plot">Plot:</label>
+    <input type="text" id="plot" name="plot" value={{plot}}>
+  </div>
+  <div>
+    <label for="cast">Cast</label>
+    <select name="cast" multiple>
+     
+      {{#each cast}}
+      
+      <option value={{_id}}>{{name}}</option>
+     
+      
+     
+      {{/each}}
+    </select>
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
