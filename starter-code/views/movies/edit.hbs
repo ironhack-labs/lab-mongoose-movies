@@ -1,0 +1,5 @@
+{{#each movies as |movie|}}
+    <form action="/movies/{{movie._id}}" method="POST">
+    <button type="submit" class="btn btn-danger btn-sm text-white mr-3">Edit Movie</button>
+    </form>
+{{/each}}

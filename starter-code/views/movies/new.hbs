@@ -1,0 +1,19 @@
+{{#each movies as |movie|}}
+    <form action="/movies" method="POST">
+
+    <div class="form-group">
+        <label>Movie Title</label>
+        <input type="text" class="form-control" name="title" value="{{movie.title}}" placeholder="Enter movie title">
+    </div>
+
+    <div class="form-group">
+        <label>Movie Genre</label>
+        <input type="text" class="form-control" name="genre" value="{{movie.genre}}" placeholder="Enter movie genre">
+    </div>
+
+    <div class="form-group">
+        <label>Movie Plot</label>
+        <input type="text" class="form-control" name="plot" value="{{movie.plot}}" placeholder="Enter movie plot">
+    </div>
+
+{{/each}}
