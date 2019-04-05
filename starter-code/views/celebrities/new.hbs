@@ -1,0 +1,20 @@
+<h2>Add a new celebrity</h2>
+
+<form action="/celebrities" method="POST">
+  <div>
+    <input type="text" name="name" value="Enter celebrity name...">
+  </div>
+  <div>
+    <input type="text" name="occupation" value="Enter celebrity's occupation">
+  </div>
+  <div>
+    <input type="text" name="catchPhrase" value="Enter Celebrity's catch phrase">
+  </div>
+  <div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
+
+{{#if error}}
+  <div style="border:red solid 2px">{{error.message}}</div>
+{{/if}}
