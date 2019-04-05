@@ -1,0 +1,22 @@
+{{#each celebrities as |celebrity|}}
+    <form action="/celebrities" method="POST">
+
+    <div class="form-group">
+        <label>Celebrity Name</label>
+        <input type="text" class="form-control" name="name" value="{{celebrity.name}}" placeholder="Enter celebrity name">
+    </div>
+
+    <div class="form-group">
+        <label>Celebrity Occupation</label>
+        <input type="text" class="form-control" name="occupation" value="{{celebrity.occupation}}" placeholder="Enter celebrity occupation">
+    </div>
+
+    <div class="form-group">
+        <label>Celebrity CatchPhrase</label>
+        <input type="text" class="form-control" name="catchPhrase" value="{{celebrity.catchPhrase}}" placeholder="Enter celebrity catchPhrase">
+    </div>
+
+    <div class="d-flex">
+        <button type="submit" class="btn btn-primary mr-3">Submit</button>
+  </div>
+{{/each}}
