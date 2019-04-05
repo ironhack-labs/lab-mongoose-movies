@@ -36,3 +36,12 @@ module.exports.create = ((req, res, next) => {
       }})
 })
 
+module.exports.delete = ((req, res, next) => {
+  const id = req.params.id
+  Celebrity.deleteOne({_id: id})
+    .then( () => {
+      res.redirect('/celebrities')
+    })
+    .catch(error => next(error))
+})
+

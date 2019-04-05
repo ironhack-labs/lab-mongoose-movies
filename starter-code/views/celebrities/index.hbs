@@ -1,7 +1,14 @@
 <h2>Celebrities list</h2>
 <div>
   {{#each celebrities as |celebrity|}}
-    <div style="border: black solid 2px; padding: 10px; width: 25%; margin: 5px 0;"><a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a></div>
+    <div style="display: flex; flex-direction:row; flex-wrap:wrap;">
+      <div class="celebrity-name-wrapper" style="border: black solid 2px; padding: 10px; width: 25%; margin: 5px 0;">
+        <a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a>
+      </div>
+      <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+        <button class="btn btn-danger" style="margin: 5px">Delete!</button>
+      </form>
+    </div>
   {{/each}}
 </div>
 <a class="btn btn-primary" href="/celebrities/new">Add new celebrity</a>

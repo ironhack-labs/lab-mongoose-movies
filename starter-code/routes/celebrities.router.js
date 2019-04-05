@@ -8,5 +8,6 @@ router.get('/new', celebritiesController.new)
 router.post('/', celebritiesController.create)
 
 router.get('/:id', celebritiesController.detail)
+router.post('/:id/delete', celebritiesController.delete)
 
 module.exports = router;
