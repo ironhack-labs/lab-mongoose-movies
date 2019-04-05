@@ -45,3 +45,21 @@ module.exports.delete = ((req, res, next) => {
     .catch(error => next(error))
 })
 
+module.exports.edit = ((req, res, next) => {
+  const id = req.params.id
+  Celebrity.findById(id)
+    .then( celebrity => {
+      res.render('celebrities/:id/edit.hbs', {celebrity})
+    })
+    .catch(error => next(error))
+})
+
+module.exports.doEdit = ((req, res, next) => {
+  const id = req.params.id
+  const update = req.body
+  Celebrity.findByIdAndUpdate(id, req.body)
+    .then( () => {
+      res.redirect('/celebrities')
+    })
+    .catch(error => next(error))
+})

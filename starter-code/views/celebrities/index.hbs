@@ -8,6 +8,9 @@
       <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
         <button class="btn btn-danger" style="margin: 5px">Delete!</button>
       </form>
+      <div>
+        <a class="btn btn-success" style="margin: 5px" href="/celebrities/{{celebrity._id}}/edit">Edit!</a>
+      </div>
     </div>
   {{/each}}
 </div>
