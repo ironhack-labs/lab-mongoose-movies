@@ -49,7 +49,7 @@ module.exports.edit = ((req, res, next) => {
   const id = req.params.id
   Celebrity.findById(id)
     .then( celebrity => {
-      res.render('celebrities/:id/edit.hbs', {celebrity})
+      res.render('celebrities/edit.hbs', {celebrity})
     })
     .catch(error => next(error))
 })
