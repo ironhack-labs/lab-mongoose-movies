@@ -1,0 +1,16 @@
+<h2>Celebrities</h2>
+  <ul>
+ {{celebrities.forEach((celebrity) => { }}   
+    <p>{{celebrity.name}}</p>
+    <li>
+        <a href="/celebrities/{{celebrity.id}}"> {{celebrity.name}}</a>
+        <form action="/celebrities/{{ celebrity.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+            <input type="submit" value="Delete"
+                onclick="return confirm('Are you sure you want to delete {{ celebrity.name }}?')">
+        </form>
+    </li>
+  </ul>
+
+<a href="/celebrities/new">Create a new celebrity</a>
+
