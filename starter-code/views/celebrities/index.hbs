@@ -1,4 +1,6 @@
+{{!-- Add an <h2> tag for the page's heading. --}}
 <h2>Celebrities</h2>
+{{!-- Use a forEach loop to display tags with each celebrity's name. --}}
   <ul>
  {{celebrities.forEach((celebrity) => { }}   
     <p>{{celebrity.name}}</p>
@@ -11,5 +13,5 @@
         </form>
     </li>
   </ul>
-
+{{!-- Add a link that goes to the /celebrities route.  --}}
  <a href="/celebrities/new">Nw celebrity</a>
