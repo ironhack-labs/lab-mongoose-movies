@@ -1,5 +1,45 @@
+<h2>Edit Celebrity</h2>
 {{#each celebrities as |celebrity|}}
+    
     <form action="/celebrities/{{celebrity._id}}" method="POST">
-    <button type="submit" class="btn btn-danger btn-sm text-white mr-3">Edit Celebrity</button>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control {{#if errors.name }}is-invalid{{/if}}" name="name" value="{{celebrity.name}}" placeholder="Enter celebrity name">
+
+        {{#if errors.name}}
+            <div class="invalid-feedback">
+                {{errors.name}}
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label>Occupation</label>
+        <input type="text" class="form-control {{#if errors.occupation }}is-invalid{{/if}}" name="occupation" value="{{celebrity.occupation}}" placeholder="Enter celebrity occupation">
+
+
+        {{#if errors.occupation}}
+            <div class="invalid-feedback">
+                {{errors.occupation}}
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label>CatchPhrase</label>
+        <input type="text" class="form-control {{#if errors.catchPhrase }}is-invalid{{/if}}" name="catchPhrase" value="{{celebrity.catchPhrase}}" placeholder="Enter celebrity catchPhrase">
+
+
+        {{#if errors.catchPhrase}}
+            <div class="invalid-feedback">
+                {{errors.catchPhrase}}
+            </div>
+        {{/if}}
+    </div>
+  
+    <div class="d-flex">
+        <button type="submit" class="btn btn-danger btn-sm text-white mr-3">Submit Edit</button>
+    </div>
     </form>
 {{/each}}

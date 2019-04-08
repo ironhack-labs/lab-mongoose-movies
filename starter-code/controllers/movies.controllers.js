@@ -2,22 +2,12 @@ const movie = require('../models/movie.model');
 
 
 module.exports.list = (req, res, next) => {
-  const criteria = {};
-
-  if (req.query.title) {
-    criteria.title = new RegExp(req.query.title, 'i');
-  }
-
-  Movie.find(criteria)
-    .sort({ _id: -1 })
-    .then(movies => res.render('movies/index', { 
-      movies,
-      title: req.query.title 
-    }))
+  Movie.find()
+    .then(movies => res.render('movies/index', { movies, title: req.query.title }))
     .catch(error => next(error));
 }
 
-module.exports.details = (req, res, next) => {
+module.exports.show = (req, res, next) => {
     const id = req.params.id;
 
     Movie.findById(id)     
@@ -34,8 +24,14 @@ module.exports.doCreate = (req, res, next) => {
   
     Movie.save()
       .then(() => res.redirect("/movies"))
-      .catch(error => next(error)) 
-  }
+      .catch((error) => {
+        if (error instanceof mongoose.Error.ValidationError) {
+          res.render('movies/new', { movie, ...error})
+        } else{
+          next(error)
+        }
+      });
+}
 
 module.exports.delete = (req, res, next) => {
     const id = req.params.id;

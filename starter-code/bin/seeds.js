@@ -1,7 +1,21 @@
 const Celebrity = require('../models/celebrity.model');
 const mongoose = require('mongoose');
 
-//const movies = [title, genre, plot];
+/*const celebrities = [
+  {
+  name: 'Jon', 
+  occupation: 'actor',
+  catchPhrase: 'Winter is Comming'
+  }
+];*/
+
+const movies = [
+    {
+  title: 'Test', 
+  genre: 'Suspense',
+  plot: 'Guess the answers'
+  }
+];
 
 Celebrity.create(celebrities)
   .then((celebrities) => console.info(`${celebrities.length} new celebrities added to the database`))

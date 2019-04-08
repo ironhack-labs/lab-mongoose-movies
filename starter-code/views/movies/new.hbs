@@ -1,19 +1,27 @@
 {{#each movies as |movie|}}
-    <form action="/movies" method="POST">
+   {{#if celebrity.isNew}}
+        <form action="/movies" method="POST">
+    {{{else}}}
+        <form action="/movies/{{movie._id}}" method="POST">
+    {{/if}}
 
     <div class="form-group">
-        <label>Movie Title</label>
+        <label>Title</label>
         <input type="text" class="form-control" name="title" value="{{movie.title}}" placeholder="Enter movie title">
     </div>
 
     <div class="form-group">
-        <label>Movie Genre</label>
+        <label>Genre</label>
         <input type="text" class="form-control" name="genre" value="{{movie.genre}}" placeholder="Enter movie genre">
     </div>
 
     <div class="form-group">
-        <label>Movie Plot</label>
+        <label>Plot</label>
         <input type="text" class="form-control" name="plot" value="{{movie.plot}}" placeholder="Enter movie plot">
     </div>
 
+    <div class="d-flex">
+        <button type="submit" class="btn btn-primary mr-3">Submit</button>
+    </div>
+    </form>
 {{/each}}

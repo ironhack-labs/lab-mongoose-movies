@@ -9,6 +9,8 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const celebritiesRouter = require('./routes/celebrities.route')
+const moviesRouter = require('./routes/movies.route')
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
@@ -31,6 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
+app.use('/celebrities', celebritiesRouter);
+app.use('/movies', moviesRouter);
 
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
