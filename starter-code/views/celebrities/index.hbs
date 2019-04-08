@@ -1,18 +1,21 @@
-<h2>Celebrities</h2>
-
 <div class="container">
-  <a href="/celebrities/new">New Celebrity</a>
-
+  <h2>Celebrities</h2>
+  <a href="/celebrities/new" class="newCelebrity">New Celebrity</a>
+  <p>Celebrities saved: </p>
   <div class="list">
     {{#each celebrities}}
     <div class="element">
-      This is the celebrity you've saved: <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+      <a href="/celebrities/{{this._id}}" >{{this.name}}</a>
       <form action="/celebrities/{{this._id}}/delete" method="post">
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <div class="form-group">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
       </form>
 
       <form action="/celebrities/{{this._id}}/edit" method="post">
-        <button type="submit" class="btn btn-info">Edit</button>
+        <div class="form-group">
+          <button type="submit" class="btn btn-info">Edit</button>
+        </div>
       </form>
     </div>
     {{/each}}
