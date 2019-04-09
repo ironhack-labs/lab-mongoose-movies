@@ -10,3 +10,12 @@ module.exports.list = (req, res, next) => {
     }) )
     .catch( error => next(error) );
 }
+
+module.exports.details = (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
+  Celebrity.findById(id)
+    .then( celebrity => { 
+      res.render( 'celebrities/show', { celebrity } )} )
+    .catch( error => next(error) )
+}

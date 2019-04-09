@@ -4,6 +4,7 @@ const celebritiesController = require('../controllers/celebrities.controller');
 
 
 router.get('/index', celebritiesController.list);
+router.get('/:id',   celebritiesController.details);
 
 /*
 router.post('/', booksController.doCreate);
