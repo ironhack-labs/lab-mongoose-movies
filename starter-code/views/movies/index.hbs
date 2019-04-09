@@ -1,0 +1,17 @@
+<h2>Movies list</h2>
+<div>
+  {{#each movies as |movie|}}
+    <div style="display: flex; flex-direction:row; flex-wrap:wrap;">
+      <div class="celebrity-name-wrapper" style="border: black solid 2px; padding: 10px; width: 25%; margin: 5px 0;">
+        <a href="/movies/{{movie._id}}">{{movie.title}}</a>
+      </div>
+      <form action="/movies/{{movie._id}}/delete" method="POST">
+        <button class="btn btn-danger" style="margin: 5px">Delete!</button>
+      </form>
+      <div>
+        <a class="btn btn-success" style="margin: 5px" href="/movies/{{movie._id}}/edit">Edit!</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
+<a class="btn btn-primary" href="/movies/new">Add new movie</a>
