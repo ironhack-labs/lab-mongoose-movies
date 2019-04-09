@@ -13,7 +13,7 @@ const celebrities = [
   {
     name: 'Barack Obama',
     occupation: 'President',
-    catchPhrase: 'Intercepted'
+    catchPhrase: 'Hope'
   },
   {
     name: 'Donald Trump',

@@ -42,7 +42,6 @@ router.post('/celebrity/new', (req, res, next) => {
 router.get('/celebrity/:id', (req, res, next) => {
   console.log(req.params)
   Celebrity.findOne({ _id: req.params.id }).then(celebrity => {
-    console.log(celebrity)
     res.render('celebrity-details.hbs', { celebrity })
   })
   .catch(err => {
@@ -67,7 +66,6 @@ router.post('/celebrity/:id/delete', (req, res, next) => {
 router.get('/celebrity/:id/edit', (req, res, next) => {
   console.log(req.params)
   Celebrity.findById(req.params.id).then(celebrity=> {
-    console.log(celebrity)
     res.render('celebrity-edit.hbs', celebrity)
   })
   .catch((error) => {
