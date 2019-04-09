@@ -8,5 +8,9 @@ router.get('/new', moviesController.new)
 router.post('/', moviesController.create)
 
 router.get('/:id', moviesController.detail)
+router.post('/:id/delete', moviesController.delete)
+
+router.get('/:id/edit', moviesController.edit)
+router.post('/:id', moviesController.doEdit)
 
 module.exports = router

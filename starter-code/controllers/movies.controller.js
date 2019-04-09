@@ -35,3 +35,30 @@ module.exports.create = ((req, res, next) => {
         res.render('movies/new.hbs')
       }})
 })
+
+module.exports.delete = ((req, res, next) => {
+  const id = req.params.id
+  Movie.deleteOne({_id: id})
+    .then( () => {
+      res.redirect('/movies')
+    })
+    .catch(error => next(error))
+})
+
+module.exports.edit = ((req, res, next) => {
+  const id = req.params.id
+  Movie.findById(id)
+    .then( movie => {
+      res.render('movies/edit.hbs', {movie})
+    })
+    .catch(error => next(error))
+})
+
+module.exports.doEdit = ((req, res, next) => {
+  const id = req.params.id
+  Movie.findByIdAndUpdate(id, req.body)
+    .then( () => {
+      res.redirect('/movies')
+    })
+    .catch(error => next(error))
+})
