@@ -3,10 +3,19 @@ const router                = express.Router();
 const celebritiesController = require('../controllers/celebrities.controller');
 
 
+router.get('/new', celebritiesController.create);
+router.post('/index', celebritiesController.doCreate);
+
+
+router.post('/:id', celebritiesController.doEdit);
+
+
 router.get('/index', celebritiesController.list);
 router.get('/:id',   celebritiesController.details);
 
+
 /*
+router.get('/new', booksController.create);
 router.post('/', booksController.doCreate);
 
 router.get('/:id/edit', booksController.edit);

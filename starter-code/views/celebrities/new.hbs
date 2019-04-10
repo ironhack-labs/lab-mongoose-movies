@@ -1,0 +1,23 @@
+<header>
+  <h2>Adding a Celebrity</h2>
+</header>
+
+<form action="/celebrities/index" method="POST">
+
+  <div class="form-group">
+    <label>Celebrity Name</label>
+    <input type="text" class="form-control {{#if errors.name }}is-invalid{{/if}}" name="name" value="{{ celebrity.name }}"
+      placeholder="Enter celebrity name...">
+
+    <label>Celebrity Occupation</label>
+    <input type="text" class="form-control {{#if errors.occupation }}is-invalid{{/if}}" name="occupation" value="{{ celebrity.occupation }}"
+      placeholder="Enter celebrity occupation...">
+
+    <label>Celebrity CatchPhrase</label>
+    <input type="text" class="form-control {{#if errors.catchPhrase }}is-invalid{{/if}}" name="catchPhrase" value="{{ celebrity.catchPhrase }}"
+      placeholder="Enter celebrity catchPhrase...">
+
+  <div class="d-flex">
+    <button type="submit" class="btn btn-primary mr-3">Submit</button>
+  </div>
+</form>
