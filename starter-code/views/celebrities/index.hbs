@@ -1,11 +1,15 @@
-{{#each celebrities as |celebrity|}}
-    <h2>{{celebrity.name}}</h2>
+<h2>Celebrity List</h2>
 
-    <a href="/celebrities/{{celebrity.id}}">{{celebrity.name}}</a>
+<a href="/celebrities/{{celebrity._id}}"class="list-group-item list-group-item-action">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{celebrity.name}}</h5>
+  </div>
+</a>
 
-    <a href="/celebrities/new">Add New Celebrity</a>
+<a  class="btn btn-primary" href="/celebrities/new">Add New Celebrity</a>
 
-    <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
-    <button type="submit" class="btn btn-danger btn-sm text-white mr-3">Delete Celebrity</button>
-    </form>
-{{/each}}
+<a class="btn btn-success" href="/celebrities/{{celebrity._id}}/edit">Edit Celebrity</a>
+
+<form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+  <button type="submit" class="btn btn-danger btn-sm text-white mr-3">Delete Celebrity</button>
+</form>

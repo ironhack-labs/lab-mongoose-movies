@@ -1,6 +1,4 @@
-<h2>Edit Celebrity</h2>
-{{#each celebrities as |celebrity|}}
-    
+<h2>Edit Celebrity</h2>    
     <form action="/celebrities/{{celebrity._id}}" method="POST">
 
     <div class="form-group">
@@ -39,7 +37,6 @@
     </div>
   
     <div class="d-flex">
-        <button type="submit" class="btn btn-danger btn-sm text-white mr-3">Submit Edit</button>
+        <button type="submit" class="btn btn-danger btn-sm text-white mr-3">Update Celebrity</button>
     </div>
     </form>
-{{/each}}

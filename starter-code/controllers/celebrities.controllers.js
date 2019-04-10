@@ -1,9 +1,10 @@
 const Celebrity = require('../models/celebrity.model');
+const mongoose = require('mongoose');
 
 
 module.exports.list = (req, res, next) => {
   Celebrity.find()
-    .then(celebrities => res.render('celebrities/index', { celebrities, title: req.query.title }))
+    .then(celebrities => res.render('celebrities/index', { celebrities }))
     .catch(error => next(error));
 }
 
@@ -11,7 +12,7 @@ module.exports.show = (req, res, next) => {
     const id = req.params.id;
 
     Celebrity.findById(id)     
-        .then(celebrities => res.render('celebrities/show', { celebrity, celebrities }))
+        .then(celebrity => res.render('celebrities/show', { celebrity }))
         .catch(error => next(error));
 }
 
@@ -37,24 +38,24 @@ module.exports.delete = (req, res, next) => {
     const id = req.params.id;
   
     Celebrity.findByIdAndRemove(id)
-        .then(() =>  res.redirect('/celebrities'))
+        .then(() =>  res.redirect('/'))
         .catch(error => next(error))
 }
 
 
-  module.exports.edit = (req, res, next) => {
-    const id = req.params.id;
+module.exports.edit = (req, res, next) => {
+  const id = req.params.id;
 
-    Celebrity.findById(id)     
-        .then(celebrities => res.render('celebrities/edit', { celebrity, celebrities }))
-        .catch(error => next(error));
+  Celebrity.findById(id)     
+      .then(celebrities => res.render('/edit', { celebrity, celebrities }))
+      .catch(error => next(error));
 }
 
 module.exports.doEdit = (req, res, next) => {
-    const id = req.params.id;
+  const id = req.params.id;
   
-    Celebrity.findByIdAndUpdate(id, req.body, { new: true})
-      .then(celebrity => res.redirect(`/celebrities/${celebrity._id}`))
-      .catch(error =>  next(error))
+  Celebrity.findByIdAndUpdate(id, req.body, { new: true})
+    .then(celebrity => res.redirect(`/celebrities/${celebrity._id}`))
+    .catch(error =>  next(error))
 }
   

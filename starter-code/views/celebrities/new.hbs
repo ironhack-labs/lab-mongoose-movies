@@ -1,27 +1,22 @@
-{{#each celebrities as |celebrity|}}
-    {{#if celebrity.isNew}}
-        <form action="/celebrities" method="POST">
-    {{else}}
-        <form action="/celebrities/{{celebrity._id}}" method="POST"></form>
-    {{/if}}
+<h2>Add a new Celebrity</h2>
+<form action="/celebrities" method="POST">
 
     <div class="form-group">
         <label>Name</label>
-        <input type="text" class="form-control" name="name" value="{{celebrity.name}}" placeholder="Enter celebrity name">
+        <input type="text" class="form-control" name="name" placeholder="Enter celebrity name">
     </div>
 
     <div class="form-group">
         <label>Occupation</label>
-        <input type="text" class="form-control" name="occupation" value="{{celebrity.occupation}}" placeholder="Enter celebrity occupation">
+        <input type="text" class="form-control" name="occupation" placeholder="Enter celebrity occupation">
     </div>
 
     <div class="form-group">
         <label>CatchPhrase</label>
-        <input type="text" class="form-control" name="catchPhrase" value="{{celebrity.catchPhrase}}" placeholder="Enter celebrity catchPhrase">
+        <input type="text" class="form-control" name="catchPhrase" placeholder="Enter celebrity catchPhrase">
     </div>
 
     <div class="d-flex">
         <button type="submit" class="btn btn-primary mr-3">Submit</button>
     </div>
-    </form>
-{{/each}}
+</form>
