@@ -1,0 +1,6 @@
+<h2>Listado Famos@s</h2>
+<div>
+  {{#each celebrities as |celebrity|}}
+  <p><a class="link_celebrity" href="/celebrities/{{celebrity.id}}">{{celebrity.name}}</a></p>
+  {{/each}}
+</div>

@@ -14,6 +14,8 @@ require('./config/db.config');
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
+const celebritiesRouter = require('./routes/celebrities.js');
+
 const app = express();
 
 // Middleware Setup
@@ -43,8 +45,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+//const index = require('./routes/index');
+app.get('/', (req, res) => res.redirect('/celebrities'));
+app.use('/celebrities', celebritiesRouter)
 
 
 module.exports = app;
