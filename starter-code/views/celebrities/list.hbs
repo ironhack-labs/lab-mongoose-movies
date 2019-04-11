@@ -1,7 +1,12 @@
 <h2>Listado Famos@s</h2>
 <div>
   {{#each celebrities as |celebrity|}}
-  <p><a class="link_celebrity" href="/celebrities/{{celebrity.id}}">{{celebrity.name}}</a></p>
+  <p>
+  <a class="link_celebrity" href="/celebrities/{{celebrity.id}}">{{celebrity.name}}</a>
+  </p>
+  <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+  <button type="submit">Delete</button>
+  </form>
   {{/each}}
   <a href="/celebrities/new"><button class="add-new">Add New Celebrity</button></a>
 </div>

@@ -28,3 +28,11 @@ module.exports.add = (req,res,next) => {
   .then(()=> {res.redirect('/celebrities')})
   .catch(error => next(error))
 }
+
+module.exports.delete = (req,res,next) => {
+  const idCelebrityToDelete = req.params.id;
+
+  Celebrity.findByIdAndDelete(idCelebrityToDelete)
+  .then(() => {res.redirect('/celebrities')})
+  .catch(error => next(error))
+}

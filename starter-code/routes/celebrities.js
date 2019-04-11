@@ -7,5 +7,5 @@ router.get('/new', celebritiesController.new);
 router.get('/:id', celebritiesController.show);
 
 router.post('/', celebritiesController.add)
-
+router.post('/:id/delete', celebritiesController.delete);
 module.exports = router;
