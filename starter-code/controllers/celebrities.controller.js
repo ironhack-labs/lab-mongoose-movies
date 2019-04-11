@@ -13,3 +13,18 @@ module.exports.show = (req,res,next) => {
   .then(celebrity => res.render('celebrities/show', {celebrity}))
   .catch(error => next(error))
 }
+
+module.exports.new = (req,res,next) => {
+  res.render('celebrities/new')
+}
+
+module.exports.add = (req,res,next) => {
+  const celebrity = new Celebrity ({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  })
+  celebrity.save()
+  .then(()=> {res.redirect('/celebrities')})
+  .catch(error => next(error))
+}
