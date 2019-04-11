@@ -1,0 +1,7 @@
+<h2>Editar</h2>
+  <form action="/celebrities/{{celebrity.id}}" method="POST">
+  <input type="text" name="name" placeholder="Celebrity Name" value="{{celebrity.name}}">
+  <input type="text" name="occupation" placeholder="Occupation?" value="{{celebrity.occupation}}">
+  <input type="text" name="catchPhrase" placeholder="Write a catch Phrase" value="{{celebrity.catchPhrase}}">
+  <button type="submit">Update</button>
+</form>

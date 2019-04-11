@@ -29,6 +29,23 @@ module.exports.add = (req,res,next) => {
   .catch(error => next(error))
 }
 
+module.exports.edit = (req,res,next) => {
+  const idEdit = req.params.id;
+  Celebrity.findById(idEdit)
+  .then((celebrity) => {
+    res.render('celebrities/edit', {celebrity})
+  })
+  .catch(error => next(error))
+  
+}
+
+module.exports.doEdit = (req,res,next) => {
+  const idDoEdit = req.params.id;
+  Celebrity.findByIdAndUpdate(idDoEdit, req.body, { new: true, runValidators: true})
+  .then(() => {res.redirect('/celebrities')})
+  .catch(error => next(error))
+}
+
 module.exports.delete = (req,res,next) => {
   const idCelebrityToDelete = req.params.id;
 

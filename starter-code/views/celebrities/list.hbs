@@ -4,6 +4,8 @@
   <p>
   <a class="link_celebrity" href="/celebrities/{{celebrity.id}}">{{celebrity.name}}</a>
   </p>
+  <a href="/celebrities/{{celebrity.id}}/edit"><button>Edit</button></a>
+  
   <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
   <button type="submit">Delete</button>
   </form>
