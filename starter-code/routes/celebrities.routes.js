@@ -6,27 +6,13 @@ const celebritiesController = require('../controllers/celebrities.controller');
 router.get('/new', celebritiesController.create);
 router.post('/index', celebritiesController.doCreate);
 
-
+router.get('/:id/edit', celebritiesController.edit);
 router.post('/:id', celebritiesController.doEdit);
 
+router.post('/:id/delete', celebritiesController.delete);
 
 router.get('/index', celebritiesController.list);
 router.get('/:id',   celebritiesController.details);
 
-
-/*
-router.get('/new', booksController.create);
-router.post('/', booksController.doCreate);
-
-router.get('/:id/edit', booksController.edit);
-router.post('/:id', booksController.doEdit);
-
-router.post('/:id/delete', booksController.delete);
-
-router.post('/:id/like', booksController.like);
-
-router.get('/', booksController.list);
-router.get('/:id', booksController.details);
-*/
 
 module.exports = router;
