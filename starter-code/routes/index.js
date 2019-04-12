@@ -8,5 +8,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/celebrities', celebController.list)
+router.get('/celebrities/:id', celebController.details)
 
 module.exports = router;

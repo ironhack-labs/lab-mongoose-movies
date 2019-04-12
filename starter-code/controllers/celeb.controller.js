@@ -8,3 +8,12 @@ module.exports.list = (req, res, next) => {
     })
     .catch(error => next(error))
 }
+
+module.exports.details = (req, res, next) => {
+  Celebs.findById(req.params.id)
+    .then((celeb) => {
+      console.log("vamos")
+      res.render('celebrities/show', {celeb})
+    })
+    .catch(error=>next(error))
+}
