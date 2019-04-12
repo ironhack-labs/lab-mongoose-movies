@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity.js');
+require('../config/db.config.js');
 
-const dbName = 'lab-mongoose-movies';
-mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const celebArray = [
   {
@@ -22,6 +21,7 @@ const celebArray = [
   },
 ];
 
-Celebrity.create(celebArray, () => {
-  console.log('celebrity created');
-})
+Celebrity.create(celebArray)
+ .then((celebArray) => console.info(`${celebArray.length} new celebArray added to the database`))
+ .catch(error => console.error(error))
+ .then(() => mongoose.connection.close());
