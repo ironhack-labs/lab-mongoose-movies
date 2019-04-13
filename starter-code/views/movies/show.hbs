@@ -1,0 +1,16 @@
+<header>
+  <h2>Movie Details</h2>
+</header>
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">Title: {{ movie.title }}</h4>
+        <h4 class="card-text">Genre: {{ movie.genre }}</h4>
+        <h4 class="card-text">Plot: <q>{{ movie.plot }}</q></h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="/movies/{{ movie.id }}/edit">Edit Movie</a>

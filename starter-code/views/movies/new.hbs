@@ -1,0 +1,26 @@
+<header>
+  <h2>Adding a Movie</h2>
+</header>
+
+<form action="/movies/index" method="POST">
+
+  <div class="form-group">
+    <label>Movie Title</label>
+    <input type="text" class="form-control {{#if errors.tile }}is-invalid{{/if}}" name="title" value="{{ movie.title }}"
+      placeholder="Enter movie title...">
+  </div>
+  <div>
+    <label>Movie Genre</label>
+    <input type="text" class="form-control {{#if errors.genre }}is-invalid{{/if}}" name="genre" value="{{ movie.genre }}"
+      placeholder="Enter movie genre...">
+  </div>
+  <div>
+    <label>Movie Plot</label>
+    <input type="text" class="form-control {{#if errors.plot }}is-invalid{{/if}}" name="plot" value="{{ movie.plot }}"
+      placeholder="Enter movie plot...">
+  </div>
+  
+  <div class="d-flex">
+    <button type="submit" class="btn btn-primary mr-3">Submit</button>
+  </div>
+</form>
