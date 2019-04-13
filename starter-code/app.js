@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -8,7 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
+const dotenv = require('dotenv').config();
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
