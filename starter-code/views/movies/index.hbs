@@ -1,0 +1,9 @@
+<h1>The movies list</h1>
+<div class="movies-list">
+  {{#each movies}}
+  <div class="movie">
+    <h2><a href="/movies/{{this._id}}">{{this.title}}</a></h2>
+  </div>
+  {{/each}}
+</div>
+<a href="/">Go back</a>
