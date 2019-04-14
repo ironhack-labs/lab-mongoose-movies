@@ -1,0 +1,11 @@
+<h2>Mongo Celebrities</h2>
+<div class="celebrities">
+  {{#each celebrities}}
+  <div class="celebritydetails">
+    <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+  </div>
+  {{/each}}
+  <br>
+  <br>
+  <a href="/">Home</a>
+</div>
