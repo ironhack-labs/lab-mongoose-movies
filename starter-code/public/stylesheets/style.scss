@@ -1,8 +1,34 @@
+div{
+  border: 1px solid transparent;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.celebritylink{
+  width: 30%;
+}
+
 a {
   color: #00B7FF;
+}
+
+.celebritydetails{
+  display: inline;
+}
+
+.formscontainer form,
+.formscontainer form div {
+  display: inline;
+}
+
+.formscontainer::after{
+clear: both;
+}
+
+.formscontainer button {
+  display: inline;
+  vertical-align: middle;
 }
