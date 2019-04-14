@@ -1,6 +1,7 @@
 const express = require('express');
-const dotenv = require('dotenv').config()
 const router  = express.Router();
+const Celebrity = require ('../models/celebrity');
+const mongoose = require ('mongoose');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -8,3 +9,7 @@ router.get('/', (req, res, next) => {
 });
 
 module.exports = router;
+
+
+
+

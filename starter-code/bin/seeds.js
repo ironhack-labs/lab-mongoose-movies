@@ -1,5 +1,12 @@
+require("dotenv").config();
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
+
+
+
+
+
+
 
 mongoose
   .connect('mongodb://localhost/starter-code', {
@@ -42,4 +49,10 @@ Celebrity.create(celebrities, (err) => {
   }
   console.log(`Created ${celebrities.length} celebrities`)
   mongoose.connection.close()
-});
+ });
+
+
+
+
+
+
