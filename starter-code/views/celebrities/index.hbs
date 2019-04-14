@@ -1,16 +1,19 @@
-<h2>The whole list of celebrities</h2>
-<div class="celebrities-list">
-  {{#each celebrities}}
-  <div class="celebrity">
-    <h3><a href="/celebrities/{{this._id}}">{{this.name}}</a></h3>
-    <a href="/celebrities/{{this._id}}/edit">Edit</a>
-    <form action="/celebrities/{{this._id}}/delete" method="POST">
-      <button type="submit">Delete</button>
-    </form>
+<div class="section">
+  <h1><a href="/">Where is my idol?</a></h1>
+  <h2>The whole list of celebrities</h2>
+  <div class="group-list">
+    {{#each celebrities}}
+    <div class="group-unit">
+      <h3><a href="/celebrities/{{this._id}}">{{this.name}}</a></h3>
+      <div class="actions">
+        <a href="/celebrities/{{this._id}}/edit" class="button button-edit">Edit</a>
+        <form action="/celebrities/{{this._id}}/delete" method="POST">
+          <input type="submit" value="Delete" class="button button-delete">
+        </form>
+      </div>
+    </div>
+    {{/each}}
   </div>
-  {{/each}}
+  <a href="/celebrities/new" class="button button-create">Create a new celebrity</a>
+  <a href="/" class="button button-goback">Go back</a>
 </div>
-<div class="celebrities-actions">
-  <a href="/celebrities/new">Create a new celebrity</a>
-</div>
-<a href="/">Go back</a>

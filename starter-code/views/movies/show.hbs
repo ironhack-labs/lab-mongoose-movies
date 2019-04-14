@@ -1,4 +1,9 @@
-<h1>{{movie.title}}</h1>
-<p>Genre: {{movie.genre}}</p>
-<p>Excerpt: {{movie.plot}}</p>
-<a href="/movies">Go back</a>
+<div class="section">
+  <h1><a href="/">Where is my idol?</a></h1>
+  <h2>{{movie.title}}</h2>
+  <ul>
+    <li><div class="description">Genre:</div> {{movie.genre}}</li>
+    <li><div class="description">Excerpt:</div> {{movie.plot}}</li>
+  </ul>
+  <a href="/movies" class="button button-goback">Go back</a>
+</div>

@@ -1,14 +1,17 @@
-<h1>The movies list</h1>
-<div class="movies-list">
-  {{#each movies}}
-  <div class="movie">
-    <h2><a href="/movies/{{this._id}}">{{this.title}}</a></h2>
-    <a href="/movies/{{this.id}}/edit">Update movie</a>
-    <form action="/movies/{{this._id}}/delete" method="POST">
-      <input type="submit" value="Delete">
-    </form>
+<div class="section">
+  <h1><a href="/">Where is my idol?</a></h1>
+  <h2>The movies list</h2>
+  <div class="group-list">
+    {{#each movies}}
+    <div class="group-unit">
+      <h2><a href="/movies/{{this._id}}">{{this.title}}</a></h2>
+      <a href="/movies/{{this.id}}/edit" class="button button-edit">Update movie</a>
+      <form action="/movies/{{this._id}}/delete" method="POST">
+        <input type="submit" value="Delete" class="button button-delete">
+      </form>
+    </div>
+    {{/each}}
   </div>
-  {{/each}}
+  <a href="/movies/new" class="button button-create">Add new movie</a>
+  <a href="/" class="button button-goback">Go back</a>
 </div>
-<a href="/movies/new">Add new movie</a>
-<a href="/">Go back</a>

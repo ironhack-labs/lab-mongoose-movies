@@ -36,7 +36,7 @@ router.get('/:id/edit', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   celebrityController.addCelebrity(req.body.name, req.body.occupation, req.body.catchPhrase)
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect('/celebrities'))
     .catch(err => {
       console.error(err);
       res.render('celebrities/new');

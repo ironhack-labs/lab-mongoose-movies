@@ -1,8 +1,225 @@
+$blue: #00B7FF;
+$bg: #ccc;
+$full-white: #fff;
+$white: hsl(0, 0%, 95%);
+$red-bg: hsla(0, 45%, 50%, .9); 
+$edit-color: hsl(20, 50%, 50%);
+$delete-color: hsl(0, 45%, 50%);
+$create-color: hsl(100, 50%, 30%);
+$back-color: darken($blue, 5%);
+
+*{
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+  min-height: 100vh;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: $bg;
+  background-image: linear-gradient(to bottom right, lighten($bg, 50%) 0%, $bg 100%);
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: $blue;
+}
+
+.container{
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.section{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h1{
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    font-size: 2.4rem;
+    background-color: $red-bg;
+    min-width: 100%;
+    
+    & a{
+      color: $white;
+      transition: all .3s;
+
+      &:hover{
+        color: darken($white, 10%);
+      }
+    }
+  }
+
+  & h2{
+    text-align: center;
+    font-size: 2.2rem;
+    color: darken($bg, 50%);
+    border-bottom: .2rem solid rgba($bg, .3);
+  }
+
+  & ul{
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    padding: 2rem 1rem;
+    min-width: 100%;
+    max-width: 45rem;
+    
+    & li{
+      padding: 2rem;
+      background-color: $full-white;
+      border-bottom: .1rem solid darken($bg, 30%);
+      text-align: center;
+      transition: all .25s;
+      box-shadow: .2rem 0 .3rem $bg;
+
+      &:first-child{
+        border-radius: 1rem 1rem 0 0;
+      }
+
+      &:last-child{
+        border-radius: 0 0 1rem 1rem;
+        border-bottom: none;
+        box-shadow: .2rem .2rem .3rem $bg;
+      }
+
+      &:hover{
+        background-color: darken($full-white, 15%);
+
+        & > a{
+          color: darken($blue, $amount: 10%);
+        }
+      }
+    }
+  }
+}
+
+.group-list{
+  display: flex;
+  flex-direction: column;
+  border-bottom: .5rem dotted darken($bg, 30%);
+
+  & .group-unit{
+    border: .3rem solid rgba($bg, .2);
+    border-radius: 1.5rem;
+    margin: .5rem 0;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h3{
+      font-size: 2rem;
+      margin: .5rem;
+
+      & a{
+        color: darken($blue, 15%);
+        transition: .3s;
+
+        &:hover{
+          color: $blue;
+        }
+      }
+    }
+
+    & .actions{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      & *{
+        margin: .25rem .5rem;
+      }
+    }
+
+  }
+}
+
+.button{
+  padding: 1rem 2rem;
+  color: $white;
+  border: .1rem solid $edit-color;
+  font-size: 1.6rem;
+  border-radius: .5rem;
+  box-shadow: .1rem .1rem .3rem $bg;
+  transition: transform .3s;
+  margin: .5rem;
+  text-align: center;
+
+  &.button-edit{
+    background-color: $edit-color;
+    border-color: darken($edit-color, 15%);
+    color: $white;
+  }
+
+  &.button-delete{
+    border-color: darken($delete-color, 15%);
+    background-color: $delete-color;
+  }
+
+  &.button-create{
+    background-color: $create-color;
+    border-color: darken($create-color, 15%);
+  }
+
+  &.button-goback{
+    background-color: $back-color;
+    border-color: darken($back-color, 15%);
+  }
+
+  &:hover{
+    transform: scale(1.01);
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+
+  & .form-group{
+    padding: 1rem .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & label{
+      padding: .5rem;
+    }
+
+    & input{
+      padding: 1rem .5rem;
+    }
+
+    & textarea{
+      width: 75%;
+      min-height: 12rem;
+    }
+  }
+
+  & .button{
+    width: 100%;
+    max-width: 35rem;
+    align-self: center;
+  }
+}
+
+.description{
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: darken($bg, 20%);
 }
