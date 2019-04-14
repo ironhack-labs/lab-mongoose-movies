@@ -6,6 +6,13 @@ const celebrityController = {
   },
   getCelebrityById(id){
     return Celebrity.findById(id);
-  }
+  },
+  addCelebrity(name, occupation, catchPhrase){
+    return new Celebrity({
+      name,
+      occupation,
+      catchPhrase,
+    }).save();
+  },
 };
 module.exports = celebrityController;
