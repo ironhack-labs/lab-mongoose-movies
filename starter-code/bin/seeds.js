@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
+const Movie = require('../models/Movie');
 const faker = require('faker');
 
 faker.seed(Math.floor(Math.random()*60000));
 const occupations = ['actor', 'singer', 'comedian'];
+
 const celebrities = new Array(3).fill({}).map(celebrity => {
   return {
     name: faker.name.findName(),
@@ -11,10 +13,26 @@ const celebrities = new Array(3).fill({}).map(celebrity => {
     catchPhrase: faker.company.catchPhrase(),
   };
 });
+const movies = new Array(10).fill({}).map(movie => {
+  return {
+    title: faker.random.words(Math.floor(Math.random()*4)),
+    genre: faker.random.word(),
+    plot: faker.random.words(Math.floor(Math.random()*36)),
+  };
+});
+
+
 
 mongoose.connect('mongodb://localhost/starter-code', {useNewUrlParser: true});
-Celebrity.collection.drop();
+
+Celebrity.deleteMany({})
+  .then((val) => console.log('Celebrities removed!'))
+  .catch(err => console.error(err));
+
+Movie.deleteMany({})
+  .then((val) => console.log('Movies removed!'))
+  .catch(err => console.error(err));
+
 Celebrity.insertMany(celebrities)
-  .then(() => console.log(`${celebrities.length} celebrities inserted`))
-  .catch(err => console.error(err))
+  .then(() => Movie.insertMany(movies))
   .then(() => mongoose.connection.close());
