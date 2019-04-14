@@ -2,9 +2,7 @@
 <div class="celebrities-list">
   {{#each celebrities}}
   <div class="celebrity">
-    <h3>{{this.name}}</h3>
-    <p>{{this.occupation}}</p>
-    <p>{{this.catchPhrase}}</p>
+    <h3><a href="/celebrities/{{this._id}}">{{this.name}}</a></h3>
   </div>
   {{/each}}
 </div>

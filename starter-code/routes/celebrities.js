@@ -9,7 +9,15 @@ router.get('/', (req, res, next) => {
         console.error(err);
         next();
       });
-  
+});
+
+router.get('/:id', (req, res, next) => {
+  return celebrityController.getCelebrityById(req.params.id)
+    .then(val => res.render('celebrities/show', {celebrity: val}))
+    .catch((err) => {
+      console.error(err);
+      next();
+  });
 });
 
 module.exports = router;
