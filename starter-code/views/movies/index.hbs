@@ -3,6 +3,7 @@
   {{#each movies}}
   <div class="movie">
     <h2><a href="/movies/{{this._id}}">{{this.title}}</a></h2>
+    <a href="/movies/{{this.id}}/edit">Update movie</a>
     <form action="/movies/{{this._id}}/delete" method="POST">
       <input type="submit" value="Delete">
     </form>

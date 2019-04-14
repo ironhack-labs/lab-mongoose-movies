@@ -14,5 +14,8 @@ module.exports = {
   },
   deleteById(id){
     return Movie.findByIdAndRemove(id);
+  },
+  updateById(obj){
+    return Movie.findByIdAndUpdate(obj.id, {...obj});
   }
 };
