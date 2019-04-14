@@ -7,5 +7,10 @@ router.get('/', (req, res, next) => {
     .then(movies => res.render('movies/index', {movies}))
     .catch(err => console.error(err));
 });
+router.get('/:id', (req, res, next) => {
+  movieController.getMovieById(req.params.id)
+    .then(movie => res.render('movies/show', {movie}))
+    .catch(err => console.error(err));
+});
 
 module.exports = router;
