@@ -1,0 +1,18 @@
+<h2>Modify a Mongo</h2>
+<form action="/movies/{{movie.id}}/update" method="post">
+  <input type="hidden" name="_id" value="{{movie._id}}">
+
+  <label for="">Title:</label>
+  <input type="text" name="title" value="{{movie.title}}">
+
+  <label for="">Genre:</label>
+  <input type="text" name="genre" value="{{movie.genre}}">
+
+  <label for="">Plot:</label>
+  <input type="text" name="plot" value="{{movie.plot}}">
+
+  <button type="submit">UPDATE</button>
+</form>
+<br>
+<br>
+<a href="/">Home</a>

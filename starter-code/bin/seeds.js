@@ -1,7 +1,9 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 
-const dbName = 'starter-code';
+const dbName = `${process.env.DATABASE}`;
+
 mongoose
   .connect(`mongodb://localhost/${dbName}`, {useNewUrlParser: true})
   .then(x => {

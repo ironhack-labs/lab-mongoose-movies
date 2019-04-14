@@ -9,9 +9,9 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
+const database=`${process.env.DATABASE}`;
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect(`mongodb://localhost/${database}`, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -47,13 +47,13 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Mongo Celebrities DB';
-
+app.locals.title = 'Mongo Freak DB';
 
 
 const index = require('./routes/index');
 
 app.use('/', index);
 app.use('/celebrities', require('./routes/celebrities'));
+app.use('/movies', require('./routes/movies'));
 
 module.exports = app;

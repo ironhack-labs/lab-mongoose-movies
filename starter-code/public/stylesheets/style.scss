@@ -11,11 +11,20 @@ body {
   width: 30%;
 }
 
+.movielink{
+  width: 30%;
+}
+
 a {
   color: #00B7FF;
+  margin-right: 10px;
 }
 
 .celebritydetails{
+  display: inline;
+}
+
+.moviedetails{
   display: inline;
 }
 
