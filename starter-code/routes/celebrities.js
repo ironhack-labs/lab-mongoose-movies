@@ -33,4 +33,13 @@ router.post('/', (req, res, next) => {
     })
 });
 
+router.post('/:id/delete', (req, res, next) => {
+  celebrityController.deleteById(req.params.id)
+    .then(()=> res.redirect('/celebrities'))
+    .catch((err) => {
+      console.error(err);
+      next();
+    });
+});
+
 module.exports = router;

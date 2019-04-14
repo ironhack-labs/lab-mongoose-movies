@@ -14,5 +14,8 @@ const celebrityController = {
       catchPhrase,
     }).save();
   },
+  deleteById(id){
+    return Celebrity.findByIdAndRemove(id);
+  },
 };
 module.exports = celebrityController;
