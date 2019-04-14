@@ -7,4 +7,9 @@ module.exports = {
   getMovieById(id){
     return Movie.findById(id);
   },
+  createMovie(obj){
+    // ¿Se podría inyectar un campo arbitrario?
+    // Respuesta: NO -> Solo acepta los campos que aparecen en el modelo. Tampoco aparece ningún error
+    return Movie.create({...obj});
+  }
 };
