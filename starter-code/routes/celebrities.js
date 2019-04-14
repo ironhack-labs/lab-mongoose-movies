@@ -36,7 +36,6 @@ router.post('/', (req, res, next) => {
 
 router.get('/:celebrityId', (req, res, next) => {
   var id = req.params.celebrityId;
-  console.log(id);
   Celebrity.findById(id)
   .then((celebrity)=>{
     res.render('celebrities/show', celebrity);
@@ -45,7 +44,6 @@ router.get('/:celebrityId', (req, res, next) => {
     console.log(err);
   })
 });
-
 
 router.post('/:celebrityId/delete', (req, res, next) => {
   var id = req.params.celebrityId;
@@ -57,6 +55,26 @@ router.post('/:celebrityId/delete', (req, res, next) => {
   .catch((err)=>{
     console.log(err);
   })
+});
+
+router.get('/:celebrityId/edit', (req, res, next) => {
+  var id = req.params.celebrityId;
+  Celebrity.findById(id)
+  .then((celebrity)=>{
+    // res.json(celebrity);
+    res.render('celebrities/edit', {celebrity});
+  })
+  .catch(next)
+});
+
+
+router.post('/:id' , (req, res, next) =>{
+  const {_id, name, occupation, catchPhrase } = req.body ;
+  Celebrity.findByIdAndUpdate(_id, req.body , {new: true})
+  .then((celebrity)=>{
+    res.redirect('/celebrities');
+  })
+  .catch(next)
 });
 
 module.exports = router;
