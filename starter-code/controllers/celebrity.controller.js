@@ -17,5 +17,12 @@ const celebrityController = {
   deleteById(id){
     return Celebrity.findByIdAndRemove(id);
   },
+  updateById(id, name, occupation, catchPhrase){
+    return Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    })
+  }
 };
 module.exports = celebrityController;
