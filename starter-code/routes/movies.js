@@ -23,4 +23,10 @@ router.post('/new', (req, res, next) => {
     .catch(err => console.error(err));
 });
 
+router.post('/:id/delete', (req, res, next) => {
+  movieController.deleteById(req.params.id)
+    .then(() => res.redirect('/movies'))
+    .catch(err => console.error(err));
+});
+
 module.exports = router;
