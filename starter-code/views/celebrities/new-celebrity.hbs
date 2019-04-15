@@ -1,0 +1,14 @@
+<h1>Create a new celebrity</h1>
+
+{{!--Send data to  POST /create-celebrity  --}}
+
+<form action="/celebrities/new-celebrity" method="post">
+    Name
+    <input type="text" class="form-control" name="name"> <br> 
+    {{!-- //will define a req.body.title --}}
+    Occupation
+   <input type="text" name="occupation" class="form-control"></textarea> <br>
+    Catch Phrase (Known for)
+    <input type="text" class="form-control" name="catchPhrase"> <br>
+    <button type="submit" class="btn btn-primary">Create your new celebrity!!!</button>
+</form>

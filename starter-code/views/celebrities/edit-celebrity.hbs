@@ -1,0 +1,14 @@
+<h1>Edit your celebrity</h1>
+
+{{!--Send data to  POST /edit-book  --}}
+
+<form action="/celebrity/{{celeb._id}}/edit" method="post">
+    Name
+    <input type="text" value="{{celeb.name}}" class="form-control" name="name"> <br> 
+    {{!-- //will define a req.body.title --}}
+    Occupation
+    <input type="text" value="{{celeb.occupation}}" class="form-control" name="occupation"> <br>
+    Catch Phrase
+    <input type="text" value="{{celeb.catchPhrase}}" class="form-control" name="catchPhrase"> <br>
+    <button type="submit" class="btn btn-primary">Edit!!!</button>
+</form>
