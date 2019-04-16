@@ -1,0 +1,20 @@
+<p>You are now in the new.hbs</p>
+
+{{!-- action has to match the .post path in routes/index.js --}}
+<form action="/celebrities/add" method="POST">
+  <br>
+  <label for="name">Name of the celebrity:</label>
+  <input type="text" value="" placeholder="Name of the celebrity goes here" name="name">
+  <br>
+
+  <label for="occupation">Occupation of the celebrity:</label>
+  <input type="text" value="" placeholder="Occupation of the celebrity goes here" name="occupation">
+  <br>
+
+  <label for="catchphrase">Catchphrase of the celebrity:</label>
+  <input type="text" value="" placeholder="catchphrase Name of the celebrity goes here" name="catchphrase">
+  <br>
+
+  <button type="submit" name="button">Create new celebrity!!</button>
+  <br>
+</form>
