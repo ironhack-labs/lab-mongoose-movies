@@ -1,12 +1,10 @@
 <h2> Celebrity details</h2>
 
-<div class="container">
 <ul>
   <li><strong>Name:</strong> {{celebrityDetails.name}}</li>
   <li><strong>Occupation:</strong> {{celebrityDetails.occupation}}</li>
   <li><strong>Catch Phrase:</strong> {{celebrityDetails.catchPhrase}}</li>
-
-<a href="/celebrities/{{celebrityDetails._id}}/edit">Edit</button>
-</div>
-
 </ul>
+
+<a href="/celebrities/{{celebrityDetails._id}}/edit" class="btn btn-outline-primary">Edit</a>
+<a href="/celebrities/{{celebrityDetails._id}}/delete" class="btn btn-outline-danger">Delete</a>

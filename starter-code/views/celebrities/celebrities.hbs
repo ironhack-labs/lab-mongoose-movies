@@ -1,25 +1,40 @@
-
 <h1>Your favorite celebrities!!</h1>
 
 
-{{!-- <p>{{celebrityFromDb}}</p> --}}
+{{!-- <p>{{celebrities}}</p> --}}
 
 <ul>
-{{#each celebrityFromDb}}
+  {{#each celebrities}}
 
-<li>Name :<a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
-  
-{{/each}}
+  <li>Name: <a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
 
-
-
-<div class="container">
-<form action="/celebrities" method="post">
-
-  Name: <input type="text" name="name"><br>
-  Occupation: <input type="text" name="occupation"><br>
-  Catch phrase: <input type="text" name="catchPhrase"><br>
- <button type="submit">Create Celeb</button>
- </form>
-</div>
+  {{/each}}
 </ul>
+
+<h2>Add a celebrity</h2>
+
+<form action="/celebrities" method="post">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Occupation</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="occupation">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Catch Phrase</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="catchPhrase">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-outline-primary">Create Celeb</button>
+    </div>
+  </div>
+</form>
