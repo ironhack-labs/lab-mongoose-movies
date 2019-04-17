@@ -19,6 +19,11 @@ const celebrities = [
     name: 'Donald Trump',
     occupation: 'Celebrity Apprentice',
     catchPhrase: 'Believe me'
+  },
+  {
+    name: 'Jimbo',
+    occupation: 'Shrimp Wrangler',
+    catchPhrase: 'gumbo'
   }
 ];
 
