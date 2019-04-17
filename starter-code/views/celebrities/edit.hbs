@@ -1,0 +1,14 @@
+<h1>Celebrity Edit</h1>
+
+  
+<form action="/celebrities/{{this._id}}/edit" method="post">
+
+  Name: <input type="text" name="name" placeholder="{{this.name}}"><br>
+  Occupation: <input type="text" name="occupation" placeholder="{{this.occupation}}"><br>
+  Catch phrase: <input type="text" name="catchPhrase" placeholder="{{this.catchPhrase}}"><br>
+ <button type="submit">Edit Celeb</button>
+<a href="/celebrities/delete" class="btn btn-danger">Delete</a>
+
+</form>
+</ul>
+    

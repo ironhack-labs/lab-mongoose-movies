@@ -1,0 +1,25 @@
+
+<h1>Your favorite celebrities!!</h1>
+
+
+{{!-- <p>{{celebrityFromDb}}</p> --}}
+
+<ul>
+{{#each celebrityFromDb}}
+
+<li>Name :<a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+  
+{{/each}}
+
+
+
+<div class="container">
+<form action="/celebrities" method="post">
+
+  Name: <input type="text" name="name"><br>
+  Occupation: <input type="text" name="occupation"><br>
+  Catch phrase: <input type="text" name="catchPhrase"><br>
+ <button type="submit">Create Celeb</button>
+ </form>
+</div>
+</ul>

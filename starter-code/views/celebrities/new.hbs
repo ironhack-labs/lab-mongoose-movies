@@ -1,0 +1,21 @@
+<h2>Add a new Celebrity</h2>
+
+<form action="/routes/celebrities/" method="post">
+
+Name:
+  <input type="text" name="name" class="form-control">
+  <br>
+  Occupation:
+  <input type="text" name="occupation" class="form-control">
+  <br>
+    Catch phrase:
+  <input type="text" name="catchPhrase" class="form-control">
+  <br>
+</form>
+{{!-- 
+Create the new.hbs view file inside the views/celebrities folder
+In the views/celebrities/new.hbs view file:
+Add an <h2> for the page's heading.
+Add a <form> tag that makes a POST request to /celebrities.
+Add <input> tags inside the form so the user can fill in values for each attribute of the celebrity. Make an input for name, occupation, and catchPhrase
+Add a <button> tag in the form so the user can submit the form once they are done filling it out. --}}
