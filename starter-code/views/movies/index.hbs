@@ -1,0 +1,15 @@
+
+<h2 class="text-center">Movies</h2>
+
+
+<ul class="movie-list">
+  {{#each listMovies}}
+    <li><a href="movies/{{this._id}}">{{this.title}}</a></li>
+  {{/each}}
+</ul>
+
+<a href="/new-movie" class="btn btn-outline-primary">Create New</a>
+
+{{#if message}}
+  <div class="alert alert-primary">{{message}}</div>
+{{/if}}

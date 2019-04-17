@@ -2,14 +2,13 @@
 <h2 class="text-center">Celebrities</h2>
 
 
-
 <ul class="celebrity-list">
   {{#each listCelebrities}}
     <li><a href="celebrities/{{this._id}}">{{this.name}}</a></li>
   {{/each}}
 </ul>
 
-<a href="/celebrities/new-celebrity" class="btn btn-outline-primary">Create New</a>
+<a href="/new-celebrity" class="btn btn-outline-primary">Create New</a>
 
 {{#if message}}
   <div class="alert alert-primary">{{message}}</div>

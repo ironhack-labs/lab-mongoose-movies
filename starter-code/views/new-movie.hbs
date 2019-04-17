@@ -1,0 +1,15 @@
+<br>
+<h1>Create a new Movie</h1>
+
+{{!--Send data to  POST /create-celebrity  --}}
+
+<form action="/new-movie" method="post">
+    Title
+    <input type="text" class="form-control" name="title"> <br> 
+    {{!-- //will define a req.body.title --}}
+    Genre
+   <input type="text" name="genre" class="form-control"></textarea> <br>
+    Plot
+    <input type="text" class="form-control" name="plot"> <br>
+    <button type="submit" class="btn btn-primary">Create your new movie!!!!</button>
+</form>
