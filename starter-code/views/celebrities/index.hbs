@@ -1,10 +1,9 @@
-hello world
-
 <h2>Celebrities</h2>
 
 {{#each celebrities as |celeb|}}
-  <h3><li>{{celeb.name}}</li></h3>
-  {{celeb.ocupation}}<br>{{celeb.catchPhrase}} 
-  <br> 
+  <h3>{{celeb.name}}</h3> 
+  <a href="/celebrities/{{celeb._id}}">{{celeb.name}}</a>
+  {{!-- {{celeb.ocupation}}<br>{{celeb.catchPhrase}} 
+  <br>  --}}
   <br>
 {{/each}}
