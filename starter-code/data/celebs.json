@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Tom Cruise",
+    "ocupation": "Actor",
+    "catchPhrase": "Every minute that passes is another opportunity to keep changing."
+  },
+  {
+    "name": "Arnold Schwarzenegger",
+    "ocupation": "cyber killer of the future",
+    "catchPhrase": "Sayonara Baby."
+  },
+  {
+    "name": "Mariano Rajoy",
+    "ocupation": "Jubilado",
+    "catchPhrase": "Es el alcalde el que quiere que sean los vecinos el alcalde."
+  }
+]
