@@ -3,6 +3,7 @@
 {{#each celebrities as |celeb|}}
   <h3>{{celeb.name}}</h3> 
   <a href="/celebrities/{{celeb._id}}">{{celeb.name}}</a>
+  <form action="/celebrities/{{celeb._id}}/delete" method="POST"><button type="submit">Delete</button></form>
   {{!-- {{celeb.ocupation}}<br>{{celeb.catchPhrase}} 
   <br>  --}}
   <br>

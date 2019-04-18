@@ -5,6 +5,14 @@ const router = express.Router();
 const Celebrity = require('../models/celebrity');
 // const celebs = require('../data/celebs.json');
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  const id = req.params.id
+  console.log(id)
+  Celebrity.findByIdAndRemove(id)
+  .then(() => {res.redirect('/celebrities')}
+  )
+  .catch(err => next(err));
+});
 
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
@@ -13,10 +21,6 @@ router.get('/celebrities', (req, res, next) => {
       res.render('celebrities/index', {celebrities})
     })
     .catch(err => next(err));
-});
-
-router.get('/celebrities/new', (req, res, next) => {
-  res.render('celebrities/new')
 });
 
 router.post('/celebrities', (req, res, next) => {
@@ -32,6 +36,12 @@ router.post('/celebrities', (req, res, next) => {
       );
 });
 
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new')
+});
+
+
+
 router.get('/celebrities/:id', (req, res, next) => {
   const id = req.params.id;
   Celebrity.findById(id)
@@ -40,7 +50,6 @@ router.get('/celebrities/:id', (req, res, next) => {
     })
     .catch(err => next(err));
 });
-
 
 
 
