@@ -12,7 +12,24 @@ router.get('/celebrities', (req, res, next) => {
       // console.log(celebrities);
       res.render('celebrities/index', {celebrities})
     })
-    .catch(err => next(err))
+    .catch(err => next(err));
+});
+
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new')
+});
+
+router.post('/celebrities', (req, res, next) => {
+  const { name, ocupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, ocupation, catchPhrase})
+  newCelebrity.save()
+    .then(() => {
+      res.redirect('/celebrities')
+      // console.log('celebrity add to DB')
+    })
+    .catch( 
+      res.render('celebrities/new'),
+      );
 });
 
 router.get('/celebrities/:id', (req, res, next) => {
@@ -21,6 +38,11 @@ router.get('/celebrities/:id', (req, res, next) => {
     .then(celeb => {
       res.render('celebrities/show', {celeb})
     })
-    .catch(err => next(err))
-})
+    .catch(err => next(err));
+});
+
+
+
+
 module.exports = router
+
