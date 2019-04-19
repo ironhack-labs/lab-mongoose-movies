@@ -4,6 +4,7 @@
 <h3>{{movie.title}}</h3>
 <div>
   <button><a href="/movies/{{movie.id}}">More details</a></button>
+  <form action="/movies/{{movie.id}}/delete" method="POST"><button type="submit">Delete</button></form>
 </div>
 {{/each}}
 <br>
