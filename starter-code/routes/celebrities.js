@@ -5,11 +5,8 @@ const router = express.Router();
 const Celebrity = require('../models/celebrity');
 // const celebs = require('../data/celebs.json');
 
-
-
 router.post('/celebrities/:id/delete', (req, res, next) => {
   const id = req.params.id
-  // console.log(id)
   Celebrity.findByIdAndDelete(id)
   .then(() => {res.redirect('/celebrities')}
   )
