@@ -2,4 +2,7 @@
 
 {{#each movies as |movie|}}
 <h3>{{movie.title}}</h3>
+<div>
+  <button><a href="/movies/{{movie.id}}">More details</a></button>
+</div>
 {{/each}}
