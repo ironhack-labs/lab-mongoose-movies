@@ -1,0 +1,17 @@
+<h2>Add a new celebrity</h2>
+
+<form action="/celebrities/new" method="post">
+  <b>Name</b>
+  <br>
+  <input type="text" name="name" class="form-control">{{!-- Will define a req.body.name --}}
+  <br>
+  <b>Occupation</b>
+  <br>
+  <input type="text" name="occupation" class="form-control">{{!-- Will define a req.body.occupation --}}
+  <br>
+  <b>Catchphrase</b>
+  <br>
+  <textarea name="catchPhrase" class="form-control"></textarea> {{!-- Will define a req.body.catchphrase --}}
+  <br>
+  <button type="submit" class="btn btn-primary">Add!</button>
+</form>
