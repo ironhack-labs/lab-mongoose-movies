@@ -1,0 +1,10 @@
+<h1>Freak With The Movies!</h1>
+{{#each allMovies as |movie|}}
+  <h2><a href="movies/{{movie.id}}" style="text-decoration:none; color:aquamarine">{{movie.title}}</a></h2>
+  <form action="movies/{{movie.id}}/delete" method="POST">
+    <button type="submit">Delete Movie</button>
+  </form>
+  <a href="movies/{{movie.id}}/edit">Edit Movie</a>
+{{/each}}
+<h5>Admit it, you freaked out!</h5>
+<a href="movies/new">Add a Movie!</a>

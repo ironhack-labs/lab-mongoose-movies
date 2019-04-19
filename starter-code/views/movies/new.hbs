@@ -1,0 +1,7 @@
+<h2>Add a new Movie</h2>
+<form action="/movies" method="POST">
+  <input name="title" placeholder="title">{{#if error}}<p style="color:red;"><strong>el título puto</strong></p>{{/if}}
+  <input name="genre" placeholder="genre" {{#if error}} value="{{movie.genre}}" {{/if}}>
+  <textarea rows="10" cols="10" name="plot" placeholder="plot">{{#if error}} {{movie.plot}} {{/if}}</textarea>
+  <button type="submit">Add</button>
+</form> 
