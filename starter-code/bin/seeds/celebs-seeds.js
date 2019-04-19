@@ -1,5 +1,5 @@
-const Celebrity = require('../models/celebrity');
-const celebs = require('../data/celebs.json');
+const Celebrity = require('../../models/celebrity');
+const celebs = require('../../data/celebs.json');
 
 // opcion 1 para conectar con la BBDD sin llamar a la APP completa
   // const mongoose = require('mongoose');
@@ -13,7 +13,7 @@ const celebs = require('../data/celebs.json');
   //   });
 
 // opcion2 llamando a la APP
-require('../app.js');
+require('../../app.js');
 
 
 // opción 3 crear un db.conf.js para llamar sólo a está función del código
