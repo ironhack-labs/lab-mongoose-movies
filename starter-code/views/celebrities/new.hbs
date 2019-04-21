@@ -1,0 +1,18 @@
+<div class="row">
+  <form class="col s10 m10 offset-s1 offset-m2" action="/celebrities" method="POST">
+  <div class="input-field col s6">
+    {{#each err}}
+      <p>{{err}}</p>
+    {{/each}}
+    <p></p>
+    <input type="text" name="name">
+    <label for="name">Name</label>
+    <input type="text" name="ocupation">
+    <label for="ocupation">Ocupation</label>
+    <input type="text" name="catchPhrase">
+    <label for="catchPhrase">Catch Phrase</label>
+    <input type="text" name="image">
+    <label for="image">Url Image</label>
+  </div>
+  </form>
+</div>

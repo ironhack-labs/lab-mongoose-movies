@@ -18,5 +18,21 @@ router.get('/:id', (req,res,next) => {
     .then(celebrity => {
       res.render('celebrities/show', celebrity)
     })
+    .catch(err => { res.send(err)})
 })
+
+router.get('/new', (req,res,next) => {
+  res.render('celebrities/new',)
+})
+
+router.post('/new', (req,res, next) => {
+  Celebrity.create({ ...req.body })
+    .then(celebrities => {
+      res.send('celebrities/',celebrities)
+    })
+    .catch(err => {
+      res.render('celebrities/new', err)
+    })
+})
+
 module.exports = router;
