@@ -1,0 +1,9 @@
+<h1>All Celebrities:</h1>
+
+{{#each celebrities as |celebrity|}}
+  <h2><a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a></h2>
+{{/each}}
+<form action="/celebrities/new">
+  <button>New!</button>
+</form>
+<p><a href="/">Return home</a></p>
