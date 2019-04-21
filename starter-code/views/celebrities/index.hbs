@@ -1,0 +1,10 @@
+<h2>All Celebrities</h2>
+
+{{#each docs as | doc |}}
+<form action="/celebrities/{{doc._id}}/delete" method="POST">
+  <a href="/celebrities/{{doc._id}}">{{doc.name}}</a>
+  <button type="submit">Delete</button>
+</form>
+{{/each}}
+
+<p><a href="/celebrities/new">Add a new Celebrity</a></p>
