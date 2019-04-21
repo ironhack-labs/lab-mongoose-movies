@@ -4,10 +4,7 @@ const Movie = require('../models/Movie')
 
 router.get('/', (req, res, next) => {
   Movie.find()
-    .then(movies => {
-      //res.send(movies)
-      res.render('movies/all', { movies })
-    })
+    .then(movies => res.render('movies/all', { movies }))
     .catch(err => console.log(err))
 })
 
@@ -23,18 +20,14 @@ router.get('/new', (req, res, next) => {
 
 router.post('/new', (req, res, next) => {
   Movie.create({ ...req.body })
-    .then(movie => {
-      res.redirect('/movies')
-    })
+    .then(movie => res.redirect('/movies'))
     .catch(err => console.log(err))
 })
 
 router.post('/delete', (req, res, next) => {
   const { id } = req.body
   Movie.findByIdAndRemove(id)
-    .then(movie => {
-      res.redirect('/movies')
-    })
+    .then(movie => res.redirect('/movies'))
     .catch(err => console.log(err))
 })
 
@@ -57,18 +50,14 @@ router.get('/edit/:id', (req, res, next) => {
 router.post('/edit/:id', (req, res, next) => {
   const { id } = req.params
   Movie.findByIdAndUpdate(id, {$set: { ...req.body } }, { new: true })
-    .then(movie => {
-      res.redirect(`/movies/${movie.id}`)
-    })
+    .then(movie => res.redirect(`/movies/${movie.id}`))
     .catch(err => console.log(err))
 })
 
 router.get('/:id', (req, res, next) => {
   const { id } = req.params
   Movie.findById(id)
-    .then(movie => {
-      res.render('movies/show', movie)
-    })
+    .then(movie => res.render('movies/show', movie))
     .catch(err => console.log(err))
 })
 

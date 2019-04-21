@@ -4,9 +4,7 @@ const Celebrity = require('../models/Celebrity')
 
 router.get('/', (req, res, next) => {
   Celebrity.find()
-    .then(celebrities => {
-      res.render('celebrities/all', { celebrities })
-    })
+    .then(celebrities => res.render('celebrities/all', { celebrities }))
     .catch(err => console.log(err))
 })
 
@@ -21,20 +19,15 @@ router.get('/new', (req, res, next) => {
 })
 
 router.post('/new', (req, res, next) => {
-  //const { name, ocuppation, catchPhrase} = req.body
   Celebrity.create({ ...req.body })
-    .then(celebrity => {
-      res.redirect('/celebrities')
-    })
+    .then(celebrity => res.redirect('/celebrities'))
     .catch(err => console.log(err))
 })
 
 router.post('/delete', (req, res, next) => {
   const { id } = req.body
   Celebrity.findByIdAndRemove(id)
-    .then(celebrity => {
-      res.redirect('/celebrities')
-    })
+    .then(celebrity => res.redirect('/celebrities'))
     .catch(err => console.log(err))
 })
 
@@ -57,18 +50,14 @@ router.get('/edit/:id', (req, res, next) => {
 router.post('/edit/:id', (req, res, next) => {
   const { id } = req.params
   Celebrity.findByIdAndUpdate(id, {$set: { ...req.body } }, { new: true })
-    .then(celebrity => {
-      res.redirect(`/celebrities/${celebrity._id}`)
-    })
+    .then(celebrity => res.redirect(`/celebrities/${celebrity._id}`))
     .catch(err => console.log(err))
 })
 
 router.get('/:id', (req, res, next) => {
   const { id } = req.params
   Celebrity.findById(id)
-    .then(celebrity => {
-      res.render('celebrities/show', celebrity)
-    })
+    .then(celebrity => res.render('celebrities/show', celebrity))
     .catch(err => console.log(err))
 })
 
