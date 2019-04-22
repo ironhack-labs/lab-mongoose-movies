@@ -1,0 +1,16 @@
+<h1>All Celebrities</h1>
+
+{{#each celebrities as | celebrity |}}
+<article>
+<h3>
+    <a href="/celebrities/{{celebrity._id}}">
+    {{celebrity.name}}
+    </a>
+</h3>
+<hr>
+</article>
+{{/each}}
+<br/><br/>
+<form action="/celebrities/new">
+  <button>Add New!</button>
+</form>
