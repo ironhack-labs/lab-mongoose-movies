@@ -6,3 +6,26 @@ body {
 a {
   color: #00B7FF;
 }
+
+.msg{
+  width: fit-content;
+  background-color: crimson;
+  font-size: 1.3em;
+  color: #fff;
+  padding: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.celebrity {
+  margin: 35px 0;
+  .del-celeb{
+    color: crimson;
+    font-weight: 600;
+  }
+  
+  .edit-celeb{
+    color: darkgreen;
+    font-weight: 600;
+  }
+}

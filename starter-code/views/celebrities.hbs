@@ -1,0 +1,14 @@
+<h2>Celebrities</h2>
+{{#if msg}}
+    <div class="msg">{{msg}}</div>
+{{/if}}
+{{#each celeb}}
+  <div class="celebrity">
+    <p>{{this.name}}</p>
+    <p>{{this.occupation}}</p>
+    <p>{{this.catchPhrase}}</p>
+    <a href="/celebrity/?celeb_id={{this._id}}">View Celebrity</a>
+    <a class="btn del-celeb" href="/celebrity/{{this._id}}/delete">Delete Celebrity</a>
+    <a class="btn edit-celeb" href="/celebrity/{{this._id}}/edit">Edit Celebrity</a>
+  </div>
+{{/each}}
