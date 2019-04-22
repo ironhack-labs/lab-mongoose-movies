@@ -1,0 +1,8 @@
+<h1>All Movies:</h1>
+{{#each movies as |movie|}}
+  <h2><a href="/movies/{{movie.id}}">{{movie.title}}</a></h2>
+{{/each}}
+<form action="/movies/new">
+  <button>New!</button>
+</form>
+<p><a href="/">Return home</a></p> 
