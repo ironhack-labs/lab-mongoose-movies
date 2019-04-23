@@ -1,8 +1,9 @@
 const express = require('express');
+
 const router = express.Router();
 const Celebrity = require('../models/Celebrity.js');
 
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res) => {
   Celebrity.find()
     .then((result) => {
       res.render('celebrities/index', { celeb: result });
@@ -12,11 +13,11 @@ router.get('/celebrities', (req, res, next) => {
     });
 });
 
-router.get('/celebrities/new', (req, res, next) => {
+router.get('/new', (req, res) => {
   res.render('celebrities/new');
 });
 
-router.get('/celebrities/:id', (req, res, next) => {
+router.get('/:id', (req, res) => {
   Celebrity.findById(req.params.id)
     .then((result) => {
       res.render('celebrities/show', { show: result });
@@ -26,7 +27,7 @@ router.get('/celebrities/:id', (req, res, next) => {
     });
 });
 
-router.post('/celebrities/new', (req, res, next) => {
+router.post('/new', (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
   const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
   newCelebrity.save()
@@ -38,7 +39,7 @@ router.post('/celebrities/new', (req, res, next) => {
     });
 });
 
-router.post('/celebrities/del/:celeb_id', (req, res, next) => {
+router.post('/del/:celeb_id', (req, res) => {
   Celebrity.findByIdAndDelete(req.params.celeb_id)
     .then(() => {
       res.redirect('/celebrities');
