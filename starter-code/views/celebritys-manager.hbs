@@ -1,0 +1,13 @@
+<h1>Celebritys</h1>
+{{#if msg}}
+   <div class="msg">{{msg}}</div>
+{{/if}}
+
+{{#each books}}
+    <p>
+        <a href="celebrities/{{this._id}}">{{this.name}}</a> 
+        <a href="/celebrities/edit/{{this._id}}" class="edit-button">EDIT</a>
+        <a href="/celebrities/del/{{this._id}}" class="edit-button">Excluir</a>
+    </p>
+{{/each}}
+
