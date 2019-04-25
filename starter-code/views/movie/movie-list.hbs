@@ -1,0 +1,12 @@
+<h1>List all movies</h1>
+{{#each movies}}
+<li>
+  <a href="/movie/detail/{{this._id}}">{{this.title}}</a>
+  <a href="/movie/edit/{{this._id}}" class="edit-button">Edit</a>
+  <a href="/movie/del/{{this._id}}" class="edit-button">Delete</a>  
+</li>
+{{/each}}
+<br>
+<a href="/movie/add"><button>Add new movie</button></a>
+<br>
+<a href="/">Back</a>

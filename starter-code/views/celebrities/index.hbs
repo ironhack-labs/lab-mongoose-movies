@@ -1,0 +1,17 @@
+<h1>Celebrities List</h1>
+
+{{#if msg}}
+   <div class="msg">{{msg}}</div>  
+{{/if}}
+
+{{#each celebrities}}
+<li>
+  <a href="/celebrity/{{this._id}}">{{this.name}}</a>
+   <a href="/celebrity/edit/{{this._id}}" class="edit-button">Edit</a>
+  <a href="/celebrity/del/{{this._id}}" class="edit-button">Delete</a> 
+</li>
+{{/each}}
+<br>
+<a href="/celebrity/add"><button>ADD New Celebrity</button></a>
+<br>
+<a href="/">Back</a>
