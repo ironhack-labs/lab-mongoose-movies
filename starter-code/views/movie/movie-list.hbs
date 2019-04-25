@@ -1,18 +1,12 @@
-{{!-- <h1>list movies</h1>
-{{#each movies}}
-<p>{{this.title}}</p>
-<p>{{this.genre}}</p>
-<p>{{this.plot}}</p>
-{{/each}} --}}
-
-
-<h1>este e o each index.hbs </h1>
+<h1>List all movies</h1>
 {{#each movies}}
 <li>
-  <a href="movie/{{this._id}}">{{this.title}}</a>
-  {{!-- <a href="movie/edit/{{this._id}}" class="edit-button">EDIT</a>
-  <a href="movie/del/{{this._id}}" class="edit-button">Excluir</a>  --}}
+  <a href="/movie/detail/{{this._id}}">{{this.title}}</a>
+  <a href="/movie/edit/{{this._id}}" class="edit-button">Edit</a>
+  <a href="/movie/del/{{this._id}}" class="edit-button">Delete</a>  
 </li>
 {{/each}}
 <br>
-<a href="/celebrities/add"><button>ADD New Celebrity</button></a>
+<a href="/movie/add"><button>Add new movie</button></a>
+<br>
+<a href="/">Back</a>

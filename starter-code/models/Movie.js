@@ -1,4 +1,4 @@
-// Definição do Schema - Movie
+// Schema Definition - Movie
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;

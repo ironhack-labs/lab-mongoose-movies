@@ -1,4 +1,4 @@
-// Definição do Schema - Celebrity
+// Schema Definition - Celebrity
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;

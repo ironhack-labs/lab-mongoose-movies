@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity'); // Traz o banco
+const Movie = require('../models/Movie');
 
 const celebritys = 'celebritys';
 mongoose.connect(`mongodb://localhost/${celebritys}`);
 
-const celebrity = [
+/* const celebrity = [
   {
     name: 'Taylor Swift',
     occupation: 'Singer',
@@ -20,7 +21,7 @@ const celebrity = [
     occupation: 'Actrees',
     catchPhrase: 'Roberts',
   },
-];
+]; */
 
 const movies = [
   {
@@ -40,8 +41,9 @@ const movies = [
   },
 ];
 
-Celebrity.create(celebrity, (err) => { // Cria a estrutura do banco
+Movie.create(movies, (err) => { // Cria a estrutura do banco
   if (err) { throw (err); }
-  console.log(`Created ${celebrity.length} celebritys`);
+  // console.log(`Created ${celebrity.length} celebritys`);
+  console.log(`Created ${movies.length} movies`);
   mongoose.connection.close();
 });

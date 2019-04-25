@@ -1,6 +1,4 @@
-{{!-- <form action="/celebrities/edit/?celebrities_id={{celebrities.id}}" method="post"> --}} 
-
-<form action="/celebrities/edit/{{celebrities.id}}" method="post">
+<form action="/celebrity/edit/{{celebrities.id}}" method="post">
 
  <label for="">Name:</label>
   <input type="text" name="name" value="{{celebrities.name}}">
@@ -11,5 +9,5 @@
   <label for="">Catch Phrase:</label>
   <input type="text" name="catchPhrase"  value="{{celebrities.catchPhrase}}">
 
-  <button type="submit">EDIT</button>
+  <button type="submit">Edit</button>
 </form>
