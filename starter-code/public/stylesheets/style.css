@@ -1,11 +1,9 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 .edit-button {
   margin-left: 20px;
@@ -14,3 +12,5 @@ a {
   padding: 2px 4px;
   background-color: grey;
   border-radius: 6px; }
+
+/*# sourceMappingURL=style.css.map */
