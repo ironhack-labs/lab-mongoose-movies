@@ -11,8 +11,9 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/lab-mongoose-movies', {useNewUrlParser: true})
   .then(x => {
+    
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
@@ -56,3 +57,7 @@ app.use('/', index);
 
 
 module.exports = app;
+
+
+//app.listen(process.env.PORT);
+app.listen(3000);
