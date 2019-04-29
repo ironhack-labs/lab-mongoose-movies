@@ -1,31 +1,61 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/celebrity");
+const Movie = require("../models/movie");
+
+// const dbName = "celebs";
+// mongoose.connect(`mongodb://localhost/${dbName}`);
+
+// const celebs = [
+//   {
+//     name: "Whoopi Goldberg",
+//     occupation: "Actor",
+//     catchPhrase: "Say what?"
+//   },
+//   {
+//     name: "Adam Sandler",
+//     occupation: "Actor",
+//     catchPhrase: "J.K. Rowling"
+//   },
+//   {
+//     name: "Jack Black",
+//     occupation: "Actor",
+//     catchPhrase: "Va-poo-rize"
+//   }
+// ];
+
+// Celebrity.create(celebs, err => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log(`Created ${celebs.length} celebrities`);
+//   mongoose.connection.close();
+// });
 
 const dbName = "celebs";
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
-const celebs = [
+const movies = [
   {
-    name: "Whoopi Goldberg",
-    occupation: "Actor",
-    catchPhrase: "Say what?"
+    title: "Ghost",
+    genre: "Drama",
+    plot: "Ghost comes back for a killing"
   },
   {
-    name: "Adam Sandler",
-    occupation: "Actor",
-    catchPhrase: "J.K. Rowling"
+    title: "Click",
+    genre: "Comedy",
+    plot: "Remote controls all"
   },
   {
-    name: "Jack Black",
-    occupation: "Actor",
-    catchPhrase: "Va-poo-rize"
+    title: "School of Rock",
+    genre: "Comedy",
+    plot: "Bad teacher teaches great music"
   }
 ];
 
-Celebrity.create(celebs, err => {
+Movie.create(movies, err => {
   if (err) {
     throw err;
   }
-  console.log(`Created ${celebs.length} celebrities`);
+  console.log(`Created ${movies.length} movies`);
   mongoose.connection.close();
 });

@@ -1,0 +1,20 @@
+<div id="container">
+    <h2>Oscars time</h2>
+
+    <ul>
+        {{#each moviesInHBS}}
+        <li>
+            <h2><a href="/movies/show?movie_id={{this._id}}"> {{title}}</h2></a>
+            <p>{{genre}}</p>
+            <p>"<i>{{plot}}</i>"</p>
+            <br>
+            <a href="/movies/edit?movie_id={{this._id}}" class="edit-button">EDIT</a>
+            <a href="/movies/delete?movie_id={{this._id}}" class="delete-button">DELETE</a>
+
+        </li>
+        <br />
+        <br />
+        {{/each}}
+        <button><a href="/movies/add">Add new movie</a></button>
+    </ul>
+</div>

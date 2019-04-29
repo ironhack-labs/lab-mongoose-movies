@@ -1,8 +1,50 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url("https://stiry.com/wp-content/uploads/2018/10/shutterstock_536246038.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
-  color: #00B7FF;
+  color: #3f3f3f;
+  text-decoration: none;
+}
+
+#container {
+  background: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 100px;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+  text-indent: 0px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  background-color: white; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button-small {
+  background-color: white; /* Green */
+  border: none;
+  color: black;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
 }
