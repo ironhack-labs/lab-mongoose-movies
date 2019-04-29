@@ -1,0 +1,25 @@
+<h1 style="text-align:center; font-size : 50px; margin: 60px;"> Celebrities</h1>
+<a href="/" style="position:absolute; top: 10px; left : 10px;">Back</a>
+
+{{#each celebrity}}
+<div style='border : 5px solid rgb(95, 95, 95); margin : 30px 15%; padding : 20px 50px; border-radius : 100px;'>
+  <a href="/celebrities/{{_id}}"
+    style="text-decoration:none; color : rgb(95,95,95); font-size : 20px; font-weight : bold;">{{name}} </a>
+  <br>
+  <div style="display:flex;">
+    <form action='/celebrities/{{_id}}/delete' method="POST" style="margin-top : 10px;"><button
+        type='submit'>Delete</button>
+    </form>
+    <form action='/celebrities/{{_id}}/edit' method="GET" style="margin-top : 10px; margin-left : 10px;"><button
+        type='submit'>Edit</button>
+    </form>
+  </div>
+
+</div>
+{{/each}}
+
+<style>
+  a:hover {
+    color: rgb(0, 174, 255) !important;
+  }
+</style>

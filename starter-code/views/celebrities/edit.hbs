@@ -1,0 +1,52 @@
+<h1 style="text-align:center; font-size : 50px; margin: 60px;"> Edit {{celeb.name}}</h1>
+<a href="/celebrities" style="position:absolute; top: 10px; left : 10px;">Back</a>
+
+<form action="/celebrities/{{celeb._id}}" method="POST">
+  <div>
+    <label>Name</label>
+    <input type='text' name="name" value="{{celeb.name}}" />
+  </div>
+  <div>
+    <label>Occupation</label>
+    <input type='text' name="occupation" value="{{celeb.occupation}}" />
+  </div>
+  <div>
+    <label>Catch Phrase</label>
+    <input type='text' name="catchPhrase" value="{{celeb.catchPhrase}}" />
+  </div>
+
+  <button type='submit'>Submit</button>
+
+</form>
+
+<style>
+  form {
+    width: 30%;
+    margin: 0 32%;
+  }
+
+  div {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    padding: 5px 10px;
+    flex: 75%;
+  }
+
+  label {
+    flex: 25%;
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  button {
+    width: 69%;
+    height: 30px;
+    position: relative;
+    left: 115px;
+
+  }
+</style>
