@@ -1,0 +1,18 @@
+<h2>Celebrities</h2>
+
+<ul>
+{{#each celebritiesInHBS }}
+<li>
+  {{name}}<br>
+  {{!-- {{occupation}} <br>
+  <i> {{catchPhrase}}</i> --}}
+
+</li>
+<a href = "../celebrities/{{_id}}">Details</a>
+<a  href="../celebrities/delete?celebrity_id={{this._id}}">Delete</a>
+<a  href="../celebrities/edit?celebrity_id={{this._id}}">Edit</a>
+{{/each}}
+
+</ul>
+
+<a  href="../celebrities/new" class="add-button">Add New</a>

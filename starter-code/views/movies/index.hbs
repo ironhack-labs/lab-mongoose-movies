@@ -1,0 +1,15 @@
+<h2>Movie details</h2>
+<ul>
+{{#each moviesInHBS }}
+  <li>
+    <h4>{{title}}</h4><br>
+  {{!-- {{genre}} <br>
+  <p>{{plot}}</p> --}}
+<a href = "../movies/{{_id}}">Movie Details</a>
+<a  href="../movies/delete?movie_id={{this._id}}">Delete</a>
+<a  href="../movies/edit?movie_id={{this._id}}">Edit</a>
+</li>
+{{/each}}
+</ul>
+
+<a  href="../movies/new" class="add-button">Add New</a>
