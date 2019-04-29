@@ -1,0 +1,18 @@
+<h2>Red Carpet</h2>
+
+<ul>
+    {{#each celebsInHBS}}
+    <li>
+        <h2><a href="/celebrities/show?celeb_id={{this._id}}"> {{name}}</h2></a>
+        <p>{{occupation}}</p>
+        <p>"<i>{{catchPhrase}}</i>"</p>
+        <br>
+        <a href="/celebrities/edit?celeb_id={{this._id}}" class="edit-button">EDIT</a>
+        <a href="/celebrities/delete?celeb_id={{this._id}}" class="delete-button">DELETE</a>
+
+    </li>
+    <br />
+    <br />
+    {{/each}}
+    <button><a href="/celebrities/add">Add new celebrity</a></button>
+</ul>
