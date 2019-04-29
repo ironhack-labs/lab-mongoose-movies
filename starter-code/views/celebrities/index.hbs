@@ -1,0 +1,17 @@
+<h2>
+Celebrities
+</h2>
+
+ {{#each celebrities}}
+ <a href="/views/celebrities/show/{{_id}}">
+  {{name}}<br>
+  </a>
+        <a href="/celebrities/delete?celebrity_id={{_id}}">DELETE</a>
+
+  <br>
+  {{/each}}
+    <p>
+      <a href="/views/celebrities/new">Add a Celebrity!</a>
+      <br>
+      <br>
+    </p>
