@@ -1,0 +1,12 @@
+<h2>GoT Celebrities</h2>
+<ul>
+    {{#each celebrities}}
+    <li>
+        <h3>{{name}}</h3>
+        <a href="/celebrities/show?celebrity_id={{this._id}}">SHOW</a>
+        <a href="/celebrities/delete?celebrity_id={{this._id}}">DELETE</a>
+        <a href="/celebrities/edit?celebrity_id={{this._id}}">EDIT</a>
+    </li>
+    {{/each}}
+</ul>
+<a href="/celebrities/new">Add a new celebritiy</a>
