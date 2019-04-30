@@ -1,0 +1,15 @@
+<h2> Movies Page</h2>
+<ul>
+  {{#each movieArray }}
+  <li>
+    {{title}} <br>
+
+    <a href="/movies/details?id={{this._id}}">DETAILS</a> <br>
+
+    <form action="/movies/delete/{{this._id}}" method="POST"> <button type="submit">DELETE</button> </form>
+    <br>
+  </li>
+
+  {{/each}}
+
+</ul>
