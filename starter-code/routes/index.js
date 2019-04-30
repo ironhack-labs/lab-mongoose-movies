@@ -22,6 +22,7 @@ router.get('/celebrities', (req, res, next) => {
 });
 
 router.get('/celebrities/delete/:id', (req, res, next) => {
+  
   Celebrity.findByIdAndRemove(req.params.id).then (data => {
     res.redirect('/celebrities');
   })
@@ -37,8 +38,8 @@ router.get('/celebrities/new', (req, res, next) => {
   });
 
 router.post('/celebrities', (req, res, next) => {
-  const { name, occupation, catchPhrase} = req.body;
-  const newCeleb = new Celebrity({  name, occupation, catchPhrase})
+  const { name, occupation, catchphrase} = req.body;
+  const newCeleb = new Celebrity({  name, occupation, catchphrase})
   newCeleb.save()
   .then((data) => {
     res.redirect('/celebrities');

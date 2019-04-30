@@ -5,4 +5,16 @@ body {
 
 a {
   color: #00B7FF;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.bottom {
+  display: flex;
+  background-color: grey;
+  justify-content: space-evenly;
+  border: grey solid 5px;
+  margin-top: 120px;
+  width: 200px;
+
 }
