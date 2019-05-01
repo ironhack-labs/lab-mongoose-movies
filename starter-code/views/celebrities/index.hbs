@@ -1,0 +1,9 @@
+<h2>Header</h2>
+<ul>
+  {{#each celebrities}}
+  <li>Name: <a href="/celebrities/detail/{{_id}}">{{name}}</a> <a href="/celebrities/edit?celebrities_id={{_id}}" class="edit-button">EDIT</a><a href="/celebrities/delete?celebrities_id={{_id}}" >Delete</a></li>
+  <br>
+  {{/each}}
+</ul>
+
+<a href="/celebrities/new">ADD A CELEBRITY!</a>
