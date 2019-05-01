@@ -1,0 +1,17 @@
+<h2>
+Movies
+</h2>
+
+ {{#each movies}}
+ <a href="/views/movies/show/{{_id}}">
+  {{title}}<br>
+  </a>
+        <a href="/movies/delete?movie_id={{_id}}">DELETE</a>
+
+  <br>
+  {{/each}}
+    <p>
+      <a href="/views/movies/new">Add a Movie!</a>
+      <br>
+      <br>
+    </p>
