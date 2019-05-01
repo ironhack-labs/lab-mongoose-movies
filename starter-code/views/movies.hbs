@@ -1,0 +1,10 @@
+<h1>MOVIES</h1>
+<h4><a href="/">Back Home</a>  <a href="/addNewMovie">Add New</a></h4>
+
+<ul>
+{{#each moviesFromDb}}
+  <li>
+    <a href="/movieDetails/{{this._id}}">{{title}}</a> 
+  </li><br>
+{{/each}}
+</ul>

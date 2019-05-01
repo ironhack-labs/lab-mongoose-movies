@@ -1,0 +1,15 @@
+<h4><a href="/celebrities">Back to celebrities</a></h4>
+
+<form action="/edit/{{details._id}}">
+  <button>Edit</button>
+</form>
+
+<ul>
+  <h2>Name:</h2><h3>{{details.name}}</h3> <br>
+  <h2>Occupation:</h2><h3>{{details.occupation}}</h3> <br>
+  <h2>Catch Phrase:</h2><h3>{{details.catchPhrase}}</h3> <br>
+</ul>
+
+<form method="post" action="/details/{{details._id}}"> 
+  <button>Delete Celebrity</button>
+</form>

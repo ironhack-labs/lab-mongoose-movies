@@ -1,0 +1,10 @@
+<h1>CELEBRITIES</h1>
+<h4><a href="/">Back Home</a>  <a href="/addNew">Add New</a></h4>
+
+<ul>
+{{#each celebritiesFromDb}}
+  <li>
+    <a href="/details/{{this._id}}">{{name}}</a> 
+  </li><br>
+{{/each}}
+</ul>

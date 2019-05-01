@@ -1,0 +1,15 @@
+<h4><a href="/movies">Back to movies</a></h4>
+
+<form action="/editMovie/{{movieDetails._id}}">
+  <button>Edit</button>
+</form>
+
+<ul>
+  <h2>Title:</h2><h3>{{movieDetails.title}}</h3> <br>
+  <h2>Genre:</h2><h3>{{movieDetails.genre}}</h3> <br>
+  <h2>Plot:</h2><h3>{{movieDetails.plot}}</h3> <br>
+</ul>
+
+<form method="post" action="/movieDetails/{{movieDetails._id}}"> 
+  <button>Delete Movie</button>
+</form>
