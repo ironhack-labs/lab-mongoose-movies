@@ -5,11 +5,12 @@ const movies = require('../models/movies');
 
 //Get titles
 router.get('/movies', (req,res,next) =>{ 
-  movies.find(req.query.title).then( movies =>{  
+  movies.find().then( movies =>{  
     console.log(movies)
-    res.render('/movies/index', {movies}) 
+    res.render('movies/index', {movies}) 
   })
 })
+
 
 //Get each movies
 
@@ -24,13 +25,19 @@ router.get('/views/movies/show/:identification', (req,res,next) =>{
 })
 
 //New
+
+router.get('/views/movies/new', (req, res, next) => {
+  res.render('movies/new')
+})
+
+
 router.post('/views/movies/new', (req, res, next) => {
   const { title, genre, plot } = req.body;
-  const newMovie = new movie({ title, genre, plot});
+  const newMovie = new movies({ title, genre, plot});
   newMovie.save()
-  .then((movies) => {
+  .then(movies => {
     console.log('Saved!')
-    res.redirect('movies/new');
+    res.redirect('/movies');
   })
   .catch((error) => {
     console.log(error);
@@ -38,9 +45,7 @@ router.post('/views/movies/new', (req, res, next) => {
 });
 
 
-router.get('/views/movies/new', (req, res, next) => {
-    res.render('movies/new')
-})
+
 
 
 

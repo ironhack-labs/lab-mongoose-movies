@@ -10,6 +10,8 @@ router.get('/celebrities', (req,res,next) =>{
   })
 })
 
+
+
 //Get each celebrity
 
 router.get('/views/celebrities/show/:identification', (req,res,next) =>{ 
@@ -23,13 +25,19 @@ router.get('/views/celebrities/show/:identification', (req,res,next) =>{
 })
 
 //New
+
+router.get('/views/celebrities/new', (req, res, next) => {
+  console.log("New Celebrity?")
+  res.render('celebrities/new')
+})
+
 router.post('/views/celebrities/new', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
-  const newCelebrity = new celebrity({ name, occupation, catchPhrase});
+  const newCelebrity = new celebrities({ name, occupation, catchPhrase});
   newCelebrity.save()
-  .then((celebrities) => {
+  .then(celebrities => {
     console.log('Saved!')
-    res.redirect('celebrities/new');
+    res.redirect('/celebrities');
   })
   .catch((error) => {
     console.log(error);
@@ -37,15 +45,13 @@ router.post('/views/celebrities/new', (req, res, next) => {
 });
 
 
-router.get('/views/celebrities/new', (req, res, next) => {
-    res.render('celebrities/new')
-})
+
 
 
 
 router.get("/celebrities/delete", (req, res, next) => {
   celebrities.findByIdAndRemove(req.query.celebrity_id)
-    .then((celebrities) => {
+    .then(celebrities => {
       res.redirect("/celebrities");
     })
     .catch(error => {

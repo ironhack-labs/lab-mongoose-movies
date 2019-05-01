@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const celebrities = require('../models/celebrities');
-const movies = require('../models/movies');
+const movie = require('../models/movies');
 
 //const dbName = 'lab-mongoose-celebrities';
 //mongoose.connect(`mongodb://localhost/${dbName}`);
