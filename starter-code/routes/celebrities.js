@@ -68,4 +68,16 @@ router.get("/celebrities/delete", (req, res, next) => {
     });
   });
 
-  module.exports = router;
+// ------------------- Movies route--------------------------------------->
+
+router.get("/movies", (req, res, next) => {
+    Movie.find().then(moviesFromDb => {
+      res.render("movies/index", { moviesInHBS: moviesFromDb });
+    });
+  });
+
+  
+
+  
+
+module.exports = router;
