@@ -6,6 +6,10 @@ this is inside celebs inside views
 {{#each CelebritiesInHBS}}
 <li>
     {{name}}
+    <button class="button-small"><a href="/celebrities/edit?celeb_id={{this._id}}"
+        class="edit-button">EDIT</a></button>
+    <button class="button-small"><a href="/celebrities/delete?celeb_id={{this._id}}"
+        class="delete-button">DELETE</a></button>
 </li>
 </ul>
 {{/each}}
