@@ -9,7 +9,12 @@ const celebrity = require('../models/celebrity')
 // Listado de celebrities
 router.get('/', (req, res, next) => {                                                           // ESTO ES EL CONTROLADOR                                                                                                  
   celebrity.find()                                                                              // ESTO ES EL MODELO
-    .then(allCelebrities => {                                                                    // ESTO ES LA VISTA
+    .then(allCelebrities => {  
+      console.log(allCelebrities)                                                                 // ESTO ES LA VISTA
+      if (allCelebrities.length == 0) { 
+        res.render("celebrities/index", {errMsg: "No hay registros"}) 
+        return
+      }                                                                  
       res.render('celebrities/index', { celebrities: allCelebrities })
     })   
     .catch(error => console.log(error))
@@ -36,6 +41,14 @@ router.post('/new', (req, res) => {
         .catch(error => console.log(error))
   })
   .catch(err => console.log("**** Error en celebrity.findOne", err))
+})
+
+//Borrar celebrity
+router.get('/:id/delete', (req, res) => {
+  console.log("************************", req.params.id)
+  celebrity.findByIdAndRemove(req.params.id)    
+    .then(theCeleb => res.redirect('/celebrities'))
+    .catch(error => console.log(error))
 })
 
 //Detalle de celebrity
