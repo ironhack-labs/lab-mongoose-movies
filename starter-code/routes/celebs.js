@@ -23,15 +23,13 @@ router.get('/list', (req, res, next) => {                             // ESTO ES
 
 
 
-//
-//router.get('/view/:book_id', (req, res) => {
-//
-//  //const id = req.params.book_id
-//  Book.findById(req.params.book_id)
-//    .then(theBook => res.render('book-detail', { book: theBook }))
-//    .catch(error => console.log(error))
-//})
-//
+
+router.get('/detail/:celeb_id', (req, res) => {
+  Celebrity.findById(req.params.celeb_id)
+    .then(theCeleb => res.render('celebs-detail', { celeb: theCeleb }))
+    .catch(error => console.log(error))
+})
+
 
 
 
