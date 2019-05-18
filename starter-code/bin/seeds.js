@@ -1,33 +1,33 @@
   const mongoose = require("mongoose");
-  const Celebrity = require("../models/Celebrity");
+  const Movie = require("../models/Movie");
 
   const dbName = "DaylyCelebrity";
   mongoose.connect(`mongodb://localhost/${dbName}`);
 
-  const celebrity = [
+  const movie = [
     {
-      name: "Tony Stark",
-      occupation: "avenger",
-      catchPhrase:
+      title: "Avenger",
+      genre: "action",
+      plot:
         "agkwangjnjgesjrselievesjosmoksmmeklmvkesmvklsemvkslselkfmlesfesgoñesgij"
     },
     {
-      name: "Lucius Crawford",
-      occupation: "beeing invented",
-      catchPhrase:
+      title: "jkwahgiuhgia",
+      genre: "romance",
+      plot:
         "agkwangjnjgesjrselievesjosmoksmmeklmvkesmvklsemvkslselkfmlesfesgoñesgij"
     },
     {
-      name: "Rovius Hiksong",
-      occupation: "more invented",
-      catchPhrase:
-        "agkwangjnjgesjrselieves  josmoksmmeklmvkesmvklsemvkslselkfmlesfesgoñesgij"
+      title: "Avengawogjaogjwger",
+      genre: "drama",
+      plot:
+        "agkwangjnjgesjrselievesjosmoksmmeklmvkesmvklsemvkslselkfmlesfesgoñesgij"
     }
   ];
 
-  Celebrity.create(celebrity)
-    .then(celebrityCreated => {
-      console.log(`Creados ${celebrityCreated.length} celebridades`);
+  Movie.create(movie)
+    .then(movieCreated => {
+      console.log(`Creados ${movieCreated.length} peliculas`);
       mongoose.connection.close();
     })
     .catch(err => console.log(`Hubo un error: ${err}`));

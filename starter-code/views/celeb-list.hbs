@@ -1,0 +1,20 @@
+<h1>Todas estas celebridades inventadas trabajan con nosotros :D</h1>
+
+{{#if succ}}
+<p>{{succ}}</p>
+{{/if}}
+
+<ul>
+  {{#each celebrity}}
+
+  <li><a href="/celebrity/view/{{this._id}}">{{this.name}}</a></li>
+  <form action="/celebrity/delete/{{this._id}} " method="post">
+  <button type="submit">borrar celebridad</button>
+  </form>
+  -
+  <a href="/celebrity/edit?celebrity_id={{this._id}}">editar</a>
+  {{/each}}
+</ul>
+
+
+<a href="add">nueva celebridad</a>
