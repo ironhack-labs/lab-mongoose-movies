@@ -1,7 +1,7 @@
   const mongoose = require("mongoose");
   const Celebrity = require("../models/Celebrity");
 
-  const dbName = "Dayly celebrity";
+  const dbName = "DaylyCelebrity";
   mongoose.connect(`mongodb://localhost/${dbName}`);
 
   const celebrity = [
@@ -21,7 +21,7 @@
       name: "Rovius Hiksong",
       occupation: "more invented",
       catchPhrase:
-        "agkwangjnjgesjrselievesjosmoksmmeklmvkesmvklsemvkslselkfmlesfesgoñesgij"
+        "agkwangjnjgesjrselieves  josmoksmmeklmvkesmvklsemvkslselkfmlesfesgoñesgij"
     }
   ];
 
