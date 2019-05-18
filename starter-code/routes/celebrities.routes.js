@@ -45,10 +45,24 @@ router.post('/new', (req, res) => {
 
 //Borrar celebrity
 router.get('/:id/delete', (req, res) => {
-  console.log("************************", req.params.id)
   celebrity.findByIdAndRemove(req.params.id)    
     .then(theCeleb => res.redirect('/celebrities'))
     .catch(error => console.log(error))
+})
+
+//Editar celebrity
+router.get('/edit', (req, res) => {
+  celebrity.findOne({ _id: req.query.celebrity_id })    
+    .then(celeb => res.render("celebrities/edit", { celeb }))
+    .catch(error => console.log(error))
+})
+
+router.post('/edit', (req, res) => {
+  const { name, occupation, catchPhrase } = req.body
+  celebrity.update({ _id: req.query.celebrity_id }, { $set: { name, occupation, catchPhrase } })
+    .then(celeb => res.redirect('/celebrities'))
+    .catch(error => console.log(error))
+
 })
 
 //Detalle de celebrity
