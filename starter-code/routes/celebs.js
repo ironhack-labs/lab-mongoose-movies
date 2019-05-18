@@ -18,8 +18,7 @@ router.get('/list', (req, res, next) => {                             // ESTO ES
       
       })  // ESTO ES LA VISTA
     .catch(error => console.log(error))
-}
-)
+})
 
 
 
@@ -32,5 +31,21 @@ router.get('/detail/:celeb_id', (req, res) => {
 
 
 
+router.get('/add', (req, res) => res.render('celebs-add'))
+router.post('/add', (req, res) => {
+  const { name, occupation, catchPhrase } = req.body
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase })
+  newCelebrity.save()
+    .then(theCelebrity => res.redirect('/celebs/list'))
+    .catch(error => console.log(error))
+})
+
+
+router.post('/delete/:celeb_id', (req, res, next) => {
+  const id= req.params.celeb_id
+  Celebrity.findByIdAndDelete(id)
+    .then(theCeleb => res.redirect('/celebs/list'))
+    .catch(error => console.log(error))
+})
 
 module.exports = router

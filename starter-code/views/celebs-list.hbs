@@ -3,5 +3,13 @@
 <ul>
   {{#each celebs}}
   <li><a href="/celebs/detail/{{this._id}}">{{this.name}}</a></li>
+  
+  <form action="/celebs/delete/{{this._id}}" method="POST">    <!--hay que poner celebs delante de delete-->
+    <button type="submit">Eliminar</button>
+  </form>
+  
   {{/each}}
 </ul>
+
+<a href="/celebs">Volver a inicio</a>
+<a href="/celebs/add">Añadir celebrity</a>
