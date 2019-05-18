@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const express      = require('express');
 const favicon      = require('serve-favicon');
 const hbs          = require('hbs');
@@ -28,7 +28,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 // Express View engine setup
 
@@ -53,6 +53,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrities = require('./routes/celebrities');
+app.use('/celebrities', celebrities);
 
 
 module.exports = app;
