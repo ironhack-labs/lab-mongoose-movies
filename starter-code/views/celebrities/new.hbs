@@ -1,0 +1,14 @@
+<h2>Añadir nueva celebrity</h2>
+{{#if errMsg}}
+  <div class="error">{{errMsg}}</div>
+{{/if}}
+<form action="/celebrities/new" method="POST">
+  <label for="name">Nombre:</label>
+  <input type="text" name="name"><br>
+  <label for="occupation">Ocupación:</label>
+  <input type="text" name="occupation"><br>
+  <label for="catchPhrase">Frase:</label>
+  <input type="text" name="catchPhrase"><br>
+  <button type="submit">Añadir</button>
+</form>
+<a href="/celebrities">Cancelar y volver a la lista</a>
