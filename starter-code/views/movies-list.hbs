@@ -1,0 +1,15 @@
+<h1>El listado de pelis</h1>
+
+<ul>
+  {{#each movies}}
+  <li><a href="./movies/detail/{{this._id}}">{{this.title}}</a></li>
+  
+  <form action="./movies/delete/{{this._id}}" method="POST">    <!--hay que poner celebs delante de delete-->
+    <button type="submit">Eliminar</button>
+  </form>
+  
+  {{/each}}
+</ul>
+
+<a href="/movies">Volver a inicio</a>
+<a href="/movies/add">Añadir celebrity</a>

@@ -10,13 +10,12 @@ const Celebrity = require('../models/celebrity')
 
 router.get('/', (req, res, next) => res.render('celebs-index'))
 
-router.get('/list', (req, res, next) => {                             // ESTO ES EL CONTROLADOR
-  Celebrity.find()                                                         // ESTO ES EL MODELO
+router.get('/list', (req, res, next) => {                            
+  Celebrity.find()                                                         
     .then(allCelebs =>{
       console.log("pp",allCelebs)
-       res.render('celebs-list', { celebs: allCelebs })
-      
-      })  // ESTO ES LA VISTA
+       res.render('celebs-list', { celebs: allCelebs }) 
+      })  
     .catch(error => console.log(error))
 })
 
