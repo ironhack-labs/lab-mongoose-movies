@@ -1,0 +1,20 @@
+<h1>Todas estas peliculas inventadas estan en nuestra DB :D</h1>
+
+{{#if succ}}
+<p>{{succ}}</p>
+{{/if}}
+
+<ul>
+  {{#each movie}}
+
+  <li><a href="/movie/view/{{this._id}}">{{this.title}}</a></li>
+  <form action="/movie/delete/{{this._id}} " method="post">
+    <button type="submit">borrar pelicula</button>
+  </form>
+  -
+  <a href="/movie/edit?movie_id={{this._id}}">editar</a>
+  {{/each}}
+</ul>
+
+
+<a href="add">nueva pelicula</a>
