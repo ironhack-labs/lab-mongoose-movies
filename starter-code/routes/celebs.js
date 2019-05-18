@@ -1,0 +1,38 @@
+const express = require('express')
+const router = express.Router()
+
+const Celebrity = require('../models/celebrity')
+
+
+
+
+
+
+router.get('/', (req, res, next) => res.render('celebs-index'))
+
+router.get('/list', (req, res, next) => {                             // ESTO ES EL CONTROLADOR
+  Celebrity.find()                                                         // ESTO ES EL MODELO
+    .then(allCelebs =>{
+      console.log("pp",allCelebs)
+       res.render('celebs-list', { celebs: allCelebs })
+      
+      })  // ESTO ES LA VISTA
+    .catch(error => console.log(error))
+}
+)
+
+
+
+//
+//router.get('/view/:book_id', (req, res) => {
+//
+//  //const id = req.params.book_id
+//  Book.findById(req.params.book_id)
+//    .then(theBook => res.render('book-detail', { book: theBook }))
+//    .catch(error => console.log(error))
+//})
+//
+
+
+
+module.exports = router

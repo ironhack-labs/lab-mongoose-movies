@@ -1,0 +1,7 @@
+<h1>El listado de celebs</h1>
+
+<ul>
+  {{#each celebs}}
+  <li><a href="/celebs/view/{{this._id}}">{{this.name}}</a></li>
+  {{/each}}
+</ul>
