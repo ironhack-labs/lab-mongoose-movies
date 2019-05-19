@@ -9,17 +9,17 @@ mongoose.connect(`mongodb://localhost/${dbName}`, {
 const celebrities = [{
     name: "Sara",
     occupation: "veterinarian",
-    catchPhrase: "live the present",
+    catchPhrase: "Live the present",
   },
   {
     name: "Ana",
     occupation: "egiptologist",
-    catchPhrase: "the key is in the past",
+    catchPhrase: "The key is in the past",
   },
   {
     name: "Pedro",
     occupation: "engineer",
-    catchPhrase: "the future is now",
+    catchPhrase: "The future is now",
   }
 ];
 

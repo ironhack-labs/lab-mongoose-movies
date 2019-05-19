@@ -1,0 +1,7 @@
+<h2>Lista de celebridades (esta es la vista)</h2>
+
+<ul>
+  {{#each celebrities}}
+  <li><a href="/views/{{this._id}}">{{this.name}}</a></li>
+  {{/each}}
+</ul>
