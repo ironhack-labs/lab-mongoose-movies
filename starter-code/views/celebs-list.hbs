@@ -2,7 +2,10 @@
 
 <ul>
   {{#each celebs}}
-  <li><a href="/celebs/detail/{{this._id}}">{{this.name}}</a></li>
+  <li>
+    <a href="/celebs/detail/{{this._id}}">{{this.name}}</a>
+    <a href="/celebs/edit?celebrity_id={{this._id}}">editar</a>
+  </li>
   
   <form action="/celebs/delete/{{this._id}}" method="POST">    <!--hay que poner celebs delante de delete-->
     <button type="submit">Eliminar</button>
