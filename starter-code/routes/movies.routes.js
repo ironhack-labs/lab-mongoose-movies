@@ -53,16 +53,16 @@ router.post('/:id', (req,res)=>{
 router.get('/add/new', (req,res)=>res.render('movies/new'))
 router.post('/add/new', (req, res) => {
   const {
-    name,
-    occupation,
-    catchPhrase
+    title,
+    genre,
+    plot
   } = req.body
 
   //console.log(req.body)
   const newMovie = new Movie({
-    name,
-    occupation,
-    catchPhrase
+    title,
+    genre,
+    plot
   })
   newMovie.save()
   .then(
