@@ -12,4 +12,17 @@ router.get('/', (req, res, next) => { // ESTO ES EL CONTROLADOR
     .catch(error => console.log(error))
 })
 
+//GET celeb's detail
+router.get('/:id', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(theCeleb => res.render('show', {
+      celebrity: theCeleb
+    }))
+    .catch(error => console.log(error))
+})
+
+
+
+
+
 module.exports = router;
