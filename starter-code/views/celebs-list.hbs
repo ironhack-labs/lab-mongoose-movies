@@ -7,6 +7,10 @@
     <a href="/celebrities/view/{{this._id}}">{{this.name}}</a>
 
     <a href="/celebrities/edit?celebrities_id={{this._id}}">editar</a>
+    <form action="/celebrities/delete/{{_id}}" method="post">
+
+      <button type="submit">BORRAR</button>
+    </form>
   </li>
   {{/each}}
 </ul>

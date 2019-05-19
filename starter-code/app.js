@@ -19,6 +19,8 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+
+
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
@@ -56,6 +58,9 @@ app.use('/', index);
 
 const celebrities = require('./routes/celebrities.routes')
 app.use('/celebrities', celebrities)
+
+const movies = require('./routes/movies.routes')
+app.use('/movies', movies)
 
 
 module.exports = app;

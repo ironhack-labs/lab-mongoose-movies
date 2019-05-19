@@ -12,7 +12,10 @@ router.get('/', (req, res, next) => res.render("celebs-index"))
 router.get('/list', (req, res, next) => {
   Celebrity.find()
 
-    .then(allCelebs => res.render('celebs-list', { celebrities: allCelebs }))
+    .then(allCelebs => {
+      console.log(allCelebs)
+      res.render('celebs-list', { celebrities: allCelebs })
+    })
     .catch(error => console.log(error))
 })
 
@@ -38,20 +41,36 @@ router.post('/add', (req, res) => {
 
 
 
-// Editar libro
-/* router.get('/edit', (req, res) => {
-  Book.findOne({ _id: req.query.book_id })
-    .then(book => res.render("book-edit", { book }))
+//editar Celebrity
+router.get('/edit', (req, res) => {
+  Celebrity.findOne({ _id: req.query.celebrity_id })
+    .then(celebrity => res.render("celebs-edit", { celebrity }))
     .catch(error => console.log(error))
 })
 
 router.post('/edit', (req, res) => {
-  const { title, author, description, rating } = req.body
-  Book.update({ _id: req.query.book_id }, { $set: { title, author, description, rating } })
-    .then(book => res.redirect('/books/list'))
+  const { name, occupation, catchPhrase } = req.body
+  Celebrity.update({ _id: req.query.celebrity_id }, { $set: { name, occupation, catchPhrase } })
+    .then(celebrity => res.redirect('/celebrities/list', celebrity))
     .catch(error => console.log(error))
 
-}) */
+})
+
+
+//delete Celebrity
+
+router.post('/delete/:celebrity_id', (req, res) => {
+  console.log("entrado en la ruta")
+  Celebrity.findByIdAndRemove(req.params.celebrity_id)
+    .then(theCelebrity => {
+      console.log("entrado a then")
+      console.log(theCelebrity)
+      res.redirect('/celebrities/list')
+    })
+    .catch(error => console.log(error))
+})
+
+
 
 
 module.exports = router
