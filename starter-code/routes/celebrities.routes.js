@@ -31,7 +31,7 @@ router.get('/view/:celebrity_id', (req, res) => {
 // Añadir nueva Celebrity
 router.get('/add', (req, res) => res.render('celebs-add'))
 router.post('/add', (req, res) => {
-  console
+
   const { name, occupation, catchPhrase } = req.body
   const newCelebrity = new Celebrity({ name, occupation, catchPhrase })
   newCelebrity.save()

@@ -8,7 +8,10 @@
 
     <a href="/movies/edit?movies_id={{this._id}}">editar</a>
 
-    <a href="/movies/delete?movies_id={{this._id}}">Borrar</a>
+    <form action="/movies/delete/{{_id}}" method="post">
+
+      <button type="submit">BORRAR</button>
+    </form>
   </li>
   {{/each}}
 </ul>
