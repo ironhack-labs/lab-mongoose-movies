@@ -30,15 +30,15 @@ router.get('/:id', (req,res)=>{
 
 router.post('/:id', (req,res)=>{
   const {
-    name,
-    occupation,
-    catchPhrase
+    title,
+    genre,
+    plot
   } = req.body
 
   Movie.findByIdAndUpdate(req.params.id, {
-      name,
-      occupation,
-      catchPhrase
+      title,
+      genre,
+      plot
     })
     .then(movie => {
     console.log('movie actualizado', movie)
@@ -90,10 +90,10 @@ router.get('/:id/delete', (req,res)=>{
 })
 
 
-// router.get('/:id/edit', (req, res)=>{
-//   Movie.findById(req.params.id)
-//   .then(celebrity=>{
-//     res.render('movies/edit', {movie})
-//   })
-// })
+router.get('/:id/edit', (req, res)=>{
+  Movie.findById(req.params.id)
+  .then(movie=>{
+    res.render('movies/edit', {movie})
+  })
+})
 module.exports = router;
