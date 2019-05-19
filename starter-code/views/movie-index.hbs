@@ -1,0 +1,7 @@
+<h2>Peliculas de Ironhack</h2>
+<div>
+  {{#each movie}}
+  <p>Pelicula:<a href="/movies/{{this._id}}"> {{title}}</a></p>
+  {{/each}}
+</div>
+<button><a href="/movies/add">Añadir</a></button>

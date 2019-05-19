@@ -1,0 +1,14 @@
+<h1>Editar celebridad {{dato.name}}</h1>
+
+<form action="/celebrities/edit/{{dato._id}}" method="POST">
+  <label>Nombre:</label>
+  <input type="text" name="name" value="{{dato.name}}"><br>
+
+  <label>Duerme o es Ironhaker:</label>
+  <input type="text" name="occupation" value="{{dato.occupation}}"><br>
+
+  <label>Description:</label>
+  <input type="text" name="catchPhrase" value="{{dato.catchPhrase}}"><br>
+
+  <button type="submit">Cambia</button>
+</form>

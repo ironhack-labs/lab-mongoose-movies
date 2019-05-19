@@ -1,0 +1,8 @@
+<h2>{{mov.name}}</h2>
+<p>Nombre: {{mov.title}}</p>
+<p>Genero: {{mov.genre}}</p>
+<p>Argumento: {{mov.plot}}</p>
+<form action="/movies/delete/{{mov._id}}" method="POST">
+  <button type="submit">¡Eliminame!</button>
+</form>
+<button><a href="/movies/edit/{{mov._id}}">¡Cambiame!</a></button>

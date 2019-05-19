@@ -2,3 +2,7 @@
 <p>Nombre: {{algo.name}}</p>
 <p>Duerme o es Ironhaker: {{algo.occupation}}</p>
 <p>Description: {{algo.catchPhrase}}</p>
+<form action="/celebrities/delete/{{algo._id}}" method="POST">
+  <button type="submit">Ya no te queremos</button>
+</form>
+<button><a href="/celebrities/edit/{{algo._id}}">¡Cambiame!</a></button>
