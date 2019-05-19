@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-const Celebrity= require('../models/celebrity');
+const Celebrity= require('../models/Celebrity')
+const Movie = require('../models/Movie')
 
 mongoose.connect(`mongodb://localhost/week45-celebrities`, {
   useNewUrlParser: true
 });
 
-const celebrities = [
+/* const celebrities = [
   {
   name: 'George Clooney',
   occupation:'Actor' ,
@@ -28,4 +29,28 @@ Celebrity.create(celebrities)
       console.log(`Created ${celebrities.length} celebrities`)
       mongoose.connection.close()
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err)) */
+
+   const movies = [{
+       title: 'Interstellar',
+       genre: 'Drama',
+       plot: "Great"
+     },
+     {
+       title: 'Hannibal',
+       genre: 'Scary',
+       plot: "Great"
+     },
+     {
+       title: 'Silence of the lamb',
+       genre: 'Thriller',
+       plot: "Great"
+     }
+   ]
+
+    Movie.create(movies)
+      .then(movies => {
+        console.log(`Created ${movies.length} movies`)
+        mongoose.connection.close()
+      })
+      .catch(err => console.log(err))
