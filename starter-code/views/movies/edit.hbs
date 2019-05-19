@@ -1,0 +1,14 @@
+<h2>Editando {{theMovie.title}}</h2>
+{{#if errMsg}}
+  <div class="error">{{errMsg}}</div>
+{{/if}}
+<form action="/movies/edit?movie_id={{theMovie.id}}" method="POST">
+  <label for="title">Título:</label>
+  <input type="text" name="title" value="{{theMovie.title}}"><br>
+  <label for="genre">Género:</label>
+  <input type="text" name="genre" value="{{theMovie.genre}}"><br>
+  <label for="plot">Plot:</label>
+  <input type="text" name="plot" value="{{theMovie.plot}}"><br>
+  <button type="submit">Editar</button>
+</form>
+<a href="/movies">Cancelar y volver a la lista</a>

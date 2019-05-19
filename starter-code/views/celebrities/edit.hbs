@@ -4,11 +4,11 @@
 {{/if}}
 <form action="/celebrities/edit?celebrity_id={{celeb.id}}" method="POST">
   <label for="name">Nombre:</label>
-  <input type="text" name="name" placeholder="{{celeb.name}}"><br>
+  <input type="text" name="name" value="{{celeb.name}}"><br>
   <label for="occupation">Ocupación:</label>
-  <input type="text" name="occupation" placeholder="{{celeb.occupation}}"><br>
+  <input type="text" name="occupation" value="{{celeb.occupation}}"><br>
   <label for="catchPhrase">Frase:</label>
-  <input type="text" name="catchPhrase" placeholder="{{celeb.catchPhrase}}"><br>
+  <input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}"><br>
   <button type="submit">Editar</button>
 </form>
 <a href="/celebrities">Cancelar y volver a la lista</a>
