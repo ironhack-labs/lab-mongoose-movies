@@ -36,7 +36,7 @@ router.post('/add/new', (req, res) => {
     catchPhrase
   } = req.body
 
-  console.log(req.body)
+  //console.log(req.body)
   const newCelebrity = new Celebrity({
     name,
     occupation,
@@ -53,4 +53,17 @@ router.post('/add/new', (req, res) => {
   })
 })
 
+
+router.get('/:id/delete', (req,res)=>{
+  Celebrity.findByIdAndDelete(req.params.id)
+  .then(celebrity=>{
+    console.log(celebrity)
+    res.redirect('/celebrities')
+  })
+  .catch(err=>{
+    console.log(err)
+    next()
+    return err
+   })
+})
 module.exports = router;
