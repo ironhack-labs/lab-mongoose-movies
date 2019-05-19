@@ -40,35 +40,35 @@ router.post('/add', (req, res) => {
 })
 
 
-
-//editar Celebrity
-router.get('/edit', (req, res) => {
-  Celebrity.findOne({ _id: req.query.celebrity_id })
-    .then(celebrity => res.render("celebs-edit", { celebrity }))
-    .catch(error => console.log(error))
-})
-
-router.post('/edit', (req, res) => {
-  const { name, occupation, catchPhrase } = req.body
-  Celebrity.update({ _id: req.query.celebrity_id }, { $set: { name, occupation, catchPhrase } })
-    .then(celebrity => res.redirect('/celebrities/list', celebrity))
-    .catch(error => console.log(error))
-
-})
-
-
 //delete Celebrity
 
 router.post('/delete/:celebrity_id', (req, res) => {
-  console.log("entrado en la ruta")
   Celebrity.findByIdAndRemove(req.params.celebrity_id)
     .then(theCelebrity => {
-      console.log("entrado a then")
-      console.log(theCelebrity)
       res.redirect('/celebrities/list')
     })
     .catch(error => console.log(error))
 })
+
+
+
+//editar Celebrity
+router.get('/edit/:celebrity_id', (req, res) => {
+  console.log("entrando a ruta de get")
+  Celebrity.findOne({ _id: req.params.celebrity_id })
+    .then(celebrity => res.render("celebs-edit", { celebrity }))
+    .catch(error => console.log(error))
+})
+
+router.post('/edit/:celebrity_id', (req, res) => {
+  const { name, occupation, catchPhrase } = req.body
+  Celebrity.update({ _id: req.params.celebrity_id }, { $set: { name, occupation, catchPhrase } })
+    .then(() => res.redirect('/celebrities/list'))
+    .catch(error => console.log(error))
+
+})
+
+
 
 
 

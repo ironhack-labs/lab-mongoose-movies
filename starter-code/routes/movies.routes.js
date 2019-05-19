@@ -16,7 +16,7 @@ router.get('/list', (req, res, next) => {
 
 //Detalles de pelicula
 
-router.get('/view/: movie_id', (req, res, next) => {
+router.get('/view/:movie_id', (req, res, next) => {
   Movie.findById(req.params.movie_id)
     .then(theMovie => res.render('movies-detail', { movie: theMovie }))
     .catch(error => console.log(error))
@@ -44,6 +44,23 @@ router.post('/delete/:movie_id', (req, res) => {
       res.redirect('/movies/list')
     })
     .catch(error => console.log(error))
+})
+
+
+//editar Movie
+router.get('/edit/:movie_id', (req, res) => {
+  console.log('entrando')
+  Movie.findOne({ _id: req.params.movie_id })
+    .then(movie => res.render("movies-edit", { movie }))
+    .catch(error => console.log(error))
+})
+
+router.post('/edit/:movie_id', (req, res) => {
+  const { name, occupation, catchPhrase } = req.body
+  Movie.update({ _id: req.params.movie_id }, { $set: { name, occupation, catchPhrase } })
+    .then(() => res.redirect('/movies/list'))
+    .catch(error => console.log(error))
+
 })
 
 
