@@ -1,0 +1,12 @@
+<h2>Lista de películas</h2>
+{{#if errMsg}}
+  <div class="error">{{errMsg}}</div>
+{{/if}}
+<ul>
+  {{#each movies}}
+  <li>
+    <a href="/movies/{{id}}">{{title}}</a> - <a href="/movies/{{id}}/delete">Borrar<a/> - <a href="/movies/edit?movie_id={{id}}">Editar<a/>  
+  </li>
+  {{/each}}
+</ul>
+<a href="/movies/new">Añadir</a>

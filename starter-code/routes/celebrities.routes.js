@@ -62,7 +62,6 @@ router.post('/edit', (req, res) => {
   celebrity.update({ _id: req.query.celebrity_id }, { $set: { name, occupation, catchPhrase } })
     .then(celeb => res.redirect('/celebrities'))
     .catch(error => console.log(error))
-
 })
 
 //Detalle de celebrity
