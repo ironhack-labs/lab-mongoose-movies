@@ -76,18 +76,18 @@ router.post('/add/new', (req, res) => {
 })
 
 
-// router.get('/:id/delete', (req,res)=>{
-//   Movie.findByIdAndDelete(req.params.id)
-//   .then(movie=>{
-//     console.log(movie)
-//     res.redirect('/movies')
-//   })
-//   .catch(err=>{
-//     console.log(err)
-//     next()
-//     return err
-//    })
-// })
+router.get('/:id/delete', (req,res)=>{
+  Movie.findByIdAndDelete(req.params.id)
+  .then(movie=>{
+    console.log(movie)
+    res.redirect('/movies')
+  })
+  .catch(err=>{
+    console.log(err)
+    next()
+    return err
+   })
+})
 
 
 // router.get('/:id/edit', (req, res)=>{
