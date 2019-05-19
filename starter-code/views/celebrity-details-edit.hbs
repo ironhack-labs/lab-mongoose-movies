@@ -1,0 +1,16 @@
+
+<h1>Editar Celebrity {{celebrityfornew.name}}</h1>
+
+<form action="/celebrities/{{celebrityfornew.id}}" method="post">
+
+    <label for="">Celebrity:</label>
+    <input type="text" name="name" value="{{celebrityfornew.name}}"><br><br>
+
+    <label for="">Occupation:</label>
+    <input type="text" name="occupation" value="{{celebrityfornew.occupation}}"><br><br>
+
+    <label for="">Catch Phrase:</label>
+    <input type="text" name="catchPhrase" value="{{celebrityfornew.catchPhrase}}"><br><br>
+
+    <button style="color:white;background-color:rgb(149, 203, 235)" type="submit">Edit</button>
+</form>

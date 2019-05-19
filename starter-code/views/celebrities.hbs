@@ -1,0 +1,14 @@
+<div class="row">
+    {{#each celebrities}}
+    {{> celebrityCard}}
+    <a href="/celebrities/{{id}}">View</a>
+    <form action="/celebrities/{{id}}/delete" method="post">
+    <br>
+    <button style="color:white;background-color: rgb(238, 104, 104)" type="submit">Delete</button>
+    </form>
+    {{/each}}
+    <br>
+    <br>
+    <br>
+    <a style="color:red" href="/celebrities/add">Add New</a>
+</div>
