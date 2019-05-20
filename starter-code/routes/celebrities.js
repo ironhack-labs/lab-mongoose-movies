@@ -12,6 +12,23 @@ router.get('/', (req, res, next) => { // ESTO ES EL CONTROLADOR
     .catch(error => console.log(error))
 })
 
+// Add new celeb
+router.get('/new', (req, res) => res.render('new'))
+router.post('/new', (req, res) => {
+  const {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body
+  const newCeleb = new Celebrity({
+    name,
+    occupation,
+    catchPhrase
+  })
+  newCeleb.save()
+    .then(theCeleb => res.redirect('/celebrities'))
+    .catch(error => res.render('new'))
+})
 //GET celeb's detail
 router.get('/:id', (req, res, next) => {
   Celebrity.findById(req.params.id)
@@ -20,6 +37,8 @@ router.get('/:id', (req, res, next) => {
     }))
     .catch(error => console.log(error))
 })
+
+
 
 
 
