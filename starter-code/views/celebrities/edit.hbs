@@ -1,0 +1,16 @@
+<h1>Edit {{name}}</h1>
+
+<form action="/celebrities/{{_id}}/edit" method="post">
+    <label for="">Change Name:</label>
+    <input type="text" name="name" value="{{name}}"><br>
+
+    <label for="">Change Occupation:</label>
+    <input type="text" name="occupation" value="{{occupation}}"><br>
+
+    <label for="">Change Catchphrase:</label>
+    <input type="text" name="catchPhrase" value="{{catchPhrase}}"><br>
+
+    <button type="submit">Edit Celebrity</button>
+</form>
+
+<a href="/celebrities/list">Cancelar y volver a la lista</a>

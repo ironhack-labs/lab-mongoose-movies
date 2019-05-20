@@ -1,0 +1,14 @@
+
+<h3>Details of {{title}} </h3>
+<p>Genre: {{genre}}</p>
+<p>Plot: </p>
+<p>{{plot}}</p>
+
+{{#if casting }}
+
+{{#each casting}}
+  {{casting}}
+{{/each}}
+{{else}}
+  <p>No info on casting.</p>
+{{/if}}

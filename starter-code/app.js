@@ -10,14 +10,17 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
+//CONECTANDO CON MONGO
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/HallOfFame', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
   });
+
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -47,12 +50,17 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Hall of Fame!';
 
 
 
-const index = require('./routes/index');
+const index = require('./routes/index.routes');
 app.use('/', index);
 
+const celebritiesList = require('./routes/list.routes')
+app.use('/celebrities', celebritiesList)
+
+const moviesList = require("./routes/movies.routes")
+app.use('/movies', moviesList)
 
 module.exports = app;

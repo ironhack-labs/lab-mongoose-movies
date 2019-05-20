@@ -1,13 +1,11 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF;
   text-decoration: none;
-  text-decoration-line: none;
-}
+  text-decoration-line: none; }
 
 .button {
   display: inline-block;
@@ -15,5 +13,6 @@ a {
   padding: 5px;
   background-color: darkslategray;
   color: whitesmoke;
-  border: 1px solid white;
-}
+  border: 1px solid white; }
+
+/*# sourceMappingURL=style.css.map */
