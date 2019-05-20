@@ -1,0 +1,12 @@
+<main class="edit-famouse">
+    <h2>Edit celebrity</h2>
+    {{#if errMsg}}
+    <div class="error">{{errMsg}}</div>
+    {{/if}}
+    <form action='/celebrities/{{famouse._id}}' method='post'>
+        <label>Name:<input type='text' name='name' placeholder='Famouse name'></label>
+        <label><input type='text' name='occupation' placeholder='Actor/Singer/Kim Kardashian'></label>
+        <textarea rows='4' cols='50' type='text' name='cathQuotes'></textarea>
+        <button type='submit'>Update</button>
+    </form>
+</main>
