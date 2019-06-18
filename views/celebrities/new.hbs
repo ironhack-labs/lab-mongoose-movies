@@ -1,0 +1,22 @@
+<h2 class="m-3">Create a celebrity</h2>
+<form action=  "/celebrities/new" method="POST">
+  <a href="/celebrities" class="m-5">Go back</a>
+
+  <div class="form-group col-md-3 ml-5 mr-5 mt-5">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{ celebrity.name }}">
+  </div>
+
+  <div class="form-group  col-md-3 ml-5 mr-5">
+    <label for="occupation">Occupation</label>
+    <input type="text" class="form-control" id="occupation" placeholder="Enter occupation" name="occupation" value="{{ celebrity.occupation }}">
+  </div>
+
+  <div class="form-group col-md-6 ml-5 mr-5">
+    <label for="catchPhrase">Catch Phrase</label>
+    <input type="text" class="form-control" id="catchPhrase" placeholder="Enter catchPhrase" name="catchPhrase" value="{{ celebrity.catchPhrase }}">
+  </div>
+
+  <button type="submit" class="btn btn-primary ml-5">Submit</button>
+</form>
+
