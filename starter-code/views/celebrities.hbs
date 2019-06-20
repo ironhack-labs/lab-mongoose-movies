@@ -1,0 +1,11 @@
+<h2>Discover my celebrities</h2>
+<div id="wrapper-celebrities">
+    <ul>
+
+    {{#each dbRes}}
+       <li> <a href="/celebrities/{{this._id}}"> {{this.name}} </a></li> 
+    {{/each}}
+    </ul>
+</div>
+
+<h2> <a href="/new">Add your celebrities !</a> </h2>
