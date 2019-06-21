@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const celebrityModel = require('../models/celebrity.js')
 
+// ***** Showing all celebrities *******
 router.get("/celebrities", (req, res) => {
     celebrityModel.find({})
         .then(dbRes => {
@@ -13,6 +14,7 @@ router.get("/celebrities", (req, res) => {
 }
 )
 
+// ***** Showing a particular celebrity *******
 router.get("/celebrities/:id", (req, res) => {
     celebrityModel.findById(req.params.id)
         .then(c => {
@@ -21,7 +23,7 @@ router.get("/celebrities/:id", (req, res) => {
         .catch(err => res.render(console.log("ERROR WHEN FINDING A CELEBRITY: ", err)))
 })
 
-
+// ***** Adding a new celebrity *******
 router.get("/new", (req, res) => {
     res.render("new");
     });
@@ -36,13 +38,47 @@ router.post("/celebrities", (req, res) =>{
 
     celebrityModel.create({ name, occupation, catchPhrase})
         .then( (dbRes)=>{
-                console.log("celebrity-created, name of the celebrity created: ", dbRes.name);
+                console.log(`celebrity ${dbRes.name} created`);
                 res.redirect("/celebrities")})
         .catch( (err) => {
                 console.log("error", err);
                 res.redirect("/")
     })
 })
+
+// ***** Deleting an existing celebrity *******
+
+router.get("/celebrities/:id/delete", (req, res) =>{
+    celebrityModel.findByIdAndRemove(req.params.id)
+        .then(c => res.redirect("/celebrities"))
+        .catch(err => res.redirect("/celebrities"))  
+})
+
+// ***** Editing an existing celebrity *******
+
+router.get("/celebrities/:id/edit", (req, res, next) =>{
+    celebrityModel.findById(req.params.id)
+        .then(c => {
+            res.render("edit", {c})
+            console.log(`editing ${c.name}`)
+            })
+        .catch(next)
+})
+
+
+router.post("/celebrities/:id/", (req, res, next) =>{
+    const {name, occupation, catchPhrase}=req.body;
+
+    celebrityModel.findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase})
+        .then( (dbRes)=>{
+                    console.log(`celebrity ${dbRes.name} updated, new catch Phrase : ${dbRes.catchPhrase}`);
+                    res.redirect("/celebrities")
+                   }
+            )
+        .catch(next)
+        
+})
+
 
 
 module.exports = router;

@@ -1,0 +1,15 @@
+<h2>Edit your celebrity!</h2>
+
+<form method="post" action="/celebrities/{{c._id}}">
+ <label for="name">Name: </label>
+ <input id="name" type="text" name="name" value="{{c.name}}">
+
+  <label for="occupation">Occupation: </label>
+ <input id="occupation" type="text" name="occupation" value="{{c.occupation}}">
+
+  <label for="catchPhrase">Catch phrase: </label>
+    <input id="catchPhrase" type="text" name="catchPhrase"> 
+
+ <button class="btn" type="submit"> Edit your celebrity !</button>
+
+</form>

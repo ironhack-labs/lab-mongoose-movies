@@ -11,8 +11,8 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
-//console.log(data)
-// CelebrityModel.insertMany(data)
-//   .then( (res) =>{ res.forEach( r => console.log(r.title))})
-//   .catch( (err) =>{console.log("An error occured during the insertion of many celebrities : ", err)})
+console.log(data)
+//  CelebrityModel.insertMany(data)
+//    .then( (res) =>{ res.forEach( r => console.log(r.title))})
+//    .catch( (err) =>{console.log("An error occured during the insertion of many celebrities : ", err)})
   
