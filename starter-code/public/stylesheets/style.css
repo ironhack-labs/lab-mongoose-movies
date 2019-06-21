@@ -1,87 +1,79 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  user-select: none;
-}
+  user-select: none; }
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
 a {
   color: #00b7ff;
   text-decoration: none;
-  font-size: 1rem;
-}
+  font-size: 1rem; }
 
 .celebrities-names  {
-  color: black;
-}
+  color: black; }
+
 button {
   margin: 10px;
   border-radius: 10px;
-  padding: 1% 3%;
-}
+  padding: 1% 3%; }
+
 button:focus {
-  outline: 0;
-}
+  outline: 0; }
+
 h1 {
-  margin-bottom: 15px;
-}
+  margin-bottom: 15px; }
+
 h2 {
-  margin-bottom: 15px;
-}
+  margin-bottom: 15px; }
 
 /*---------------------------------------
 FORM STUDENT
 ----------------------------------------*/
-
 #celebrity_form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-}
+  max-width: 400px; }
 
 #celebrity_form label {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 #celebrity_form input {
   border: 2px solid;
-  height: 32px;
-}
+  height: 32px; }
 
 #celebrity_form input:last-of-type {
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 #celebrity_form label {
-  margin: 10px 0;
-}
+  margin: 10px 0; }
 
 .btn {
   border: 2px solid;
   border-radius: 0.3rem;
   padding: 6px;
   width: 120px;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
 .add-btn {
   color: green;
   font-size: 2rem;
   padding: 6px;
   width: 120px;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
 .delete-btn {
   color: red;
   font-size: 1rem;
   padding: 6px;
   width: 120px;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

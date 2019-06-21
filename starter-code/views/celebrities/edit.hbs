@@ -1,0 +1,12 @@
+<h2>Edit page </h2>
+
+<form method="post" action="/celebrities/{{celebrity.id}}" id="celebrity_form">
+  <label for="name">name</label>
+  <input id="name" type="text" name="name" autocomplete="off" value="{{celebrity.name}}">
+  <label for="occupation">occupation</label>
+  <input id="occupation" type="text" name="occupation" autocomplete="off" value="{{celebrity.occupation}}">
+  <label for="catchPhrase">catchPhrase</label>
+  <input id="catchPhrase" type="catchPhrase" name="catchPhrase" autocomplete="off" value="{{celebrity.catchPhrase}}">
+  <br>
+  <input type="submit" value="Send updated infos"></input>
+</form>
