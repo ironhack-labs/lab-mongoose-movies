@@ -1,0 +1,10 @@
+<form method="post" action="/movies/{{movie._id}}" id="update_form">
+  <h2>Update the movie</h2>
+  <label for="title">Title</label>
+  <input id="title" type="text" name="title" required value={{movie.title}}>
+  <label for="genre">Genre</label>
+  <input id="genre" name="genre" value={{movie.genre}}>
+  <label for="plot">Plot</label>
+  <input id="plot" name="plot" value={{movie.plot}}>
+  <button class="btn">Update</button>
+</form>

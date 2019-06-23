@@ -47,20 +47,23 @@ router.get("/celebrities/:id/edit", (req, res, next) => {
     });
 });
 
-router.post("/celebrities/:id", (req, res) => {
+router.post("/celebrities/:id", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
-  Celebrity.update({
-    name,
-    occupation,
-    catchPhrase
-  })
+  Celebrity.findById(req.params.id)
+    .then(celebrity => {
+      Celebrity.update({
+        name,
+        occupation,
+        catchPhrase
+      }).catch(err => {
+        console.log("update celebrity not ok", err);
+        next(err);
+      });
+    })
+
     .then(celebrity => {
       console.log("update celebrity ok", celebrity);
       res.redirect("/celebrities");
-    })
-    .catch(err => {
-      console.log("update celebrity not ok", err);
-      next(err);
     });
 });
 
