@@ -1,0 +1,11 @@
+<h2>Movies</h2>
+{{#each movies as |movie|}}
+<p>{{movie.title}} </p>
+<a href="/movies/{{movie._id}}">Check it out</a>
+<a href="/movies/{{movie._id}}/delete">Bye movie</a>
+{{/each}}
+
+
+{{#if err}}
+<h3>{{err}}</h3>
+{{/if}}

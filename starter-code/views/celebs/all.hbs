@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+{{#each celebs as |celeb|}}
+<p>{{celeb.name}} </p>
+<a href="/celebrities/{{celeb._id}}">Check it out</a>
+<a href="/celebrities/{{celeb._id}}/delete">Bye celeb</a>
+{{/each}}
+
+
+{{#if err}}
+<h3>{{err}}</h3>
+{{/if}}
