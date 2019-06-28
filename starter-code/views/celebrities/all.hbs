@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+
+{{#each celebrities as |celebrity|}}
+  <p>{{celebrity.name}} </p>
+  <p>{{celebrity.ocupation}}</p>
+  <p>{{celebrity.catchPhrase}}</p>
+{{/each}}
+
+{{#if err}}
+  <h3>{{err}}</h3>
+{{/if}}
