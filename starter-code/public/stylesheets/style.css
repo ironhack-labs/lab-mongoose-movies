@@ -1,19 +1,16 @@
 body {
   background: radial-gradient(rgba(43, 38, 38, 0.413) 20%, rgba(227, 215, 215, 0.502) 80%);
   padding: 50px;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 h2 {
   text-align: center;
-  color: rgb(136, 63, 125);
-  font-size: 40px;
-}
+  color: #883f7d;
+  font-size: 40px; }
 
 a {
-  color: rgb(25, 77, 97);
-  text-decoration: none;
-}
+  color: #194d61;
+  text-decoration: none; }
 
 input {
   border-radius: 15px;
@@ -23,12 +20,10 @@ input {
   height: auto;
   width: auto;
   margin: 20px;
-  padding: 10px;
-}
+  padding: 10px; }
 
 input::placeholder {
-  color: aliceblue;
-}
+  color: aliceblue; }
 
 button {
   border-radius: 15px;
@@ -39,27 +34,24 @@ button {
   width: auto;
   margin: 20px;
   padding: 10px;
-  text-align: center;
-}
+  text-align: center; }
 
 button a {
   color: whitesmoke;
-  text-align: center;
-} 
+  text-align: center; }
 
 ul {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 li {
   text-align: center;
-  list-style-type: none;
-}
+  list-style-type: none; }
+
+/*# sourceMappingURL=style.css.map */
