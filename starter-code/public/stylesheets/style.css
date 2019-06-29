@@ -1,12 +1,23 @@
 body {
   background: radial-gradient(rgba(43, 38, 38, 0.413) 20%, rgba(227, 215, 215, 0.502) 80%);
   padding: 50px;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 h2 {
   text-align: center;
   color: #883f7d;
   font-size: 40px; }
+
+.title {
+  display: flex;
+  justify-content: center;
+  border: 3px solid red;
+  border-radius: 15px;
+  padding: 10px; }
 
 a {
   color: #194d61;
@@ -53,5 +64,37 @@ form {
 li {
   text-align: center;
   list-style-type: none; }
+
+.exp {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(89, 97, 34, 0.557);
+  border-radius: 50%; }
+  .exp:before {
+    content: "";
+    width: inherit;
+    height: inherit;
+    border: 25px solid yellow;
+    border-radius: inherit;
+    position: absolute;
+    z-index: -10;
+    opacity: 0;
+    animation: 3s expand cubic-bezier(0.69, 0, 0, 1) infinite;
+    animation-delay: 1s; }
+
+@keyframes expand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1; }
+  100% {
+    width: 750%;
+    height: 750%;
+    opacity: 0;
+    border-width: 2px; } }
 
 /*# sourceMappingURL=style.css.map */
