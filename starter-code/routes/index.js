@@ -97,6 +97,23 @@ router.get('/movies/index', (req, res, next) => {
         })
 });
 
+//Iteration #10: Adding New Movies
+router.get('/movies/new', (req, res, next) => {
+    res.render('movies/new')
+});
+
+router.post('/movies/new_movie', (req, res, next) => {
+    Movie
+        .create({
+            title: req.body.title,
+            genre: req.body.genre,
+            plot: req.body.plot
+        })
+        .then(newMovie => {
+            res.redirect("/movies/index")
+        }).catch(error => res.redirect("/movies/new"))
+});
+
 //Iteration #9: The Movie Details Page
 router.get('/movies/:id', (req, res, next) => {
     Movie
