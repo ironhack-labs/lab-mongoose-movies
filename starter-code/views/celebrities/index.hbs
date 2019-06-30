@@ -1,0 +1,9 @@
+<h2>Artists Index</h2>
+{{#each celebrities as |celebrity|}}
+<h2>{{celebrity.name}}</h2>
+<a href="celebrities/{{celebrity._id}}">detail</a>
+{{/each}}
+
+{{#if err}}
+<h2>{{err}}</h2>
+{{/if}}
