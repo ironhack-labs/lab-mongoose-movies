@@ -1,0 +1,9 @@
+<form action="/celebrities/edit-celeb" method="POST">
+  <input type="text" name="name" value="{{celebrity.name}}" placeholder="Name">
+  <input type="text" name="occupation" value="{{celebrity.occupation}}"  placeholder="Occupation">
+  <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}"  placeholder="Catch phrase">
+
+  <input type="hidden" name="_id" value="{{celebrity._id}}">
+
+  <input type="submit" value="Edit celebrity details">
+</form> 

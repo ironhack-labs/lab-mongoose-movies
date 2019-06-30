@@ -18,6 +18,7 @@ router.get('/celebrities/index', (req, res, next) => {
 });
 
 router.get('/celebrities/new-celeb', (req, res, next) => {
+  console.log("chachi")
     res.render('celebrities/new-celeb')
 });
 
@@ -49,35 +50,11 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
   Celebrity
   .findByIdAndDelete(req.params.id)
   .then(delCeleb =>{
-    res.redirect("../index")
+    res.redirect("/celebrities/index")
   }).catch(error => {
     next(error);
   })
 });
 
-router.get('/celebrities/edit/:id', (req, res, next) => {
-  console.log(req.params.id)
-  Celebrity.findById({_id: req.params.id})
-  .then(celebrity => {
-    res.render("celebrities/edit-celeb", {celebrity})
-  }).catch((err)=>{
-    console.log(err)
-  });
-
-});
-router.post('/celebrities/edit-celeb', (req, res) => {
-  Celebrity
-    .findByIdAndUpdate(req.body._id, {
-      name: req.body.name,
-      occupation: req.body.occupation,
-      catchPhrase: req.body.catchPhrase
-    })
-    .then(updCelebrity => {
-      res.redirect("index")
-    })
-    .catch((err)=>{
-      console.log(err)
-    });
-})
 
 module.exports = router;
