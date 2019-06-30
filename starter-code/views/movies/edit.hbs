@@ -1,0 +1,17 @@
+<form class="containerNew">
+  <h2>Editar una movie</h2>
+
+  <form action="/movies/list?movie_id={{movie.id}}" method="POST">
+    <label for="">Titulo:</label>
+    <input type="text" name="title" value="{{movie.title}}"><br><br>
+
+    <label for="">Genero:</label>
+    <input type="text" name="genre" value="{{movie.genre}}"><br><br>
+
+    <label for="">Sinopsis:</label>
+    <input type="text" name="plot" value="{{movie.plot}}"><br><br>
+
+    <button type="submit">Editar movie</button>
+
+  </form>
+</form>

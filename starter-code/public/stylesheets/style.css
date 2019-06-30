@@ -1,11 +1,9 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: black;
-}
+  color: black; }
 
 input,
 textarea {
@@ -13,42 +11,38 @@ textarea {
   border-radius: 5px;
   padding: 0 10px;
   margin: 0;
-  width: 240px;
-}
+  width: 240px; }
 
 form {
   position: relative;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 .container {
   display: flex;
-  // width: 900px;
   flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
-  background: rgb(255, 211, 233);
+  background: #ffd3e9;
   border: 1px solid gray;
   border-radius: 15px;
   padding: 20px;
   margin: 20px;
-  transition: 0.25s;
-}
+  transition: 0.25s; }
+
 .container p {
   font-size: 20px;
-  color: black;
-}
+  color: black; }
+
 .container a {
   font-size: 50px;
   border: 5px solid turquoise;
   border-radius: 15px;
   text-decoration: none;
-  background: rgba(248, 143, 234, 0.986);
-}
+  background: rgba(248, 143, 234, 0.986); }
+
 .container h2 {
-  font-size: 50px;
-}
+  font-size: 50px; }
 
 .box input[type="text"] {
   border: 0;
@@ -60,22 +54,20 @@ form {
   border: 2px solid #3498db;
   padding: 14px 10px;
   width: 200px;
-  transition: 0.25s;
-}
+  transition: 0.25s; }
 
 .box button[type="submit"] {
   border: 0;
   background: none;
   display: block;
   margin: 20px auto;
-  background: rgb(201, 192, 192);
+  background: #c9c0c0;
   color: black;
   text-align: center;
   border: 2px solid #2ecc71;
   padding: 14px 10px;
   border-radius: 24px;
-  transition: 0.25s;
-}
+  transition: 0.25s; }
 
 .containerNew {
   display: flex;
@@ -83,30 +75,26 @@ form {
   text-align: center;
   align-items: center;
   justify-content: center;
-  background: rgb(213, 248, 99);
-  border: 1px solid rgb(218, 248, 147);
+  background: #d5f863;
+  border: 1px solid #daf893;
   border-radius: 15px;
   padding: 20px;
   margin: 20px;
-  transition: 0.25s;
-}
+  transition: 0.25s; }
 
 .containerNew p {
   font-size: 20px;
-  color: black;
-}
+  color: black; }
 
 .containerNew a {
   font-size: 50px;
   border: 5px solid turquoise;
   border-radius: 15px;
   text-decoration: none;
-  background: rgba(220, 248, 94, 0.986);
-}
+  background: rgba(220, 248, 94, 0.986); }
 
 .containerNew h2 {
-  font-size: 50px;
-}
+  font-size: 50px; }
 
 .containerList {
   display: flex;
@@ -114,22 +102,23 @@ form {
   text-align: center;
   align-items: center;
   justify-content: center;
-  background: rgb(159, 248, 156);
-  border: 1px solid rgb(218, 240, 169);
+  background: #9ff89c;
+  border: 1px solid #daf0a9;
   border-radius: 15px;
   padding: 20px;
   margin: 20px;
-  transition: 0.25s;
-}
+  transition: 0.25s; }
+
 .containerList h2 {
-  font-size: 50px;
-}
+  font-size: 50px; }
+
 .containerList a {
   text-decoration: none;
   border: 5px solid turquoise;
-  border-radius: 15px;
-}
+  border-radius: 15px; }
+
 .containerList p {
   font-size: 20px;
-  color: black;
-}
+  color: black; }
+
+/*# sourceMappingURL=style.css.map */

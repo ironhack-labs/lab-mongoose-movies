@@ -1,0 +1,19 @@
+<div class="containerList">
+  <h2>Movies</h2>
+
+  {{#each movies}}
+  <a href="/movies/list/{{id}}">
+    <p>⌂- {{title}}</p>
+  </a>
+
+  <form class="box" action="/movies/list/{{id}}/delete" method="POST">
+    <button type="submit">Borrar movie</button></form><br></br>
+  </form><br>
+
+  <a href="/movies/list/{{id}}/edit">
+    Editar movie
+  </a><br>
+  {{/each}}<br><br>
+
+  <a href="/movies/new">Añadir nueva movie</a><br>
+</div>
