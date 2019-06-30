@@ -97,5 +97,15 @@ router.get('/movies/index', (req, res, next) => {
         })
 });
 
+//Iteration #9: The Movie Details Page
+router.get('/movies/:id', (req, res, next) => {
+    Movie
+        .findById(req.params.id)
+        .then(onemovie => {
+            res.render("movies/show", { onemovie })
+        }).catch(error => {
+            console.log(error);
+        })
+});
 
 module.exports = router;
