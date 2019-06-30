@@ -136,4 +136,30 @@ router.post('/movies/:id/delete', (req, res, next) => {
         })
 });
 
+// Iteration #12 (Bonus): Editing Movies
+router.get('/movies/:id/edit', (req, res, next) => {
+    Movie
+        .findById(req.params.id)
+        .then(onemovie => {
+            res.render("movies/edit", { onemovie })
+        }).catch(error => {
+            console.log(error);
+        })
+});
+
+router.post('/movies/:id', (req, res, next) => {
+    Movie
+        .updateOne({ _id: req.params.id }, {
+            title: req.body.title,
+            genre: req.body.genre,
+            plot: req.body.plot
+        })
+        .then(onemovie => {
+            res.redirect("/movies/index")
+        }).catch(error => {
+            console.log("error de update")
+            next(error);
+        })
+});
+
 module.exports = router;
