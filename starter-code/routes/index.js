@@ -1,59 +1,61 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const Celebrity = require("../models/celebrity")
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+    res.render('index');
 });
 
+//Iteration #2: Listing Our Celebrities
 router.get('/celebrities/index', (req, res, next) => {
-  Celebrity
-  .find()
-  .then((allCelebrities) =>{
-    res.render('celebrities/index',{allCelebrities});
-  }).catch(error => {
-    console.log(error);
-  })
+    Celebrity
+        .find()
+        .then((allCelebrities) => {
+            res.render('celebrities/index', { allCelebrities });
+        }).catch(error => {
+            console.log(error);
+        })
 });
 
-router.get('/celebrities/newo', (req, res, next) => {
-  console.log("chachi")
-    res.render('celebrities/newo')
+//Iteration #4: Adding New Celebrities
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new')
 });
 
 router.post('/celebrities/new_celebrity', (req, res, next) => {
-  Celebrity
-  .create({
-    name: req.body.name,
-    occupation: req.body.occupation,
-    catchPhrase : req.body.catchPhrase
-  })
-  .then(newCeleb =>{
-    res.redirect("/celebrities/index")
-  }).catch(error => res.redirect("/celebrities/new"))
+    Celebrity
+        .create({
+            name: req.body.name,
+            occupation: req.body.occupation,
+            catchPhrase: req.body.catchPhrase
+        })
+        .then(newCeleb => {
+            res.redirect("/celebrities/index")
+        }).catch(error => res.redirect("/celebrities/new"))
 });
 
-
+//Iteration #3: The Celebrity Details Page
 router.get('/celebrities/:id', (req, res, next) => {
-  Celebrity
-  .findById(req.params.id)
-  .then(celeb =>{
-    res.render("celebrities/show", {celeb})
-  }).catch(error => {
-    console.log(error);
-  })
+    Celebrity
+        .findById(req.params.id)
+        .then(celeb => {
+            res.render("celebrities/show", { celeb })
+        }).catch(error => {
+            console.log(error);
+        })
 });
 
+//Iteration #5: Deleting Celebrities
 router.post('/celebrities/:id/delete', (req, res, next) => {
-  console.log(req.params.id)
-  Celebrity
-  .findByIdAndDelete(req.params.id)
-  .then(delCeleb =>{
-    res.redirect("/celebrities/index")
-  }).catch(error => {
-    next(error);
-  })
+    console.log(req.params.id)
+    Celebrity
+        .findByIdAndDelete(req.params.id)
+        .then(delCeleb => {
+            res.redirect("/celebrities/index")
+        }).catch(error => {
+            next(error);
+        })
 });
 
 

@@ -1,13 +1,13 @@
 <h2>All Celebrities</h2>
 <ul>
-{{#each allCelebrities}}
-<li><a href="/celebrities/{{_id}}">{{this.name}}</a></li>
+  {{#each allCelebrities}}
+  <li><a href="/celebrities/{{_id}}">{{this.name}}</a></li>
 
-<form action="/celebrities/{{_id}}/delete" method="POST">
-<input type="submit" value="Delete celebrity">
+  <form action="/celebrities/{{_id}}/delete" method="POST">
+    <input type="submit" value="Delete celebrity">
 
-</form>
-{{/each}}
+  </form>
+  {{/each}}
 </ul>
 
-<a href="/celebrities/newo">New Celebrety</a>
+<a href="/celebrities/new">New Celebrety</a>
