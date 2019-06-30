@@ -3,23 +3,20 @@ const mongoose = require("mongoose"); // Erase if already required
 const Schema = mongoose.Schema;
 
 // Declare the Schema of the Mongo model
-const celebritySchema = new Schema({
-  name: {
+const movieSchema = new Schema({
+  title: {
     type: String,
     required: true
   },
-  occupation: {
+  genre: {
     type: String
   },
-  catchPhrase: {
+  plot: {
     type: String
   },
-  upVotes: {
-    type: Number,
-    default: 0
-  },
+  _celeb: { type: Schema.Types.ObjectId, ref: "Celebrity" },
 });
 
-const Celebrity = mongoose.model("Celebrity", celebritySchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
-module.exports = Celebrity;
+module.exports = Movie;

@@ -1,4 +1,7 @@
-<div><button type="button" class="btn btn-info mb-5 add__btn"><a class="add__btn" href="/add-celeb">Add a celebrity</a></button></div>
+
+
+
+<div><a class="add__btn btn btn-info mb-5 add__btn" href="/add-celeb">Add a celebrity</a></div>
 <table class="table">
   <thead>
     <tr>
@@ -15,7 +18,8 @@
       <td>{{this.name}}</td>
       <td>{{this.occupation}}</td>
       <td>{{this.catchPhrase}}</td>
-      <td><a href="/edit-celeb/{{this.id}}">🔎</a><a class="ml-3 mr-3" href="/delete-celeb/{{this.id}}">🗑</a><form id="upvote" action="/up-vote/{{this.id}}" method="POST"><button type="submit">💓</button></form>
+      <td><a href="/edit-celeb/{{this.id}}">🔎</a><a class="ml-3" href="/delete-celeb/{{this.id}}">🗑</a>
+      <a  class="ml-3 mr-3" href="/celeb-movies/{{this.id}}">🎞</a><form id="upvote" action="/up-vote/{{this.id}}" method="POST"><button type="submit">💓</button></form>
       <td>{{this.upVotes}}</td>
     </tr>
     {{/each}}
