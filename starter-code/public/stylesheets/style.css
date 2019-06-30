@@ -1,0 +1,63 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to right, #568fe4, #007c80);
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+a {
+  color: #ece6dd;
+  font-size: 20px; }
+
+h2 {
+  font-size: 40px;
+  color: #8b5708;
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate; }
+
+#index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+#main-container {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+  flex-direction: row;
+  padding: 30px; }
+
+#celebrity-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 30px; }
+
+#frame {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  flex-direction: row;
+  padding: 30px; }
+
+.btn {
+  background-color: #ffae00;
+  padding: 5px;
+  margin: 10px;
+  border: 0px; }
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073; }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6; } }
+
+/*# sourceMappingURL=style.css.map */

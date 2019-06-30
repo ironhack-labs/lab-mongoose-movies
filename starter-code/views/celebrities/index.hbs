@@ -1,0 +1,22 @@
+<div id="index-container">
+    <h2>Celebrities Index</h2>
+    <div id="main-container">
+        <iframe id="frame" src="https://giphy.com/embed/4r743A8oCnnNu" width="250" height="250" frameBorder="0"
+            class="giphy-embed" allowFullScreen></iframe>
+
+        <div id="celebrity-box">
+            {{#each celebrities}}
+            <a href="/celebrities/{{this.id}}">
+                <h6>{{this.name}}</h6>
+            </a>
+            <form  method="post" action="/celebrities/{{this.id}}/delete">
+                <button class="btn" type="submit">Delete</button>
+            </form>
+
+            {{/each}}
+        </div>
+    </div>
+    <form method="get" action="/celebrities/create/new">
+        <button class="btn" type="submit">Create new celeb</button>
+    </form>
+</div>
