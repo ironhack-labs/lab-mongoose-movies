@@ -71,7 +71,7 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
 
 router.post('/celebrities/:id', (req, res, next) => {
     Celebrity
-        .findByIdAndUpdate(req.params.id, {
+        .updateOne({ _id: req.params.id }, {
             name: req.body.name,
             occupation: req.body.occupation,
             catchPhrase: req.body.catchPhrase
