@@ -125,4 +125,15 @@ router.get('/movies/:id', (req, res, next) => {
         })
 });
 
+//Iteration #11: Deleting movies
+router.post('/movies/:id/delete', (req, res, next) => {
+    Movie
+        .findByIdAndDelete(req.params.id)
+        .then(delMovie => {
+            res.redirect("/movies/index")
+        }).catch(error => {
+            next(error);
+        })
+});
+
 module.exports = router;
