@@ -58,5 +58,32 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
         })
 });
 
+// Iteration #6 (Bonus): Editing Celebrities
+router.get('/celebrities/:id/edit', (req, res, next) => {
+    Celebrity
+        .findById(req.params.id)
+        .then(celeb => {
+            res.render("celebrities/edit", { celeb })
+        }).catch(error => {
+            console.log(error);
+        })
+});
+
+router.post('/celebrities/:id', (req, res, next) => {
+    Celebrity
+        .findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            occupation: req.body.occupation,
+            catchPhrase: req.body.catchPhrase
+        })
+        .then(celeb => {
+            console.log("respuesta del update:" + celeb.catchPhrase)
+            res.redirect("/celebrities/index")
+        }).catch(error => {
+            console.log("error de update")
+            next(error);
+        })
+});
+
 
 module.exports = router;
