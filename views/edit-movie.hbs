@@ -1,0 +1,18 @@
+<form action="/edit-movie/{{movie.id}}" method="POST">
+  <div class="form-group">
+    <label for="title">title</label>
+    <input type="text" class="form-control" name="title" value="{{movie.title}}">
+  </div>
+  <div class="form-group">
+    <label for="genre">genre</label>
+    <input type="text" class="form-control" name="genre" value="{{movie.genre}}">
+  </div>
+  <div class="form-group">
+    <label for="plot">plot</label>
+    <input type="text" class="form-control" name="plot" value="{{movie.plot}}">
+  </div>
+  <div class="d-flex"> 
+    <button type="submit" class="btn btn-primary mt-3">Update Movie</button>
+    <a class=" block btn btn-info ml-3 mt-3" href="/celeb-movies/{{movie._celeb}}">Back</a>
+  </div>
+</form>

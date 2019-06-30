@@ -1,0 +1,27 @@
+
+
+
+<div><a class="add__btn btn btn-info mb-5 add__btn" href="/add-celeb">Add a celebrity</a></div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Catch Phrase</th>
+      <th scope="col">Operations</th>
+      <th scope="col">Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each celebs}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.occupation}}</td>
+      <td>{{this.catchPhrase}}</td>
+      <td><a href="/edit-celeb/{{this.id}}">🔎</a><a class="ml-3" href="/delete-celeb/{{this.id}}">🗑</a>
+      <a  class="ml-3 mr-3" href="/celeb-movies/{{this.id}}">🎞</a><form id="upvote" action="/up-vote/{{this.id}}" method="POST"><button type="submit">💓</button></form>
+      <td>{{this.upVotes}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

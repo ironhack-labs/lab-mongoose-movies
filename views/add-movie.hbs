@@ -1,0 +1,17 @@
+<a class=" block btn btn-info  mb-3" href="/celeb-movies/{{celebId}}">Back</a>
+<form action="/add-movie" method="POST">
+  <div class="form-group">
+<input type="hidden" class="form-control" name="celebId" value="{{celebId}}">
+    <label for="title">title</label>
+    <input type="text" class="form-control" name="title" required>
+  </div>
+  <div class="form-group">
+    <label for="genre">genre</label>
+    <input type="text" class="form-control" name="genre" required>
+  </div>
+  <div class="form-group">
+    <label for="plot">plot</label>
+    <input type="text" class="form-control" name="plot" required>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Add Movie</button>
+</form>

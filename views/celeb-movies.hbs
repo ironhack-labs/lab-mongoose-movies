@@ -1,0 +1,25 @@
+
+
+
+<div><a class=" btn btn-info mb-5" href="/add-movie/{{celeb.id}}">Add a movie</a><a class=" btn btn-info mb-5 ml-4" href="/celebs/">Back</a></div>
+<h1>All Movies from {{celeb.name}}</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">genre</th>
+      <th scope="col">Plot</th>
+      <th scope="col">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each movies}}
+    <tr>
+      <td>{{this.title}}</td>
+      <td>{{this.genre}}</td>
+      <td>{{this.plot}}</td>
+      <td><a href="/edit-movie/{{this.id}}">🔎</a><a class="ml-3 mr-3" href="/delete-movie/{{this.id}}">🗑</a>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
