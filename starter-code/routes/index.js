@@ -10,5 +10,6 @@ router.get('/', (req, res, next) => {
 router.get('/celebrities', routeCelebrities);
 router.post('/celebrities', routeCelebrities);
 router.get('/celebrities/:id', routeCelebrities);
+router.post('/celebrities/:id/delete', routeCelebrities)
 
 module.exports = router;

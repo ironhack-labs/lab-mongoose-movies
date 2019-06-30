@@ -37,3 +37,16 @@ exports.postCreateOneCelebrity = (req, res, next) => {
       res.render('celebrities/new', err)
     })
 }
+
+exports.deleteOneCelebrity = (req, res, next) => {
+  const { id } = req.params
+  Celebrity.findByIdAndRemove(id)
+    .then(deleteOne => {
+      console.log(deleteOne);
+      res.redirect('/celebrities')
+    })
+    .catch(err => {
+      next()
+      console.log(err);
+    })
+}
