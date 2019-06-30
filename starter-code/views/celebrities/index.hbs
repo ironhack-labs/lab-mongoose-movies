@@ -5,6 +5,7 @@
 <form action="celebrities/{{celebrity._id}}/delete" method="POST">
   <button type="submit">Delete</button>
 </form>
+<a href="celebrities/{{celebrity._id}}/edit">Edit</a>
 {{/each}}
 
 {{#if err}}

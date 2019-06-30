@@ -3,7 +3,6 @@ const Celebrity = require('../models/celebrity')
 exports.findCelebrities = (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
-      console.log(celebrities);
       res.render('celebrities/index', {celebrities}) 
     })
     .catch(err =>  {
@@ -48,5 +47,31 @@ exports.deleteOneCelebrity = (req, res, next) => {
     .catch(err => {
       next()
       console.log(err);
+    })
+}
+
+exports.getUpdateOneCelebrity = (req, res, next) => {
+  const { id } = req.params
+  Celebrity.findById(id)
+    .then(celebrity => {
+      res.render('celebrities/edit', celebrity)
+    })
+    .catch(err => {
+      next()
+      return err
+    })
+}
+
+exports.updateOneCelebrity = (req, res, next) => {
+  const { id } = req.params
+  const {name, occupation, catchPhrase} = req.body
+  Celebrity.findByIdAndUpdate(id, {name, occupation, catchPhrase})
+    .then(updateCelebrity => {
+      console.log(updateCelebrity)
+      res.redirect('/celebrities')
+    })
+    .catch(err => {
+      next()
+      console.log(err)
     })
 }
