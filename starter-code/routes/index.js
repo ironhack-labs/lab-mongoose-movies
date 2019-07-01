@@ -34,7 +34,7 @@ router.post('/celebrities/new_celebrity', (req, res, next) => {
 });
 
 
-router.get('/celebrities/:id', (req, res, next) => {
+router.get('/celebrities/details/:id', (req, res, next) => {
   Celebrity
   .findById(req.params.id)
   .then(celeb =>{
@@ -44,7 +44,7 @@ router.get('/celebrities/:id', (req, res, next) => {
   })
 });
 
-router.post('/celebrities/:id/delete', (req, res, next) => {
+router.post('/celebrities/delete/:id', (req, res, next) => {
   console.log(req.params.id)
   Celebrity
   .findByIdAndDelete(req.params.id)
