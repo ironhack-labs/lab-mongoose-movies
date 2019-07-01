@@ -49,3 +49,29 @@ exports.deleteOneMovie = (req, res, next) => {
       console.log(err);
     })
 }
+
+exports.getUpdateOneMovie = (req, res, next) => {
+  const { id } = req.params
+  Movie.findById(id)
+    .then(movie => {
+      res.render('movies/edit', movie)
+    })
+    .catch(err => {
+      next()
+      return err
+    })
+}
+
+exports.updateOneMovie = (req, res, next) => {
+  const { id } = req.params
+  const {title, genre, plot} = req.body
+  Movie.findByIdAndUpdate(id, {title, genre, plot})
+    .then(updateMovie => {
+      console.log(updateMovie)
+      res.redirect('/movies')
+    })
+    .catch(err => {
+      next()
+      console.log(err)
+    })
+}
