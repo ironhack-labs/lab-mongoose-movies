@@ -19,5 +19,6 @@ router.post('/celebrities/:id', routeCelebrities)
 
 // Movies
 router.get('/movies', routeMovies);
+router.get('/movies/:id', routeMovies);
 
 module.exports = router;

@@ -9,3 +9,14 @@ exports.findMovies = (req, res, next) => {
       res.render('movies/index', err)
     })
 } 
+
+exports.findOneMovie = (req, res, next) => {
+  const { id } = req.params
+  Movie.findById(id)
+    .then(movie => {
+      res.render('movies/show', movie)
+    })
+    .catch(err => {
+      res.render('movies/index', err)
+    })
+}

@@ -1,6 +1,7 @@
 <h2>Movies Index</h2>
 {{#each movies as |movie|}}
 <h2>{{movie.title}}</h2>
+<a href="movies/{{movie._id}}">detail</a>
 {{/each}}
 
 {{#if err}}
