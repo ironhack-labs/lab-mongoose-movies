@@ -2,6 +2,9 @@
 {{#each movies as |movie|}}
 <h2>{{movie.title}}</h2>
 <a href="movies/{{movie._id}}">detail</a>
+<form action="movies/{{movie._id}}/delete" method="POST">
+  <button type="submit">Delete</button>
+</form>
 {{/each}}
 
 {{#if err}}

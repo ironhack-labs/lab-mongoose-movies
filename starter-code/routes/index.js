@@ -21,4 +21,5 @@ router.post('/celebrities/:id', routeCelebrities)
 router.get('/movies', routeMovies)
 router.post('/movies', routeMovies)
 router.get('/movies/:id', routeMovies)
+router.post('/movies/:id/delete', routeMovies)
 module.exports = router

@@ -36,3 +36,16 @@ exports.postCreateOneMovie = (req, res, next) => {
       res.render('movies/new', err)
     })
 }
+
+exports.deleteOneMovie = (req, res, next) => {
+  const { id } = req.params
+  Movie.findByIdAndRemove(id)
+    .then(deleteOne => {
+      console.log(deleteOne);
+      res.redirect('/movies')
+    })
+    .catch(err => {
+      next()
+      console.log(err);
+    })
+}
