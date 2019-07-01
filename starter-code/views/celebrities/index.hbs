@@ -1,0 +1,10 @@
+<h2> Celebrities</h2>
+{{#each celebrities}}
+<p>{{this.name}} </p>
+<a href="/celebrities/{{this._id}} ">See more</a>
+<a href='/celebrities/{{this._id}}/delete'>Delete</a>
+{{/each}}
+
+{{#if err}}
+{{err}}
+{{/if}}
