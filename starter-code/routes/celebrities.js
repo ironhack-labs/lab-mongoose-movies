@@ -1,11 +1,5 @@
-const express = require('express');
-const router  = express.Router();
+/* const router  = require('index.js');
 const Celebrity = require('../models/celebrity');
-
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
 
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find({})
@@ -63,21 +57,11 @@ router.get('/celebrities/edit', (req, res) => {
 
 router.post('/celebrities/edit', (req, res) => {
   let { name, occupation, catchPhrase } = req.body;
-  Celebrity.findByIdAndUpdate(req.query.celeb_id, { name, occupation, catchPhrase })
+  Celebrity.update({_id: req.query.celeb_id}, { $set: {name, occupation, catchPhrase }})
   .then((celeb) => {
-    res.redirect('/celebrities/show/' + celeb._id);
+    res.redirect('/celebrities');
   })
   .catch((error) => {
     console.log(error);
   });
-})
-
-
-// movie routes
-
-router.get('', (req, res) => {
-
-})
-
-
-module.exports = router;
+}) */
