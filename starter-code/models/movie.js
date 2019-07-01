@@ -7,7 +7,6 @@ const movieSchema = new Schema({
   genre: { type: String, required: true },
   plot: { type: String, required: true },
   pictureUrl: String,
-  actors: [Schema.Types.ObjectId]
 });
 
 const Movie = mongoose.model('Movie', movieSchema);

@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -61,6 +62,8 @@ router.get('/celebrities/edit', (req, res) => {
   });
 })
 
+//.populate("author") -- look at Montasar's example in w5d1 or here http://learn.ironhack.com/#/learning_unit/6495
+
 router.post('/celebrities/edit', (req, res) => {
   let { name, occupation, catchPhrase } = req.body;
   Celebrity.findByIdAndUpdate(req.query.celeb_id, { name, occupation, catchPhrase })
@@ -75,8 +78,64 @@ router.post('/celebrities/edit', (req, res) => {
 
 // movie routes
 
-router.get('', (req, res) => {
+router.get('/movies', (req, res, next) => {
+  Movie.find({})
+  .then(movies => {
+    res.render('movies', { movies })
+  })
+  .catch(error => console.log(error));
+})
 
+router.get('/movies/show/:id', (req, res) => {
+  Movie.findById(req.params.id).then(movie => {
+    res.render('movies/show', { movie });
+  })
+  .catch(err => console.log('Could not get movie details: ', err));
+})
+
+router.get('/movies/new', (req, res) => {
+  res.render('movies/new');
+})
+
+router.post('/movies', (req, res) => {
+  let { title, genre, plot } = req.body;
+  Movie.create({ title: title, genre: genre, plot: plot}).then(movie => {
+    res.redirect('/movies');
+  })
+  .catch(err => console.log("error while adding a movie: ", err));
+})
+
+router.post('/movies/:id/delete', (req, res, next) => {
+  Movie.findByIdAndDelete(req.params.id).then(() => {
+    console.log("Success");
+    res.redirect('/movies');
+  })
+  .catch((err) => {
+    console.log("error deleting movie: ", err);
+    next();
+  });
+})
+
+
+router.get('/movies/edit/:id', (req, res) => {
+  Movie.findById(req.params.id).then(movie => {
+    res.render('movies/edit', { movie });
+  }).catch((error) => {
+    console.log('error editing a movie: ', error);
+  });
+})
+
+//.populate("author") -- look at Montasar's example in w5d1 or here http://learn.ironhack.com/#/learning_unit/6495
+
+router.post('/movies/edit/:id', (req, res) => {
+  let { title, genre, plot } = req.body;
+  Movie.findByIdAndUpdate(req.params.id, { title, genre, plot })
+  .then((movie) => {
+    res.redirect('/movies/show/' + movie._id);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 })
 
 
