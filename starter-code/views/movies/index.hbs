@@ -1,0 +1,8 @@
+<h2>Movies Index</h2>
+{{#each movies as |movie|}}
+<h2>{{movie.title}}</h2>
+{{/each}}
+
+{{#if err}}
+<h2>{{err}}</h2>
+{{/if}}

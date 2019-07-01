@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const routeCelebrities = require('./celebrities')
+const routeMovies = require('./movies')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -15,5 +16,8 @@ router.post('/celebrities/:id/delete', routeCelebrities)
 
 router.get('/celebrities/:id/edit', routeCelebrities)
 router.post('/celebrities/:id', routeCelebrities)
+
+// Movies
+router.get('/movies', routeMovies);
 
 module.exports = router;
