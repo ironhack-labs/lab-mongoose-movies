@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+          {{#each movies}}
+          <h2><a href="/celebrities/{{this._id}}">{{this.title}}</a><br></h2>
+        {{/each}}
+
+  <a class = "button" href="/">Back</a>
+  <a class = "button" href="/new">Add new Celebrity</a>
