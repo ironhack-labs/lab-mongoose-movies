@@ -1,28 +1,28 @@
 const mongoose = require('mongoose');
 const Celebrity = require("../models/Celebrity");
+const Movie = require("../models/Movie")
 
 mongoose
-  .connect('mongodb://localhost/celebrities', {useNewUrlParser: true})
-  .then(x => {
+  .connect('mongodb://localhost/celebrities', {useNewUrlParser: true}).then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
   });
 
-Celebrity.create([
+Movie.create([
   {
-  name: "Kelly Slater" ,
-  occupation: "unknown",
-  catchPhrase: "I love surfing in winter"
+  name: "96 hours" ,
+  genre: "Action",
+  plot: "I will find you and I will kill you"
 },{
-  name: "Kanye West" ,
-  occupation: "singer" ,
-  catchPhrase: "Work hard, Play hard"
+  name: "The Green Book" ,
+  genre: "drama" ,
+  plot: "Black Musician in America"
 } , {
-  name: "Kevin Hart" ,
-  occupation: "comedian" ,
-  catchPhrase: "I don´t know what I have to write here"
-}]).then(celebrities => {
-  console.log("Celebrities are implemented", celebrities)
+  name: "Avengers: Endgame" ,
+  genre: "Action" ,
+  plot: "I don´t know what I have to write here"
+}]).then(movies => {
+  console.log("Movies are implemented", movies)
 });
