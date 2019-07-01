@@ -1,0 +1,15 @@
+<h2>Update data for {{name}}</h2>
+<form action="/update/{{id}}" method="POST">
+    <input type="text" value="{{name}}" placeholder="Name" name="nameForm">
+    <input type="text" value="{{occupation}}" placeholder="Occupation" name="occupationForm">
+    <input type="text" value="{{catchPhrase}}" placeholder="Catch Phrase" name="catchForm">
+    {{#if errorMessage}}
+    <div style="padding:20px; background: red;">
+        {{errorMessage}}
+    </div>
+    {{/if}}
+    <button onclick="Submit">Update</button>
+</form>
+
+<br><br>
+<a href="../celebrities">Return to Celebrities List</a>

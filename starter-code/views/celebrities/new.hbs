@@ -1,0 +1,14 @@
+<h2>Add new celebrity to the list</h2>
+<form action="/new-celebrity" method="POST">
+    <input type="text" placeholder="Name" name="nameForm">
+    <input type="text" placeholder="Occupation" name="occupationForm">
+    <input type="text" placeholder="Catch Phrase" name="catchForm">
+    {{#if errorMessage}}
+    <div style="padding:20px; background: red;">
+        {{errorMessage}}
+    </div>
+    {{/if}}
+    <button onclick="Submit">Create</button>
+</form>
+<br><br>
+<a href="../celebrities">Return to Celebrities List</a>
