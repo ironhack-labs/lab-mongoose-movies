@@ -9,3 +9,8 @@ exports.findCelebrity = (req, res, next) => {
     next(error)
   })
 }
+
+exports.findOneCelebrity = (req, res, next) =>{
+  const { id } = req.params
+  Celebrity.findById(id)
+}

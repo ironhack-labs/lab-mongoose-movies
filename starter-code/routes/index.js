@@ -10,4 +10,7 @@ router.get('/', (req, res, next) => {
 /* GET celebrities page */
 router.get('/celebrities', findCelebrity)
 
+/* GET single celebrity page */
+router.get('/celebrities/:id', )
+
 module.exports = router;
