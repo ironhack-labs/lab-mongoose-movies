@@ -1,0 +1,10 @@
+<h1>{{name}}</h1> 
+<h3><i>"{{catchPhrase}}"</i></h3>
+<span>{{occupation}}</span>
+<br><br><br><a href="/celebrity/{{id}}/edit">edit</a> 
+<form action="/celebrity/delete" method="post">
+<input type="hidden" name="id" value="{{id}}">
+<button type="submit">Delete</button>
+</form>
+<br><br><br>
+<a href="/celebrities">Return</a>
