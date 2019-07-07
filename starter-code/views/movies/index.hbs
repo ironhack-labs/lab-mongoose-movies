@@ -1,0 +1,18 @@
+<h2>Movies</h2>
+<button type="button"><a href="/">Back</a></button>
+<button type="button"><a href="/movies/new">Create new movie</a></button>
+<div class="section">
+  {{#each movies}}
+  <div class="movie-box">
+    <img class="poster" src="{{poster}}" alt="{{title}} poster">
+    <h4>{{title}}</h4>
+    <div class="btn-box">
+      <button class="btn btn-primary" type="button"><a href="/movies/{{_id}}">See more</a></button>
+      <button class="btn btn-primary" type="button"><a href="/movies/{{_id}}/edit">Edit</a></button>
+    </div>
+    <form action="/movies/{{_id}}/delete" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+  {{/each}}
+</div>
