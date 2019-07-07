@@ -41,7 +41,6 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.post('/:id', async (req, res, next) => {
-	console.log(req.body);
 	try {
 		const data = await Celebrities.findByIdAndUpdate(req.params.id, {
 			$set: req.body,

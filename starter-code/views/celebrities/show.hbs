@@ -2,5 +2,9 @@
 <p>Name: <span>{{name}}</span></p>
 <p>Occupation: <span>{{occupation}}</span></p>
 <p>Catch Phrase: <span>{{catchPhrase}}</span></p>
-<form action='/celebrities/{{_id}}/edit' method="GET"><button type="submit">Edit</button></form>
-<a href='/celebrities/{{_id}}/delete' method="POST"><button type="submit">Delete</button></a>
+<form action='/celebrities/{{_id}}/edit' method="GET">
+  <button type="submit">Edit</button>
+</form>
+<form action='/celebrities/{{_id}}/detele' method="POST">
+  <button type="submit">Delete</button>
+</form>
