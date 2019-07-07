@@ -38,7 +38,7 @@ app.use(cookieParser());
 //   dest: path.join(__dirname, 'public'),
 //   sourceMap: true
 // }));
-      
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -56,5 +56,7 @@ const index = require('./routes/index');
 app.use('/', index);
 const celeb = require('./routes/celebrities');
 app.use('/', celeb);
+const movie = require('./routes/movies');
+app.use('/', movie);
 
 module.exports = app;

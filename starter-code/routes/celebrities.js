@@ -31,4 +31,31 @@ router.post('/celeb/new', (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.post('/celeb/:celebID/delete', (req, res) => {
+  const { celebID } = req.body;
+  Celebrity.findByIdAndRemove(celebID)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch(err => console.log(err));
+});
+
+router.get('/celeb/:celebID/edit', (req, res) => {
+  Celebrity.findById(req.params.celebID)
+    .then((celeb) => {
+      res.render('celebrity-edit', celeb);
+    })
+    .catch(err => console.log(err));
+});
+
+router.post('/celeb/:celebID/edit', (req, res) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update({ _id: req.params.celebID }, { $set: { name, occupation, catchPhrase } })
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+    .catch(err => console.log(err));
+});
+
+
 module.exports = router;
