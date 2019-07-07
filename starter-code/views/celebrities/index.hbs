@@ -2,6 +2,9 @@
 <ul>
   {{#each celebrities}}
    <a href="/celebrities/{{id}}"><li>{{name}}</li></a>
+   <form action="{{id}}/delete" method="POST">
+    <input type="submit" value="Delete">
+   </form>
   {{/each}}
 </ul>
 <a href="/celebrities/new">Create a new celebrity</a>
