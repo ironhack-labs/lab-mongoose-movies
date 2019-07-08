@@ -1,0 +1,10 @@
+<h1>{{title}}</h1> 
+<h3><i>"{{plot}}"</i></h3>
+<span>{{genre}}</span>
+<br><br><br><a href="/movie/{{id}}/edit">edit</a> 
+<form action="/movie/delete" method="post">
+<input type="hidden" name="id" value="{{id}}">
+<button type="submit">Delete</button>
+</form>
+<br><br><br>
+<a href="/movies">Return</a>
