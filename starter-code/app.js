@@ -47,7 +47,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
+// const celebrities = require('./routes/celebrities');
+// const movies = require('./routes/movies');
+
 app.use('/', index);
+// app.use('/celebrities', celebrities);
+// app.use('/movies', movies);
 
 app.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`));
 

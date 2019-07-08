@@ -22,9 +22,8 @@ router.get('/celebrities/new', (req, res) => {
   res.render('celebrities/new');
 });
 
-router.post('/celebrities/new', (req, res) => {
+router.post('/celebrities', (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
-  console.log(req.body);
   const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
   newCelebrity.save()
     .then((celebrity) => {
@@ -44,11 +43,28 @@ router.post('/celebrities/:id/delete', (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.get('/celebrities/:id/edit', (req, res) => {
+  const id = req.params.id;
+  Celebrity.findById(id)
+    .then((celebrity) => {
+      res.render('celebrities/edit', { celebrity });
+    })
+    .catch(err => console.log(err));
+});
+
+router.post('/celebrities/:id', (req, res) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update({ _id: req.params.id }, { $set: { name, occupation, catchPhrase } })
+    .then((celebrity) => {
+      res.redirect('/celebrities/index');
+    })
+    .catch(err => console.log(err));
+});
+
 router.get('/celebrities/:id', (req, res) => {
   const celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
     .then((celebrity) => {
-      console.log('Details:', celebrity);
       res.render('celebrities/show', { celebrity });
     })
     .catch(err => console.log("ERROR:", err));
@@ -89,11 +105,28 @@ router.post('/movies/:id/delete', (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.get('/movies/:id/edit', (req, res) => {
+  const id = req.params.id;
+  Movie.findById(id)
+    .then((movie) => {
+      res.render('movies/edit', { movie });
+    })
+    .catch(err => console.log(err));
+});
+
+router.post('/movies/:id', (req, res) => {
+  const { title, genre, plot } = req.body;
+  Movie.update({ _id: req.params.id }, { $set: { title, genre, plot } })
+    .then((movie) => {
+      res.redirect('/movies/index');
+    })
+    .catch(err => console.log(err));
+});
+
 router.get('/movies/:id', (req, res) => {
   const { id } = req.params;
   Movie.findById(id)
     .then((movie) => {
-      console.log('Details:', movie);
       res.render('movies/show', { movie });
     })
     .catch(err => console.log("ERROR:", err));
