@@ -16,3 +16,6 @@ const celebSchema = new Schema({
 
 const celebModel = mongoose.model("celebrities", celebSchema);
 module.exports = celebModel;
+
+
+//author: {Schema.Types.ObjectId, ref: Author}
