@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/celebrity-lab', { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -50,9 +50,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
+// how you connect app.js with the js files in routes folder
+const index = require('./routes/index'); // define the directory
+app.use('/', index); // first param is the url, second is the variable of the require
 
-const index = require('./routes/index');
-app.use('/', index);
+const celebIndex = require('./routes/celebrities');
+app.use('/', celebIndex); // this makes it so that / from celebrities.js is the index.hbs
 
+const movieIndex = require('./routes/movies');
+app.use('/', movieIndex);
 
 module.exports = app;
