@@ -1,0 +1,40 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h2>Edit Celebrity</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <form action="/celebrities/{{_id}}" method="POST" class="col s12 m12 l6">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="artist-name" name="name" type="text" class="validate" value="{{name}}">
+                        <label for="artist-name">Artist Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="occupation" name="occupation" type="text" class="validate" value="{{occupation}}">
+                        <label for="occupation">Occupation</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="catch-phrase" name="phrase" type="text" class="validate" value="{{catchPhrase}}">
+                        <label for="catch-phrase">Catch Phrase</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s4">
+                        <button class="btn">Edit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

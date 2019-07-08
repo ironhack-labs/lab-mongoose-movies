@@ -9,11 +9,23 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+// const Celebrity    = require('./models/Celebrity');
+// const Movie        = require('./models/Movie');
+// const data         = require('./bin/seeds');
+
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/celebrities', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+
+    // Movie.insertMany(data)
+    //   .then(() => {
+    //     console.log("Saved to your DB !")
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -54,5 +66,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebs = require('./routes/celebrities');
+app.use('/', celebs);
+
+const movies = require('./routes/movies');
+app.use('/', movies);
 
 module.exports = app;
