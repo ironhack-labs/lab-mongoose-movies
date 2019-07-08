@@ -1,0 +1,21 @@
+bldhsvgldsbvdslhbvldsh
+<h3>Edit {{aCelebrity.name}}</h3>
+
+
+
+<form action="/celebrities/update/{{aCelebrity._id}}" method="POST">
+
+<label>Name</label>
+<input name="name" type="text" value="{{aCelebrity.name}}">
+
+<label>Occupation</label>
+<input name="occupation" type="text" value="{{aCelebrity.occupation}}">
+
+<label>catchPhrase</label>
+<input name="catchPhrase" type="text" value="{{aCelebrity.catchPhrase}}">
+
+
+<button> Save Changes</button>
+
+
+</form>
