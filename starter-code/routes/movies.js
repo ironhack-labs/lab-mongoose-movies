@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Movie = require('./../models/Movie');
+const Celebrity = require('./../models/Celebrity');
 
 router.get('/', async (req, res, next) => {
 	try {
@@ -25,7 +26,9 @@ router.post('/', async (req, res, next) => {
 
 router.get('/new', async (req, res, next) => {
 	try {
-		res.render('movies/new');
+		const celebrities = await Celebrity.find();
+		console.log(celebrities);
+		res.render('movies/new', { actors: celebrities });
 	} catch (error) {
 		next(error);
 	}
@@ -33,7 +36,7 @@ router.get('/new', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
 	try {
-		const data = await Movie.findById(req.params.id);
+		const data = await Movie.findById(req.params.id).populate('actor');
 		res.render('movies/show', data);
 	} catch (error) {
 		next(error);
@@ -53,8 +56,14 @@ router.post('/:id', async (req, res, next) => {
 
 router.get('/:id/edit', async (req, res, next) => {
 	try {
-		const data = await Movie.findById(req.params.id);
-		res.render('movies/edit', data);
+		const data = await Movie.findById(req.params.id).populate('actor');
+		const actors = await Celebrity.find();
+		actors.forEach((actor) => {
+			if (actor.name === data.actor.name) {
+				actor.selected = true;
+			}
+		});
+		res.render('movies/edit', { data, actors });
 	} catch (error) {
 		next(error);
 	}

@@ -5,5 +5,10 @@
   <input type="text" name='genre'>
   <label for="plost">Plot</label>
   <input type="text" name='plost'>
+  <select name="actor">
+    {{#each actors}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
   <button type='submit'>Submit</button>
 </form>
