@@ -1,14 +1,18 @@
 <section>
-{{#each Movies}}
-  <div>
-    <h2>
-      <a href="movies/{{this._id}}">
-        {{this.title}}
-      </a>
-    </h2>
+  <div class="board">
+    <div class="board2">
+      {{#each Movies}}
+        <div>
+          <h2>
+            <a href="movies/{{this._id}}">
+              {{this.title}}
+            </a>
+            </h2>
+            <p>with {{this.celebrity.name}}</p>
+        </div>
+        <hr>
+      {{/each}}
+    </div>
+    <a class="add" href="/movies/new">ADD A MOVIE</a>
   </div>
-{{/each}}
-
-<a href="/movies/new">ADD A MOVIE</a>
-
 </section>

@@ -2,6 +2,12 @@
   <form action="/movies" method="POST">
     <label>TITLE:</label>
     <input type="text" name="title">
+    <label>MAIN ACTOR:</label>
+    <select name="celebrity">
+      {{#each celebrities}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
     <label>GENRE:</label>
     <input type="text" name="genre">
     <label>PLOT:</label>

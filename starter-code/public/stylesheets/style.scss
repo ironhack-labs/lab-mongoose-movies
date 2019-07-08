@@ -1,21 +1,133 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728');
+  background-size: cover;
+  background-position: center;
+}
+
+ul a {
+  color: rgb(236, 114, 0);
 }
 
 a {
-  color: rgb(236, 114, 0);
   text-decoration: none;
 }
 
-a:hover {
+.board a:hover {
+  color: rgb(236, 114, 0);
+}
+
+ul a:hover {
   color: rgb(112, 54, 0);
+  border-bottom: 2px solid rgb(112, 54, 0);
 }
 
 ul {
   list-style: none;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   width: 400px;
+  margin: 0;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(100vh - 80px);
+}
+
+.clickable-thing {
+  height: 480px;
+  width: 650px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  line-height: 80px;
+  background: rgba(255, 255, 255, 0.719);
+}
+
+.logo {
+  margin: 0 50px;
+  font-size: 3rem;
+  color: rgb(236, 114, 0);
+  height: 3.8rem;
+}
+
+.logo:hover {
+  border-bottom: 3px solid rgb(236, 114, 0);
+}
+
+.board2 {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  margin-left: 50%;
+  flex-direction: column;
+  height: 470px;
+  width: 933px;
+  text-align: left;
+}
+
+.board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.911);
+}
+
+.board a {
+  color: black;
+  font-weight: normal;
+}
+
+.add {
+  line-height: 2rem;
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  height: 50%;
+  justify-content: space-between;
+}
+
+button, input {
+  line-height: 2rem;
+}
+
+button, .btn {
+  // background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728');
+  // background-size: 196vh;
+  // background-repeat: no-repeat;
+  // background-position: -477px -594px;
+  border: none;
+  outline: 1px solid black;
+  margin-top: 1rem;
+  width: fit-content;
+  align-self: center;
+  padding: .3rem 3rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+button:hover, .btn:hover {
+  font-family: sans-serif;
+  font-weight: 800;
+  outline: 2px solid black;
+  color: black !important;
+  transform: scale(1.1);
+}
+
+select {
+  height: 2.5rem;
 }

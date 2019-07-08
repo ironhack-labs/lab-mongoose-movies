@@ -1,14 +1,16 @@
 <section>
-{{#each Celebrities}}
-  <div>
-    <h2>
-      <a href="celebrities/{{this._id}}">
-        {{this.name}}
-      </a>
-    </h2>
+  <div class="board">
+    <div class="board2">
+      {{#each Celebrities}}
+        <div>
+          <h2>
+            <a href="celebrities/{{this._id}}">
+              {{this.name}}
+            </a>
+          </h2>
+        </div>
+      {{/each}}
+    </div>
+    <a class="add" href="/celebrities/new">ADD A CELEBRITY</a>
   </div>
-{{/each}}
-
-<a href="/celebrities/new">ADD A CELEBRITY</a>
-
 </section>

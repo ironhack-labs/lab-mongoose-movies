@@ -1,9 +1,13 @@
 <section>
-  <div>
-    <h2>{{Celebrity.name}}</h2>
-    <p>{{Celebrity.occupation}}</p>
-    <p>{{Celebrity.catchPhrase}}</p>
-    <a href="/celebrities/{{Celebrity._id}}/edit">EDIT</a>
-    <a href="/celebrities/{{Celebrity._id}}/delete">DELETE</a>
+  <div class="board">
+    <div class="board2">
+      <div>
+        <h2>{{Celebrity.name}}</h2>
+        <h4>{{Celebrity.occupation}}</h4>
+        <p>{{Celebrity.catchPhrase}}</p>
+        <a class="btn" href="/celebrities/{{Celebrity._id}}/edit">EDIT</a><br><br>
+        <a class="btn" href="/celebrities/{{Celebrity._id}}/delete">DELETE</a>
+      </div>
+    </div>
   </div>
 </section>
