@@ -50,7 +50,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const movies = require('./routes/movies')
 app.use('/', index);
+app.use('/movies/', movies);
 
 app.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`));
 
