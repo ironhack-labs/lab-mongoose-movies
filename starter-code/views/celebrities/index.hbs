@@ -1,0 +1,14 @@
+<section>
+{{#each Celebrities}}
+  <div>
+    <h2>
+      <a href="celebrities/{{this._id}}">
+        {{this.name}}
+      </a>
+    </h2>
+  </div>
+{{/each}}
+
+<a href="/celebrities/new">ADD A CELEBRITY</a>
+
+</section>
