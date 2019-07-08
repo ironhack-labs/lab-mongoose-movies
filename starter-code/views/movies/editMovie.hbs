@@ -12,6 +12,18 @@
 <label>Plot</label>
 <input name="plot" type="text" value="{{theMovie.plot}}">
 
+
+<div>
+<label>Actor</label>
+<select class ="browser-default" name="actor" id="">
+
+
+  {{#each theCelebs}}
+  <option value="{{this._id}}">{{this.name}}</option>
+  {{/each}}
+</select>
+</div>
+
 <div class="center-align"><button class="waves-effect waves-light btn-large"> Save Changes</button></div>
 
 </form>

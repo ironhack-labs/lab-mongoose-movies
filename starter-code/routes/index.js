@@ -16,15 +16,17 @@ router.get('/celebrities',(req,res,next)=>{
   })
 })
 router.get('/celebrities/details/:id',(req,res,next)=>{
+  Movie.find({actor: req.params.id})
+  .then((movieList)=>{
   Celeb.findById(req.params.id)
   .then((theCeleb)=>{
-    res.render("celebrities/details",{oneCeleb: theCeleb})
+    res.render("celebrities/details",{oneCeleb: theCeleb, listOfMovies: movieList})
   })
   .catch((err)=>{
     next(err);
   })
 })
-
+})
 router.get('/celebrities/new',(req,res,next)=>{
   res.render("celebrities/new")
 })
@@ -82,7 +84,7 @@ router.get('/movies',(req,res,next)=>{
   })
 })
 router.get('/movies/details/:id',(req,res,next)=>{
-  Movie.findById(req.params.id)
+  Movie.findById(req.params.id).populate('actor')
   .then((theMovie)=>{
     res.render("movies/details",{oneMovie: theMovie})
   })
@@ -91,14 +93,22 @@ router.get('/movies/details/:id',(req,res,next)=>{
   })
 })
 router.get('/movies/new',(req,res,next)=>{
-  res.render("movies/new")
+  Celeb.find()
+  .then((allCelebs)=>{
+    console.log(allCelebs);
+    res.render("movies/new",{theOptions: allCelebs})
+  })
+  .catch((err)=>{
+    next(err);
+  })
 })
 router.post('/movies',(req,res,next)=>{
-  const {title, genre, plot}= req.body;
+  const {title, genre, plot,actor}= req.body;
   let newMovie = {
     title: title,
     genre: genre,
-    plot: plot
+    plot: plot,
+    actor: actor
   }
   Movie.create(newMovie)
   .then(()=>{
@@ -119,13 +129,16 @@ router.post("/movies/:id/delete",(req,res,next)=>{
   })
 })
 router.get("/movies/:id/edit",(req,res,next)=>{
+  Celeb.find()
+  .then((celebs)=>{
   Movie.findById(req.params.id)
   .then((oneMovie)=>{
-    res.render("movies/editMovie",{theMovie: oneMovie})
+    res.render("movies/editMovie",{theMovie: oneMovie, theCelebs: celebs})
   })
   .catch((err)=>{
     next(err);
   })
+})
 })
 router.post("/movies/update/:id",(req,res,next)=>{
   let id = req.params.id;

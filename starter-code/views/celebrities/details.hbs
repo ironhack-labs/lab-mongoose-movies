@@ -1,3 +1,9 @@
 <h1>Name: {{oneCeleb.name}}</h1>
 <h3>Occupation: {{oneCeleb.occupation}}</h3>
 <h4>Catch Phrase: {{oneCeleb.catchPhrase}}</h4>
+<h4>Movies: </h4>
+<ul>
+  {{#each listOfMovies}}
+  <a href="/movies/details/{{this.id}}"><li>{{this.title}}</li></a>
+  {{/each}}
+</ul>
