@@ -56,4 +56,4 @@ app.use('/celebrities/', celebrities)
 
 
 module.exports = app;
-app.listen(process.env.PORT, () => console.log('Charging Lasers!')); 
+
