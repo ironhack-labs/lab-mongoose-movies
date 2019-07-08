@@ -8,6 +8,21 @@
 
   <label for="">Plot:</label>
   <input type="text" name="plot" value="{{themoviex.plot}}">
+
+  <label for="">Celebrity:</label>
+  {{!-- <input type="text" name="celebrity" value="{{themoviex.celebrity}}"> --}}
+  <select name="celebrity" >
+
+    {{#each allCelebrities }}
+
+    <option value="{{this._id}}">{{this.name}}</option>
+
+    {{/each}}
+
+  </select>
+
+
+{{!-- error message --}}
   {{#if errorMessage}}
       <div class="error-message">{{ errorMessage }}</div>
   {{/if}}

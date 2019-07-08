@@ -5,8 +5,9 @@
   <hr>
   <span><a href="movies/{{this._id}}">{{this.title}}</a></span>
 
-  <span>{{ this.genre }}</span>
-   <span>{{ this.plot }}</span>
+  <span>Genre: <strong class="strong">{{ this.genre }}</strong> </span>
+   <span>Plot: <strong class="strong"> {{ this.plot }}</strong></span>
+   <span>Celebrity Star: <strong class="strong">{{ this.celebrity.name }} </strong> </span>
   <span> 
     <a href="/movies/{{this._id}}/edit" class="edit-button">EDIT</a>
   </span>

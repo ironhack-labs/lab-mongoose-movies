@@ -1,7 +1,8 @@
 const express = require('express');
 const movieRouter  = express.Router();
 const Movie = require('../models/Movie');
-
+const Celebrity = require('../models/Celebrity');
+ 
 movieRouter.post('/movies/:id', (req, res, next) => {
 
   console.log('POST movies/:id  inside router..' );
@@ -20,10 +21,18 @@ movieRouter.post('/movies/:id', (req, res, next) => {
 
 movieRouter.get('/movies/:id/edit', (req, res, next) => {
   console.log('you are in movie edit route..');
+
     Movie.findById(req.params.id)
       .then((moviex)=>{
-          console.log("object from db from edit is:   " + moviex)
-          res.render('movies/edit', {themoviex:moviex});
+          // find all celebrities for select tag
+            Celebrity.find()
+            .then((allCelebritiesFromDB)=>{
+              console.log("celebrities from db from edit is:   " + allCelebritiesFromDB);
+              res.render('movies/edit', {themoviex:moviex, allCelebrities: allCelebritiesFromDB});
+
+            });
+          //
+          
       })
       .catch((err)=>{
         console.log('error ' + err);
@@ -91,7 +100,7 @@ movieRouter.get('/movies/:id', (req, res, next) => {
 
 
 movieRouter.get('/movies', (req, res, next) => {
-  Movie.find()
+  Movie.find().populate('celebrity')
   .then((thingFromDB)=>{
 
     res.render('movies',{allTheMovies:thingFromDB});
