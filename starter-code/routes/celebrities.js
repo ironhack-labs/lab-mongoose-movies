@@ -45,7 +45,7 @@ router.post('/:id', async (req, res, next) => {
 		const data = await Celebrities.findByIdAndUpdate(req.params.id, {
 			$set: req.body,
 		});
-		res.redirect('/celebrities');
+		res.redirect('/celebrities/');
 	} catch (error) {
 		next(error);
 	}
