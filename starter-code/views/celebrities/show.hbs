@@ -1,0 +1,8 @@
+<h2>{{ name }}'s info</h2>
+<p>Name: {{ name }}</p>
+<p>Occupation: {{ occupation }}</p>
+<p>Catch phrase: "{{ catchPhrase }}."</p>
+<form action="/celebrities/{{ _id }}/delete" method="POST">
+  <button type="submit">Delete celebrity</button>
+</form>
+<button><a href="/celebrities/{{ _id }}/edit-celeb">Edit celebrity</a></button>
