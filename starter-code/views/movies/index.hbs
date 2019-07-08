@@ -1,18 +1,18 @@
 <h1>List of MOVIES</h1>
-{{!-- <h2><span><a href="celebrities/new">ADD new celebrity</a></span> </h2> --}}
+<h2><span><a href="movies/new">ADD new Movie</a></span> </h2>
 <p></p>
 {{#each allTheMovies}}
-  
+  <hr>
   <span><a href="movies/{{this._id}}">{{this.title}}</a></span>
 
   <span>{{ this.genre }}</span>
    <span>{{ this.plot }}</span>
-  {{!-- <span> 
-    <a href="/celebrities/{{this._id}}/edit" class="edit-button">EDIT</a>
-  </span> --}}
-  <hr>
+  <span> 
+    <a href="/movies/{{this._id}}/edit" class="edit-button">EDIT</a>
+  </span>
   <p></p>
-  {{!-- <form action="/celebrities/{{this._id }}/delete" method="POST">
-    <button>delete this celebrity</button>
-  </form> --}}
+  <form action="/movies/{{this._id }}/delete" method="POST">
+    <button>delete this movie</button>
+  </form>
+  <hr>
 {{/each}}

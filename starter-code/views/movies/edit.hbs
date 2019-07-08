@@ -1,0 +1,15 @@
+<h1>Edit this Movie </h1>
+<form action="/movies/{{ themoviex._id }}" method="POST">
+  <label for="">Title:</label>
+  <input type="text" name="title" value="{{themoviex.title}}">
+
+  <label for="">Genre:</label>
+  <input type="text" name="genre" value="{{themoviex.genre}}">
+
+  <label for="">Plot:</label>
+  <input type="text" name="plot" value="{{themoviex.plot}}">
+  {{#if errorMessage}}
+      <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+  <button type="submit">UPDATE MOvie</button>
+</form>
