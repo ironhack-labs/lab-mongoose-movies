@@ -16,6 +16,7 @@ const movieArray = [
     title: "Mission impossible",
     genre: "Action",
     plot: "Special agent completed an impossible mission"
+     
   },
   {
     title: "Matrix",

@@ -10,6 +10,15 @@
   <label for="plot">Plot</label>
   <input type="text" id="plot" name="plot">
 
+  <label for="celebsSelect"> Celebrities: </label>
+  {{!-- Dropdown with the list of celebrities --}}
+    
+  <select name="actors" id="celebsSelect">
+  {{#each celebs}}
+    <option value="{{this._id}}" >{{this.name}}</option>
+  {{/each}}
+  </select>
+
   <button>Save</button>
 
 

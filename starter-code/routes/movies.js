@@ -1,9 +1,11 @@
 const express = require('express');
 const router  = express.Router();
 const movies = require('../models/movies')
+const celebrities = require('../models/celebrities')
+
 /* GET home page */
 router.get('/movies/index', (req, res, next) => {
-  movies.find()
+  movies.find().populate('actors')
     .then((theMoviesFromDB)=>{
       res.render('movies/index', {ofTheMovies: theMoviesFromDB})
     })
@@ -14,7 +16,7 @@ router.get('/movies/index', (req, res, next) => {
 });
 
 router.get('/movies/:id', (req, res, next) => {
-  movies.findById(req.params.id)
+  movies.findById(req.params.id).populate('actors')
     .then((hotFromDB)=> {
       res.render('movies/detailed', {singleMovie: hotFromDB})
     })
@@ -24,10 +26,19 @@ router.get('/movies/:id', (req, res, next) => {
 })
 
 router.get('/movies/create/new', (req, res, next) => {
-  res.render('movies/createNew')
+  celebrities.find()
+    .then(allTheCelebs=> {
+      res.render('movies/createNew', {celebs: allTheCelebs})
+
+    })
+    .catch(err => {
+      next(err);
+    })
+  
 })
 
 router.post('/movies', (req, res, next) => {
+  console.log(req.body)
   movies.create(req.body);
   res.redirect('/movies/index')
 })
