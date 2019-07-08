@@ -1,8 +1,16 @@
-<h2>All Movies in our Database</h2>
+<h2 class="center-align">All Movies in our Database</h2>
+<div class="container-fluid">
+<div class="row">
 {{#each theMovies}}
+<div class="col l3 m8 s12 movie-styling center-align">
 <h3>{{this.title}}</h3>
 <a href="/movies/details/{{id}}"><h4>View more details</h4></a>
-<a href="/movies/{{id}}/edit"><button>Edit this Movie</button></a>
-<form action="/movies/{{id}}/delete" method="POST"><button>Delete this Movie!</button></form>
+<a href="/movies/{{id}}/edit"><button class="waves-effect waves-light btn-small">Edit this Movie</button></a>
+<form action="/movies/{{id}}/delete" method="POST"><button class="waves-effect waves-light btn-small">Delete this Movie!</button></form>
+</div>
 {{/each}}
-<a href="/movies/new"><button>Add new movie</button></a>
+</div>
+</div>
+<div class="center-align">
+<a class="waves-effect waves-light btn-large" href="/movies/new">Add new movie</a>
+</div>

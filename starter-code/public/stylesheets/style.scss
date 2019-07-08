@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+.top-nav{
+  background-color: #00B7FF;
+  height: 100px;
+}
+.top-nav a{
+  color: white;
+  text-decoration: none;
+  margin-top: 30px;
+}
+.movie-styling{
+  border: 1px black solid;
+  margin: 0px 5% 5% 5%;
+  height: 350px;
+}
+.movie-styling *{
+  margin-bottom: 3%;
+}

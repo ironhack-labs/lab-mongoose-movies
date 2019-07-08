@@ -1,8 +1,14 @@
-<h2>All celebs in our Database</h2>
+<h2 class="center-align">All celebs in our Database</h2>
+<div class="container-fluid">
+<div class="row">
 {{#each theCelebs}}
+<div class="col l3 m8 s12 movie-styling center-align">
 <h3>{{this.name}}</h3>
 <a href="/celebrities/details/{{id}}"><h4>View more details</h4></a>
-<a href="/celebrities/{{id}}/edit"><button>Edit this celeb</button></a>
-<form action="/celebrities/{{id}}/delete" method="POST"><button>Delete this celeb!</button></form>
+<a href="/celebrities/{{id}}/edit"><button class="waves-effect waves-light btn-small">Edit this celeb</button></a>
+<form action="/celebrities/{{id}}/delete" method="POST"><button class="waves-effect waves-light btn-small">Delete this celeb!</button></form>
+</div>
 {{/each}}
-<a href="/celebrities/new"><button>Add new celeb</button></a>
+</div>
+</div>
+<div class="center-align"><a class="waves-effect waves-light btn-large" href="/celebrities/new">Add new celeb</a></div>
