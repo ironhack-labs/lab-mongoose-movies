@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+.div1 {
+  margin-bottom: 30px; }
+
+.movie-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: grey;
+  margin: 10px;
+  padding: 10px; }
+
+.movie-list > a {
+  text-decoration: none;
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */
