@@ -1,0 +1,8 @@
+<h2>All celebs in our Database</h2>
+{{#each theCelebs}}
+<h3>{{this.name}}</h3>
+<a href="/celebrities/details/{{id}}"><h4>View more details</h4></a>
+<a href="/celebrities/{{id}}/edit"><button>Edit this celeb</button></a>
+<form action="/celebrities/{{id}}/delete" method="POST"><button>Delete this celeb!</button></form>
+{{/each}}
+<a href="/celebrities/new"><button>Add new celeb</button></a>
