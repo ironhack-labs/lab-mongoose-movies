@@ -2,20 +2,18 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: white;
-  background-color: black;
-}
+  background-color: black; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 .btn {
   border: 1px solid black;
   border-radius: 3px;
-  padding: 5px;
-}
+  padding: 5px; }
 
 .btn-link {
   color: black;
-  text-decoration: none;  
-}
+  text-decoration: none; }
+
+/*# sourceMappingURL=style.css.map */
