@@ -1,7 +1,7 @@
-<h2>CELEBS</h2>
 {{#each celebs}}
     <a href="/celebs/{{_id}}"><h3>{{this.name}}</a></h3>
     <p>{{this.occupation}}</p>
     <b><p>{{this.catchPhrase}}</b></p>
+    <button type="submit"><a href="/">DELETE</a></button>
+    <button type="submit"><a href="celebs/{{id}}/edit">EDIT</a></button>
 {{/each}}
-<button><a href="/celebs">Add a celebrity!</a></button>
