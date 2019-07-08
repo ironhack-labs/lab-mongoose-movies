@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/the-celebrities', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -45,14 +45,43 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
+//ROUTES CELEBRITIES
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebs = require('./routes/celebrities');
+app.use('/', celebs);
+
+const editCeleb = require('./routes/edit');
+app.use('/', editCeleb);
+
+const newCeleb = require('./routes/new');
+app.use('/', newCeleb);
+
+const deleteCeleb = require('./routes/delete');
+app.use('/', deleteCeleb);
+
+const celebrity = require('./routes/celebrity');
+app.use('/', celebrity);
+
+//ROUTES MOVIES
+const movies = require('./routes/movies');
+app.use('/', movies);
+
+const movie = require('./routes/movie');
+app.use('/', movie);
+
+const createMovie = require('./routes/createMovie');
+app.use('/', createMovie);
+
+const editMovie = require('./routes/editMovie');
+app.use('/', editMovie);
+
+const deleteMovie = require('./routes/deleteMovie');
+app.use('/', deleteMovie);
 
 
 module.exports = app;

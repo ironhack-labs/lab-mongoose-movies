@@ -1,0 +1,30 @@
+<div class="movies-container">
+  <div class="movies-list">
+    <div class="movie-listings">
+      {{#each movies}}
+        <div class="movie">
+          <h3>Name: {{this.name}}</h3>
+          <h4>Genre: {{this.genre}}</h4>
+          <h5>Plot: {{this.plot}}</h5>
+          <h5>Staring: {{this.actor.name}}</h5>
+          <a href="/movie/{{this.id}}">View more</a>
+          <form action="/deleteMovie/{{this.id}}" method="POST"><button>Delete from list</button></form>
+        </div>
+      {{/each}}
+    </div>
+    <div class="add-movie">
+    <h3>Add to the Movie - list</h3>
+    <form action="/createMovie" method="POST">
+      <input type="text" placeholder="Movie Name" required="true" name="name">
+      <input type="text" placeholder="Movie Genre" required="true" name="genre">
+      <input type="text" placeholder="The Plot" required="true" name="plot">
+      <select name="actor" id="actors-list">
+        {{#each actors}}
+            <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+      <button type="submit">Add to list</button>
+    </form>
+  </div>
+  </div>
+</div>

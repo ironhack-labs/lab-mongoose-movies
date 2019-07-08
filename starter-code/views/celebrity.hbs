@@ -1,0 +1,13 @@
+<div class="celeb-container">
+  <div class="celeb">
+    <h3>Name: {{celeb.name}}</h3>
+    <h4>Accupation: {{celeb.accupation}}</h4>
+    <h5>Catch-Phrase: {{celeb.catchPhrase}}</h5>
+  </div>
+  <form action="/edit/{{celeb.id}}" method="POST">
+    <input type="text" placeholder="Celebrity Name" required="true" name="name">
+    <input type="text" placeholder="Celebrity Occupation" required="true" name="accupation">
+    <input type="text" placeholder="Celebrity Catch-phrase" required="true" name="catchPhrase">
+    <button type="submit">Update</button>
+  </form>
+</div>
