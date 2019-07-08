@@ -1,0 +1,19 @@
+<h3>Edit {{mEdit.title}}</h3>
+
+
+
+<form action="/movies/updateMovie/{{mEdit._id}}" method="POST">
+
+<label>Title:</label>
+<input name="title" type="text" value="{{mEdit.title}}">
+<br><br>
+<label>Genre:</label>
+<input name="genre" type="text" value="{{mEdit.genre}}">
+<br><br>
+<label>Plot:</label>
+<textarea name="plot" rows="10" cols="30">{{mEdit.plot}}</textarea>
+<br><br>
+<input type="submit" value="Update">
+
+
+</form>
