@@ -7,6 +7,7 @@
 <a href="/movies/details/{{id}}"><h4>View more details</h4></a>
 <a href="/movies/{{id}}/edit"><button class="waves-effect waves-light btn-small">Edit this Movie</button></a>
 <form action="/movies/{{id}}/delete" method="POST"><button class="waves-effect waves-light btn-small">Delete this Movie!</button></form>
+<form action="/User/addMovie/{{id}}" method="POST"><button class="waves-effect waves-light btn-small">Add this Movie to your favs!</button></form>
 </div>
 {{/each}}
 </div>

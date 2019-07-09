@@ -1,0 +1,22 @@
+<h2>Login</h2>
+
+
+<form action="/User/login" method="POST">
+
+<label>Your Username</label>
+<input type="text" name="theUsername">
+
+
+<label>Password</label>
+<input type="text" name="thePassword">
+
+
+
+<div class="center-align"><button class="waves-effect waves-light btn-large">Submit</button></div>
+
+
+{{#if error}}
+<div>{{error}}</div>
+{{/if}}
+
+</form>

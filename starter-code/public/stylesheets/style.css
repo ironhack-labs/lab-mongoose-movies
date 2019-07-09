@@ -17,9 +17,14 @@ a {
 .movie-styling {
   border: 1px black solid;
   margin: 0px 5% 5% 5%;
-  height: 350px; }
+  height: 400px; }
 
 .movie-styling * {
   margin-bottom: 3%; }
+
+.log-out {
+  margin-top: 45%;
+  background-color: #00B7FF;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
