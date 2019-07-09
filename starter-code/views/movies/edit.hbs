@@ -1,0 +1,33 @@
+<div class="celeb-padding">
+    <h2>Edit A Movie</h2>
+    <div class="row edit-celeb">
+        <form action="/movies/{{movieEdit._id}}" class="col s12" method="POST">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="title" type="text" class="validate" value={{movieEdit.title}}>
+                    <label>First Name:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="genre" type="text" class="validate" value={{movieEdit.genre}}>
+                    <label>Genre:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="plot" type="text" class="validate" value={{movieEdit.plot}}>
+                    <label>Plot:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="actor" type="text" class="validate" value={{movieEdit.actor}}>
+                    <label>Actor:</label>
+                </div>
+            </div>
+            <button class="waves-effect waves-light btn-large">Update</button>
+            <a href="/movies"><button class="waves-effect waves-light btn-large red darken-1">Cancel</button></a>
+        </form>
+    </div>
+</div>

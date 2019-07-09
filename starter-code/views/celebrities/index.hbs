@@ -1,0 +1,36 @@
+<div class="celeb-padding">
+
+    <h2>Celebrities:</h2>
+    <div class="row all-cards">
+        {{#each celebs}}
+        <div class="col s12 m12 l4 flexing">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">{{this.name}}</span>
+                </div>
+                <div class="card-action">
+                    <a href="/celebrities/{{this._id}}">View Details</a>
+                    <div class="edit-delete-buttons">
+                        <a href="/celebrities/{{this._id}}/edit">
+                            <button class="btn-floating btn-small waves-effect waves-light teal lighten">
+                                <i class="material-icons delete">edit</i>
+                            </button>
+                        </a>
+                        <form action="/celebrities/{{this._id}}/delete" method="POST">
+                            <button class="btn-floating btn-small waves-effect waves-light red darken-1">
+                                <i class="material-icons delete">close</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+    <div class="row all-cards">
+        <div class="col">
+            <a href="/celebrities/new" class="waves-effect waves-light btn-large">Add New Celebrity</a>
+        </div>
+    </div>
+</div>

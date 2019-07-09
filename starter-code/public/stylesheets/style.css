@@ -1,97 +1,75 @@
 body {
-  // padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #636363;
-  color: #fff;
-}
+  color: #fff; }
 
 a {
-  color: #00b7ff;
-}
+  color: #00b7ff; }
 
 .celeb-padding {
-  padding: 30px;
-}
+  padding: 30px; }
 
 .details {
-  text-align: center;
-}
+  text-align: center; }
+
 .home-page {
   display: flex;
-  // justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .celeb-home {
-  // margin: 20px;
   background-color: #25a69a;
   height: 100vh;
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .movie-home a {
   font-size: 70px;
   color: #fff;
-  transition: all 0.2s ease-in-out;
-}
+  transition: all 0.2s ease-in-out; }
 
 .movie-home a:hover {
-  color: #25a69a;
-}
+  color: #25a69a; }
 
 .celeb-home a {
   font-size: 70px;
   color: #fff;
-  transition: all 0.2s ease-in-out;
-}
+  transition: all 0.2s ease-in-out; }
 
 .celeb-home a:hover {
-  color: #636363;
-}
+  color: #636363; }
+
 .movie-home {
-  // margin: 20px;
   background-color: #636363;
   height: 100vh;
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .card-action {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
+  align-items: center; }
 
 .btn-small i {
-  font-size: 25px;
-}
+  font-size: 25px; }
 
 .edit-delete-buttons {
-  display: flex;
-}
+  display: flex; }
 
 .flexing {
-  margin: 0 !important;
-}
+  margin: 0 !important; }
 
 form label {
-  color: #fff !important;
-}
+  color: #fff !important; }
 
 form input {
-  color: #fff;
-}
-
-// .edit-celeb input {
-//   color: #636363;
-// }
+  color: #fff; }
 
 input.validate.valid {
   border-bottom: 1px solid #00b7ff !important;
-  box-shadow: 0 1px 0 0 #00b7ff !important;
-}
+  box-shadow: 0 1px 0 0 #00b7ff !important; }
+
+/*# sourceMappingURL=style.css.map */

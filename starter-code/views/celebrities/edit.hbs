@@ -1,0 +1,27 @@
+<div class="celeb-padding">
+    <h2>Edit A Celebrity</h2>
+    <div class="row edit-celeb">
+        <form action="/celebrities/{{celebEdit._id}}" class="col s12" method="POST">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="name" type="text" class="validate" value={{celebEdit.name}}>
+                    <label>First Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="occupation" type="text" class="validate" value={{celebEdit.occupation}}>
+                    <label>Occupation</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="catchPhrase" type="text" class="validate" value={{celebEdit.catchPhrase}}>
+                    <label>Catch Phrase</label>
+                </div>
+            </div>
+            <button class="waves-effect waves-light btn-large">Update</button>
+            <a href="/celebrities"><button class="waves-effect waves-light btn-large red darken-1">Cancel</button></a>
+        </form>
+    </div>
+</div>
