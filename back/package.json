@@ -1,0 +1,29 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)",
+  "main": "server.js",
+  "scripts": {
+    "rebuild": "tsc",
+    "nodemon": "nodemon ./dist/server.js localhost 3006",
+    "test": "mocha --timeout 20000 test/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "nodemon": "^1.19.1",
+    "puppeteer": "^1.18.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*"
+    ],
+    "delay": "2500"
+  }
+}
