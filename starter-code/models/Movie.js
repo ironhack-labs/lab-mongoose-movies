@@ -1,6 +1,5 @@
-const mongoose = require('mongoose'); // Erase if already required
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// Declare the Schema of the Mongo model
 const movieSchema = new Schema({
 	title: { type: String },
 	genre: { type: String },
@@ -8,5 +7,4 @@ const movieSchema = new Schema({
 	actor: { type: Schema.Types.ObjectId, ref: 'Celebrity' },
 });
 
-//Export the model
 module.exports = mongoose.model('Movie', movieSchema);

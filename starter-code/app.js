@@ -8,10 +8,18 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+// const flash = require('connect-flash');
+// const bcrypt = require('bcryptjs');
+const MongoStore = require('connect-mongo')(session);
 
 // const Celebrities = require('./models/Celebrity');
 // const Movies = require('./models/Movie');
 // const seed = require('./bin/seedMovies');
+
+const User = require('./models/User');
 
 mongoose
 	.connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
@@ -32,6 +40,55 @@ const debug = require('debug')(
 );
 
 const app = express();
+
+app.use(
+	session({
+		secret: 'our-passport-local-strategy-app',
+		cookie: { maxAge: 60000 },
+		resave: true,
+		saveUninitialized: true,
+		store: new MongoStore({
+			mongooseConnection: mongoose.connection,
+			ttl: 24 * 60 * 60,
+		}),
+	}),
+);
+
+// app.use(flash());
+
+// passport.serializeUser((user, cb) => {
+// 	cb(null, user._id);
+// });
+
+// passport.deserializeUser((id, cb) => {
+// 	User.findById(id, (err, user) => {
+// 		if (err) {
+// 			return cb(err);
+// 		}
+// 		cb(null, user);
+// 	});
+// });
+
+// passport.use(
+// 	new LocalStrategy((username, password, next) => {
+// 		User.findOne({ username }, (err, user) => {
+// 			if (err) {
+// 				return next(err);
+// 			}
+// 			if (!user) {
+// 				return next(null, false, { message: 'Incorrect username' });
+// 			}
+// 			if (!bcrypt.compareSync(password, user.password)) {
+// 				return next(null, false, { message: 'Incorrect password' });
+// 			}
+
+// 			return next(null, user);
+// 		});
+// 	}),
+// );
+
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -60,8 +117,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 const celebrities = require('./routes/celebrities');
 const movies = require('./routes/movies');
+const auth = require('./routes/auth');
 app.use('/', index);
 app.use('/celebrities', celebrities);
 app.use('/movies', movies);
+app.use('/auth', auth);
 
 module.exports = app;

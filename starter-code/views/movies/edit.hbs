@@ -6,6 +6,7 @@
   <label for="plost">Plot</label>
   <input type="text" name='plost' value='{{data.plot}}'>
   <select name="actor">
+    <option value="null">-</option>
     {{#each actors}}
     {{#if this.selected}}
     <option value="{{this._id}}" selected="selected">{{this.name}}</option>
