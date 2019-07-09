@@ -1,15 +1,25 @@
+
+<div>
+  <h2>Login Here</h2>
+</div>
+
+<dir>
+  <h5>Not a Member? Become one<a href="/signup"> here</a></h5>
+</dir>
+
+
 <form id="form" action="/login" method="POST">
-    <label for="username">Username</label><br>
+    <label for="username">Username:</label><br>
     <input type="text" name="username"
       placeholder="Your username">
+<br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" name="password">
+    <br><br>
 
-    <label for="password">Password</label><br>
-    <input type="password" name="password"
-      placeholder="********">
+     {{#if error}}
+       <div>{{error}}</div>
+     {{/if}}
 
-      {{#if errorMessage}}
-  <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
-
-    <button type="submit">login</button>
+     <input type="submit" name="submit">
   </form>

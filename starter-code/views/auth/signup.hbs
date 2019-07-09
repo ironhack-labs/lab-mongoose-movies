@@ -1,15 +1,26 @@
+<div>
+  <h2>Create A Account</h2>
+</div>
+
+
+<div>
+  <h5>Already A Member? Sign in <a href="/login">Here</a></h5>
+</div>
+
 <form id="form" action="/signup" method="POST">
-    <label for="username">Username</label><br>
+    <label for="username">Username:</label><br>
     <input type="text" name="username"
       placeholder="Your username">
+<br><br>
+    <label for="password">Password:</label><br>
+    <input id="passwordenter" type="password" name="password">
 
-    <label for="password">Password</label><br>
-    <input type="password" name="password"
-      placeholder="********">
 
-      {{#if errorMessage}}
-  <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
-
+<div>
+  <h5>
+<label>Password Strength:</label>
+    <label id="passStrength"></label>
+  </h5>
+</div>
     <button type="submit">Create account</button>
   </form>

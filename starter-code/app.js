@@ -9,6 +9,10 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const bcrypt       = require('bcrypt');
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const zxcvbn = require('zxcvbn');
+
 
 
 mongoose
@@ -33,6 +37,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -48,6 +61,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
+//Login Redirect 
+
+const authRouter = require('./routes/auth');
+app.use('/', authRouter);
 
 
 //Orignal Route Set Up
@@ -55,12 +72,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 const index = require('./routes/index');
 app.use('/', index);
 
-//Login Redirect 
 
-const authRouter = require('./routes/auth');
-app.use('/', authRouter);
+//Movies
 
+const movRouter = require('./routes/movieRoute');
+app.use('/', movRouter);
 
+//Profile
+
+const routerProfile = require('./routes/profile');
+app.use('/', routerProfile);
 
 
 module.exports = app;
