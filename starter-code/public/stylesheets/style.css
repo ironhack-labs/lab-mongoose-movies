@@ -25,7 +25,7 @@ ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
-  width: 400px;
+  width: 660px;
   margin: 0; }
 
 section {
@@ -78,7 +78,7 @@ nav {
   line-height: 2rem;
   text-decoration: underline; }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   width: 45%;
@@ -88,7 +88,7 @@ form {
 button, input {
   line-height: 2rem; }
 
-button, .btn {
+.btn {
   border: none;
   outline: 1px solid black;
   margin-top: 1rem;
@@ -98,7 +98,16 @@ button, .btn {
   font-size: 1rem;
   font-weight: 700; }
 
-button:hover, .btn:hover {
+.btn2 {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0 10px; }
+
+.btn2:hover {
+  color: #ec7200; }
+
+.btn:hover {
   font-family: sans-serif;
   font-weight: 800;
   outline: 2px solid black;

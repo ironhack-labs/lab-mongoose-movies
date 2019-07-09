@@ -30,7 +30,7 @@ ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
-  width: 400px;
+  width: 660px;
   margin: 0;
 }
 
@@ -94,7 +94,7 @@ nav {
   text-decoration: underline;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   width: 45%;
@@ -106,11 +106,7 @@ button, input {
   line-height: 2rem;
 }
 
-button, .btn {
-  // background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728');
-  // background-size: 196vh;
-  // background-repeat: no-repeat;
-  // background-position: -477px -594px;
+.btn {
   border: none;
   outline: 1px solid black;
   margin-top: 1rem;
@@ -121,7 +117,18 @@ button, .btn {
   font-weight: 700;
 }
 
-button:hover, .btn:hover {
+.btn2 {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.btn2:hover {
+  color: rgb(236, 114, 0);
+}
+
+.btn:hover {
   font-family: sans-serif;
   font-weight: 800;
   outline: 2px solid black;
