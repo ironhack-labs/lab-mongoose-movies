@@ -86,6 +86,7 @@ router.get('/movies',(req,res,next)=>{
 router.get('/movies/details/:id',(req,res,next)=>{
   Movie.findById(req.params.id).populate('actor')
   .then((theMovie)=>{
+    console.log(theMovie);
     res.render("movies/details",{oneMovie: theMovie})
   })
   .catch((err)=>{
@@ -94,8 +95,7 @@ router.get('/movies/details/:id',(req,res,next)=>{
 })
 router.get('/movies/new',(req,res,next)=>{
   Celeb.find()
-  .then((allCelebs)=>{
-    console.log(allCelebs);
+  .then((allCelebs)=>{ 
     res.render("movies/new",{theOptions: allCelebs})
   })
   .catch((err)=>{

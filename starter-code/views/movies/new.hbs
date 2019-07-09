@@ -18,5 +18,25 @@
 </select>
 </div>
 
+<div>
+<label>Actor 2</label>
+<select class ="browser-default" name="actor" id="">
+
+
+  {{#each theOptions}}
+  <option value="{{this._id}}">{{this.name}}</option>
+  {{/each}}
+</select>
+</div>
+<div>
+<label>Actor 3</label>
+<select class ="browser-default" name="actor" id="">
+
+
+  {{#each theOptions}}
+  <option value="{{this._id}}">{{this.name}}</option>
+  {{/each}}
+</select>
+</div>
 <div class="center-align"><button class="waves-effect waves-light btn-large">Submit!</button></div>
 </form>
