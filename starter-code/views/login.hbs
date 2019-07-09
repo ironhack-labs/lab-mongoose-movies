@@ -1,0 +1,13 @@
+<div class="loging-container">
+  <div class="login-wrapper">
+    <h1>Log In</h1>
+    <form action="/auth-route" method="POST">
+      <label for="userName">Username:</label>
+      <input type="text" name="username" placeholder="Username" required="true">
+      <label for="passWord">Password:</label>
+      <input type="password" name="password" placeholder="Password" required="true">
+      <button>Log In</button>
+    </form>
+    <h3>{{message}}</h3>
+  </div>
+</div>

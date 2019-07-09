@@ -26,11 +26,3 @@ router.get('/movie/:id', (req, res, next) => {
 });
 
 module.exports = router;
-
-Celebs.find()
-.then((celebData)=>{
-  res.render('movies', {movies: data, actors: celebData});
-})
-.catch(()=>{
-  console.log("The received data from the DB: ", data);
-});
