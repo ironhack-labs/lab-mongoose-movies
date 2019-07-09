@@ -1,8 +1,33 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#user-form{
+  width: 300px;
+}
+
+#first-page{
+  height: 94vh;
+  width: 100vw;
+  background-image: url('/images/georgia-vagim-ny-lHmsHYHk-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#homepagelink{
+  color: rgba(255, 255, 255, 0.637);
+  font-size: 100px;
+}
+
+#logologin{
+  margin-left: 20px;
+  color: rgba(255, 255, 255, 0.801);
 }
