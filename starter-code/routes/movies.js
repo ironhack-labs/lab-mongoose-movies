@@ -58,11 +58,19 @@ movieRouter.post('/movies/:id/delete', (req, res, next) => {
 movieRouter.get('/movies/new', (req, res, next) => {
   console.log("you are in celebreties/new GET route");
 
-    res.render('movies/new')
-    .catch((err)=>{
-      console.log(err);
-      next(err);
+    // find all celebrities for select tag
+    Celebrity.find()
+    .then((allCelebritiesFromDB)=>{
+      console.log("celebrities from db from new route is:   " + allCelebritiesFromDB);
+          res.render('movies/new',{allCelebrities: allCelebritiesFromDB})
+            .catch((err)=>{
+              console.log(err);
+              next(err);
+            });
+
     });
+  //
+    
   
 });
 

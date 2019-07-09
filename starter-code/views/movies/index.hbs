@@ -1,3 +1,4 @@
+<a href="/">RETURN TO MAIN</a>
 <h1>List of MOVIES</h1>
 <h2><span><a href="movies/new">ADD new Movie</a></span> </h2>
 <p></p>
@@ -7,9 +8,13 @@
 
   <span>Genre: <strong class="strong">{{ this.genre }}</strong> </span>
    <span>Plot: <strong class="strong"> {{ this.plot }}</strong></span>
-   <span>Celebrity Star: <strong class="strong">{{ this.celebrity.name }} </strong> </span>
+    <span>Celebrity Star: 
+      <strong class="strong">
+        <a href="celebrities/{{this.celebrity._id}}">{{ this.celebrity.name }}  </a> 
+      </strong> 
+    </span>
   <span> 
-    <a href="/movies/{{this._id}}/edit" class="edit-button">EDIT</a>
+    <a href="/movies/{{this._id}}/edit" class="edit-button">&nbsp;&nbsp; EDIT</a>
   </span>
   <p></p>
   <form action="/movies/{{this._id }}/delete" method="POST">

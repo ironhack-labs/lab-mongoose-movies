@@ -1,3 +1,4 @@
+<a href="/movies">Return</a>
 <h1>add NEW MOvies</h1>
 <form action="/movies" method="POST">
   <label for="">Title:</label>
@@ -8,6 +9,19 @@
 
   <label for="">Plot:</label>
   <input type="text" name="plot">
+
+  <label for="">Celebrity:</label>
+  {{!-- <input type="text" name="celebrity" value="{{themoviex.celebrity}}"> --}}
+  <select name="celebrity" >
+
+    {{#each allCelebrities }}
+
+    <option value="{{this._id}}">{{this.name}}</option>
+
+    {{/each}}
+
+  </select>
+
   {{#if errorMessage}}
       <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
