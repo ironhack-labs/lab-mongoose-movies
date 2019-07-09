@@ -20,6 +20,13 @@
       <li><form action="/logout" method="POST"><button class="btn2">LOGOUT</button></form></li>
     </ul>
   </nav>
+  <div class="message">
+    {{#if message}}
+      <p>
+      {{message}}
+      </p>
+    {{/if}}
+  </div>
 
   {{{body}}}
 
