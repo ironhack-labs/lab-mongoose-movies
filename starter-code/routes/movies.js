@@ -17,6 +17,7 @@ router.post('/', async (req, res, next) => {
 	try {
 		const movie = new Movie(req.body);
 		await movie.save();
+		req.flash('success', 'Movie Created');
 		res.redirect('/movies');
 	} catch (error) {
 		res.redirect('/movies/new');
@@ -27,7 +28,6 @@ router.post('/', async (req, res, next) => {
 router.get('/new', async (req, res, next) => {
 	try {
 		const celebrities = await Celebrity.find();
-		console.log(celebrities);
 		res.render('movies/new', { actors: celebrities });
 	} catch (error) {
 		next(error);
@@ -48,6 +48,7 @@ router.post('/:id', async (req, res, next) => {
 		const data = await Movie.findByIdAndUpdate(req.params.id, {
 			$set: req.body,
 		});
+		req.flash('success', 'Movie Updated');
 		res.redirect('/movies');
 	} catch (error) {
 		next(error);
@@ -72,6 +73,7 @@ router.get('/:id/edit', async (req, res, next) => {
 router.post('/:id/delete', async (req, res, next) => {
 	try {
 		await Movie.findByIdAndRemove(req.params.id);
+		req.flash('success', 'Movie deleted');
 		res.redirect('/movies');
 	} catch (error) {
 		next(error);

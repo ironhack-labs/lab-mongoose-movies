@@ -11,9 +11,8 @@ const path = require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
-// const flash = require('connect-flash');
-// const bcrypt = require('bcryptjs');
-const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+const bcrypt = require('bcryptjs');
 
 // const Celebrities = require('./models/Celebrity');
 // const Movies = require('./models/Movie');
@@ -44,51 +43,46 @@ const app = express();
 app.use(
 	session({
 		secret: 'our-passport-local-strategy-app',
-		cookie: { maxAge: 60000 },
 		resave: true,
 		saveUninitialized: true,
-		store: new MongoStore({
-			mongooseConnection: mongoose.connection,
-			ttl: 24 * 60 * 60,
-		}),
 	}),
 );
 
-// app.use(flash());
+app.use(flash());
 
-// passport.serializeUser((user, cb) => {
-// 	cb(null, user._id);
-// });
+passport.use(
+	new LocalStrategy((username, password, next) => {
+		User.findOne({ username }, (err, user) => {
+			if (err) {
+				return next(err);
+			}
+			if (!user) {
+				return next(null, false, { message: 'Incorrect username' });
+			}
+			if (!bcrypt.compareSync(password, user.password)) {
+				return next(null, false, { message: 'Incorrect password' });
+			}
 
-// passport.deserializeUser((id, cb) => {
-// 	User.findById(id, (err, user) => {
-// 		if (err) {
-// 			return cb(err);
-// 		}
-// 		cb(null, user);
-// 	});
-// });
+			return next(null, user);
+		});
+	}),
+);
 
-// passport.use(
-// 	new LocalStrategy((username, password, next) => {
-// 		User.findOne({ username }, (err, user) => {
-// 			if (err) {
-// 				return next(err);
-// 			}
-// 			if (!user) {
-// 				return next(null, false, { message: 'Incorrect username' });
-// 			}
-// 			if (!bcrypt.compareSync(password, user.password)) {
-// 				return next(null, false, { message: 'Incorrect password' });
-// 			}
+app.use(passport.initialize());
+app.use(passport.session());
 
-// 			return next(null, user);
-// 		});
-// 	}),
-// );
+passport.serializeUser((user, cb) => {
+	cb(null, user._id);
+});
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+passport.deserializeUser((id, cb) => {
+	User.findById(id, (err, user) => {
+		if (err) {
+			return cb(err);
+		}
+		cb(null, user);
+	});
+});
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -105,6 +99,13 @@ app.use(
 		sourceMap: true,
 	}),
 );
+
+app.use((req, res, next) => {
+	res.locals.currentUser = req.user;
+	res.locals.error = req.flash('error');
+	res.locals.msg = req.flash('success');
+	next();
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
