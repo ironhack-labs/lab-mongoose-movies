@@ -1,11 +1,16 @@
 <section>
-  <form class="form" action="/movies/{{this._id}}" method="POST">
-    <label>TITLE:</label>
-    <input type="text" name="title" value="{{this.title}}">
-    <label>GENRE:</label>
-    <input type="text" name="genre" value="{{this.genre}}">
-    <label>PLOT:</label>
-    <input type="text" name="plot" value="{{this.plot}}">
-    <button>EDIT</button>  
-  </form>
+  <a class="arrow-back" href="/movies/{{this._id}}">←</a>
+  <div class="board">
+    <div class="board2">
+      <form class="form" action="/movies/{{this._id}}" method="POST">
+        <label>TITLE:</label>
+        <input type="text" name="title" value="{{this.title}}">
+        <label>GENRE:</label>
+        <input type="text" name="genre" value="{{this.genre}}">
+        <label>PLOT:</label>
+        <input type="text" name="plot" value="{{this.plot}}">
+        <button class="btn">EDIT</button>  
+      </form>
+    </div>
+  </div>
 </section>

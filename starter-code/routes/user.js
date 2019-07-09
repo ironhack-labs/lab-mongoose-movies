@@ -47,7 +47,7 @@ router.post('/login', (req, res, next)=>{
       }
       if (bcrypt.compareSync(password, user.password)) {
         req.session.currentUser = user;
-        res.redirect('/');
+        res.redirect('/profile');
       } else {
         req.session.errorMessage = 'wrong password';
         req.session.errorCount = 1;
