@@ -3,19 +3,23 @@ const movieRouter  = express.Router();
 const Movie = require('../models/Movie');
 
 
+movieRouter.get('/movies', (req, res, next) => {
+  if (req.session.currentUser){
+    
+    Movie.find()
+    .then((theThingWeGetBackFromDB)=>{
+      res.render('movies/index', {user: req.session.currentUser, allTheMovies: theThingWeGetBackFromDB})
+    })
+    .catch((err)=>{
+      next(err);  
+    })
+  }  else {
+    req.session.errorCount = 1
+    req.session.errorMessage = "Sorry you must be logged in to use this page";
+    res.redirect('/login');
 
-movieRouter.get('/movies/', (req, res, next) => {
-  
-  Movie.find()
-  .then((theThingWeGetBackFromDB)=>{
-    res.render('movies', {allTheMovies: theThingWeGetBackFromDB})
-  })
-  .catch((err)=>{
-    next(err);  
-  })
-  
-});
-
+  }
+})
 
 
 

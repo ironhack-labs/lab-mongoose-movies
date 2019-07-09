@@ -8,6 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 
 mongoose
@@ -50,6 +52,15 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
+app.use(session({
+  secret: "Shhhh-super-secret-thing",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -60,6 +71,7 @@ app.use('/', celebrities);
 const movies = require('./routes/movies');
 app.use('/', movies);
 
-
+const usrrts = require('./routes/userRoutes')
+app.use('/', usrrts);
 
 module.exports = app;
