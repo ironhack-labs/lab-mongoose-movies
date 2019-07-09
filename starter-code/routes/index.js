@@ -1,7 +1,8 @@
 const express = require('express');
 const router  = express.Router();
-const celebs = require('../model/Celebrity');
-const movies = require('../model/Movies')
+const Celeb = require('../model/Celebrity');
+const Movie = require('../model/Movies')
+const User  = require("../model/user");
 
 
 /* GET home page */
@@ -11,7 +12,7 @@ router.get('/', (req, res, next) => {
 
 //All Celebs
 router.get('/celebrities/index', (req, res, next)=>{
-  celebs.find()
+  Celeb.find()
   .then((data)=>{
     res.render('celebrities/index',{data})
   })
@@ -24,7 +25,7 @@ router.get('/celebrities/index', (req, res, next)=>{
 router.get('/celebrities/show/:id', (req, res, next)=>{
 
   let celebid = req.params.id;
-  celebs.findById(celebid)
+  Celeb.findById(celebid)
   .then((singleCeleb)=>{
 
     res.render('celebrities/show', {singleCeleb})
@@ -46,7 +47,7 @@ router.get('/celebrities/new', (req, res, next) => {
 //Inserts New Celeb Item
 router.post('/celebrities', (req, res) => {
   const {name, occupation, catchPhrase} = req.body;
-  const CelebMod = new celebs ({name, occupation,catchPhrase});
+  const CelebMod = new Celeb ({name, occupation,catchPhrase});
  CelebMod.save()
  .then((newceleb)=>{
 
@@ -64,7 +65,7 @@ router.post('/celebrities', (req, res) => {
 router.post('/celebrities/delete/:id', (req, res, next)=>{
 
   let celebid = req.params.id;
-  celebs.findByIdAndRemove(celebid)
+  Celeb.findByIdAndRemove(celebid)
   .then(()=>{
 
    res.redirect('/');
@@ -80,7 +81,7 @@ router.post('/celebrities/delete/:id', (req, res, next)=>{
 
 //Update Celebs Form
 router.get('/celebrities/edit/:id', (req, res, next)=>{
-  celebs.findById(req.params.id)
+  Celeb.findById(req.params.id)
   .then((celebEdit)=>{
           res.render('celebrities/edit', {celeb: celebEdit})
   })
@@ -92,7 +93,7 @@ router.get('/celebrities/edit/:id', (req, res, next)=>{
 //Update Celeb Entry
 router.post('/celebrities/update/:id', (req, res, next)=>{
   let celebid = req.params.id;
-  celebs.findByIdAndUpdate(celebid, req.body)
+  Celeb.findByIdAndUpdate(celebid, req.body)
   .then((CelebrityUpdate)=>{
       res.redirect('/')
   })
@@ -105,7 +106,7 @@ router.post('/celebrities/update/:id', (req, res, next)=>{
 
 //Get All Movies
 router.get('/movies/index', (req, res, next)=>{
-  movies.find()
+  Movie.find()
   .then((data)=>{
     res.render('movies/index',{data})
   })
@@ -118,7 +119,7 @@ router.get('/movies/index', (req, res, next)=>{
 router.get('/movies/movieInfo/:id', (req, res, next)=>{
 
   let movieid = req.params.id;
-  movies.findById(movieid)
+  Movie.findById(movieid).populate('aStar')
   .then((singleMovie)=>{
 
     res.render('movies/movieinfo', {singleMovie})
@@ -131,25 +132,33 @@ router.get('/movies/movieInfo/:id', (req, res, next)=>{
 })
 
 //Add New Movie Form
-router.get('/movies/addnew', (req, res, next) => {
-  res.render('movies/addnew');
-});
+router.get('/movies/addnew', (req, res, next)=>{    
+  Celeb.find()
+  .then((allCelebs)=>{
+      res.render('movies/addnew', {allCelebs})
+  })
+  .catch((err)=>{
+      console.log(err);
+      next(err);
+  })
+})
 
 
-//Inserts New Movie Item 
+//New Movie Item 
 router.post('/movies', (req, res) => {
-  const {title, genre, plot} = req.body;
-  const movieModel = new movies ({title,genre,plot});
+  const {title, aStar, genre, plot} = req.body;
+  const movieModel = new Movie ({title,aStar,genre,plot});
+  console.log(movieModel);
  movieModel.save()
  .then((insertMovie)=>{
 
+   if (!insertMovie.title || !insertMovie.plot || !insertMovie.genre) {
+  
+     return res.status(400).json({ msg: 'Please include a name, email and catchPhrase' });
+   }
    res.redirect('/');
  })
 
-  if (!insertMovie.title || !insertMovie.plot || !insertMovie.genre) {
-
-    return res.status(400).json({ msg: 'Please include a name, email and catchPhrase' });
-  }
 
 });
 
@@ -159,7 +168,7 @@ router.post('/movies', (req, res) => {
 router.post('/movies/remove/:id', (req, res, next)=>{
 
   let movieId = req.params.id;
-  movies.findByIdAndRemove(movieId)
+  Movie.findByIdAndRemove(movieId)
   .then(()=>{
 
    res.redirect('/');
@@ -173,12 +182,19 @@ router.post('/movies/remove/:id', (req, res, next)=>{
 
 })
 
-//Update Movie view
+//Update Movie view Two variables for the view
 router.get('/movies/editMovies/:id', (req, res, next)=>{
-  movies.findById(req.params.id)
+  Movie.findById(req.params.id)
   .then((mEdit)=>{
-          res.render('movies/editMovies', {mEdit})
-  })
+          // res.render('movies/editMovies', {mEdit})
+          Celeb.find()
+          .then((theCeleb)=>{
+            res.render('movies/editMovies', {theCeleb, mEdit})
+          })
+        })
+        .catch((r)=>{
+          next(r)
+        })
   .catch((err)=>{
       next(err);
   })
@@ -187,7 +203,7 @@ router.get('/movies/editMovies/:id', (req, res, next)=>{
 //Update Movie Entry
 router.post('/movies/updateMovie/:id', (req, res, next)=>{
   let movieID = req.params.id;
-  movies.findByIdAndUpdate(movieID, req.body)
+  Movie.findByIdAndUpdate(movieID, req.body)
   .then((movieUpdate)=>{
       res.redirect('/')
   })
@@ -197,7 +213,73 @@ router.post('/movies/updateMovie/:id', (req, res, next)=>{
 })
 
 
+router.get('/movies/allactormovies', (req, res, next)=>{
+  Movie.find({name: req.params.name})
+  .then((data)=>{
+    console.log(data[0])
+    res.render('movies/allactormovies',{name:data[0]})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
+
+//Password Ecryption
+// BCrypt to encrypt passwords
+const bcrypt         = require("bcrypt");
+const bcryptSalt     = 10;
+
+router.post("/signup", (req, res, next) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const salt     = bcrypt.genSaltSync(bcryptSalt);
+  const hashPass = bcrypt.hashSync(password, salt);
+
+User.findOne({ "username": username })
+.then(user => {
+  if (user !== null) {
+      res.render("auth/signup", {
+        errorMessage: "The username already exists!"
+      });
+    }
+  })
+
+  User.create({
+    username,
+    password: hashPass
+  })
+    .then((user) => {
+      if (user !== null) {
+          res.render("auth/signup", {
+            errorMessage: "The username already exists!"
+          })
+      }
+  })
+
+  .then(() => {
+    if (username =='' || password =='') {
+      res.render("auth/signup", {
+        errorMessage: "Indicate a username and a password to sign up"
+      })
+     } else{
+
+        res.redirect("/");
+      }
+  })
+
+  .catch(error => {
+    console.log(error);
+  })
+  .catch(err => {
+    console.log(err);
+  })
+});
+
+router.post("/auth/login", (req, res, next) => {
+  const username = req.body.username;
+  const password = req.body.password;
 
 
+});
 
 module.exports = router;

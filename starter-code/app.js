@@ -8,6 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const bcrypt       = require('bcrypt');
 
 
 mongoose
@@ -48,10 +49,18 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 
-// default value for title local
+
+//Orignal Route Set Up
 
 const index = require('./routes/index');
 app.use('/', index);
+
+//Login Redirect 
+
+const authRouter = require('./routes/auth');
+app.use('/', authRouter);
+
+
 
 
 module.exports = app;

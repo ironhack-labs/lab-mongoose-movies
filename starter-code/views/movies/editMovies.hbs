@@ -7,6 +7,17 @@
 <label>Title:</label>
 <input name="title" type="text" value="{{mEdit.title}}">
 <br><br>
+<label>Star:</label>
+<select name="aStar" > 
+
+    {{#each theCeleb}}
+
+    <option value="{{this._id}}" selected="selected">{{this.name}}</option>
+    
+    {{/each}};
+
+    </select>
+<br><br>
 <label>Genre:</label>
 <input name="genre" type="text" value="{{mEdit.genre}}">
 <br><br>
