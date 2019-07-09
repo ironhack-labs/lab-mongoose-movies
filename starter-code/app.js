@@ -13,6 +13,7 @@ const bcrypt        = require("bcryptjs");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User          = require("./models/user");
+const flash         = require("connect-flash");
 
 mongoose.set('useCreateIndex', true);
 
@@ -55,7 +56,9 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-passport.use(new LocalStrategy((username, password, next) => {
+app.use(flash());
+
+passport.use(new LocalStrategy({passReqToCallback: true}, (req, username, password, next) => {
   User.findOne({ username }, (err, user) => {
     if (err) {
       return next(err);
@@ -90,6 +93,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
+
+//Global error messages get passed to all hbs temlpates
+app.use((req, res, next)=>{
+  res.locals.message = req.flash('error');
+  next();
+})
 
 //ROUTES CELEBRITIES
 const index = require('./routes/index');
