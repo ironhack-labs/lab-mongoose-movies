@@ -11,6 +11,17 @@
 <label>Plot</label>
 <input name="thePlot" type="text">
 
+<label>Celebrity</label>
+<select name="theCelebrity">
+
+  {{#each allCelebrities}}
+  <option value="{{this._id}}">{{this.name}}</option>
+  {{/each}}
+
+</select>
+
+
+
 <button> Save </button>
 
 </form>

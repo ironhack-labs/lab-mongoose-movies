@@ -11,6 +11,24 @@
 <label>Plot</label>
 <input name="plot" type="text" value="{{movie.plot}}">
 
+<label>Celebrity</label>
+{{!-- <select name="celebrity">
+  {{#each allCelebrities}}
+  {{#if selectedName}}
+  <option value="{{movie.celebrity}}" selected>{{selectedName}}</option>
+  {{else}}
+  <option value="{{this._id}}">{{this.name}}</option>
+  {{/if}}
+  {{/each}}
+</select> --}}
+
+<select name="celebrity" >
+  <option value="{{movie.celebrity}}" selected>{{selectedName}}</option>
+  {{#each allCelebritiesMinusSelected}}
+  <option value="{{this._id}}">{{this.name}}</option>
+  {{/each}}
+</select>
+
 <button> Save Changes </button>
 
 </form>
