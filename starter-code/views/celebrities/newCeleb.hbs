@@ -1,17 +1,32 @@
 <h2>Add new celebrity to Database</h2>
+<div class="row">
 
-<form action="/celebrities" method="POST">
+<form action="/celebrities" method="POST" class="col s6">
   <label for="name">Name: </label>
-  <input type="text" name="name" >
+  <input type="text" name="name">
 
   <label for="occupation">Occupation: </label>
-  <input type="text" name="occupation" >
+  <input type="text" name="occupation">
 
   <label for="catchPhrase">Catch Phrase: </label>
-  <input type="text" name="catchPhrase" >
+  <input type="text" name="catchPhrase">
 
-  <button> Save</button>
+
+  <div class="row">
+    <div class="col s3">
+      <a class="btn waves-effect waves-light" href="/celebrities/index">Back
+        <i class="material-icons left">arrow_back</i>
+      </a>
+
+    </div>
+    <div class="col s3 push-s1">
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Save
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
 
 
 </form>
-
+</div>

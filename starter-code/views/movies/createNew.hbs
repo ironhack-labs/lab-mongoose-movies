@@ -1,27 +1,43 @@
 <h2>Create new movie</h2>
-
-<form action="/movies" method="POST">
+<div class="row">
+<form action="/movies" method="POST" class="col s6">
   <label for="title">Title</label>
-  <input type="text" id="title" name="title">
+  <input type="text" id="title" placeholder="The sun also rises" name="title">
 
   <label for="genre">Genre</label>
-  <input type="text" id="genre" name="genre">
+  <input type="text" id="genre" placeholder="Drama" name="genre">
 
   <label for="plot">Plot</label>
-  <input type="text" id="plot" name="plot">
+  <input type="text" id="plot" placeholder="The guy talkes about the war and drinks much" name="plot">
 
-  <label for="celebsSelect"> Celebrities: </label>
-  {{!-- Dropdown with the list of celebrities --}}
-    
-  <select name="actors" id="celebsSelect">
-  {{#each celebs}}
-    <option value="{{this._id}}" >{{this.name}}</option>
-  {{/each}}
-  </select>
+  
+ 
+  <div class="input-field">
+    <select name="actors" id="celebsSelect">
+      <option value="" disabled selected>Choose your option</option>
+      {{#each celebs}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+    <label>Actor Selection: </label>
+  </div>
 
-  <button>Save</button>
+  <br>
+  </div>
+  <div class="row"> 
+    <div class="col s3">
+    <a class="btn waves-effect waves-light" href="/movies/index">Back
+      <i class="material-icons left">arrow_back</i>
+    </a>
 
+    </div>
+    <div class="col s3 push-s1">
 
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
+    </div>
+  </div>
 
 
 </form>

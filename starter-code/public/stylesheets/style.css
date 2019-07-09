@@ -5,4 +5,14 @@ body {
 a {
   color: #00B7FF; }
 
+.edit {
+  background-color: #f57c00  !important; }
+
+.delete {
+  background-color: #ff3d00 !important; }
+
+.flex {
+  display: flex;
+  justify-content: space-around; }
+
 /*# sourceMappingURL=style.css.map */
