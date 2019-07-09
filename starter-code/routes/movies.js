@@ -45,6 +45,7 @@ router.post('/movies/create-new-movie', (req, res, next) => {
 
   Movie.create(newMovie)
     .then(() => {
+      req.flash('success', "Successfully create a new movie")
       res.redirect('/movies')
     })
     .catch((err) => {
@@ -68,6 +69,7 @@ router.post('/movies/:id/delete', (req, res, next) => {
 
   Movie.findByIdAndRemove(req.params.id)
     .then(() => {
+      req.flash('success', "Successfully delete a celebrity")
       res.redirect('/movies');
     })
     .catch((err) => {
@@ -96,15 +98,13 @@ router.get('/movies/:id/edit', (req, res, next) => {
 })
 
 router.post('/movies/:id/update', (req, res, next) => {
-  console.log('=-=--=-=-=-=-=-=-=-=-',req.body)
-  console.log(req.params.id)
   Movie.findByIdAndUpdate(req.params.id,
   {title:req.body.title,
    genre:req.body.genre,
    plot:req.body.plot,
    celebrity: req.body.theCelebrity})
   .then(()=>{
-    console.log('success');
+    req.flash('success', "Successfully update a movie");
     res.redirect('/movies');
   })
   .catch((err) => {

@@ -1,9 +1,47 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+.home-page {
+  background-image: url("../images/homeBackground.jpg");
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.home-page > h1 {
+  color: rgba(0, 0, 255, 0.851);
+  font-size: 100px; }
+
+.home-page > a {
+  font-size: 50px;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.735);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px; }
+
+.login-page {
+  border-style: solid;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 .div1 {
   margin-bottom: 30px; }
+
+.celebrity-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: grey;
+  margin: 10px;
+  padding: 10px; }
+
+.celebrity-list > a {
+  text-decoration: none;
+  color: white; }
 
 .movie-list {
   display: flex;

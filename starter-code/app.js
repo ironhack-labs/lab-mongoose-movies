@@ -8,8 +8,18 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-const session      = require("express-session");
-const MongoStore   = require("connect-mongo")(session);
+// const session      = require("express-session");
+// const MongoStore   = require("connect-mongo")(session);
+
+
+const User         = require('./models/user');
+
+const session = require("express-session");
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
+const flash = require("connect-flash");
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
@@ -51,13 +61,53 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 app.use(session({
-  secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 
-  })
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
 }));
+
+
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use(flash());
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.err         = req.flash('error')
+  res.locals.message     = req.flash('success')
+  next();
+});
 
 
 const index = require('./routes/index');
@@ -71,4 +121,7 @@ app.use('/',movieRoutesVar);
 
 const userRoutes = require('./routes/userRoutes');
 app.use('/', userRoutes);
+
+
+
 module.exports = app;
