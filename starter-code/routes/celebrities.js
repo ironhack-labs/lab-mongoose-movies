@@ -71,6 +71,3 @@ router.post('/celebrities/:id', (req,res, next) => {
 
 
 module.exports = router;
-
-//require movie model
-// 

@@ -1,4 +1,6 @@
 <h2>Edit the movie</h2>
+<div class="row">
+<div class="col s6 ">
 
 <form action="/movies/{{movieToEdit._id}}" method="POST">
   <label for="title">Title</label>
@@ -10,9 +12,25 @@
   <label for="plot">Plot</label>
   <input type="text" id="plot" name="plot" value="{{movieToEdit.plot}}">
 
-  <button class="btn waves-effect waves-light ">Save
-    <i class="material-icons right">save</i>
-  </button>
 
+  <div class="row">
+    
+
+    <div class="col s3">
+      <a class="btn waves-effect waves-light" href="/movies/index">Back
+        <i class="material-icons left">arrow_back</i>
+      </a>
+
+    </div>
+    <div class="col s3 offset-s1">
+
+      <button class="btn waves-effect waves-light ">Save
+        <i class="material-icons right">save</i>
+      </button>
+    </div>
+    
+  </div>
 
 </form>
+</div>
+</div>
