@@ -1,0 +1,16 @@
+<h2>Movie List</h2>
+
+{{#each alltheMovies}}
+<div>
+<h3><a href="/celebrities/details/{{this._id}}">{{this.title}}</h3></a>
+  {{!-- <button>
+     <a href="/celebrities/edit/{{this._id}}">Edit This Celeb</a>
+   </button>
+
+      <form action="/celebrities/delete/{{this._id}}" method="POST">
+      <button class="btn">Delete This Celeb</button>
+     </form>
+  <p>------------------------------------------</p>    --}}
+</div>
+
+{{/each}}
