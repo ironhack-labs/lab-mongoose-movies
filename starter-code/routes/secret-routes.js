@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
 
+const ensureLogin = require("connect-ensure-login");
 
 const User = require('../models/User');
 // BCrypt to encrypt passwords
@@ -13,9 +15,20 @@ router.get("/", (req, res, next) => {
 
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login");
+  // res.render("auth/login");
+  res.render("auth/login", {"message": req.flash("error") });
+
 });
 
+  router.post("/login", passport.authenticate("local", {
+  successRedirect: "/secretviews/secret",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
+
+
+/*
 router.post('/login', (req, res, next)=>{
 console.log('test');
   const password = req.body.password;
@@ -49,14 +62,20 @@ User.findOne({ "username": username })
 
 
 })
+*/
 
-
-
+/*
 router.get("/secretviews/secret", (req, res, next) => {
-  if(req.session.currentUser) {
+  // if(req.session.currentUser) {
+    if(req.user) {
     res.render("secretviews/secret");
   } else {
     res.redirect("/login");
   }
+});
+*/
+
+router.get("/secretviews/secret", ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("secretviews/secret", { user: req.user });
 });
 module.exports = router;

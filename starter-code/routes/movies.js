@@ -27,8 +27,32 @@ movieRouter.get('/movies/:id/edit', (req, res, next) => {
           // find all celebrities for select tag
             Celebrity.find()
             .then((allCelebritiesFromDB)=>{
-              console.log("celebrities from db from edit is:   " + allCelebritiesFromDB);
-              res.render('movies/edit', {themoviex:moviex, allCelebrities: allCelebritiesFromDB});
+              console.log("celebrities id from movie " + moviex.celebrity );
+              // console.log("celebrities id from movie " + allCelebritiesFromDB[0]._id );
+
+              let selectedName = ""
+                allCelebritiesFromDB.forEach( (ele)=>{
+                  // console.log("type of movie id  " + moviex.celebrity.toString());
+                  console.log("type of ele id  " + ele._id.toString() );
+                  const areEqual = moviex.celebrity.equals(ele._id);
+                  console.log("are equals : " + areEqual);
+                  if (areEqual){
+                    selectedName = ele.name;
+                  }
+                 });
+               const allCelebritiesMinusSelected =  allCelebritiesFromDB.filter( (ele)=>{
+                // console.log("type of movie id  " + moviex.celebrity.toString());
+                console.log("type of ele id  " + ele._id.toString() );
+                const areEqual = moviex.celebrity.equals(ele._id);
+                console.log("are equals : " + areEqual);
+                 return !moviex.celebrity.equals(ele._id);
+               });
+                
+                //  console.log(" filtered  " + JSON.stringify( allCelebritiesMinusSelected)) ;
+
+              res.render('movies/edit', {themoviex:moviex, 
+                                          allCelebritiesMinusSelected: allCelebritiesMinusSelected,
+                                          selectedName:selectedName});
 
             });
           //
