@@ -4,7 +4,7 @@ const Celeb = require('../models/celebrity')
 const Movie = require("../models/movies")
 
 router.get('/',(req,res,next)=>{
-  if(req.session.currentUser){
+  if(req.user){
 
     Celeb.find()
     .then((allCelebs)=>{
@@ -15,8 +15,7 @@ router.get('/',(req,res,next)=>{
     })
 
 } else {
-    req.session.errorCount = 1;
-    req.session.errorMessage = "Sorry, you must be logged in to use that feature please log in"
+    req.flash("error","Sorry, you must be logged in to use that feature please log in") 
     res.redirect('/User/login')
 }
 })
@@ -44,6 +43,7 @@ router.post('/',(req,res,next)=>{
   }
   Celeb.create(newCeleb)
   .then(()=>{
+    req.flash('success','Successfully created celeb!')
     res.redirect("/celebrities")
   })
   .catch((err)=>{
@@ -53,6 +53,7 @@ router.post('/',(req,res,next)=>{
 router.post("/:id/delete",(req,res,next)=>{
   Celeb.findByIdAndDelete(req.params.id)
   .then(()=>{
+    req.flash('success','Deleted celeb!')
     res.redirect("/celebrities")
   })
   .catch((err)=>{
@@ -73,6 +74,7 @@ router.post("/update/:id",(req,res,next)=>{
   let id = req.params.id;
   Celeb.findByIdAndUpdate(id, req.body)
   .then(()=>{
+    req.flash('success','updated the celeb!')
     res.redirect("/celebrities/details/"+id)
   })
   .catch((err)=>{

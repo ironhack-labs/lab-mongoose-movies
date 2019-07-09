@@ -4,7 +4,7 @@ const Celeb = require('../models/celebrity')
 const Movie = require("../models/movies")
 
 router.get('/',(req,res,next)=>{
-  if(req.session.currentUser){
+  if(req.user){
     Movie.find()
     .then((allMovies)=>{
       res.render("movies/index",{theMovies: allMovies})
@@ -13,15 +13,13 @@ router.get('/',(req,res,next)=>{
       next(err);
     })
 } else {
-    req.session.errorCount = 1;
-    req.session.errorMessage = "Sorry, you must be logged in to use that feature please log in"
-    res.redirect('/User/login')
+  req.flash("error","Sorry, you must be logged in to use that feature please log in") 
+  res.redirect('/User/login')
 }
 })
 router.get('/details/:id',(req,res,next)=>{
   Movie.findById(req.params.id).populate('actor')
   .then((theMovie)=>{
-    console.log(theMovie);
     res.render("movies/details",{oneMovie: theMovie})
   })
   .catch((err)=>{
@@ -39,14 +37,21 @@ router.get('/new',(req,res,next)=>{
 })
 router.post('/',(req,res,next)=>{
   const {title, genre, plot,actor}= req.body;
+  let arr = [];
+  actor.forEach((e)=>{
+    if(e !== 'null'){
+      arr.push(e);
+    }
+  })
   let newMovie = {
     title: title,
     genre: genre,
     plot: plot,
-    actor: actor
+    actor: arr
   }
   Movie.create(newMovie)
   .then(()=>{
+    req.flash('success', 'Movie Added Succesfully!!')
     res.redirect("/movies")
   })
   .catch((err)=>{
@@ -56,6 +61,7 @@ router.post('/',(req,res,next)=>{
 router.post("/:id/delete",(req,res,next)=>{
   Movie.findByIdAndDelete(req.params.id)
   .then(()=>{
+    req.flash('success','movie deleted!')
     res.redirect("/movies")
   })
   .catch((err)=>{
@@ -96,6 +102,7 @@ router.post("/update/:id",(req,res,next)=>{
 
   Movie.findByIdAndUpdate(id, obj)
   .then(()=>{
+    req.flash('success','movie updated!')
     res.redirect("/movies/details/"+id)
   })
   .catch((err)=>{

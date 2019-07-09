@@ -31,6 +31,16 @@
   </div>
 </div>
 </div>
+<div id="error">
+    {{#if err}}
+      {{err}}
+      {{/if}}
+</div>
+<div id="success">
+      {{#if yay}}
+      {{yay}}
+      {{/if}}
+</div>
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>

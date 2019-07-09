@@ -27,4 +27,14 @@ a {
   background-color: #00B7FF;
   color: white; }
 
+#error {
+  background-color: red;
+  opacity: .50;
+  color: white; }
+
+#success {
+  background-color: green;
+  opacity: .50;
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
