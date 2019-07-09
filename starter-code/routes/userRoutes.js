@@ -3,6 +3,7 @@ const router  = express.Router();
 const User = require('../models/User');
 const bcrypt = require("bcryptjs");
 
+
 router.get('/signup', (req, res, next) => {
   res.render('user-views/signup')
 })
@@ -12,7 +13,8 @@ router.get('/login', (req, res, next) => {
 })
 
 router.get('/user-view/profile', (req, res, next) => {
-  res.render('user-views/profile')
+
+  res.render('user-views/profile', {loggedin: req.session.loggedin_msg})
 })
 
 router.post('/user/create', (req, res, next) => {
@@ -26,8 +28,10 @@ router.post('/user/create', (req, res, next) => {
     username: theUsername,
     password: hashedPassword
   })
+  
   .then(()=> {
     console.log(`New user created`);
+    req.session.loggedin_msg = "You are logged in now";
     res.redirect('/user-view/profile')
   })
   .catch(err=> {
@@ -48,6 +52,7 @@ router.post('/user/login', (req, res, next) => {
       }
       if( bcrypt.compareSync(thePassword, user.password)) {
         req.session.currentUser = user;
+        req.session.loggedin_msg = "You are logged in now";
         res.redirect('/user-view/profile')
       } else {
         res.redirect('/login')
@@ -73,8 +78,12 @@ router.get('/profile', (req,res, next) => {
 })
 
 router.post('/logout', (req,res,next) => {
-  req.session.destroy()
+  req.session.currentUser = null; 
+  req.session.loggedin_msg = null;
+  req.session.loggedout_msg = `You are now on your own`
+  req.session.errorCount = 1;
   res.redirect('/')
+  
 })
 
 module.exports = router;

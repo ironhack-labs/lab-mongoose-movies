@@ -1,5 +1,22 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+{{#if msg}}
+
+<body onload="M.toast({html: '{{msg}}'})">
+
+</body>
+{{/if}} {{#if error_msg}}
+
+<body onload="M.toast({html: '{{error_msg}}'})">
+
+</body>
+{{/if}} {{#if error}}
+
+<body onload="M.toast({html: '{{error}}'})">
+
+</body>
+{{/if}}
+
 <div class="row">
   <div class="col s6">
     <div class="row">
@@ -16,13 +33,16 @@
     </div>
       <div class="row">
 
-        <a href="/signup"> Signup</a>
-        <a href="/login"> Login</a>
-        <a href="/profile"> Profile</a>
+<div class="row">
+<div class="col s8">
 
-        <form action="/logout" method="POST">
-          <button>Logout</button>
-        </form>
+        <a href="/signup" class="btn waves-effect waves-light "> Signup</a>
+        <a href="/login" class="btn waves-effect waves-light "> Login</a>
+        <a href="/profile" class="btn waves-effect waves-light "> Profile</a>
+</div>
+</div>
+
+
       </div>
   </div>
 </div>

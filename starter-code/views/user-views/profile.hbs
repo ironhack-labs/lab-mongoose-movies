@@ -1,2 +1,38 @@
 <h2>Secret place just for you</h2>
+<p>Welcome to {{title}}</p>
+{{#if msg}}
 
+<body onload="M.toast({html: '{{msg}}'})">
+
+</body>
+{{/if}} {{#if loggedin}}
+
+<body onload="M.toast({html: '{{loggedin}}'})">
+
+</body>
+{{/if}} {{#if error}}
+
+<body onload="M.toast({html: '{{error}}'})">
+
+</body>
+{{/if}}
+
+
+
+<div class="row">
+
+
+  <div class="col s3">
+    <a class="btn waves-effect waves-light" href="/">Back
+      <i class="material-icons left">arrow_back</i>
+    </a>
+
+  </div>
+  <div class="col s3 offset-s1">
+
+    <form action="/logout" method="POST">
+      <button class="btn waves-effect waves-light">Logout</button>
+    </form>
+  </div>
+
+</div>
