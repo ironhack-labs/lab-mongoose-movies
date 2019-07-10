@@ -1,5 +1,5 @@
 <h2>Check out all these Celebz</h2>
-<a href="/">Home</a>
+<a href="/homepage">Home</a>
 <a href="/celebrities/new">Create New Celeb</a>
 {{#each allTheCelebs}}
 
@@ -9,5 +9,10 @@
 <form action="/celebrities/delete/{{this.id}}" method="POST">
   <button>Delete This Celeb</button>
 </form>
-
 {{/each}}
+
+<p>
+ {{#if msg}}
+  {{msg}}
+  {{/if}}
+</p>

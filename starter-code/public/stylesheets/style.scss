@@ -7,8 +7,12 @@ a {
   color: #00B7FF;
 }
 
+#nav-mobile{
+  margin-right: 40px;
+}
+
 #user-form{
-  width: 300px;
+  width: 500px;
 }
 
 #first-page{
@@ -25,9 +29,181 @@ a {
 #homepagelink{
   color: rgba(255, 255, 255, 0.637);
   font-size: 100px;
+  margin-bottom: 600px;
+}
+
+#logout{
+  color: rgba(255, 255, 255, 0.637);
+  width: 1000px;
+  font-size: 75px;
+  text-align: center;
+  margin-bottom: 625px;
 }
 
 #logologin{
   margin-left: 20px;
   color: rgba(255, 255, 255, 0.801);
+}
+
+#login-div{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+
+.loginsignup{
+  margin: 50px 0 0 180px;
+}
+
+#signup-div{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.home-page-div{
+  height: 94vh;
+  width: 100vw;
+  background-image: url('/images/georgia-vagim-ny-lHmsHYHk-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-page-div > a{
+  padding: 20px
+
+}
+
+#welcome{
+  color: rgba(255, 255, 255, 0.637);
+  font-size: 100px;
+  width: 1200px;
+  text-align: center;
+}
+
+
+.cube {
+  width: 250px;
+  height: 100px;
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+/* The two faces of the cube */
+.default-state,
+.active-state {
+  height: 100px;
+}
+/* Position the faces */
+.default-state {
+  -webkit-transform: translateZ(50px);
+  -moz-transform: translateZ(50px);
+  -ms-transform: translateZ(50px);
+  -o-transform: translateZ(50px);
+  transform: translateZ(50px);
+}
+.flip-to-top .active-state {
+  -webkit-transform: rotateX(90deg) translateZ(150px);
+  -moz-transform: rotateX(90deg) translateZ(150px);
+  -ms-transform: rotateX(90deg) translateZ(150px);
+  -o-transform: rotateX(90deg) translateZ(150px);
+  transform: rotateX(90deg) translateZ(150px);
+}
+.flip-to-bottom .active-state {
+  -webkit-transform: rotateX(-90deg) translateZ(-50px);
+  -moz-transform: rotateX(-90deg) translateZ(-50px);
+  -ms-transform: rotateX(-90deg) translateZ(-50px);
+  -o-transform: rotateX(-90deg) translateZ(-50px);
+  transform: rotateX(-90deg) translateZ(-50px);
+}
+/* Rotate the cube */
+.cube.flip-to-top:hover {
+  -webkit-transform: rotateX(-89deg);
+  -moz-transform: rotateX(-89deg);
+  -ms-transform: rotateX(-89deg);
+  -o-transform: rotateX(-89deg);
+  transform: rotateX(-89deg);
+}
+.cube.flip-to-bottom:hover {
+  -webkit-transform: rotateX(89deg);
+  -moz-transform: rotateX(89deg);
+  -ms-transform: rotateX(89deg);
+  -o-transform: rotateX(89deg);
+  transform: rotateX(89deg);
+}
+
+.cube {
+  text-align: center;
+  margin: 0 auto;
+}
+.default-state,
+.active-state {
+  background: #2ecc71;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 100px;
+  -webkit-transition: background 250ms ease;
+  -moz-transition: background 250ms ease;
+  -o-transition: background 250ms ease;
+  transition: background 250ms ease;
+}
+.cube:hover .default-state {
+  background: #27af61;
+}
+.active-state {
+  background: #27af61;
+}
+
+.active-state > a{
+  text-decoration: none;
+  color: white;
+}
+#flipto {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+#cube1, #cube2{
+  margin-top: 75px;
+}
+
+
+.movie-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movies{
+  display: flex;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.each-movie{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+#mvimg{
+  width: 400px;
 }

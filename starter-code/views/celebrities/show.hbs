@@ -1,5 +1,9 @@
-<h2>Here is {{celebDeets.name}}'s deetz</h2>
-
+<h2>{{celebDeets.name}}</h2>
+<p>
+ {{#if msg}}
+  {{msg}}
+  {{/if}}
+</p>
 
 <p>Name: {{celebDeets.name}}</p>
 <p>Occupation: {{celebDeets.occupation}}</p>

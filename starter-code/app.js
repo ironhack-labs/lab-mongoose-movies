@@ -11,6 +11,12 @@ const path         = require('path');
 const session      = require("express-session");
 const MongoStore   = require("connect-mongo")(session);
 
+const User         = require('./models/User');
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const flash = require("connect-flash");
+
 
 mongoose
   .connect('mongodb://localhost/mongoose-movies', {useNewUrlParser: true})
@@ -52,14 +58,62 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
+// =-=-=-=-=-=-=-=-=-=-=-using flash, and passport=-=-=-=-=-=-=-=-=-=-
+
 app.use(session({
   secret: "the-secret",
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 
-  })
+  resave: true,
+  saveUninitialized: true
 }));
+
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+
+
+app.use(flash());
+
+// with passport you dont get to choose it looks for req.body.username 
+// and req.body.password
+// choose your name="" in the hbs file accordingly
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Sorry we couldn't find that username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Password not correct for that username" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.msg         = req.flash('error')
+  next();
+});
+
+
 
 
 

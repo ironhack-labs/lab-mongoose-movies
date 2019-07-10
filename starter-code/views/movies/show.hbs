@@ -1,5 +1,9 @@
-<h2>Here is {{movieDeets.title}}'s deetz</h2>
-
+<h2>{{movieDeets.title}}</h2>
+<p>
+ {{#if msg}}
+  {{msg}}
+  {{/if}}
+</p>
 
 <p>Name: {{movieDeets.title}}</p>
 <p>Genre: {{movieDeets.genre}}</p>

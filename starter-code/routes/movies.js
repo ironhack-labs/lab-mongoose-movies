@@ -2,8 +2,12 @@ const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/Movie')
 
+
+const ensureLogin = require("connect-ensure-login");
+
+
 /* GET celebrites page */
-router.get('/movies', (req, res, next) => {
+router.get('/movies', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Movie.find()
   .then((theWholeDBArray)=>{
     res.render('movies/index', {allTheMovies: theWholeDBArray})
@@ -25,7 +29,7 @@ Movie.findById(req.params.id)
 });
 
 
-router.get('/movies/new', (req, res, next)=> {
+router.get('/movies/new', ensureLogin.ensureLoggedIn(), (req, res, next)=> {
   res.render('movies/newMovie');
 })
 
@@ -38,6 +42,7 @@ router.post('/movies/create-new-movie', (req, res, next)=>{
   // let newCeleb = {name: name, occupation: occupation, catchPhrase: catchPhrase }
   Movie.create(req.body)
   .then((newlyCreatedMovie)=>{
+    req.flash('error', (`Successfully added profile for ${newlyCreatedMovie.title}`))
       res.redirect(`/movies/details/${newlyCreatedMovie._id}`)
       //what if I want to go to the page where it shows the individual celebrity? 
   })
@@ -49,7 +54,8 @@ router.post('/movies/create-new-movie', (req, res, next)=>{
 
 router.post('/movies/delete/:id', (req, res, next) => {
   Movie.findByIdAndRemove(req.params.id)
-  .then(()=>{
+  .then((movieRemoved)=>{
+    req.flash('error', (`Successfully deleted profile for ${movieRemoved.title}`))
     res.redirect('/movies');
   })
   .catch((err)=>{
@@ -73,6 +79,7 @@ router.post('/movies/update/:id', (req, res, next) => {
   const theID = req.params.id;
   Movie.findByIdAndUpdate(theID, req.body) 
   .then((newlyEditedMovie)=>{
+    req.flash('error', (`Successfully edited profile for ${newlyEditedMovie.title}`))
     res.redirect(`/movies/details/${newlyEditedMovie._id}`);
   })
   .catch((err)=>{
