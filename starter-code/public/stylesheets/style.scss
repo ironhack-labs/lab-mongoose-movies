@@ -9,6 +9,10 @@ a {
   color: #00b7ff;
 }
 
+nav {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
 .celeb-padding {
   padding: 30px;
 }
@@ -22,6 +26,37 @@ a {
   align-items: center;
 }
 
+.home-page-content {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.welcome {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 20px;
+  // top: 0;
+  margin-top: 70px;
+  // margin-left: 39%;
+  height: 40px;
+  width: 300px;
+  background-color: #546e7a;
+  box-shadow: 0px 5px 10px #2e2c2c38;
+  padding: 30px;
+}
+
+.name-container {
+  width: 100vw;
+  // height: 100px;
+  // margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: #00b7ff;
+}
 .celeb-home {
   // margin: 20px;
   background-color: #25a69a;
@@ -94,4 +129,30 @@ form input {
 input.validate.valid {
   border-bottom: 1px solid #00b7ff !important;
   box-shadow: 0 1px 0 0 #00b7ff !important;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-content {
+  width: 50%;
+}
+
+.logout {
+  padding: 0 20px;
+  height: 38px;
+  line-height: 0;
+}
+
+.flash {
+  background-color: rgba(229, 255, 0, 0.37);
+  // color: #252525;
+  width: 20%;
+  padding: 10px 0px;
+  text-align: center;
+  //   height: 20px;
 }

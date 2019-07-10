@@ -13,6 +13,20 @@
 
 <body>
 
+  <nav class="blue-grey darken-1">
+    <div class="nav-wrapper">
+      <a href="/home-page" class="brand-logo">MovieCeleb</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/sign-up">Sign Up</a></li>
+        <li><a href="/login">Log In</a></li>
+        <li>
+          <form action="/logout" method="POST">
+            <button class="waves-effect waves-light btn-large logout"> Log Out</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </nav>
   {{{body}}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/javascripts/script.js"></script>

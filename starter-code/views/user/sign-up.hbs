@@ -1,0 +1,27 @@
+<div class="celeb-padding sign-up">
+    <div class="sign-up-content">
+        <h2>Create an Account</h2>
+        <p class="flash">
+            {{#if msg}}
+            {{msg}}
+            {{/if}}
+        </p>
+        <div class="row new-celeb">
+            <form action="/sign-up" class="col s12" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="username" type="text" class="validate">
+                        <label>Username:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="password" type="text" class="validate">
+                        <label>Password:</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn-large teal">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

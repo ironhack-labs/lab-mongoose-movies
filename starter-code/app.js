@@ -8,6 +8,14 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const User = require("./models/user");
+const bcrypt = require("bcryptjs");
+const ensureLogin = require("connect-ensure-login");
+const flash = require("connect-flash");
 
 mongoose
   .connect("mongodb://localhost/celebrity", { useNewUrlParser: true })
@@ -51,6 +59,61 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
+//session
+app.use(
+  session({
+    secret: "our-passport-local-strategy-app",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+//passport configurations
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) {
+      return cb(err);
+    }
+    cb(null, user);
+  });
+});
+
+app.use(flash());
+
+passport.use(
+  new LocalStrategy((username, password, next) => {
+    User.findOne({ username }, (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return next(null, false, { message: "Username not found" });
+      }
+      if (!bcrypt.compareSync(password, user.password)) {
+        return next(null, false, { message: "Incorrect password" });
+      }
+
+      return next(null, user);
+    });
+  })
+);
+
+//global Variables
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.msg = req.flash("error");
+  res.locals.success = req.flash("success");
+  next();
+});
+
+//initialize passport and passport session
+app.use(passport.initialize());
+app.use(passport.session());
+
 const index = require("./routes/index");
 app.use("/", index);
 
@@ -59,4 +122,8 @@ app.use("/", celebRoutes);
 
 const movieRoutes = require("./routes/movies");
 app.use("/", movieRoutes);
+
+const userRoutes = require("./routes/userRoutes");
+app.use("/", userRoutes);
+
 module.exports = app;
