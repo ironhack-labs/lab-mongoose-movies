@@ -83,11 +83,11 @@ router.get("/:id/edit",(req,res,next)=>{
 })
 router.post("/update/:id",(req,res,next)=>{
   let id = req.params.id;
-
-  let arr = req.body.actor;
-  arr.forEach((e,i)=>{
-    if(e === null){
-      arr.splice(i,1);
+  let actor = req.body.actor
+  let arr = [];
+  actor.forEach((e)=>{
+    if(e !== 'null'){
+      arr.push(e);
     }
   })
   const obj = {

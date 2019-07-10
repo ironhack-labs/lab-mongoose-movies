@@ -39,3 +39,10 @@ color: white;
   opacity: .50;
   color: white;
 }
+.search{
+  display: flex;
+  flex-direction: row;
+}
+.search *{
+  margin: 0 5px;
+}

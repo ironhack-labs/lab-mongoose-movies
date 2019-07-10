@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
@@ -41,8 +42,16 @@
       {{yay}}
       {{/if}}
 </div>
+<div class="search-bar">
+<form method="GET" action="/User/search">
+<label>Search for users/movies/celebs</label>
+<div class="search">
+<input name="search">
+<button><i class="small material-icons">search</i></button>
+</div>
+</form>
+</div>
   {{{body}}}
-
   <script src="/javascripts/script.js"></script>
 </body>
 </html>
