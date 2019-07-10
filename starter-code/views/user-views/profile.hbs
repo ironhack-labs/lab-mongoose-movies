@@ -1,22 +1,18 @@
-<h2>Secret place just for you</h2>
-<p>Welcome to {{title}}</p>
+<h2>Welcome, This is secret place just for you {{user.username}}</h2>
+
 {{#if msg}}
 
 <body onload="M.toast({html: '{{msg}}'})">
 
 </body>
-{{/if}} {{#if loggedin}}
 
-<body onload="M.toast({html: '{{loggedin}}'})">
+{{/if}}
+{{#if yay}}
 
-</body>
-{{/if}} {{#if error}}
-
-<body onload="M.toast({html: '{{error}}'})">
+<body onload="M.toast({html: '{{yay}}'})">
 
 </body>
 {{/if}}
-
 
 
 <div class="row">

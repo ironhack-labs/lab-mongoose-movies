@@ -1,12 +1,18 @@
 <h2>Login</h2>
+{{#if msg}}
+
+<body onload="M.toast({html: '{{msg}}'})">
+
+</body>
+{{/if}} 
 <div class="row">
 
   <form action="/user/login" method="POST" class="col s6">
     <label for="username">Your Username</label>
-    <input type="text" id="username" name="theUsername">
+    <input type="text" id="username" name="username">
 
     <label for="password">Your Password</label>
-    <input type="text" id="password" name="thePassword">
+    <input type="text" id="password" name="password">
 
     <div class="row">
       <div class="col ">

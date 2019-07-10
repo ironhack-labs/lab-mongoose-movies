@@ -1,12 +1,17 @@
 <h2>Signup</h2>
 <div class="row">
+{{#if msg}}
 
+<body onload="M.toast({html: '{{msg}}'})">
+
+</body>
+{{/if}}
   <form action="/user/create" method="POST" class="col s6">
     <label for="username">Pick your Username</label>
-    <input type="text" id="username" name="theUsername">
+    <input type="text" id="username" name="username">
 
     <label for="password">Pick your Password</label>
-    <input type="text" id="password" name="thePassword">
+    <input type="text" id="password" name="password">
     <div class="row">
       <div class="col ">
         <a class="btn waves-effect waves-light" href="/">Back
