@@ -34,11 +34,31 @@ router.post("/user/create", (req, res, next) => {
   });
   const salt = bcrypt.genSaltSync(10);
   const hashedPassword = bcrypt.hashSync(thePassword, salt);
+//Niether this methid, nor the User.create maintain session
+//after new user signup. req.user = undefined.
+// cannot attach it to req.user. 
+//attaching to req.session.whatever works great
+
+  // const newUser = new User({
+  //   username: theUsername,
+  //   password: hashedPassword
+  // });
+
+  // newUser.save((err) => {
+  //   if (err) {
+  //     next(err);
+  //   } else {
+  //     req.user = newUser;
+  //     console.log(`New user created`);
+  //     res.redirect("/user-view/profile");
+  //   }
+  // });
+
   User.create({
     username: theUsername,
     password: hashedPassword
   })
-    .then((user) => {
+    .then(() => {
       req.user = user;
       console.log(`New user created`);
       res.redirect("/user-view/profile");

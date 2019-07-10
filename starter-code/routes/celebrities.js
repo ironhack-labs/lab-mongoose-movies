@@ -31,6 +31,7 @@ router.get('/celebrities/create/new', (req, res, next) => {
 router.post('/celebrities', (req, res, next) => {
   celebrities.create(req.body)
     .then(()=> {
+      req.flash('success', 'New celebrity added successfully')
       res.redirect('/celebrities/index')
     })
     .catch(err=> {
@@ -42,7 +43,8 @@ router.post('/celebrities', (req, res, next) => {
 router.post('/celebrities/:id/delete', (req, res, next)=>{
   celebrities.findByIdAndRemove(req.params.id)
     .then(()=>{
-        res.redirect('/celebrities/index');
+      req.flash('success', 'Celebrity removed successfully');
+      res.redirect('/celebrities/index');
     })
     .catch((err)=>{
         next(err);
@@ -62,6 +64,7 @@ router.get('/celebrities/:id/edit', (req,res, next) => {
 router.post('/celebrities/:id', (req,res, next) => {
   celebrities.findByIdAndUpdate(req.params.id, req.body) 
     .then(() => {
+      req.flash('success', 'Celebrity modified successfully');
       res.redirect('/celebrities/'+req.params.id)
     })
     .catch((err)=>{

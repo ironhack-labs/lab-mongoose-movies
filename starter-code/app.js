@@ -63,6 +63,8 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use(flash());
+
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
 });
@@ -73,8 +75,6 @@ passport.deserializeUser((id, cb) => {
     cb(null, user);
   });
 });
-
-app.use(flash());
 
 passport.use(new LocalStrategy((username, password, next) => {
   User.findOne({ username }, (err, user) => {
