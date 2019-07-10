@@ -8,8 +8,14 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  <a href="/logout">Logout</a>
+{{#if error}}
+    <div>{{ error }}</div>
+  {{/if}}
+  {{#if success}}
+    <div>{{ success }}</div>
+  {{/if}}
 
+<form action="/logout" method="POST"><button>Log Out</button></form>
 
   {{{body}}}
 

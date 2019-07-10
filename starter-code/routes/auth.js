@@ -6,6 +6,11 @@ const User  = require("../model/user");
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const zxcvbn = require('zxcvbn');
+const flash      = require("connect-flash");
+const passport   = require("passport");
+const localStrategy = require ("passport-local").Strategy;
+const ensureLogin = require("connect-ensure-login");
+
 
 
 //Password Ecryption
@@ -73,66 +78,85 @@ User.findOne({ "username": username })
 });
 
 
-//login
+//login Passport Style
 
-
-router.get('/login',(req,res,next)=>{
-  if(req.session.errorCount <= 0){
-    req.session.errorMessage = null;
-}
-req.session.errorCount -=1;
-// you can do this in every single route manually, 
-// or you can make your own middleware function and call that function in all the routes
-// or you can use flash messages
-
-
-res.render('auth/login', {error: req.session.errorMessage})
+router.get('/login', (req, res, next)=>{
+  res.render('auth/login',{ "message": req.flash("error") })
 })
 
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
-router.post("/login", (req, res, next) => {
-  const theUsername = req.body.username;
-  const thePassword = req.body.password;
 
-  if (theUsername === "" || thePassword === "") {
-    res.render("auth/login", {
-      errorMessage: "Please enter both, username and password to sign up."
-    });
-  }
+//Logout PassPort Style
+router.post('/logout', (req, res, next)=>{
+  req.flash('success', "You Have Been Logged Out");
 
-  User.findOne({ "username": theUsername })
-  .then(user => {
-      if (!user) {
-        req.session.errorMessage = "sorry, no one with that username found";
-        req.session.errorCount = 1
-        res.redirect('/auth/login');
+  req.logout();
+  res.redirect("/login");
+})
+
+// router.get('/login',(req,res,next)=>{
+//   if(req.session.errorCount <= 0){
+//     req.session.errorMessage = null;
+// }
+// req.session.errorCount -=1;
+// // you can do this in every single route manually, 
+// // or you can make your own middleware function and call that function in all the routes
+// // or you can use flash messages
+
+
+// res.render('auth/login', {error: req.session.errorMessage})
+// })
+
+
+// router.post("/login", (req, res, next) => {
+//   const theUsername = req.body.username;
+//   const thePassword = req.body.password;
+
+//   if (theUsername === "" || thePassword === "") {
+//     res.render("auth/login", {
+//       errorMessage: "Please enter both, username and password to sign up."
+//     });
+//   }
+
+//   User.findOne({ "username": theUsername })
+//   .then(user => {
+//       if (!user) {
+//         req.session.errorMessage = "sorry, no one with that username found";
+//         req.session.errorCount = 1
+//         res.redirect('/auth/login');
         
-      }
-      if (bcrypt.compareSync(thePassword, user.password)) {
-        // Save the login in the session!
-        req.session.currentUser = user;
-       // console.log(req.session.currentUser)
-        res.redirect("/movies");
-      } else {
+//       }
+//       if (bcrypt.compareSync(thePassword, user.password)) {
+//         // Save the login in the session!
+//         req.session.currentUser = user;
+//        // console.log(req.session.currentUser)
+//         res.redirect("/movies");
+//       } else {
         
-        req.session.errorMessage = 'incorrect Username or Password';
-        req.session.errorCount = 1;
-        res.redirect('/auth/login');
+//         req.session.errorMessage = 'incorrect Username or Password';
+//         req.session.errorCount = 1;
+//         res.redirect('/auth/login');
         
-      }
-  })
-  .catch(err => {
-    console.log(err);
-  })
+//       }
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
 
 
-});
+// });
 
-router.get("/logout", (req, res, next) => {
-  req.session.destroy((err) => {
+// router.get("/logout", (req, res, next) => {
+//   req.session.destroy((err) => {
   
-    res.redirect("/login");
-  });
-});
+//     res.redirect("/login");
+//   });
+// });
 
 module.exports = router;

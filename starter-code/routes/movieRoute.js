@@ -5,18 +5,24 @@ const Movie = require('../model/Movies')
 const User  = require("../model/user");
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const ensureLogin = require("connect-ensure-login");
+const flash      = require("connect-flash");
+
+
+
 
 //For session Login
-router.use((req, res, next) => {
-    if (req.session.currentUser) { 
-      next(); 
-    } else {                          
-      res.redirect("/login");        
-    }                              
-  });  
-
-//Get All Movies
-router.get('/movies', (req, res, next)=>{
+// router.use((req, res, next) => {
+  //     if (req.session.currentUser) { 
+    //       next(); 
+    //     } else {                          
+      //       res.redirect("/login");        
+      //     }                              
+      //   });  
+      
+      //Passport Session Routes
+      //Get All Movies
+router.get('/movies',ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
     Movie.find()
     .then((data)=>{
       res.render('movies/index',{data})
@@ -27,7 +33,7 @@ router.get('/movies', (req, res, next)=>{
   })
   
   //Get Single Movie
-  router.get('/movies/movieInfo/:id', (req, res, next)=>{
+  router.get('/movies/movieInfo/:id',ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
   
     let movieid = req.params.id;
     Movie.findById(movieid).populate('aStar')
@@ -43,10 +49,10 @@ router.get('/movies', (req, res, next)=>{
   })
   
   //Add New Movie Form
-  router.get('/movies/addnew', (req, res, next)=>{    
+  router.get('/movies/addnew',ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{    
     Celeb.find()
     .then((allCelebs)=>{
-        res.render('movies/addnew', {allCelebs})
+        res.render('movies/addnew',{allCelebs})
     })
     .catch((err)=>{
         console.log(err);
@@ -56,7 +62,7 @@ router.get('/movies', (req, res, next)=>{
   
   
   //New Movie Item 
-  router.post('/movies', (req, res) => {
+  router.post('/movies',ensureLogin.ensureLoggedIn("/login"), (req, res) => {
     const {title, aStar, genre, plot} = req.body;
     const movieModel = new Movie ({title,aStar,genre,plot});
     console.log(movieModel);
@@ -64,10 +70,14 @@ router.get('/movies', (req, res, next)=>{
    .then((insertMovie)=>{
   
      if (!insertMovie.title || !insertMovie.plot || !insertMovie.genre) {
-    
-       return res.status(400).json({ msg: 'Please include a name, email and catchPhrase' });
+
+        req.flash("error","Please Enter in the correct information")
+
+       res.redirect("movies/addnew")
      }
-     res.redirect('/');
+     
+     req.flash('success', 'Movies Entry Was Successful')
+     res.redirect('/movies');
    })
   
   
@@ -76,13 +86,14 @@ router.get('/movies', (req, res, next)=>{
   
   //Delete Movies
   
-  router.post('/movies/remove/:id', (req, res, next)=>{
+  router.post('/movies/remove/:id',ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
   
     let movieId = req.params.id;
     Movie.findByIdAndRemove(movieId)
     .then(()=>{
-  
-     res.redirect('/');
+    req.flash('success', "Entry Was Successfuly Deleted");
+
+     res.redirect('/movies');
   
     })
     .catch((err)=>{
@@ -94,7 +105,7 @@ router.get('/movies', (req, res, next)=>{
   })
   
   //Update Movie view Two variables for the view
-  router.get('/movies/editMovies/:id', (req, res, next)=>{
+  router.get('/movies/editMovies/:id',ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
     Movie.findById(req.params.id)
     .then((mEdit)=>{
             // res.render('movies/editMovies', {mEdit})
@@ -112,10 +123,12 @@ router.get('/movies', (req, res, next)=>{
   })
   
   //Update Movie Entry
-  router.post('/movies/updateMovie/:id', (req, res, next)=>{
+  router.post('/movies/updateMovie/:id',ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
     let movieID = req.params.id;
     Movie.findByIdAndUpdate(movieID, req.body)
     .then((movieUpdate)=>{
+      req.flash('success', "Post Was Successfully Updated");
+
         res.redirect('/')
     })
     .catch((err)=>{
@@ -124,7 +137,7 @@ router.get('/movies', (req, res, next)=>{
   })
   
   
-  router.get('/movies/allactormovies', (req, res, next)=>{
+  router.get('/movies/allactormovies',ensureLogin.ensureLoggedIn("/login"), (req, res, next)=>{
     Movie.find({name: req.params.name})
     .then((data)=>{
       console.log(data[0])

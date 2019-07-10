@@ -11,7 +11,10 @@ const path         = require('path');
 const bcrypt       = require('bcrypt');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const zxcvbn = require('zxcvbn');
+const flash      = require("connect-flash");
+const passport   = require("passport");
+const LocalStrategy = require ("passport-local").Strategy;
+const User  = require("./model/user");
 
 
 
@@ -37,14 +40,60 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+//PassPort Middleware
 app.use(session({
-  secret: "basic-auth-secret",
+  secret: "theSecret",
   cookie: { maxAge: 60000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+
+//Passport config
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+//Flash for errors
+app.use(flash());
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+    
+    return next(null, user);
+  });
+}));
+
+//Passport Start Place below the config
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+//Make Flash Messages
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.error         = req.flash('error');
+  res.locals.success       = req.flash("success");
+  next();
+});
 
 // Express View engine setup
 
