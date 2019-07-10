@@ -29,6 +29,7 @@ router.post("/celebrities", (req, res, next) => {
 
   Celeb.create(data)
     .then(() => {
+      req.flash("success", "Celebrity created");
       res.redirect("/celebrities");
     })
     .catch(err => {
@@ -69,6 +70,7 @@ router.post("/celebrities/:id", (req, res, next) => {
 router.post("/celebrities/:id/delete", (req, res, next) => {
   Celeb.findByIdAndDelete(req.params.id)
     .then(celeb => {
+      req.flash("success", "Celebrity deleted");
       res.redirect("/celebrities");
     })
     .catch(err => {

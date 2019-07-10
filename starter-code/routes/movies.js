@@ -31,6 +31,7 @@ router.post("/movies", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
   Movie.create(data)
     .then(() => {
+      req.flash("success", "Movie created");
       res.redirect("/movies");
     })
     .catch(err => {
@@ -79,6 +80,7 @@ router.post(
   (req, res, next) => {
     Movie.findByIdAndDelete(req.params.id)
       .then(movie => {
+        req.flash("success", "Movie deleted");
         res.redirect("/movies");
       })
       .catch(err => {

@@ -18,7 +18,8 @@ router.post("/sign-up", (req, res, next) => {
   const userPassword = req.body.password;
 
   if (userName === "" || userPassword === "") {
-    res.render("user/sign-up", { message: "Indicate username and password" });
+    req.flash("error", "Missing values");
+    res.redirect("/sign-up");
     return;
   }
   //hashing the password
@@ -28,7 +29,9 @@ router.post("/sign-up", (req, res, next) => {
   User.findOne({ username: userName })
     .then(foundUsername => {
       if (foundUsername !== null) {
-        res.render("user/sign-up", { message: "The username already exists" });
+        // { message: "The username already exists" }
+        req.flash("error", "User name taken");
+        res.redirect("/sign-up");
         return;
       } else {
         User.create({

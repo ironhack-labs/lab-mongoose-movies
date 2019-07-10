@@ -1,6 +1,11 @@
 <div class="celeb-padding">
 
     <h2>Movies:</h2>
+    {{#if success}}
+    <p class='flash'>
+        {{success}}
+    </p>
+    {{/if}}
     <div class="row all-cards">
         {{#each movies}}
         <div class="col s12 m12 l4 flexing">

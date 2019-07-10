@@ -1,5 +1,10 @@
 <div class="name-container">
     <div class="welcome">Welcome, {{data.username}}</div>
+    {{#if success}}
+    <p class='flash'>
+        {{success}}
+    </p>
+    {{/if}}
 </div>
 <div class="home-page">
     <div class="celeb-home">

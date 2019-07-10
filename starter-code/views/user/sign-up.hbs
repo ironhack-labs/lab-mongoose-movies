@@ -1,11 +1,11 @@
 <div class="celeb-padding sign-up">
     <div class="sign-up-content">
         <h2>Create an Account</h2>
-        <p class="flash">
-            {{#if msg}}
+        {{#if msg}}
+        <p class='flash'>
             {{msg}}
-            {{/if}}
         </p>
+        {{/if}}
         <div class="row new-celeb">
             <form action="/sign-up" class="col s12" method="POST">
                 <div class="row">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input name="password" type="text" class="validate">
+                        <input name="password" type="password" class="validate">
                         <label>Password:</label>
                     </div>
                 </div>
