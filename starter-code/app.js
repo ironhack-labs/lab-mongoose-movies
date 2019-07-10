@@ -9,7 +9,15 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const session    = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+// const MongoStore = require("connect-mongo")(session);
+
+const User         = require('./models/User');
+
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
+const flash = require("connect-flash");
 
 
 mongoose
@@ -53,14 +61,55 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 app.use(session({
-  secret: "Shhhh-super-secret-thing",
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
-  })
+  secret: "shhhhh-super-secret",
+  resave: true,
+  saveUninitialized: true
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+
+
+app.use(flash());
+
+// with passport you dont get to choose it looks for req.body.username 
+// and req.body.password
+// choose your name="" in the hbs file accordingly
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Sorry we couldn't find that username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Password not correct for that username" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.err         = req.flash('error')
+  res.locals.yay         =req.flash('success')
+  next();
+});
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -71,7 +120,11 @@ app.use('/', celebrities);
 const movies = require('./routes/movies');
 app.use('/', movies);
 
-const usrrts = require('./routes/userRoutes')
-app.use('/', usrrts);
+// const usrrts = require('./routes/userRoutes')
+// app.use('/', usrrts);
+
+const userRoutes = require('./routes/user-routes');
+app.use('/', userRoutes);
+
 
 module.exports = app;

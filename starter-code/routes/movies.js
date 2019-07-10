@@ -3,10 +3,10 @@ const movieRouter  = express.Router();
 const Movie = require('../models/Movie');
 const Celebrity = require('../models/Celebrity');
 
+const ensureLogin = require("connect-ensure-login");
 
-movieRouter.get('/movies', (req, res, next) => {
-  if (req.session.currentUser){
-    
+movieRouter.get('/movies', ensureLogin.ensureLoggedIn('/login'), (req, res, next) => {
+  
     Movie.find().populate('celebrity')
     .then((theThingWeGetBackFromDB)=>{
       res.render('movies/index', {user: req.session.currentUser, allTheMovies: theThingWeGetBackFromDB})
@@ -14,14 +14,7 @@ movieRouter.get('/movies', (req, res, next) => {
     .catch((err)=>{
       next(err);  
     })
-  }  else {
-    req.session.errorCount = 1
-    req.session.errorMessage = "Sorry you must be logged in to use this page";
-    res.redirect('/login');
-
-  }
-})
-
+  }) 
 
 movieRouter.get('/movies/new', (req, res, next)=>{
   Celebrity.find()
