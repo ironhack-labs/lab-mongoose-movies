@@ -30,6 +30,7 @@ router.post('/', (req, res, next)=>{
   const newCelebrity = new Celebrities(req.body);
   newCelebrity.save()
   .then(()=>{
+    req.flash('error', "✓");
     res.redirect('/celebrities');
   })
   .catch((err)=>{
@@ -42,6 +43,7 @@ router.post('/', (req, res, next)=>{
 router.get('/:id/delete', (req, res, next)=>{
   Celebrities.findByIdAndRemove(req.params.id)
   .then(()=>{
+    req.flash('error', "✓");
     res.redirect('/celebrities')
   })
   .catch((err)=>{
@@ -62,6 +64,7 @@ router.get('/:id/edit', (req, res, next)=>{
 router.post('/:id', (req, res, next)=>{
   Celebrities.findByIdAndUpdate(req.params.id, req.body)
   .then(()=>{
+    req.flash('error', "✓");
     res.redirect('/celebrities/'+req.params.id);
   })
   .catch((err)=>{

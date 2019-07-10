@@ -28,6 +28,9 @@ ul {
   width: 660px;
   margin: 0; }
 
+.login {
+  margin: 0 .61rem; }
+
 section {
   display: flex;
   align-items: center;
@@ -55,9 +58,9 @@ nav {
 
 .board2 {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-left: 50%;
-  flex-direction: column;
   height: 470px;
   width: 933px;
   text-align: left; }
@@ -135,6 +138,9 @@ select {
   width: 100vw;
   top: 47px;
   color: white;
-  font-size: 3rem; }
+  font-size: 3rem;
+  transform: scale(2);
+  transition: all .5s;
+  transform: scale(1); }
 
 /*# sourceMappingURL=style.css.map */

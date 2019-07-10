@@ -1,14 +1,22 @@
 <section>
-  <a class="arrow-back" href="/movies/{{this._id}}">←</a>
+  <a class="arrow-back" href="/movies/{{mov._id}}">←</a>
   <div class="board">
     <div class="board2">
-      <form class="form" action="/movies/{{this._id}}" method="POST">
+      <form class="form" action="/movies/{{mov._id}}" method="POST">
         <label>TITLE:</label>
-        <input type="text" name="title" value="{{this.title}}">
+        <input type="text" name="title" value="{{mov.title}}">
+        
+        <label>MAIN ACTOR:</label>
+        <select name="celebrity">
+          {{#each celebrities}}
+            <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+
         <label>GENRE:</label>
-        <input type="text" name="genre" value="{{this.genre}}">
+        <input type="text" name="genre" value="{{mov.genre}}">
         <label>PLOT:</label>
-        <input type="text" name="plot" value="{{this.plot}}">
+        <input type="text" name="plot" value="{{mov.plot}}">
         <button class="btn">EDIT</button>  
       </form>
     </div>

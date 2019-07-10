@@ -14,7 +14,6 @@ router.get('/', (req, res, next)=>{
 })
 
 router.get('/new', (req, res, next)=>{
-  // res.render('movies/new');
   Celebrity.find()
   .then((all)=>{
     res.render('movies/new', {celebrities: all});
@@ -38,6 +37,7 @@ router.post('/', (req, res, next)=>{
   const newMovie = new Movies(req.body);
   newMovie.save()
   .then(()=>{
+    req.flash('error', "✓");
     res.redirect('/movies');
   })
   .catch((err)=>{
@@ -50,6 +50,7 @@ router.post('/', (req, res, next)=>{
 router.get('/:id/delete', (req, res, next)=>{
   Movies.findByIdAndRemove(req.params.id)
   .then(()=>{
+    req.flash('error', "✓");
     res.redirect('/movies')
   })
   .catch((err)=>{
@@ -57,19 +58,25 @@ router.get('/:id/delete', (req, res, next)=>{
   })
 })
 
+
 router.get('/:id/edit', (req, res, next)=>{
   Movies.findById(req.params.id)
   .then((mov)=>{
-    res.render('movies/edit', mov);
-  })
-  .catch((err)=>{
-    next(err);
+    Celebrity.find()
+    .then((all)=>{
+      celebrities = all;
+      res.render('movies/edit', {mov: mov, celebrities: all});
+    })
+    .catch((err)=>{
+      next(err);
+    })
   })
 })
 
 router.post('/:id', (req, res, next)=>{
   Movies.findByIdAndUpdate(req.params.id, req.body)
   .then(()=>{
+    req.flash('error', "✓");
     res.redirect('/movies/'+req.params.id);
   })
   .catch((err)=>{

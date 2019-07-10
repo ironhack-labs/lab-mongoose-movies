@@ -17,15 +17,15 @@ router.post('/signup', (req, res, next)=>{
   const hashedPassWord =  bcrypt.hashSync(thePassword, salt);
 
   User.create({
-      username: theUsername,
-      password: hashedPassWord
+    username: theUsername,
+    password: hashedPassWord
   })
   .then(()=>{
-      console.log('worked');
-      res.redirect('/')
+    console.log('worked');
+    res.redirect('/')
   })
   .catch((err)=>{
-      next(err);
+    next(err);
   })
 })
 
@@ -39,15 +39,15 @@ router.get('/profile', (req, res, next) => {
 })
 
 router.get('/login', (req, res, next)=>{
-    res.render('user/login')
+  res.render('user/login')
 })
 
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/profile",
-    failureRedirect: "/login",
-    failureFlash: true,
-    passReqToCallback: true
-  }));
+  successRedirect: "/profile",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
 router.post('/logout', (req, res, next)=>{
   req.logout();

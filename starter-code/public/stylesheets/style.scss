@@ -34,6 +34,10 @@ ul {
   margin: 0;
 }
 
+.login {
+  margin: 0 .61rem;
+}
+
 section {
   display: flex;
   align-items: center;
@@ -66,10 +70,9 @@ nav {
 
 .board2 {
   display: flex;
-  justify-content: center;
-  // align-items: center;
-  margin-left: 50%;
   flex-direction: column;
+  justify-content: center;
+  margin-left: 50%;
   height: 470px;
   width: 933px;
   text-align: left;
@@ -161,4 +164,7 @@ select {
   top: 47px;
   color: white;
   font-size: 3rem;
+  transform: scale(2);
+  transition: all .5s;
+  transform: scale(1);
 }
