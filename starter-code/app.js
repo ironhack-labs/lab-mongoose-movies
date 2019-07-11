@@ -144,8 +144,10 @@ const index = require('./routes/index');
 const celebrities = require('./routes/celebrities');
 const movies = require('./routes/movies');
 const auth = require('./routes/auth');
+const celebritiesApi = require('./routes/celebrities-api');
 app.use('/', index);
 app.use('/celebrities', celebrities);
+app.use('/api/v1/celebrities', celebritiesApi);
 app.use('/movies', movies);
 app.use('/auth', auth);
 

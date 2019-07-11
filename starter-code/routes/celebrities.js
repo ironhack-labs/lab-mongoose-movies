@@ -32,6 +32,13 @@ router.get('/new', async (req, res, next) => {
 		next(error);
 	}
 });
+router.get('/api', async (req, res, next) => {
+	try {
+		res.render('celebrities/list-view');
+	} catch (error) {
+		next(error);
+	}
+});
 
 router.get('/:id', async (req, res, next) => {
 	try {
