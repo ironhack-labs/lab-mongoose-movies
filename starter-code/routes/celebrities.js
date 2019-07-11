@@ -1,6 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity    = require('../models/Celebrity');
+const uploadMagic = require('../config/cloundinary-setup');
+
 
 router.get('/celebrities', (req, res, next)=>{   
   Celebrity.find()
@@ -17,11 +19,19 @@ router.get('/celebrities/new', (req, res, next)=>{
   res.render('celebrities/new');
 })
 
-router.post('/celebrities/create-new-celebrity', (req, res, next)=>{
-  const {theName,theOccupation,theCatchPhrase} = req.body;
-  let newCelebrity = {name: theName, occupation: theOccupation, catchPhrase: theCatchPhrase}
+router.post('/celebrities/create-new-celebrity',uploadMagic.single('thePic') ,(req, res, next)=>{
+  
+  let name = req.body.name;
+  let occupation = req.body.occupation;
+  let catchPhrase = req.body.catchPhrase;
+  let image = req.file.url;
 
-  Celebrity.create(newCelebrity)
+  Celebrity.create({
+    name: name,
+    occupation: occupation,
+    catchPhrase: catchPhrase,
+    image: image
+  })
   .then(()=>{
     req.flash('success', "Successfully create a new celebrity")
       res.redirect('/celebrities')

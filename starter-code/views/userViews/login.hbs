@@ -1,23 +1,16 @@
 <div class="login-page">
-  <h2>Login</h2>
   <div>
-    <form action="/login" method="POST">
+    <h2>Login</h2>
+    <form action="/login" method="POST" class="user-info">
+        <label>Username</label>
+        <input type="text" name="username">
 
-      <label>Your Username</label>
-      <input type="text" name="username">
-
-      <label>Password</label>
-      <input type="text" name="password">
+        <label>Password</label>
+        <input type="text" name="password">
 
       <button>Log In</button>
-
     </form>
-
-
-    <br>
-    <br>
-    <br>
-    <br>
+    <img src="/images/google.png" alt="">
     <a href="/google/auth">Log In With Google</a>
   </div>
 </div>

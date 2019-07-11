@@ -1,14 +1,17 @@
 <h2>Add a New Celebrity To The Library</h2>
 
-<form action="/celebrities/create-new-celebrity" method="POST">
+<form action="/celebrities/create-new-celebrity" method="POST" enctype="multipart/form-data">
   <label>Name</label>
-  <input name="theName" type="text">
+  <input name="name" type="text">
 
   <label>Occupation</label>
-  <input name="theOccupation" type="text">
+  <input name="occupation" type="text">
 
   <label>catchPhrase</label>
-  <input name="theCatchPhrase" type="text">
+  <input name="catchPhrase" type="text">
+
+  <label>picture</label>
+  <input name="thePic" type="file">
 
   <button> Save </button>
 </form>
