@@ -1,10 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity')
-
+const uploadMagic = require('../config/cloudinary-setup');
 const ensureLogin = require("connect-ensure-login");
-
-
 
 
 
@@ -82,13 +80,17 @@ router.get('/celebrities/new', (req, res, next)=> {
 })
 
 
-router.post('/celebrities', (req, res, next)=>{
-  const {name, occupation, catchPhrase} = req.body;
+router.post('/celebrities/create-new-celeb', uploadMagic.single('image'), (req, res, next)=>{
+  // const {name, occupation, catchPhrase} = req.body;
   // this is like saying
   // const title = req.body.title;
-  // const descrtiption = req.body.descrition;
-  // etc.
-  let newCeleb = {name: name, occupation: occupation, catchPhrase: catchPhrase }
+  // const descrtiption = req.body.descrition; etc...
+  let name = req.body.name;
+  let occupation = req.body.occupation;
+  let catchPhrase = req.body.catchPhrase;
+  let image = req.file.url;
+
+  let newCeleb = {name: name, occupation: occupation, catchPhrase: catchPhrase, image: image }
   Celebrity.create(newCeleb)
   .then((newlyCreatedCeleb)=>{
 
@@ -103,7 +105,7 @@ router.post('/celebrities', (req, res, next)=>{
 })
 
 router.get('/celebrities/details/:id', (req, res, next) => {
-  console.log("<>><>><><><><><><>><><><><>><><><><><><><><<>");
+  // console.log("<>><>><><><><><><>><><><><>><><><><><><><><<>");
   
   let celebID = req.params.id
   Celebrity.findById(celebID)
@@ -138,9 +140,17 @@ router.get('/celebrities/edit/:id', (req, res, next) => { //could I have done ce
   })
 })
 
-router.post('/celebrities/update/:id', (req, res, next) => {
+router.post('/celebrities/update/:id', uploadMagic.single('image'), (req, res, next) => {
   const theID = req.params.id;
-  Celebrity.findByIdAndUpdate(theID, req.body) //what exactly does .body do?
+  
+  let name = req.body.name;
+  let occupation = req.body.occupation;
+  let catchPhrase = req.body.catchPhrase;
+  let image = ""
+  if(req.file){image = req.file.url}
+  console.log(req.file)
+  let editedCeleb = {name: name, occupation: occupation, catchPhrase: catchPhrase, image: image }
+  Celebrity.findByIdAndUpdate(theID, editedCeleb)
   .then((newlyEditedCeleb)=>{
     req.flash('error', (`Successfully edited profile for ${newlyEditedCeleb.name}`))
     res.redirect(`/celebrities/details/${newlyEditedCeleb._id}`);

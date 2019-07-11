@@ -170,7 +170,6 @@ a {
 .movies, .celebs {
   display: flex;
   width: 1000px;
-  display: flex;
   justify-content: center;
   flex-wrap: wrap; }
 

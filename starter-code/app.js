@@ -10,12 +10,12 @@ const logger       = require('morgan');
 const path         = require('path');
 const session      = require("express-session");
 const MongoStore   = require("connect-mongo")(session);
-
 const User         = require('./models/User');
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
+
 
 
 mongoose
@@ -31,6 +31,7 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -102,7 +103,6 @@ passport.use(new LocalStrategy((username, password, next) => {
 }));
 
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -112,8 +112,6 @@ app.use((req, res, next) => {
   res.locals.msg         = req.flash('error')
   next();
 });
-
-
 
 
 
@@ -132,3 +130,4 @@ app.use('/', userroutes);
 
 
 module.exports = app;
+
