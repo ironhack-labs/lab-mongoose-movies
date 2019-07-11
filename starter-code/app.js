@@ -148,5 +148,25 @@ app.use('/', authRoute);
 const userProfile = require('./routes/user-profile');
 app.use('/', userProfile);
 
+//ROUTES USER POSTS
+const userPosts = require('./routes/user-posts');
+app.use('/', userPosts);
+
+const allPosts = require('./routes/posts');
+app.use('/', allPosts);
+
+//ROUTES FOR AJAX
+const ajaxMovies = require('./routes/ajaxMovies');
+app.use('/', ajaxMovies);
+
+const ajaxActors = require('./routes/ajaxActors');
+app.use('/', ajaxActors);
+
+const ajaxMoviesApi = require('./routes/ajaxMoviesApi');
+app.use('/', ajaxMoviesApi);
+
+const ajaxCreateMovie = require('./routes/ajaxCreateMovie');
+app.use('/', ajaxCreateMovie);
+
 
 module.exports = app;

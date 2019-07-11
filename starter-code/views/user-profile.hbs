@@ -6,6 +6,13 @@
         <p>This is {{user.username}}'s super duper private page</p>
         <a href="/">Home</a>
         <a href="/logout">Log Out</a>
+        <div class="create-post">
+          <form action="/user-posts" method="POST">
+            <input type="text" placeholder="Subject" required="true" name="subject">
+            <textarea name="article" id="article-body" cols="30" rows="10" resize="false"></textarea>
+            <button>Submit</button>
+          </form>
+        </div>
       {{/if}}
     </div>
   </div>

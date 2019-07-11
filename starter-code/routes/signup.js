@@ -14,7 +14,7 @@ router.post('/userSignup', (req, res, next)=>{
   const user = req.body.username;
 
   const salt = bcrypt.genSaltSync(10);
-  const hashedPassWord =  bcrypt.Sync(pass, salt);
+  const hashedPassWord =  bcrypt.hashSync(pass, salt);
 
   //check if username is already in use
   User.findOne({username: user})
