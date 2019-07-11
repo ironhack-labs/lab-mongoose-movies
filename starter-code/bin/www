@@ -21,6 +21,8 @@ app.use((err, req, res, next) => {
   }
 });
 
+// res.status(404).json(err)
+
 let server = http.createServer(app);
 
 server.on('error', error => {
