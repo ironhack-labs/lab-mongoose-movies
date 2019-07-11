@@ -18,6 +18,7 @@ router.get('/movies/index', (req, res, next) => {
 router.get('/movies/:id', (req, res, next) => {
   movies.findById(req.params.id).populate('actors')
     .then((hotFromDB)=> {
+      console.log(hotFromDB);
       res.render('movies/detailed', {singleMovie: hotFromDB})
     })
     .catch(err=> {
@@ -38,14 +39,16 @@ router.get('/movies/create/new', (req, res, next) => {
 })
 
 router.post('/movies', (req, res, next) => {
-  console.log(req.body)
+ 
   movies.create(req.body);
+  req.flash('success', 'New movie added successfully')
   res.redirect('/movies/index')
 })
 
 router.post('/movies/:id/delete', (req, res, next) => {
   movies.findByIdAndRemove(req.params.id)
   .then(()=>{
+    req.flash('success', 'Movie removed successfully');
       res.redirect('/movies/index');
   })
   .catch((err)=>{
@@ -54,6 +57,7 @@ router.post('/movies/:id/delete', (req, res, next) => {
 })
 
 router.get('/movies/:id/edit', (req,res, next) => {
+ 
   movies.findById(req.params.id) 
     .then((hotFromDB) => {
       res.render('movies/edit', {movieToEdit: hotFromDB})
@@ -66,6 +70,7 @@ router.get('/movies/:id/edit', (req,res, next) => {
 router.post('/movies/:id', (req,res, next) => {
   movies.findByIdAndUpdate(req.params.id, req.body) 
     .then(() => {
+      req.flash('success', 'Movie modified successfully');
       res.redirect('/movies/'+req.params.id)
     })
     .catch((err)=>{

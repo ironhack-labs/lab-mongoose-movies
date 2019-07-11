@@ -1,5 +1,12 @@
 <h2>Movies in details</h2>
 
+{{#if yay}}
+
+<body onload="M.toast({html: '{{yay}}'})">
+
+</body>
+{{/if}}
+
 <h4>Title: {{singleMovie.title}}</h4>
 <p>Genre: {{singleMovie.genre}}</p>
 <p>Plot: {{singleMovie.plot}}</p>

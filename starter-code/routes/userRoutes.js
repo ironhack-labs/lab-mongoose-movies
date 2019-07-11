@@ -10,7 +10,13 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("user-views/login");
+  if(req.user) {
+    req.flash('error', `${req.user.username}, you are already logged in. Enjoy your private space`)
+    res.redirect('/profile')
+  } else {
+
+    res.render("user-views/login");
+  }
 });
 
 router.get("/user-view/profile", (req, res, next) => {
@@ -22,6 +28,9 @@ router.get("/user-view/profile", (req, res, next) => {
 router.post("/user/create", (req, res, next) => {
   const thePassword = req.body.password;
   const theUsername = req.body.username;
+  const email = req.body.email;
+  
+
   if (theUsername === "" || thePassword === "") {
     req.session.msg = "Indicate username and password";
     res.redirect("/signup");
@@ -34,34 +43,20 @@ router.post("/user/create", (req, res, next) => {
   });
   const salt = bcrypt.genSaltSync(10);
   const hashedPassword = bcrypt.hashSync(thePassword, salt);
-//Niether this methid, nor the User.create maintain session
-//after new user signup. req.user = undefined.
-// cannot attach it to req.user. 
-//attaching to req.session.whatever works great
-
-  // const newUser = new User({
-  //   username: theUsername,
-  //   password: hashedPassword
-  // });
-
-  // newUser.save((err) => {
-  //   if (err) {
-  //     next(err);
-  //   } else {
-  //     req.user = newUser;
-  //     console.log(`New user created`);
-  //     res.redirect("/user-view/profile");
-  //   }
-  // });
 
   User.create({
     username: theUsername,
-    password: hashedPassword
+    password: hashedPassword,
+    email: email
   })
-    .then(() => {
-      req.user = user;
+    .then((user) => {
+      
       console.log(`New user created`);
-      res.redirect("/user-view/profile");
+      req.login(user, ()=> {
+        req.flash('success', "Signed up successfully")
+        res.redirect('/profile')
+      })
+     
     })
     .catch(err => {
       next(err);
@@ -93,5 +88,25 @@ router.post("/logout", (req, res, next) => {
   req.flash("error", "Logged out successfully");
   res.redirect("/");
 });
+
+router.get("/auth/google", passport.authenticate("google", {
+  scope: ["https://www.googleapis.com/auth/plus.login",
+          "https://www.googleapis.com/auth/plus.profile.emails.read"]
+
+          //user.info.email will give you an email
+}));
+
+router.get("/auth/google/callback", passport.authenticate("google", {
+  failureRedirect: "/",
+  successRedirect: "/profile"
+}));
+
+
+
+
+
+
+
+
 
 module.exports = router;

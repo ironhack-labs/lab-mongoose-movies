@@ -11,6 +11,15 @@
   <label for="catchPhrase">Catch Phrase: </label>
   <input type="text" name="catchPhrase">
 
+  <div class="input-field">
+    <select name="movies" id="moviesSelect">
+      <option value="" disabled selected>Choose your option</option>
+      {{#each movies}}
+      <option value="{{this._id}}">{{this.title}}</option>
+      {{/each}}
+    </select>
+    <label for="moviesSelect">Movie Selection: </label>
+  </div>
 
   <div class="row">
     <div class="col s3">

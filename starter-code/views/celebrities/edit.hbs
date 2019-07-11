@@ -1,31 +1,47 @@
 <h2>Edit data about the celebrity </h2>
+<div class="row">
 
-<form action="/celebrities/{{celebToEdit._id}}" method="POST">
-  <label for="name">Name: </label>
-  <input type="text" id="name" value="{{celebToEdit.name}}" name="name">
+  <div class="col s6">
 
-  <label for="occupation">Occupation: </label>
-  <input type="text" id="occupation" value="{{celebToEdit.occupation}}" name="occupation">
+    <form action="/celebrities/{{celebToEdit._id}}" method="POST">
+      <label for="name">Name: </label>
+      <input type="text" id="name" value="{{celebToEdit.name}}" name="name">
 
-  <label for="catchPhrase">Catch Phrase: </label>
-  <input type="text" id="occupation" value="{{celebToEdit.catchPhrase}}" name="catchPhrase">
+      <label for="occupation">Occupation: </label>
+      <input type="text" id="occupation" value="{{celebToEdit.occupation}}" name="occupation">
 
+      <label for="catchPhrase">Catch Phrase: </label>
+      <input type="text" id="occupation" value="{{celebToEdit.catchPhrase}}" name="catchPhrase">
 
-
-
-  <div class="row">
-    <div class="col s3">
-      <a class="btn waves-effect waves-light" href="/celebrities/index">Back
-        <i class="material-icons left">arrow_back</i>
-      </a>
-
-    </div>
-    <div class="col s3 push-s1">
-
-      <button class="btn waves-effect waves-light ">Save
-        <i class="material-icons right">save</i>
-      </button>
-    </div>
+      <div class="input-field">
+        <select name="movies" id="moviesSelect">
+          <option value="" disabled selected>Choose your option</option>
+          {{#each movies}}
+          <option value="{{this._id}}">{{this.title}}</option>
+          {{/each}}
+        </select>
+        <label for="moviesSelect">Movie Selection: </label>
+      </div>
   </div>
+
+</div>
+
+
+
+<div class="row">
+
+  <div class="col s3">
+    <a class="btn waves-effect waves-light" href="/celebrities/index">Back
+      <i class="material-icons left">arrow_back</i>
+    </a>
+
+  </div>
+  <div class="col s3 push-s1">
+
+    <button class="btn waves-effect waves-light ">Save
+      <i class="material-icons right">save</i>
+    </button>
+  </div>
+</div>
 
 </form>
