@@ -5,12 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-
+<div id="container">
+  <a href="/">back to Home</a><span> |&nbsp;|</span>
+  <a href="/signup">Sign up</a> <span> |&nbsp;|</span>
+  <a href="/login">Login</a> <span> |&nbsp;&nbsp;|</span>
+  <a href="/logout">LogOUT</a> <span> |&nbsp;&nbsp;|</span>
+  <a href="/secretviews/secret">Protected page (requires auth!)</a>
+</div>
+{{!--  --}}
   {{{body}}}
+<div>
+  {{#if message}}
+      <div class="error-message">{{ message }}</div>
+  {{/if}}
 
+  {{#if err }}
+      <div class="error-message"> {{ err }}</div>
+  {{/if}}
+
+  {{#if yay }}
+      <div class="info-message">{{ yay }}</div>
+  {{/if}}
+  
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

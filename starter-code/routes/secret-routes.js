@@ -16,8 +16,9 @@ router.get("/", (req, res, next) => {
 
 router.get("/login", (req, res, next) => {
   // res.render("auth/login");
-  res.render("auth/login", {"message": req.flash("error") });
-
+  res.render("auth/login", {"message": req.flash("error"), "msg": req.flash("success") });
+//"msg": req.flash("info")
+  
 });
 
   router.post("/login", passport.authenticate("local", {
@@ -25,8 +26,20 @@ router.get("/login", (req, res, next) => {
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
+
+} ));
+
+router.get("/auth/google", passport.authenticate("google", {
+  scope: ["https://www.googleapis.com/auth/plus.login",
+          "https://www.googleapis.com/auth/userinfo.email"
+      ]
 }));
 
+
+router.get("/auth/google/callback", passport.authenticate("google", {
+  failureRedirect: "/",
+  successRedirect: "/secretviews/secret"
+}));
 
 /*
 router.post('/login', (req, res, next)=>{
@@ -76,6 +89,7 @@ router.get("/secretviews/secret", (req, res, next) => {
 */
 
 router.get("/secretviews/secret", ensureLogin.ensureLoggedIn(), (req, res) => {
+  
   res.render("secretviews/secret", { user: req.user });
 });
 module.exports = router;

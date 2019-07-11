@@ -55,9 +55,29 @@ a {
   color: #fff;
   margin: 20px auto;
   padding: 20px;
-  width: 100%; }
+  width: 50%; }
+
+.info-message {
+  background: #686cac;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 50%; }
 
 #container {
   font-size: 1.6rem; }
+
+#big {
+  display: flex;
+  justify-content: space-between; }
+
+#big > div {
+  width: 45%; }
+
+.squareblue {
+  height: 50px;
+  background-color: gray;
+  margin-bottom: 50px; }
 
 /*# sourceMappingURL=style.css.map */

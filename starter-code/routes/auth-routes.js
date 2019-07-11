@@ -22,7 +22,7 @@ router.post("/signup", (req, res, next) => {
 
   if (username === "" || password === "") {
     res.render("auth/signup", {
-      errorMessage: "Indicate a username and a password to sign up"
+      message: "Indicate a username and a password to sign up"
     });
     return;
   }
@@ -32,7 +32,7 @@ router.post("/signup", (req, res, next) => {
     .then(user => {
       if (user !== null) {
           res.render("auth/signup", {
-            errorMessage: "The username already exists!"
+            message: "The username already exists!"
           });
           return;
         }
@@ -90,14 +90,18 @@ router.post("/login", (req, res, next) => {
   })
   .catch(error => {
     next(error);
-  })
+  }) 
 });
 */
 
 router.get("/logout", (req, res, next) => {
-  req.session.destroy((err) => {
-    // can't access session here
-    res.redirect("/login");
-  });
+  
+req.logout();
+  // req.session.destroy((err) => {
+  //   // can't access session here
+    
+  // });
+  req.flash('success', 'you are log out');
+    res.redirect("/login"); 
 });
 module.exports = router;

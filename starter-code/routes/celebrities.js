@@ -9,6 +9,7 @@ celebrityRouter.post('/celebrities/:id', (req, res, next) => {
       .then((thingFromDB)=>{
 
         // res.redirect('/celebrities/' + req.params.id );
+        req.flash('success', 'you updated a celebrity!');
         res.redirect('/celebrities');
 
       })
@@ -94,7 +95,9 @@ celebrityRouter.get('/celebrities', (req, res, next) => {
   Celebrity.find()
   .then((thingFromDB)=>{
 
-    res.render('celebrities',{allTheCelebrities:thingFromDB});
+    
+
+    res.render('celebrities',{allTheCelebrities:thingFromDB}); 
   })
   .catch((err)=>{
     console.log(err);
