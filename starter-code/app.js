@@ -14,9 +14,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const bcrypt = require('bcryptjs');
 
-// const Celebrities = require('./models/Celebrity');
-// const Movies = require('./models/Movie');
-// const seed = require('./bin/seedMovies');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 const User = require('./models/User');
 
@@ -26,8 +24,6 @@ mongoose
 		console.log(
 			`Connected to Mongo! Database name: "${x.connections[0].name}"`,
 		);
-		// Celebrities.insertMany(seed);
-		// Movies.insertMany(seed);
 	})
 	.catch((err) => {
 		console.error('Error connecting to mongo', err);
@@ -66,6 +62,35 @@ passport.use(
 			return next(null, user);
 		});
 	}),
+);
+
+passport.use(
+	new GoogleStrategy(
+		{
+			clientID: process.env.GOOGLEID,
+			clientSecret: process.env.GOOGLESECRET,
+			callbackURL: '/auth/google/callback',
+		},
+		(accessToken, refreshToken, profile, done) => {
+			User.findOne({ googleID: profile.id })
+				.then((user) => {
+					if (user) {
+						return done(null, user);
+					}
+					const newUser = new User({
+						googleID: profile.id,
+						email: profile._json.email,
+					});
+
+					newUser.save().then((user) => {
+						done(null, newUser);
+					});
+				})
+				.catch((error) => {
+					next(error);
+				});
+		},
+	),
 );
 
 app.use(passport.initialize());

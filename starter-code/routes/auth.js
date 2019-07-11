@@ -19,7 +19,6 @@ router.post('/signup', (req, res, next) => {
 			message: 'Please fill username and password',
 		});
 	}
-
 	User.findOne({ username })
 		.then((user) => {
 			if (user !== null) {
@@ -27,7 +26,9 @@ router.post('/signup', (req, res, next) => {
 					'error',
 					'Username already taken, please choose a different username',
 				);
-				return res.render('auth/signup');
+
+				res.redirect('/auth/signup');
+				return;
 			}
 			const salt = Number(bcrypt.genSalt(bcryptSalt));
 			const hashPass = bcrypt.hashSync(password, salt);
@@ -77,7 +78,27 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/private-page', ensureLogin.ensureLoggedIn(), (req, res) => {
-	res.render('/auth/private', { user: req.user });
+	res.render('auth/private', { user: req.user });
 });
+
+router.get(
+	'/google',
+	passport.authenticate('google', {
+		scope: [
+			'https://www.googleapis.com/auth/plus.login',
+			// 'https://www.googleapis.com/auth/plus.profile.emails.read',
+			// 'https://www.googleapis.com/auth/userinfo.profile',
+			'https://www.googleapis.com/auth/userinfo.email',
+		],
+	}),
+);
+
+router.get(
+	'/google/callback',
+	passport.authenticate('google', {
+		failureRedirect: '/',
+		successRedirect: '/auth/private-page',
+	}),
+);
 
 module.exports = router;

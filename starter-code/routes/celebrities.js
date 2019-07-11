@@ -17,6 +17,7 @@ router.post('/', async (req, res, next) => {
 		let celebrity = new Celebrities(req.body);
 		await celebrity.save();
 		req.flash('success', 'Celebrity Created');
+
 		res.redirect('/celebrities');
 	} catch (error) {
 		res.redirect('/celebrities/new');
@@ -46,7 +47,7 @@ router.post('/:id', async (req, res, next) => {
 		const data = await Celebrities.findByIdAndUpdate(req.params.id, {
 			$set: req.body,
 		});
-		req.flash('success', 'Celebrity updated');
+		req.flash('success', 'Celebrity Updated');
 		res.redirect('/celebrities/');
 	} catch (error) {
 		next(error);
