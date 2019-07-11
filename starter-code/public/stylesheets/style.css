@@ -16,4 +16,11 @@ a {
   color: black;
   text-decoration: none; }
 
+#big {
+  display: flex;
+  justify-content: space-between; }
+
+#big > div {
+  width: 45%; }
+
 /*# sourceMappingURL=style.css.map */
