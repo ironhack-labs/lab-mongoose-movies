@@ -95,6 +95,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 const celebrities = require('./routes/celebrities')
 app.use('/celebrities', celebrities)
 

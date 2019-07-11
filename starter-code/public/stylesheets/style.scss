@@ -78,6 +78,13 @@ nav {
   text-align: left;
 }
 
+.board3 {
+  display: flex;
+  justify-content: space-between;
+  width: 84%;
+  margin-left: -17%;
+}
+
 .board {
   display: flex;
   align-items: center;
@@ -167,4 +174,15 @@ select {
   transform: scale(2);
   transition: all .5s;
   transform: scale(1);
+}
+
+.each-celeb {
+  width: 250px;
+  margin-top: 5px;
+  padding-left: 5px;
+  background-color: rgba(153, 153, 153, 0.466);
+}
+
+.each-celeb * {
+  margin: 0;
 }

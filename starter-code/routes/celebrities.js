@@ -12,9 +12,45 @@ router.get('/', (req, res, next)=>{
   })
 })
 
+
+router.get('/api', (req, res, next)=>{
+
+  Celebrities.find()
+  .then((listOfCelebs)=>{
+    res.json(listOfCelebs);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+})
+
+router.post('/api', (req, res, next)=>{
+  let name = req.body.name;
+  let occupation = req.body.occupation;
+  let catchPhrase = req.body.catchPhrase;
+
+  Celebrities.create({
+    name: name,
+    occupation: occupation,
+    catchPhrase: catchPhrase
+  })
+  .then((response)=>{
+    res.json({message: 'Successfully creted a celebrity!'});
+  })
+  .catch((err)=>{
+    res.json(err);
+  })
+})
+
+
 router.get('/new', (req, res, next)=>{
   res.render('celebrities/new');
 })
+
+router.get('/new2', (req, res, next)=>{
+  res.render('celebrities/new2');
+})
+
 
 router.get('/:ID', (req, res, next)=>{
   Celebrities.findById(req.params.ID)
