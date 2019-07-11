@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   //
   mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
+  mdc.ripple.MDCLineRipple.attachTo(document.querySelector('.foo-field'))
   //
   console.log('IronGenerator JS imported successfully!');
   // new-celebrity-button

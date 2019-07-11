@@ -6,14 +6,16 @@
   {{!-- <span><a href="celebrities/show/{{this._id}}">{{this.name}}</a></span> --}}
   <span><a href="celebrities/{{this._id}}">{{this.name}}</a></span>
 
-  <span>{{ this.occupation }}</span>
-   <span>{{ this.catchPhrase }}</span>
+  <span style="color:aquamarine;">Occupation: {{ this.occupation }}</span>
+   <span style="color:chartreuse">Catch Phrase: {{ this.catchPhrase }}</span>
   <span> 
     <a href="/celebrities/{{this._id}}/edit" class="edit-button">EDIT</a>
   </span>
-  <hr>
+  <img src="{{this.image}}" style="height: 80px;">
+  
   <p></p>
   <form action="/celebrities/{{this._id }}/delete" method="POST">
     <button>delete this celebrity</button>
   </form>
+   <hr>
 {{/each}}

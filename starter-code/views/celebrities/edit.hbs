@@ -1,6 +1,6 @@
 <a href="/celebrities">Return</a>
 <h1>Edit this celebrity</h1>
-<form action="/celebrities/{{ thecelebrityx._id }}" method="POST">
+<form action="/celebrities/{{ thecelebrityx._id }}" method="POST" enctype="multipart/form-data">
   <label for="">Name:</label>
   <input type="text" name="name" value="{{thecelebrityx.name}}">
 
@@ -9,6 +9,13 @@
 
   <label for="">Catch Phrase:</label>
   <input type="text" name="catchPhrase" value="{{thecelebrityx.catchPhrase}}">
+
+  {{#if thecelebrityx.image}}
+  <input type="file" name="thePic" value="{{thecelebrityx.image}}">
+  {{else}}
+  <input type="file" name="thePic" >
+  {{/if }}
+
   {{#if errorMessage}}
       <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
