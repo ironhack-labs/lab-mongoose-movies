@@ -59,13 +59,15 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-app.use(session({
-  secret: "shhhhh-super-secret",
-  resave: true,
-  saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: "shhhhh-super-secret",
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
-// PASSPORT 
+// PASSPORT
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -75,43 +77,55 @@ passport.serializeUser((user, cb) => {
 
 passport.deserializeUser((id, cb) => {
   User.findById(id, (err, user) => {
-    if (err) { return cb(err); }
+    if (err) {
+      return cb(err);
+    }
     cb(null, user);
   });
 });
 
 app.use(flash());
 
-passport.use(new LocalStrategy((username, password, next) => {
-  User.findOne({ username }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return next(null, false, { message: "Sorry we couldn't find that username" });
-    }
-    if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Password not correct for that username" });
-    }
+passport.use(
+  new LocalStrategy((username, password, next) => {
+    User.findOne({ username }, (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return next(null, false, {
+          message: "Could not locate username, try again"
+        });
+      }
+      if (!bcrypt.compareSync(password, user.password)) {
+        return next(null, false, {
+          message: "Password does not match username"
+        });
+      }
 
-    return next(null, user);
-  });
-}));
+      return next(null, user);
+    });
+  })
+);
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  res.locals.err         = req.flash('error')
-  res.locals.yay         =req.flash('success')
+  res.locals.err = req.flash("error");
+  res.locals.yay = req.flash("success");
   next();
 });
 
+//--------------------------------ROUTES-----------------------------------
+// these are used to link the routes file that you will be using in your app 
 const index = require("./routes/index");
 app.use("/", index);
-
 const celebritiesRoutesVar = require("./routes/celebritiesRoutes");
 app.use("/", celebritiesRoutesVar);
-
+// (soooo if we put /celeb here then in celb routes i can just start at the page )
 const userRoutes = require("./routes/userRoutes");
 app.use("/", userRoutes);
-
+const celebAPIRoutes = require('./routes/celebAPIRoutes');
+app.use('/celebAPI', celebAPIRoutes);
+//user
+//-------------------------------------------------------------------------
 module.exports = app;

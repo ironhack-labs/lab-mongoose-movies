@@ -2,24 +2,24 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
-const passport = require('passport');
+const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 
 router.get("/signup", (req, res, next) => {
   console.log("I'm inside get /signup");
-  res.render("user-views/signup");
+  res.render("../views/user-views/signup");
 });
 
 router.post("/signup", (req, res, next) => {
-  const thePassword = req.body.thePassword;
-  const theUsername = req.body.theUsername;
+  const password = req.body.password;
+  const username = req.body.username;
 
   const salt = bcrypt.genSaltSync(3);
-  const hashedPassWord = bcrypt.hashSync(thePassword, salt);
+  const hashedPassWord = bcrypt.hashSync(password, salt);
   console.log("I'm right outsie the create user");
 
   User.create({
-    username: theUsername,
+    username: username,
     password: hashedPassWord
   })
     .then(() => {
@@ -32,7 +32,10 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-    // MANUAL WAY
+  res.render("user-views/login");
+});
+
+// MANUAL WAY
 //   if (req.session.errorCount <= 0) {
 //     req.session.errorMessage = null;
 //   }
@@ -66,23 +69,37 @@ router.get("/login", (req, res, next) => {
 //     });
 // });
 
-res.render('user-views/login')
-})
-
-router.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/profile",
+    failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
-  }));
-
-  router.post('/logout', (req, res, next)=>{
-    req.logout();
-    res.redirect("/login");
   })
+);
 
-router.get("/profile", (req, res, next) => {
-    // MANUAL WAY
+router.post("/logout", (req, res, next) => {
+  req.logout();
+  res.redirect("/login");
+});
+
+router.get(
+  "/profile",
+  ensureLogin.ensureLoggedIn("/login"),
+  (req, res, next) => {
+    res.render("user-views/profile");
+  }
+);
+
+// this is how you can manually add something to req.flash
+// req.flash("error", "Random Word");
+// res.redirect("/");
+
+// router.get("user-views/profile", (req, res, next) => {
+// });
+
+// MANUAL WAY ^
 //   if (req.session.currentUser) {
 //     res.render("user-views/profile", { user: req.session.currentUser });
 //   } else {
@@ -91,12 +108,10 @@ router.get("/profile", (req, res, next) => {
 //       "Sorry, you must be logged in to use that feature please log in";
 //     res.redirect("/login");
 //   }
-
-res.render('/profile');
-});
+//no slash for render
 
 router.post("/logout", (req, res, next) => {
-//   req.session.destroy();
+  //   req.session.destroy();
   req.logout();
   res.redirect("/");
 });

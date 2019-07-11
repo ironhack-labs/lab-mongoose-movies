@@ -1,4 +1,3 @@
-
 <form action="/movies" method="POST">
   <label for="">Title:</label>
   <input type="text" name="title">
@@ -8,6 +7,15 @@
 
   <label for="">Plot:</label>
   <input type="text" name="plot">
+
+  {{!-- req.body.celeb equals the value of the option --}}
+  <select name="celebrity">
+
+    {{#each celebrities}}
+    <option value={{_id}}>{{name}}</option>
+    {{/each}}
+
+  </select>
 
   <button type="submit">ADD</button>
 </form>

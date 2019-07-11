@@ -68,8 +68,8 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
 router.get("/movies", (req, res, next) => {
   Movie.find()
     .then(allMovies => {
-      console.log("movies: ", allMovies);
-      res.render("../views/movies/index.hbs", {
+      // console.log("movies: ", allMovies);
+      res.render("movies/index", {
         Movie: allMovies
       });
     })
@@ -77,13 +77,20 @@ router.get("/movies", (req, res, next) => {
 });
 
 router.get("/addMovie", (req, res, next) => {
-  res.render("movies/new.hbs");
+
+  // find all celebs ad pass them all into the view so you can loop over them
+Celebrity.find()
+.then(allCelebs =>{
+  console.log("celebs:", allCelebs)
+  res.render("movies/new.hbs", { celebrities: allCelebs});
+})
+  .catch(err => console.log(err));
 });
 
 router.get("/movies/:id", (req, res, next) => {
   Movie.findById(req.params.id)
     .then(theMovies => {
-      res.render("../views/movies/show", { movieDeats: theMovies });
+      res.render("movies/show", { movieDeats: theMovies });
     })
     .catch(err => console.log(err));
 });
@@ -97,8 +104,8 @@ router.post("/movies/:id/delete", (req, res, next) => {
 });
 
 router.post("/movies", (req, res, next) => {
-  const { title, genre, plot } = req.body;
-  const newMovie = new Movie({ title, genre, plot });
+  const { title, genre, celebrity, plot } = req.body;
+  const newMovie = new Movie({ title, genre, celebrity, plot });
   newMovie
     .save()
     .then(() => {

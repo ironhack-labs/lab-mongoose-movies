@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 // const Celebrity = require("../models/Celebrity");
-const Movies = require("../models/Movies");
+const Movies = require("../models/Movie");
 
 mongoose
   .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
@@ -45,16 +45,19 @@ const movies = [
   {
     title: "Bing Bong",
     genre: "mystery",
+    celebrity: "Beef Jelly",
     plot: "A cybernetic alien lost his dog"
   },
   {
     title: "Denisho's Breakfast",
     genre: "romantic comedy",
+    celebrity: "Rodney Dangerfield",
     plot: "you think you know someone, until you don't"
   },
   {
     title: "Peppy Coursework",
     genre: "Philanthropy",
+    celebrity: "Slappy Pappy",
     plot: "Giving back pepperonies"
   }
 ];
