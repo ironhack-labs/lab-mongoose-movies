@@ -9,17 +9,19 @@
     "nodemon": "nodemon ./dist/server.js localhost 3006",
     "test": "mocha --timeout 20000 test/"
   },
-  "author": "",
+  "author": "@iqdavidh",
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mongoose": "^5.6.4",
     "morgan": "^1.9.1",
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.5.8",
     "chai": "^4.2.0",
     "nodemon": "^1.19.1",
     "puppeteer": "^1.18.1"

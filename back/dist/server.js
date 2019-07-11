@@ -17,6 +17,8 @@ app.use(cookieParser());
 app.get("/", function (req, res) {
     res.json({ "ope": "i´m back :)" });
 });
+const routerCeleb = require('./controller/celebridad/routerCelebridad');
+app.use('/celebridad', routerCeleb);
 const port = Config.backPort;
 app.listen(port, () => {
     console.log(`app on port ${port}!`);
