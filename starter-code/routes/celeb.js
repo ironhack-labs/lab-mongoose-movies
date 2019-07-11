@@ -6,8 +6,17 @@ const Movie = require("../models/movies")
 router.get('/',(req,res,next)=>{
   if(req.user){
 
-    Celeb.find()
+    Celeb.find().populate('author')
     .then((allCelebs)=>{
+      if(req.user){
+
+        allCelebs.forEach((e)=>{
+            if(e.author._id.equals(req.user._id)){
+                e.owned = true;
+            }
+
+        })
+      }
       res.render("celebrities/index",{theCelebs: allCelebs})
     })
     .catch((err)=>{
@@ -36,10 +45,12 @@ router.get('/new',(req,res,next)=>{
 })
 router.post('/',(req,res,next)=>{
   const {name, occupation, catchPhrase}= req.body;
+  const author = req.user._id;
   let newCeleb = {
     name: name,
     occupation: occupation,
-    catchPhrase: catchPhrase
+    catchPhrase: catchPhrase,
+    author: author
   }
   Celeb.create(newCeleb)
   .then(()=>{
@@ -81,6 +92,51 @@ router.post("/update/:id",(req,res,next)=>{
     next(err);
   })
 })
+
+router.get('/add-multiple-celebs', (req, res, next)=>{
+
+  Celeb.find()
+  .then((listOfCelebs)=>{
+  
+     
+      res.json(listOfCelebs)
+  
+  })
+      .catch((err)=>{
+          next(err);
+      })
+  })
+  
+  
+  router.get('/add-multiple',(req,res,next)=>{
+    res.render('celebrities/dynamic-celebs')
+  })
+  
+  router.post('/add-multiple-celebs', (req, res, next)=>{
+    if(!req.user){
+      res.redirect('/User/login');
+    }
+      let name = req.body.name;
+      let occupation = req.body.occupation;
+      let catchPhrase = req.body.catchPhrase;
+      let author = req.user._id;
+      Celeb.create({
+          name: name,
+          occupation: occupation,
+          catchPhrase: catchPhrase,
+          author: author
+      })
+      .then((response)=>{
+  
+  
+          res.json({message: 'Successfully Created Celeb'});
+  
+      })
+      .catch((err)=>{
+          res.json(err);
+      })
+  
+  })
 
 
 module.exports = router;

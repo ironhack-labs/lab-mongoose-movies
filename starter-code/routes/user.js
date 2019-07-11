@@ -174,7 +174,3 @@ router.post('/delete/celeb/:id',(req,res,next)=>{
 
 
 module.exports = router;
-
-
-
-

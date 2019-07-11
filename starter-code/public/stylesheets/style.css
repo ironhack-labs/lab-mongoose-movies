@@ -5,6 +5,10 @@ body {
 a {
   color: #00B7FF; }
 
+.not-stupid {
+  opacity: 1 !important;
+  margin-right: 20px; }
+
 .top-nav {
   background-color: #00B7FF;
   height: 100px; }
@@ -43,5 +47,12 @@ a {
 
 .search * {
   margin: 0 5px; }
+
+#big {
+  display: flex;
+  justify-content: space-between; }
+
+#big > div {
+  width: 45%; }
 
 /*# sourceMappingURL=style.css.map */

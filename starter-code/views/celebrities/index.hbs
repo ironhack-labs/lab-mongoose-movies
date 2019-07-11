@@ -5,11 +5,15 @@
 <div class="col l3 m8 s12 movie-styling center-align">
 <h3>{{this.name}}</h3>
 <a href="/celebrities/details/{{id}}"><h4>View more details</h4></a>
+{{#if this.owned}}
 <a href="/celebrities/{{id}}/edit"><button class="waves-effect waves-light btn-small">Edit this celeb</button></a>
 <form action="/celebrities/{{id}}/delete" method="POST"><button class="waves-effect waves-light btn-small">Delete this celeb!</button></form>
+{{/if}}
 <form action="/User/addCeleb/{{id}}" method="POST"><button class="waves-effect waves-light btn-small">Add this Celeb to your favs!</button></form>
 </div>
 {{/each}}
 </div>
 </div>
 <div class="center-align"><a class="waves-effect waves-light btn-large" href="/celebrities/new">Add new celeb</a></div>
+<hr>
+<div class="center-align"><a class="waves-effect waves-light btn-large" href="/celebrities/add-multiple">Add many celebs</a></div>
