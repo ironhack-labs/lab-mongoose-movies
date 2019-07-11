@@ -3,10 +3,16 @@
   <h2>Login Here</h2>
 </div>
 
+{{#unless user}}
+  Home page
+  <div>
+    <h4>Login with Google<a href="/auth/google"> Here</a></h4>
+  </div>
+{{/unless}}
+
 <dir>
   <h5>Not a Member? Become one<a href="/signup"> here</a></h5>
 </dir>
-
 
 <form id="form" action="/login" method="POST">
     <label for="username">Username:</label><br>

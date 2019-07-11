@@ -14,6 +14,8 @@ const MongoStore = require("connect-mongo")(session);
 const flash      = require("connect-flash");
 const passport   = require("passport");
 const LocalStrategy = require ("passport-local").Strategy;
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const keys          = require('./key');
 const User  = require("./model/user");
 
 
@@ -81,6 +83,36 @@ passport.use(new LocalStrategy((username, password, next) => {
   });
 }));
 
+//Google Auth Strategy
+passport.use(new GoogleStrategy({
+  clientID: keys.keys.client_id,
+  clientSecret: keys.keys.Clientsecret,
+  callbackURL: "/auth/google/callback"
+}, (accessToken, refreshToken, profile, done) => {
+  console.log(profile.displayName);
+  User.findOne({ googleID: profile.id })
+  .then(user => {
+  
+    if (user) {
+      return done(null, user);
+    }
+
+    const newUser = new User({
+      googleID: profile.id,
+      fullname: profile.displayName
+    });
+
+    newUser.save()
+    .then(user => {
+      done(null, newUser);
+    })
+  })
+  .catch(error => {
+    next(error)
+  })
+
+}));
+
 //Passport Start Place below the config
 app.use(passport.initialize());
 app.use(passport.session());
@@ -90,6 +122,7 @@ app.use(passport.session());
 //Make Flash Messages
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  
   res.locals.error         = req.flash('error');
   res.locals.success       = req.flash("success");
   next();
@@ -131,6 +164,11 @@ app.use('/', movRouter);
 
 const routerProfile = require('./routes/profile');
 app.use('/', routerProfile);
+
+//API Route
+
+const ashley = require('./routes/api');
+app.use('/',ashley);
 
 
 module.exports = app;

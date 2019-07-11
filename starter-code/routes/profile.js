@@ -13,6 +13,7 @@ const ensureLogin = require("connect-ensure-login");
 //Passport Profile
 router.get('/profile',ensureLogin.ensureLoggedIn("/login"), (req, res, next) => {
   let data = req.user;
+  console.log(data);
   res.render('profile',{data});
 });
 

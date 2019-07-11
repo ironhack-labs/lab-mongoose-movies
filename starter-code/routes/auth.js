@@ -92,6 +92,7 @@ router.post("/login", passport.authenticate("local", {
 }));
 
 
+
 //Logout PassPort Style
 router.post('/logout', (req, res, next)=>{
   req.flash('success', "You Have Been Logged Out");
@@ -99,6 +100,20 @@ router.post('/logout', (req, res, next)=>{
   req.logout();
   res.redirect("/login");
 })
+
+//Google Login
+router.get("/auth/google", passport.authenticate("google", {
+  scope: ["https://www.googleapis.com/auth/plus.login",
+          "https://www.googleapis.com/auth/plus.profile.emails.read"]
+}));
+
+router.get("/auth/google/callback", passport.authenticate("google", {
+  failureRedirect: "/login",
+  successRedirect: "/"
+}));
+
+
+
 
 // router.get('/login',(req,res,next)=>{
 //   if(req.session.errorCount <= 0){
