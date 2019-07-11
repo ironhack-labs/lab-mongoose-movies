@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
+const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
@@ -53,6 +53,25 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+router.post('/logout', (req, res, next) => {
+  req.logout();
+  req.flash('success', "Successfully log out")
+  res.redirect("/login");
+})
+
+
+router.get("/google/auth", passport.authenticate("google", {
+  scope: ["https://www.googleapis.com/auth/plus.login",
+          "https://www.googleapis.com/auth/userinfo.email"
+      ]
+}));
+
+
+router.get("/google/auth/callback", passport.authenticate("google", {
+  failureRedirect: "/",
+  successRedirect: "/movies"
+}));
+
 
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render("userViews/profile", {
@@ -60,14 +79,6 @@ router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
   });
 });
 
-
-
-
-router.post('/logout', (req, res, next) => {
-  req.logout();
-  req.flash('success', "Successfully log out")
-  res.redirect("/login");
-})
 
 
 module.exports = router;
