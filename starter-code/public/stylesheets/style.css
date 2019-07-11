@@ -167,19 +167,26 @@ a {
   flex-direction: column;
   align-items: center; }
 
-.movies {
+.movies, .celebs {
   display: flex;
   width: 1000px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
 
-.each-movie {
+.each-movie, .each-celeb {
   display: flex;
   flex-wrap: wrap;
   padding: 20px; }
 
 #mvimg {
   width: 400px; }
+
+#main-celeb-div {
+  display: flex;
+  justify-content: space-between; }
+
+#main-celeb-div > div {
+  width: 45%; }
 
 /*# sourceMappingURL=style.css.map */

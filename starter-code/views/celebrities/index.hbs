@@ -1,4 +1,64 @@
-<h2>Check out all these Celebz</h2>
+
+
+
+<div class="movie-container">
+<h2>Celebrities</h2>
+<a href="/celebrities/new">Create New Celebtiry</a>
+<a id="ax" href="/axios-new">..Axios..</a>
+
+
+
+
+
+
+
+<div class="celebs">
+{{#each allTheCelebs}}
+<div class="each-celeb">
+
+
+
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img id="mvimg" class="activator" src="/images/lan-deng-eVqU1HTZL8E-unsplash.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{this.name}}<i class="material-icons right">more_vert</i></span>
+      <a href="/celebrities/details/{{this._id}}">Check out this Celebrity</a>
+    </div>
+    <div class="card-action">
+      <form action="/celebrities/delete/{{this.id}}" method="POST">
+        <button>Delete This Movie</button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+{{/each}}
+</div>
+
+
+
+
+
+
+
+
+<p>
+ {{#if msg}}
+  {{msg}}
+  {{/if}}
+</p>
+
+
+</div>
+
+
+
+
+
+{{!-- <h2>Check out all these Celebz</h2>
 <a href="/homepage">Home</a>
 <a href="/celebrities/new">Create New Celeb</a>
 {{#each allTheCelebs}}
@@ -15,4 +75,5 @@
  {{#if msg}}
   {{msg}}
   {{/if}}
-</p>
+</p> --}}
+

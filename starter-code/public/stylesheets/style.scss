@@ -190,7 +190,7 @@ a {
   align-items: center;
 }
 
-.movies{
+.movies, .celebs{
   display: flex;
   width: 1000px;
   display: flex;
@@ -198,7 +198,7 @@ a {
   flex-wrap: wrap;
 }
 
-.each-movie{
+.each-movie, .each-celeb{
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -206,4 +206,14 @@ a {
 
 #mvimg{
   width: 400px;
+}
+
+
+#main-celeb-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+#main-celeb-div > div{
+  width: 45%;
 }

@@ -5,23 +5,71 @@ const Celebrity = require('../models/Celebrity')
 const ensureLogin = require("connect-ensure-login");
 
 
-/* GET celebrites page */
-router.get('/celebrities', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+
+
+
+
+
+// ***-=-=-=-=-Using AXIOS on the front end=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-****
+
+//Instead of rendering the page with all the celebs, what we are doing now
+//is getting the info and converting it to json
+router.get('/axios', /*ensureLogin.ensureLoggedIn(),*/ (req, res, next) => {
   Celebrity.find()
   .then((theWholeDBArray)=>{
-    res.render('celebrities/index', {allTheCelebs: theWholeDBArray})
+    res.json(theWholeDBArray);
   })
   .catch((err)=>{
     next(err);
   })
 });
 
+//I still need to render the file itself, this is basically the new "celebrities" page
+router.get('/axios-new', (req, res, next)=> {
+  res.render('celebrities/axiosCelebAdd');
+})
 
-router.get('/celebrities/details/:id', (req, res, next) => {
-  let celebID = req.params.id
-  Celebrity.findById(celebID)
-  .then((theSinlgeCeleb)=>{
-    res.render('celebrities/show', {celebDeets: theSinlgeCeleb})
+//before working on the front end, we were passing the information back through here as a POST route
+//and then making sure the req.body matches the model and then using the .create method to add it
+//to the database and then redirecting to the new celebrity using the ID (I could have also
+//routed to any other page).
+//Now what we are doing is creating it and not rendering anything becuase the script.js file
+//is allowing us to show the information immediatly on the page without reloading
+router.post('/axios', (req, res, next)=>{
+  const {name, occupation, catchPhrase} = req.body;
+  // this is like saying
+  // const title = req.body.title;
+  // const descrtiption = req.body.descrition;
+  // etc.
+  let newCeleb = {name: name, occupation: occupation, catchPhrase: catchPhrase }
+  Celebrity.create(newCeleb)
+  .then((newlyCreatedCeleb)=>{
+
+    res.json({message: 'Sucessfuly Created Celeb'});
+
+  })
+  .catch((err)=>{
+      res.json(err);
+ 
+  })
+})
+
+
+// ***-=-=-=-=-Using AXIOS on the front end=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-****
+//V
+//V
+//V
+//V
+//**=-=-=-=-=-=Using EXPRESS on the back end */
+
+
+
+
+/* GET celebrites page */
+router.get('/celebrities', /*ensureLogin.ensureLoggedIn(),*/ (req, res, next) => {
+  Celebrity.find()
+  .then((theWholeDBArray)=>{
+    res.render('celebrities/index', {allTheCelebs: theWholeDBArray})
   })
   .catch((err)=>{
     next(err);
@@ -33,7 +81,8 @@ router.get('/celebrities/new', (req, res, next)=> {
   res.render('celebrities/newCeleb');
 })
 
-router.post('/celebrities/create-new-celeb', (req, res, next)=>{
+
+router.post('/celebrities', (req, res, next)=>{
   const {name, occupation, catchPhrase} = req.body;
   // this is like saying
   // const title = req.body.title;
@@ -42,15 +91,31 @@ router.post('/celebrities/create-new-celeb', (req, res, next)=>{
   let newCeleb = {name: name, occupation: occupation, catchPhrase: catchPhrase }
   Celebrity.create(newCeleb)
   .then((newlyCreatedCeleb)=>{
+
     req.flash('error', (`Successfully added profile for ${newlyCreatedCeleb.name}`))
-      res.redirect(`/celebrities/details/${newlyCreatedCeleb._id}`)
-      //what if I want to go to the page where it shows the individual celebrity? 
+    res.redirect(`/celebrities/details/${newlyCreatedCeleb._id}`)
   })
   .catch((err)=>{
-      res.render('celebrities/new')
+      // res.json(err);
+      // res.render('celebrities/new')
       next(err);
   })
 })
+
+router.get('/celebrities/details/:id', (req, res, next) => {
+  console.log("<>><>><><><><><><>><><><><>><><><><><><><><<>");
+  
+  let celebID = req.params.id
+  Celebrity.findById(celebID)
+  .then((theSinlgeCeleb)=>{
+    // console.log("-------------- ", theSingleCeleb);
+    
+    res.render('celebrities/show', {celebDeets: theSinlgeCeleb})
+  })
+  .catch((err)=>{
+    next(err);
+  })
+});
 
 router.post('/celebrities/delete/:id', (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
@@ -62,9 +127,6 @@ router.post('/celebrities/delete/:id', (req, res, next) => {
     next(err);
   })
 })
-
-
-
 
 router.get('/celebrities/edit/:id', (req, res, next) => { //could I have done celeb/:id/edit?
   Celebrity.findById(req.params.id)
