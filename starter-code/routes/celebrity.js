@@ -2,6 +2,33 @@ const express = require("express");
 const router = express.Router();
 const Celeb = require("../models/celebrity");
 
+router.get("/celebrities/Api-Call", (req, res, next) => {
+  Celeb.find()
+    .then(celeb => {
+      res.json(celeb);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+router.post("/celebrities/Api-Call", (req, res, next) => {
+  let name = req.body.name;
+  let occupation = req.body.occupation;
+  let catchPhrase = req.body.catchPhrase;
+
+  Celeb.create({
+    name: name,
+    occupation: occupation,
+    catchPhrase: catchPhrase
+  })
+    .then(response => {
+      res.json({ message: "Successfully Created Animal" });
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 router.get("/celebrities", (req, res, next) => {
   Celeb.find()
     .then(celeb => {
@@ -31,9 +58,11 @@ router.post("/celebrities", (req, res, next) => {
     .then(() => {
       req.flash("success", "Celebrity created");
       res.redirect("/celebrities");
+      // res.json({ message: "Successfully Created Animal" });
     })
     .catch(err => {
       next(err);
+      // res.json(err);
     });
 });
 
@@ -65,6 +94,11 @@ router.post("/celebrities/:id", (req, res, next) => {
     .catch(err => {
       next(err);
     });
+});
+
+//Create a Celeb VIA Api
+router.get("/celebrities/newCeleb", (req, res, next) => {
+  res.render("celebrities/newCeleb");
 });
 
 router.post("/celebrities/:id/delete", (req, res, next) => {

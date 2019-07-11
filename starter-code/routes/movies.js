@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Movie = require("../models/movie");
 const ensureLogin = require("connect-ensure-login");
+const uploadCloud = require("../config/cloudinary");
 
 router.get("/movies", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Movie.find()
@@ -17,27 +18,36 @@ router.get("/movies/new", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   res.render("movies/new");
 });
 
-router.post("/movies", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  const { title, genre, plot, actor } = req.body;
-  if (!title) {
-    res.redirect("/movies");
-  }
-  const data = {
-    title,
-    genre,
-    plot,
-    actor
-  };
-
-  Movie.create(data)
-    .then(() => {
-      req.flash("success", "Movie created");
+router.post(
+  "/movies",
+  ensureLogin.ensureLoggedIn(),
+  uploadCloud.single("thePic"),
+  (req, res, next) => {
+    const { title, genre, plot, actor } = req.body;
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
+    if (!title) {
       res.redirect("/movies");
-    })
-    .catch(err => {
-      next(err);
-    });
-});
+    }
+    const data = {
+      title,
+      genre,
+      plot,
+      actor,
+      imgName: imgName,
+      imgPath: imgPath
+    };
+
+    Movie.create(data)
+      .then(() => {
+        req.flash("success", "Movie created");
+        res.redirect("/movies");
+      })
+      .catch(err => {
+        next(err);
+      });
+  }
+);
 
 router.get(
   "/movies/:id/edit",

@@ -2,7 +2,7 @@
 
     <h2>Create A New movie</h2>
     <div class="row new-celeb">
-        <form action="/movies" class="col s12" method="POST">
+        <form action="/movies" class="col s12" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s12">
                     <input name="title" type="text" class="validate">
@@ -27,8 +27,13 @@
                     <label>Actor</label>
                 </div>
             </div>
+            <div class="row movieUpload">
+                <label>Movie Image</label>
+                <input type="file" name="thePic">
+            </div>
             <button class="waves-effect waves-light btn-large">Create</button>
-            <a href="/movies"><button class="waves-effect waves-light btn-large red darken-1">Cancel</button></a>
+            <a href="/movies"><button type="button"
+                    class="waves-effect waves-light btn-large red darken-1">Cancel</button></a>
         </form>
 
     </div>

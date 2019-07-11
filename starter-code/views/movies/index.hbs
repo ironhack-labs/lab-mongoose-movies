@@ -10,6 +10,9 @@
         {{#each movies}}
         <div class="col s12 m12 l4 flexing">
             <div class="card blue-grey darken-1">
+                <div class="card-image" style="background-image: url({{this.imgPath}})">
+                    {{!-- <img id="movieImg" src="/images/scarface.jpg"> --}}
+                </div>
                 <div class="card-content white-text">
                     <span class="card-title">{{this.title}}</span>
                 </div>

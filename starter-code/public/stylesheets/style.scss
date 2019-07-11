@@ -156,3 +156,38 @@ input.validate.valid {
   text-align: center;
   //   height: 20px;
 }
+
+.new-new-celeb {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+#celeb-list {
+  margin-left: 50px;
+}
+
+.card-image {
+  height: 400px;
+  // background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-image-details {
+  // width: 400px;
+  height: 600px;
+  // background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-details {
+  width: 400px;
+}
+
+.card-details-container {
+  display: flex;
+  justify-content: center;
+}

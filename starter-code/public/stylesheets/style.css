@@ -120,4 +120,30 @@ input.validate.valid {
   padding: 10px 0px;
   text-align: center; }
 
+.new-new-celeb {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px; }
+
+#celeb-list {
+  margin-left: 50px; }
+
+.card-image {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.card-image-details {
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.card-details {
+  width: 400px; }
+
+.card-details-container {
+  display: flex;
+  justify-content: center; }
+
 /*# sourceMappingURL=style.css.map */
