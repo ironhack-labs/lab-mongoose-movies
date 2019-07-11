@@ -1,7 +1,7 @@
 <h2>Add new celebrity to Database</h2>
 <div class="row">
 
-<form action="/celebrities" method="POST" class="col s6">
+<form action="/celebrities" method="POST" class="col s6" enctype="multipart/form-data">
   <label for="name">Name: </label>
   <input type="text" name="name">
 
@@ -10,6 +10,8 @@
 
   <label for="catchPhrase">Catch Phrase: </label>
   <input type="text" name="catchPhrase">
+
+  <input type="file" name="image">
 
   <div class="input-field">
     <select name="movies" id="moviesSelect">
@@ -30,7 +32,7 @@
     </div>
     <div class="col s3 push-s1">
 
-      <button class="btn waves-effect waves-light" type="submit" name="action">Save
+      <button class="btn waves-effect waves-light" >Save
         <i class="material-icons right">send</i>
       </button>
     </div>

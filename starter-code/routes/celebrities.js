@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const celebrities = require('../models/celebrities')
 const movies  = require('../models/movies');
+const uploadMagic = require('../config/cloudinary-setup');
 
 /* GET home page */
 router.get('/celebrities/index', (req, res, next) => {
@@ -19,7 +20,7 @@ router.get('/celebrities/index', (req, res, next) => {
 router.get('/celebrities/:id', (req, res, next) => {
   celebrities.findById(req.params.id).populate('movie')
     .then((singleCeleb)=>{
-      console.log(singleCeleb);
+      
       res.render('celebrities/detailedPage', {oneCeleb: singleCeleb})
     })
     .catch((err)=> {
@@ -34,14 +35,34 @@ router.get('/celebrities/create/new', (req, res, next) => {
       res.render('celebrities/newCeleb', {movies: allTheMovies})
 
     })
+    .catch(err => {
+      next(err)
+    })
 });
 
 //button at create new celebrity
-router.post('/celebrities', (req, res, next) => {
-  console.log(req.body)
-  celebrities.create(req.body);
+router.post('/celebrities',uploadMagic.single('image'), (req, res, next) => {
+  let name = req.body.name;
+  let occupation = req.body.occupation;
+  let catchPhrase = req.body.catchPhrase;
+  let img = req.file.url;
+  let movie = req.body.movies;
+
+  celebrities.create({
+    name: name,
+    occupation: occupation,
+    catchPhrase: catchPhrase,
+    image: img,
+    movie: movie
+  })
+  .then((newlyCreatedCeleb) => {
+    console.log(newlyCreatedCeleb);
     req.flash('success', 'New celebrity added successfully');
     res.redirect('/celebrities/index');
+  })
+  .catch(err => {
+    next(err)
+  })
    
 })
 
@@ -62,6 +83,7 @@ router.get('/celebrities/:id/edit', (req,res, next) => {
     .then((hotFromDB) => {
       movies.find()
         .then((moviesToEdit)=> {
+          
           res.render('celebrities/edit', {celebToEdit: hotFromDB, movies: moviesToEdit})
         })
     })
@@ -71,7 +93,8 @@ router.get('/celebrities/:id/edit', (req,res, next) => {
 })
 
 router.post('/celebrities/:id', (req,res, next) => {
-  celebrities.findByIdAndUpdate(req.params.id, req.body) 
+  
+  celebrities.findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
       req.flash('success', 'Celebrity modified successfully');
       res.redirect('/celebrities/'+req.params.id)
@@ -83,10 +106,7 @@ router.post('/celebrities/:id', (req,res, next) => {
 
 //celebrities quick create
 router.get("/celebrities-quick-create", (req, res, next) => {
-  
-    
-      res.render('celebrities/quickCelebAdd');
-   
+ res.render('celebrities/quickCelebAdd');
 });
 
 router.get("/celebrities-quick-info", (req, res, next) => {
