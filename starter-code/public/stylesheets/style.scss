@@ -6,3 +6,55 @@ body {
 a {
   color: #00B7FF;
 }
+.not-stupid{
+  opacity: 1 !important;
+  margin-right: 20px;
+}
+.top-nav{
+  background-color: #00B7FF;
+  height: 100px;
+}
+.top-nav a{
+  color: white;
+  text-decoration: none;
+  margin-top: 30px;
+}
+.movie-styling{
+  border: 1px black solid;
+  margin: 0px 5% 5% 5%;
+  height: 400px;
+}
+.movie-styling *{
+  margin-bottom: 3%;
+}
+.log-out{
+  margin-top: 45%;
+  background-color: #00B7FF;
+  color: white;
+}
+#error{
+background-color: red;
+opacity: .50;
+color: white;
+}
+
+#success{
+  background-color: green;
+  opacity: .50;
+  color: white;
+}
+.search{
+  display: flex;
+  flex-direction: row;
+}
+.search *{
+  margin: 0 5px;
+}
+#big{
+  display: flex;
+  justify-content: space-between;
+}
+
+#big > div{
+  width: 45%;
+}

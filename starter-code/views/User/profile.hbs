@@ -1,0 +1,17 @@
+
+<h2>{{user.username}}'s Profile</h2>
+
+<h4>{{user.username}}'s favorite movies</h4>
+<ul>
+{{#each user.favMovies}}
+<a href="/movies/details/{{this.id}}"><li>{{this.title}}</li></a>  
+<form method="POST" action="/User/delete/movie/{{this.id}}"><button class="waves-effect red btn-small">Delete</button></form>
+{{/each}}
+</ul>
+<h4>{{user.username}}'s favorite celebs</h4>
+<ul>
+{{#each user.favCelebs}}
+<a href="/celebrities/details/{{this.id}}"><li>{{this.name}}</li></a>  
+<form method="POST" action="/User/delete/celeb/{{this.id}}"><button class="waves-effect red btn-small">Delete</button></form>
+{{/each}}
+</ul>

@@ -1,0 +1,19 @@
+<h2>Search results for {{search}}</h2>
+<h3>Users :</h3>
+<ul>
+  {{#each users}}
+  <li>{{this.username}}</li>
+  {{/each}}
+</ul>
+<h3>Movies :</h3>
+<ul>
+  {{#each movies}}
+  <a href="/movies/details/{{this.id}}"><li>{{this.title}}</li></a>
+  {{/each}}
+</ul>
+<h3>Celebs :</h3>
+<ul>
+  {{#each celebs}}
+  <a href="/celebrities/details/{{this.id}}"><li>{{this.name}}</li></a>
+  {{/each}}
+</ul>

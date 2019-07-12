@@ -5,12 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-
+  <div class="container-fluid top-nav">
+  <div class="row">
+  <div class="col s2 valign-wrapper">
+  <a href="/celebrities">View Our Celebs</a>
+  </div>
+  <div class="col s2 valign-wrapper">
+  <a href="/movies">View Our Movies</a>
+  </div>
+   <div class="col s2 valign-wrapper">
+  <a href="/User/signup">Sign up!</a>
+  </div>
+   <div class="col s2 valign-wrapper">
+  <a href="/User/login">Log in!</a>
+  </div>
+   <div class="col s2 valign-wrapper">
+  <a href="/User/profile">Profile</a>
+  </div>
+   <div class="col s2 valign-wrapper">
+  <form method="POST" action="/User/logout"><button class="log-out">Log out</button></form>
+  </div>
+</div>
+</div>
+<div id="error">
+    {{#if err}}
+      {{err}}
+      {{/if}}
+</div>
+<div id="success">
+      {{#if yay}}
+      {{yay}}
+      {{/if}}
+</div>
+<div class="search-bar">
+<form method="GET" action="/User/search">
+<label>Search for users/movies/celebs</label>
+<div class="search">
+<input name="search">
+<button><i class="small material-icons">search</i></button>
+</div>
+</form>
+</div>
   {{{body}}}
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

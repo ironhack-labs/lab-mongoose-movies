@@ -1,0 +1,41 @@
+<h1>Edit {{theMovie.name}}</h1>
+
+
+<form action="/movies/update/{{theMovie._id}}" method="POST">
+
+<label>Title</label>
+<input name="title" type="text" value="{{theMovie.title}}">
+
+<label>Genre</label>
+<input name="genre" type="text" value="{{theMovie.genre}}">
+
+<label>Plot</label>
+<input name="plot" type="text" value="{{theMovie.plot}}">
+<div>
+
+<label>Actor</label>
+<br>
+  {{#each theCelebs}}
+  {{#if this.involves}}
+ <p>
+      <label>
+        <input type="checkbox" name="celebs" checked="checked" value="{{this.id}}"/>
+        <span>{{this.name}}</span>
+      </label>
+    </p>
+  {{else}}
+  <p>
+      <label>
+        <input type="checkbox"  name="celebs" value="{{this.id}}"/>
+        <span>{{this.name}}</span>
+      </label>
+    </p>
+  {{/if}}
+  {{/each}}
+
+</div>
+
+
+<div class="center-align"><button class="waves-effect waves-light btn-large"> Save Changes</button></div>
+
+</form>

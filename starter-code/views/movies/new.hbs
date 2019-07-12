@@ -1,0 +1,24 @@
+<h1>Add your own Movie</h1>
+<form action="/movies" method="POST" enctype="multipart/form-data">
+<label>Title</label>
+<input name="title" type="text">
+<label>Genre</label>
+<input name="genre" type="text">
+<label>Plot</label>
+<input name="plot" type="text">
+<label>Photo</label>
+<input type="file" name="thePic">
+<div>
+<label>Actor</label>
+<br>
+  {{#each theOptions}}
+ <p>
+      <label>
+        <input type="checkbox" name="celebs" value="{{this.id}}"/>
+        <span>{{this.name}}</span>
+      </label>
+    </p>
+  {{/each}}
+</div>
+<div class="center-align"><button class="waves-effect waves-light btn-large">Submit!</button></div>
+</form>

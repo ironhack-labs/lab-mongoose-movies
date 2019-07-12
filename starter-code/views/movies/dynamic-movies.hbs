@@ -1,0 +1,50 @@
+
+<div id="big">
+
+
+        <div class="new-movie-form">
+
+            <div>
+                <label>Title of Movie</label>
+                <input id="title" type="text">
+            </div>
+
+            <div>
+                <label>Movie's Genre</label>
+                <input id="genre" type="text">
+            </div>
+
+            <div>
+                <label>What is this Movie's plot</label>
+                <input id="plot" type="text">
+            </div>
+            <div>
+              <label>Actors</label>
+            <br>
+  {{#each allOptions}}
+ <p>
+      <label>
+        <input type="checkbox" name="celebs" value="{{this.id}}"/>
+        <span>{{this.name}}</span>
+      </label>
+    </p>
+  {{/each}}
+
+
+
+        </div>
+
+            <button class="waves-effect waves-light btn-small" id="new-movie-button">Submit new movie</button>
+          </div>
+        <div>
+
+            <ul id="movie-list">
+
+            </ul>
+
+           
+       
+        </div>
+
+</div>
+<script src="/javascripts/moviescript.js"></script>
