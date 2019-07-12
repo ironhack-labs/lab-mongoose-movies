@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Celeb = require('../model/Celebrity');
+const Api = require('../model/ApiCeleb');
 // const session    = require("express-session");
 // const passport   = require("passport");
 // const localStrategy = require ("passport-local").Strategy;
@@ -17,7 +18,7 @@ router.get('/api/apiView',(req,res,next)=>{
 
 //Get ALL
 router.get('/api/api',(req,res,next)=>{
-  Celeb.find()
+  Api.find()
   .then((listcelebs)=>{
   
       res.json(listcelebs);
@@ -31,17 +32,13 @@ router.get('/api/api',(req,res,next)=>{
 
 //CREATE 
 
-router.post('/api/api/',(req,res,next)=>{
+router.post('/api/api',(req,res,next)=>{
   
 
-    let name=req.body.name;
-    let occupation=req.body.occupation;
-    let catchPhrase=req.body.catchPhrase;
-
-   Celeb.create({
-      name: name,
-      occupation: occupation,
-      catchPhrase: catchPhrase
+   Api.create({
+    name:req.body.name,
+    occupation:req.body.occupation,
+    catchPhrase:req.body.catchPhrase
 
    }).then((response)=>{
 

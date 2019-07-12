@@ -7,6 +7,6 @@ const ApiSchema = new Schema({
   catchPhrase: String
 });
 
-const ApiModel = mongoose.model("ApiSchema", ApiSchema);
+const ApiModel = mongoose.model("Api", ApiSchema);
 
 module.exports = ApiModel;

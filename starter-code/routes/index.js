@@ -3,6 +3,7 @@ const router  = express.Router();
 const Celeb = require('../model/Celebrity');
 const Movie = require('../model/Movies')
 const User  = require("../model/user");
+const uploadCloud = require('../config/cloudinary.js');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const ensureLogin = require("connect-ensure-login");

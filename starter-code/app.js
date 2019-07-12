@@ -167,8 +167,11 @@ app.use('/', routerProfile);
 
 //API Route
 
-const ashley = require('./routes/api');
-app.use('/',ashley);
+const apiRoute = require('./routes/api');
+app.use('/',apiRoute);
+
+// const uploadRoute = require('./upload');
+// app.use('/',uploadRoute);
 
 
 module.exports = app;

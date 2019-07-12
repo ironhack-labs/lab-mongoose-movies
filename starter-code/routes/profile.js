@@ -3,6 +3,8 @@ const router  = express.Router();
 const Celeb = require('../model/Celebrity');
 const Movie = require('../model/Movies')
 const User  = require("../model/user");
+const Upload    = require("../model/Fileupload");
+const uploadCloud = require('../config/cloudinary.js');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash      = require("connect-flash");
@@ -12,10 +14,54 @@ const ensureLogin = require("connect-ensure-login");
 
 //Passport Profile
 router.get('/profile',ensureLogin.ensureLoggedIn("/login"), (req, res, next) => {
-  let data = req.user;
-  console.log(data);
-  res.render('profile',{data});
+  User.find()
+  .then((images)=>{
+    let data = {
+      photos:images
+    }
+    console.log(req.user);
+    res.render('profile',{data, user: req.user});
+  })
+  .catch((err)=>{
+    next(err);
+})
+ 
 });
+
+//Upload Page
+router.get('/profileUpload',ensureLogin.ensureLoggedIn("/login"), (req, res, next) => {
+
+  res.render('profileUpload');
+});
+
+
+//Upload Action
+router.post('/imgcreate', uploadCloud.single('photo') ,(req, res, next)=>{
+
+  let imgName = req.body.imgName;
+  let description = req.body.description;
+  let imgPath = req.file.url
+
+
+  User.findByIdAndUpdate(req.user._id,{
+      imgName: imgName,
+      description: description,
+      imgPath: imgPath
+  })
+  .then((images)=>{
+      res.redirect('/profile')
+  })
+  .catch((err)=>{
+      next(err);
+  })
+
+
+
+})
+
+
+
+
 
 
 

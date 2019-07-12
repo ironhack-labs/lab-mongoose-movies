@@ -5,7 +5,10 @@ const userSchema = new Schema({
   username: String,
   password: String,
   googleID: String,
-  fullname:String
+  fullname:String,
+  imgName: String,
+  description: String,
+  imgPath: String
 
 
 }, {
