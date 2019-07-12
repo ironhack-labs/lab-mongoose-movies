@@ -2,6 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const Celeb = require('../models/celebrity')
 const Movie = require("../models/movies")
+const uploadCloud = require('../config/cloudinary-setup.js');
+
 
 router.get('/',(req,res,next)=>{
   if(req.user){
@@ -41,16 +43,23 @@ router.get('/details/:id',(req,res,next)=>{
 })
 })
 router.get('/new',(req,res,next)=>{
-  res.render("celebrities/new")
+  
+  
+    res.render("celebrities/new")
+
 })
-router.post('/',(req,res,next)=>{
+router.post('/', uploadCloud.single('thePic'),(req,res,next)=>{
+    
   const {name, occupation, catchPhrase}= req.body;
   const author = req.user._id;
+  let img = req.file.url;
   let newCeleb = {
     name: name,
     occupation: occupation,
     catchPhrase: catchPhrase,
-    author: author
+    author: author,
+    img: img
+
   }
   Celeb.create(newCeleb)
   .then(()=>{

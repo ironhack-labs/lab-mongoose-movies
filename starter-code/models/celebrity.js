@@ -5,7 +5,8 @@ const celebritySchema = new Schema({
   name: String,
   occupation: String,
   catchPhrase: String,
-  author: {type:Schema.Types.ObjectId, ref: 'User'}
+  author: {type:Schema.Types.ObjectId, ref: 'User'},
+  img: String
 })
 const Celebrity = mongoose.model("Celebrity",celebritySchema);
 module.exports = Celebrity;

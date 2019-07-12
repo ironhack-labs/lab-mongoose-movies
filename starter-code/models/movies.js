@@ -6,7 +6,8 @@ const movieSchema = new Schema({
   genre: String,
   plot: String,
   actor: [{type:Schema.Types.ObjectId, ref: 'Celebrity'}],
-  author: {type:Schema.Types.ObjectId, ref: 'User'}
+  author: {type:Schema.Types.ObjectId, ref: 'User'},
+  img: String
 })
 const Movie = mongoose.model("Movie",movieSchema);
 module.exports = Movie;
