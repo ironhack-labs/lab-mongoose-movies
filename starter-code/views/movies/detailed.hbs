@@ -10,8 +10,16 @@
 <h4>Title: {{singleMovie.title}}</h4>
 <p>Genre: {{singleMovie.genre}}</p>
 <p>Plot: {{singleMovie.plot}}</p>
-
+{{#if singleMovie.actors.name}}
 <p>Starring: {{singleMovie.actors.name}}</p>
+{{/if}}
+<div >
+  {{#if singleMovie.image}}
+  <img src="{{singleMovie.image}}">
+  {{else}}
+  <img src="/images/cinema.jpg">
+  {{/if}}
+</div>
 
 <a href="/movies/index" class="btn waves-effect waves-light ">Go back
   <i class="material-icons left">arrow_back</i>

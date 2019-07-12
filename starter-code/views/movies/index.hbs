@@ -22,7 +22,11 @@
   <div class="col s10 m5 l3">
     <div class="card sticky-action">
       <div class="card-image waves-effect waves-block waves-light">
+        {{#if this.image}}
+        <img class="activator" src="{{this.image}}">
+        {{else}}
         <img class="activator" src="/images/cinema.jpg">
+        {{/if}}
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">{{this.title}}<i

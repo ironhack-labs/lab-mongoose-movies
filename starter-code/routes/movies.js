@@ -1,7 +1,8 @@
 const express = require('express');
 const router  = express.Router();
-const movies = require('../models/movies')
-const celebrities = require('../models/celebrities')
+const movies = require('../models/movies');
+const celebrities = require('../models/celebrities');
+const uploadMagic = require('../config/cloudinary-setup');
 
 /* GET home page */
 router.get('/movies/index', (req, res, next) => {
@@ -38,11 +39,29 @@ router.get('/movies/create/new', (req, res, next) => {
   
 })
 
-router.post('/movies', (req, res, next) => {
+router.post('/movies', uploadMagic.single('image'), (req, res, next) => {
+  let title = req.body.title;
+  let genre = req.body.genre;
+  let plot = req.body.plot;
+  let img = req.file.url;
+  let actors = req.body.actors;
+
+  movies.create({
+    title: title,
+    genre: genre,
+    plot: plot,
+    image: img,
+    actors: actors
+  })
+  .then((newlyCreated) => {
+    console.log(newlyCreated);
+    req.flash('success', 'New movie added successfully')
+    res.redirect('/movies/index')
+  })
+  .catch(err => {
+    next(err)
+  })
  
-  movies.create(req.body);
-  req.flash('success', 'New movie added successfully')
-  res.redirect('/movies/index')
 })
 
 router.post('/movies/:id/delete', (req, res, next) => {
@@ -57,10 +76,13 @@ router.post('/movies/:id/delete', (req, res, next) => {
 })
 
 router.get('/movies/:id/edit', (req,res, next) => {
- 
   movies.findById(req.params.id) 
     .then((hotFromDB) => {
-      res.render('movies/edit', {movieToEdit: hotFromDB})
+      celebrities.find()
+      .then(celebs => {
+
+        res.render('movies/edit', {movieToEdit: hotFromDB, actors: celebs})
+      })
     })
     .catch((err)=>{
       next(err);

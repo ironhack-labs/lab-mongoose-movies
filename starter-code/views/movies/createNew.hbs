@@ -1,6 +1,6 @@
 <h2>Create new movie</h2>
 <div class="row">
-<form action="/movies" method="POST" class="col s6">
+<form action="/movies" method="POST" class="col s6"  enctype="multipart/form-data">
   <label for="title">Title</label>
   <input type="text" id="title" placeholder="The sun also rises" name="title">
 
@@ -10,7 +10,7 @@
   <label for="plot">Plot</label>
   <input type="text" id="plot" placeholder="The guy talkes about the war and drinks much" name="plot">
 
-  
+
  
   <div class="input-field">
     <select name="actors" id="celebsSelect">
@@ -22,6 +22,8 @@
     <label>Actor Selection: </label>
   </div>
 
+  <label for="image">Upload the image</label>
+  <input type="file" name="image" id="image">
   <br>
   </div>
   <div class="row"> 

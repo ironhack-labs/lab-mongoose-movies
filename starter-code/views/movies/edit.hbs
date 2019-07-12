@@ -1,36 +1,45 @@
 <h2>Edit the movie</h2>
 <div class="row">
-<div class="col s6 ">
+  <div class="col s6 ">
 
-<form action="/movies/{{movieToEdit._id}}" method="POST">
-  <label for="title">Title</label>
-  <input type="text" id="title" name="title" value="{{movieToEdit.title}}">
+    <form action="/movies/{{movieToEdit._id}}" method="POST">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="{{movieToEdit.title}}">
 
-  <label for="genre">Genre</label>
-  <input type="text" id="genre" name="genre" value="{{movieToEdit.genre}}">
+      <label for="genre">Genre</label>
+      <input type="text" id="genre" name="genre" value="{{movieToEdit.genre}}">
 
-  <label for="plot">Plot</label>
-  <input type="text" id="plot" name="plot" value="{{movieToEdit.plot}}">
+      <label for="plot">Plot</label>
+      <input type="text" id="plot" name="plot" value="{{movieToEdit.plot}}">
+
+      <div class="input-field">
+        <select name="actors" id="actorsSelect">
+          <option value="" disabled selected>Choose your option</option>
+          {{#each actors}}
+          <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+        <label for="moviesSelect">Movie Selection: </label>
+      </div>
+
+      <div class="row">
 
 
-  <div class="row">
-    
+        <div class="col s3">
+          <a class="btn waves-effect waves-light" href="/movies/index">Back
+            <i class="material-icons left">arrow_back</i>
+          </a>
 
-    <div class="col s3">
-      <a class="btn waves-effect waves-light" href="/movies/index">Back
-        <i class="material-icons left">arrow_back</i>
-      </a>
+        </div>
+        <div class="col s3 offset-s1">
 
-    </div>
-    <div class="col s3 offset-s1">
+          <button class="btn waves-effect waves-light ">Save
+            <i class="material-icons right">save</i>
+          </button>
+        </div>
 
-      <button class="btn waves-effect waves-light ">Save
-        <i class="material-icons right">save</i>
-      </button>
-    </div>
-    
+      </div>
+
+    </form>
   </div>
-
-</form>
-</div>
 </div>
