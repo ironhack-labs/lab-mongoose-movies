@@ -1,0 +1,25 @@
+<div class="celeb-container">
+  <div class="header">
+    <h2>Welcome to the A - list</h2>
+  </div>
+  <div class="celeb-list">
+    {{#each celebs}}
+      <div class="celeb">
+        <h3>Name: {{this.name}}</h3>
+        <h4>Occupation: {{this.accupation}}</h4>
+        <h5>Catch-Phrase: {{this.catchPhrase}}</h5>
+        <a href="/celebrity/{{this.id}}">View more</a>
+        <form action="/delete/{{this.id}}" method="POST"><button>Delete from list</button></form>
+      </div>
+    {{/each}}
+  </div>
+  <div class="add-celeb">
+    <h3>Add to the A - list</h3>
+    <form action="/new" method="POST">
+      <input type="text" placeholder="Celebrity Name" required="true" name="name">
+      <input type="text" placeholder="Celebrity Occupation" required="true" name="accupation">
+      <input type="text" placeholder="Celebrity Catch-phrase" required="true" name="catchPhrase">
+      <button type="submit">Add to list</button>
+    </form>
+  </div>
+</div>

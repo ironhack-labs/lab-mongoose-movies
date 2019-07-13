@@ -1,0 +1,23 @@
+<div class="movie-container">
+  <div class="movie">
+    <h3>Name: {{movie.name}}</h3>
+    <h4>Genre: {{movie.genre}}</h4>
+    <h5>Plot: {{movie.plot}}</h5>
+    <h5>Starring: {{movie.actor.name}}</h5>
+  </div>
+  <form action="/editMovie/{{movie.id}}" method="POST">
+    <input type="text" placeholder="Movie name" required="true" name="name" value="{{movie.name}}">
+    <input type="text" placeholder="Movie genre" required="true" name="genre" value="{{movie.genre}}">
+    <input type="text" placeholder="The plot" required="true" name="plot" value="{{movie.plot}}">
+    <select name="actor" id="actors-list">
+        {{#each actors}}
+          {{#if this.selected}}
+             <option value="{{this._id}}" selected='selected'>{{this.name}}</option>
+          {{else}}
+            <option value="{{this._id}}">{{this.name}}</option>
+          {{/if}}
+        {{/each}}
+    </select>
+    <button type="submit">Update</button>
+  </form>
+</div>
