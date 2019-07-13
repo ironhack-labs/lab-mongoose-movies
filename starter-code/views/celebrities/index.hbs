@@ -1,0 +1,18 @@
+<section>
+  <a class="arrow-back" href="/">←</a>
+  <div class="board">
+    <div class="board2">
+      {{#each Celebrities}}
+        <div class="each-celeb">
+          <h2>
+            <a href="celebrities/{{this._id}}">
+              {{this.name}}
+            </a>
+          </h2>
+        </div>
+      {{/each}}
+    </div>
+    {{!-- <a class="add" href="/celebrities/new">ADD A CELEBRITY</a> --}}
+    <a class="add" href="/celebrities/new2">ADD A CELEBRITY</a>
+  </div>
+</section>

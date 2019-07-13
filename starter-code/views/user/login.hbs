@@ -1,0 +1,17 @@
+<section>
+  <a class="arrow-back" href="/">←</a>
+  <div class="board">
+    <div class="board2">
+      <form class="form" action="/login" method="POST">
+        <label>Your username:</label>
+        <input type="text" name="username">
+        <label>Password:</label>
+        <input type="text" name="password">
+        <button class="btn">LOGIN</button>
+        {{#if error}}
+          <div>{{error}}</div>
+        {{/if}}
+      </form>
+    </div>
+  </div>
+</section>

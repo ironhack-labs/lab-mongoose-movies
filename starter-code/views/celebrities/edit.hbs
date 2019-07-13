@@ -1,0 +1,16 @@
+<section>
+  <a class="arrow-back" href="/celebrities/{{this._id}}">←</a>
+  <div class="board">
+    <div class="board2">
+      <form class="form" action="/celebrities/{{this._id}}" method="POST">
+        <label>NAME:</label>
+        <input type="text" name="name" value="{{this.name}}">
+        <label>OCCUPATION:</label>
+        <input type="text" name="occupation" value="{{this.occupation}}">
+        <label>CATCH PHRASE:</label>
+        <input type="text" name="catchPhrase" value="{{this.catchPhrase}}">
+        <button class="btn">EDIT</button>  
+      </form>
+    </div>
+  </div>
+</section>

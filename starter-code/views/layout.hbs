@@ -8,9 +8,35 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
+  <nav>
+    <a class="logo" href="/">celeb</a>
+    <ul>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/profile">PROFILE</a></li>
+      <li><a href="/celebrities">CELEBRITIES</a></li>
+      <li><a href="/movies">MOVIES</a></li>
+      <li><a href="/signup">SIGN UP</a></li>
+      <li>
+        {{#if currentUser}}
+          <form action="/logout" method="POST"><button class="btn2">LOGOUT</button></form>
+        {{/if}}
+        {{#unless currentUser}}
+          <a class="login" href="/login">LOGIN</a>
+        {{/unless}}
+      </li>
+    </ul>
+  </nav>
+  <div class="message">
+    {{#if message}}
+      <p>
+      {{message}}
+      </p>
+    {{/if}}
+  </div>
 
   {{{body}}}
 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

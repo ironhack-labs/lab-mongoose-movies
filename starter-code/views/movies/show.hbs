@@ -1,0 +1,13 @@
+<section>
+  <a class="arrow-back" href="/movies">←</a>
+  <div class="board">
+    <div class="board2">
+      <h2>{{Movie.title}}</h2>
+      <p>with {{Movie.celebrity.name}}</p>
+      <p>{{Movie.genre}}</p>
+      <p>{{Movie.plot}}</p>
+      <a class="btn" href="/movies/{{Movie._id}}/edit">EDIT</a>
+      <a class="btn" href="/movies/{{Movie._id}}/delete">DELETE</a>
+    </div>
+  </div>
+</section>
