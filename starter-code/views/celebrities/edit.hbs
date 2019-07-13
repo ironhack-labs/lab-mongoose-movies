@@ -1,0 +1,20 @@
+<h2 class="edit"> Edit</h2>
+<div class="div-form">
+  <img class="img-form" src="http://www.pngall.com/wp-content/uploads/2016/06/Clapperboard-PNG-Picture.png" alt="">
+  <form class="form-group" action="/celebrities/{{celebrities._id}}" method="POST">
+    <label for="">Title:</label>
+    <input type="text" name="name" value="{{celebrities.name}}">
+
+    <label for="">Occupation</label>
+    <input type="text" name="occupation" value="{{celebrities.occupation}}">
+
+    <label for="">Catch Phrase</label>
+    <input type="text" name="catchPhrase" value="{{celebrities.catchPhrase}}">
+
+    <label for="">image</label>
+    <input type="text" name="image" value="{{celebrities.image}}">
+
+    <button class="btn btn-primary button" type="submit">EDIT</button>
+  </form>
+</div>
+<button type="button"><a href="/celebrities/">back</a></button>

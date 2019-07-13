@@ -1,0 +1,15 @@
+<h2 class="edit"> Create a new movie</h2>
+<div class="div-form">
+  <form class="form-group" action="/movies/" method="POST">
+    <label for="poster">Link to the Poster</label>
+    <input id="poster" type="text" name="poster" placeholder="E.g. http://google.images">
+    <label for="title">Title</label>
+    <input id="title" type="text" name="title" placeholder="E.g. Dark Star">
+    <label for="genre">Genre</label>
+    <input id="genre" type="text" name="genre" placeholder="E.g. Drama">
+    <label for="plot">Plot</label>
+    <textarea name="plot" value="{{movies.plot}}" cols="40" rows="5"></textarea>
+    <button class="btn btn-primary button" type="submit">Create new movie</button>
+  </form>
+</div>
+<button type="button"><a href="/movies/">back</a></button>

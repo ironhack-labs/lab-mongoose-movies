@@ -1,0 +1,20 @@
+<h2 class="edit"> Edit a movie</h2>
+<div class="div-form">
+  <img class="img-form" src="../../images/popcorn-bucket.png" alt="popcorn bucket">
+  <form class="form-group" action="/movies/{{movies._id}}" method="POST">
+    <label for="">Link for movie poster:</label>
+    <input type="text" name="poster" value="{{movies.poster}}">
+
+    <label for="">Title:</label>
+    <input type="text" name="title" value="{{movies.title}}">
+
+    <label for="">Genre:</label>
+    <input type="text" name="genre" value="{{movies.genre}}">
+
+    <label for="">Plot:</label>
+    <textarea name="plot" placeholder="{{movies.plot}}" cols="40" rows="5"></textarea>
+
+    <button class="btn btn-primary button" type="submit">EDIT</button>
+  </form>
+</div>
+<button type="button"><a href="/movies/">back</a></button>
