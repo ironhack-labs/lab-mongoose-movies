@@ -1,0 +1,105 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+.home-page {
+  background-image: url("../images/homeBackground.jpg");
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.home-page > h1 {
+  color: rgba(0, 0, 255, 0.851);
+  font-size: 100px; }
+
+.home-page > a {
+  font-size: 50px;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.735);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px; }
+
+.login-page {
+  background-image: url("../images/login.jpg");
+  height: 700px;
+  background-size: cover; }
+
+.login-page > div {
+  border-style: solid;
+  width: 40%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.login-page > div * {
+  margin: 10px; }
+
+.login-page > div > a {
+  width: 40%;
+  font-size: 20px;
+  padding-top: 20px;
+  text-decoration: none;
+  display: inline-block; }
+
+.login-page > div > img {
+  width: 20px; }
+
+.login-page > div > h2 {
+  font-size: 50px;
+  color: white; }
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aqua; }
+
+.user-info * {
+  margin: 10px; }
+
+.user-info > button {
+  margin: 20px;
+  width: 100px;
+  height: 30px;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 15px; }
+
+.user-info > label {
+  font-size: 20px; }
+
+.user-info > input {
+  padding: 10px 15px;
+  border-radius: 4px; }
+
+.div1 {
+  margin-bottom: 30px; }
+
+.celebrity-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: grey;
+  margin: 10px;
+  padding: 10px; }
+
+.celebrity-list > a {
+  text-decoration: none;
+  color: white; }
+
+.movie-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: grey;
+  margin: 10px;
+  padding: 10px; }
+
+.movie-list > a {
+  text-decoration: none;
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */

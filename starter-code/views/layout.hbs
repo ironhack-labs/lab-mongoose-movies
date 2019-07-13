@@ -10,6 +10,15 @@
 <body>
 
   {{{body}}}
+  
+  {{#if message}}
+    <div>{{ message }}</div>
+  {{/if}}
+  
+  {{#if err}}
+    <div>{{ err }}</div>
+  {{/if}}
+  
 
   <script src="/javascripts/script.js"></script>
 </body>
