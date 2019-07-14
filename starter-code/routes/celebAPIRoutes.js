@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.post('/', (req, res, next) =>{
+router.post("/", (req, res, next) => {
   let name = req.body.name;
   let occupation = req.body.occupation;
   let catchphrase = req.body.catchphrase;
@@ -22,12 +22,12 @@ router.post('/', (req, res, next) =>{
     occupation: occupation,
     catchphrase: catchphrase
   })
-  .then((response)=>{
-    res.json(response);
-  })
-  .catch((err)=>{
-    res.json(err);
-  })
-})
+    .then(response => {
+      res.json(response);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
 
 module.exports = router;
