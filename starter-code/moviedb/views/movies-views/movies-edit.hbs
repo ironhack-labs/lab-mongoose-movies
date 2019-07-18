@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Add</h2>
+  <form id="form" action="" method="POST">
+    <label for="title">Title</label>
+    <input name="title" type="text" />
+
+    <label for="genre">Genre</label>
+    <input name="genre" type="text"/>
+
+    <label for="plot">Plot</label>
+    <input id="plot" name="plot" type="text"/>
+
+</div>
+    <button type="submit" class="btn">Agregar</button>
+    <a href="/movies" class="btn other">Volver</a>
+<div>
+  
+
+
+  </form>
+</div>
+
+{{#if errorMessage}}
+<div class="error-message">{{ errorMessage }}</div>
+{{/if}}

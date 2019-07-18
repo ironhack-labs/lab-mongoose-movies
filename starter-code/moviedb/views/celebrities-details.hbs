@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h3>{{star.name}}</h3>
+  <p>Ocupación: {{star.name}}</p>
+  <p>Frase: {{star.catchPhrase}}</p>
+
+  <button class="open-button" onclick="openForm()">Editar</button>
+
+  <div class="form-popup" id="myForm">
+    <form method="POST" class="form-container">
+
+      <h2>Edición</h2>
+
+      <label for="name">Nombre</label>
+      <input type="text" placeholder="Nombre" name="nombre">
+
+      <label for="occupation">Ocupacion</label>
+      <input type="text" placeholder="Ocupación" name="ocupacion">
+
+      <label for="phrase">Frase</label>
+      <input type="text" placeholder="Frase" name="frase">
+
+      <button type="submit" class="btn">OK</button>
+      <a href="/celebrities/{{star._id}}/delete" class="btn">Delete</a>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+  {{#if errorMessage}}
+  <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+  <div>
+    <a href="/celebrities" class="btn">Back</a>
+  </div>
+</div>
+
+<script src="/public/javascripts/script.js"></script>
