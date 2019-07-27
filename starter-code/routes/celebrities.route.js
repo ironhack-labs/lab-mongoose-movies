@@ -17,6 +17,8 @@ router.get('/ceb-index',(req, res, next) => {
   
 })
 
+// para ir a los detalles
+
 
 router.get('/show/:id', (req, res, next) => {
 //  console.log('estoy en la ruta de los detalles de las celebrities')
@@ -29,5 +31,19 @@ router.get('/show/:id', (req, res, next) => {
     next()
   })  
 })
+
+// para añadir nuevos
+
+router.get('/create', (req , res, next) => res.render('celebrities/new'))
+router.post('/create', (req, res, next) =>{
+  const {name, ocuppation, catchPhrase} = req.body
+
+
+  Celebrity.create({name, ocuppation, catchPhrase})
+    .then(() => res.redirect('/celebrities/ceb-index'))
+    .catch(err => res.render('celebrities/new'))
+})
+
+
 
 module.exports = router;
