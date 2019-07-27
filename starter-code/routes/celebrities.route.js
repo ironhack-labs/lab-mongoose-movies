@@ -56,5 +56,31 @@ router.post('/delete/:id', (req, res, next) => {
   })  
 })
 
+// para editarlos
+
+router.get('/edit', (req, res, next) => {
+  // console.log(req.query)
+  Celebrity.findById(req.query.celebrityId)
+  .then(eachCel =>res.render('celebrities/edit', {eachCel}))
+  .catch(err => {
+    console.log('Error while passing to edit view', err)
+    next()
+  })
+})
+router.post('/edit', (req, res, next) => {
+   const cellQuery = req.query.celebrityId
+  const {name, ocuppation, catchPhrase} = req.body
+  // console.log(req.body)
+
+  Celebrity.findByIdAndUpdate(cellQuery, { $set : {name, ocuppation, catchPhrase} }, {new: true})
+  .then(newCell => {
+    // console.log(newCell)
+    res.redirect('/celebrities/ceb-index')
+  })
+  .catch(err => {console.log('Error while updating celebrity:', err)
+  next()
+  })
+})
+
 
 module.exports = router;

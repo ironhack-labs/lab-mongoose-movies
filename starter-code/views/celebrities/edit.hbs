@@ -1,0 +1,19 @@
+<h2>Edit the information of this celebrity:</h2>
+
+{{#with eachCel}}
+  <form action="/celebrities/edit?celebrityId={{this.id}}" method="post">
+  <div class="form-group">
+    <label for="name-input">Celebrity's name</label>
+    <input name="name" type="text" class="form-control" id="name-input" placeholder="{{this.name}}">
+  </div>
+  <div class="form-group">
+    <label for="occupation-input">Celebrity's occupation</label>
+    <input name="ocuppation" type="text" class="form-control" id="occupation-input" placeholder="{{this.ocuppation}}">
+  </div>
+    <div class="form-group">
+    <label for="catchPrase-input">Celebrity's catchPhrase</label>
+    <input name="catchPhrase" type="textarea" class="form-control" id="catchPrase-input" placeholder="{{this.catchPhrase}}">
+  </div>
+   <button type="submit" class="btn btn-warning">Add now!</button>
+</form>
+{{/with}}
