@@ -44,6 +44,17 @@ router.post('/create', (req, res, next) =>{
     .catch(err => res.render('celebrities/new'))
 })
 
+// para borrarlos
+
+router.post('/delete/:id', (req, res, next) => {
+  const celebrityId = req.params.id
+  Celebrity.findByIdAndRemove(celebrityId)
+  .then(() => res.redirect('/celebrities/ceb-index'))
+  .catch(err => {
+    console.log('Error while deleting the celebrities from the DB', err)
+    next()
+  })  
+})
 
 
 module.exports = router;
