@@ -17,4 +17,17 @@ router.get('/ceb-index',(req, res, next) => {
   
 })
 
+
+router.get('/show/:id', (req, res, next) => {
+//  console.log('estoy en la ruta de los detalles de las celebrities')
+  const celebrityId = req.params.id
+  Celebrity.findById(celebrityId)
+  .then(eachCel =>res.render('celebrities/show', {eachCel}))
+    
+  .catch(err => {
+    console.log('error while getting the id', err)
+    next()
+  })  
+})
+
 module.exports = router;
