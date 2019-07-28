@@ -1,5 +1,15 @@
-{{#each detail}}
+{{#with detail}}
+{{!-- {{#each detail}} --}}
 <p>{{name}} </p>
 <p>{{genre}}</p>
 <p>{{plot}}</p>
+{{!-- {{/each}} --}}
+
+<h4>Sobre el celebrity</h4>
+
+{{#each celebrity}}
+<p>{{name}} {{this.occupation}} ({{this.catchPhrase}})</p>
+<hr>
 {{/each}}
+
+{{/with}}

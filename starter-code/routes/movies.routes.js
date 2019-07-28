@@ -14,16 +14,20 @@ router.get('/list', (req, res, next) => {
 router.get('/details/:id', (req, res, next) => {
   const movieId = req.params.id
   Movie.findById(movieId)
-    .then(movieInfo => res.render('movie-detail', { detail: movieInfo }))
+    .populate('celebrity')
+    .then(movieInfo => {
+      res.render('movie-detail', { detail: movieInfo })
+      console.log(movieInfo)
+    })
     .catch(err => console.log('Hubo un error:', err))
 })
 
 router.get('/create', (req, res, next) => res.render('movies-add'))
 router.post('/create', (req, res, next) => {
 
-  const { name, genre, plot } = req.body
+  const {celebrity, name, genre, plot } = req.body
 
-  Movie.create({ name, genre, plot  })
+  Movie.create({ celebrity, name, genre, plot  })
     .then(() => res.redirect('/movies/list'))
     .catch(err => console.log('Hubo un error:', err))
 })
@@ -44,10 +48,10 @@ router.get('/remove/:id',(req,res,next) => {
   })
   router.post('/edit', (req, res, next) => {
   
-    const { name, genre, plot } = req.body
+    const {celebrity, name, genre, plot } = req.body
   
     // Todos los métodos de actualizar pueden recibir {new: true} como último argumento opcional, retornando el nuevo elemento y no el previo al update
-    Movie.findByIdAndUpdate(req.query.movId, { $set: { name, genre, plot  } }, { new: true })
+    Movie.findByIdAndUpdate(req.query.movId, { $set: { celebrity, name, genre, plot  } }, { new: true })
       .then(theNewMovie => {
         console.log(theNewMovie)
         res.redirect('/movies/list')
