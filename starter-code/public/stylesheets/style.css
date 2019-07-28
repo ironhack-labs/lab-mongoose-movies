@@ -2,7 +2,23 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+h2 {
+  color: #1e106d;
+  font-size: 2em; }
+
+h3 {
+  color: #3d3a3a;
+  text-decoration-line: underline;
+  font-size: 1.5em;
+  margin: 10px 0; }
+
 a {
-  color: #00B7FF; }
+  display: inline-block;
+  color: #00B7FF;
+  margin: 10px 0; }
+
+.indexA {
+  margin-right: 20px;
+  font-size: 1.7em; }
 
 /*# sourceMappingURL=style.css.map */
