@@ -1,0 +1,12 @@
+<h2>All our celebrities:</h2>
+
+{{#each celebs}}
+<p>{{name}}</p>
+<a href="/celebs/{{_id}}">Show info</a>
+<a href="/celebs/edit?celebId={{_id}}">Edit file</a>
+<a href="/celebs/delete/{{_id}}">Delete file</a>
+{{/each}}
+
+<p><a href="/celebs/add">Create new celebrity file</a></p>
+
+<p> <a href="/">Home Page</a></p>

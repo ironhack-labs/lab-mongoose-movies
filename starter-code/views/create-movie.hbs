@@ -1,0 +1,21 @@
+<h2>Add Movie File</h2>
+
+<form action="/movies/add" method="POST">
+  <label for="title-input">Title</label>
+  <input name="title" type="text" id="title-input">
+
+  <label for="genre-input">Genre</label>
+  <input name="genre" type="text" id="genre-input">
+  
+  <label for="plot-input">Plot</label>
+  <input name="plot" type="text" id="plot-input">
+  
+  <select name="celebrity" id="celebrity"> Celebrity
+    {{#each celebs}}
+    <option value="{{this.name}}">{{this.name}}</option>
+    console.log({{this.name}})
+    {{/each}}
+  </select>
+  
+  <button type="submit">Submit</button>
+</form>

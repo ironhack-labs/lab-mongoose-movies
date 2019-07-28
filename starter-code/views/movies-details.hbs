@@ -1,0 +1,15 @@
+<h2>Detailed information about:</h2>
+
+{{#with movie}}
+
+<h3>{{title}}</h3>
+<h4>{{genre}}</h4>
+<p>{{plot}}</p>
+{{#each celebrity}}
+<p>{{this.name}}</p>
+<p>{{this.occupation}}</p>
+<p>{{this.catchPhrase}}</p>
+{{/each}}
+{{/with}}
+
+<a href="/movies/list">Go back</a>
