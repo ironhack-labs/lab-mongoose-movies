@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <h1>Editar Personaje {{theCelebrity.name}}</h1>
+    </div>
+
+    <div class="col-md-6">
+
+      <form action="/celebrities/edit?celebrityId={{theCelebrity._id}}" method="post">
+        <div class="form-group">
+          <label for="name-input">Nombre</label>
+          <input name="name" type="text" class="form-control" id="name-input" value="{{theCelebrity.name}}">
+        </div>
+
+        <div class="form-group">
+          <label for="occupation-input">Ocupacion</label>
+          <input name="occupation" type="text" class="form-control" id="occupation-input"
+            value="{{theCelebrity.occupation}}">
+        </div>
+
+        <div class="form-group">
+          <label for="frase-input">Frase Celebre</label>
+          <textarea name="catchPhrase" class="form-control" id="frase-input">{{theCelebrity.catchPhrase}}</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="pictureUrl-input">Imagen</label>
+          <input name="pictureUrl" type="text" class="form-control" id="pictureUrl-input">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Actualizar datos del Personaje</button>
+
+      </form>
+    </div>
+
+  </div>
+</div>

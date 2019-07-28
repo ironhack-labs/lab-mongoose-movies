@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Listados de Celebrities</h1>
+      <a href="/celebrities/create" class="btn btn-dark">Añadir Personaje</a>
+      <a href="/" class="btn btn-dark">Volver al menu principal</a>
+
+    </div>
+    <div class="col-md-6">
+      <ul class="celebrities-list">
+        {{#each celebrities}}
+
+        <li>
+          {{name}}
+
+          <div>
+            <a href="/celebrities/detail/{{_id}}">Ver detalles |</a>
+            <a href="/celebrities/edit?celebrityId={{_id}}">| Editar datos del personaje |</a>
+            <a href="/celebrities/delete?celebrityId={{_id}}">| Eliminar personaje</a>
+
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

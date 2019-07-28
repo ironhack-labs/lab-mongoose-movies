@@ -1,0 +1,15 @@
+<div class="container">
+
+  {{#with movies}}
+  <h1>Detalles de {{title}}</h1>
+  <h4>Género:</h4>
+  <p>{{genre}}</p>
+  <hr>
+  <h4>Puntuación:</h4>
+  <p>{{rate}}</p>
+  <hr>
+  {{/with}}
+
+  <a href="/movies/list" class="btn btn-dark">Volver a la lista</a>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <h1>Editar Película {{theMovie.title}}</h1>
+    </div>
+
+    <div class="col-md-6">
+
+      <form action="/movies/edit?movieId={{theMovie._id}}" method="post">
+        <div class="form-group">
+          <label for="title-input">Nombre</label>
+          <input name="title" type="text" class="form-control" id="title-input" value="{{theMovie.title}}">
+        </div>
+
+        <div class="form-group">
+          <label for="genre-input">Género</label>
+          <input name="genre" type="text" class="form-control" id="genre-input" value="{{theMovie.genre}}">
+        </div>
+
+        <div class="form-group">
+          <label for="rate-input">Puntuación</label>
+          <textarea name="rate" class="form-control" id="rate-input">{{theMovie.rate}}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Actualizar datos de la Película</button>
+
+      </form>
+    </div>
+
+  </div>
+</div>

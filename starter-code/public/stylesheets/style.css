@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/images/Hollywood.jpg");
+  background-size: cover; }
+
+h1, h2, h3, h4 {
+  color: white; }
+
+p {
+  color: white; }
+
+li {
+  color: white; }
+
+a {
+  color: #00B7FF; }
+
+label {
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */

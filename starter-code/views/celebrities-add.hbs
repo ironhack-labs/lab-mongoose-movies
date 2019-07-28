@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <h1>Nuevo Personaje</h1>
+    </div>
+
+    <div class="col-md-6">
+
+      <form action="/celebrities/create" method="post">
+        <div class="form-group">
+          <label for="name-input">Nombre</label>
+          <input name="name" type="text" class="form-control" id="name-input">
+        </div>
+
+        <div class="form-group">
+          <label for="ocupacion-input">Ocupacion</label>
+          <input name="occupation" type="text" class="form-control" id="ocupacion-input">
+        </div>
+
+        <div class="form-group">
+          <label for="frase-input">Frase Celebre</label>
+          <textarea name="catchPhrase" class="form-control" id="frase-input"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="pictureUrl-input">Imagen</label>
+          <input name="pictureUrl" type="text" class="form-control" id="pictureUrl-input">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Añadir Personaje</button>
+
+      </form>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+
+  {{#with celebrities}}
+  <h1>Detalles de {{name}}</h1>
+  <h4>Ocupación:</h4>
+  <p>{{occupation}}</p>
+  <hr>
+  <h4>Frase celebre:</h4>
+  <p>{{catchPhrase}}</p>
+  <hr>
+  <h4>Imagen:</h4>
+  <img src="{{this.pictureUrl}}" alt="{{this.name}}">
+  {{/with}}
+
+  <div>
+    <a href="/celebrities/list" class="btn btn-dark">Volver a la lista</a>
+  </div>
+</div>
