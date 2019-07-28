@@ -1,0 +1,13 @@
+<h1> These are your favourite celebrities: </h1>
+
+<div class="container">
+  <ul class="list">
+    {{#each allTheCelebrities}}
+    <li>{{this.name}}</li>
+    <a href="/show/{{__id}}">See details</a>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+<a href="/" class="btn btn-dark">Home</a>
