@@ -18,7 +18,7 @@ router.get("/:id", (req, res, next) => {
   console.log(req.params.id);
   const celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
-    .then(fullCelebrity => res.render("show", { fullCelebrity }))
+    .then(fullCelebrity => res.render("celeb-show", { fullCelebrity }))
 
     .catch(err => {
       console.log("There was an error", err);
@@ -26,44 +26,43 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
-// // Creación de nuevo libro
-// router.get('/create', (req, res, next) => res.render('books-add'))
-// router.post('/create', (req, res, next) => {
+//! CREATE NEW CELEBRITY
+router.get("/create", (req, res, next) => res.render("celeb-new"));
 
-//   //console.log(req.body)
+router.post("/create", (req, res, next) => {
+  const { name, occupation, catchphrase } = req.body;
 
-//   /*const theBookData = {
-//     author: req.body.author,
-//     description: req.body.description,
-//     rating: req.body.rating,
-//     title: req.body.title
-//   }*/
+  Celebrity.create({ name, occupation, catchphrase })
+    .then(() => res.redirect("/celebrities")) // me lleva de vuelta a la lista de celebrities
+    .catch(err => console.log("Hubo un error:", err));
+});
 
-//   const { author, description, rating, title } = req.body
+//! DELETE CELEBRITY
+router.post("/:id/delete", (req, res, next) => {
+  const celebrityId = req.params.id;
+  Celebrity.findByIdAndRemove(celebrityId)
+    .then(() => res.redirect("/celebrities"))
+    .catch(err => console.log("Ha habido un error: ", err));
+});
 
-//   Book.create({ author, description, rating, title })
-//     .then(() => res.redirect('/books/list'))
-//     .catch(err => console.log('Hubo un error:', err))
-// })
+//! EDIT CELEBRITY
+router.get("/:id/edit", (req, res, next) => {
+  const celebrityId = req.params.id;
+  Celebrity.findById(celebrityId)
+    .then(originalCeleb => res.render("celeb-edit", { originalCeleb }))
+    .catch(err => console.log("Ha habido un error: ", err));
+});
 
-// // Edición de libro
-// router.get('/edit', (req, res, next) => {
-//   //console.log(req.query)
-//   Book.findById(req.query.bookId)
-//     .then(theBook => res.render('book-edit', { theBook }))
-//     .catch(err => console.log('Hubo un error:', err))
-// })
-// router.post('/edit', (req, res, next) => {
+router.post("/:id/edit", (req, res, next) => {
+  const celebrityId = req.params.id;
+  const { name, occupation, catchphrase } = req.body;
 
-//   const { author, description, rating, title } = req.body
-
-//   // Todos los métodos de actualizar pueden recibir {new: true} como último argumento opcional, retornando el nuevo elemento y no el previo al update
-//   Book.findByIdAndUpdate(req.query.bookId, { $set: { title, author, description, rating } }, { new: true })
-//     .then(theNewBook => {
-//       console.log(theNewBook)
-//       res.redirect('/books/list')
-//     })
-//     .catch(err => console.log('Hubo un error:', err))
-// })
+  Celebrity.findByIdAndUpdate(celebrityId, { $set: { name, occupation, catchphrase } }, { new: true })
+    .then(modedCeleb => {
+      console.log(modedCeleb);
+      res.redirect("/celebrities");
+    })
+    .catch(err => console.log("Hubo un error:", err));
+});
 
 module.exports = router;

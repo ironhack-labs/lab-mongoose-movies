@@ -1,13 +1,16 @@
-<h1> These are your favourite celebrities: </h1>
-
 <div class="container">
+  <h1> These are your favourite celebrities: </h1>
+
   <ul class="list">
     {{#each allTheCelebrities}}
     <li>{{this.name}}</li>
-    <a href="/show/{{__id}}">See details</a>
+    <a href="/celebrities/{{_id}}" class="btn btn-dark">See details</a>
+    <form action="/celebrities/{{_id}}/delete" method="post">
+      <button type="submit" class="btn btn-danger">Delete this celeb</button>
+    </form>
     </li>
     {{/each}}
   </ul>
-</div>
+  <a href="/" class="btn btn-dark">Home</a>
 
-<a href="/" class="btn btn-dark">Home</a>
+</div>
