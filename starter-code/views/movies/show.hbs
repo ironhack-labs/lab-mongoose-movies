@@ -1,0 +1,9 @@
+<h2>Movie details</h2>
+  {{#with movie}}
+  <h3>{{this.title}}</h3>
+   <ul class="movies-show">
+        <li><strong>Genre:</strong> {{this.genre}}</li>
+        <li><strong>Plot:</strong> {{this.plot}}</li>
+        <li><strong>Cast:</strong>{{this.cast}}</li>
+  </ul>
+  {{/with}}
