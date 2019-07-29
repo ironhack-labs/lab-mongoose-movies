@@ -38,6 +38,46 @@ const movies = [
     name: "Nereo under the moon",
     genre: "Drama",
     plot: "The woods"
+  },
+  {
+    celebrity: {
+      name: "Lucia Suelves",
+      occupation: "Matemática",
+      catchPhrase: "Tengo sueño"
+    },
+    name: "Una mente maravillosa",
+    genre: "Suspense",
+    plot: "Universidad"
+  },
+  {
+    celebrity: {
+      name: "Homer Simpson",
+      occupation: "Bebedor",
+      catchPhrase: "Trying is the first step towards failure"
+    },
+    name: "Falling donuts",
+    genre: "Comedia",
+    plot: "Dunkin donuts"
+  },
+  {
+    celebrity: {
+      name: "Descartes",
+      occupation: "Filósofo",
+      catchPhrase: "Pienso luego existo"
+    },
+    name: "Descartado",
+    genre: "Documental",
+    plot: "La calculadora"
+  },
+  {
+    celebrity: {
+      name: "John Lenon",
+      occupation: "Singer",
+      catchPhrase: "You may say I am a dreamer but I am not the only one"
+    },
+    name: "No where boy",
+    genre: "Drama",
+    plot: "UK"
   }
 ]
 
@@ -68,7 +108,7 @@ let findCelebrities = Promise.all(createCelebrities)
     throw new Error(error)
   })
 
-const saveMovies = findCelebrities.then(findCelebrities => {
+findCelebrities.then(findCelebrities => {
   return Promise.all(findCelebrities)
     .then(movies => {
       return movies.map(movie => {
