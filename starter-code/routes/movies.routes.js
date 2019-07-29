@@ -25,7 +25,7 @@ router.post('/add', (req, res, next) => {
   .populate('celebrity')
     .then(celeb => {
       console.log(celeb)
-      Movie.create({title, genre, plot, celeb})
+      Movie.create({title, genre, plot, celebrity: celeb._id})
       .then(() => res.redirect('/movies/list'))
     })
     .catch(err => console.log('Hubo un error:', err))
