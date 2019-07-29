@@ -1,0 +1,15 @@
+<h2>Detalles Celebrity</h2>
+  <hr>
+
+<div class="container">
+  {{#with celebrity}}
+  <h2>Detalles de {{name}}</h2>
+  <h4>Ocupación:</h4>
+  <p>{{occupation}}</p>
+  <h4>Eslogan:</h4>
+  <p>{{catchPhrase}}</p>
+  {{/with}}
+</div>
+
+<a href="/celebrities">Volver a la lista</a>
+
