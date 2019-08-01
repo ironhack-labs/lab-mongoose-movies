@@ -1,0 +1,26 @@
+
+<div>
+  <h2>All Movies</h2>
+</div>
+
+
+
+<div class="card">
+   
+<form action="/movies/addnew/" method="GET">
+<input type="submit" value="Create New Movie" class="card-top">
+</form>
+
+
+
+<div class="card">
+{{#each data}}
+<div class="movie">
+<h2><a class="card-top" href="/movies/movieInfo/{{this._id}}">{{this.title}}</a></h2>
+<form action="/movies/remove/{{this._id}}" method="POST">
+<input type="submit" value="Delete" class="card-button-delete">
+</form>
+{{/each}}
+</div>
+</div>
+

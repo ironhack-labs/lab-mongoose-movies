@@ -6,3 +6,9 @@ npm-debug.log
 
 # Environment Variables should NEVER be published
 .env
+
+.DS_Store
+
+
+#Google Auth Keys
+key.js

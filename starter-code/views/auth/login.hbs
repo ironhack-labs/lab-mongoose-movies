@@ -1,0 +1,31 @@
+
+<div>
+  <h2>Login Here</h2>
+</div>
+
+{{#unless user}}
+  Home page
+  <div>
+    <h4>Login with Google<a href="/auth/google"> Here</a></h4>
+  </div>
+{{/unless}}
+
+<dir>
+  <h5>Not a Member? Become one<a href="/signup"> here</a></h5>
+</dir>
+
+<form id="form" action="/login" method="POST">
+    <label for="username">Username:</label><br>
+    <input type="text" name="username"
+      placeholder="Your username">
+<br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" name="password">
+    <br><br>
+
+     {{#if error}}
+       <div>{{error}}</div>
+     {{/if}}
+
+     <input type="submit" name="submit">
+  </form>

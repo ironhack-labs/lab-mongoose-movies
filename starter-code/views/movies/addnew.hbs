@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+ 
+
+  <h2>Create New Movie Form</h2>
+<form action="/movies" method="POST">
+  Title:<br> 
+  <input type="text" name="title"> 
+  <br> 
+   Star Of Movie<br> 
+  <select name="aStar"> 
+
+    {{#each allCelebs}}
+
+    <option value="{{this._id}}">{{this.name}}</option>
+    
+    {{/each}};
+
+    </select>
+  <br>
+  Genre<br> 
+  <input type="text" name="genre"> 
+  <br>
+  Plot<br> 
+  <input type="text" name="plot">
+  <br>
+  <input type="submit" value="Submit"> 
+</form>  
+  
+</body> 
+</html> 

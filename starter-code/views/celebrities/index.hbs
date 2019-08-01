@@ -1,0 +1,16 @@
+
+<div class="card">
+<form action="/celebrities/new/" method="GET">
+<input type="submit" value="Create New Celebritiy" class="card-top">
+</form>
+
+{{#each data }}
+<div class="celebrities">
+<h2><a class="card-container" href="/celebrities/show/{{this._id}}">{{this.name}}</a></h2>
+<form action="/celebrities/delete/{{this._id}}" method="POST">
+<input type="submit" value="Delete" class="card">
+</form>
+{{/each}}
+</div>
+</div>
+
