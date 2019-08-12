@@ -1,0 +1,16 @@
+<div>
+    {{#each mov}}
+    <ul>
+
+        <li>
+            <a href="/movies/{{this._id}}">{{this.title}}</a>
+        </li>
+        <form action="/movies/{{this._id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+
+    </ul>
+
+    {{/each}}
+
+</div>
