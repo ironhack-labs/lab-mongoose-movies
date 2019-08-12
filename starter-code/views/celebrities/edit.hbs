@@ -1,0 +1,15 @@
+<form action="/celebs/{{celeb._id}}/edited" method="POST">
+    {{!-- FirstName --}}
+    <label for="fistName"> Enter First Name </label>
+    <input type="text" name="firstName" value="{{celeb.firstName}}">
+    {{!-- Last Name --}}
+    <label for="lastName"> Enter Last Name </label>
+    <input type="text" name="lastName" value="{{celeb.lastName}}">
+    {{!-- Occupation --}}
+    <label for="occupation"> occupation</label>
+    <input type="text" name="occupation" value="{{celeb.occupation}}">
+    {{!-- catch Phrase --}}
+    <label for="catchPhrase"> catch Phrase</label>
+    <input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}">
+    <button>Submit New Celebrity</button>
+</form>

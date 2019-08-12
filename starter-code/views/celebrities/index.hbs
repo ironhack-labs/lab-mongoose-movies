@@ -1,0 +1,27 @@
+<div>
+
+
+    <ul>
+
+        {{#each data}}
+        <li>
+            {{this.firstName}} {{this.lastName}} - {{this.occupation}}
+            <p>{{this.catchPhrase}} <br>
+                <a href="/celebs/{{this._id}}"> Celebrity Details </a>
+            </p>
+
+            <form action="/celebs/{{this._id}}/delete" method="POST">
+                <button>Delete</button>
+            </form>
+
+
+        </li>
+        <br>
+        {{/each}}
+
+
+    </ul>
+
+
+
+</div>

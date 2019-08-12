@@ -1,0 +1,11 @@
+<div>
+
+    <h4>Welcome to the page of: {{actor.firstName}} {{actor.lastName}}</h4>
+    <p>
+        {{actor.firstName}} {{actor.lastName}} is a {{actor.occupation}},
+        his favorite catch phrase is {{actor.catchPhrase}}
+    </p>
+    <form action="/celebs/{{actor._id}}/edit" method="GET">
+        <button>Edit</button>
+    </form>
+</div>
