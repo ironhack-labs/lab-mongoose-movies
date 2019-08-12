@@ -1,6 +1,11 @@
 <div>
     <p>
         {{mov.title}} has a genre of {{mov.genre}} and is about {{mov.plot}}
+
+        <form action="/movies/{{mov._id}}/edit" method="GET">
+            <button>Edit</button>
+        </form>
+
     </p>
 
 

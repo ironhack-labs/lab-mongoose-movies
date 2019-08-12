@@ -44,7 +44,22 @@ router.post("/movies/:id/delete", (req, res, next) => {
         })
 })
 
+// UPDATE
 
+router.get("/movies/:id/edit", (req, res, next) => {
+    Movies.findById(req.params.id)
+        .then(movie => res.render("movies/edit", { movie }))
+})
+
+
+router.post("/movies/:id/edited", (req, res, next) => {
+    Movies.findByIdAndUpdate(req.params.id, req.body)
+        .then(res.redirect('/movies'))
+        .catch(err => {
+            next(err)
+            console.log(errs)
+        })
+})
 
 
 
