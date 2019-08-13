@@ -4,7 +4,13 @@
   <ul>
      {{#each this}}
     <li>
-       <h5> <a href="/celebrities/{{this._id}}">{{this.name}}</a></h5>
+       <h5> <a href="/celebrities/details/{{this._id}}">{{this.name}}</a></h5>
+       <form action="celebrities/delete/{{this._id}}" method="POST">
+       <button>Delete Celebrity</button>
+       </form>
+       <form action="celebrities/edit/{{this._id}}" method="GET">
+       <button>Edit Celebrity</button>
+       </form>
     </li>
       {{/each}}
   </ul>
