@@ -19,11 +19,46 @@ router.get('/celebrities/new', (req, res, next) => {
 router.post('/celebrities/create', (req, res, next) => {
   Celebrity
           .create(req.body)
-          .then(newCelebrity => console.log('Success'))
+          .then(newCelebrity => {console.log('Success')
+            res.redirect('/celebrities')
+          })
           .catch(err => {
             console.log('Error while creating new celebrity',err)
-            res.render('celebrities/new-celebrity')});
-          
+          });        
+});
+
+router.get('/celebrities/:id', (req, res, next) => {
+  Celebrity
+          .findById(req.params.id)
+          .then(celebrity => res.render('celebrities/celebrity-details',{celebrity}))
+          .catch(err => console.log('Error while retrieving details',err))
+  
+});
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity
+          .findByIdAndRemove(req.params.id)
+          .then(res.redirect('/celebrities'))
+          .catch(err => {
+            console.log('Error while deleting celebrity',err)
+          });          
+});
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  Celebrity
+          .findById(req.params.id)
+          .then(celebrity => res.render('celebrities/edit-celebrity',{celebrity}))
+          .catch(err => console.log('Error while retrieving details',err))
+  
+});
+
+router.post('/celebrities/:id', (req, res, next) => {
+  Celebrity
+          .findByIdAndUpdate(req.params.id,req.body)
+          .then(res.redirect('/celebrities'))
+          .catch(err => {
+            console.log('Error while updating celebrity',err)
+          });          
 });
 
 module.exports = router;

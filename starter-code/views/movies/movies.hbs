@@ -1,4 +1,9 @@
 <h2>Movies</h2>
-{{#each allMovies}}
-  <a href="/movies/{{this._id}}"><h4>{{this.title}}</h4></a>
-{{/each}}
+
+<ul>
+    {{#each allMovies}}
+      <li><a href="/movies/{{this._id}}"><h4>{{this.title}}</h4></a></li>
+    {{/each}}
+</ul>
+
+

@@ -25,7 +25,7 @@ Celebrity
 router.post('/movies/create', (req, res, next) => {
   Movie
       .create(req.body)
-      .then(console.log('Success'))
+      .then(res.redirect('/movies'))
       .catch(err => {
         console.log('Error while creating new movie',err)
         res.render('movies/new-movie')
@@ -54,8 +54,17 @@ router.get('/movies/:id/edit', (req, res, next) => {
       .then(movie => {
         Celebrity
                   .find()
-                  .then(celebrities => res.render('movies/edit-movie',{movie,celebrities}))
-                  .catch();
+                  .then(celebrities => {
+                    celebrities.forEach(celebrity => {
+                      movie.cast.forEach(member => {
+                        if(member._id.equals(celebrity._id)){
+                          celebrity.isActor = true;
+                        }
+                      });
+                    });
+                    res.render('movies/edit-movie',{movie,celebrities})
+                  })
+                  .catch(err => console.log('Error while retrieving celebrity',err));
       })
       .catch(err => console.log('Error while retrieving movie',err));
 });
@@ -63,7 +72,7 @@ router.get('/movies/:id/edit', (req, res, next) => {
 router.post('/movies/:id', (req, res, next) => {
   Movie
       .findByIdAndUpdate(req.params.id,req.body)
-      .then(res.redirect(`/movies/${req.params.id}`))
+      .then(res.redirect(`/movies`))
       .catch(err => {
         res.redirect(`/movies/${req.params.id}`)
         console.log('Error while updating movie',err)

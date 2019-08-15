@@ -1,5 +1,6 @@
 <h2>Celebrities</h2>
-
-{{#each allCelebrities}}
-<h4>{{this.name}}</h4>
-{{/each}}
+<ul>
+    {{#each allCelebrities}}
+    <li><a href="/celebrities/{{this._id}}"><h4>{{this.name}}</h4></a></li>
+    {{/each}}
+</ul>
