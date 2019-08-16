@@ -1,0 +1,14 @@
+<div>
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+  
+ <h2>The Celebrities are: </h2>
+ <ul>
+   {{#each celebrities}}
+   <h3>Name: {{ this.name }}</h3>
+   <p>Occupation: {{ this.occupation }}</p>
+   <p>Catch Phrase: {{ this.catchPhrase }}</p>
+   {{/each}}
+ </ul>
+</div>
