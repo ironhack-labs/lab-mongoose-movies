@@ -1,9 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 
-// require Celebrity model in order to use it for CRUD
+// require Celebrity model for CRUD
 const Celebrity = require("../models/Celebrity");
-
 
 /* GET celebrities page */
 router.get('/celebrities', (req, res, next) => {
@@ -15,7 +14,7 @@ router.get('/celebrities', (req, res, next) => {
 
 /* GET celebrity form */
 router.get("/celebrities/add", (req, res, next) => {
-  res.render("../views/celebrities/new-celebrity.hbs")
+  res.render("celebrities/new-celebrity")
 })
 
 /* POST celebrity */
@@ -27,7 +26,7 @@ router.post("/celebrities/create", (req, res, next) => {
     .then( aNewCelebrity => console.log("new celebrity: ", aNewCelebrity,
     res.redirect('/celebrities'))) // redirect user to the celebrity/list 
     .catch(err => console.log("error creating author: ", err,
-    res.render("../views/celebrities/new-celebrity.hbs")))
+    ))
 });
 
 // in order to use routes anywhere else in this application, we have to export them

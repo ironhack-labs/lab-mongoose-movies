@@ -1,0 +1,28 @@
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+
+<h2>Movie Details</h2>
+
+<div>
+  
+ <ul>
+
+   <h3>Title: {{ theMovie.title }}</h3>
+   <p>Genre: {{ theMovie.genre }}</p>
+   <p>Plot: {{ theMovie.plot }}</p>
+   <p>Cast: 
+     <ul>
+       {{#each theMovie.cast}}
+          {{this.name}}
+       {{/each}}
+     </ul>
+   </p>
+
+   <form action="/movies/{{theMovie.id}}/edit" method="GET">
+      <button>Edit Movie</button>
+   </form>
+
+ </ul>
+
+</div>
