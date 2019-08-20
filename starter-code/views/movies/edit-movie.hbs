@@ -1,0 +1,45 @@
+ <nav>
+    <a href="/">Home</a>
+</nav>
+
+<h2>EDIT MOVIE!!!</h2>
+
+
+<form action="/movies/{{theMovie.id}}" method="POST">
+
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" value="{{theMovie.title}}">
+  </div>
+
+
+  <div>
+    <label for="genre">Genre:</label>
+    <input type="text" name="genre" id="genre" value="{{theMovie.genre}}">
+  </div>
+
+  <div>
+    <label for="plot">Plot:</label>
+    <input type="text" name="plot" id="plot" value="{{theMovie.plot}}">
+  </div>
+
+  <label for="cast">Cast:</label>
+  <div>
+  
+    <select multiple name="cast" id="">
+      {{#each allCelebrities}}
+        {{#if this.isActor}}
+          <option selected="" value="{{ this._id }}"> {{this.name}} </option>
+        {{else}}
+          <option value="{{ this._id }}"> {{this.name}}  </option>
+        {{/if}}
+      {{/each}}
+    </select>
+
+  </div>
+
+  <div>
+    <button type="submit">Save Changes</button>
+  </div>
+
+</form>
