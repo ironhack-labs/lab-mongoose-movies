@@ -14,15 +14,13 @@
 </div>
 <p><label for="cast">Cast: (use ctrl/cmd to select multiple scroll for more)</label></p>
 <div>
-    <select multiple name="cast" id="">
-    {{#each celebrities}}
+   {{#each celebrities}}
       {{#if this.isActor}}
-        <option selected="" value="{{this._id}}"> {{this.name}} </option>
+        <input checked type="checkbox" name="cast" value="{{this._id}}">{{this.name}}<br>
       {{else}}
-        <option value="{{this._id}}"> {{this.name}} </option>
+        <input  type="checkbox" name="cast" value="{{this._id}}">{{this.name}}<br>
       {{/if}}
     {{/each}}
-    </select>
 </div>
 <button type="submit">Submit Changes</button>
 </form>

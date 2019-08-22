@@ -6,6 +6,7 @@ const celebritySchema = new Schema({
   name: String,
   occupation: String,
   catchPhrase: String,
+  creator: {type: Schema.Types.ObjectId, ref:'User'}
 });
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema);

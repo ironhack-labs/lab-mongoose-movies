@@ -12,6 +12,10 @@ router.get('/celebrities', (req, res, next) => {
 
 
 router.get('/celebrities/new', (req, res, next) => {
+  if(!req.user){
+    req.flash('error','You need to log in to add a celebrity');
+    res.redirect('/celebrities')
+  }
   res.render('celebrities/new-celebrity');
 });
 
@@ -19,7 +23,8 @@ router.get('/celebrities/new', (req, res, next) => {
 router.post('/celebrities/create', (req, res, next) => {
   Celebrity
           .create(req.body)
-          .then(newCelebrity => {console.log('Success')
+          .then(newCelebrity => {
+            req.flash('success','New celebrity succesfully added')
             res.redirect('/celebrities')
           })
           .catch(err => {
@@ -28,8 +33,13 @@ router.post('/celebrities/create', (req, res, next) => {
 });
 
 router.get('/celebrities/:id', (req, res, next) => {
+  if(!req.user){
+    req.flash('error','please login to view actors profiles')
+    res.redirect('/login')
+  }
   Celebrity
           .findById(req.params.id)
+          .populate('creator')
           .then(celebrity => res.render('celebrities/celebrity-details',{celebrity}))
           .catch(err => console.log('Error while retrieving details',err))
   
@@ -47,8 +57,16 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 router.get('/celebrities/:id/edit', (req, res, next) => {
   Celebrity
           .findById(req.params.id)
-          .then(celebrity => res.render('celebrities/edit-celebrity',{celebrity}))
-          .catch(err => console.log('Error while retrieving details',err))
+          .then(celebrity => {
+            if(celebrity.creator.equals(req.user._id)){
+              res.render('celebrities/edit-celebrity',{celebrity})
+            }else{
+              req.flash('error','Sorry you can only edit your own celebrities');
+              res.redirect('/celebrities')
+            }
+            
+          })
+          .catch(err => next(err))
   
 });
 

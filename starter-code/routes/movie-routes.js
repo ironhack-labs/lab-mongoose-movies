@@ -25,9 +25,11 @@ Celebrity
 router.post('/movies/create', (req, res, next) => {
   Movie
       .create(req.body)
-      .then(res.redirect('/movies'))
+      .then((result)=>{
+        req.flash('success','New movie created and added to Database');
+        res.redirect('/movies')
+      })
       .catch(err => {
-        console.log('Error while creating new movie',err)
         res.render('movies/new-movie')
       });          
 });
