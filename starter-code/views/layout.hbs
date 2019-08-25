@@ -9,6 +9,43 @@
 </head>
 <body>
 
+  {{#if errorMessage}}
+    <div>
+        {{errorMessage}}
+    </div>
+  {{/if}}
+   {{#if successMessage}}
+    <div>
+        {{successMessage}}
+    </div>
+  {{/if}}
+<nav>
+<a href="/celebrities">See Celebrities</a>
+<a href="/movies">See Movies</a>
+{{#if currentUser}}
+
+<a href="/celebrities/new">Add New Celebrity</a>
+<a href="/movies/new">Add new Movie</a>
+<a href="/secret">Secret Page</a>
+<h3>Hello {{currentUser.username}}</h3>
+<form action="/logout" method="POST">
+<button type="submit">Logout</button>
+</form>
+
+{{else}}
+  <a href="/login">Login</a>
+  <a href="/signup">Signup</a>
+{{/if}}
+
+
+
+
+</nav>
+
+
+
+
+
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>

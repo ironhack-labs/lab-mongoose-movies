@@ -9,11 +9,20 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
+const User = require('./models/User');
+const bcrypt = require('bcryptjs');
+const flash = require('connect-flash');
+
+mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  .connect('mongodb://localhost/movie-celeb', {useMongoClient: true})
+  .then(() => {
+    console.log(`Connected to Mongo!`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -49,10 +58,63 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+app.use(session({
+  secret: "randomsecretword",
+  resave: true,
+  saveUninitialized: true
+}));
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(flash());
+
+
+passport.use(new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.errorMessage = req.flash('error');
+  res.locals.successMessage = req.flash('success');
+  next();
+});
+
 
 
 const index = require('./routes/index');
 app.use('/', index);
 
+
+
+app.use("/", require("./routes/celebrity-routes"));
+app.use("/", require("./routes/movie-routes"));
+app.use("/", require("./routes/user-routes"));
 
 module.exports = app;
