@@ -1,2 +1,11 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+        
+
+
+<div id="first-page">
+{{#if msg}}
+  <a id="logout" href="/homepage">YOU JUST LOGGED OUT OF THE COOLEST SITE <br> See ya later :)</a>
+{{else}}
+<a id="homepagelink" href="/homepage">TAKE ME TO THE COOLEST SITE!</a>
+{{/if}}
+</div>

@@ -1,0 +1,26 @@
+
+<div id="login-div">
+<h2>Login</h2>
+
+
+<form id="user-form" action="/login" method="POST">
+
+<label>Your Username</label>
+<input type="text" name="username">
+
+
+<label>Password</label>
+<input type="text" name="password">
+
+<p>
+{{#if msg}}
+{{msg}}
+{{/if}}
+</p>
+<!--error message will go here-->
+
+<button class="waves-effect waves-light btn-large loginsignup">Log me in</button>
+
+</form>
+
+</div>

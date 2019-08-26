@@ -1,0 +1,14 @@
+<h2>{{movieDeets.title}}</h2>
+<p>
+ {{#if msg}}
+  {{msg}}
+  {{/if}}
+</p>
+
+<p>Name: {{movieDeets.title}}</p>
+<p>Genre: {{movieDeets.genre}}</p>
+<p>Plot: {{movieDeets.plot}}</p>
+
+<button><a href="/movies/edit/{{movieDeets._id}}">Edit This Movie</a></button>
+
+<a href="/movies">Return to Movie page</a>
