@@ -1,10 +1,10 @@
 <h2>This is views/celebrities/edit.hbs</h2>
 
 <div>
-  <form action="/celebrities/{{id}}" method="POST">
-    <input type="text" name="name">
-    <input type="text" name="occupation">
-    <input type="text" name="catchPhrase">
-    <button type="submit">Update celebrity!</button>
+  <form action="/celebrities/{{id}}/edit" method="POST">
+    <input type="text" name="name" value="{{name}}">
+    <input type="text" name="occupation" value="{{occupation}}">
+    <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+    <button type="submit" class="update-button">Update celebrity!</button>
   </form>
 </div>

@@ -2,9 +2,10 @@
 
 {{#each celebrities}}
   <div class="celebrities-list">
-    <a href="/celebrities/{{id}}">{{name}}</a>
+    <a href="/celebrities/{{id}}">{{name}}</a><br>
+    <a href="/celebrities/{{id}}/edit" class="edit-button">Edit Celebrity</a>
     <form action="/celebrities/{{id}}/delete" method="POST">
-      <button type="submit">Delete Celebrity</button>
+      <button type="submit" class="delete-button">Delete Celebrity</button>
     </form>
   </div>
 {{/each}}

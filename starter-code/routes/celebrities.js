@@ -64,21 +64,18 @@ router.get('/:id/edit', async (req, res, next) => {
   const { id } = req.params;
   try {
     const celebrityFound = await Celebrity.findById(id);
-
-    console.log(celebrityFound);
-
-    res.render('/edit', celebrityFound);
+    res.render('../views/celebrities/edit.hbs', celebrityFound);
   } catch (err) {
     next();
     console.log(err);
   }
 });
 
-router.post('/:id', async (req, res, next) => {
+router.post('/:id/edit', async (req, res, next) => {
   const { id } = req.params;
   const { name, occupation, catchPhrase } = req.body;
   try {
-    const celebrityUpdated = await Celebrity.update(id, { name, occupation, catchPhrase });
+    const celebrityUpdated = await Celebrity.update({ _id: id }, { $set: { name, occupation, catchPhrase } }, { new: true });
     res.redirect('/celebrities');
   } catch (err) {
     next();
