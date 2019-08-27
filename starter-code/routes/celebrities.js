@@ -22,8 +22,8 @@ router.get('/', (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const celebrity = await Celebrity.findById(id);
-    res.render('../views/celebrities/show.hbs', celebrity);
+    const celebrityCreated = await Celebrity.findById(id);
+    res.render('../views/celebrities/show.hbs', celebrityCreated);
   } catch (err) {
     next();
     console.log(err);
@@ -45,6 +45,45 @@ router.post('/', (req, res, next) => {
       console.log(err);
       res.render('../views/celebrities/new.hbs');
     });
+});
+
+router.post('/:id/delete', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const celebrityDeleted = await Celebrity.findByIdAndRemove(id);
+    res.redirect('/celebrities');
+  } catch (err) {
+    next();
+    console.log(err);
+  }
+});
+
+// all below is WIP for iteration #6
+
+router.get('/:id/edit', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const celebrityFound = await Celebrity.findById(id);
+
+    console.log(celebrityFound);
+
+    res.render('/edit', celebrityFound);
+  } catch (err) {
+    next();
+    console.log(err);
+  }
+});
+
+router.post('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const { name, occupation, catchPhrase } = req.body;
+  try {
+    const celebrityUpdated = await Celebrity.update(id, { name, occupation, catchPhrase });
+    res.redirect('/celebrities');
+  } catch (err) {
+    next();
+    console.log(err);
+  }
 });
 
 module.exports = router;
