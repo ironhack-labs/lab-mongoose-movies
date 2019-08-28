@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+<form action="/celebrities/{{_id}}" method="POST">
+  <label for="name">Celebrity:</label>
+  <input type="text" name="name" value="{{name}}">
+  <br>
+  <label for=" occupation">Occupation:</label>
+  <input type="text" name="occupation" value="{{occupation}}">
+  <br>
+  <label for="occupation">Catch Phrase:</label>
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+  <br>
+  <button type="submit">Save</button>
+</form>
