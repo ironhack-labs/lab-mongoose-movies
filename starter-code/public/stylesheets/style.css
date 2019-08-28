@@ -5,30 +5,4 @@ body {
 a {
   color: #00B7FF; }
 
-.edit-button {
-  margin-left:20px; 
-  color: #fff;
-  text-decoration: none;
-  padding: 2px 4px;
-  background-color: grey;
-  border-radius: 6px;
-}
-
-.delete-button {
-  margin-left:20px; 
-  color: #fff;
-  text-decoration: none;
-  padding: 2px 4px;
-  background-color: red;
-  border-radius: 6px;
-}
-
-.update-button {
-  margin-left:20px; 
-  color: #fff;
-  text-decoration: none;
-  padding: 2px 4px;
-  background-color: blue;
-  border-radius: 6px;
-}
 /*# sourceMappingURL=style.css.map */
