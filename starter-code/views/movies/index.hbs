@@ -1,0 +1,15 @@
+<h2>This is movies/index.hbs</h2>
+
+{{#each allMovies}}
+  <div>
+    <a href="/movies/{{id}}">{{title}}</a>
+  </div>
+  <form action="/movies/{{id}}/delete" method="POST">
+    <button type="submit">Delete Movie</button>
+  </form>
+  <a href="/movies/{{id}}/edit">Edit Movie</a>
+{{/each}}
+
+<div>
+  <a href="/movies/new">Create new movie</a>
+</div>
