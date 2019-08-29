@@ -1,13 +1,30 @@
 <h2>Celebrity Details</h2>
-<p><strong>Name:</strong> {{celebrity.name}}</p>
-<p><strong>Occupation:</strong>  {{celebrity.occupation}}</p>
-<p><strong>Catch Phrase:</strong>  {{celebrity.catchPhrase}}</p>
+<h2>Name:</h2>
+<p id="current-name">{{celebrity.name}}</p>
+<h2>Occupation:</h2>
+<p id="current-occupation">{{celebrity.occupation}}</p>
+<h2>Catchphrase:</h2>
+<p id="current-catchphrase">{{celebrity.catchPhrase}}</p>
 <p><strong>Creator:</strong>  {{celebrity.creator.username}}</p>
 
-<form action="/celebrities/{{celebrity._id}}/delete" method="POST">
-    <button type="submit">Delete Celebrity</button>
-</form>
+<div>
+    <h3>Edit {{celebrity.name}}</h3>
+    <form id="edit-form">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value={{celebrity.name}}>
+        </div>
+        <div>
+            <label for="occupation">Occupation</label>
+            <input type="text" name="occupation" id="occupation" value={{celebrity.occupation}}>
+        </div>
+        <div>
+            <label for="catchPhrase">Catchphrase</label>
+            <input type="text" name="catchPhrase" id="catchPhrase" value="{{celebrity.catchPhrase}}">
+        </div>
+        <input type="hidden" value={{celebrity._id}} id="secret">
+    </form>
+</div>
 
-<form action="/celebrities/{{celebrity._id}}/edit" method="GET">
-    <button type="submit">Edit Celebrity</button>
-</form>
+
+<script src="/javascripts/celeb-edit.js"></script>

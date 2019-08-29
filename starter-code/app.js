@@ -116,5 +116,5 @@ app.use('/', index);
 app.use("/", require("./routes/celebrity-routes"));
 app.use("/", require("./routes/movie-routes"));
 app.use("/", require("./routes/user-routes"));
-
+app.use("/",require('./routes/celeb-api-routes'));
 module.exports = app;

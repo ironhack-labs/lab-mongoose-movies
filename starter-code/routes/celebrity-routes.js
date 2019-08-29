@@ -54,21 +54,22 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
           });          
 });
 
-router.get('/celebrities/:id/edit', (req, res, next) => {
-  Celebrity
-          .findById(req.params.id)
-          .then(celebrity => {
-            if(celebrity.creator.equals(req.user._id)){
-              res.render('celebrities/edit-celebrity',{celebrity})
-            }else{
-              req.flash('error','Sorry you can only edit your own celebrities');
-              res.redirect('/celebrities')
-            }
+//Not needed because edition is done now through API and axios post
+// router.get('/celebrities/:id/edit', (req, res, next) => {
+//   Celebrity
+//           .findById(req.params.id)
+//           .then(celebrity => {
+//             if(celebrity.creator.equals(req.user._id)){
+//               res.render('celebrities/edit-celebrity',{celebrity})
+//             }else{
+//               req.flash('error','Sorry you can only edit your own celebrities');
+//               res.redirect('/celebrities')
+//             }
             
-          })
-          .catch(err => next(err))
+//           })
+//           .catch(err => next(err))
   
-});
+// });
 
 router.post('/celebrities/:id', (req, res, next) => {
   Celebrity
