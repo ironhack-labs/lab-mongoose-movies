@@ -1,0 +1,21 @@
+<h2 id="page_header">The celebrities are:</h2>
+<div id="celebrity_listing">
+  {{#each celebrities}}
+  <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+  {{!-- <form  method="post"> --}}
+  {{!-- <a href="/celebrities/{{this._id}}/delete">DELETE NOW</a> --}}
+  {{!-- </form> --}}
+  <form action="/celebrities/{{this._id}}/delete" method="POST">
+    <button type="submit">DELETE NOW</button>
+  </form>
+  {{!-- <a href="/celebrities/edit/{{this.id}}">EDIT NOW</a> --}}
+  <form action="/celebrities/{{this._id}}/edit" method="GET">
+    <button type="submit">EDIT NOW</button>
+  </form>
+  {{/each}}
+  <a href="/celebrities/new"> create a new celebrity </a>
+</div>
+
+{{!-- {{#each this}}
+<p>{{this}}</p>
+{{/each}} --}}
