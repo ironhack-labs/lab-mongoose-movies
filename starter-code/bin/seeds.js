@@ -1,5 +1,6 @@
 const mongoose = require ("mongoose");
 const moviesModel = require ("./../models/movies");
+const CelebrityModel= require("./../models/celebrity")
 
 mongoose.connect("mongodb://localhost/starter-code") 
 // {useNewUrlParser: true}).then(()=> {
@@ -16,13 +17,13 @@ const celebrities = [
   {name: "Britney Spears", occupation: "singer", catchPhrase:"oops I did it again !"}
 ];
 
-// const movies = [
-//   {title: "The lord of the ring", genre: "Fantasy", plot: "An evil ring has to be destroyed"},
-//   {title: "Rogue One", genre: "Science fiction", plot:"They have to steal plans to save the world"},
-//   {title: "Gladiator", genre: "Drama", plot:"His family have been killed and he wants revenge"}
-// ];
+const movies = [
+  {title: "The lord of the ring", genre: "Fantasy", plot: "An evil ring has to be destroyed"},
+  {title: "Rogue One", genre: "Science fiction", plot:"They have to steal plans to save the world"},
+  {title: "Gladiator", genre: "Drama", plot:"His family have been killed and he wants revenge"}
+];
 
-moviesModel.insertMany(celebrities).then(dbRes=> {
+CelebrityModel.insertMany(celebrities).then(dbRes=> {
   console.log(dbRes);
 })
 .catch(dbErr => {
