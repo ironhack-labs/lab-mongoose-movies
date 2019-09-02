@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.delete {
+  margin-bottom: 20px; }
+
+.container {
+  display: flex;
+  flex-flow: row wrap; }
+
+/*# sourceMappingURL=style.css.map */

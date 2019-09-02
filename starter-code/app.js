@@ -53,6 +53,14 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+const celeb = require('./routes/celebrities');
+app.use('/celebrities', celeb);
+const movie = require('./routes/movies');
+app.use('/movies', movie);
+
+const listener  = app.listen(3000, ()=>{ 
+  console.log(`server is ready @ http://localhost:${listener.address().port}`);
+});
 
 
 module.exports = app;
