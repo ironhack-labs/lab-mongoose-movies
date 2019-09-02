@@ -1,0 +1,14 @@
+<form action="/celebrities">
+  <button>Go Back</button>
+</form>
+
+<h2>{{celebrity.name}} details</h2>
+<h4>Occupation: {{celebrity.occupation}}</h4>
+<h4>Catch Phrase: {{celebrity.catchPhrase}}</h4>
+<form action="/celebrities/{{celebrity._id}}/edit">
+  <button>Edit</button>
+</form>
+<form action="/celebrities/{{celebrity._id}}/delete">
+  <button>Delete</button>
+</form>
+

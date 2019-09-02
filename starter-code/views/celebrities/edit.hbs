@@ -1,0 +1,15 @@
+<h2>Edit celebrity infos</h2>
+<form action="/celebrity/{{celebrity._id}}" method="post">
+    <label for="celebrity-name-edit">Celebrity name</label>
+      <input id="celebrity-name-edit" type="text" name="name" value ="{{celebrity.name}}">
+    <label for="celebrity-occupation-edit">Celebrity Occupation</label>
+      <select id="celebrity-occupation-edit" name="occupation" size:"1" value ="{{celebrity.occupation}}">
+        <option value="actor">actor</option>
+        <option value="singer">singer</option>
+        <option value="comedian">comedian</option>
+        <option value="unknown">unknown</option>
+      </select>
+    <label for="celebrity-catch-phrase-edit">Catch Phrase</label>
+      <input type="text" name="catchPhrase" id="celebrity-catch-phrase-edit" value ="{{celebrity.catchPhrase}}">
+    <button>Edit Celebrity</button>
+</form>

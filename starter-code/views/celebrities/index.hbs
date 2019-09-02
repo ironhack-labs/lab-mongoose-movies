@@ -1,0 +1,13 @@
+<div class="page">
+  <h2 class="title"> Celebrities List </h2>
+  <a href="/movies">view movies list</a>
+  <h4>click on a celebrity name to see more details</h4>
+  <div class="celebrities-list">
+    {{#each celebrities}}
+        <a  class="celebrity-name" href="/celebrities/{{this.id}}">{{this.name}}</a>
+    {{/each}} 
+  </div>
+  <form action="/newCelebrity">
+    <button> Create Celebrity </button>
+  </form>
+</div>
