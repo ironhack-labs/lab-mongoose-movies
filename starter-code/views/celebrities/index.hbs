@@ -1,5 +1,9 @@
 <h2>Celebrities</h2>
 {{#each celebrities}}
   <h3><a href="/celebrities/{{this._id}}">{{this.name}}</a></h3>
+  <form method="post" action="/celebrities/{{this._id}}/delete">
+  <button>
+    Delete
+  </button></form>
 {{/each }}
 <a href="/celebrities/new">Create celebrity</a>
