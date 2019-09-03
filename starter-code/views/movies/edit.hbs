@@ -1,0 +1,16 @@
+<h2>Edit a Movie</h2>
+<form action="/movies/{{title}}/edit" method="post">
+  <div>
+    <label for="GET-title" a>Title :</label>
+    <input id="GET-title" type="text" name="title" value={{title}} placeholder={{title}}>
+  </div>
+  <div>
+    <label for="GET-plot">plot:</label>
+    <input id="GET-plot" type="text" name="plot" value={{plot}} placeholder={{plot}}>
+  </div>
+  <div>
+    <label for="GET-genre">genre:</label>
+    <input id="GET-genre" type="text" name="genre" value={{genre}}  placeholder={{genre}}>
+  </div>
+  <input type="submit" value="Enregistrer">
+</form>
