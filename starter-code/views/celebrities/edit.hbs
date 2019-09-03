@@ -1,0 +1,16 @@
+<h2>Edit a celebrity</h2>
+<form action="/celebrities/{{name}}/edit" method="post">
+  <div>
+    <label for="GET-name" a>Nom: </label>
+    <input id="GET-name" type="text" value={{name}} name="name" placeholder={{name}}>
+  </div>
+  <div>
+    <label for="GET-Occupation">Occupation:</label>
+    <input id="GET-Occupation" type="text" value={{occupation}} name="occupation" placeholder={{occupation}}>
+  </div>
+  <div>
+    <label for="GET-Catchphrase">Catchphrase:</label>
+    <input id="GET-Catchphrase" type="text" value={{catchPhrase}} name="catchPhrase" placeholder={{catchPhrase}}>
+  </div>
+  <input type="submit" value="Enregistrer">
+</form>
