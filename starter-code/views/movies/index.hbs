@@ -1,0 +1,18 @@
+<h2>Here is the list of all of our movies:</h2>
+
+{{!-- Use a forEach loop to display tags with each movie title. --}}
+
+{{#each movies}}
+{{!-- Utiliser "this" quand on est dans une for each loop. --}}
+  <a href="/movies/{{this._id}}"> 
+    <p>{{this.title}}</p>
+  </a>
+
+   <form action="/movies/{{this._id}}/delete" method="post">
+    <button type="submit" value="Submit">Delete the movie</button>
+  </form>
+{{/each }}
+
+<br><br><br><br><br><br>
+
+<a href="../movies/new"><button>Add a new movie</button></a>

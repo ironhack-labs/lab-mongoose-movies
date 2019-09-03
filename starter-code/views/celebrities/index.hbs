@@ -1,0 +1,20 @@
+<h2>Here is the list of all of our celebrities:</h2>
+
+{{!-- Use a forEach loop to display tags with each celebrity's name. --}}
+
+{{#each celebrities}}
+{{!-- Utiliser "this" quand on est dans une for each loop. --}}
+  <a href="/celebrities/{{this._id}}"> 
+    <p>{{this.name}}</p>
+  </a>
+
+   <form action="/celebrities/{{this._id}}/delete" method="post">
+    <button type="submit" value="Submit">Delete the celeb</button>
+  </form>
+{{/each }}
+<br><br><br><br><br><br>
+<a href="../celebrities/new"><button>Add a new celebrity</button></a>
+
+{{!-- As part of the loop, add a <form> tag that makes a POST request to celebrities/:id/delete where
+ the :id is replaced by the actual id of each celebrity.
+Add a <button> tag inside the form so that it can be submitted. --}}
