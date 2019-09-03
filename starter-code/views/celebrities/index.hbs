@@ -1,0 +1,18 @@
+<h2>this is the heading of the index
+    file win the celebities folder</h2>
+
+{{#each celebrities}}
+<ul>
+    <li>
+        <a href="/celebrities/{{this._id}}"> {{ this.name }} </a>
+
+        <form action="/delete-celebrity/{{this._id}}" method="post">
+            <button type="submit"> Delete </button>
+        </form>
+    </li>
+    {{!-- this link is the browser URL  --}}
+</ul>
+{{/each}}
+
+
+<a href="/celebrities/new"> Create a new Celebrity </a>

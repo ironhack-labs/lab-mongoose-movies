@@ -1,0 +1,12 @@
+{{!-- one_celebrity --}}
+
+
+<ul>
+{{!-- {{#each one_celebrity}} --}}
+    <li> {{ one_celebrity.name }} </li>
+    <li> {{ one_celebrity.occupation }} </li>
+    <li> {{ one_celebrity.catchPhrase }} </li>
+{{!-- {{/each}} --}}
+</ul>
+{{!-- not neccessary to use each because we are searching fot the _id in the db and
+get just the results of that one celebrity --}}
