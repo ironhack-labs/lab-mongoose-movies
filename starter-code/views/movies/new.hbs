@@ -1,0 +1,10 @@
+<h2>Please add a new movie:</h2>
+
+{{!-- tag that makes a POST request to /movies. --}}
+
+<form action="/movies/new" method="post">
+  Title: <input type="text" name="title"><br><br>
+  Genre: <input type="text" name="genre"><br><br>
+  Plot: <input type="text" name="plot"><br><br>
+  <button type="submit" value="Submit">Post the new movie</button>
+</form>
