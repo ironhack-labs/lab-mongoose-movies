@@ -1,0 +1,17 @@
+<h2>
+    celebrities
+</h2>
+
+
+<ul>
+    {{#each celebrities}}
+    <li>
+        Name: {{ this.name}} , Occupation: {{this.occupation}}, {{ this.catchPhrase}}
+        <a href="/celebrities/{{this._id}}">view details</a>
+        <form method="post" action="/celebrities/{{this._id}}/delete">
+            <button>delete</button>
+        </form>
+    </li>
+
+    {{/each}}
+</ul>
