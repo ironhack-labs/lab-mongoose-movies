@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<a href="/new-celebrity">add a new celebrity</a><br>
+<hr>
+<ul>
+  {{#each celebrities}}
+  <li>
+    {{this.name}}
+    {{this.occupation}}
+    {{this.catchPhrase}}
+    <a href="/celebrities/{{this._id}}">see details</a>
+    <a href="/celebrity/{{this._id}}/edit">edit star</a>
+    <form method="post" action="/celebrities/{{this._id}}/delete">
+      <button>Delete!</button>
+    </form>
+  </li>
+  {{/each}}
+</ul>
