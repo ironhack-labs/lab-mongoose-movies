@@ -1,13 +1,17 @@
-<h2>Add new celebrity</h2>
-<form action = "/celebrities" method = "post">
-<label for="">Name:</label>
-<input type= "text" name ="name">
-
-<label for="">Occupation:</label>
-<input type= "text" name ="occupation">
-
-<label for="">Catch Phrase:</label>
-<input type= "text" name ="catchPhrase">
-
-<button type = "submit">Add the celebrity</button>
+<form action="/celebrities" method="POST">
+  <div class="form-group">
+    <label for="">Name</label>
+    <input type="text" name="name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="">Occupation</label>
+    <input type="text" name="occupation" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="">Catch Phrase</label>
+    <input type="text" name="catchPhrase" class="form-control">
+  </div>
+  <div class="form-button">
+    <button type="submit" class="btn btn-info">Add</button>
+  </div>
 </form>
