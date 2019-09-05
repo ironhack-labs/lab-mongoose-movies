@@ -1,0 +1,16 @@
+<a href="/new-movies">add a new movie</a><br>
+<hr>
+<ul>
+  {{#each movies}}
+  <li>
+    {{this.title}}
+    {{this.genre}}
+    {{this.plot}}
+    <a href="/movies/{{this._id}}">see details</a>
+    <a href="/movies/{{this._id}}/edit">edit star</a>
+    <form method="post" action="/movies/{{this._id}}/delete">
+      <button>Delete!</button>
+    </form>
+  </li>
+  {{/each}}
+</ul>
