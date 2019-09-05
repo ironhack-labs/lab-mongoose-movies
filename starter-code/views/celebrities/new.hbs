@@ -1,0 +1,14 @@
+{{!--
+Add an <h2> for the page's heading.
+Add a <form> tag that makes a POST request to /celebrities.
+Add <input> tags inside the form so the user can fill in values for each attribute of the celebrity.
+Make an input for name, occupation, and catchPhrase
+Add a <button> tag in the form so the user can submit the form once they are done filling it out. --}}
+
+<h2>New Celebrity</h2>
+<form action="/celebrities/new" method="POST">
+  Name <br><input type="text" name="name"> <br><br><br><br>
+  Occupation <br><input type="text" name="occupation"> <br><br><br><br>
+  CatchPhrase <br><input type="text" name="catchPhrase"> <br><br><br><br>
+  <button type="submit">Add new</button>
+</form>
