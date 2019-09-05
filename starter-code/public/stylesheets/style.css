@@ -1,84 +1,64 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
-}
-  
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
 
-/*# sourceMappingURL=style.css.map */
-
 /* Home */
 .home-buttons .btn-outline-secondary {
-  width: 150px;
-}
+  width: 150px; }
 
 /* List of celebrities / movies */
 .items {
   display: flex;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
 .items h5 {
   color: #666;
-  margin: 10px;
-}
+  margin: 10px; }
 
 .items-buttons {
   display: flex;
   justify-content: flex-end;
-  flex-wrap: wrap;
-
-}
+  flex-wrap: wrap; }
 
 .items-buttons .btn-outline-secondary {
-  padding: 10px;
-}
-.card-body {
-  border: 1px solid lightgray
-}
+  padding: 10px; }
 
-.card{
-  color: #666
-}
+.card-body {
+  border: 1px solid lightgray; }
+
+.card {
+  color: #666; }
 
 /* details */
+.item-details td {
+  padding: 10px; }
 
-.item-details td{
-  padding: 10px;
-}
-
-.item-details th{
-  padding: 10px;
-}
+.item-details th {
+  padding: 10px; }
 
 /* Forms */
-
-.form-button{
+.form-button {
   display: flex;
-  justify-content: center;
-}
+  justify-content: center; }
 
-form .btn-info{
-  width: 200px;
-  
-}
+form .btn-info {
+  width: 200px; }
 
 form label {
   color: #666;
   font-size: 15px;
   width: 175px;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 input[value] {
   color: #666;
-  font-size: 13px;
-}
+  font-size: 13px; }
 
-.form-group{
+.form-group {
   display: flex;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
+/*# sourceMappingURL=style.css.map */
