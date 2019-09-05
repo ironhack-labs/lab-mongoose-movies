@@ -1,0 +1,13 @@
+<form method="post" action="/edit-movie">
+  {{#if msg}}
+  <p>{{msg}}</p>
+  {{/if}}
+  <label for="">title</label>
+  <input type="text" name="title">
+  <input class="display-hidden" type="text" name="id" value="{{movieId}}">
+  <label for="">genre</label>
+  <input type="text" name="genre">
+  <label for="">plot</label>
+  <input type="text" name="plot">
+  <button>edit</button>
+</form>

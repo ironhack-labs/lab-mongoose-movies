@@ -1,0 +1,12 @@
+<form method="post" action="/create-new-movie">
+  {{#if msg}}
+  <p>{{msg}}</p>
+  {{/if}}
+  <label for="">title</label>
+  <input type="text" name="title">
+  <label for="">genre</label>
+  <input type="text" name="genre">
+  <label for="">plot</label>
+  <input type="text" name="plot">
+  <button>ok</button>
+</form>
