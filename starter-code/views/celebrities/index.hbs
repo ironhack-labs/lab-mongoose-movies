@@ -1,0 +1,24 @@
+{{!-- Add an <h2> tag for the page's heading.
+Use a forEach loop to display tags with each celebrity's name. --}}
+
+{{!-- As part of the loop that displays each celebrity's name, add a link that goes to the /celebrities/:id route with the :id
+replaced by the actual celebrity's id. --}}
+
+<h2>Celebrities</h2>
+
+<div>
+
+  {{#each celebrities}}
+  <a href="/celebrities/{{this._id}}">
+    <p>{{this.name}}</p>
+  </a>
+  <form action="/celebrities/{{this._id}}/delete" method="POST">
+    <button type="submit">Remove</button>
+  </form>
+  {{/each}}
+
+</div>
+
+<br><br><br><br><br><br>
+
+<a href="../celebrities/new"><button>Add a new celebrity</button></a>
