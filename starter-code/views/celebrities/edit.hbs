@@ -1,0 +1,13 @@
+<form method="post" action="/edit-celebrity">
+  {{#if msg}}
+  <p>{{msg}}</p>
+  {{/if}}
+  <label for="">name</label>
+  <input type="text" name="name">
+  <input class="display-hidden" type="text" name="id" value="{{celebId}}">
+  <label for="">occupation</label>
+  <input type="text" name="occupation">
+  <label for="">catch phrase</label>
+  <input type="text" name="catchPhrase">
+  <button>edit</button>
+</form>

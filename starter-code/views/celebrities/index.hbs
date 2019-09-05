@@ -1,0 +1,20 @@
+<h1>All celebrities</h1>
+<hr>
+<a href="/create-one-celebrity">create one celebrity</a>
+<hr>
+{{#each celebrities}}
+  <div class="celebrity">
+    <p>{{this.name}}</p>
+    <p>{{this.occupation}}</p>
+    <p>{{this.catchPhrase}}</p>
+    <a href="/celebrities/{{this._id}}">see this star's details</a>
+    <form method="post" action="/delete-user/{{this._id}}">
+      <button>delete</button>
+
+
+    </form>
+
+    <a class="btn" href="/celebrities/{{this._id}}/edit"><button>Edit</button></a> 
+  </div>
+  <hr>
+{{/each}}
