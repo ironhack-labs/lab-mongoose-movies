@@ -11,6 +11,16 @@
     <label for="">Plot</label>
     <input type="text" name="plot" class="form-control">
   </div>
+  <div class="form-group">
+    <label for="">Choose a celebrity:</label>
+
+    <select name="celebrity">
+      <option value="">--Please choose a celebrity --</option>
+      {{#each celebs}}
+      <option value={{name}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
   <div class="form-button">
     <button type="submit" class="btn btn-info">Add</button>
   </div>

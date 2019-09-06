@@ -5,7 +5,6 @@
       <h5 class="card-title">{{this.name}}</h5>
       <div class="items-buttons">
         <a href="/celebrities/{{this._id}}"><button type="button" class="btn btn-outline-secondary">Details</button></a>
-        <a href="/celebrities/new"><button type="button" class="btn btn-outline-secondary">Add</button></a>
         <a href="/celebrities/{{this._id}}/edit"><button type="button"
             class="btn btn-outline-secondary">Edit</button></a>
         <form action="celebrities/{{this._id}}/delete" method="POST">
@@ -16,26 +15,4 @@
   </div>
   {{/each}}
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-{{!-- <div>
-  {{#each celebList}}
-  <h2>{{this.name}}</h2>
-  <a href="/celebrities/{{this._id}}">Details</a>
-  <a href="/celebrities/new">Add</a>
-  <form action="celebrities/{{this._id}}/delete" method="post">
-    <button type="submit">Delete</button>
-  </form>
-  <a href="/celebrities/{{this._id}}/edit">Edit</a>
-  {{/each}}
-</div> --}}
+<a href="/celebrities/new"><button type="button" class="btn btn-outline-secondary">Add new celebrity</button></a>

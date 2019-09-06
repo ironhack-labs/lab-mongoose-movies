@@ -1,19 +1,25 @@
 <div class="card">
-  <h5 class="card-header">{{title}}</h5>
+  <h5 class="card-header">{{movie.title}}</h5>
   <div class="card-body">
     <table>
       <tbody class="item-details">
         <tr>
           <th>Title</th>
-          <td>{{title}}</td>
+          <td>{{movie.title}}</td>
         </tr>
         <tr>
           <th>Genre</th>
-          <td>{{genre}}</td>
+          <td>{{movie.genre}}</td>
         </tr>
         <tr>
           <th>Plot</th>
-          <td>{{plot}}</td>
+          <td>{{movie.plot}}</td>
+        </tr>
+        <tr>
+          <th>Lead actor</th>
+          {{#each movie.celebrity}}
+          <td><a href="/celebrities/{{_id}}">{{name}}</a></td>
+          {{/each}}
         </tr>
       </tbody>
     </table>
