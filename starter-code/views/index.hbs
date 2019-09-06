@@ -1,2 +1,6 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>List of Celebrities</h1>
+<div class="celebrity-list">
+  {{#each celebrity}}
+      {{> celebrities}}
+  {{/each}}
+</div>
