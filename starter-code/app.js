@@ -10,10 +10,12 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+const Celebrity    = require('./models/celebrity');
+
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -44,7 +46,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
+hbs.registerPartials(__dirname + '/views/partials');
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
