@@ -1,0 +1,28 @@
+<form action="/movies/{{result.[0]._id}}" method="POST">
+  <div class="form-group">
+    <label for="">Title</label>
+    <input type="text" name="title" value="{{result.[0].title}}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="">Genre</label>
+    <input type="text" name="genre" value="{{result.[0].genre}}" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="">Plot</label>
+    <input type="text" name="plot" value="{{result.[0].plot}}" class="form-control">
+  </div>
+  {{#if result.[1]}}
+  <div class="form-group">
+    <label for="">Lead actor (optional)</label>
+    <select name="celebrity">
+      <option value="">You can choose a celebrity from the database</option>
+      {{#each result.[1]}}
+      <option value={{name}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  {{/if}}
+  <div class="form-button">
+    <button type="submit" class="btn btn-info">Edit</button>
+  </div>
+</form>

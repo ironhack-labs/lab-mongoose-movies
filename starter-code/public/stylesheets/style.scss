@@ -6,3 +6,77 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* Home */
+.home-buttons .btn-outline-secondary {
+  width: 150px;
+}
+
+/* List of celebrities / movies */
+.items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items h5 {
+  color: #666;
+  margin: 10px;
+}
+
+.items-buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+}
+
+.items-buttons .btn-outline-secondary {
+  padding: 10px;
+}
+.card-body {
+  border: 1px solid lightgray
+}
+
+.card{
+  color: #666
+}
+
+/* details */
+
+.item-details td{
+  padding: 10px;
+}
+
+.item-details th{
+  padding: 10px;
+}
+
+/* Forms */
+
+.form-button{
+  display: flex;
+  justify-content: center;
+}
+
+form .btn-info{
+  width: 200px;
+  
+}
+
+form label {
+  color: #666;
+  font-size: 15px;
+  width: 175px;
+  font-weight: bold;
+}
+
+input[value] {
+  color: #666;
+  font-size: 13px;
+}
+
+.form-group{
+  display: flex;
+  justify-content: space-between;
+}
+
