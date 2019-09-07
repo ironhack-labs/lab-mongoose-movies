@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Movies = require("../models/movie");
+const Celebrities = require("../models/celebrity");
 
 /* GET movies index page */
 router.get("/", (req, res, next) => {
@@ -15,7 +16,9 @@ router.get("/", (req, res, next) => {
 
 /* GET movie new page */
 router.get("/new", (req, res, next) => {
-  res.render("movies/new");
+  Celebrities.find().then(allCelebs => {
+    res.render("movies/new", { possibleActors: allCelebs });
+  });
 });
 
 /* Get Edit Page*/
@@ -32,7 +35,9 @@ router.get("/:movie_id/edit", (req, res, next) => {
 /* GET movies details page */
 router.get("/:movie_id", (req, res, next) => {
   Movies.findOne({ _id: req.params.movie_id })
+    .populate("actors")
     .then(movieDetail => {
+      console.log(movieDetail);
       res.render("movies/show", movieDetail);
     })
     .catch(error => {
@@ -42,8 +47,8 @@ router.get("/:movie_id", (req, res, next) => {
 
 /*Create new Movie POST*/
 router.post("/", (req, res, next) => {
-  const { title, genre, plot } = req.body;
-  const newMovie = new Movies({ title, genre, plot });
+  const { title, genre, plot, actors } = req.body;
+  const newMovie = new Movies({ title, genre, plot, actors });
   newMovie
     .save()
     .then(movie => {

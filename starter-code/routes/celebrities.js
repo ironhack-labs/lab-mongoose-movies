@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Celebrities = require("../models/celebrity");
+const Movie = require("../models/movie");
 
 /* GET celebrities index page */
 router.get("/", (req, res, next) => {
@@ -29,7 +30,7 @@ router.get("/:celebrity_id/edit", (req, res, next) => {
     });
 });
 
-/* GET celebrities details page */
+/* GET celebrities details page 
 router.get("/:celebrity_id", (req, res, next) => {
   Celebrities.findOne({ _id: req.params.celebrity_id })
     .then(celebrityDetail => {
@@ -38,6 +39,17 @@ router.get("/:celebrity_id", (req, res, next) => {
     .catch(error => {
       console.log(error);
     });
+});*/
+
+router.get("/:celebrity_id", (req, res, next) => {
+  Celebrities.findById(req.params.celebrity_id).then(celeb => {
+    Movie.find({ actors: Celebrities._id }).then(allMoviesWithThisActor => {
+      res.render("celebrities/show", {
+        celeb: celeb,
+        movies: allMoviesWithThisActor
+      });
+    });
+  });
 });
 
 /*Create new Celebrity*/
@@ -52,6 +64,7 @@ router.post("/", (req, res, next) => {
     .catch(error => {});
 });
 
+/*Delete a celebrity*/
 router.post("/:celebrity_id/delete", (req, res, next) => {
   Celebrities.findByIdAndRemove({ _id: req.params.celebrity_id })
     .then(celebritiy => {
@@ -62,6 +75,7 @@ router.post("/:celebrity_id/delete", (req, res, next) => {
     });
 });
 
+/*Edit a celebritiy*/
 router.post("/:celebrity_id/edit", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   Celebrities.update(
