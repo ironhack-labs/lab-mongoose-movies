@@ -1,0 +1,26 @@
+<div class="container">
+  <br>
+  <br>
+  <h2>Celebrities</h2>
+  <br>
+  <div class="row">
+    {{#each celebrity}}
+    <div class="col-4">
+      {{!-- <h3>{{this.title}} <br></h3>
+      <h4>{{this.author.name}} {{this.author.lastName}}</h4> --}}
+      <p>{{this.name}}</p>
+      <a href="/celebrities/{{this._id}}">
+        <button class="btn btn-secondary">Show details</button>
+      </a>
+<form action="/celebrities/{{this._id}}/delete" method="post">
+   <button type="submit">Delete Celebrity</button>
+  </form>
+    </div>
+    {{/each}}
+  </div>
+</div>
+<br>
+<br>
+<a href="/celebrities/new">
+  <button class="btn btn-secondary">Add another 'Celebrity'</button>
+</a>
