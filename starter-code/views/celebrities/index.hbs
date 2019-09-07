@@ -1,0 +1,26 @@
+Hello User!
+Check out our
+
+<table class="table">
+
+  <tr>
+    <h2>Celebrities !</h2>
+  </tr>
+  {{#each celebrities}}
+  <tr>
+
+    <td>
+      {{!-- // wann benutze ich this und wann die Variable??// --}}
+      <a href="/celebrities/{{this._id}}"> Celebrity: {{this.name}}</a>
+      <a href="/celebrities/{{this.id}}/delete"> Delete </a>
+      <a href="/celebrities/{{this.id}}/edit"> Edit </a>
+      {{!-- // route to celebrities/id in browser (we are not in celebrities.js right now!) --}}
+    </td>
+
+  </tr>
+  {{/each}}
+
+
+</table>
+
+<a href="/celebrities/new"> New Celebrity </a>
