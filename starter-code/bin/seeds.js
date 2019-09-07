@@ -27,4 +27,3 @@ Celebrity.create(celebrities, (err) => {
   console.log(`Created ${celebrities.length} pop-stars`)
   mongoose.connection.close();
 });
-
