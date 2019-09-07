@@ -1,16 +1,16 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff;
-}
+  color: #00b7ff; }
+
 .button {
   margin-left: 20px;
   color: #fff;
   text-decoration: none;
   padding: 2px 4px;
   background-color: darkslateblue;
-  border-radius: 6px;
-}
+  border-radius: 6px; }
+
+/*# sourceMappingURL=style.css.map */

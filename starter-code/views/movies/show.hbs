@@ -1,0 +1,8 @@
+<h2>All details for {{this.title}}</h2>
+
+<p>The genre of {{this.title}} is {{this.genre}} and the plot is about
+  {{this.plot}}</p>
+<p>Known actors: {{#each this.actors}}
+  <li>{{this.name}}</li>
+  {{/each}}
+</p>
