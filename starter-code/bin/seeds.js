@@ -31,3 +31,37 @@ Celebrity.create(celebrities, (err) => {
   console.log(`${celebrities.length} "celebrities" created.`)
   mongoose.connection.close()
 })
+
+
+// const Movie = require('../models/Movie')
+
+// const dbName = 'celebrities'
+// mongoose.connect(`mongodb://localhost/${dbName}`)
+
+
+// const movies = [
+//   {
+//     title: "just a movie",
+//     genre: "comedy",
+//     plot: "A really ncie movie",
+//   },
+//   {
+//     title: "just a movie 2",
+//     genre: "Horror",
+//     plot: "I dont understand this movie but is good",
+//   },
+//   {
+//     title: "WTF movie",
+//     genre: "Thriller",
+//     plot: "Just a thriller movie that make you say WTF",
+//   },
+
+// ];
+
+// Movie.create(movies, (err) => {
+//   if (err) {
+//     throw (err)
+//   }
+//   console.log(`${movies.length} "movies" created.`)
+//   mongoose.connection.close()
+// }) 

@@ -1,19 +1,19 @@
 <div class="container">
   <br>
   <br>
-  <h2>Celebrities</h2>
+  <h2>Movies</h2>
   <br>
   <div class="row">
-    {{#each celebrity}}
+    {{#each movies}}
     <div class="col-4">
       {{!-- <h3>{{this.title}} <br></h3>
       <h4>{{this.author.name}} {{this.author.lastName}}</h4> --}}
-      <p>{{this.name}}</p>
-      <a href="/celebrities/{{this._id}}">
+      <p>{{this.title}}</p>
+      <a href="/movies/{{this._id}}">
         <button class="btn btn-secondary">Show details</button>
       </a>
-      <form action="/celebrities/{{this._id}}/delete" method="post">
-        <button class="btn btn-warning" type="submit">Delete Celebrity</button>
+      <form action="/movies/{{this._id}}/delete" method="post">
+        <button class="btn btn-warning" type="submit">Delete Movie</button>
       </form>
     </div>
     {{/each}}
@@ -22,8 +22,8 @@
 <br>
 <br>
 <div class="container">
-  <a href="/celebrities/new">
-    <button class="btn btn-secondary">Add another 'Celebrity'</button>
+  <a href="/movies/new">
+    <button class="btn btn-secondary">Add another Movie</button>
   </a>
   <a href="/">
     <button class="btn btn-secondary">Return to Start Page</button>
