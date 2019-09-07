@@ -1,0 +1,23 @@
+<!--#6 Step 4-->
+<!--Add <input> tags inside the form for each attirbute of the celebrity.
+Bonus: When you render the edit form, make sure each of the input fields is pre-filled with the current value of the attribute for that celebrity
+Add a <button> tag inside the form so that the user can submit the form once they are done editing.-->
+<h2> EDIT </h2>
+<form action="/celebrities/{{this._id}}" method="POST">
+  <div class="form-group">
+    <label for="">Name</label>
+    <input type="text" name="name" class="form-control" value="{{name}}">
+  </div>
+  <div class="form-group">
+    <label for="">Occupation</label>
+    <input type="text" name="occupation" class="form-control" value="{{occupation}}">
+  </div>
+  <div class="form-group">
+    <label for="">Catch Phrase</label>
+    <input type="text" name="catchPhrase" class="form-control" value="{{catchPhrase}}">
+  </div>
+  <div class="form-button">
+    <button type="submit" class="btn btn-info">Submit
+    </button>
+  </div>
+</form>

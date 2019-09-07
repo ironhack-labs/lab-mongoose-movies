@@ -1,0 +1,29 @@
+<h2> Overview </h2>
+<ul>
+  <!-- {{this._id}}  as in #3-->
+  {{#each celebrityList}}
+  {{this.name}}
+  <li>
+    <a href="/celebrities/{{this._id}}">
+      <button type="button" class="btn btn-outline-secondary">
+        DETAILS
+      </button>
+    </a>
+  </li>
+  <!--#3-->
+  <li>
+    <a href="/celebrities/new"><button type="button" class="btn btn-outline-secondary">
+        CREATE A NEW CELEBRITIY
+      </button></a></li>
+  <!--#4-- EDIT!!!>
+  <li> <a href="/celebrities/{{this._id}}/delete><button type="button" class="btn btn-outline-secondary">
+    DETAILS
+  </button></a> </li>
+  <!--#5-->
+  <li>
+    <form action="celebrities/{{this._id}}/delete" method="POST">
+      <button type="submit" class="btn btn-outline-secondary">Delete</button>
+    </form>
+  </li>
+  {{/each}}
+</ul>
