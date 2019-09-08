@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
+    "seed": "nodemon ./bin/seed.js",
     "dev": "DEBUG=starter-code:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
