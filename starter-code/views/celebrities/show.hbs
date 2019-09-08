@@ -3,9 +3,9 @@
     <h3>{{celebrity.name}} <br></h3>
     <p>{{celebrity.occupation}}</p>
     <h5>{{celebrity.catchPhrase}}</h5>
-    {{!-- <a href="/celebrities/{{celebrity._id}}/edit"> --}}
-    <button class="btn btn-secondary">No Sirve :(</button>
-    {{!-- </a> --}}
+    <form action="/celebrities/{{celebrity._id}}/edit" method="get">
+      <button class="btn btn-secondary" type="submit">Edit Celebrity</button>
+    </form>
     <a href="/celebrities/index">
       <button class="btn btn-primary">Go back</button>
     </a>

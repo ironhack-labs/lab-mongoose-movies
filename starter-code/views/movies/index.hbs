@@ -4,9 +4,9 @@
   <h2>Movies</h2>
   <br>
   <div class="row">
-    {{#each movie}}
+    {{#each movies}}
     <div class="col-4">
-      <p>{{this.name}}</p>
+      <p>{{this.title}}</p>
       <a href="/movies/{{this._id}}">
         <button class="btn btn-primary">Show details</button>
       </a>
