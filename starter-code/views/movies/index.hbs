@@ -1,0 +1,29 @@
+<div class="container">
+  <br>
+  <br>
+  <h2>Movies</h2>
+  <br>
+  <div class="row">
+    {{#each movie}}
+    <div class="col-4">
+      <p>{{this.name}}</p>
+      <a href="/movies/{{this._id}}">
+        <button class="btn btn-primary">Show details</button>
+      </a>
+      <form action="/movies/{{this._id}}/delete" method="post">
+        <button class="btn btn-secondary" type="submit">Delete movie</button>
+      </form>
+    </div>
+    {{/each}}
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+  <a href="/movies/new">
+    <button class="btn btn-primary">Add another movie</button>
+  </a>
+  <a href="/">
+    <button class="btn btn-primary">Return to Start Page</button>
+  </a>
+</div>
