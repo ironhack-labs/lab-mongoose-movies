@@ -3,6 +3,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #00b7ff; }
+
+.delete-button {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: red;
+  border-radius: 6px; }
 
 /*# sourceMappingURL=style.css.map */

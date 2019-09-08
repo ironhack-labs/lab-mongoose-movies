@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 
 const dbName = 'celebrity-project';
 
@@ -25,5 +26,18 @@ const celebrities = [
 Celebrity.create(celebrities, (err) => {
   if (err) { throw (err) }
   console.log(`Created ${celebrities.length} books`)
+  mongoose.connection.close();
+});
+
+const movies = [
+  {
+    name: "Project",
+    genre: "Thriller",
+    plot: "Everyone Dies",
+  }
+]
+Movie.create(movies, (err) => {
+  if (err) { throw (err) }
+  console.log(`Created ${movies.length} movies`)
   mongoose.connection.close();
 });
