@@ -1,0 +1,22 @@
+<h2>Editing Celebrities</h2>
+
+<form method="POST" action="/celebrities/{{celToEdit._id}}">
+    <div>
+        <label for="cel-name">Name: </label>
+        <input id="cel-name" name="name" type="text" value="{{celToEdit.name}}">
+    </div>
+<br>
+    <div>
+        <label for="cel-occupation">Occupation: </label>
+        <input id="cel-occupation" name="occupation" type="text" value="{{celToEdit.occupation}}">
+    </div>
+<br>
+    <div>
+        <label for="catch-phrase">CatchPhrase: </label>
+        <input id="catch-phrase" name="catchPhrase" type="text" value="{{celToEdit.catchPhrase}}">
+     </div>   
+     <br>
+     <br>
+    <button>Edit</button>
+</form>
+
