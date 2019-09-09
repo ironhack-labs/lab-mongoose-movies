@@ -11,8 +11,9 @@ exports.detailCelebrity = async (req, res, next) => {
   res.render('celebrities/show', celebrity)
 }
 
-exports.addCelebrityForm = (req, res) => {
-  res.render('celebrities/new')
+exports.addCelebrityForm = async(req, res) => {
+  const celebrities = await Celebrity.find()
+  res.render('celebrities/new', {celebrity})
 }
 
 exports.addCelebrity = async (req, res) => {

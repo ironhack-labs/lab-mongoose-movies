@@ -11,8 +11,9 @@ exports.detailMovie = async (req, res) => {
   res.render('movies/show', movie)
 }
 
-exports.addMovieForm = (req, res) => {
-  res.render('movies/new')
+exports.addMovieForm = async (req, res) => {
+  const movies = await Movie.find()
+  res.render('movies/new', {movies})
 }
 
 exports.addMovie = async (req, res) => {
