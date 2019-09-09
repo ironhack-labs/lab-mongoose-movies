@@ -22,5 +22,12 @@ celebrities = [
 Celebrity.create(celebrities, (err) => {
   if (err) { throw(err) }
   console.log(`Created ${celebrities.length} movies`)
-  mongoose.connection.close();
+  mongoose.disconnect()
+  .then(()=>{
+    console.log(
+      `Mongo has been disconnected`);
+  })
+  .catch(err => {
+    console.error("Error disconnecting Mongo", err);
+  });
 });

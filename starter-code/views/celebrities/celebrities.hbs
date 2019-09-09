@@ -4,6 +4,9 @@
 {{!-- <p>{{celebrities}}</p> --}}
 
 <ul>
+
+  {{!-- loop through my array of celebrities, and add an <a> tag for each Id, 
+    so I can access it later with req.params --}}
   {{#each celebrities}}
 
   <li>Name: <a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
@@ -12,6 +15,8 @@
 </ul>
 
 <h2>Add a celebrity</h2>
+
+{{!-- form to add celebs into my database -> note "action" and "method" --}}
 
 <form action="/celebrities" method="post">
   <div class="form-group row">
