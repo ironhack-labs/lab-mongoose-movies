@@ -22,6 +22,14 @@ router.get("/celebrities", (req, res, next) => {
     });
 });
 
+router.get("/celebrities/:id", (req, res, next) => {
+  const celebId = req.params.id;
+  //   console.log(celebId);
+  Celebrity.findById(celebId).then(data => {
+    res.render("celebrityDetails", data);
+  });
+});
+
 // router.post("/celebrities", (req, res, next) => {
 //   const celebrityQuery = req.body;
 

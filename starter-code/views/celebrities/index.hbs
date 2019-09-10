@@ -1,7 +1,7 @@
 <h2>Celebrities</h2>
 
 {{#each celebrities}}
-{{this.name}}
+<a href="/celebrities/{{_id}}">{{this.name}}</a>
 {{/each}}
 
 {{!-- <form action="/celebrities" method="POST">
