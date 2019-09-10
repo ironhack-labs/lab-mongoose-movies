@@ -1,0 +1,30 @@
+
+<div class="columns is-centered">
+	<div class="column is-6">
+		<h2 class="title is-3">Add new movie</h2>
+		<hr>
+		<form action="/movies/add" method="POST">
+			<div class="field">
+				<label class="label" for="title">Title:</label>
+				<input class="input" type="text" name="title" id="title">
+			</div>
+
+			<div class="field">
+				<label class="label" for="genre">Genre(s):</label>
+				<input class="input" type="text" name="genre" id="genre">
+			</div>
+
+			<div class="field">
+				<label class="label" for="plot">Plot:</label>
+				<input class="input" type="text" name="plot" id="plot">
+			</div>
+
+			<div class="buttons is-right">
+				<button type="submit" value="create" class="button is-fullwidth is-success is-hovered">
+					<span class="icon is-small"><i class="fas fa-plus-square"></i></span>
+					<span>Add new</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

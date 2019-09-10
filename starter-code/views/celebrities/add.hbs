@@ -1,0 +1,30 @@
+
+<div class="columns is-centered">
+	<div class="column is-6">
+		<h2 class="title is-3">Add new Celebrity</h2>
+		<hr>
+		<form action="/celebrities/add" method="POST">
+			<div class="field">
+				<label class="label" for="Name">Name:</label>
+				<input class="input" type="text" name="name" id="name">
+			</div>
+
+			<div class="field">
+				<label class="label" for="occupation">Occupation:</label>
+				<input class="input" type="text" name="occupation" id="occupation">
+			</div>
+
+			<div class="field">
+				<label class="label" for="catchPhrase">Catch Phrase:</label>
+				<input class="input" type="text" name="catchPhrase" id="catchPhrase">
+			</div>
+
+			<div class="buttons is-right">
+				<button type="submit" value="create" class="button is-fullwidth is-success is-hovered">
+					<span class="icon is-small"><i class="fas fa-plus-square"></i></span>
+					<span>Add new</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

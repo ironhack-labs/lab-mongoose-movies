@@ -1,0 +1,29 @@
+<div class="columns is-centered">
+	<div class="column is-6">
+		<h2 class="title is-3">Edit celebrity</h2>
+		<hr>
+		<form action="/celebrities/edit?celebrityid={{_id}}" method="POST">
+			<div class="field">
+				<label class="label" for="name">Name:</label>
+				<input value="{{name}}" class="input" type="text" name="name" id="name">
+			</div>
+
+			<div class="field">
+				<label class="label" for="occupation">Occupation:</label>
+				<input value="{{occupation}}" class="input" type="text" name="occupation" id="occupation">
+			</div>
+
+			<div class="field">
+				<label class="label" for="catchPhrase">Catch Phrase:</label>
+				<input value="{{catchPhrase}}" class="input" type="text" name="catchPhrase" id="catchPhrase">
+			</div>
+
+			<div class="buttons is-right">
+				<button type="submit" value="create" class="button is-fullwidth is-success is-hovered">
+					<span class="icon is-small"><i class="far fa-save"></i></span>
+					<span>Update celebrity</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

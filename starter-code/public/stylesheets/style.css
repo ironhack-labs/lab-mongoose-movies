@@ -1,0 +1,37 @@
+body {
+  font: 16px Helvetica, Arial, sans-serif; }
+
+a {
+  color: #111; }
+
+.movies .celebrities {
+  width: 100%; }
+  .movies .celebrities thead tr th.title {
+    width: 68%; }
+  .movies .celebrities tr td,
+  .movies .celebrities thead tr th {
+    border: 1px solid #dbdbdb;
+    border-width: 0 0 1px;
+    padding: .2em .75em;
+    vertical-align: middle; }
+  .movies .celebrities tbody tr th {
+    padding: .2em;
+    vertical-align: middle;
+    color: darkgrey;
+    font-weight: 100; }
+  .movies .celebrities tr td.is-centered {
+    text-align: right; }
+    .movies .celebrities tr td.is-centered > form {
+      display: inline; }
+
+.input {
+  color: darkgrey; }
+  .input:focus {
+    color: #111; }
+
+.card-footer-item .icon {
+  font-size: 24px; }
+  .card-footer-item .icon span {
+    font-size: inherit; }
+
+/*# sourceMappingURL=style.css.map */

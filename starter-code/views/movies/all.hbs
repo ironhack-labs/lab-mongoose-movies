@@ -1,0 +1,52 @@
+
+<div class="columns is-centered">
+	<div class="column is-6">
+		<h2 class="title is-1">Movies</h2>
+		<hr>
+		<div class="columns">
+			<div class="column">
+				<div class="buttons is-right">
+					<a href="/movies/add" class="button is-success is-hovered">
+						<span class="icon is-small"><i class="far fa-plus-square"></i></span>
+						<span>Add one</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<table class="table table is-hoverable movies">
+			<thead>
+				<tr>
+					<th><abbr></abbr></th>
+					<th class="title is-3">Title</th>
+					<th><abbr></abbr></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each movies}}
+				<tr>
+					<th>{{@index}}</th>
+					<td>{{this.title}}</td>
+					<td class="is-centered">
+						<form action="/movies/{{this._id}}/delete" method="post">
+							<button class="button is-danger is-outlined" type="submit">
+								<span class="icon is-small">
+								<i class="far fa-trash-alt"></i>
+							</span>
+							</button>
+						</form>
+						<a href="/movies/edit?movieid={{this._id}}" class="button is-warning is-inverted is-outlined">
+							<span class="icon is-small">
+								<i class="fas fa-edit"></i>
+							</span>
+						</a>
+						<a href="/movies/detail/{{this._id}}" class="button is-warning">
+							<span class="icon is-small"><i class="fas fa-eye"></i></span>
+							<span>View</span>
+						</a>
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</div>

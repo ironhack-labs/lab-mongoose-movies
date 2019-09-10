@@ -1,0 +1,23 @@
+<div class="columns is-centered">
+	<div class="column is-6">
+
+		<article class="message is-warning">
+			<div class="message-header">
+				<h2 class="title is-4">Celebrity {{this.name}}</h2>
+				<a href="/celebrities/edit?celebrityid={{this._id}}" class="button is-warning is-inverted is-outlined">
+					<span class="icon is-small">
+						<i class="fas fa-edit"></i>
+					</span>
+				</a>
+			</div>
+			<div class="message-body">
+				<strong>Occupation: </strong>
+				{{this.occupation}}
+			</div>
+			<div class="message-body">
+				<strong>Catch Phrase: </strong>
+				{{this.catchPhrase}}
+			</div>
+		</article>
+	</div>
+</div>

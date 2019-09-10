@@ -1,8 +1,47 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px Helvetica, Arial, sans-serif;
+}
+a {
+  color: #111;
+}
+.movies .celebrities{
+  width: 100%;
+  thead tr th.title {
+    width: 68%
+  }
+  tr td,
+  thead tr th {
+    border: 1px solid #dbdbdb;
+    border-width: 0 0 1px;
+    padding: .2em .75em;
+    vertical-align: middle;
+  }
+  tbody tr th {
+    padding: .2em;
+    vertical-align: middle;
+    color: darkgrey;
+    font-weight: 100;
+  }
+  tr td.is-centered {
+    text-align: right;
+    & > form {
+      display: inline;
+    }
+  }
+}
+.input {
+  color: darkgrey;
+  &:focus {
+    color: #111;
+  }
 }
 
-a {
-  color: #00B7FF;
+.card-footer-item {
+  .icon {
+    font-size: 24px;
+    span,
+     {
+      font-size: inherit;
+    }
+  }
 }

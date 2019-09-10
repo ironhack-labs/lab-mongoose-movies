@@ -1,0 +1,23 @@
+<div class="columns is-centered">
+	<div class="column is-6">
+
+		<article class="message is-warning">
+			<div class="message-header">
+				<h2 class="title is-4">Movie {{this.title}}</h2>
+				<a href="/movies/edit?movieid={{this._id}}" class="button is-warning is-inverted is-outlined">
+					<span class="icon is-small">
+						<i class="fas fa-edit"></i>
+					</span>
+				</a>
+			</div>
+			<div class="message-body">
+				<strong>Plot: </strong>
+				{{this.plot}}
+			</div>
+			<div class="message-body">
+				<strong>Genre: </strong>
+				{{this.genre}}
+			</div>
+		</article>
+	</div>
+</div>

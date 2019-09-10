@@ -1,0 +1,29 @@
+<div class="columns is-centered">
+	<div class="column is-6">
+		<h2 class="title is-3">Edit movie</h2>
+		<hr>
+		<form action="/movies/edit?movieid={{_id}}" method="POST">
+			<div class="field">
+				<label class="label" for="title">Title:</label>
+				<input value="{{title}}" class="input" type="text" name="title" id="title">
+			</div>
+
+			<div class="field">
+				<label class="label" for="genre">Genre(s):</label>
+				<input value="{{genre}}" class="input" type="text" name="genre" id="genre">
+			</div>
+
+			<div class="field">
+				<label class="label" for="plot">Plot:</label>
+				<input value="{{plot}}" class="input" type="text" name="plot" id="plot">
+			</div>
+
+			<div class="buttons is-right">
+				<button type="submit" value="create" class="button is-fullwidth is-success is-hovered">
+					<span class="icon is-small"><i class="far fa-save"></i></span>
+					<span>Update movie</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
