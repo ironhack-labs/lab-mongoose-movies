@@ -8,10 +8,7 @@ const celebritySchema = new Schema({
     type: String,
     required: true
   },
-  occupation: {
-    type: String,
-    enum: ["actor", "comedian", "singer", "unknown"]
-  },
+  occupation: String,
   catchPhrase: String
 });
 
