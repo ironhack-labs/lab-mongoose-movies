@@ -1,16 +1,16 @@
 <div class="container"> 
-  <h2>Celebrities</h2>
+  <h2>Movies</h2>
   <br>
   <br>
   
 <div class="row">
-{{#each celebrities as |celebs|}}
+{{#each movies as |movie|}}
 <div class="col-4">
-  <h3>{{celebs.name}}</h3>
-  <a href="/celeb-details/{{celebs._id}}">
+  <h3>{{movie.title}}</h3>
+  <a href="/movie-details/{{movie._id}}">
     <button class="btn btn-warning">Details</button>
   </a>
-  <a href="/delete/{{celebs._id}}">
+  <a href="/delete-movie/{{movie._id}}">
     <button class="btn btn-danger">Delete</button>
   </a>
    <hr>    
