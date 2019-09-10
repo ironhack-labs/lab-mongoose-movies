@@ -25,9 +25,14 @@ router.get("/celebrities", (req, res, next) => {
 router.get("/celebrities/:id", (req, res, next) => {
   const celebId = req.params.id;
   //   console.log(celebId);
-  Celebrity.findById(celebId).then(data => {
-    res.render("celebrityDetails", data);
-  });
+  Celebrity.findById(celebId)
+    .then(data => {
+      console.log(data);
+      res.render("celebrities/show", { data });
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 // router.post("/celebrities", (req, res, next) => {

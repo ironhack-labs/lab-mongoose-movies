@@ -9,17 +9,17 @@ const celebrityData = [
   {
     name: "Nicki Minaj",
     occupation: "singer",
-    catchphrase: "You could be the king but watch the queen conquer."
+    catchPhrase: "You could be the king but watch the queen conquer."
   },
   {
     name: "Cardi B",
     occupation: "singer",
-    catchphrase: "Knock me down 9 times, but I get up 10."
+    catchPhrase: "Knock me down 9 times, but I get up 10."
   },
   {
     name: "Chris Pratt",
     occupation: "actor",
-    catchphrase:
+    catchPhrase:
       "This is so awesome. We are like Robin Hood. We steal from the club and give to ourselves."
   }
 ];
