@@ -1,0 +1,13 @@
+<h2>Hello here are the celebrities for Today</h2>
+  {{#each data}}
+<p>{{name}}</p>
+<a href="/celebrities/{{_id}}"><button action="/celebrities/{{_id}}" >See details</button></a>
+<a href="/celebrities/edit/{{_id}}"><button >Edit the Star</button></a>
+<form method="POST" action="/celebrities/delete/{{_id}}"><button type="submit" >Delete</button>
+</form> 
+
+
+{{/each}}
+<div style="margin-bottom:50px;"></div>
+
+<a href="/celebrities/new"><button >Add new</button></a>
