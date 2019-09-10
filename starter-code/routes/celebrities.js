@@ -4,7 +4,7 @@ const Celebrity = require("../models/Celebrity");
 
 /* GET celebrities page */
 router.get("/celebrities", (req, res, next) => {
-  res.render("celebrities/index");
+  res.render("celebrities/index", { celebrities });
 });
 
 // router.get("/celebrities/:id", (req, res, next) => {

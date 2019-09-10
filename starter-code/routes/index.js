@@ -22,6 +22,24 @@ router.get("/celebrities", (req, res, next) => {
     });
 });
 
+router.get("/celebrities/new", (req, res, next) => {
+  res.render("celebrities/celebrityForm");
+});
+
+router.post("/celebrities", (req, res, next) => {
+  // const celebrityQuery = req.body;
+  const { name, occupation, catchPhrase } = req.body;
+
+  Celebrity.create({ name, occupation, catchPhrase }).then(() => {
+    console.log("Celebrity was added successfully.");
+    res.redirect("/celebrities").catch(err => {
+      // res.render("new", err);
+      console.log(err);
+      next(err);
+    });
+  });
+});
+
 router.get("/celebrities/:id", (req, res, next) => {
   const celebId = req.params.id;
   //   console.log(celebId);
@@ -34,10 +52,5 @@ router.get("/celebrities/:id", (req, res, next) => {
       next(err);
     });
 });
-
-// router.post("/celebrities", (req, res, next) => {
-//   const celebrityQuery = req.body;
-
-// });
 
 module.exports = router;
