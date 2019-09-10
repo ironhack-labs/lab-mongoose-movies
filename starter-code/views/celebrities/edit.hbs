@@ -1,0 +1,14 @@
+{{#with celebrity}}
+<form action="/movies/{{_id}}/edit" method="post">
+   <label for="name">Celeb Name</label>
+   <input type="text" name="name" id="name" value="{{name}}">
+
+   <label for="Occupation">Occupation</label>
+   <input type="text" name="occupation" id="occupation" value="{{occupation}}">
+
+   <label for="catchphrase">Catchphrase</label>
+   <input type="text" name="catchphrase" id="catchphrase" value="{{catchphrase}}">
+
+   <button type="submit">Edit a book</button>
+</form>
+{{/with}}
