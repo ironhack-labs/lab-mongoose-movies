@@ -1,0 +1,18 @@
+<h2>Add a celebrity</h2>
+{{#with celeb}}
+<form action='/celebrities' method="POST">
+
+<label for="name">Name:</label>
+<input type="text" name="name" id="name" value="{{name}}">
+
+<label for="occupation">Occupation:</label>
+<input type="text" name="occupation" id="occupation">
+
+<label for="catchphrase">Catchphrase:</label>
+<input type="text" name="catchphrase" id="catchphrase">
+
+<button type="submit">Add celebrity</button>
+
+</form>
+
+{{/with}}
