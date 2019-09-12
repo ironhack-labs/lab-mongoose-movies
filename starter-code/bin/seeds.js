@@ -6,19 +6,19 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const celebrityArray = [
   {
-    name: "The Hunger Games",
-    occupation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    catchphrase: "Suzanne Collins"
+    name: "Lebron James",
+    occupation: "playing basketball",
+    catchPhrase: "catchprase 1"
   },
   {
-    name: "The Hunger Games",
-    occupation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    catchphrase: "Suzanne Collins"
+    name: "Scottie Pippen",
+    occupation: "playing basketball",
+    catchPhrase: "catchprase 2"
   },
   {
-    name: "The Hunger Games",
-    occupation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    catchphrase: "Suzanne Collins"
+    name: "Michael Jordan",
+    occupation: "playing basketball",
+    catchPhrase: "catchphrase 3"
   }
 ]
 

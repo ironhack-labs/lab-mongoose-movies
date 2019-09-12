@@ -1,6 +1,6 @@
 <h1>celebrities</h1>
 <p>Welcome to celebrities<br>
-  {{#each this.celebrityData}}
-  {{this.name}}
-  {{/each}}
+  <ul>
+    {{#each this.celebrityData}}
+    <li><a href="./{{this.id}}"> {{this.name}}</a> </li> {{/each}} </ul>
 </p>
