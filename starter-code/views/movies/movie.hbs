@@ -1,0 +1,27 @@
+<h2 class="title">About this Movie</h2>
+<div class="nav nav-secondary">
+  <a href="/movies">Go back</a>
+  <a href="{{../host}}/movies/{{movie.id}}/edit">Edit this Movie</a>
+</div>
+
+<div class="row">
+  <div class="row__item">
+    <div class="img-container">
+      <img src="{{movie.imageUrl}}" alt="{{movie.title}}">
+    </div>
+
+    <div class="row__item__footer">
+      <h3 class="item__title">{{movie.title}}</h3>
+
+      <h4>Plot:</h4>
+      <p>{{movie.plot}}</p>
+
+      <h4>Genre:</h4>
+      <ul>
+        {{#each movie.genre}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

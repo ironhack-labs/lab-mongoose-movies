@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Britney Spears",
+    "imageUrl": "https://bit.ly/2mhoWYI",
+    "occupation": "Musician",
+    "catchPhrase": "t's Britney, bitch"
+  },
+  {
+    "name": "Arnold Schwarzenegger",
+    "imageUrl": "https://bit.ly/2kzVjS4",
+    "occupation": "Actor",
+    "catchPhrase": "You’re terminated!"
+  },
+  {
+    "name": "Nicolas Cage",
+    "imageUrl": "https://bit.ly/2lOQCUy",
+    "occupation": "Actor",
+    "catchPhrase": "How… In the name of Zeus’s BUTTHOLE, did you get out of your cell?"
+  },
+  {
+    "name": "Snoop Dogg",
+    "imageUrl": "https://bit.ly/2kzVfBO",
+    "occupation": "Musician",
+    "catchPhrase": "Fo shizzle"
+  },
+  {
+    "name": "Keanu Reeves",
+    "imageUrl": "https://bit.ly/2kKP2D0",
+    "occupation": "Actor / Internet's boyfriend",
+    "catchPhrase": "Wake the f*** up Samurai! We have a city to burn..."
+  }
+]

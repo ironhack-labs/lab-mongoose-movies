@@ -1,0 +1,20 @@
+<h2 class="title">Edit this Movie: {{movie.title}}</h2>
+<div class="nav nav-secondary">
+  <a href="/movies">Go back</a>
+</div>
+
+<div class="row">
+  <div class="row__item">
+    <div class="img-container">
+      <img src="{{movie.imageUrl}}" alt="{{movie.title}}">
+    </div>
+
+    <form action="/movies/{{movie.id}}" method="post">
+      <input type="text" name="title" placeholder="title" value="{{movie.title}}">
+      <input type="text" name="imageUrl" placeholder="{{movie.imageUrl}}">
+      <input type="text" name="genre" placeholder="genre" value="{{movie.genre}}">
+      <input type="text" name="plot" placeholder="plot" value="{{movie.plot}}">
+
+      <button type="submit" class="btn btn-primary">Edit Movie</button></form>
+  </div>
+</div>

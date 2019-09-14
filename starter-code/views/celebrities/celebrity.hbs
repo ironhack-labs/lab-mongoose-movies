@@ -1,0 +1,23 @@
+<h2 class="title">About this Celebrity</h2>
+
+<div class="nav nav nav-secondary">
+<a href="/celebrities">Go back</a>
+<a href="{{../host}}/celebrities/{{celeb.id}}/edit">Edit this Celebrity</a>
+</div>
+
+
+<div class="row">
+  <div class="row__item">
+    <div class="img-container">
+      <img src="{{celeb.imageUrl}}" alt="{{celeb.name}}">
+    </div>
+
+    <div class="row__item__footer">
+      <h3 class="item__title">{{celeb.name}}</h3>
+      <p>{{celeb.occupation}}</p>
+
+      <h4>Catch phrase:</h4>
+      <blockquote>{{celeb.catchPhrase}}</blockquote>
+    </div>
+  </div>
+</div>

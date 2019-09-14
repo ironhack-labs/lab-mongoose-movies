@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Once Upon a Time... in Hollywood",
+    "imageUrl": "https://bit.ly/2kJGBYB",
+    "genre": ["Comedy", "Drama"],
+    "plot": "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles."
+  },
+  {
+    "title": "Joker",
+    "imageUrl": "https://bit.ly/2Pijtib",
+    "genre": ["Crime", "Drama", "Thriller"],
+    "plot": "An original standalone origin story of the iconic villain not seen before on the big screen, it's a gritty character study of Arthur Fleck, a man disregarded by society, and a broader cautionary tale."
+  },
+  {
+    "title": "Ad Astra",
+    "imageUrl": "https://bit.ly/2khxgah",
+    "genre": ["Adventure", "Drama", "Mystery"],
+    "plot": "Astronaut Roy McBride undertakes a mission across an unforgiving solar system to uncover the truth about his missing father and his doomed expedition that now, 30 years later, threatens the universe."
+  },
+  {
+    "title": "John Wick: Chapter 3 - Parabellum",
+    "imageUrl": "https://bit.ly/2HRZqjM",
+    "genre": ["Action", "Crime", "Thriller"],
+    "plot": "Super-assassin John Wick is on the run after killing a member of the international assassin's guild, and with a $14 million price tag on his head - he is the target of hit men and women everywhere."
+  },
+  {
+    "title": "It Chapter Two",
+    "imageUrl": "https://bit.ly/2mivarr",
+    "genre": ["Drama", "Fantasy", "Horror"],
+    "plot": "Twenty-seven years after their first encounter with the terrifying Pennywise, the Losers Club have grown up and moved away, until a devastating phone call brings them back."
+  }
+]

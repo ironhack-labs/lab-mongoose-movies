@@ -1,0 +1,28 @@
+<h2 class="title">Movies:</h2>
+
+<nav class="nav nav-secondary">
+  <a href="/">Go back</a>
+  <a href="/movies/new">Add a Movie</a>
+</nav>
+
+<div class="row animated fadeIn fast">
+  {{#each movies}}
+  <div class="row__item">
+    <a href="{{../host}}/movies/{{this.id}}">
+      <div class="img-container">
+        <img src="{{this.imageUrl}}" alt="{{this.title}}">
+      </div>
+
+      <div class="row__item__footer">
+        <h3 class="item__title">{{this.title}}</h3>
+      </div>
+    </a>
+
+    <div class="actions">
+      <form action="{{../host}}/movies/{{this.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-secondary">Delete</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>

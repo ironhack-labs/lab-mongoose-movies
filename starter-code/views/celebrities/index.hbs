@@ -1,0 +1,28 @@
+<h2 class="title">Celebrities:</h2>
+
+<div class="nav nav-secondary">
+  <a href="/">Go back</a>
+  <a href="/celebrities/new">Add a Celebrity</a>
+</div>
+
+<div class="row animated fadeIn fast">
+  {{#each celebrities}}
+  <div class="row__item">
+    <a href="{{../host}}/celebrities/{{this.id}}">
+      <div class="img-container">
+        <img src="{{this.imageUrl}}" alt="{{this.name}}">
+      </div>
+
+      <div class="row__item__footer">
+        <h3 class="item__title">{{this.name}}</h3>
+      </div>
+    </a>
+
+    <div class="actions">
+      <form action="{{../host}}/celebrities/{{this.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-secondary">Delete</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>
