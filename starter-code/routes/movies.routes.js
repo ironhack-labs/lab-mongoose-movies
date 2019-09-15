@@ -35,4 +35,11 @@ moviesRouter.post("/new", (req, res) => {
   });
 });
 
+// View to see a movie
+moviesRouter.get("/detail/:id", (req, res) => {
+  Movies.findById(req.params.id).then(movie => {
+    res.render('movies/detail', {movie: movie})
+  })
+})
+
 module.exports = moviesRouter;

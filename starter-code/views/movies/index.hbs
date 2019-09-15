@@ -6,6 +6,9 @@
 <a href="/movies/new">Add a new movie</a>
 <ul>
   {{#each allMovies}}
-  <li>{{title}}</li>
+  <li>
+    {{title}}
+    <a href="/movies/detail/{{_id}}">View</a>
+    </li>
   {{/each}}
 </ul>
