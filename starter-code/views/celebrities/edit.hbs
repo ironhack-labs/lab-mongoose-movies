@@ -1,0 +1,12 @@
+<h2>Update info for: {{celebrity.name}}</h2>
+
+<form action="/celebrities/{{celebrity._id}}/edit" method="POST">
+  <input type="text" name="name" placeholder={{celebrity.name}} value="{{celebrity.name}}">
+  <input type="text" name="occupation" placeholder={{celebrity.occupation}} value="{{celebrity.occupation}}">
+  <input type="text" name="catchPhrase" placeholder={{celebrity.catchPhrase}} value="{{celebrity.catchPhrase}}">
+  <input type="hidden" name="_id" value="{{celebrity._id}}">
+
+  <input type="submit" value="Update">
+</form>
+
+<a href="/celebrities">Go back</a>

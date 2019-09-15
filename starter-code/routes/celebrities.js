@@ -44,6 +44,23 @@ router.get("/:id/delete", (req, res, next) => {
     .catch(function() {
       next();
       throw new Error("Whooops!");
+    });
+});
+
+router.get("/:id/edit", (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebrityDetail =>
+      res.render("celebrities/edit", { celebrity: celebrityDetail })
+    )
+    .catch(function() {
+      next();
+      throw new Error("I blame you!");
+    });
+});
+
+router.post("/:id/edit", (req, res) => {
+  Celebrity.findByIdAndUpdate(req.body._id, req.body).then(updatedCelebrity => {
+    res.redirect("/celebrities");
   });
 });
 

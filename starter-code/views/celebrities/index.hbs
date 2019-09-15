@@ -2,13 +2,11 @@
 
 <ul>
   {{#each celebrities}}
-  
   <li>
     <a href="/celebrities/{{_id}}">{{name}}</a>
-    <a href="/celebrities/{{_id}}/delete"> | Eliminar personaje</a>
+    <a href="/celebrities/{{_id}}/delete">| Delete celebrity</a>
+    <a href="/celebrities/{{_id}}/edit">| Update celebrity info</a>
   </li>
-
-  
   {{/each}}
 </ul>
 
