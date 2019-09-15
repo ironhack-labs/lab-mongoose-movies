@@ -1,0 +1,25 @@
+<div class="edit flex-cloumn index">
+  {{#with movie}}
+
+  <h2>Edit Movie: {{this.title}}</h2>
+
+    <div class="flex inputs">
+
+      <form action="/movies/edit/{{this._id}}" method="POST">
+        <label for="title-input">Title:</label>
+        <input name="title" type="text" value="{{this.title}}">
+
+        <label for="genre-input">Genre:</label>
+        <input name="genre" type="text" value="{{this.genre}}">
+
+        <label for="plot-input">Plot:</label>
+        <input name="plot" type="text" value="{{this.plot}}">
+
+        <button type="submit">Update Movie</button>
+      </form>
+
+    </div>
+
+  {{/with}}
+</div>
+

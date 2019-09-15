@@ -1,11 +1,24 @@
-{{#with celeb}}
-<h2>Edit Celebrity {{name}</h2>
+<div class="edit flex-cloumn index">
+  {{#with celeb}}
 
-<form action="/celebrities" method="POST">
-    <input type="text" name="name" value="{{name}}">
-    <input type="text" name="occupation" value="{{occupation}}">
-    <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+  <h2>Edit Celebrity: {{this.name}}</h2>
 
-    <button type="submit">Update celebrity</button>
-</form>
-{{/with}}
+    <div class="flex inputs">
+
+      <form action="/celebrities/edit/{{this._id}}" method="POST">
+        <label for="name-input">Name:</label>
+        <input name="name" type="text" value="{{this.name}}">
+
+        <label for="occupation-input">Occupation:</label>
+        <input name="occupation" type="text" value="{{this.occupation}}">
+
+        <label for="catchPhrase-input">Catchphrase:</label>
+        <input name="catchPhrase" type="text" value="{{this.catchPhrase}}">
+
+        <button type="submit">Update Celebrity</button>
+      </form>
+
+    </div>
+
+  {{/with}}
+</div>

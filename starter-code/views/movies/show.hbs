@@ -1,9 +1,13 @@
-<h2>Movie Info</h2>
+<div class="flex-column index">
+  <h2>Movie Info</h2>
 
-{{#with movie}}
-  <ul>
-    <li>Title: {{this.title}}</li>
-    <li>Genre: {{this.genre}}</li>
-    <li>Plot: {{this.plot}}</li>
-  </ul>
-{{/with}}
+  <div class="celeb-card max-card flex-column">
+    {{#with movie}}
+      <ul>
+        <li><span class="bold">Title:</span> {{this.title}}</li>
+        <li><span class="bold">Genre:</span> {{this.genre}}</li>
+        <li><span class="bold">Plot:</span> {{this.plot}}</li>
+      </ul>
+    {{/with}}
+  </div>
+</div>

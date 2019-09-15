@@ -12,10 +12,6 @@ router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
-// router.get('/:id/edit', (req, res, next) => {
-//   res.render('celebrities/edit');
-// });
-
 router.get('/:id', (req, res, next) => {
   const celebId = req.params.id;
   Celebrity.findById(celebId)
@@ -23,18 +19,12 @@ router.get('/:id', (req, res, next) => {
     .catch(err => console.log('Invalid ID', err))
 });
 
-// router.get('/:id/edit', (req, res, next) => {
-//   const celebId = req.params.id;
-//   Celebrity.findById(celebId)
-//     .then(celeb => {
-//       console.log('Edit celeb', celeb);
-//       res.render("celebrities/edit", { celeb })
-//     })
-//     .catch(err => {
-//       console.log("Couldn't go to edit place", err);
-//       next();
-//     });
-// });
+router.get('/edit/:id', (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findById(celebId)
+    .then(celeb => res.render('celebrities/edit', { celeb }))
+    .catch(err => console.log('Couldnt edit', err))
+});
 
 router.post("/", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
@@ -53,7 +43,7 @@ router.post("/", (req, res, next) => {
     });
 });
 
-router.post("/:id/delete", (req, res, next) => {
+router.post("/delete/:id", (req, res, next) => {
   const celebId = req.params.id;
   Celebrity.findByIdAndRemove(celebId)
     .then(() => {
@@ -66,21 +56,20 @@ router.post("/:id/delete", (req, res, next) => {
     });
 });
 
-// router.post('/edit', (req, res, next) => {
-//   const {name, occupation, catchPhrase} = req.body;
-//   Celebrity.findByIdAndUpdate(req.query.celebId, {$set: {name, occupation, catchPhrase}}, {new: true})
-//     .then(() => {
-//       console.log('Updated celeb', celeb);
-//       res.redirect('/celebs/list');
-//     })
-//     .catch(err => {
-//       console.log("Couldn't upadate celeb", err);
-//       next();
-//     });
-// });
+router.get('/edit/:id', (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findById(celebId)
+  .then(celeb => res.render('celebrities/edit', {celeb}))
+  .catch(err => console.log('Couldnt edit:', err))
+})
 
-
-
+router.post('/edit/:id', (req, res, next) => {
+  const celebId = req.params.id;
+  const {name, occupation, catchPhrase} = req.body
+  Celebrity.findByIdAndUpdate(celebId, {$set: {name, occupation, catchPhrase}}, {new: true})
+    .then(() => res.redirect('/celebrities'))
+    .catch(err => console.log('Couldnt update:', err))
+})
 
 
 module.exports = router;

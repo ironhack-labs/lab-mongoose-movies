@@ -1,16 +1,27 @@
-<h2>Celebrities</h2>
+<div class="celeb-container-index flex-cloumn">
+  
+  <h2>Celebrities</h2>
 
-  {{#each celeb}}
-      <p><a href="/celebrities/{{this._id}}">{{this.name}}</a></p>
-      
-      <form action="/celebrities/{{_id}}/delete" method="POST">
-      <button type="submit">Delete</button>
-      </form>
+  <div class="button-add flex">
+    <button><a href="/celebrities/new">Add your favourite celebrity</a></button>
+  </div>
 
-      <form action="/celebrities/{{_id}}/edit" method="POST">
-      <button type="submit">Edit</button>
-      </form>
-  {{/each}}
+  <div class="celebs-list flex">
+    {{#each celeb}}
+    <div class="celeb-card flex-column">
+        <h4><a href="/celebrities/{{this._id}}">{{this.name}}</a></h4>
+        
+        <div class="buttons flex">
+          <form action="/celebrities/delete/{{_id}}" method="POST">
+          <button type="submit">Delete</button>
+          </form>
 
+          <form action="/celebrities/edit/{{_id}}/" method="GET">
+          <button type="submit">Edit</button>
+          </form>
+        </div>
+    </div>
+    {{/each}}
+  </div>
 
-  <a href="/celebrities/new">Add your favourite celebrities</a>
+</div>

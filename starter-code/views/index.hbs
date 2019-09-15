@@ -1,5 +1,19 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="index-container flex-column">
 
-<p><a href="/celebrities">Go to celebrities</a></p>
-<p><a href="/movies">Go to movies</a></p>
+  <h1 id="logo">{{title}}</h1>
+
+  <div class="index-sections flex">
+
+    <div class="celebrities-section flex-column">
+      <a href="/celebrities"><img src="/images/celebrity.svg" alt="Celebrity img"></a>
+      <button><a href="/celebrities">Celebrities</a></button>
+    </div>
+
+    <div class="movies-section flex-column">
+      <a href="/movies"><img src="/images/movie.svg" alt="Moive img"></a>
+      <button><a href="/movies">Movies</a></button>
+    </div>
+
+  </div>
+
+</div>

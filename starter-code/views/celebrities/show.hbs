@@ -1,9 +1,13 @@
-<h2>Celebrity Info</h2>
+<div class="flex-column index">
+  <h2>Celebrity Info</h2>
 
-{{#with celeb}}
-  <ul>
-    <li>Name: {{this.name}}</li>
-    <li>Occupation: {{this.occupation}}</li>
-    <li>Catchphrase: {{this.catchPhrase}}</li>
-  </ul>
-{{/with}}
+  <div class="celeb-card max-card flex-column">
+    {{#with celeb}}
+      <ul>
+        <li><span class="bold">Name:</span> {{this.name}}</li>
+        <li><span class="bold">Occupation:</span> {{this.occupation}}</li>
+        <li><span class="bold">Catchphrase:</span> {{this.catchPhrase}}</li>
+      </ul>
+    {{/with}}
+  </div>
+</div>

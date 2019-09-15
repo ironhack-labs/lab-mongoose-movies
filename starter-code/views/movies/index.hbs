@@ -1,16 +1,27 @@
-<h2>Movies</h2>
+<div class="celeb-container-index flex-cloumn">
+  
+  <h2>Movies</h2>
 
-  {{#each movie}}
-      <p><a href="/movies/{{this._id}}">{{this.title}}</a></p>
-      
-      <form action="/movies/{{_id}}/delete" method="POST">
-      <button type="submit">Delete</button>
-      </form>
+  <div class="button-add flex">
+    <button><a href="/movies/new">Add your favourite movie</a></button>
+  </div>
 
-      <form action="/movies/{{_id}}/edit" method="POST">
-      <button type="submit">Edit</button>
-      </form>
-  {{/each}}
+  <div class="celebs-list flex">
+    {{#each movie}}
+    <div class="celeb-card flex-column">
+        <h4><a href="/movies/{{this._id}}">{{this.title}}</a></h4>
+        
+        <div class="buttons flex">
+          <form action="/movies/delete/{{_id}}" method="POST">
+          <button type="submit">Delete</button>
+          </form>
 
+          <form action="/movies/edit/{{_id}}/" method="GET">
+          <button type="submit">Edit</button>
+          </form>
+        </div>
+    </div>
+    {{/each}}
+  </div>
 
-  <a href="/movies/new">Add your favourite movies</a>
+</div>

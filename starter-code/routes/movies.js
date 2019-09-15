@@ -12,29 +12,12 @@ router.get('/new', (req, res, next) => {
   res.render('movies/new');
 });
 
-// router.get('/:id/edit', (req, res, next) => {
-//   res.render('movies/edit');
-// });
-
 router.get('/:id', (req, res, next) => {
   const movieId = req.params.id;
   Movie.findById(movieId)
     .then(movie => res.render('movies/show', {movie}))
     .catch(err => console.log('Invalid ID', err))
 });
-
-// router.get('/:id/edit', (req, res, next) => {
-//   const movieId = req.params.id;
-//   Movie.findById(movieId)
-//     .then(movie => {
-//       console.log('Edit movie', movie);
-//       res.render("movies/edit", { movie })
-//     })
-//     .catch(err => {
-//       console.log("Couldn't go to edit place", err);
-//       next();
-//     });
-// });
 
 router.post("/", (req, res, next) => {
   const { title, genre, plot } = req.body;
@@ -53,7 +36,7 @@ router.post("/", (req, res, next) => {
     });
 });
 
-router.post("/:id/delete", (req, res, next) => {
+router.post("/delete/:id", (req, res, next) => {
   const movieId = req.params.id;
   Movie.findByIdAndRemove(movieId)
     .then(() => {
@@ -66,18 +49,20 @@ router.post("/:id/delete", (req, res, next) => {
     });
 });
 
-// router.post('/edit', (req, res, next) => {
-//   const {title, genre, plot} = req.body;
-//   Movie.findByIdAndUpdate(req.query.movieId, {$set: {title, genre, plot}}, {new: true})
-//     .then(() => {
-//       console.log('Updated movie', movie);
-//       res.redirect('/movies/list');
-//     })
-//     .catch(err => {
-//       console.log("Couldn't upadate movie", err);
-//       next();
-//     });
-// });
+router.get('/edit/:id', (req, res, next) => {
+  const movieId = req.params.id;
+  Movie.findById(movieId)
+  .then(movie => res.render('movies/edit', {movie}))
+  .catch(err => console.log('Couldnt edit:', err))
+})
+
+router.post('/edit/:id', (req, res, next) => {
+  const movieId = req.params.id;
+  const {title, genre, plot} = req.body
+  Movie.findByIdAndUpdate(movieId, {$set: {title, genre, plot}}, {new: true})
+    .then(() => res.redirect('/movies'))
+    .catch(err => console.log('Couldnt update:', err))
+})
 
 
 
