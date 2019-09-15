@@ -62,14 +62,14 @@ router.post("/movies/:id/delete", (req, res, next) => {
  */
 
 router.post("/movies", (req, res, next) => {
-  const genre = req.body.genre.split(",");
+  const genre = req.body.genre;
 
   const newMovie = {
     title: req.body.title,
     imageUrl: req.body.imageUrl,
-    genre: genre,
+    genre: stringToArray(genre),
     plot: req.body.plot
-  };
+  };  
 
   Movies.create(newMovie)
     .then(createdMovies => {
@@ -116,10 +116,12 @@ router.get("/movies/:id/edit", (req, res, next) => {
  */
 
 router.post("/movies/:id", (req, res) => {
+  const genre = req.body.genre;
+  
   const movieToUpdate = {
     title: req.body.title,
     imageUrl: req.body.imageUrl,
-    genre: req.body.genre,
+    genre: stringToArray(genre),
     plot: req.body.plot
   };
 
@@ -129,5 +131,9 @@ router.post("/movies/:id", (req, res) => {
     })
     .catch(error => next(error));
 });
+
+function stringToArray(prop) {
+  return prop.replace(/, /g, ',').split(",");
+}
 
 module.exports = router;
