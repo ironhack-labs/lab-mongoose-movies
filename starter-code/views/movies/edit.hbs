@@ -1,0 +1,26 @@
+<div class="beadcrumbs">
+  <a href="/" class="breadcrumbs__link">Home</a>
+  <a href="/movies" class="breadcrumbs__link">Movies</a>
+</div>
+<h2>Editing movie</h2>
+{{#with movie}}
+<form action="/movies/edit" method="post" class="form">
+  <input type="hidden" name="_id" value="{{_id}}">
+  <div class="form__field">
+    <input type="text" id="title" name="title" value="{{title}}" placeholder="Title" class="form__input form__input--text">
+    <label for="title">Title</label>
+  </div>
+  <div class="form__field">
+    <input type="text" id="genre" name="genre"
+      value="{{genre}}" placeholder="Genre (separated with commas)" class="form__label">
+    <label for="genre">Genre</label>
+  </div>
+  <div class="form__field">
+    <input type="text" id="plot" name="plot" value="{{plot}}" placeholder="Plot" class="form__input form__input--text">
+    <label for="plot">Plot</label>
+  </div>
+  <div class="form__actions">
+    <input type="submit" value="Update" class="button form__submit">
+  </div>
+</form>
+{{/with }}

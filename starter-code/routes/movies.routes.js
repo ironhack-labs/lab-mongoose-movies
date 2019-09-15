@@ -42,4 +42,43 @@ moviesRouter.get("/detail/:id", (req, res) => {
   })
 })
 
+// View to edit a movie
+moviesRouter.get("/edit/:id", (req, res) => {
+  Movies.findById(req.params.id).then(movie => {
+    let movieFormatted = JSON.parse(JSON.stringify(movie))
+    movieFormatted.genre = movieFormatted.genre.join(",")
+    
+    res.render("movies/edit", {
+      movie: movieFormatted
+    })
+  })
+})
+
+// Edit a movie
+moviesRouter.post("/edit", (req, res) => {
+  let _id = req.body._id
+  let title = req.body.title
+  let genre = req.body.genre ? req.body.genre.split(",") : undefined
+  let plot = req.body.plot
+
+  console.log('-------------')
+  console.log(title)
+  console.log(genre)
+  console.log(plot)
+  console.log('-------------')
+
+  if (!title || !genre || !plot) {
+    res.redirect(`/movies/edit/${_id}`)
+    return
+  }
+
+  Movies.findByIdAndUpdate(_id, {
+    title: title,
+    genre: genre,
+    plot: plot
+  }).then(movieUpdated => {
+    res.redirect(`/movies/detail/${_id}`)
+  })
+})
+
 module.exports = moviesRouter;
