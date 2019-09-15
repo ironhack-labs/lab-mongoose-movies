@@ -1,11 +1,10 @@
-<p class="text-center"> Edit details of {{whatever.name}}</p>
-
+{{!-- <p class="text-center"> Edit details of {{whatever.name}}</p>
 
 <form>
   <div class="form-row">
     <div class="form-group col-md-6">
 
-      <form action="/celebrities/{{whatever._id}}/edit" method="post">
+      <form action="/celebrities/{{whatever._id}}" method="post">
         <label for="">Name:</label>
         <input class="form-control" type="text" name="name" value="{{whatever.name}}">
 
@@ -20,6 +19,13 @@
     <input class="form-control" type="text" name="catchPhrase" value="{{whatever.catchPhrase}}">
   </div>
 
+  <button type=" submit">SUBMIT</button>
+</form> --}}
 
-  <button class="btn btn-primary" type="submit">EDIT</button>
+<h1>Edit {{whatever.name}}'s details</h1>
+<form action="/celebrities/{{whatever._id}}" method="post">
+  <input type="text" name="name" value="{{whatever.name}}">
+  <input type=" text" name="occupation" value="{{whatever.occupation}}">
+  <input type=" text" name="catchPhrase" value="{{whatever.catchPhrase}}">
+  <button type=" submit">SUBMIT</button>
 </form>

@@ -30,22 +30,6 @@ router.get('/celebrities/new', (req, res, next) => {
     })
 });
 
-router.post('/celebrities/new', (req, res, next) => {
-  // console.log("hello", req.body)
-  const { name, occupation, catchPhrase } = req.body;
-
-  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
-
-  newCelebrity.save()
-    .then((celeb) => {
-
-      res.redirect('/celebrities');
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-});
-
 router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findOne({ '_id': req.params.id })
     .then(details => {
@@ -66,26 +50,47 @@ router.get("/celebrities/:id/delete", (req, res, next) => { //this needs to be G
     });
 });
 
-router.get('/celebrities/:id/edit', (req, res, next) => {
-  console.log("hello")
-  Celebrity.findOne({ '_id': req.params.id })
-    .then((whatever) => {
-      res.render("celebrities/edit", { whatever });
+
+router.get('celebrities/:celeb_id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.celeb_id).then((result) => {
+    res.render('celebrities/edit', result);
+  })
+});
+
+router.post('/celebrities/new', (req, res, next) => {
+  // console.log("hello", req.body)
+  const { name, occupation, catchPhrase } = req.body;
+
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+
+  newCelebrity.save()
+    .then((celeb) => {
+
+      res.redirect('/celebrities');
     })
     .catch((error) => {
       console.log(error);
     })
 });
 
-router.post('/celebrities/:id/edit', (req, res, next) => {
+router.post('celebrities/:celeb_id', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update(
+    { _id: req.params.celeb_id },
+    { name, occupation, catchPhrase }).then(() => {
+      res.redirect('/celebrities')
+    })
+});
 
-  Celebrity.update({ '_id': req.query.id }, { $set: { name, occupation, catchPhrase } }, { new: true })
-    .then((whatever) => {
-      res.redirect('/celebrities');
+router.get('/celebrities/:id/delete', (req, res, next) => {
+
+  Celebrity.findOneAndDelete({ _id: req.params.id })
+    .then((celeb) => {
+
+      res.redirect("/celebrities")
     })
     .catch((error) => {
-      console.log(error);
+      console.log("something is wrong", error);
     })
 });
 
