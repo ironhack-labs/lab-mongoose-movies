@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
-const Movie = require('../models/movie');
 
 const dbName = 'celebrity-project';
 
@@ -29,11 +28,18 @@ Celebrity.create(celebrities, (err) => {
   mongoose.connection.close();
 });
 
+const Movie = require('../models/movie');
+
 const movies = [
   {
     name: "Project",
     genre: "Thriller",
     plot: "Everyone Dies",
+  },
+  {
+    name: "Flippers",
+    occupation: "movie star",
+    catchPhrase: "Lorem ipsum dolor.",
   }
 ]
 Movie.create(movies, (err) => {
