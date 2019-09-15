@@ -61,12 +61,6 @@ moviesRouter.post("/edit", (req, res) => {
   let genre = req.body.genre ? req.body.genre.split(",") : undefined
   let plot = req.body.plot
 
-  console.log('-------------')
-  console.log(title)
-  console.log(genre)
-  console.log(plot)
-  console.log('-------------')
-
   if (!title || !genre || !plot) {
     res.redirect(`/movies/edit/${_id}`)
     return
@@ -78,6 +72,21 @@ moviesRouter.post("/edit", (req, res) => {
     plot: plot
   }).then(movieUpdated => {
     res.redirect(`/movies/detail/${_id}`)
+  })
+})
+
+// View to delete a movie
+moviesRouter.get("/delete/:id", (req, res) => {
+  Movies.findById(req.params.id).then(movie => {
+    res.render("movies/delete", {movie: movie})
+  })
+})
+
+// Delete a movie
+moviesRouter.post("/delete", (req, res) => {
+  Movies.findByIdAndDelete(req.body._id).then(movieDeleted => {
+    res.redirect("/movies")
+    return
   })
 })
 

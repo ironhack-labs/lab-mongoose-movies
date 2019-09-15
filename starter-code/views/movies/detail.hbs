@@ -3,11 +3,19 @@
   <a href="/movies" class="breadcrumbs__link">Movies</a>
 </div>
 {{#with movie}}
-<h2>{{title}} (<a href="/movies/edit/{{_id}}">Edit</a>)</h2>
-<ul>
-{{#each genre}}
-<li>{{this}}</li>
-{{/each}}
-</ul>
-<p>{{plot}}</p>
+<div class="movie-card">
+  <h2 class="movie-card__title">{{title}}</h2>
+  <div class="movie-card__info">
+    <ul class="movie-card__genre">
+      {{#each genre}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+    <p class="movie-card__plot">{{plot}}</p>
+  </div>
+  <div class="movie-card__actions">
+    <a href="/movies/edit/{{_id}}">Edit</a>
+    <a href="/movies/delete/{{_id}}">delete</a>
+  </div>
+</div>
 {{/with}}

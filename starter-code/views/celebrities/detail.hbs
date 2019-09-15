@@ -2,8 +2,16 @@
   <a href="/" class="breadcrumbs__link">Home</a>
   <a href="/celebrities" class="breadcrumbs__link">Celebrities</a>
 </div>
-{{#with celebritie}}
-<h2>{{name}} <a href="/celebrities/edit/{{_id}}">Edit</a></h2>
-<p>{{occupation}}</p>
-<p>{{catchPhrase}}</p>
+{{#with celebrity}}
+<div class="celebrity-card">
+  <h2 class="celebrity-card__title">{{name}}</h2>
+  <div class="celebrity-card__info">
+    <p>{{occupation}}</p>
+    <p>{{catchPhrase}}</p>
+  </div>
+  <div class="celebrity-card__actions">
+    <a href="/celebrities/edit/{{_id}}">Edit</a>
+    <a href="/celebrities/delete/{{_id}}">Delete</a>
+  </div>
+</div>
 {{/with}}

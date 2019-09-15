@@ -1,0 +1,13 @@
+<div class="movie-card">
+  {{#with movie}}
+  <h2 class="movie-card__title">{{title}}</h2>
+  <div class="movie-card__info">
+    <ul class="movie-card__genre">
+      {{#each genre}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+    <p class="movie-card__plot">{{plot}}</p>
+  </div>
+  {{/with}}
+</div>

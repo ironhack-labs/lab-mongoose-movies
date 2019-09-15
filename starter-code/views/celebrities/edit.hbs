@@ -2,7 +2,7 @@
   <a href="/" class="breadcrumbs__link">Home</a>
   <a href="/celebrities" class="breadcrumbs__link">Celebrities</a>
 </div>
-<h2>Let's create a new celebrity!</h2>
+<h1 class="main-title">Editing celebrity</h1>
 {{#with celebrity}}
 <form action="/celebrities/edit" method="post" class="form">
 <input type="hidden" name="_id" value="{{_id}}">
@@ -25,4 +25,6 @@
     <input type="submit" value="Update" class="button form__submit">
   </div>
 </form>
+<a href="/celebrities/detail/{{_id}}">View</a>
+<a href="/celebrities/delete/{{_id}}">Delete</a>
 {{/with}}

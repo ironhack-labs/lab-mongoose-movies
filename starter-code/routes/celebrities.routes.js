@@ -13,9 +13,9 @@ celebritiesRouter.get("/", (req, res) => {
 
 // Show the detail of a celebrity
 celebritiesRouter.get("/detail/:id", (req, res) => {
-  Celebrities.findById(req.params.id).then(celebritie => {
+  Celebrities.findById(req.params.id).then(celebrity => {
     res.render("celebrities/detail", {
-      celebritie: celebritie
+      celebrity: celebrity
     });
   });
 });

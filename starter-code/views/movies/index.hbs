@@ -2,7 +2,7 @@
   <a href="/" class="breadcrumbs__link">Home</a>
 </div>
 
-<h1>Movies ({{allMovies.length}})</h1>
+<h1 class="main-title">Movies ({{allMovies.length}})</h1>
 <a href="/movies/new">Add a new movie</a>
 <ul>
   {{#each allMovies}}
@@ -10,6 +10,7 @@
     {{title}}
     <a href="/movies/detail/{{_id}}">View</a>
     <a href="/movies/edit/{{_id}}">Edit</a>
+    <a href="/movies/delete/{{_id}}">Delete</a>
     </li>
   {{/each}}
 </ul>

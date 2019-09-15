@@ -1,0 +1,10 @@
+<h1 class="main-title">Deleting movie...</h1>
+{{> movieCard
+  movie=movie
+}}
+<p class="delete-question">Are you sure?</p>
+<form action="/movies/delete" method="post">
+  <input type="hidden" name="_id" value="{{movie._id}}">
+  <a href="/movies/detail/{{movie._id}}">Cancel</a>
+  <input type="submit" value="Yes" class="button">
+</form>
