@@ -1,0 +1,25 @@
+<h2>All our celebrities are listed here:</h2>
+<br>
+    <span style="color: red">{{error}}</span>
+
+<ul>
+  {{#each allCelebrities}}
+  <li> {{this.name}} 
+    <a href="{{../host}}/celebrities/celebrity/{{this.id}}">See details</a>
+    <form action="/celebrities/delete" method="POST">
+    <input type="hidden" name="id" value="{{this.id}}">
+    <input type="submit" value="Delete celebrity">
+    </form>
+  </li>
+  <br>
+  {{/each}}
+</ul>
+<br>
+<br>
+
+<p>
+  <a href="/celebrities/new">Create a new celebrity</a>
+  <br>
+  <br>
+  <a href="/">Home</a>
+</p>

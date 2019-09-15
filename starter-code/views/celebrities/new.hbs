@@ -1,0 +1,14 @@
+<form action="/celebrities/new" method="POST">
+    <input type="text" name="name" placeholder="name and surname">
+    <select name="occupation">
+        <option value="Unknown" selected>Unknown</option>
+        <option value="Actor">Actor</option>
+        <option value="Singer">Singer</option>
+        <option value="Comedian">Comedian</option>
+    </select>
+    <input type="text" name="catchPhrase" placeholder="Catch Phrase">
+
+    <input type="submit" value="Add a new celebrity">
+    <span style="color: red">{{error}}</span>
+
+</form>
