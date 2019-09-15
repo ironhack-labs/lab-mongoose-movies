@@ -1,10 +1,15 @@
 <div class="beadcrumbs">
   <a href="/" class="breadcrumbs__link">Home</a>
 </div>
-<h1>Celebrities</h1>
+<h1>Celebrities ({{allCelebrities.length}})</h1>
 <a href="/celebrities/new">Add a new celebrity</a>
 <ul>
   {{#each allCelebrities}}
-  <li>{{name}} <a href="/celebrities/detail/{{_id}}">Ver</a><a href="/celebrities/edit/{{_id}}">Edit</a></li>
+  <li>
+    {{name}}
+    <a href="/celebrities/detail/{{_id}}">Ver</a>
+    <a href="/celebrities/edit/{{_id}}">Edit</a>
+    <a href="/celebrities/delete/{{_id}}">Delete</a>
+  </li>
   {{/each}}
 </ul>

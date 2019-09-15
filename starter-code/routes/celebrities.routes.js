@@ -68,4 +68,22 @@ celebritiesRouter.post("/edit", (req, res) => {
   });
 });
 
+// View to delete a celebrity
+celebritiesRouter.get("/delete/:id", (req, res) => {
+  Celebrities.findById(req.params.id).then(celebrity => {
+    res.render("celebrities/delete", { celebrity: celebrity });
+  });
+});
+
+// Delete a celebrity
+celebritiesRouter.post("/delete", (req, res) => {
+  let celebrityId = req.body._id
+
+  if (celebrityId) {
+    Celebrities.findByIdAndDelete(celebrityId).then(celebrityDeleted => {
+      res.redirect("/celebrities")
+    })
+  }
+})
+
 module.exports = celebritiesRouter;

@@ -1,0 +1,7 @@
+<h1>Deleting celebrity...</h1>
+<p>¿Are you sure?</p>
+<form action="/celebrities/delete" method="post">
+  <input type="hidden" name="_id" value="{{celebrity._id}}">
+  <a href="/celebrities" class="button">Cancel</a>
+  <input type="submit" value="Yes" class="button">
+</form>
