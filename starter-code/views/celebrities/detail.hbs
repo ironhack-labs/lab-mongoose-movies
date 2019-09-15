@@ -1,5 +1,9 @@
+<div class="beadcrumbs">
+  <a href="/" class="breadcrumbs__link">Home</a>
+  <a href="/celebrities" class="breadcrumbs__link">Celebrities</a>
+</div>
 {{#with celebritie}}
-<h2>{{name}}</h2>
+<h2>{{name}} <a href="/celebrities/edit/{{_id}}">Edit</a></h2>
 <p>{{occupation}}</p>
 <p>{{catchPhrase}}</p>
 {{/with}}

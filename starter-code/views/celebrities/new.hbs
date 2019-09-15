@@ -1,0 +1,23 @@
+<div class="beadcrumbs">
+  <a href="/" class="breadcrumbs__link">Home</a>
+  <a href="/celebrities" class="breadcrumbs__link">Celebrities</a>
+</div>
+<h2>Let's create a new celebrity!</h2>
+<form action="/celebrities/new" method="post" class="form">
+  <div class="form__field">
+    <input type="text" id="name" name="name" placeholder="Name" class="form__input form__input--text">
+    <label for="name">Name</label>
+  </div>
+  <div class="form__field">
+    <input type="text" id="occupation" name="occupation"
+      placeholder="Occupation" class="form__label">
+    <label for="occupation">Occupation</label>
+  </div>
+  <div class="form__field">
+    <input type="text" id="catch-phrase" name="catchPhrase" placeholder="Catch phrase" class="form__input form__input--text">
+    <label for="catch-phrase">Catch phrase</label>
+  </div>
+  <div class="form__actions">
+    <input type="submit" value="Create" class="button form__submit">
+  </div>
+</form>
