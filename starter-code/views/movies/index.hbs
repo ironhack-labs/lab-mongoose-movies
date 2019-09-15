@@ -1,0 +1,11 @@
+<div class="breadcrumbs">
+  <a href="/" class="breadcrumbs__link">Home</a>
+</div>
+
+<h1>Movies ({{allMovies.length}})</h1>
+<a href="/movies/new">Add a new movie</a>
+<ul>
+  {{#each allMovies}}
+  <li>{{title}}</li>
+  {{/each}}
+</ul>
