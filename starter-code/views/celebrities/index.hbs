@@ -1,0 +1,15 @@
+<h2>Fictitious celebrities</h2>
+
+{{#each celebrities}}
+
+<a href="/celebrities/{{_id}}">
+  <h3>{{name}}</h3>
+  <form action="/celebrities/{{_id}}/delete" method="post">
+    <a href="/celebrities"><button type="submit">Delete celebrity</button></a>
+  </form>
+</a>
+
+{{/each}}
+
+<a href="/celebrities/add">
+  <button>Add a fictitious celeb</button></a>
