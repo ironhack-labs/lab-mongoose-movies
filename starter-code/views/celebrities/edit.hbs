@@ -1,7 +1,8 @@
-<form action="/celebrities/{{id}}/edit" method="POST">
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="occupation" placeholder="occupation">
-    <input type="text" name="catchPhrase" placeholder="catchPhrase">
+<form action="/celebrities/{{_id}}/edit" method="POST">
+    <input type="text" name="name" placeholder="{{Celebritys.name}}" value="{{Celebritys.name}}">
+    <input type="text" name="occupation" placeholder="{{Celebritys.occupation}}" value="{{Celebritys.occupation}}">
+    <input type="text" name="catchPhrase" placeholder="{{Celebritys.catchPhrase}}" value="{{Celebritys.catchPhrase}}">
+     <input type="hidden" name="_id" value="{{Celebritys._id}}">
 
     <input type="submit" value="update">
 </form>
