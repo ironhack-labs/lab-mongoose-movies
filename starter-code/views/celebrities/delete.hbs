@@ -1,10 +1,16 @@
-<h1 class="main-title">Deleting celebrity...</h1>
+{{> mainNav}}
+<h1 class="main-title">Deleting celebrity</h1>
 {{> celebrityCard
   celebrity=celebrity
 }}
-<p class="delete-question">Are you sure?</p>
-<form action="/celebrities/delete" method="post">
+
+{{> deleteForm
+  id=celebrity._id
+  model="celebrities"
+}}
+
+{{!-- <form action="/celebrities/delete" method="post">
   <input type="hidden" name="_id" value="{{celebrity._id}}">
   <a href="/celebrities/detail/{{celebrity._id}}" class="button">Cancel</a>
   <input type="submit" value="Yes" class="button">
-</form>
+</form> --}}

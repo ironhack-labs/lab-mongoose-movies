@@ -1,28 +1,22 @@
-<div class="beadcrumbs">
-  <a href="/" class="breadcrumbs__link">Home</a>
-  <a href="/movies" class="breadcrumbs__link">Movies</a>
-</div>
-<h1 class="main-title">Editing movie</h1>
+{{> mainNav}}
 {{#with movie}}
 <form action="/movies/edit" method="post" class="form">
+  <h1 class="form__title">Editing movie</h1>
   <input type="hidden" name="_id" value="{{_id}}">
   <div class="form__field">
-    <input type="text" id="title" name="title" value="{{title}}" placeholder="Title" class="form__input form__input--text">
-    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="{{title}}"
+      placeholder="Title" class="form__input form__input--text">
   </div>
   <div class="form__field">
-    <input type="text" id="genre" name="genre"
-      value="{{genre}}" placeholder="Genre (separated with commas)" class="form__label">
-    <label for="genre">Genre</label>
+    <input type="text" id="genre" name="genre" value="{{genre}}"
+      placeholder="Genre (separated with commas)" class="form__label">
   </div>
   <div class="form__field">
-    <input type="text" id="plot" name="plot" value="{{plot}}" placeholder="Plot" class="form__input form__input--text">
-    <label for="plot">Plot</label>
+    <input type="text" id="plot" name="plot" value="{{plot}}" placeholder="Plot"
+      class="form__input form__input--text">
   </div>
   <div class="form__actions">
-    <input type="submit" value="Update" class="button form__submit">
+    <input type="submit" value="Update" class="button button--update">
   </div>
 </form>
-<a href="/movies/detail/{{_id}}">View</a>
-<a href="/movies/delete/{{_id}}">Delete</a>
 {{/with }}

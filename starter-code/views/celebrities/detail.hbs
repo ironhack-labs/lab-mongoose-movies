@@ -1,8 +1,6 @@
-<div class="beadcrumbs">
-  <a href="/" class="breadcrumbs__link">Home</a>
-  <a href="/celebrities" class="breadcrumbs__link">Celebrities</a>
-</div>
+{{> mainNav}}
 {{#with celebrity}}
+<h1 class="main-title">Celebrity detail</h1>
 <div class="celebrity-card">
   <h2 class="celebrity-card__title">{{name}}</h2>
   <div class="celebrity-card__info">
@@ -10,8 +8,8 @@
     <p>{{catchPhrase}}</p>
   </div>
   <div class="celebrity-card__actions">
-    <a href="/celebrities/edit/{{_id}}">Edit</a>
-    <a href="/celebrities/delete/{{_id}}">Delete</a>
+    <a href="/celebrities/edit/{{_id}}" class="button button--edit">Edit</a>
+    <a href="/celebrities/delete/{{_id}}" class="button button--delete">Delete</a>
   </div>
 </div>
 {{/with}}

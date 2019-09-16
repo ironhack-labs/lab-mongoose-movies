@@ -1,8 +1,6 @@
-<div class="beadcrumbs">
-  <a href="/" class="breadcrumbs__link">Home</a>
-  <a href="/movies" class="breadcrumbs__link">Movies</a>
-</div>
+{{> mainNav}}
 {{#with movie}}
+<h1 class="main-title">Movie detail</h1>
 <div class="movie-card">
   <h2 class="movie-card__title">{{title}}</h2>
   <div class="movie-card__info">
@@ -14,8 +12,8 @@
     <p class="movie-card__plot">{{plot}}</p>
   </div>
   <div class="movie-card__actions">
-    <a href="/movies/edit/{{_id}}">Edit</a>
-    <a href="/movies/delete/{{_id}}">delete</a>
+    <a href="/movies/edit/{{_id}}" class="button button--edit">Edit</a>
+    <a href="/movies/delete/{{_id}}" class="button button--delete">Delete</a>
   </div>
 </div>
 {{/with}}

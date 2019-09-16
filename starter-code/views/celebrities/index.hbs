@@ -1,15 +1,15 @@
-<div class="beadcrumbs">
-  <a href="/" class="breadcrumbs__link">Home</a>
-</div>
+{{> mainNav}}
 <h1 class="main-title">Celebrities ({{allCelebrities.length}})</h1>
-<a href="/celebrities/new">Add a new celebrity</a>
-<ul>
+<a href="/celebrities/new" class="link-add">Add a new celebrity</a>
+<ul class="crud">
   {{#each allCelebrities}}
   <li>
     {{name}}
-    <a href="/celebrities/detail/{{_id}}">View</a>
-    <a href="/celebrities/edit/{{_id}}">Edit</a>
-    <a href="/celebrities/delete/{{_id}}">Delete</a>
+    <div class="crud__actions">
+      <a href="/celebrities/detail/{{_id}}">View</a>
+      <a href="/celebrities/edit/{{_id}}">Edit</a>
+      <a href="/celebrities/delete/{{_id}}">Delete</a>
+    </div>
   </li>
   {{/each}}
 </ul>

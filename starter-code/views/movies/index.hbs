@@ -1,16 +1,15 @@
-<div class="breadcrumbs">
-  <a href="/" class="breadcrumbs__link">Home</a>
-</div>
-
+{{> mainNav}}
 <h1 class="main-title">Movies ({{allMovies.length}})</h1>
-<a href="/movies/new">Add a new movie</a>
-<ul>
+<a href="/movies/new" class="link-add">Add a new movie</a>
+<ul class="crud">
   {{#each allMovies}}
   <li>
     {{title}}
-    <a href="/movies/detail/{{_id}}">View</a>
-    <a href="/movies/edit/{{_id}}">Edit</a>
-    <a href="/movies/delete/{{_id}}">Delete</a>
-    </li>
+    <div class="crud__actions">
+      <a href="/movies/detail/{{_id}}">View</a>
+      <a href="/movies/edit/{{_id}}">Edit</a>
+      <a href="/movies/delete/{{_id}}">Delete</a>
+    </div>
+  </li>
   {{/each}}
 </ul>

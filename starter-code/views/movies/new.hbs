@@ -1,23 +1,17 @@
-<div class="beadcrumbs">
-  <a href="/" class="breadcrumbs__link">Home</a>
-  <a href="/movies" class="breadcrumbs__link">Movies</a>
-</div>
+{{> mainNav}}
 <h1 class="main-title">Let's create a new celebrity!</h1>
 <form action="/movies/new" method="post" class="form">
   <div class="form__field">
     <input type="text" id="title" name="title" placeholder="Title" class="form__input form__input--text">
-    <label for="title">Title</label>
   </div>
   <div class="form__field">
     <input type="text" id="genre" name="genre"
       placeholder="Genre (separated with commas)" class="form__label">
-    <label for="genre">Genre</label>
   </div>
   <div class="form__field">
     <input type="text" id="plot" name="plot" placeholder="Plot" class="form__input form__input--text">
-    <label for="plot">Plot</label>
   </div>
   <div class="form__actions">
-    <input type="submit" value="Create" class="button form__submit">
+    <input type="submit" value="Create" class="button button--create form__submit">
   </div>
 </form>

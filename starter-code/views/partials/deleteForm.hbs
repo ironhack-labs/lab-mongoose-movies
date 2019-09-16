@@ -1,0 +1,8 @@
+<div class="delete-confirmation">
+  <p class="delete-question">Are you sure?</p>
+  <form action="/{{model}}/delete" method="post">
+    <input type="hidden" name="_id" value="{{id}}">
+    <a href="/{{model}}/detail/{{id}}" class="button button--cancel">Cancel</a>
+    <input type="submit" value="Yes" class="button button--delete">
+  </form>
+</div>

@@ -1,7 +1,4 @@
-<div class="beadcrumbs">
-  <a href="/" class="breadcrumbs__link">Home</a>
-  <a href="/celebrities" class="breadcrumbs__link">Celebrities</a>
-</div>
+{{> mainNav}}
 <h1 class="main-title">Editing celebrity</h1>
 {{#with celebrity}}
 <form action="/celebrities/edit" method="post" class="form">
@@ -9,22 +6,19 @@
   <div class="form__field">
     <input type="text" id="name" name="name" value="{{name}}" placeholder="Name"
       class="form__input form__input--text">
-    <label for="name">Name</label>
   </div>
   <div class="form__field">
     <input type="text" id="occupation" name="occupation"
       value="{{occupation}}" placeholder="Occupation" class="form__label">
-    <label for="occupation">Occupation</label>
   </div>
   <div class="form__field">
     <input type="text" id="catch-phrase" name="catchPhrase"
       value="{{catchPhrase}}" placeholder="Catch phrase" class="form__input form__input--text">
-    <label for="catch-phrase">Catch phrase</label>
   </div>
   <div class="form__actions">
-    <input type="submit" value="Update" class="button form__submit">
+    <input type="submit" value="Update" class="button button--create form__submit">
   </div>
 </form>
-<a href="/celebrities/detail/{{_id}}">View</a>
-<a href="/celebrities/delete/{{_id}}">Delete</a>
+{{!-- <a href="/celebrities/detail/{{_id}}">View</a>
+<a href="/celebrities/delete/{{_id}}">Delete</a> --}}
 {{/with}}
