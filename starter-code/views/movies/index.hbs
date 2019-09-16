@@ -1,0 +1,26 @@
+<h2>All our movies are listed here:</h2>
+<br>
+    <span style="color: red">{{error}}</span>
+
+<ul>
+  {{#each allMovies}}
+  <li> {{this.title}} 
+    <a href="/movies/movie/{{this.id}}">See details</a>
+    <a href="/movies/movie/{{this.id}}/edit">Update</a>
+    <form action="/movies/delete" method="POST">
+    <input type="hidden" name="id" value="{{this.id}}">
+    <input type="submit" value="Delete movie">
+    </form>
+  </li>
+  <br>
+  {{/each}}
+</ul>
+<br>
+<br>
+
+<p>
+  <a href="/movies/new">Create a new movie</a>
+  <br>
+  <br>
+  <a href="/">Home</a>
+</p>

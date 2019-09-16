@@ -47,7 +47,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Celebrities listing and generator';
+app.locals.title = '"The celebrities and movies listing and generator"';
 
 
 
@@ -56,5 +56,8 @@ app.use('/', index);
 
 const indexCeleb = require('./routes/celebrities');
 app.use('/celebrities', indexCeleb);
+
+const indexMovie = require('./routes/movies');
+app.use('/movies', indexMovie);
 
 module.exports = app;

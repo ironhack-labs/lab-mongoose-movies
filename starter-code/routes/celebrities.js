@@ -77,7 +77,26 @@ router.post("/delete", (req, res) => {
     });
 });
 
-router.get("/celebrities/:id/edit", (req,res) => {
+//Edit bonus. Not finished
 
-})
+// router.get("/celebrity/:id/edit", (req, res) => {
+//   if (req.query.error) {
+//     Celebrities.findById(req.query.id)
+//   .then(foundCeleb => {
+//     res.render("/celebrities/edit", {foundCeleb, error: "Something went wrong, please, try again"});
+//   })
+//   }
+//   else {
+//     Celebrities.findById(req.params.id)
+//   .then(foundCeleb => {
+//     res.render("/celebrities/edit", {foundCeleb});
+//   })
+//   .catch(error => {
+//     res.redirect("/celebrities/:id/edit?error=please-try-again");
+//   });
+//   }
+// });
+
+// router.post("/:id", (req, res) => {});
+
 module.exports = router;

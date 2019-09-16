@@ -12,4 +12,3 @@ const celebritiesSchema = new Schema(
 
 const Celebrities = mongoose.model("Celebrities", celebritiesSchema);
 module.exports = Celebrities;
-

@@ -5,7 +5,7 @@
 <ul>
   {{#each allCelebrities}}
   <li> {{this.name}} 
-    <a href="{{../host}}/celebrities/celebrity/{{this.id}}">See details</a>
+    <a href="/celebrities/celebrity/{{this.id}}">See details</a>
     <form action="/celebrities/delete" method="POST">
     <input type="hidden" name="id" value="{{this.id}}">
     <input type="submit" value="Delete celebrity">
