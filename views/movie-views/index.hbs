@@ -1,0 +1,18 @@
+{{#each movies}}
+<a href="/movies/details/{{this._id}}">
+<img style="width:150px" src="{{this.image}}" alt="{{this.title}} theatrical release poster">
+</a>
+<a href="/movies/details/{{this._id}}">
+  <h2>
+    {{this.title}}
+  </h2>
+</a>
+
+<a href="/movies/edit-movie/{{this._id}}">Edit Movie</a>
+<br>
+<br>
+<form action="/movies/delete/{{this._id}}" method="POST">
+<button>Delete Movie</button>
+</form>
+
+{{/each}}
