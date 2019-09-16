@@ -1,0 +1,15 @@
+<h1>{{{title}}}</h1>
+<h2>Lista de Celebridades:</h2>
+
+<ul>
+  {{#each celebrities}}
+  <li>
+    <p>{{name}}:  <a href="/celebrities/{{_id}}">Información.</a></p>
+    <p><a href="/celebrities/{{_id}}/delete">Borrar</a> esta celebridad</p>
+    <p><a href="/celebrities/{{_id}}/edit">Actualizar</a> la información de esta celebridad</p>
+  </li>
+  {{/each}}
+</ul>
+
+<p>Si quieres añadir una celebridad:   <a href="/celebrities/new">Click aqui.</a></p>
+<p>Pagina de inicio: <a href="/">Regresar.</a></p>
