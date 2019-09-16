@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Varela Round", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 95vw;
+  color: white;
+  background-color: #505050;
 }
 
 a {
@@ -21,4 +29,120 @@ a {
   color: black;
   font-size: 16px;
   text-decoration: none;
+}
+
+.btn-link {
+  font-weight: 400;
+  color: cornflowerblue;
+  text-decoration: none;
+  transition: all .1s ease-in-out;
+}
+
+.btn-link:hover {
+  color: gold;
+  text-decoration: underline;
+}
+
+.background {
+  background-image: url("/images/cinema.jpg");
+  width: 99vw;
+  height: 100%;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+}
+
+.title h1 {
+  font-size: 6em;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.title a {
+  color: #669eaf;
+  background: white;
+  padding: 20px 40px;
+  border-radius: 60px;
+  font-size: 1.2em;
+  text-decoration: none;
+  -webkit-box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.9);
+  box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.9);
+}
+
+.card-img-top {
+  width: 60%;
+  -webkit-box-shadow: 10px 11px 5px -10px rgba(58, 2, 2, 0.7);
+  -moz-box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  transition: all .2s ease-in-out; 
+  border: 1px double rgba(182, 182, 182, 0.733);
+  padding: 10px;
+}
+
+.card-img-top:hover { 
+  transform: scale(1.1); 
+}
+
+.movies-head {
+  padding: 20px;
+}
+
+@media (min-width: 576px) {
+  .col-sm {
+    flex-grow: 0 !important;
+  }
+}
+
+.selected-movie {
+  padding: 50px 0 0 50px;
+}
+
+.movie-img {
+  width: 300px;
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px double rgba(182, 182, 182, 0.733);
+  -webkit-box-shadow: 10px 11px 5px -10px rgba(58, 2, 2, 0.7);
+  -moz-box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
+}
+
+.movie-description {
+  max-width: 70%;
+}
+
+.movie-header {
+  background-color: rgb(49, 48, 48);
+  width: 99vw;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  padding: 15px 0 10px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+}
+
+.movie-header a {
+  all:unset;
+  transition: all .2s ease-in-out;
+}
+
+.movie-header h2{
+  transition: all .1s ease-in-out;
+}
+
+.movie-header h2:hover{
+  color:gold;
+}
+
+.movie-info{
+  margin-left: 40px;
 }
