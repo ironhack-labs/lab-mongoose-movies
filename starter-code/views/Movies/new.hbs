@@ -1,0 +1,16 @@
+<h2>New celebrity</h2>
+
+{{#if error}}
+  <p style="color: red;">{{error}}</p>
+{{/if}}
+
+<form action="/celebrities" method="POST">
+  <input type="text" name="name" placeholder="name">
+  <input type="text" name="occupation" placeholder="occupation">
+  <input type="text" name="catchPhrase" placeholder="catchPhrase">
+  
+  <button type="submit">Add celebrity</button>
+  
+</form>
+
+<a href="/celebrities">back</a>
