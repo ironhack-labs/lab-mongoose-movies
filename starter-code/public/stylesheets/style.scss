@@ -62,12 +62,29 @@ a {
     box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
   }
 
-  a:first-child {
+  div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    a {
+      margin-bottom: 6rem;
+    }
+
+    img {
+      max-width: 300px;
+    }
+  }
+
+  div:first-child a {
     color: #FFFFFF;
     background-color: #00B7FF;
   }
 
-  a:last-child {
+  div:last-child a {
     color: #00B7FF;
     background-color: #FFFFFF;
   }
