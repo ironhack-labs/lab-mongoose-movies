@@ -3,7 +3,6 @@ const router = express.Router();
 const Celebrity = require('../models/Celebrity')
 
 router.get('/', (req, res, next) => {
-    console.log('here')
     Celebrity.find({})
         .then(celebrities => {
             res.render('celebrities/index', { celebrities: celebrities });
