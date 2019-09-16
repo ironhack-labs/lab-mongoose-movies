@@ -1,0 +1,18 @@
+<h2>Create a brand new Celebrity</h2>
+<form action="/celebrities/new" method="POST">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name">
+
+  <label for="occupation">Occupation</label>
+  <input id="occupation" type="text" name="occupation">
+
+  <label for="catchPhrase">Catch phrase</label>
+  <input id="catchPhrase" type="text" name="catchPhrase">
+
+  <button type="submit">Submit your favourite celebrity</button>
+</form>
+{{#if error}}
+        <p style="color:red">{{error}}</p>
+{{/if}}
+
+<a href="/celebrities">Back</a>

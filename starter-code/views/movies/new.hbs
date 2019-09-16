@@ -1,0 +1,18 @@
+<h2>Create your movie</h2>
+<form action="/movies/new" method="POST">
+  <label for="title">Title</label>
+  <input id="title" type="text" name="title">
+
+  <label for="genre">Genre</label>
+  <input id="genre" type="text" name="genre">
+
+  <label for="plot">Plot</label>
+  <input id="plot" type="text" name="plot">
+
+  <button type="submit">Submit</button>
+</form>
+{{#if error}}
+        <p style="color:red">{{error}}</p>
+{{/if}}
+
+<a href="/movies">Back</a>
