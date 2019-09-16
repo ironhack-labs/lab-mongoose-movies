@@ -1,0 +1,13 @@
+<h2>List of Celebrities</h2>
+<ul>
+    {{#each celebs}}
+    <li>
+        <citation>{{this.catchPhrase}}</citation>
+        <h3><a href="/celebrities/details/{{this._id}}">{{this.name}}</a></h3>
+        <span>{{this.occupation}}</span>
+        <form action="/celebrities/{{this._id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+    </li>
+    {{/each}}
+</ul>
