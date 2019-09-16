@@ -29,4 +29,27 @@ router.get('/celebrities/details/:theid', (req, res, next) => {
         })
 })
 
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new');
+})
+
+router.post('/celebrity/creation', (req, res, next) => {
+
+    let name = req.body.theName;
+    let occupation = req.body.theOccupation;
+    let catchPhrase = req.body.theCatchphrase;
+
+    Celebrity.create({
+            name: name,
+            occupation: occupation,
+            catchPhrase: catchPhrase
+        })
+        .then(() => {
+            res.redirect('/celebrities')
+        })
+        .catch((err) => {
+            next(err);
+        })
+})
+
 module.exports = router;
