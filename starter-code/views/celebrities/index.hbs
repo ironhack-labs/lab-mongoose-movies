@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Celebrities</h2>
+  <div class="row">
+    {{#each data }}
+    <div class="col-4 d-flex align-items-center">
+      <a href="/celebrities/{{this.id}}" class="btn btn-light">{{this.name}}</a>
+        <a href="/celebrities/{{this.id}}/edit" class="btn btn-primary btn-sm">Edit</a>
+      <form action="/celebrities/{{this.id}}/delete" method="POST">
+        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+      </form>
+    </div>
+    {{/each}}
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <a href="/celebrities/new" class="btn btn-success mt-3">Create new Celebrity</a>
+      </div>
+      <div class="col-3">
+        <a href="/" class="btn btn-info mt-3">Go back</a>
+      </div>
+      <p>{{this.message}}</p>
+    </div>
+  </div>
+</div>
