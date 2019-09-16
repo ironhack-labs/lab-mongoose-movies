@@ -5,4 +5,18 @@ body {
 a {
   color: #00B7FF; }
 
+nav {
+  height: 85px;
+  background: gray; }
+
+nav a {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  padding: 2px; }
+
+button {
+  width: 150px;
+  height: 30px; }
+
 /*# sourceMappingURL=style.css.map */
