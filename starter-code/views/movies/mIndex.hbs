@@ -1,0 +1,17 @@
+<h2>Movies Page</h2>
+
+{{#each mov}}
+
+<a href="/celebrities/{{this.id}}">{{this.title}}</a>
+{{!-- <br>
+<a href="/celebrities/{{this.id}}/edit">Edit</a>
+
+<form action="/celebrities/{{this.id}}/delete" method="POST">
+  <button>Remove</button>
+</form>
+<br> --}}
+
+{{/each}}
+{{!-- <br>
+
+<a href="/new">Create new celebrity</a> --}}
