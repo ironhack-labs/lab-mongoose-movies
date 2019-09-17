@@ -1,8 +1,131 @@
+@charset "UTF-8";
+*, html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Open Sans", Helvetica, Arial, sans-serif; }
+
+h2 {
+  margin: 0 0 2rem 0; }
 
 a {
+  text-decoration: none;
   color: #00B7FF; }
+
+p {
+  margin: .8rem 0;
+  color: #999; }
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap; }
+
+blockquote {
+  position: relative;
+  margin-bottom: 7px;
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #555; }
+  blockquote:before {
+    content: '“';
+    position: absolute;
+    top: -29px;
+    left: -22px;
+    font-size: 9rem;
+    font-family: georgia, sans-serif;
+    color: #f1f1f1;
+    z-index: -1; }
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  background-color: #222;
+  color: #fff; }
+  @media screen and (max-width: 460px) {
+    header {
+      padding: 1rem; } }
+  header a {
+    align-self: center; }
+  header ul li {
+    margin-right: .7rem; }
+    header ul li.nav-header {
+      margin-right: 1rem;
+      font-weight: bold; }
+
+section {
+  margin: 4rem; }
+  @media screen and (max-width: 460px) {
+    section {
+      margin: 1rem; } }
+  section ul li {
+    width: 24%;
+    margin-bottom: 2rem;
+    padding: 3rem;
+    border: 1px solid #e6e6e6;
+    margin-right: 1%; }
+    section ul li button {
+      margin-top: 6px;
+      margin-bottom: 6px;
+      background-color: white;
+      border: 1px solid #eee;
+      color: #bbb;
+      padding: 3px 7px;
+      text-transform: uppercase;
+      font-size: .6rem;
+      transition: all 250ms; }
+      section ul li button:hover {
+        background-color: #bbb;
+        color: #000;
+        cursor: pointer; }
+    section ul li .button {
+      background-color: white;
+      border: 1px solid #eee;
+      color: #bbb;
+      padding: 3px 7px;
+      text-transform: uppercase;
+      font-size: .6rem;
+      transition: all 250ms; }
+      section ul li .button:hover {
+        background-color: #bbb;
+        color: #000;
+        cursor: pointer; }
+
+.occupation,
+.genre {
+  display: block;
+  margin-top: -3px;
+  color: #a5a5a5;
+  font-size: .8rem;
+  font-style: italic; }
+
+form label {
+  margin-bottom: 3px; }
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 9px 13px;
+  margin-bottom: 1rem;
+  border: 1px solid #bbb; }
+
+form button {
+  background-color: #bbb;
+  border: 1px solid #bbb;
+  color: #1d1c1c;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  font-size: .9rem;
+  font-weight: 300;
+  transition: all 250ms; }
+  form button:hover {
+    background-color: #1d1d1d;
+    color: #bbb;
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <header>
-    <nav>
-      <a href="/">Mongoose Movies Lab</a>
+      <a href="/" class="title"><h1>Mongoose Movies Lab</h1></a>
+      <nav>
       <ul>
         <li class="nav-header">Celebrities</a></li>
         <li><a href="/celebrities">All</a></li>
@@ -24,7 +25,9 @@
     </nav>
   </header>
 
-  {{{body}}}
+  <section>
+    {{{body}}}
+  </section>
 
   <script src="/javascripts/script.js"></script>
 </body>

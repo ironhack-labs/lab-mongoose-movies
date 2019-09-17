@@ -64,7 +64,7 @@ router.post('/movies/:theId/delete', (req, res, next) => {
 })
 
 router.get('/movies/:theId/edit', (req, res, next) => {
-    let id = req.param.theId
+    let id = req.params.theId
     Movie.findById(id)
         .then((theMovie) => {
             res.render('../views/movies/edit', {
@@ -77,9 +77,14 @@ router.get('/movies/:theId/edit', (req, res, next) => {
 
 router.post('/movies/:theId', (req, res, next) => {
     let id = req.params.theId
+    let title = req.body.theTitle
+    let genre = req.body.theGenre
+    let plot = req.body.thePlot
 
     Movie.findByIdAndUpdate(id, {
-
+        title: title,
+        genre: genre,
+        plot: plot
     })
     .then((result) => {
         res.redirect('/movies')

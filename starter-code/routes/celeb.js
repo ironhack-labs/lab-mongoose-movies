@@ -15,7 +15,7 @@ router.get('/celebrities', (req, res, next) => {
 })
 
 router.get('/celebrities/details/:theId', (req, res, next) => {
-    let id = req.param.theId
+    let id = req.params.theId
 
     Celeb.findOne(id)
         .then((theCelebrity) => {
@@ -64,7 +64,7 @@ router.post('/celebrities/:theId/delete', (req, res, next) => {
 })
 
 router.get('/celebrities/:theId/edit', (req, res, next) => {
-    let id = req.param.theId
+    let id = req.params.theId
     Celeb.findById(id)
         .then((theCeleb) => {
             res.render('../views/celebrities/edit', {
@@ -77,9 +77,14 @@ router.get('/celebrities/:theId/edit', (req, res, next) => {
 
 router.post('/celebrities/:theId', (req, res, next) => {
     let id = req.params.theId
+    let name = req.body.theName
+    let occupation = req.body.theOccupation
+    let catchPhrase = req.body.theCatchPhrase
 
-    Celeb.findByIdAndUpdate(id, {
-
+    Celeb.findByIdAndUpdate(id,{
+        name: name,
+        occupation: occupation,
+        catchPhrase: catchPhrase
     })
     .then((result) => {
         res.redirect('/celebrities')

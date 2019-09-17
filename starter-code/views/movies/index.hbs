@@ -3,11 +3,12 @@
     {{#each movies}}
     <li>
         <h3><a href="/movies/details/{{this._id}}">{{this.title}}</a></h3>
-        <span>{{this.genre}}</span>
+        <span class="genre">{{this.genre}}</span>
         <p>{{this.plot}}</p>
         <form action="/movies/{{this._id}}/delete" method="POST">
             <button>Delete</button>
         </form>
+        <a href="/movies/{{this._id}}/edit" class="button">Edit</a>
     </li>
     {{/each}}
 </ul>
