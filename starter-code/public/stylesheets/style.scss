@@ -1,8 +1,17 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+.list ul {
+  list-style: none;
+  font-size: 16px;
+}
+
+// .list li {
+//   list-style-type: none;
+//   font-size: 20px;
+// }
