@@ -1,8 +1,9 @@
 <h1 class="header">List of Celebrities</h1>
 
+<div class="movieParent">
 {{#each celebrities}}
+<div class = 'movieList'></div>
 
-<div class = 'celebName'>
 
 <a class="name" href = "/celebs/details/{{this._id}}">
 {{this.name}}
@@ -11,7 +12,6 @@
 <form action="/celebs/delete/{{this._id}}" method="POST">
     <button>Delete</button>
 </form>
-</div>
-
-
+<div class = 'movieList'></div>
 {{/each}}
+</div>
