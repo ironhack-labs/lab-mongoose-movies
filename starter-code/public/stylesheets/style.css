@@ -5,4 +5,20 @@ body {
 a {
   color: #00B7FF; }
 
+.navbar {
+  background: #00B7FF;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; }
+
+.navbar a {
+  color: white;
+  text-decoration: none; }
+
+.all {
+  color: #b96666;
+  display: flex;
+  justify-content: center; }
+
 /*# sourceMappingURL=style.css.map */
