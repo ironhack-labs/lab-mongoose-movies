@@ -28,4 +28,26 @@ router.get('/movies/details/:theid', (req, res, next) => {
         })
 })
 
+router.get('/movies/new', (req, res, next) => {
+    res.render('movies/new');
+})
+
+router.post('/movie/creation', (req, res, next) => {
+
+    let title = req.body.theTitle;
+    let genre = req.body.theGenre;
+    let plot = req.body.thePlot;
+
+    Movie.create({
+            title: title,
+            genre: genre,
+            plot: plot
+        })
+        .then(() => {
+            res.redirect('/movies')
+        })
+        .catch((err) => {
+            next(err);
+        })
+})
 module.exports = router;
