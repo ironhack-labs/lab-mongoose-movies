@@ -46,6 +46,9 @@ router.get('/:id/edit', async(req, res, next) => {
     let directors = await Celebrity.find()
     Movie.findById(req.params.id).populate('director')
         .then(movie => {
+            directors.forEach(director => {
+                if (director._id.equals(movie.director._id)) director.selected = true
+            })
             res.render('movies/edit', { movie, directors })
         })
         .catch(e => next(e))

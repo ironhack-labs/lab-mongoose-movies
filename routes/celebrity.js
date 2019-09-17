@@ -14,7 +14,6 @@ router.get('/', (req, res, next) => {
 router.get('/details/:id', (req, res, next) => {
     Celebrity.findById(req.params.id).populate('movies')
         .then(async celebrity => {
-            // celebrity.movies = await Movie.find({ director: celebrity._id })
             res.render('celebrities/show', { celebrity });
         })
         .catch(e => next(e))

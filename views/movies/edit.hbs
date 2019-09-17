@@ -11,7 +11,11 @@
   <p>Director</p>
   <select name="director">
     {{#each directors}}
-      <option value="{{this._id}}">{{this.name}}</option>
+      {{#if this.selected}}
+        <option selected=true value="{{this._id}}">{{this.name}}</option>
+      {{else}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/if}}
     {{/each}}
   </select>
   

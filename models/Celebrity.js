@@ -5,8 +5,7 @@ const Movie = require('./Movie')
 const CelebritySchema = Schema({
     name: String,
     occupation: String,
-    catchPhrase: String,
-    authorId: Schema.Types.ObjectId
+    catchPhrase: String
 })
 
 CelebritySchema.virtual('movies', {
