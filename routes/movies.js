@@ -11,11 +11,13 @@ router.get('/', (req, res, next) => {
 })
 
 router.get("/details/:id", (req,res,next) => {
+
   let id = req.params.id
-  console.log("=-=-=-=-==", req.params)
-  Movie.findById(id).populate("actors").then(data => {
+
+  Movie.findById(id).populate('actors')
+  .then(data => {
     res.render('movies/details', {movie: data})
-  })
+  }).catch(err => next(err))
 })
 
 router.get("/new", (req,res,next) => {
@@ -36,28 +38,42 @@ router.post("/create", (req,res,next) => {
   Movie.create(movie).then(data => {
 
     let actors = data.actors
+
     if (Array.isArray(actors)) {
       actors.forEach(actor => {
+
         Celebrities.findByIdAndUpdate(actor, 
-          {$push: {movies: data.id}})
+          {$push: {movies: data.id}}).then(() => {
+            res.redirect(`/movies/details/${data.id}`)
+          }).catch(err => next(err))
       })
     }
     else {
-      Celebrities.findByIdAndUpdate(data.actors, 
-        {$push: {movies: data.id}})
-        console.log(data.id)
+      Celebrities.findByIdAndUpdate(actors, 
+         { $push: {movies: data.id}}
+         )
+         .then(()=>{
+           res.redirect(`/movies/details/${data._id}`)
+         }).catch(()=>{})
     }
 
-    res.redirect(`/movies/details/${data.id}`)
-  })
+  }).catch(err => next(err))
 })
 
 router.post("/delete/:id", (req,res,next) => {
   let id = req.params.id
 
-  Movie.findByIdAndDelete(id).then(() => {
-    res.redirect("/movies")
-  })
+  Movie.findByIdAndDelete(id).then((data) => {
+
+    Celebrities.findByIdAndUpdate(data.actors, 
+      { $pull: {movies: id} }
+      )
+      .then(() => {
+        res.redirect("/movies")
+      }).catch(err => next(err))
+  }).catch(err => next(err))
+
+  
 })
 
 router.get("/edit/:id", (req,res,next) => {
@@ -65,7 +81,7 @@ router.get("/edit/:id", (req,res,next) => {
 
   Movie.findById(id).then(data => {
     res.render("movies/edit", {movie: data})
-  })
+  }).catch(err => next(err))
 })
 
 
