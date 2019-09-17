@@ -1,0 +1,17 @@
+<h1 class="header">List of Celebrities</h1>
+
+{{#each celebrities}}
+
+<div clas = 'celebName'>
+
+<a href = "/celebs/details/{{this._id}}">
+{{this.name}}
+</a>
+
+<form action="/celebs/delete/{{this._id}}" method="POST">
+    <button>Delete</button>
+</form>
+</div>
+
+
+{{/each}}
