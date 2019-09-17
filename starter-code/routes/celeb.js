@@ -3,21 +3,21 @@ const router = express.Router()
 const Celeb = require('../models/Celeb.js')
 
 
-router.get('/celebrities', (req, res, next) => {
-    Celeb.find()
-        .then((allTheCelebs) => {
-            res.render('../views/celebrities/index', {
-                celebs: allTheCelebs
-            })
-        }).catch((err) => {
-            next(err)
+router.get('/celebrities', async (req, res, next) => {
+    try {
+        let celebs = await Celeb.find({})
+        res.render('../views/celebrities/index', {
+            celebs
         })
+    } catch (err) {
+        next(err)
+    }
 })
 
 router.get('/celebrities/details/:theId', (req, res, next) => {
     let id = req.params.theId
 
-    Celeb.findOne(id)
+    Celeb.findById(id)
         .then((theCelebrity) => {
             res.render('../views/celebrities/show', {
                 aCeleb: theCelebrity
@@ -37,30 +37,32 @@ router.post('/celebrities', (req, res, next) => {
     let catchPhrase = req.body.theCatchPhrase
 
     Celeb.create({
-        name: name,
-        occupation: occupation,
-        catchPhrase: catchPhrase
-    })
+            name: name,
+            occupation: occupation,
+            catchPhrase: catchPhrase
+        })
 
-    .then ((result) =>
-        res.redirect('/celebrities')
-    )
+        .then((result) =>
+            res.redirect('/celebrities')
+        )
 
-    .catch((error) => {
-        res.render('../views/celebrities/new', {error})
-    })
+        .catch((error) => {
+            res.render('../views/celebrities/new', {
+                error
+            })
+        })
 })
 
 router.post('/celebrities/:theId/delete', (req, res, next) => {
     let id = req.params.theId
 
     Celeb.findByIdAndRemove(id)
-    .then((result) => {
-        res.redirect('/celebrities')
-    })
-    .catch((err) => {
-        next(err)
-    })
+        .then((result) => {
+            res.redirect('/celebrities')
+        })
+        .catch((err) => {
+            next(err)
+        })
 })
 
 router.get('/celebrities/:theId/edit', (req, res, next) => {
@@ -81,17 +83,17 @@ router.post('/celebrities/:theId', (req, res, next) => {
     let occupation = req.body.theOccupation
     let catchPhrase = req.body.theCatchPhrase
 
-    Celeb.findByIdAndUpdate(id,{
-        name: name,
-        occupation: occupation,
-        catchPhrase: catchPhrase
-    })
-    .then((result) => {
-        res.redirect('/celebrities')
-    })
-    .catch((err) => {
-        next(err)
-    })
+    Celeb.findByIdAndUpdate(id, {
+            name: name,
+            occupation: occupation,
+            catchPhrase: catchPhrase
+        })
+        .then((result) => {
+            res.redirect('/celebrities')
+        })
+        .catch((err) => {
+            next(err)
+        })
 })
 
 module.exports = router;
