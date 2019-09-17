@@ -1,0 +1,25 @@
+
+<h4>Edit</h4>
+<h2>{{Celebrity.name}}</h2>
+
+
+<form action="/celebrities/update/{{Celebrity._id}}" method="POST">
+
+
+<p>Name</p>
+
+<input type="text" name="theName" value=" {{Celebrity.name}}">
+
+
+<p>Occupation</p>
+<input type="text" name="theOccupation" value="{{Celebrity.occupation}}">
+
+<p>Catchphrase</p>
+<input type="text" name="thecatchPhrase" value="{{Celebrity.catchPhrase}}">
+
+
+
+
+<button>Save</button>
+
+</form>

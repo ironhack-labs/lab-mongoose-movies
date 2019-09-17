@@ -64,5 +64,37 @@ router.post('/celebrities/delete/:id', (req, res, next) => {
         })
 })
 
+router.get('/celebrities/editcelebrity/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Celebrity.findById(id)
+        .then((theCelebrity) => {
+            res.render('celebrities/edit', { Celebrity: theCelebrity })
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
+
+router.post('/celebrities/update/:id', (req, res, next) => {
+
+    let id = req.params.id;
+
+    Celebrity.findByIdAndUpdate(id, {
+
+            name: req.body.theName,
+            occupation: req.body.theOccupation,
+            catchPhrase: req.body.thecatchPhrase
+
+        })
+        .then((result) => {
+            res.redirect('/celebrities/details/' + id)
+        })
+        .catch((err) => {
+            next(err);
+        })
+
+})
+
 
 module.exports = router;
