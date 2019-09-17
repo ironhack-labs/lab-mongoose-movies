@@ -1,21 +1,41 @@
 const mongoose = require('mongoose')
 const Celebrity = require('../models/celebrity')
+const Movie = require('../models/movie')
 
-const list = [
+// const list = [
+//     {
+//         name: 'Tom Holland',
+//         occupation: 'Spider-Man',
+//         catchPhrase: 'Web web bitch'
+//     },
+//     {
+//         name: 'Robert Downey Jr',
+//         occupation: 'Iron Man',
+//         catchPhrase: 'I am Iron Man'
+//     },
+//     {
+//         name: 'Steve Carell',
+//         occupation: 'Regional Manager',
+//         catchPhrase: "That's what she Said"
+//     }
+// ]
+
+
+const movieList = [
     {
-        name: 'Tom Holland',
-        occupation: 'Spider-Man',
-        catchPhrase: 'Web web bitch'
+        title: 'Avengers: Endgame',
+        genre: 'Action',
+        plot: 'Disney tries and succeeds in raking a ton of ca$h'
     },
     {
-        name: 'Robert Downey Jr',
-        occupation: 'Iron Man',
-        catchPhrase: 'I am Iron Man'
+        title: 'It',
+        genre: 'Horror',
+        plot: 'Scary clown with red balloons like killing kids'
     },
     {
-        name: 'Steve Carell',
-        occupation: 'Regional Manager',
-        catchPhrase: "That's what she Said"
+        title: 'A Star Is Born',
+        genre: 'Drama',
+        plot: 'The movie where that song Shallow is from'
     }
 ]
 
@@ -30,4 +50,5 @@ mongoose
 
 
 
-  Celebrity.create(list)
+  Movie.create(movieList)
+

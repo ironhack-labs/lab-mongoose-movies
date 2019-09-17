@@ -58,5 +58,8 @@ app.use('/', index);
 const celebRoutes = require('./routes/celebRoutes')
 app.use('/', celebRoutes)
 
+// Creating a new routes file
+const movieRoutes = require('./routes/movieRoutes')
+app.use('/', movieRoutes)
 
 module.exports = app;
