@@ -1,0 +1,35 @@
+<h2> List of All Celebrities</h2>
+
+<div class='celeb-wrapper'>
+    {{#each celebrities}}
+    <div class='celeb-options'>
+        <div class='celeb-text'>
+            {{this.name}}
+            <br>
+            {{this.catchPhrase}}
+        </div>
+
+        <div class='celeb-actions'>
+            <div>
+                <a href="/celebrity/show/{{this._id}}">More Info</a>
+            </div>
+
+            <div>
+                <form action="/celebrity/delete/{{this.id}}" method="POST">
+                    <button class='delete-button' type="submit"> Delete </button>
+                </form>
+            </div>
+
+            <div>
+                <a href="/celebrity/edit/{{this._id}}"> Edit </a>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</div>
+
+
+{{!-- <div>
+    <a href="/celebrity/new"><button>New Celeb</button></a>
+</div> --}}

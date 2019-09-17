@@ -1,17 +1,9 @@
-// #00FFB2
-
-
-
 body {
-  // padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgba($color: #5c5b5b, $alpha: .1)
-
-}
+  background-color: rgba(92, 91, 91, 0.1); }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 nav {
   font-size: 24px;
@@ -19,56 +11,42 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-bottom: 1rem;
-}
+  padding-bottom: 1rem; }
 
 nav > a {
   text-decoration: none;
-  color: black;  
-}
+  color: black; }
 
 .celeb-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
-  // border: 1px solid red;
-}
+  flex-wrap: wrap; }
 
 .celeb-options {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // border: 1px solid blue;
   width: 30vw;
   height: 40vh;
   padding: 2rem;
   margin: 1rem;
-  background-color: rgba($color: #00FFFB, $alpha: .6);
-border-radius: 5px;
-}
+  background-color: rgba(0, 255, 251, 0.6);
+  border-radius: 5px; }
 
 .celeb-actions {
-  // border: 1px solid purple;
   display: flex;
   align-items: center;
-  // flex-direction: column;
   justify-content: space-evenly;
-  flex-wrap: wrap;
-  // width: 100%;
-  // margin: auto 1rem;
-}
+  flex-wrap: wrap; }
 
 .delete-button {
-  // margin: .8rem auto;
   background-color: red;
   border-color: red;
-  // font-size: 12px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: white;
   padding: .5rem;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 .celeb-actions > div > a {
   text-decoration: none;
@@ -76,21 +54,17 @@ border-radius: 5px;
   background-color: #00B7FF;
   color: white;
   border-radius: 5px;
-  padding: .5rem;
-}
+  padding: .5rem; }
 
 .celeb-name {
   font-size: 16px;
-  margin: 1.5rem;
-}
+  margin: 1.5rem; }
 
 .movie-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
-  // border: 1px solid red;
-}
+  flex-wrap: wrap; }
 
 .movie-options {
   display: flex;
@@ -99,16 +73,15 @@ border-radius: 5px;
   border: 1px solid blue;
   width: 30%;
   padding: 2rem;
-  margin: 1rem;
-}
+  margin: 1rem; }
 
 .movie-actions {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 .movie-name {
   font-size: 16px;
-  margin: 1.5rem;
-}
+  margin: 1.5rem; }
+
+/*# sourceMappingURL=style.css.map */
