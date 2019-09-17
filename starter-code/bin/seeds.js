@@ -25,17 +25,20 @@ const movieList = [
     {
         title: 'Avengers: Endgame',
         genre: 'Action',
-        plot: 'Disney tries and succeeds in raking a ton of ca$h'
+        plot: 'Disney tries and succeeds in raking a ton of ca$h',
+        star: 'Tom Holland'
     },
     {
         title: 'It',
         genre: 'Horror',
-        plot: 'Scary clown with red balloons like killing kids'
+        plot: 'Scary clown with red balloons like killing kids',
+        star: 'Bill Skarsgard'
     },
     {
         title: 'A Star Is Born',
         genre: 'Drama',
-        plot: 'The movie where that song Shallow is from'
+        plot: 'The movie where that song Shallow is from',
+        star: 'Bradley Cooper'
     }
 ]
 

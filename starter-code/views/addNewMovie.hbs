@@ -11,8 +11,22 @@
     <p>Plot</p>
     <input type="text" name="thePlot" placeholder="Movie Plot">
 
+    <p>Star</p>
+    <select name="theStar">
 
-<p><button>Save</button></p>
+        <option value="" selected disabled>Please Select One</option>
+
+        {{#each allTheCelebrities}}
+
+        <option value="{{this._id}}">{{this.name}}</option>
+
+        {{/each}}
+
+    </select>
+
+
+
+    <p><button>Save</button></p>
 
 
 </form>
