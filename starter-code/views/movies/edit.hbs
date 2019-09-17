@@ -7,19 +7,29 @@
 
 <p>Title</p>
 
-<input type="text" name="theName" value=" {{Movie.title}}">
+<input type="text" name="theTitle" value=" {{Movie.title}}">
 
 
 
-<p>Actor</p>
+<p>Celebrity</p>
 {{!-- <input type="text" name="theOccupation" value="{{Celebrity.occupation}}"> --}}
-<select>
-  <option>Option 1</option>
-  <option>Option 2</option>
+<select name="theCelebrity">
+
+    <option value="" selected disabled>Please Select One</option>
+
+{{#each celebs}}
+
+<option value="{{this._id}}">{{this.name}}</option>
+
+{{/each}} 
+
 </select>
 
 <p>Genre</p>
-<input type="text" name="thecatchPhrase" value="{{Movie.genre}}">
+<input type="text" name="theGenre" value="{{Movie.genre}}">
+
+<p>Plot</p>
+<input type="text" name="thePlot" value="{{Movie.plot}}">
 
 
 

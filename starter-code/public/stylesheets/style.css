@@ -1,34 +1,40 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #a0c9cb;
+  background: linear-gradient(0deg, #a0c9cb 0%, #2d95fd 100%);
+  background-size: cover;
+  height: 100hv; }
 
 a {
-  color: #00B7FF; }
+  color: black; }
 
 .navbar {
-  background: #00B7FF;
+  background: white;
   font-size: 20px;
   display: flex;
   justify-content: space-evenly;
-  align-items: center; }
+  align-items: center;
+  border-radius: 5px; }
 
 .navbar a {
-  color: white;
+  color: black;
   text-decoration: none; }
 
 .all {
-  color: #b96666;
+  color: #b31f1f;
   display: flex;
   justify-content: center; }
 
 .button {
   background: #b13636;
   color: white;
-  font-size: 12px; }
+  font-size: 12px;
+  border-radius: 10px; }
 
 .edit {
   text-decoration: none;
-  color: darkgray;
+  color: black;
   font-size: 12px; }
 
 /*# sourceMappingURL=style.css.map */

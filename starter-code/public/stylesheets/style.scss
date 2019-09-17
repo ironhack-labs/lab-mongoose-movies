@@ -1,27 +1,32 @@
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: rgb(160, 201, 203);
+    background: linear-gradient(0deg, rgba(160, 201, 203, 1) 0%, rgba(45, 149, 253, 1) 100%);
+    background-size: cover;
+    height: 100hv;
 }
 
 a {
-    color: #00B7FF;
+    color: black;
 }
 
 .navbar {
-    background: #00B7FF;
+    background: white;
     font-size: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    border-radius: 5px;
 }
 
 .navbar a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .all {
-    color: rgb(185, 102, 102);
+    color: rgb(179, 31, 31);
     display: flex;
     justify-content: center;
 }
@@ -30,10 +35,11 @@ a {
     background: rgb(177, 54, 54);
     color: white;
     font-size: 12px;
+    border-radius: 10px;
 }
 
 .edit {
     text-decoration: none;
-    color: darkgray;
+    color: black;
     font-size: 12px;
 }

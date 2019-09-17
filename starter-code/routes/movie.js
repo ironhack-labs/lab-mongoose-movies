@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movie')
+const Celebrity = require('../models/celebrity')
 
 /* GET home page */
 router.get('/movies', (req, res, next) => {
@@ -18,9 +19,11 @@ router.get('/movies', (req, res, next) => {
 router.get('/movies/details/:theid', (req, res, next) => {
     let id = req.params.theid
 
-    Movie.findById(id)
+    Movie.findById(id).populate('celebrity')
+        // Book.findById(id).populate('author')
         .then((movieObject) => {
-            console.log(movieObject)
+            console.log("CELEB", movieObject)
+            console.log(movieObject.celebrity)
             res.render('movies/details', { theMovie: movieObject })
         })
         .catch((err) => {
@@ -29,17 +32,27 @@ router.get('/movies/details/:theid', (req, res, next) => {
 })
 
 router.get('/movies/new', (req, res, next) => {
-    res.render('movies/new');
+    Celebrity.find()
+        .then((result) => {
+
+            res.render('movies/new', { allTheCelebrities: result });
+        })
+        .catch((err) => {
+            next(err)
+        })
 })
 
 router.post('/movie/creation', (req, res, next) => {
 
     let title = req.body.theTitle;
+    let celebrity = req.body.theCelebrity
     let genre = req.body.theGenre;
     let plot = req.body.thePlot;
 
     Movie.create({
+
             title: title,
+            celebrity: celebrity,
             genre: genre,
             plot: plot
         })
@@ -68,10 +81,26 @@ router.get('/movies/editmovie/:id', (req, res, next) => {
 
     Movie.findById(id)
         .then((theMovie) => {
-            res.render('movies/edit', { Movie: theMovie })
+            Celebrity.find()
+                .then((celebResult) => {
+                    console.log('the movie ---- ', theMovie);
+                    console.log('the celeb >>>>> ', celebResult);
+                    data = {
+                        movie: theMovie,
+                        celebs: celebResult
+                    };
+                    res.render('movies/edit', data);
+                })
+                .catch((err) => {
+                    next(err);
+                });
         })
         .catch((err) => {
             next(err)
         })
 })
+
+
+
+
 module.exports = router;
