@@ -29,9 +29,14 @@ router.get("/movies/details/:id", (req, res, next) => {
 
 router.get("/movies/add-new-movie", (req, res, next) => {
   Director.find()
-    .then(result => {
-      console.log(result);
-      res.render("movie-views/new", { allDirectors: result });
+    .then((allDirectors) => {
+      Actor.find()
+      .then((allActors) => {
+        res.render("movie-views/new", { directors: allDirectors, actors: allActors });
+      })
+      .catch((err)=>{
+        next(err);
+      })
     })
     .catch(err => {
       next(err);
@@ -41,7 +46,7 @@ router.get("/movies/add-new-movie", (req, res, next) => {
 router.post("/movies/creation", (req, res, next) => {
   let title = req.body.theTitle;
   let director = req.body.theDirector;
-  // let cast = req.body.theCast;
+  let cast = req.body.theCast;
   let genre = req.body.theGenre;
   let plot = req.body.thePlot;
   let image = req.body.theImage;
@@ -49,7 +54,7 @@ router.post("/movies/creation", (req, res, next) => {
   Movie.create({
     title: title,
     director: director,
-    // cast: cast,
+    cast: cast,
     genre: genre,
     plot: plot,
     image: image
@@ -101,9 +106,10 @@ router.get("/movies/edit-movie/:id", (req, res, next) => {
 router.post("/movies/update/:id", (req, res, next) => {
   let id = req.params.id;
   Movie.findByIdAndUpdate(id, {
-    name: req.body.theTitle,
-    occupation: req.body.theAuthor,
-    catchPhrase: req.body.theCatchPhrase,
+    title: req.body.theTitle,
+    director: req.body.theDirector,
+    genre: req.body.theGenre,
+    plot: req.body.thePlot,
     image: req.body.theImage
   })
     .then(result => {
