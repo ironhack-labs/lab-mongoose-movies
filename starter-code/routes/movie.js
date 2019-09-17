@@ -56,8 +56,11 @@ router.get('/movies/edit/:id', (req, res, next) => {
 		.then((movieResult) => {
 			Celebrity.find()
 				.then((celebResult) => {
-					console.log('the movie ---- ', movieResult);
-					console.log('the celeb >>>>> ', celebResult);
+					celebResult.forEach((Celeb) => {
+						if (Celeb._id.equals(movieResult.actors)) {
+							Object.assign(Celeb, { chosenOne: true });
+						}
+					});
 
 					data = {
 						movie: movieResult,

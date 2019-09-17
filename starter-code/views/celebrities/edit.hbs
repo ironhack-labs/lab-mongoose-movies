@@ -16,7 +16,16 @@
 <p>Catchphrase</p>
 <input type="text" name="theCatchphrase" value="{{details.catchPhrase}}">
 
+<p>Movies</p>
+
+<select name="theMovies">
+<option value="{{this._id}}" selected disabled>Please pick one</option>
+
+{{#each movies}}
+<option value="{{this._id}}">{{this.title}}</option>
+{{/each}} 
+
+</select>
 
 <button>Save</button>
-
 </form>

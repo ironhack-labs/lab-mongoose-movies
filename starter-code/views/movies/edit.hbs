@@ -19,11 +19,16 @@
 <p>Actors</p>
 <select name="theActors">
 
-  <option value="" selected disabled>Please Select One</option>
+  {{!-- <option value="" selected disabled>Please Select One</option> --}}
 
 {{#each celebs}}
-{{!-- the array of authors gets pulled from the Database  --}}
+
+{{#if this.chosenOne}}
+<option value="{{this._id}}" selected disabled>{{this.name}}</option>
+{{else}}
 <option value="{{this._id}}">{{this.name}}</option>
+{{/if}}
+{{!-- the array of authors gets pulled from the Database  --}}
 
 {{/each}} 
 
