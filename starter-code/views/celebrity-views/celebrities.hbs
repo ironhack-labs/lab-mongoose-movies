@@ -1,11 +1,13 @@
-<h2>Celebrities</h2>
+<h2 class="remove-bottom-margin">Celebrities</h2>
 
-{{#each celebs}}
-  <div class="celeb-card">
-    <h3><a href="/celebrities/{{this._id}}">{{this.name}}</a></h3>
-    <form action="/celebrities/{{this._id}}/delete" method="POST">
-      <button type="submit">Delete</button>
-    </form>
-  </div>
+<div class="card-wrapper">
+  {{#each celebs}}
+    <div class="celeb-card">
+      <h3><a href="/celebrities/{{this._id}}">{{this.name}}</a></h3>
+      <form action="/celebrities/{{this._id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
 
-{{/each}}
+  {{/each}}
+</div>

@@ -1,7 +1,10 @@
 body {
-  padding: 0px;
+  padding: 0;
   margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+body > div {
+  padding-left: 15px; }
 
 a {
   color: #00B7FF; }
@@ -22,19 +25,43 @@ nav > ul > li {
   font-size: 1rem;
   display: inline; }
 
-.celeb-card {
+.card-wrapper {
+  margin-left: 15px;
+  display: flex;
+  flex-flow: row wrap; }
+
+.celeb-card, .movie-card {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
   padding: 15px 0;
   margin: 0%; }
 
-.celeb-card > form {
+.celeb-card > form, .movie-card > form {
   margin: auto 15px; }
 
 button {
   border: 1px solid #ededed;
   padding: 3px 10px;
-  border-radius: 15px; }
+  border-radius: 15px;
+  color: black;
+  transition: .3s; }
+
+button:hover {
+  background: #00B7FF;
+  color: white; }
+
+form {
+  display: flex;
+  flex-flow: row wrap; }
+
+form > label {
+  margin: 0 10px 0 15px; }
+
+form > button {
+  margin: 0 15px 0 15px; }
+
+.remove-bottom-margin {
+  margin-bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */

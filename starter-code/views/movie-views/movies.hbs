@@ -1,0 +1,13 @@
+<h2 class="remove-bottom-margin">Movies</h2>
+
+<div class="card-wrapper">
+  {{#each movies}}
+    <div class="movie-card">
+      <h3><a href="/movies/{{this._id}}">{{this.title}}</a></h3>
+      <form action="/movies/{{this._id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+
+  {{/each}}
+</div>
