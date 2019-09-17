@@ -17,7 +17,18 @@
 <input type="text" name="thePlot" value="{{movie.plot}}">
 
 <p>Actors</p>
-<input type="text" name="theActors" value="{{movie.actors}}">
+<select name="theActors">
+
+  <option value="" selected disabled>Please Select One</option>
+
+{{#each celebs}}
+{{!-- the array of authors gets pulled from the Database  --}}
+<option value="{{this._id}}">{{this.name}}</option>
+
+{{/each}} 
+
+
+</select>
 
 <button>Save</button>
 

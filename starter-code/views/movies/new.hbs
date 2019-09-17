@@ -13,7 +13,18 @@
 <input type="text" name="thePlot">
 
 <p>Actors</p>
-<input type="text" name="theActors">
+<select name="theActors">
+
+  <option value="" selected disabled>Please Select One</option>
+
+{{#each allCelebrities}}
+{{!-- the array of authors gets pulled from the Database  --}}
+<option value="{{this._id}}">{{this.name}}</option>
+
+{{/each}} 
+
+
+</select>
 
 <button>Save</button>
 
