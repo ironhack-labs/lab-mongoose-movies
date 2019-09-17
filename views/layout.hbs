@@ -29,19 +29,29 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <div class="navbar">
-      <a href="/directors">
-        Directors
-      </a>
-      <a href="/directors/add-new-director">Add New Director</a>
-      <a href="/movies">
-        Movie Watchlist
-      </a>
-      <a href="/movies/add-new-movie">Add New Movie</a>
-    </div>
+    <nav class="movie-header">
+      <h4>
+        <a href="/directors"
+        class="btn-link">
+          Directors
+        </a>
+      </h4>
+      <h4>
+        <a href="/directors/add-new-director" class="btn-link">Add New Director</a>
+      </h4>
+      <h4>
+        <a href="/movies" class="btn-link">
+          Movie Watchlist
+        </a>
+      </h4>
+      <h4>
+        <a href="/movies/add-new-movie" class="btn-link">Add New Movie</a>
+      </h4>
+    </nav>
 
     {{{body}}}
 
     <script src="/javascripts/script.js"></script>
+
   </body>
 </html>

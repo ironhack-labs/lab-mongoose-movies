@@ -1,21 +1,53 @@
-<h2 style="margin-left:100px">Add a New Director</h2>
+<h2 class="movies-head">Add a New Director</h2>
 
-<form action="/directors/creation" method="POST" style="width:500px; margin-left:100px">
+<form
+  action="/directors/creation"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
   <div class="form-group">
     <label for="directorName">Name</label>
-    <input type="text" class="form-control" id="directorName" aria-describedby="nameHelp" placeholder="Type Name Here" name="theName">
+    <input
+      type="text"
+      class="form-control"
+      id="directorName"
+      aria-describedby="nameHelp"
+      placeholder="Name"
+      name="theName"
+    />
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <label for="directorOccupation">Occupation</label>
-    <input type="text" class="form-control" id="directorOccupation" aria-describedby="occupationHelp" placeholder="Type Name Here" name="theOccupation">
+    <input
+      type="text"
+      class="form-control"
+      id="directorOccupation"
+      aria-describedby="occupationHelp"
+      placeholder="Occupation"
+      name="theOccupation"
+    />
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <label for="directorCatchPhrase">Famous Quote</label>
-    <input type="text" class="form-control" id="directorCatchPhrase" aria-describedby="catchPhraseHelp" placeholder="Type Name Here" name="theCatchPhrase">
+    <textarea
+      class="form-control"
+      id="directorCatchPhrase"
+      aria-describedby="catchPhraseHelp"
+      placeholder="Quote"
+      name="theCatchPhrase"
+      rows="3"
+    ></textarea>
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <label for="directorImage">Image URL</label>
-    <input type="text" class="form-control" id="directorImage" aria-describedby="imageHelp" placeholder="Type Name Here" name="theImage">
+    <input
+      type="text"
+      class="form-control"
+      id="directorImage"
+      aria-describedby="imageHelp"
+      placeholder="Headshot URL"
+      name="theImage"
+    />
   </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

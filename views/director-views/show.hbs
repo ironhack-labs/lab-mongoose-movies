@@ -22,7 +22,7 @@
     <h6>Projects: </h6>
     <ul>
       {{#each filteredMovies}}
-      <li><a href="/movies/details/{{this._id}}"><em>{{this.title}}</em></a></li>
+      <li><a href="/movies/details/{{this._id}}" class="btn-link"><em>{{this.title}}</em></a></li>
       {{/each}}
     </ul>
       <a href="/directors/edit-director/{{ director._id }}" class="btn btn-secondary btn-sm"

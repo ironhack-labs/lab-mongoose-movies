@@ -15,21 +15,21 @@ a {
   color: #00B7FF;
 }
 
-.navbar{
-  width: 100%;
-  height: 75px;
-  border-bottom: 1px solid black;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 20px;
-}
+// .navbar{
+//   width: 100%;
+//   height: 75px;
+//   border-bottom: 1px solid black;
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   margin-bottom: 20px;
+// }
 
-.navbar a{
-  color: black;
-  font-size: 16px;
-  text-decoration: none;
-}
+// .navbar a{
+//   color: black;
+//   font-size: 16px;
+//   text-decoration: none;
+// }
 
 .btn-link {
   font-weight: 400;
@@ -94,6 +94,7 @@ a {
 
 .movies-head {
   padding: 20px;
+  margin-left:50px;
 }
 
 @media (min-width: 576px) {
@@ -122,8 +123,10 @@ a {
 
 .movie-header {
   background-color: rgb(49, 48, 48);
-  width: 99vw;
+  width: 100vw;
   margin: 0;
+  display: flex;
+  justify-content: space-evenly;
   padding: 0;
   color: #ffffff;
   padding: 15px 0 10px 20px;
@@ -131,18 +134,17 @@ a {
   overflow: hidden;
 }
 
-.movie-header a {
-  all:unset;
-  transition: all .2s ease-in-out;
-}
+// .movie-header a {
+//   transition: all .2s ease-in-out;
+// }
 
-.movie-header h2{
-  transition: all .1s ease-in-out;
-}
+// .movie-header h4{
+//   transition: all .1s ease-in-out;
+// }
 
-.movie-header h2:hover{
-  color:gold;
-}
+// .movie-header h4:hover{
+//   color:gold;
+// }
 
 .movie-info{
   margin-left: 40px;
@@ -165,4 +167,12 @@ a {
   box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
   object-fit: cover;
   width: 400px;
+}
+
+.card-body{
+  padding: 1rem;
+}
+
+.btn-sm{
+  margin: 0 2.5px 0 2.5px;
 }
