@@ -1,0 +1,13 @@
+<h1>Movie Database</h1>
+<ul>
+{{#each result}}
+<li>
+    <h2><a href="/movies/details/{{this._id}}">{{this.title}}</a></h2>
+    <form action="/movies/{{this._id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
+</li>
+{{/each}}
+</ul>
+
+<a href="/movies/new-movie">create</a>

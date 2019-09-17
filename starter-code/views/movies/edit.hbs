@@ -1,0 +1,12 @@
+<h1>Edit Movies</h1>
+<form action="/movies/{{result.id}}/edit" method="POST">
+
+<p>Current Title</p>
+<input type="text" name="theTitle" value='{{result.title}}'>
+<p>Current plot</p>
+<input type="text" name="theGenre" value='{{result.genre}}'>
+<p>Current Catch phrase</p>
+<input type="text" name="thePlot" value='{{result.plot}}'>
+<button>Save</button>
+
+</form>

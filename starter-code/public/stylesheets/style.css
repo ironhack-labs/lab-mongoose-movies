@@ -1,18 +1,17 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
-ul{
+ul {
   text-decoration: none;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap; }
+
+/*# sourceMappingURL=style.css.map */
