@@ -1,0 +1,21 @@
+<h2>Edit {{director.name}}</h2>
+
+<form action="/directors/update/{{director._id}}" method="POST">
+
+
+<p>Name</p>
+<input type="text" name="theName" value="{{director.name}}">
+
+<p>Occupation</p>
+<input type="text" name="theOccupation" value="{{director.occupation}}">
+
+<p>Catchphrase</p>
+<input type="text" name="theCatchPhrase" value="{{director.catchPhrase}}">
+
+<p>Photo</p>
+<input type="text" name="theImage" value="{{director.image}}">
+
+<button>Save</button>
+
+
+</form>

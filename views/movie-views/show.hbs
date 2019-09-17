@@ -15,7 +15,7 @@
     <h6 class="content-tagline">
       <b
         >Director:
-        <a href="/celebrities/details/{{ movie.director._id }}">{{
+        <a href="/directors/details/{{ movie.director._id }}">{{
           movie.director.name
         }}</a></b
       >
@@ -26,5 +26,8 @@
     <p class="movie-description">
       {{ movie.plot }}
     </p>
+        <a href="/movies/edit-movie/{{ movie._id }}" class="btn btn-secondary btn-sm"
+      >Edit Movie</a
+    >
   </div>
 </div>

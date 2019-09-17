@@ -1,0 +1,21 @@
+<h2 style="margin-left:100px">Add a New Director</h2>
+
+<form action="/directors/creation" method="POST" style="width:500px; margin-left:100px">
+  <div class="form-group">
+    <label for="directorName">Name</label>
+    <input type="text" class="form-control" id="directorName" aria-describedby="nameHelp" placeholder="Type Name Here" name="theName">
+  </div>
+    <div class="form-group">
+    <label for="directorOccupation">Occupation</label>
+    <input type="text" class="form-control" id="directorOccupation" aria-describedby="occupationHelp" placeholder="Type Name Here" name="theOccupation">
+  </div>
+    <div class="form-group">
+    <label for="directorCatchPhrase">Famous Quote</label>
+    <input type="text" class="form-control" id="directorCatchPhrase" aria-describedby="catchPhraseHelp" placeholder="Type Name Here" name="theCatchPhrase">
+  </div>
+    <div class="form-group">
+    <label for="directorImage">Image URL</label>
+    <input type="text" class="form-control" id="directorImage" aria-describedby="imageHelp" placeholder="Type Name Here" name="theImage">
+  </div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>

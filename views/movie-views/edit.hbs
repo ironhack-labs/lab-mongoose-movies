@@ -1,24 +1,64 @@
-<h2>Edit {{movie.title}}</h2>
+<h2 style="margin-left:100px">Editing <em>{{movie.title}}</em></h2>
 
-<form action="/movies/update/{{movie._id}}" method="POST">
-
-
-<p>Title</p>
-<input type="text" name="theTitle" value="{{movie.title}}">
-
-<p>Director</p>
-<input type="text" name="theDirector" value="{{movie.director}}">
-
-<p>Genre</p>
-<input type="text" name="theGenre" value="{{movie.genre}}">
-
-<p>Plot</p>
-<input type="text" name="thePlot" value="{{movie.plot}}">
-
-<p>Poster</p>
-<input type="text" name="thePoster" value="{{movie.image}}">
-
-<button>Save</button>
-
-
+<form
+  action="/movies/update/{{movie._id}}" method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="movieTitle">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieTitle"
+      aria-describedby="nameHelp"
+      value="{{movie.title}}"
+      name="theTitle"
+    />
+  </div>
+  <div class="form-group">
+    <label for="movieDirector">Director</label>
+    <select class="form-control" id="movieDirector" name="theDirector">
+{{#each directors}}
+{{#if this.chosen}}
+<option selected value="{{this._id}}">{{this.name}}</option>
+ {{else}}
+<option value="{{this._id}}">{{this.name}}</option>
+{{/if}}
+{{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="movieGenre">Genre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieGenre"
+      aria-describedby="genreHelp"
+      value="{{movie.genre}}"
+      name="theGenre"
+    />
+  </div>
+    <div class="form-group">
+    <label for="moviePlot">Synopsis</label>
+    <textarea
+      class="form-control"
+      id="moviePlot"
+      aria-describedby="plotHelp"
+      placeholder="{{movie.plot}}"
+      name="thePlot"
+      rows="3"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="movieImage">Poster URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieImage"
+      aria-describedby="imageHelp"
+      value="{{movie.image}}"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

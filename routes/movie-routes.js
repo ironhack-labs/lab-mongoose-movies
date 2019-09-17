@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Movie = require("../models/Movie");
-const Celebrity = require('../models/Celebrity');
+const Director = require("../models/Director");
 
 router.get("/movies", (req, res, next) => {
   Movie.find()
@@ -15,7 +15,8 @@ router.get("/movies", (req, res, next) => {
 
 router.get("/movies/details/:id", (req, res, next) => {
   let id = req.params.id;
-  Movie.findById(id).populate('director')
+  Movie.findById(id)
+    .populate("director")
     .then(movieObject => {
       console.log();
       res.render("movie-views/show", { movie: movieObject });
@@ -26,14 +27,14 @@ router.get("/movies/details/:id", (req, res, next) => {
 });
 
 router.get("/movies/add-new-movie", (req, res, next) => {
-  Celebrity.find()
-  .then((result) => {
-    console.log(result);
-    res.render("movie-views/new", { allCelebs: result });
-  })
-  .catch((err) => {
-    next(err);
-  })
+  Director.find()
+    .then(result => {
+      console.log(result);
+      res.render("movie-views/new", { allDirectors: result });
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 router.post("/movies/creation", (req, res, next) => {
@@ -50,10 +51,10 @@ router.post("/movies/creation", (req, res, next) => {
     // cast: cast,
     genre: genre,
     plot: plot,
-    image: image,
+    image: image
   })
     .then(result => {
-      res.redirect("/movies/details/"+ result._id);
+      res.redirect("/movies/details/" + result._id);
     })
     .catch(err => {
       next(err);
@@ -63,22 +64,37 @@ router.post("/movies/creation", (req, res, next) => {
 router.post("/movies/delete/:id", (req, res, next) => {
   let id = req.params.id;
   Movie.findByIdAndRemove(id)
-  .then((result)=>{
-    res.redirect('/movies');
-  }).catch((err)=>{
-    next(err);
-  })
+    .then(result => {
+      res.redirect("/movies");
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 router.get("/movies/edit-movie/:id", (req, res, next) => {
   let id = req.params.id;
   Movie.findById(id)
-  .then((theMovie) => {
-    res.render("movie-views/edit", {movie: theMovie})
-  })
-  .catch((err) => {
-    next(err);
-  })
+    .then((theMovie) => {
+      Director.find()
+        .then(allDirectors => {
+          allDirectors.forEach((eachDirector) => {
+            if (eachDirector._id.equals(theMovie.director)) {
+              eachDirector.chosen = true;
+            }
+          });
+          res.render("movie-views/edit", {
+            movie: theMovie,
+            directors: allDirectors
+          });
+        })
+        .catch(err => {
+          next(err);
+        });
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 router.post("/movies/update/:id", (req, res, next) => {
@@ -87,14 +103,14 @@ router.post("/movies/update/:id", (req, res, next) => {
     name: req.body.theTitle,
     occupation: req.body.theAuthor,
     catchPhrase: req.body.theCatchPhrase,
-    image: req.body.theImage,
+    image: req.body.theImage
   })
-  .then((result) => {
-    res.redirect("/movies/details/"+id)
-  })
-  .catch((err) => {
-    next(err);
-  })
-})
+    .then(result => {
+      res.redirect("/movies/details/" + id);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 module.exports = router;

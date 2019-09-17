@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Celebrity = require("../models/Celebrity");
+const Director = require("../models/Director");
 const Movie = require("../models/Movie");
 
 mongoose
@@ -9,28 +9,28 @@ mongoose
   )
   .catch(err => console.error("Error connecting to mongo", err));
 
-  const celebsList = [
+  const directorsList = [
     {
-      name: "Mariah Carey",
-      occupation: "elusive chanteuse",
-      catchPhrase: "I don't know her.",
-      image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/honoree-mariah-carey-performs-onstage-during-the-2019-news-photo-1567793047.jpg",
+      name: "Barry Jenkins",
+      occupation: "Director",
+      catchPhrase: "As a writer, a blank page will humble the hell out of you. It always does, and it always will.",
+      image: "https://static01.nyt.com/images/2019/01/27/arts/27barry-jenkins1/27barry-jenkins1-articleLarge.jpg",
     },
     {
-      name: "Solange Knowles",
-      occupation: "dreamer, oracle",
-      catchPhrase: "Do nothing without intention",
-      image: "https://media.wmagazine.com/photos/5820ab976c6e10fd162f70f7/4:3/w_1536/GettyImages-621447922.jpg",
+      name: "Paul Thomas Anderson",
+      occupation: "Director",
+      catchPhrase: "I'll rebel against powers and principalities, all the time. Always, I will.",
+      image: "https://media.gq.com/photos/5a383d755f1f364364dd40f9/master/pass/P.T.%20Anderson-01.jpg",
     },
     {
-      name: "Nina Simone",
-      occupation: "revolutionary prophet",
-      catchPhrase: "I'll tell you what freedom means to me: 'no fear'. I mean really, NO FEAR!",
-      image: "https://www.smdp.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-20-at-1.56.01-PM-1.png",
+      name: "Luca Guadagnino",
+      occupation: "Director",
+      catchPhrase: "I'm incredibly inspired by the goofy edginess of teenagers and young people.",
+      image: "https://static.purple.fr/2015/10/003_NB.jpg",
     },
   ];
 
-  // Celebrity.create(celebsList);
+  Director.create(directorsList);
 
   const moviesList = [
     {
@@ -56,4 +56,4 @@ mongoose
     },
   ];
 
-  Movie.create(moviesList);
+  // Movie.create(moviesList);
