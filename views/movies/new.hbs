@@ -7,5 +7,13 @@
 <input type="text" name="genre" id="">
 <label for="plot">Plot</label>
 <input type="textarea" name="plot" id="">
+<label for="image">Image</label>
+<input type="text" name="image">
+<select name="actors">
+    <option value="" selected disabled>Pick A Celeb</option>
+  {{#each actors}}
+  <option value="{{this.id}}">{{this.name}}</option>
+  {{/each}}
+</select>
 <button>Add</button>
 </form>

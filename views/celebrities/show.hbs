@@ -1,3 +1,7 @@
 <h1>Name: {{celeb.name}}</h1>
+<img src={{celeb.image}} alt="">
 <h2>Occupation: {{celeb.occupation}}</h2>
 <p>Catch Phrase: {{celeb.catchPhrase}}</p>
+{{#each celeb.movies}}
+  <a href="/movies/details/{{id}}"><p>{{title}}</p></a>
+{{/each}}

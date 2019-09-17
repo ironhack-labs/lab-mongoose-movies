@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity.js')
+const Movie = require('../models/Movie')
 
 router.get('/', (req, res, next) => {
 
@@ -13,8 +14,8 @@ router.get('/', (req, res, next) => {
 
 router.get('/single/:id', (req, res, next) => {
   let id = req.params.id
-
-  Celebrity.findById(id).then(data => {
+  Celebrity.findById(id).populate("movies").then(data => {
+    console.log(data)
     res.render('celebrities/show', {celeb: data})
   }).catch(err => next(err))
 
@@ -30,7 +31,8 @@ router.post('/create', (req, res, next) => {
       {
         name: req.body.name,
         occupation: req.body.occupation,
-        catchPhrase: req.body.catchPhrase
+        catchPhrase: req.body.catchPhrase,
+        image: req.body.image
       }
     ).then(data => {
       res.redirect(`/celebrities/single/${data._id}`)
@@ -57,11 +59,13 @@ router.post('/update/:id', (req,res,next) => {
   let name = req.body.name
   let occupation = req.body.occupation
   let catchPhrase = req.body.catchPhrase
+  let image = req.body.image
 
   Celebrity.findByIdAndUpdate(id, {
     name: name, 
     occupation: occupation, 
-    catchPhrase: catchPhrase
+    catchPhrase: catchPhrase,
+    image: image
   }).then((data) =>{
     res.redirect("/celebrities")
   }).catch(err => next(err))
