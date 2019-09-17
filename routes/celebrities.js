@@ -41,10 +41,18 @@ router.post('/create', (req, res, next) => {
 
 router.post('/delete/:id', (req, res, next) => {
   let id = req.params.id
+
   Celebrity.findByIdAndDelete(id).then(data =>{
-    res.redirect(`/celebrities`)
+
+    Movie.updateMany({ actors: { $in: id } }, 
+      
+        { $pull: {actors: id} }
+      ).then(data => {
+        res.redirect(`/celebrities`)
+      })
+
+    }).catch(err => next(err))
   })
-})
 
 router.get('/edit/:id', (req, res, next) => {
   let id = req.params.id
