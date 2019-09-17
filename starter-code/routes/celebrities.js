@@ -29,6 +29,18 @@ router.post("/add", (req, res, next) => {
     });
 });
 
+router.get("/:celebId/edit", (req, res, next) => {
+  const celebId = req.params.celebId;
+  Celebrity.findById(celebId)
+    .then(celebrity => {
+      console.log(celebrity);
+      res.render("celebrities/edit.hbs", { celebrity: celebrity });
+    })
+    .catch(err => {
+      "error while showing celeb: ", err;
+    });
+});
+
 router.get("/:celebId", (req, res, next) => {
   const celebId = req.params.celebId;
   Celebrity.findById(celebId)
@@ -52,7 +64,5 @@ router.post("/:celebId/delete", (req, res, next) => {
       "error while deleting celeb: ", err;
     });
 });
-
-
 
 module.exports = router;

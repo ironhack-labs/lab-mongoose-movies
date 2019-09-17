@@ -54,6 +54,11 @@ router.get('/:id/edit', (req, res, next) => {
         .then(movie => {
             Celebrity.find()
             .then(response=>{
+                response.forEach((celeb)=>{
+                    if(celeb._id.equals(movie.celebrity)){
+                        celeb.match = true;
+                    }
+                })
                 res.render('movies/edit', {allTheCelebrities:response, movie })
             })
             .catch(err => next(err))

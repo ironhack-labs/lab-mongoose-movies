@@ -21,4 +21,7 @@ button {
   margin-top: 5px;
   color: white; }
 
+.plot, .catchphrase {
+  width: 15%; }
+
 /*# sourceMappingURL=style.css.map */
