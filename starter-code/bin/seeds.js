@@ -7,41 +7,44 @@ mongoose
   .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch(err => console.error('Error connecting to mongo', err));
 
-const celebrities = [
+var initCelebs = [
   {
-    name: 'Mike Gold',
+    celebrity: 'Mike Gold',
     occupation: 'Bank Robber',
     catchPhrase: 'Gimme the gold mate or seal your fate'},
   {
-    name: 'Joe Speeds',
+    celebrity: 'Joe Speeds',
     occupation: 'Stunt Driver',     
     catchPhrase: 'Hasta la vista baby'},
   {
-    name: 'Mandy Snow',
-    occupation: 'Actress',
+    celebrity: 'Mandy Snow',
+    occupation: 'Actress',  
     catchPhrase: "Let it snow"}
 ]   
 
-const initMovies = [
+var initMovies = [
   {
-    title: 'Stapler',
+    title: 'The Stapler',
     genre: 'Comedy',
-    plot: 'Rob Schneider is a stapler'},
+    plot: 'Rob Schneider is The Stapler',
+    image: 'https://i.kym-cdn.com/photos/images/original/000/282/287/092.jpg'},
   {
-    title: 'Carrot',
+    title: 'A Carrot',
     genre: 'Comedy',
-    plot: 'Rob Schneider is a carrot'},
+    plot: 'Rob Schneider is a carrot',
+    image: 'https://2static1.fjcdn.com/comments/Rob+schneider+in+derpee+de+derpe+dee+derp+de+dumb+_52735276fcb792aee038c4dca82a0b5f.jpg'},
   {
     title: 'Da Derp Dee Derp Da Teetley Derpee Derpee Dumb',
     genre: 'Comedy',
-    plot: 'Rob Schneider is a Da Derp Dee Derp Da Teetley Derpee Derpee Dumb'},
+    plot: 'Rob Schneider is Da Derp Dee Derp Da Teetley Derpee Derpee Dumb',
+    image: 'https://i.ytimg.com/vi/ZxYA6duF-9E/hqdefault.jpg'},
 ]  
 
-// Celebrity.insertMany(initCelebs)
-//   .then(data => console.log("add successful"))
-//   .catch(err => {
-//     console.log("error while adding", err);
-//   });
+Celebrity.insertMany(initCelebs)
+  .then(data => console.log("add successful"))
+  .catch(err => {
+    console.log("error while adding", err);
+  });
 
 Movie.insertMany(initMovies)
   .then(data => console.log("add successful"))

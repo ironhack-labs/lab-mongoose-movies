@@ -1,12 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/Movie')
+const Celebrity = require('../models/Celebrity')
+
+
+router.get('/details/:id', (req, res, next) => {
+    Movie.findById(req.params.id).populate('celebrity')
+        .then((movieObject)=>{
+            res.render('movies/show', {movie: movieObject});
+         })
+         .catch(err => next(err))
+});
 
 router.get('/', (req, res, next) => {
     Movie.find({})
         .then(movies => {
             res.render('movies/index', { movies });
-        })
+        })  
         .catch(err => next(err))
 });
 
