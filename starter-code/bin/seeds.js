@@ -9,15 +9,15 @@ mongoose
 
 var initCelebs = [
   {
-    celebrity: 'Mike Gold',
-    occupation: 'Bank Robber',
-    catchPhrase: 'Gimme the gold mate or seal your fate'},
+    name: 'Rob Schneider',
+    occupation: 'Actor',
+    catchPhrase: 'Derp'},
   {
-    celebrity: 'Joe Speeds',
+    name: 'Joe Speeds',
     occupation: 'Stunt Driver',     
     catchPhrase: 'Hasta la vista baby'},
   {
-    celebrity: 'Mandy Snow',
+    name: 'Mandy Snow',
     occupation: 'Actress',  
     catchPhrase: "Let it snow"}
 ]   
@@ -46,8 +46,8 @@ Celebrity.insertMany(initCelebs)
     console.log("error while adding", err);
   });
 
-Movie.insertMany(initMovies)
-  .then(data => console.log("add successful"))
-  .catch(err => {
-    console.log("error while adding", err);
-});
+// Movie.insertMany(initMovies)
+//   .then(data => console.log("add successful"))
+//   .catch(err => {
+//     console.log("error while adding", err);
+// });

@@ -12,6 +12,14 @@ router.get('/details/:id', (req, res, next) => {
          .catch(err => next(err))
 });
 
+router.get('/new', (req, res, next) => {
+    Celebrity.find()
+        .then(response=>{
+            res.render('movies/create',{allTheCelebrities:response})
+        })
+
+})
+
 router.get('/', (req, res, next) => {
     Movie.find({})
         .then(movies => {
