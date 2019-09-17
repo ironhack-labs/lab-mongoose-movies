@@ -4,13 +4,13 @@
   <li>{{title}}</li>
   <li>{{genre}}</li>
   <li>{{plot}}</li>
-  <a href="/show/{{_id}}">Read more about this movie</a>
+  <a href="/show-movie/{{_id}}">Read more about this movie</a>
 
-<form action="/delete/{{_id}}" method="POST">
+<form action="/delete-movie/{{_id}}" method="POST">
     <button>Delete this movie</button>
 </form>
 
-<a href="/edit/{{this._id}}">Edit This movie's Info</a>
+<a href="/edit-movie/{{this._id}}">Edit This movie's Info</a>
   <br>
 {{/each}}
 </ul>

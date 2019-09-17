@@ -4,13 +4,13 @@
   <li>{{name}}</li>
   <li>{{occupation}}</li>
   <li>{{catchPhrase}}</li>
-  <a href="/show/{{_id}}">Read more about this celeb</a>
+  <a href="/show-celeb/{{_id}}">Read more about this celeb</a>
 
-<form action="/delete/{{_id}}" method="POST">
+<form action="/delete-celeb/{{_id}}" method="POST">
     <button>Delete this Celeb</button>
 </form>
 
-<a href="/edit/{{this._id}}">Edit This Celeb's Info</a>
+<a href="/edit-celeb/{{this._id}}">Edit This Celeb's Info</a>
   <br>
 {{/each}}
 </ul>

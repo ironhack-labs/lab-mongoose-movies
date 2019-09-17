@@ -2,11 +2,11 @@ const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/Movie');
 
-router.get('/index', (req, res, next)=>{
+router.get('/movie-index', (req, res, next)=>{
 
   Movie.find()
   .then(allMovies=>{
-      res.render('movies/index', {movies: allMovies})
+      res.render('movies/movie-index', {movies: allMovies})
   })
   .catch((err)=>{
       next(err);
@@ -14,11 +14,11 @@ router.get('/index', (req, res, next)=>{
 
 })
 
-router.get('/show/:id', (req, res, next)=>{
+router.get('/show-movie/:id', (req, res, next)=>{
   let id = req.params.id;
   Movie.findById(id)
   .then(movie =>{
-      res.render('movies/show', {movie: movie})
+      res.render('movies/show-movie', {movie: movie})
   })
   .catch((err)=>{
       next(err);
@@ -27,7 +27,7 @@ router.get('/show/:id', (req, res, next)=>{
 })
 
 router.get('/new-movie', (req, res, next)=>{
-  res.render('movies/new');
+  res.render('movies/new-movie');
 })
 
 router.post('/created-movie', (req, res, next)=>{
@@ -43,7 +43,7 @@ router.post('/created-movie', (req, res, next)=>{
       plot: plot
   })
   .then((result)=>{
-      res.redirect('/index')
+      res.redirect('/movie-index')
   })
   .catch((err)=>{
       next(err);
@@ -51,12 +51,12 @@ router.post('/created-movie', (req, res, next)=>{
 })
 
 
-router.post('/delete/:id', (req, res, next)=>{
+router.post('/delete-movie/:id', (req, res, next)=>{
   let id = req.params.id;
 
   Movie.findByIdAndRemove(id)
   .then((result)=>{
-      res.redirect('/index')
+      res.redirect('/movie-index')
   })
   .catch((err)=>{
       next(err)
@@ -64,13 +64,13 @@ router.post('/delete/:id', (req, res, next)=>{
 })
 
 
-router.get('/edit/:id', (req, res, next)=>{
+router.get('/edit-movie/:id', (req, res, next)=>{
 
   let id=req.params.id;
 
   Movie.findById(id)
   .then(movie =>{
-      res.render('movies/edit', {movie: movie})
+      res.render('movies/edit-movie', {movie: movie})
   })
   .catch((err)=>{
       next(err)
@@ -78,7 +78,7 @@ router.get('/edit/:id', (req, res, next)=>{
 })
 
 
-router.post('/update/:id', (req, res, next)=>{
+router.post('/update-movie/:id', (req, res, next)=>{
 
   let id=req.params.id;
 
@@ -88,7 +88,7 @@ router.post('/update/:id', (req, res, next)=>{
       plot: req.body.plot
   })
   .then((result)=>{
-      res.redirect('/show/'+id)
+      res.redirect('/show-movie/'+id)
   })
   .catch((err)=>{
       next(err);
