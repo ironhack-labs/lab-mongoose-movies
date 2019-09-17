@@ -19,14 +19,10 @@ router.post('/celebrities', (req, res, next) => {
   const newCeleb = new Celebrity({
     name: req.body.name,
     occupation: req.body.occupation,
-    catchPhrase: req.body.catchPhrase
+    catchPhrase: req.body.catchPhrase,
+    movies: req.body.movies
   });
 
-  // Celebrity.create({
-  //   name: req.body.name,
-  //   occupation: req.body.occupation,
-  //   catchPhrase: req.body.catchPhrase
-  // })
   newCeleb.save()
     .then(responseFromDB =>{
       res.redirect("/celebrities")
@@ -38,13 +34,20 @@ router.post('/celebrities', (req, res, next) => {
 });
 
 router.get('/celebrities/new', (req, res, next) => {
-  res.render("celebrity-views/new")
+  Movie.find()
+    .then(moviesFromDB =>{
+      res.render("celebrity-views/new", {movies: moviesFromDB})
+    })
+    .catch(err => next(err))
 });
 
 router.get('/celebrities/:id/edit', (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(resultFromDB => {
-      res.render("Celebrity-views/edit",{celeb: resultFromDB})
+      Movie.find()
+        .then(moviesFromDB =>{
+          res.render("Celebrity-views/edit",{celeb: resultFromDB, movies : moviesFromDB})
+        })
     })
     .catch(err => next(err));
 });
@@ -56,7 +59,7 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 });
 
 router.get('/celebrities/:id', (req, res, next) => {
-  Celebrity.findById(req.params.id)
+  Celebrity.findById(req.params.id).populate("movies")
   .then(celebFromDB => {
     res.render("celebrity-views/details", {celeb: celebFromDB})
   })
@@ -67,7 +70,8 @@ router.post('/celebrities/:id', (req, res, next) => {
   const updatedCeleb = {
     name: req.body.name,
     occupation: req.body.occupation,
-    catchPhrase: req.body.catchPhrase
+    catchPhrase: req.body.catchPhrase,
+    movies: req.body.movies
   };
 
   Celebrity.findByIdAndUpdate(req.params.id, updatedCeleb)

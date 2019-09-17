@@ -9,5 +9,13 @@
   <label>Catch Phrase: </label>
   <input type="text" name="catchPhrase">
 
+  <label>Movies: </label>
+  <select name="movies">
+    <option value="">Please Choose Casted Movie</option>
+    {{#each movies}}
+    <option value="{{this._id}}">{{this.title}}</option>
+    {{/each}}
+  </select>
+
   <button type="submit">Create Celeb</button>
 </form>
