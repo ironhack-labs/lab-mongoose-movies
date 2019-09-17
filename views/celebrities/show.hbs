@@ -3,6 +3,12 @@
 <p>{{celebrity.occupation}}</p>
 <q>{{celebrity.catchPhrase}}</q>
 
+{{#each celebrity.movies}}
+  <a href="/movies/details/{{this._id}}">
+  <h3>{{this.title}}</h3>
+</a>
+{{/each}}
+
 <br>
 <br>
 <br>

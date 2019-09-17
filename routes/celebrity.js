@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity')
+const Movie = require('../models/Movie')
 
 router.get('/', (req, res, next) => {
     Celebrity.find({})
@@ -12,7 +13,8 @@ router.get('/', (req, res, next) => {
 
 router.get('/details/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
-        .then(celebrity => {
+        .then(async celebrity => {
+            celebrity.movies = await Movie.find({ director: celebrity._id })
             res.render('celebrities/show', { celebrity });
         })
         .catch(e => next(e))
