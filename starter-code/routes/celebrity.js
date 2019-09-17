@@ -52,4 +52,17 @@ router.post('/celebrity/creation', (req, res, next) => {
         })
 })
 
+router.post('/celebrities/delete/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Celebrity.findByIdAndRemove(id)
+        .then((result) => {
+            res.redirect('/celebrities')
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
+
+
 module.exports = router;
