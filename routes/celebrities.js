@@ -2,13 +2,6 @@ const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity.js')
 
-
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
-
-
-
 router.get('/', (req, res, next) => {
 
   Celebrity.find().then(data => {
@@ -40,26 +33,26 @@ router.post('/create', (req, res, next) => {
         catchPhrase: req.body.catchPhrase
       }
     ).then(data => {
-      res.redirect(`/single/${data._id}`)
+      res.redirect(`/celebrities/single/${data._id}`)
     })
 })
 
-router.post('/celebrities/delete/:id', (req, res, next) => {
+router.post('/delete/:id', (req, res, next) => {
   let id = req.params.id
   Celebrity.findByIdAndDelete(id).then(data =>{
     res.redirect(`/celebrities`)
   })
 })
 
-router.get('/celebrities/edit/:id', (req, res, next) => {
+router.get('/edit/:id', (req, res, next) => {
   let id = req.params.id
   Celebrity.findById(id).then(celeb => {
-    res.render("/edit", {celeb: celeb})
+    res.render("celebrities/edit", {celeb: celeb})
   }).catch(err => next(err))
 })
 
 
-router.post('/celebrities/update/:id', (req,res,next) => {
+router.post('/update/:id', (req,res,next) => {
   let id = req.params.id
   let name = req.body.name
   let occupation = req.body.occupation

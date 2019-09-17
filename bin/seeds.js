@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Celebrity = require('../models/Celebrity')
+const Movie = require('../models/Movie')
 
 mongoose
   .connect('mongodb://localhost/MongooseMovies', {useNewUrlParser: true})
@@ -11,25 +12,40 @@ mongoose
   });
 
   
-const celebs = [
-  {
-    name: "Bobby",
-    occupation: "Student",
-    catchPhrase: "Fun Bobby.",
-  },
-  {
-    name: "Ultra Fake",
-    occupation: "Influencer",
-    catchPhrase: "Something"
-  },
-  {
-    name: "A Name",
-    occupation: "A Job",
-    catchPhrase: "Nopppppeee"
-  }
-]
+// const celebs = [
+//   {
+//     name: "Bobby",
+//     occupation: "Student",
+//     catchPhrase: "Fun Bobby.",
+//   },
+//   {
+//     name: "Ultra Fake",
+//     occupation: "Influencer",
+//     catchPhrase: "Something"
+//   },
+//   {
+//     name: "A Name",
+//     occupation: "A Job",
+//     catchPhrase: "Nopppppeee"
+//   }
+// ]
+// Celebrity.create(celebs);
 
-
-
-Celebrity.create(celebs);
-
+// const movies = [
+//   {
+//     title: "First Fake Title",
+//     genre: "Fake",
+//     plot: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam odio repellat fuga consequuntur tenetur atque, nostrum blanditiis tempore! Quis, architecto.",
+//   },
+//   {
+//     title: "Ultra Fake Title",
+//     genre: "Fake",
+//     plot: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam odio repellat fuga consequuntur tenetur atque, nostrum blanditiis tempore! Quis, architecto.",
+//   },
+//   {
+//     title: "Completely Fake",
+//     genre: "Fake",
+//     plot: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam odio repellat fuga consequuntur tenetur atque, nostrum blanditiis tempore! Quis, architecto.",
+//   }
+// ]
+// Movie.create(movies);

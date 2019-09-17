@@ -1,9 +1,7 @@
 <h1>All them celebs</h1>
 
 {{#each celebs}}
-  <a href="celebrities/single/{{id}}"><h1>Name: {{name}}</h1></a>
-  <p>Occupation: {{occupation}}</p>
-  <p>Catch Phrase: {{catchPhrase}}</p>
+  <a href="celebrities/single/{{id}}"><h1>{{name}}</h1></a>
   <form action="/celebrities/delete/{{id}}" method="POST">
   <button>Delete</button>
   </form>
