@@ -1,0 +1,18 @@
+<h2>Welcome to the index of Movies</h2>
+<ul>
+{{#each movies}}
+  <li>{{title}}</li>
+  <li>{{genre}}</li>
+  <li>{{plot}}</li>
+  <a href="/show/{{_id}}">Read more about this movie</a>
+
+<form action="/delete/{{_id}}" method="POST">
+    <button>Delete this movie</button>
+</form>
+
+<a href="/edit/{{this._id}}">Edit This movie's Info</a>
+  <br>
+{{/each}}
+</ul>
+
+ <a href="/new-movie">Create a new movie</a>

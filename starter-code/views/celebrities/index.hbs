@@ -6,11 +6,11 @@
   <li>{{catchPhrase}}</li>
   <a href="/show/{{_id}}">Read more about this celeb</a>
 
-<form action="/delete/{{this._id}}" method="POST">
+<form action="/delete/{{_id}}" method="POST">
     <button>Delete this Celeb</button>
 </form>
 
-<a href="edit/{{this._id}}">Edit This Celeb's Info</a>
+<a href="/edit/{{this._id}}">Edit This Celeb's Info</a>
   <br>
 {{/each}}
 </ul>
