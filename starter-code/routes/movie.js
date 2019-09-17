@@ -44,7 +44,16 @@ router.get('/movies/:id/edit', (req, res, next) => {
     .then(movieFromDB => {
       Celebrity.find({})
         .then(celebsFromDB => {
-          res.render("movie-views/edit", { movie: movieFromDB, celebs : celebsFromDB })
+          celebsFromDB.forEach((eachCeleb)=>{
+            if(eachCeleb._id.equals(movieFromDB.celebs)){
+              eachCeleb.match = true;
+              console.log(eachCeleb.match);
+              
+            }
+
+          })
+          console.log(celebsFromDB)
+          res.render("movie-views/edit", { movie: movieFromDB, celebs: celebsFromDB })
         })
         .catch(err => next(err));
     })

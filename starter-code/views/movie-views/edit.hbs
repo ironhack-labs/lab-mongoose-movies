@@ -12,9 +12,12 @@
 
   <label>Main Cast: </label>
   <select name="celebs">
-    <option value="{{movie.celebs}}">No Change</option>
     {{#each celebs}}
-    <option value="{{this._id}}">{{this.name}}</option>
+      {{#if this.match}}
+        <option selected value="{{this._id}}">{{this.name}}</option>
+        {{else}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/if}}
     {{/each}}
   </select>
 

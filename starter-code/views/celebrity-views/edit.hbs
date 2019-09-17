@@ -12,10 +12,13 @@
 
   <label>Movies: </label>
   <select name="movies">
-    <option value="{{celeb.movies}}">No change</option>
     
     {{#each movies}}
-    <option value="{{this._id}}">{{this.title}}</option>
+      {{#if this.match}}
+      <option selected value="{{this._id}}">{{this.title}}</option>
+      {{else}}
+      <option value="{{this._id}}">{{this.title}}</option>
+      {{/if}}
     {{/each}}
   </select>
 
