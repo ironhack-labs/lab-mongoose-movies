@@ -8,6 +8,14 @@
 
   <label>Plot: </label>
   <input type="text" name="plot">
+
+  <label>Main Cast: </label>
+  <select name="celebs">
+    <option value="">Please Choose the Main Cast</option>
+    {{#each celebs}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
   
   <button type="submit">Create Movie</button>
 </form>

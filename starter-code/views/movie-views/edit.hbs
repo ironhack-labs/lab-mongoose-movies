@@ -10,5 +10,13 @@
   <label>Plot: </label>
   <input type="text" name="plot" value = "{{movie.plot}}">
 
+  <label>Main Cast: </label>
+  <select name="celebs">
+    <option value="{{movie.celebs}}">No Change</option>
+    {{#each celebs}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
   <button type="submit">Update Movie</button>
 </form>

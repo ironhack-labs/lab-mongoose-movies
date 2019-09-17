@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Movie = require("../models/Movie");
+const Celebrity = require("../models/Celebrity");
 
 /* GET home page */
 router.get('/movies', (req, res, next) => {
@@ -16,7 +17,8 @@ router.post('/movies', (req, res, next) => {
   const newMovie = new Movie({
     title: req.body.title,
     genre: req.body.genre,
-    plot: req.body.plot
+    plot: req.body.plot,
+    celebs: req.body.celebs
   });
 
   newMovie.save()
@@ -30,13 +32,21 @@ router.post('/movies', (req, res, next) => {
 });
 
 router.get('/movies/new', (req, res, next) => {
-  res.render("movie-views/new")
+  Celebrity.find({})
+    .then(resultFromDB => {
+      res.render("movie-views/new", {celebs: resultFromDB})
+    })
+    .catch(err => next(err));
 });
 
 router.get('/movies/:id/edit', (req, res, next) => {
   Movie.findById(req.params.id)
-    .then(resultFromDB => {
-      res.render("movie-views/edit",{movie: resultFromDB})
+    .then(movieFromDB => {
+      Celebrity.find({})
+        .then(celebsFromDB => {
+          res.render("movie-views/edit", { movie: movieFromDB, celebs : celebsFromDB })
+        })
+        .catch(err => next(err));
     })
     .catch(err => next(err));
 });
@@ -48,7 +58,7 @@ router.post('/movies/:id/delete', (req, res, next) => {
 });
 
 router.get('/movies/:id', (req, res, next) => {
-  Movie.findById(req.params.id)
+  Movie.findById(req.params.id).populate("celebs")
   .then(movieFromDB => {
     res.render("movie-views/details", {movie: movieFromDB})
   })
@@ -59,7 +69,8 @@ router.post('/movies/:id', (req, res, next) => {
   const updatedMovie = {
     title: req.body.title,
     genre: req.body.genre,
-    plot: req.body.plot
+    plot: req.body.plot,
+    celebs: req.body.celebs
   };
 
   Movie.findByIdAndUpdate(req.params.id, updatedMovie)
