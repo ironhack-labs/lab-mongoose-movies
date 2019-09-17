@@ -27,7 +27,7 @@ router.get("/new", (req,res,next) => {
 router.post("/create", (req,res,next) => {
   let movie = {
     title: req.body.title,
-    genre: req.body.title,
+    genre: req.body.genre,
     plot: req.body.plot,
     image: req.body.image,
     actors: req.body.actors
@@ -35,6 +35,18 @@ router.post("/create", (req,res,next) => {
 
   Movie.create(movie).then(data => {
 
+    let actors = data.actors
+    if (Array.isArray(actors)) {
+      actors.forEach(actor => {
+        Celebrities.findByIdAndUpdate(actor, 
+          {$push: {movies: data.id}})
+      })
+    }
+    else {
+      Celebrities.findByIdAndUpdate(data.actors, 
+        {$push: {movies: data.id}})
+        console.log(data.id)
+    }
 
     res.redirect(`/movies/details/${data.id}`)
   })
