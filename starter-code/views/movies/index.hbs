@@ -1,11 +1,17 @@
-<h2>Hello Movies</h2>
+<h2 class="titles">All Movies</h2>
+
+<div class="containers">
 
 {{#each allMovies}}
-<a href="/movies/details/{{this._id}}"><h1>{{this.title}}</h1></a>
-
+<div class="edit">
+<a href="/movies/details/{{this._id}}"><p>{{this.title}}</p></a>
+<div class="containers">
 <form action="/movies/delete/{{this._id}}" method="POST">
-<button>Delete</button>
+<button type="button" class="btn btn-danger">Delete</button>
 </form>
-
-<a href="/movies/edit/{{this._id}}"><button>Edit</button></a>
+<a href="/movies/edit/{{this._id}}"><button type="button" class="btn btn-info">Edit</button></a>
+</div>
+</div>
 {{/each}}
+
+</div>

@@ -1,11 +1,20 @@
-<h2>Hello celebrities</h2>
+
+<h2 class="titles">All Actors</h2>
+
+<div class="containers">
 
 {{#each allCelebs}}
-<a href="/celebrities/details/{{this._id}}"><h1>{{this.name}}</h1></a>
 
+<div class="edit">
+<a href="/celebrities/details/{{this._id}}"><p>{{this.name}}</p></a>
+<div class="containers">
 <form action="/celebrities/delete/{{this._id}}" method="POST">
-<button>Delete</button>
+<button type="button" class="btn btn-danger" >Delete</button>
 </form>
+<a href="/celebrities/edit/{{this._id}}"><button type="button" class="btn btn-info">Edit</button></a>
+</div>
+</div>
 
-<a href="/celebrities/edit/{{this._id}}"><button>Edit</button></a>
 {{/each}}
+
+</div>
