@@ -60,4 +60,7 @@ app.use('/', directorRoutes);
 const movieRoutes = require('./routes/movie-routes');
 app.use('/', movieRoutes);
 
+const actorRoutes = require('./routes/actor-routes');
+app.use('/', actorRoutes);
+
 module.exports = app;

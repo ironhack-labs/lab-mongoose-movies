@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Movie = require("../models/Movie");
 const Director = require("../models/Director");
+const Actor = require("../models/Actor");
 
 router.get("/movies", (req, res, next) => {
   Movie.find()

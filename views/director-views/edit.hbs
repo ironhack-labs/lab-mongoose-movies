@@ -29,14 +29,15 @@
   </div>
   <div class="form-group">
     <label for="directorCatchPhrase">Famous Quote</label>
-    <textarea
+    <input
+      type="text"
       class="form-control"
       id="directorCatchPhrase"
       aria-describedby="catchPhraseHelp"
-      placeholder="{{ director.catchPhrase }}"
+      value="{{ director.catchPhrase }}"
       name="theCatchPhrase"
       rows="3"
-    ></textarea>
+    />
   </div>
   <div class="form-group">
     <label for="directorImage">Image URL</label>

@@ -1,0 +1,43 @@
+<h2 class="movies-head">Edit Information for <em>{{ actor.name }}</em></h2>
+
+<form
+  action="/actors/update/{{ actor._id }}"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="actorName">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actorName"
+      aria-describedby="nameHelp"
+      value="{{ actor.name }}"
+      name="theName"
+    />
+  </div>
+  <div class="form-group">
+    <label for="actorQuote">Famous Quote</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actorQuote"
+      aria-describedby="quoteHelp"
+      value="{{ actor.quote }}"
+      name="theQuote"
+      rows="3"
+    />
+  </div>
+  <div class="form-group">
+    <label for="actorImage">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actorImage"
+      aria-describedby="imageHelp"
+      value="{{ actor.image }}"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

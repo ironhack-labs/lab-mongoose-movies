@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Director = require("../models/Director");
 const Movie = require("../models/Movie");
+const Actor = require("../models/Actor");
 
 router.get("/directors", (req, res, next) => {
   Director.find()
@@ -74,8 +75,8 @@ router.post("/directors/delete/:id", (req, res, next) => {
 router.get("/directors/edit-director/:id", (req, res, next) => {
   let id = req.params.id;
   Director.findById(id)
-    .then(theDirectory => {
-      res.render("director-views/edit", { director: theDirectory });
+    .then(theDirector => {
+      res.render("director-views/edit", { director: theDirector });
     })
     .catch(err => {
       next(err);

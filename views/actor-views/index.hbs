@@ -1,12 +1,12 @@
 <div class="movies-head">
   <h2><b>Ironhack Cinema</b></h2>
-  <h6>Click on the director to learn more</h6>
+  <h6>Click on the actor to learn more</h6>
 </div>
 
 <div class="row mx-auto text-center">
-  {{#each director}}
+  {{#each actor}}
   <div class="col-md-3 artist mx-auto d-block text-center">
-    <a href="/directors/details/{{ this._id }}">
+    <a href="/actors/details/{{ this._id }}">
       <img
         class="card-img-top mx-auto d-block celebrity-thumbnail"
         src="{{ this.image }}"
@@ -17,19 +17,19 @@
 
     <div class="card-body text-center">
       <div class="card-title">
-        <a href="/directors/details/{{ this._id }}">
+        <a href="/actors/details/{{ this._id }}">
           <h4 class="btn-link">{{ this.name }}</h4>
         </a>
       </div>
     </div>
 
-    <a href="/directors/edit-director/{{ this._id }}" class="btn btn-secondary btn-sm"
-      >Edit Director Info</a
+    <a href="/actors/edit-actor/{{ this._id }}" class="btn btn-secondary btn-sm"
+      >Edit Actor Info</a
     >
     <br />
     <br />
-    <form action="/directors/delete/{{ this._id }}" method="POST">
-      <button class="btn btn-outline-danger btn-sm">Delete Director</button>
+    <form action="/actors/delete/{{ this._id }}" method="POST">
+      <button class="btn btn-outline-danger btn-sm">Delete Actor</button>
     </form>
   </div>
 
