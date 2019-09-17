@@ -8,6 +8,13 @@
   <p>Genre</p>
   <input type="text" name="genre">
 
+  <p>Director</p>
+  <select name="director">
+    {{#each directors}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  
   <p>Plot</p>
   <input type="text" name="plot">
   <button>Save</button>

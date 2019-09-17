@@ -34,7 +34,7 @@ var movieData = [{
     genre: 'Drama/Thriller',
     plot: 'Working as a stripper to make ends meet, Destiny\'s life changes forever when she becomes friends with Ramona -- the club\'s top money earner. Ramona soon shows Destiny how to finagle her way around the wealthy Wall Street clientele who frequent the club. But when the 2008 economic collapse cuts into their profits, the gals and two other dancers devise a daring scheme to take their lives back.'
 }, {
-    title: 'Wes Anderson',
+    title: 'It: Part 2',
     genre: 'Horror',
     plot: 'Defeated by members of the Losers\' Club, the evil clown Pennywise returns 27 years later to terrorize the town of Derry, Maine, once again. Now adults, the childhood friends have long since gone their separate ways. But when people start disappearing, Mike Hanlon calls the others home for one final stand. Damaged by scars from the past, the united Losers must conquer their deepest fears to destroy the shape-shifting Pennywise -- now more powerful than ever.'
 }, {
