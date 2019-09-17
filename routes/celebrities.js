@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
 
 
 
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res, next) => {
 
   Celebrity.find().then(data => {
     res.render('celebrities/index', {celebs: data})
@@ -18,7 +18,7 @@ router.get('/celebrities', (req, res, next) => {
 
 
 
-router.get('/celebrities/single/:id', (req, res, next) => {
+router.get('/single/:id', (req, res, next) => {
   let id = req.params.id
 
   Celebrity.findById(id).then(data => {
@@ -28,11 +28,11 @@ router.get('/celebrities/single/:id', (req, res, next) => {
 })
 
 
-router.get('/celebrities/new', (req,res, next) => {
+router.get('/new', (req,res, next) => {
   res.render("celebrities/new")
 })
 
-router.post('/celebrities/create', (req, res, next) => {
+router.post('/create', (req, res, next) => {
     Celebrity.create(
       {
         name: req.body.name,
@@ -40,7 +40,7 @@ router.post('/celebrities/create', (req, res, next) => {
         catchPhrase: req.body.catchPhrase
       }
     ).then(data => {
-      res.redirect(`/celebrities/single/${data._id}`)
+      res.redirect(`/single/${data._id}`)
     })
 })
 
@@ -54,7 +54,7 @@ router.post('/celebrities/delete/:id', (req, res, next) => {
 router.get('/celebrities/edit/:id', (req, res, next) => {
   let id = req.params.id
   Celebrity.findById(id).then(celeb => {
-    res.render("celebrities/edit", {celeb: celeb})
+    res.render("/edit", {celeb: celeb})
   }).catch(err => next(err))
 })
 
