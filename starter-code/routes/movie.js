@@ -14,4 +14,18 @@ router.get('/movies', (req, res, next) => {
         })
 })
 
+//FIND ALL MOVIES
+router.get('/movies/details/:theid', (req, res, next) => {
+    let id = req.params.theid
+
+    Movie.findById(id)
+        .then((movieObject) => {
+            console.log(movieObject)
+            res.render('movies/details', { theMovie: movieObject })
+        })
+        .catch((err) => {
+            next(err);
+        })
+})
+
 module.exports = router;
