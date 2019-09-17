@@ -1,35 +1,32 @@
 <h4>Edit</h4>
-<h2>{{Movie.title}}</h2>
+<h2>{{movie.title}}</h2>
 
 
-<form action="/celebrities/update/{{Movie._id}}" method="POST">
+<form action="/movies/update/{{movie._id}}" method="POST">
 
 
 <p>Title</p>
-
-<input type="text" name="theTitle" value=" {{Movie.title}}">
+<input type="text" name="theTitle" value=" {{movie.title}}">
 
 
 
 <p>Celebrity</p>
-{{!-- <input type="text" name="theOccupation" value="{{Celebrity.occupation}}"> --}}
-<select name="theCelebrity">
 
-    <option value="" selected disabled>Please Select One</option>
+<select name="themovie">
+
+    <option value="" selected disabled> Please Select One</option>
 
 {{#each celebs}}
-
-<option value="{{this._id}}">{{this.name}}</option>
-
+        <option value="{{this._id}}">{{this.name}}</option>
 {{/each}} 
 
 </select>
 
 <p>Genre</p>
-<input type="text" name="theGenre" value="{{Movie.genre}}">
+<input type="text" name="theGenre" value="{{movie.genre}}">
 
 <p>Plot</p>
-<input type="text" name="thePlot" value="{{Movie.plot}}">
+<input type="text" name="thePlot" value="{{movie.plot}}">
 
 
 

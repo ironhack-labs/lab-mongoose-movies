@@ -20,7 +20,6 @@ router.get('/movies/details/:theid', (req, res, next) => {
     let id = req.params.theid
 
     Movie.findById(id).populate('celebrity')
-        // Book.findById(id).populate('author')
         .then((movieObject) => {
             console.log("CELEB", movieObject)
             console.log(movieObject.celebrity)
@@ -34,7 +33,6 @@ router.get('/movies/details/:theid', (req, res, next) => {
 router.get('/movies/new', (req, res, next) => {
     Celebrity.find()
         .then((result) => {
-
             res.render('movies/new', { allTheCelebrities: result });
         })
         .catch((err) => {
@@ -50,7 +48,6 @@ router.post('/movie/creation', (req, res, next) => {
     let plot = req.body.thePlot;
 
     Movie.create({
-
             title: title,
             celebrity: celebrity,
             genre: genre,
@@ -83,8 +80,6 @@ router.get('/movies/editmovie/:id', (req, res, next) => {
         .then((theMovie) => {
             Celebrity.find()
                 .then((celebResult) => {
-                    console.log('the movie ---- ', theMovie);
-                    console.log('the celeb >>>>> ', celebResult);
                     data = {
                         movie: theMovie,
                         celebs: celebResult
@@ -98,6 +93,27 @@ router.get('/movies/editmovie/:id', (req, res, next) => {
         .catch((err) => {
             next(err)
         })
+})
+
+router.post('/movies/update/:id', (req, res, next) => {
+
+    let id = req.params.id;
+
+    Movie.findByIdAndUpdate(id, {
+
+            title: req.body.theTitle,
+            genre: req.body.theGenre,
+            plot: req.body.thePlot,
+            celebrity: req.body.themovie
+
+        })
+        .then(() => {
+            res.redirect('/movies/details/' + id)
+        })
+        .catch((err) => {
+            next(err);
+        })
+
 })
 
 

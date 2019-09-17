@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/celebrity')
-
+const Movie = require('../models/movie')
 
 /* GET home page */
 router.get('/celebrities', (req, res, next) => {
@@ -19,7 +19,7 @@ router.get('/celebrities', (req, res, next) => {
 router.get('/celebrities/details/:theid', (req, res, next) => {
     let id = req.params.theid
 
-    Celebrity.findById(id)
+    Celebrity.findById(id).populate('movie')
         .then((celebrityObject) => {
             console.log(celebrityObject)
             res.render('celebrities/details', { theCelebrity: celebrityObject })
@@ -30,7 +30,13 @@ router.get('/celebrities/details/:theid', (req, res, next) => {
 })
 
 router.get('/celebrities/new', (req, res, next) => {
-    res.render('celebrities/new');
+    Movie.find()
+        .then((result) => {
+            res.render('celebrities/new', { allTheMovies: result });
+        })
+        .catch((err) => {
+            next(err)
+        })
 })
 
 router.post('/celebrity/creation', (req, res, next) => {
@@ -38,8 +44,10 @@ router.post('/celebrity/creation', (req, res, next) => {
     let name = req.body.theName;
     let occupation = req.body.theOccupation;
     let catchPhrase = req.body.theCatchphrase;
+    let movie = req.body.theMovie
 
     Celebrity.create({
+            movie: movie,
             name: name,
             occupation: occupation,
             catchPhrase: catchPhrase
@@ -69,7 +77,17 @@ router.get('/celebrities/editcelebrity/:id', (req, res, next) => {
 
     Celebrity.findById(id)
         .then((theCelebrity) => {
-            res.render('celebrities/edit', { Celebrity: theCelebrity })
+            Movie.find()
+                .then((movieResult) => {
+                    data = {
+                        celebrity: theCelebrity,
+                        movies: movieResult
+                    };
+                    res.render('celebrities/edit', data);
+                })
+                .catch((err) => {
+                    next(err);
+                });
         })
         .catch((err) => {
             next(err)
@@ -84,10 +102,11 @@ router.post('/celebrities/update/:id', (req, res, next) => {
 
             name: req.body.theName,
             occupation: req.body.theOccupation,
-            catchPhrase: req.body.thecatchPhrase
+            catchPhrase: req.body.thecatchPhrase,
+            movie: req.body.thecelebrity
 
         })
-        .then((result) => {
+        .then(() => {
             res.redirect('/celebrities/details/' + id)
         })
         .catch((err) => {
