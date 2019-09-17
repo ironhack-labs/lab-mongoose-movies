@@ -1,12 +1,29 @@
 <h1>Edit Movies</h1>
-<form action="/movies/{{result.id}}/edit" method="POST">
+<form action="/movies/{{data.movie._id}}/edit" method="POST">
 
 <p>Current Title</p>
-<input type="text" name="theTitle" value='{{result.title}}'>
+<input type="text" name="theTitle" value='{{data.movie.title}}'>
 <p>Current plot</p>
-<input type="text" name="theGenre" value='{{result.genre}}'>
+<input type="text" name="theGenre" value='{{data.movie.genre}}'>
 <p>Current Catch phrase</p>
-<input type="text" name="thePlot" value='{{result.plot}}'>
-<button>Save</button>
+<input type="text" name="thePlot" value='{{data.movie.plot}}'>
+<p>Actor</p>
 
+<select name="celebrity">
+
+
+  {{#each data.celebs}}
+
+  {{#if this.isTheChosenOne}}
+  <option selected value="{{this._id}}">{{this.name}}</option>
+  {{else}}
+     <option value="{{this._id}}">{{this.name}}</option>
+  {{/if}}
+
+  {{/each}}
+
+
+</select>
+</br>
+<button>Save</button>
 </form>

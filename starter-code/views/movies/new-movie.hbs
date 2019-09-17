@@ -2,6 +2,19 @@
 
 <form action="/movies/new-movie" method="POST">
 
+<select name="celebrity">
+
+<option selected disabled >Please Select One</option>
+  {{#each result}}
+     
+     <option value="{{this._id}}">{{this.name}}</option>
+  
+
+  {{/each}}
+
+
+</select>
+
 <p>Title</p>
 <input type="text" name="theTitle">
 <p>Genre</p>

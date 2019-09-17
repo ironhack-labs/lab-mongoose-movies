@@ -10,5 +10,4 @@ mongoose
 
   
 
-  Movie.create({title: "Joe Dirt", genre: "comedy", plot: "redemption"})
-  
+ 
