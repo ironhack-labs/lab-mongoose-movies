@@ -45,12 +45,14 @@ router.post('/movies/creation', (req, res, next)=>{
     let genre = req.body.theGenre;
     let plot = req.body.thePlot;
     let star = req.body.theStar;
+    let image = req.body.theImage;
 
     Movie.create({
         title: title,
         genre: genre,
         plot: plot,
-        star: star
+        star: star,
+        image: image
     })
     .then((result)=>{
         res.redirect('/movies')

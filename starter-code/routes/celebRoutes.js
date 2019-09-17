@@ -45,12 +45,15 @@ router.get('/celebs/create-new-celeb', (req,res,next)=>{
 router.post('/celebs/creation', (req, res, next)=>{
     let name = req.body.theName;
     let occupation = req.body.theOccupation;
-    let catchPhrase = req.body.theCatchPhrase
+    let catchPhrase = req.body.theCatchPhrase;
+    let image = req.body.theImage
 
     Celebrity.create({
         name: name,
         occupation: occupation,
-        catchPhrase: catchPhrase
+        catchPhrase: catchPhrase,
+        image: image
+
     })
     .then((result)=>{
         res.redirect('/celebs')
