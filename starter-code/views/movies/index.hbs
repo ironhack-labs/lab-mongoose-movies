@@ -1,14 +1,18 @@
-<h2>List of Movies</h2>
-<ul>
-    {{#each movies}}
-    <li>
-        <h3><a href="/movies/details/{{this._id}}">{{this.title}}</a></h3>
-        <span class="genre">{{this.genre}}</span>
-        <p>{{this.plot}}</p>
-        <form action="/movies/{{this._id}}/delete" method="POST">
-            <button>Delete</button>
-        </form>
-        <a href="/movies/{{this._id}}/edit" class="button">Edit</a>
-    </li>
-    {{/each}}
-</ul>
+<div class="movie-list">
+    <h2>List of Movies</h2>
+    <ul>
+        {{#each movies}}
+        <li>
+            <h3><a href="/movies/details/{{this._id}}">{{this.title}}</a></h3>
+            <span class="genre">{{this.genre}}</span>
+            <p>{{this.plot}}</p>
+            <h4>Starring</h4>
+            <a href="/celebrities/details/{{this.celebrity._id}}" class="actors">{{this.celebrity.name}}</a>
+            <form action="/movies/{{this._id}}/delete" method="POST">
+                <button>Delete</button>
+            </form>
+            <a href="/movies/{{this._id}}/edit" class="button">Edit</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

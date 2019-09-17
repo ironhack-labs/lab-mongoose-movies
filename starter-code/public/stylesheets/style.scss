@@ -2,14 +2,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 200ms;
 }
 
 body {
   font: 14px "Open Sans", Helvetica, Arial, sans-serif;
 }
 
+  a h1 {
+    color: #c782d8;
+
+    &:hover {
+      color: #e061ff;;
+    }
+  }
+
 h2 {
   margin: 0 0 2rem 0;
+}
+
+h3 {
+  font-size: 1.6rem;
+  color: #211f1f;
 }
 
 a {
@@ -30,11 +44,14 @@ ul {
 
 blockquote {
   position: relative;
+  height: 3.6rem;
   margin-bottom: 7px;
   font-style: italic;
   font-size: 1.2rem;
   font-weight: 300;
   color: #555;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
   &:before {
     content: '“';
@@ -93,7 +110,7 @@ section {
       margin-right: 1%;
 
       button {
-        margin-top: 6px;
+        margin-top: 1rem;
         margin-bottom: 6px;
         background-color: white;
         border: 1px solid #eee;

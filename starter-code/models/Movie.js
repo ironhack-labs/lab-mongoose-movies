@@ -3,8 +3,9 @@ const Schema = mongoose.Schema
 
 const movieSchema = new Schema({
     title: String,
+    celebrity: {type: Schema.Types.ObjectId, ref: "Celeb"},
     genre: String,
-    plot: String
+    plot: String,
 })
 
 const Movie = mongoose.model('Movie', movieSchema)
