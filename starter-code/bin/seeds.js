@@ -22,7 +22,7 @@ const celebrities = [
     catchPhrase: "Let it snow"}
 ]   
 
-const movieInfo = [
+const initMovies = [
   {
     title: 'Stapler',
     genre: 'Comedy',
@@ -37,11 +37,11 @@ const movieInfo = [
     plot: 'Rob Schneider is a Da Derp Dee Derp Da Teetley Derpee Derpee Dumb'},
 ]  
 
-Celebrity.insertMany(initCelebs)
-  .then(data => console.log("add successful"))
-  .catch(err => {
-    console.log("error while adding", err);
-  });
+// Celebrity.insertMany(initCelebs)
+//   .then(data => console.log("add successful"))
+//   .catch(err => {
+//     console.log("error while adding", err);
+//   });
 
 Movie.insertMany(initMovies)
   .then(data => console.log("add successful"))
