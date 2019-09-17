@@ -72,10 +72,6 @@ router.get('/movies/edit/:id', (req, res, next) => {
 		.catch((err) => {
 			next(err);
 		});
-
-	// Movie.findById(id).then((results) => {
-	// 	res.render('movies/edit', { movie: results });
-	// });
 });
 
 router.post('/movies/edited/:id', (req, res, next) => {
