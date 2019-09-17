@@ -1,8 +1,48 @@
 body {
-  padding: 50px;
+  padding: 0px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+nav{
+  width: 100%;
+  height: 50px;
+  background: #e2e2e2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+nav > ul{
+  // margin: 0%;
+  margin: auto 0;
+  padding: 15px 0;
+  list-style: none;
+}
+
+nav > ul > li{
+  margin: auto 10px;
+  font-size: 1rem;
+  display: inline;
+}
+
+.celeb-card{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  padding: 15px 0;
+  margin: 0%;
+}
+
+.celeb-card > form{
+  // padding: auto 0;
+  margin: auto 15px;
+}
+
+button{
+  border: 1px solid #ededed;
+  padding: 3px 10px;
+  border-radius: 15px;
 }
