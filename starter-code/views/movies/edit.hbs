@@ -1,0 +1,29 @@
+<h4>Edit</h4>
+<h2>{{Movie.title}}</h2>
+
+
+<form action="/celebrities/update/{{Movie._id}}" method="POST">
+
+
+<p>Title</p>
+
+<input type="text" name="theName" value=" {{Movie.title}}">
+
+
+
+<p>Actor</p>
+{{!-- <input type="text" name="theOccupation" value="{{Celebrity.occupation}}"> --}}
+<select>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>
+
+<p>Genre</p>
+<input type="text" name="thecatchPhrase" value="{{Movie.genre}}">
+
+
+
+
+<button class="button">Save</button>
+
+</form>

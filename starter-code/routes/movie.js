@@ -50,4 +50,28 @@ router.post('/movie/creation', (req, res, next) => {
             next(err);
         })
 })
+
+router.post('/movies/delete/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Movie.findByIdAndRemove(id)
+        .then((result) => {
+            res.redirect('/movies')
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
+
+router.get('/movies/editmovie/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    Movie.findById(id)
+        .then((theMovie) => {
+            res.render('movies/edit', { Movie: theMovie })
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
 module.exports = router;
