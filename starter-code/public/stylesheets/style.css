@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
@@ -11,7 +10,23 @@ ul {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap; }
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-bottom: 75px;
+  width: 100%;
+  margin-left: -60px; }
+
+h2, h3 {
+  display: flex;
+  justify-content: center; }
+
+.nav {
+  display: flex;
+  justify-content: center; }
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding-right: 10px; }
 
 /*# sourceMappingURL=style.css.map */
