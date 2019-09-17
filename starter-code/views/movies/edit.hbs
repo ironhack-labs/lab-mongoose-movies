@@ -12,4 +12,14 @@
 <input type="text" name="plot" value="{{movie.plot}}">
 <button>Save</button>
 
+<select name="celebrity">
+  <option value="" selected disabled>Please Select One</option>
+
+  {{#each allTheCelebrities}}
+
+  <option value="{{this._id}}">{{this.name}}</option>
+
+  {{/each}}
+</select>
+
 </form>

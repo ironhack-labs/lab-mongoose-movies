@@ -3,22 +3,13 @@ const router = express.Router();
 const Movie = require('../models/Movie')
 const Celebrity = require('../models/Celebrity')
 
-
-router.get('/details/:id', (req, res, next) => {
-    Movie.findById(req.params.id).populate('celebrity')
-        .then((movieObject)=>{
-            res.render('movies/show', {movie: movieObject});
-         })
-         .catch(err => next(err))
-});
-
 router.get('/new', (req, res, next) => {
     Celebrity.find()
         .then(response=>{
             res.render('movies/create',{allTheCelebrities:response})
         })
-
-})
+        .catch(err => next(err))
+});
 
 router.get('/', (req, res, next) => {
     Movie.find({})
@@ -29,8 +20,9 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/details/:id', (req, res, next) => {
-    Movie.findById(req.params.id)
+    Movie.findById(req.params.id).populate("celebrity")
         .then(movie => {
+            console.log('GET //details', movie);
             res.render('movies/show', { movie });
         })
         .catch(err => next(err))
@@ -60,7 +52,11 @@ router.post('/:id/delete', (req, res, next) => {
 router.get('/:id/edit', (req, res, next) => {
     Movie.findById(req.params.id)
         .then(movie => {
-            res.render('movies/edit', { movie })
+            Celebrity.find()
+            .then(response=>{
+                res.render('movies/edit', {allTheCelebrities:response, movie })
+            })
+            .catch(err => next(err))
         })
         .catch(err => next(err))
 });
