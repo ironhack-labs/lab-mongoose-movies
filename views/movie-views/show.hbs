@@ -1,21 +1,30 @@
 <div class="row justify-content-center selected-movie">
   <div class="col-sm">
-    <img
-      class="movie-img"
-      src={{movie.image}}
-    />
-</div>
-<div class='col-lg movie-info'>
-  <a class="btn-link" href="/movies">Go Back</a>
-  <br>
-  <br>
-    <div class="content-heading"><h4><b>{{movie.title}}</b></h4></div>
-    <h6 class="content-tagline"><b>Director: {{movie.director}}</b></h6>
-    <p>Genre: {{movie.genre}}</p>
-    <br>
-    <p class="movie-description">
-      {{movie.plot}}
-    </p>
+    <img class="movie-img" src="{{ movie.image }}" />
   </div>
+  <div class="col-lg movie-info">
+    <a class="btn-link" href="/movies">Go Back</a>
+    <br />
+    <br />
+    <div class="content-heading">
+      <h4>
+        <b>{{ movie.title }}</b>
+      </h4>
+    </div>
+
+    <h6 class="content-tagline">
+      <b
+        >Director:
+        <a href="/celebrities/details/{{ movie.director._id }}">{{
+          movie.director.name
+        }}</a></b
+      >
+    </h6>
+
+    <p>Genre: {{ movie.genre }}</p>
+    <br />
+    <p class="movie-description">
+      {{ movie.plot }}
+    </p>
   </div>
 </div>

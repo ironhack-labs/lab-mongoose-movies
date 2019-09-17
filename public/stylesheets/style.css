@@ -66,17 +66,18 @@ a {
   box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.9); }
 
 .card-img-top {
-  width: 60%;
   -webkit-box-shadow: 10px 11px 5px -10px rgba(58, 2, 2, 0.7);
   -moz-box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
   box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
   border-radius: 20px;
   transition: all .2s ease-in-out;
   border: 1px double rgba(182, 182, 182, 0.733);
-  padding: 10px; }
+  padding: 10px;
+  object-fit: cover;
+  height: 80%; }
 
 .card-img-top:hover {
-  transform: scale(1.1); }
+  transform: scale(1.05); }
 
 .movies-head {
   padding: 20px; }
@@ -122,5 +123,21 @@ a {
 
 .movie-info {
   margin-left: 40px; }
+
+.artist {
+  padding-bottom: 100px; }
+
+.hidden {
+  display: none; }
+
+.celeb-img {
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px double rgba(182, 182, 182, 0.733);
+  -webkit-box-shadow: 10px 11px 5px -10px rgba(58, 2, 2, 0.7);
+  -moz-box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
+  object-fit: cover;
+  width: 400px; }
 
 /*# sourceMappingURL=style.css.map */

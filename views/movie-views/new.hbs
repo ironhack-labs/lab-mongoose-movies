@@ -1,24 +1,65 @@
-<h2>Add a New Movie</h2>
+<h2 style="margin-left:100px">Add a New Film</h2>
 
-<form action="/movies/creation" method="POST">
+<form
+  action="/movies/creation"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="movieTitle">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieTitle"
+      aria-describedby="nameHelp"
+      placeholder="Movie Title"
+      name="theTitle"
+    />
+  </div>
+  <div class="form-group">
+    <label for="movieDirector">Director</label>
+    <select class="form-control" id="movieDirector" name="theDirector">
+      <option value="" selected disabled>Please Select One</option>
 
+      {{#each allCelebs}}
 
-<p>Title</p>
-<input type="text" name="theTitle">
+      <option value="{{ this._id }}">{{ this.name }}</option>
 
-<p>Director</p>
-<input type="text" name="theDirector">
-
-<p>Genre</p>
-<input type="text" name="theGenre">
-
-<p>Plot</p>
-<input type="text" name="thePlot">
-
-<p>Poster</p>
-<input type="text" name="theImage">
-
-<button>Save</button>
-
-
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="celebrityCatchPhrase">Famous Quote</label>
+    <input
+      type="text"
+      class="form-control"
+      id="celebrityCatchPhrase"
+      aria-describedby="catchPhraseHelp"
+      placeholder="Type Name Here"
+      name="theGenre"
+    />
+  </div>
+    <div class="form-group">
+    <label for="moviePlot">Synopsis</label>
+    <input
+      type="text"
+      class="form-control"
+      id="moviePlot"
+      aria-describedby="plotHelp"
+      placeholder="Type Name Here"
+      name="thePlot"
+    />
+  </div>
+  <div class="form-group">
+    <label for="movieImage">Poster URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieImage"
+      aria-describedby="imageHelp"
+      placeholder="Type Name Here"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

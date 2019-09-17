@@ -1,16 +1,37 @@
-{{#each celebs}}
+<div class="movies-head">
+  <h3><b>Ironhack Cinema</b></h3>
+  <h6>Click on the celebrity to learn more</h6>
+</div>
 
-<a href="/celebrities/details/{{this._id}}">
-  <h2>
-    {{this.name}}
-  </h2>
-</a>
+<div class="row">
+  {{#each celebs}}
+  <div class="col-md-4 artist mx-auto d-block text-center">
+    <a href="/celebrities/details/{{ this._id }}">
+      <img
+        class="card-img-top mx-auto d-block celebrity-thumbnail"
+        src="{{ this.image }}"
+        alt="{{ this.name }} recent photograph"
+        onerror="if (this.src != 'https://cdn.sstatic.net/Sites/stackoverflow/img/404.svg') this.src = 'https://cdn.sstatic.net/Sites/stackoverflow/img/404.svg';"
+      />
+    </a>
 
-<a href="/celebrities/edit-celeb/{{this._id}}">Edit Celeb</a>
-<br>
-<br>
-<form action="/celebrities/delete/{{this._id}}" method="POST">
-<button>Delete Celeb</button>
-</form>
+    <div class="card-body text-center">
+      <div class="card-title">
+        <a href="/celebrities/details/{{ this._id }}">
+          <h4 class="btn-link">{{ this.name }}</h4>
+        </a>
+      </div>
+    </div>
 
-{{/each}}
+    <a href="/celebrities/edit-celeb/{{ this._id }}" class="btn btn-secondary btn-sm"
+      >Edit Celebrity Info</a
+    >
+    <br />
+    <br />
+    <form action="/celebrities/delete/{{ this._id }}" method="POST">
+      <button class="btn btn-outline-danger btn-sm">Delete Celebrity</button>
+    </form>
+  </div>
+
+  {{/each}}
+</div>

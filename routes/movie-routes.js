@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Movie = require("../models/Movie");
+const Celebrity = require('../models/Celebrity');
 
 router.get("/movies", (req, res, next) => {
   Movie.find()
@@ -14,9 +15,9 @@ router.get("/movies", (req, res, next) => {
 
 router.get("/movies/details/:id", (req, res, next) => {
   let id = req.params.id;
-  Movie.findById(id)
+  Movie.findById(id).populate('director')
     .then(movieObject => {
-      console.log(movieObject.image);
+      console.log();
       res.render("movie-views/show", { movie: movieObject });
     })
     .catch(err => {
@@ -25,19 +26,30 @@ router.get("/movies/details/:id", (req, res, next) => {
 });
 
 router.get("/movies/add-new-movie", (req, res, next) => {
-  res.render("movie-views/new");
+  Celebrity.find()
+  .then((result) => {
+    console.log(result);
+    res.render("movie-views/new", { allCelebs: result });
+  })
+  .catch((err) => {
+    next(err);
+  })
 });
 
 router.post("/movies/creation", (req, res, next) => {
-  let name = req.body.theName;
-  let occupation = req.body.theOccupation;
-  let catchPhrase = req.body.theCatchPhrase;
+  let title = req.body.theTitle;
+  let director = req.body.theDirector;
+  // let cast = req.body.theCast;
+  let genre = req.body.theGenre;
+  let plot = req.body.thePlot;
   let image = req.body.theImage;
 
   Movie.create({
-    name: name,
-    occupation: occupation,
-    catchPhrase: catchPhrase,
+    title: title,
+    director: director,
+    // cast: cast,
+    genre: genre,
+    plot: plot,
     image: image,
   })
     .then(result => {
