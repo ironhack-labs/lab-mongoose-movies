@@ -7,10 +7,10 @@
 {{this.name}}
 </a></h2>
 <form action="/celebrities/delete/{{this._id}}" method="POST">
-    <button>Remove Celebrity</button>
+    <button class ="button">Remove Celebrity</button>
 </form>
 
-<a href="/celebrities/editcelebrity/{{this._id}}">Edit Actor's Info</a>
+<a class="edit" href="/celebrities/editcelebrity/{{this._id}}">Edit Actor's Info</a>
 {{/each}}
 
 

@@ -21,4 +21,14 @@ a {
   display: flex;
   justify-content: center; }
 
+.button {
+  background: #b13636;
+  color: white;
+  font-size: 12px; }
+
+.edit {
+  text-decoration: none;
+  color: darkgray;
+  font-size: 12px; }
+
 /*# sourceMappingURL=style.css.map */
