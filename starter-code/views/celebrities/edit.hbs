@@ -22,10 +22,10 @@
   <button type=" submit">SUBMIT</button>
 </form> --}}
 
-<h1>Edit {{whatever.name}}'s details</h1>
-<form action="/celebrities/{{whatever._id}}" method="post">
-  <input type="text" name="name" value="{{whatever.name}}">
-  <input type=" text" name="occupation" value="{{whatever.occupation}}">
-  <input type=" text" name="catchPhrase" value="{{whatever.catchPhrase}}">
+<h1>Edit {{this.name}}'s details</h1>
+<form action="/celebrities/{{this._id}}" method="post">
+  <input type="text" name="name" value="{{this.name}}">
+  <input type=" text" name="occupation" value="{{this.occupation}}">
+  <input type=" text" name="catchPhrase" value="{{this.catchPhrase}}">
   <button type=" submit">SUBMIT</button>
 </form>

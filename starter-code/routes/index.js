@@ -30,6 +30,8 @@ router.get('/celebrities/new', (req, res, next) => {
     })
 });
 
+
+
 router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findOne({ '_id': req.params.id })
     .then(details => {
@@ -40,7 +42,7 @@ router.get('/celebrities/:id', (req, res, next) => {
     })
 });
 
-router.get("/celebrities/:id/delete", (req, res, next) => { //this needs to be GET verb
+/* router.get("/celebrities/:id/delete", (req, res, next) => { //this needs to be GET verb
   Celebrity.findOneAndDelete({ '_id': req.params.id })
     .then((celeb) => {
       res.redirect("/celebrities");
@@ -48,14 +50,7 @@ router.get("/celebrities/:id/delete", (req, res, next) => { //this needs to be G
     .catch(error => {
       console.log(error);
     });
-});
-
-
-router.get('celebrities/:celeb_id/edit', (req, res, next) => {
-  Celebrity.findById(req.params.celeb_id).then((result) => {
-    res.render('celebrities/edit', result);
-  })
-});
+}); */
 
 router.post('/celebrities/new', (req, res, next) => {
   // console.log("hello", req.body)
@@ -73,15 +68,6 @@ router.post('/celebrities/new', (req, res, next) => {
     })
 });
 
-router.post('celebrities/:celeb_id', (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body;
-  Celebrity.update(
-    { _id: req.params.celeb_id },
-    { name, occupation, catchPhrase }).then(() => {
-      res.redirect('/celebrities')
-    })
-});
-
 router.get('/celebrities/:id/delete', (req, res, next) => {
 
   Celebrity.findOneAndDelete({ _id: req.params.id })
@@ -91,6 +77,22 @@ router.get('/celebrities/:id/delete', (req, res, next) => {
     })
     .catch((error) => {
       console.log("something is wrong", error);
+    })
+});
+
+router.get('/celebrities/:celeb_id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.celeb_id).then((result) => {
+    // console.log("result", result)
+    res.render('celebrities/edit', result);
+  })
+});
+
+router.post('/celebrities/:celeb_id', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update(
+    { _id: req.params.celeb_id },
+    { name, occupation, catchPhrase }).then(() => {
+      res.redirect('/celebrities')
     })
 });
 
