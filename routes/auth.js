@@ -15,6 +15,7 @@ router.post('/signup', (req, res, next) => {
     User.create(req.body)
         .then(user => {
             req.session.currentUser = user
+            req.flash('loginStatus', 'Logged in!');
             res.status(201).redirect('/')
         })
         .catch(e => res.status(500).send(e))
@@ -27,19 +28,26 @@ router.get('/login', (req, res, next) => {
 router.post('/login', (req, res, next) => {
     User.findOne({ username: req.body.username })
         .then(user => {
-            if (user && bcrypt.compareSync(req.body.password, user.password)) req.session.currentUser = user;
+            if (user && bcrypt.compareSync(req.body.password, user.password)) {
+                req.session.currentUser = user;
+                req.flash('success', 'Logged In!');
+                res.redirect('/')
+            }
+            req.flash('failure', 'Login Failure...');
             res.redirect('/')
         })
 })
 
 router.post('/logout', (req, res, next) => {
+    req.flash('success', 'Logged in!');
     req.session.destroy()
     res.redirect('/')
 })
 
 router.get('/secret', (req, res, next) => {
     if (req.session.currentUser) res.render('users/secret', { user: req.session.currentUser })
-    else res.redirect('/')
+    req.flash('failure', 'Must be logged in to do that...');
+    res.redirect('/')
 })
 
 module.exports = router

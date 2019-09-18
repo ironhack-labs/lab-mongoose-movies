@@ -1,16 +1,30 @@
 <h2>Celebrity Details</h2>
 <h3>{{celebrity.name}}</h3>
 <p>{{celebrity.occupation}}</p>
-<q>{{celebrity.catchPhrase}}</q>
 
-{{#each celebrity.movies}}
-  <a href="/movies/details/{{this._id}}">
-  <h3>{{this.title}}</h3>
-</a>
-{{/each}}
-
+<blockquote class="blockquote">
+  <p class="mb-0">{{celebrity.catchPhrase}}</p>
+</blockquote>
+<table class="table">
+  <tr>
+    <th scope="col">Filmography</th>
+  </tr>
+  </thead>
+  <tbody>
+    {{#each celebrity.movies}}
+    <tr>
+      <td>
+        <a href="/movies/details/{{this._id}}">
+          <h3>{{this.title}}</h3>
+        </a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
 <br>
 <br>
 <br>
-<a href="/celebrities/{{celebrity._id}}/edit">Edit Celeb</a>
-<form action="/celebrities/{{celebrity._id}}/delete" method="POST"><button>Delete Celeb</button></form>
+<a href="/celebrities/{{celebrity._id}}/edit"><button class="btn btn-lg btn-primary">Edit Celeb</button></a>
+<form action="/celebrities/{{celebrity._id}}/delete" method="POST"><button class="btn btn-lg btn-secondary">Delete
+    Celeb</button></form>

@@ -8,13 +8,16 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
+const flash = require('express-flash');
+const passport = require('passport');
+const localStrategy = require('passport-local').Strategy;
+
 
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
-
 const indexRoutes = require('./routes/index');
-const userRoutes = require('./routes/user')
+const authRoutes = require('./routes/auth')
 const celebrityRoutes = require('./routes/celebrity');
 const movieRoutes = require('./routes/movie');
 
@@ -32,14 +35,23 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 // Auth Setup
+app.use(flash());
 app.use(session({
     secret: "shhh-super-secret",
+    saveUninitialized: true,
+    resave: true,
     cookie: { maxAge: 60000 },
     store: new MongoStore({
         mongooseConnection: mongoose.connection,
         ttl: 24 * 60 * 60 //1 day
     })
 }));
+app.use((req, res, next) => {
+    res.locals.currentUser = req.session.currentUser;
+    res.locals.sessionFlash = req.session.sessionFlash;
+    delete req.session.sessionFlash;
+    next();
+})
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -47,30 +59,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use((req, res, next) => {
-    res.locals.currentUser = req.session.currentUser;
-    next();
-})
-
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
     dest: path.join(__dirname, 'public'),
     sourceMap: true
 }));
 
-
+// Folder setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/bootstrap", express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Movie Library';
 
 app.use('/', indexRoutes);
-app.use('/', userRoutes);
+app.use('/', authRoutes);
 app.use('/celebrities', celebrityRoutes);
 app.use('/movies', movieRoutes);
 
