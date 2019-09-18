@@ -39,20 +39,14 @@
       name="theGenre"
     />
 
-      {{!-- {{#each actors}}
+    {{#each actors}}
     <div class="form-check">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        value="{{this.name}}"
-        name="theCast"
-      />
-      <label class="form-check-label">
-        {{this.name}}
-      </label>
+      <input type="checkbox" value="{{ this._id }}" name="theCast" />
+      {{ this.name }}
+      <br />
     </div>
-      {{/each}} --}}
-  </div> 
+    {{/each}}
+    
   <div class="form-group">
     <label for="moviePlot">Synopsis</label>
     <input
