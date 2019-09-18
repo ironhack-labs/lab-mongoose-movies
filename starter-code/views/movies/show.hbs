@@ -4,5 +4,8 @@
 <p>Genre: {{movie.genre}}</p>
 <p>Plot: <q>{{movie.plot}}</q></p>
 <img src="{{movie.image}}">
+<p>Created By: {{movie.createdBy.username}}</p>
+{{!-- {{#if celebrity.createdByMe}} --}}
 <p><a href="/movies/{{movie._id}}/edit">Edit Movie</a></p>
 <form action="/movies/{{movie._id}}/delete" method="POST"><button style="background-color:red">Delete Movie</button></form> 
+{{!-- {{/if}} --}}

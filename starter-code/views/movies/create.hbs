@@ -9,9 +9,8 @@
 
   <p>Plot</p>
   <input type="text" name="plot">
-  <button style="background-color:gray">Save</button>
 
-<select name="celebrity">
+<p>Select the starring celeb: <select name="celebrity"> 
   <option value="" selected disabled>Please Select One</option>
 
   {{#each allTheCelebrities}}
@@ -19,5 +18,7 @@
   <option value="{{this._id}}">{{this.name}}</option>
 
   {{/each}}
-</select>
+</select></p>
+
+<p><button style="background-color:gray">Save</button></p>
 </form>

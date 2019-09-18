@@ -5,7 +5,8 @@ const celebritySchema = new Schema({
   name: String,
   occupation: String,
   catchPhrase: String,
-  mugshot: String
+  mugshot: String,
+  creator: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
 const Celebrity = mongoose.model("Celebrity", celebritySchema);
