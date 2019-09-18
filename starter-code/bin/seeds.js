@@ -11,15 +11,18 @@ var initCelebs = [
   {
     name: 'Rob Schneider',
     occupation: 'Actor',
-    catchPhrase: 'Derp'},
+    catchPhrase: 'Derp',
+    mugshot: 'https://www.carlsoncomedy.com/wp-content/uploads/2018/09/rob-schneider-1080x675.jpg'},
   {
     name: 'Adam Sandler',
     occupation: 'Actor',     
-    catchPhrase: 'That Veronica Vaughn is one piece of ace'},
+    catchPhrase: 'That Veronica Vaughn is one piece of ace',
+    mugshot: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUXOrI8DPIgDq2z2tqpP4-azrr3tBOjlYP31pIAbaoUAKNQUcEtw'},
   {
     name: 'Chris Farley', 
     occupation: 'Deceased',  
-    catchPhrase: "I live in a van down by the river"}
+    catchPhrase: "I live in a van down by the river",
+    mugshot: 'https://www.secondcity.com/wp-content/uploads/2014/09/SC_Alumni_Farley_Chris_600x600_001.jpg'},
 ]   
 
 var initMovies = [
