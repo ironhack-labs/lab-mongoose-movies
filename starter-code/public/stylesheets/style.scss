@@ -13,20 +13,26 @@ nav {
 }
  
 nav a {
-  font-size: 15px;
+  font-size: 17px;
   display: inline-block;
   padding: 20px;
   color: white;
-
+  text-decoration: none;
 }
 
-  button {
-    width: 150px;
-    height: 30px;
-    margin-top: 5px;
-    color: white;
-  }
+button {
+  width: 150px;
+  height: 30px;
+  margin-top: 5px;
+  color: white;
+  font-size: 12px;
+  background-color: gray;
+}
 
 .plot, .catchphrase {
   width: 15%;
+}
+
+.logout {
+  margin-left: 55%;
 }

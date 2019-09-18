@@ -11,6 +11,10 @@ router.get('/new', (req, res, next) => {
         .catch(err => next(err))
 });
 
+router.get('/new', (req, res, next) => {
+    res.render('movies/create')
+})
+
 router.get('/', (req, res, next) => {
     Movie.find({})
         .then(movies => {
@@ -27,10 +31,6 @@ router.get('/details/:id', (req, res, next) => {
         })
         .catch(err => next(err))
 });
-
-router.get('/new', (req, res, next) => {
-    res.render('movies/create')
-})
 
 router.post('/', (req, res, next) => {
     Movie.create(req.body)

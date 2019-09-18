@@ -20,9 +20,7 @@ router.post('/signup', (req, res, next)=>{
         password: hash
     })
     .then(()=>{
-
         res.redirect('/')
-
     })
     .catch((err)=>{
         next(err)
@@ -30,13 +28,12 @@ router.post('/signup', (req, res, next)=>{
 })
 
 router.get('/login', (req, res, next)=>{
-
     res.render('user-views/login')
-
 })
 
 router.post('/login', (req, res, next)=>{
     const username = req.body.theUsername;
+    console.log(req.body.thePassword)
     const password = req.body.thePassword;
 
 User.findOne({ username: username })
@@ -46,7 +43,7 @@ User.findOne({ username: username })
       }
       if (bcrypt.compareSync(password, userfromDB.password)) {
         req.session.currentuser = userfromDB;
-        res.redirect("/");
+        res.redirect('/');
       } else {
           res.redirect('/')
       }
@@ -56,7 +53,7 @@ User.findOne({ username: username })
   })
 })
 
-router.post('/logout', (req, res, next)=>{
+router.get('/logout', (req, res, next)=>{
     req.session.destroy();
     res.redirect('/');
 })

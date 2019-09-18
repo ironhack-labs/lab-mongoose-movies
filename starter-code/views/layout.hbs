@@ -12,7 +12,16 @@
     <a href="/">Home</a>
     <a href="/celebrities">All Celebs</a>
     <a href="/movies">All movies</a>
+
+    {{#if currentUser}}
+    Welcome, {{currentUser.username}}
+    {{else}}
+    <a href="/signup">Sign up</a>
+    <a href="/login">Log in</a>
+    {{/if}}
+    <a class="logout" href="/logout">Log out</a>
   </nav>
+
   <div id="body">
     {{{body}}}
   </div>
