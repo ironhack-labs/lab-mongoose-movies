@@ -1,5 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-
-  console.log('IronGenerator JS imported successfully!');
-
-}, false);
+$(".list ul li").hover(
+  function () {
+    $(this).addClass('hover');
+  },
+  function () {
+    $(this).removeClass('hover');
+  }
+);

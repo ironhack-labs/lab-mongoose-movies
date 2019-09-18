@@ -29,39 +29,41 @@ router.get('/movies/details/:theId', (req, res, next) => {
 })
 
 router.get('/movies/new', (req, res, next) => {
-    res.render('../views/movies/new')
+    Celeb.find({})
+        .then((celebs) => {
+            res.render('../views/movies/new', {
+                celebs
+            })
+        })
+        .catch((err) => {
+            next(err)
+        })
 })
 
 router.post('/movies', (req, res, next) => {
-    let title = req.body.title
-    let genre = req.body.genre
-    let plot = req.body.plot
+    Movie.create(req.body)
 
-    Movie.create({
-        title: title,
-        genre: genre,
-        plot: plot
-    })
+        .then((result) =>
+            res.redirect('/movies')
+        )
 
-    .then ((result) =>
-        res.redirect('/movies')
-    )
-
-    .catch((error) => {
-        res.render('../views/movies/new', {error})
-    })
+        .catch((error) => {
+            res.render('../views/movies/new', {
+                error
+            })
+        })
 })
 
 router.post('/movies/:theId/delete', (req, res, next) => {
     let id = req.params.theId
 
     Movie.findByIdAndRemove(id)
-    .then((result) => {
-        res.redirect('/movies')
-    })
-    .catch((err) => {
-        next(err)
-    })
+        .then((result) => {
+            res.redirect('/movies')
+        })
+        .catch((err) => {
+            next(err)
+        })
 })
 
 router.get('/movies/:theId/edit', (req, res, next) => {
@@ -69,12 +71,21 @@ router.get('/movies/:theId/edit', (req, res, next) => {
     Movie.findById(id).populate("celebrity")
         .then((mov) => {
             Celeb.find({})
-            .then((celebs) => {
-                res.render('../views/movies/edit', {
-                    mov,
-                    celebs
+                .then((celebs) => {
+                    celebs.forEach((eachCeleb) => {
+                        if (eachCeleb._id.equals(mov.celebrity._id)) {
+                            // we're not allowed to use === to compare IDs
+                            // just because mongoose wont let you
+                            // but instead they have their own method called .equals
+
+                            eachCeleb.isTheChosenOne = true;
+                        }
+                    })
+                    res.render('../views/movies/edit', {
+                        mov,
+                        celebs
+                    })
                 })
-            })
         }).catch((err) => {
             next(err)
         })
@@ -82,12 +93,12 @@ router.get('/movies/:theId/edit', (req, res, next) => {
 
 router.post('/movies/:theId', (req, res, next) => {
     Movie.findByIdAndUpdate(req.params.theId, req.body)
-    .then((result) => {
-        res.redirect('/movies')
-    })
-    .catch((err) => {
-        next(err)
-    })
+        .then((result) => {
+            res.redirect('/movies')
+        })
+        .catch((err) => {
+            next(err)
+        })
 })
 
 module.exports = router;

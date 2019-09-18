@@ -1,4 +1,4 @@
-<div class="celeb-list">
+<div class="celebs list">
     <h2>List of Celebrities</h2>
     <ul>
         {{#each celebs}}
@@ -7,10 +7,12 @@
             <div class="celeb-info">
                 <h3><a href="/celebrities/details/{{this._id}}">{{this.name}}</a></h3>
                 <span class="occupation">{{this.occupation}}</span>
-                <form action="/celebrities/{{this._id}}/delete" method="POST">
-                    <button>Delete</button>
-                </form>
-                <a href="/celebrities/{{this._id}}/edit" class="button">Edit</a>
+                <div class="buttons-group">
+                    <form action="/celebrities/{{this._id}}/delete" method="POST">
+                        <button>Delete</button>
+                    </form>
+                    <a href="/celebrities/{{this._id}}/edit" class="button">Edit</a>
+                </div>
             </div>
         </li>
         {{/each}}

@@ -1,5 +1,7 @@
 @charset "UTF-8";
-*, html, body {
+*,
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,25 +10,31 @@
 body {
   font: 14px "Open Sans", Helvetica, Arial, sans-serif; }
 
-a h1 {
-  color: #c782d8; }
-  a h1:hover {
-    color: #e061ff; }
-
 h2 {
   margin: 0 0 2rem 0; }
 
 h3 {
   font-size: 1.6rem;
-  color: #211f1f; }
+  color: #222222; }
 
-a {
-  text-decoration: none;
-  color: #00B7FF; }
+h4 {
+  color: #b881c5; }
+
+h3 {
+  color: #444444;
+  font-weight: 500; }
+
+a,
+a h1 {
+  color: #c782d8;
+  text-decoration: none; }
+  a:hover,
+  a h1:hover {
+    color: #e061ff; }
 
 p {
   margin: .8rem 0;
-  color: #999; }
+  color: #bbbbbb; }
 
 ul {
   list-style-type: none;
@@ -50,7 +58,7 @@ blockquote {
     left: -22px;
     font-size: 9rem;
     font-family: georgia, sans-serif;
-    color: #f1f1f1;
+    color: #ffffff;
     z-index: -1; }
 
 header {
@@ -59,12 +67,16 @@ header {
   justify-content: space-between;
   padding: 1rem 4rem;
   background-color: #222;
-  color: #fff; }
+  color: #ffffff; }
   @media screen and (max-width: 460px) {
     header {
       padding: 1rem; } }
   header a {
-    align-self: center; }
+    text-decoration: none;
+    color: #00B7FF; }
+    header a:hover {
+      color: #98ff80;
+      border-bottom: #38cf16; }
   header ul li {
     margin-right: .7rem; }
     header ul li.nav-header {
@@ -77,68 +89,123 @@ section {
     section {
       margin: 1rem; } }
   section ul li {
+    position: relative;
     width: 24%;
     margin-bottom: 2rem;
-    padding: 3rem;
-    border: 1px solid #e6e6e6;
-    margin-right: 1%; }
-    section ul li button {
+    padding: 3rem 3rem 10rem;
+    border: 1px solid #eeeeee;
+    margin-right: 1%;
+    background-color: #f9f6ff; }
+    section ul li p {
+      overflow: hidden;
+      position: relative;
+      line-height: 1.2em;
+      max-height: 3.6em;
+      text-align: justify;
+      margin-right: -1em;
+      padding-right: 1em; }
+      section ul li p:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0; }
+      section ul li p:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: #f9f6ff; }
+    @media screen and (max-width: 1300px) {
+      section ul li {
+        width: 49%; } }
+    @media screen and (max-width: 600px) {
+      section ul li {
+        width: 98%; } }
+    section ul li .buttons-group {
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem; }
+    section ul li.hover {
+      background-color: #c3a5ff; }
+      section ul li.hover h3 a {
+        color: #423535; }
+        section ul li.hover h3 a:hover {
+          color: #423535; }
+      section ul li.hover .genre,
+      section ul li.hover .occupation {
+        color: #e4e4e4; }
+      section ul li.hover p {
+        color: #ffffff; }
+      section ul li.hover h4 {
+        color: #735252; }
+      section ul li.hover a {
+        color: #a15da9; }
+        section ul li.hover a:hover {
+          text-decoration: underline; }
+      section ul li.hover button,
+      section ul li.hover .button {
+        background-color: #b996ff;
+        border-color: #9b7dd8;
+        color: #ffffff; }
+        section ul li.hover button:hover,
+        section ul li.hover .button:hover {
+          background-color: #9d6bff;
+          color: #ffffff;
+          text-decoration: none; }
+    section ul li button,
+    section ul li .button {
       margin-top: 1rem;
       margin-bottom: 6px;
-      background-color: white;
-      border: 1px solid #eee;
-      color: #bbb;
+      background-color: #ffffff;
+      border: 1px solid #eeeeee;
+      color: #bbbbbb;
       padding: 3px 7px;
       text-transform: uppercase;
       font-size: .6rem;
       transition: all 250ms; }
-      section ul li button:hover {
-        background-color: #bbb;
-        color: #000;
-        cursor: pointer; }
-    section ul li .button {
-      background-color: white;
-      border: 1px solid #eee;
-      color: #bbb;
-      padding: 3px 7px;
-      text-transform: uppercase;
-      font-size: .6rem;
-      transition: all 250ms; }
+      section ul li button:hover,
       section ul li .button:hover {
-        background-color: #bbb;
-        color: #000;
+        background-color: #bbbbbb;
+        color: #000000;
         cursor: pointer; }
 
 .occupation,
 .genre {
   display: block;
   margin-top: -3px;
-  color: #a5a5a5;
+  color: #bbbbbb;
   font-size: .8rem;
   font-style: italic; }
 
 form label {
-  margin-bottom: 3px; }
+  margin-bottom: 5px; }
 
 form input {
   display: block;
   width: 100%;
-  padding: 9px 13px;
+  padding: 18px 13px;
   margin-bottom: 1rem;
-  border: 1px solid #bbb; }
+  border: 1px solid #bbbbbb; }
+  form input:active {
+    border-color: #e061ff; }
 
 form button {
-  background-color: #bbb;
-  border: 1px solid #bbb;
-  color: #1d1c1c;
+  background-color: #bbbbbb;
+  border: 1px solid #bbbbbb;
+  color: #222222;
   padding: 5px 15px;
   text-transform: uppercase;
   font-size: .9rem;
   font-weight: 300;
   transition: all 250ms; }
   form button:hover {
-    background-color: #1d1d1d;
-    color: #bbb;
+    background-color: #222222;
+    color: #bbbbbb;
     cursor: pointer; }
+
+.celeb h2 {
+  margin-bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */

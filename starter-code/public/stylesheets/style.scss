@@ -1,4 +1,43 @@
-*, html, body {
+$lightpurple: #c782d8;
+$darkpurple: #e061ff;
+$lightgreen: #98ff80;
+$darkgreen: #38cf16;
+$lightblue: #00B7FF;
+$black: #000000;
+$darkgray: #222222;
+$gray: #444444;
+$lightgray: #bbbbbb;
+$lightergray: #eeeeee;
+$white: #ffffff;
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount; 
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+*,
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,31 +48,38 @@ body {
   font: 14px "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-  a h1 {
-    color: #c782d8;
-
-    &:hover {
-      color: #e061ff;;
-    }
-  }
-
 h2 {
   margin: 0 0 2rem 0;
 }
 
 h3 {
   font-size: 1.6rem;
-  color: #211f1f;
+  color: $darkgray;
 }
 
-a {
+h4 {
+  color: #b881c5;;
+}
+
+h3 {
+  color: $gray;
+  font-weight: 500;
+}
+
+a,
+a h1 {
+  color: $lightpurple;
   text-decoration: none;
-  color: #00B7FF;
+
+  &:hover {
+    color: $darkpurple;
+    ;
+  }
 }
 
 p {
   margin: .8rem 0;
-  color: #999;
+  color: $lightgray;
 }
 
 ul {
@@ -60,7 +106,7 @@ blockquote {
     left: -22px;
     font-size: 9rem;
     font-family: georgia, sans-serif;
-    color: #f1f1f1;
+    color: $white;
     z-index: -1;
   }
 }
@@ -71,14 +117,20 @@ header {
   justify-content: space-between;
   padding: 1rem 4rem;
   background-color: #222;
-  color: #fff;
+  color: $white;
 
   @media screen and (max-width: 460px) {
     padding: 1rem;
   }
 
   a {
-    align-self: center;
+    text-decoration: none;
+    color: $lightblue;
+  
+    &:hover {
+      color: $lightgreen;
+      border-bottom: $darkgreen;
+    }
   }
 
   ul {
@@ -103,42 +155,95 @@ section {
 
   ul {
     li {
+      position: relative;
       width: 24%;
       margin-bottom: 2rem;
-      padding: 3rem;
-      border: 1px solid #e6e6e6;
+      padding: 3rem 3rem 10rem;
+      border: 1px solid $lightergray;
       margin-right: 1%;
+      background-color: #f9f6ff;
 
-      button {
-        margin-top: 1rem;
-        margin-bottom: 6px;
-        background-color: white;
-        border: 1px solid #eee;
-        color: #bbb;
-        padding: 3px 7px;
-        text-transform: uppercase;
-        font-size: .6rem;
-        transition: all 250ms;
-      
-        &:hover {
-          background-color: #bbb;
-          color: #000;
-          cursor: pointer;
+      p {
+        @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: #f9f6ff);
+      }
+
+      @media screen and (max-width:1300px) {
+        width: 49%;
+      }
+
+      @media screen and (max-width:600px) {
+        width: 98%;
+      }
+
+      .buttons-group {
+        position: absolute;
+        bottom: 3rem;
+        left: 3rem;
+      }
+
+      &.hover {
+        background-color: #c3a5ff;
+
+        h3 {
+          a {
+            color: #423535;
+
+            &:hover {
+              color: #423535;
+            }
         }
       }
 
+        .genre,
+        .occupation {
+          color: #e4e4e4;
+        }
+
+        p {
+          color: $white;
+        }
+
+        h4 {
+          color: #735252;
+        }
+
+        a {
+          color: #a15da9;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        button,
+        .button {
+          background-color: #b996ff;
+          border-color: #9b7dd8;
+          color: $white;
+
+          &:hover {
+            background-color: #9d6bff;
+            color: $white;
+            text-decoration: none;
+          }
+        }
+    } // li.hover
+
+      button,
       .button {
-        background-color: white;
-        border: 1px solid #eee;
-        color: #bbb;
+        margin-top: 1rem;
+        margin-bottom: 6px;
+        background-color: $white;
+        border: 1px solid $lightergray;
+        color: $lightgray;
         padding: 3px 7px;
         text-transform: uppercase;
         font-size: .6rem;
         transition: all 250ms;
-      
+
         &:hover {
-          background-color: #bbb;
-          color: #000;
+          background-color: $lightgray;
+          color: $black;
           cursor: pointer;
         }
       }
@@ -150,38 +255,48 @@ section {
 .genre {
   display: block;
   margin-top: -3px;
-  color: #a5a5a5;
+  color: $lightgray;
   font-size: .8rem;
   font-style: italic;
 }
 
 form {
   label {
-    margin-bottom: 3px;
+    margin-bottom: 5px;
   }
 
   input {
     display: block;
     width: 100%;
-    padding: 9px 13px;
+    padding: 18px 13px;
     margin-bottom: 1rem;
-    border: 1px solid #bbb;
+    border: 1px solid $lightgray;
+
+    &:active {
+      border-color: $darkpurple;
+    }
   }
 
   button {
-    background-color: #bbb;
-    border: 1px solid #bbb;
-    color: rgb(29, 28, 28);
+    background-color: $lightgray;
+    border: 1px solid $lightgray;
+    color: $darkgray;
     padding: 5px 15px;
     text-transform: uppercase;
     font-size: .9rem;
     font-weight: 300;
     transition: all 250ms;
-  
+
     &:hover {
-      background-color: rgb(29, 29, 29);
-      color: #bbb;
+      background-color: $darkgray;
+      color: $lightgray;
       cursor: pointer;
     }
+  }
+}
+
+.celeb {
+  h2 {
+    margin-bottom: 0;
   }
 }

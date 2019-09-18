@@ -15,7 +15,11 @@
         <label for="celebrity">Select a Starring Celebrity</label>
         <select name="celebrity">
             {{#each celebs}}
+            {{#if this.isTheChosenOne}}
+            <option selected value="{{this._id}}">{{this.name}}</option>
+            {{else}}
             <option value="{{this._id}}">{{this.name}}</option>
+            {{/if}}
             {{/each}}
         </select>
         <br /><br />
