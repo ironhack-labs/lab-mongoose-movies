@@ -11,9 +11,10 @@ const path         = require('path');
 
 const bcrypt       = require('bcryptjs')
 
-
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+
+const flash      = require('connect-flash');
 
 
 
@@ -68,16 +69,21 @@ app.use(session({
   })
 }));
 
+app.use(flash());
+
+
+app.use((req, res, next) => {
+  res.locals.theUser = req.session.currentUser
+  res.locals.errorMessage = req.flash('error')
+  next();
+})
 
 const index = require('./routes/index');
 app.use('/', index);
 
-
-
 app.use('/celebrities', require('./routes/celebrities'))
 
 app.use('/movies', require('./routes/movies'));
-
 
 app.use('/user', require('./routes/users'))
 

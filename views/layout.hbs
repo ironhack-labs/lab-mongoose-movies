@@ -15,10 +15,31 @@
       <a href="/celebrities/new">Add Celeb</a>
       <a href="/movies">All Movies</a>
       <a href="/movies/new">Add Movie</a>
+
+    {{#if theUser}}
+        <form action="/user/logout" method="POST">
+          <button>Logout</button>
+        </form>
+    {{/if}}
+
+    {{#unless theUser}}
+        <a href="/user/signup">Signup</a>
+        <a href="/user/login">Login</a>
+
+    {{/unless}}
+
+
     </nav>
   </header>
 
   {{{body}}}
+    {{#if errorMessage}}
+    <div>
+      {{errorMessage}}
+    </div>
+  {{/if}}
+
+
 
   <script src="/javascripts/script.js"></script>
 </body>
