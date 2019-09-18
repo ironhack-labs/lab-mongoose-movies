@@ -47,6 +47,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+    res.locals.currentUser = req.session.currentUser;
+    next();
+})
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
