@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity');
 
-router.get('/index', (req, res, next)=>{
+router.get('/celeb-index', (req, res, next)=>{
 
   Celebrity.find()
   .then(allCelebs=>{
@@ -35,12 +35,14 @@ router.post('/created-celeb', (req, res, next)=>{
   let name = req.body.name;
   let occupation = req.body.occupation;
   let catchPhrase = req.body.catchPhrase;
+  let image = req.body.image;
 
 
   Celebrity.create({
       name: name,
       occupation: occupation,
-      catchPhrase: catchPhrase
+      catchPhrase: catchPhrase,
+      image: image
   })
   .then((result)=>{
       res.redirect('/celeb-index')
@@ -85,7 +87,8 @@ router.post('/update-celeb/:id', (req, res, next)=>{
   Celebrity.findByIdAndUpdate(id, {
       name: req.body.name,
       occupation: req.body.occupation,
-      catchPhrase: req.body.catchPhrase
+      catchPhrase: req.body.catchPhrase,
+      image: req.body.image
   })
   .then((result)=>{
       res.redirect('/show-celeb/'+id)

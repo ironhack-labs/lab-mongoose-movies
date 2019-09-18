@@ -8,6 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session      = require('express-session');
+const MongoStore   = require('connect-mongo')(session);
 
 
 mongoose
@@ -44,6 +46,15 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+//User-Info
+app.use(session({
+  secret: "top-secret-key",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 
 // default value for title local
@@ -58,5 +69,8 @@ app.use('/', celebrities);
 
 const movies = require('./routes/movies');
 app.use('/', movies);
+
+const users = require('./routes/users');
+app.use('/', users);
 
 module.exports = app;

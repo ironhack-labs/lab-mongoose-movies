@@ -13,6 +13,17 @@
 <p>Plot</p>
 <input type="text" name="plot">
 
+<p>Stars</p>
+{{#each data.stars}}
+  
+  <option selected value="{{_id}}">{{name}}</option>
+  {{else}}
+     <option value="{{_id}}">{{name}}</option>
+
+  {{/each}}
+
+<p>Image</p>
+<input type="text" name="image">
 
 <button>Save</button>
 

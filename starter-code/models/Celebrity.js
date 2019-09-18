@@ -6,8 +6,10 @@ const celebritySchema = new Schema({
 
     name: String,
     occupation: String,
-    catchPhrase: String
-
+    catchPhrase: String,
+    image: String,
+    movie: {type: Schema.Types.ObjectId, ref: 'Movie'}
+    
 });
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema);

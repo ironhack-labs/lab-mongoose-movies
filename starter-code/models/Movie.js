@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 
 const movieSchema = new Schema({
 
     title: String,
     genre: String,
-    plot: String
+    plot: String,
+    image: String,
+    stars: {type: Schema.Types.ObjectId, ref: 'Celebrity'}
 
 });
 

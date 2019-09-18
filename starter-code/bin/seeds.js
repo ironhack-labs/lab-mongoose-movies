@@ -31,17 +31,20 @@ let movies = [
   {
     title: "The Joker",
     genre: "Drama/Comic Book",
-    plot: "New take on comic book Joker character"
+    plot: "New take on comic book Joker character",
+    star: "Joaquin Phoneix"
   },
   {
     title: "Breaking Bad: El Camino",
     genre: "Drama",
-    plot: "Extension of the Breaking Bad franchise"
+    plot: "Extension of the Breaking Bad franchise",
+    star: "Aaron Paul"
   },
   {
     title: "Arrival",
     genre: "Sci-Fi",
-    plot: "Aliens visit earth. Humans go crazy."
+    plot: "Aliens visit earth. Humans go crazy.",
+    star: "Amy Adams"
   }
 ]
 
