@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity')
-const Movie = require('../models/Movie')
+const auth = require('../middleware/auth')
 
 router.get('/', (req, res, next) => {
     Celebrity.find({}).populate('createdBy')
@@ -20,11 +20,7 @@ router.get('/details/:id', (req, res, next) => {
         .catch(e => next(e))
 });
 
-router.get('/new', (req, res, next) => {
-    if (!req.user) {
-        req.flash('failure', 'Must be logged in to perform that action...')
-        res.redirect('/login')
-    }
+router.get('/new', auth, (req, res, next) => {
     res.render('celebrities/create')
 });
 

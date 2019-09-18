@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const router = express.Router();
 const passport = require('passport')
+const auth = require('../middleware/auth')
 
 
 router.get('/signup', (req, res, next) => {
@@ -16,8 +17,12 @@ router.post('/signup', (req, res, next) => {
     User.create(req.body)
         .then(user => {
             req.session.currentUser = user
-            req.flash('success', 'Registered and logged in!');
-            res.status(201).redirect('/')
+            req.logIn(user, (err) => {
+                if (!err) {
+                    res.status(201).redirect('/')
+                    req.flash('success', 'Registered and logged in!');
+                } else next(err)
+            })
         })
         .catch(e => res.status(500).send(e))
 });
@@ -53,11 +58,8 @@ router.post('/logout', (req, res, next) => {
     res.redirect('/');
 })
 
-router.get('/messages', (req, res, next) => {
-    if (req.user) res.render('users/messages', { user: req.user })
-    console.log('yo')
-    req.flash('failure', 'Must be logged in to do that...');
-    res.redirect('/')
+router.get('/messages', auth, (req, res, next) => {
+    res.render('users/messages', { user: req.user })
 })
 
 module.exports = router
