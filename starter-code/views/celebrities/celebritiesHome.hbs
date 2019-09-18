@@ -1,0 +1,14 @@
+<h1> All the celebrities are below: </h1>
+
+<h2> {{#each showAllCelebs}}
+      <ul>
+        <li><a href="/celebRoutes/details/{{this.id}}" >{{this.name}}</a></li>
+        </ul>
+        {{!-- action must be the same as post route - copy and paste works best --}}
+        <form action="/celebRoutes/delete/{{this.id}}" method="POST"><button> Click to delete </button></form>
+      {{/each}}
+</h2>
+
+
+<a href = "/celebRoutes/new" >Click here to make a new celeb</a>
+
