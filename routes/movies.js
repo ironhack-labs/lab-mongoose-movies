@@ -80,27 +80,51 @@ router.get("/edit/:id", (req,res,next) => {
   let id = req.params.id
 
   Movie.findById(id).then(data => {
-    res.render("movies/edit", {movie: data})
+    Celebrities.find().then(celebs => {
+      res.render("movies/edit", {movie: data, actors: celebs })
+    }).catch(err => next(err))
   }).catch(err => next(err))
 })
 
 
 router.post('/update/:id', (req,res,next) => {
+  console.log(req.params)
   let id = req.params.id
-  let title = req.body.title
-  let genre = req.body.genre
-  let plot = req.body.plot
-  let image = req.body.image
-  let actors = req.body.actors
+  let title = req.body.title;
+  let genre = req.body.genre;
+  let plot = req.body.plot;
+  let image = req.body.image;
+  let actors = req.body.actors;
 
+
+  console.log(`before movie update: ${actors}, movie id = ${id}`)
+
+  // having an issue with update, needing to update all but to push actor.
   Movie.findByIdAndUpdate(id, {
-    title: title,
-    genre: genre,
-    plot: plot,
-    image: image,
-    actors: actors
-  }).then(data => {
-    res.redirect("/movies")
+      title: title,
+      genre: genre,
+      plot: plot,
+      image: image,
+      actors: actors}).then(data => {
+
+        console.log(`actors: ${actors}, movie: ${id}`)
+
+        if (Array.isArray(actors)) {
+          actors.forEach(actor => {
+    
+            Celebrities.findByIdAndUpdate(actor, 
+              {$push: {movies: id}}).then(() => {
+                res.redirect(`/movies`)
+              }).catch(err => next(err))
+          })
+        }
+        else {
+          Celebrities.findByIdAndUpdate(actors, 
+             { $push: {movies: id}})
+             .then(()=>{
+               res.redirect(`/movies`)
+             }).catch(()=>{})
+        }
   }).catch(err => next(err))
 })
 

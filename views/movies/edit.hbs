@@ -3,10 +3,23 @@
 
 <form action="/movies/update/{{movie.id}}" method="POST">
 <label for="title">Title</label>
-<input type="text" name="title" value={{movie.title}}>
+<input type="textarea" name="title" value="{{movie.title}}" id="title">
+
 <label for="genre">Genre</label>
-<input type="text" name="genre" value={{movie.genre}}>
+<input type="text" name="genre" value="{{movie.genre}}" id="genre">
+
 <label for="plot">Plot</label>
-<input type="text" name="plot" value={{movie.plot}}>
+<input type="textarea" name="plot" value="{{movie.plot}}" id="plot">
+
+<label for="image">Image</label>
+<input type="textarea" name="image" value="{{movie.image}}" id="image">
+
+
+<select name="actors" id="actors">
+  <option selected disabled>Pick an Actor</option>
+  {{#each actors}}
+    <option value='{{id}}'>{{name}}</option>
+  {{/each}}
+</select>
 <button>Add</button>
 </form>
