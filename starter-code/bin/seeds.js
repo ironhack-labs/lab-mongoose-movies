@@ -12,7 +12,7 @@ var initCelebs = [
     name: 'Rob Schneider',
     occupation: 'Actor',
     catchPhrase: 'Derp',
-    mugshot: 'https://www.carlsoncomedy.com/wp-content/uploads/2018/09/rob-schneider-1080x675.jpg'},
+    mugshot: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlCdXQwFTkCn3_iboUSFnqjeO6nNW5oDUhFotFDdog-fXrN4Yx'},
   {
     name: 'Adam Sandler',
     occupation: 'Actor',     
