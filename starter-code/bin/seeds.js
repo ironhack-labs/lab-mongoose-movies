@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity.js')
 const Movie = require('../models/Movie.js')
 
+
 mongoose
   .connect('mongodb://localhost/mongoose-movies', {useNewUrlParser: true})
   .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
