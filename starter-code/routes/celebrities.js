@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/add", (req, res, next) => {
-  res.render("celebrities/new.hbs");
+  res.render("celebrities/new.hbs");  
 });
 
 router.post("/add", (req, res, next) => {
