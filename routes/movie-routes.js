@@ -28,8 +28,9 @@ router.get("/movies/details/:id", (req, res, next) => {
   let id = req.params.id;
   Movie.findById(id)
     .populate("director")
+    .populate("starring")
     .then(movieObject => {
-      console.log();
+      console.log(movieObject);
       res.render("movie-views/show", { movie: movieObject });
     })
     .catch(err => {
@@ -67,7 +68,7 @@ router.post("/movies/creation", (req, res, next) => {
   Movie.create({
     title: title,
     director: director,
-    cast: cast,
+    starring: cast,
     genre: genre,
     plot: plot,
     image: image
@@ -95,17 +96,24 @@ router.get("/movies/edit-movie/:id", (req, res, next) => {
   let id = req.params.id;
   Movie.findById(id)
     .then(theMovie => {
-      Director.find()
-        .then(allDirectors => {
-          allDirectors.forEach(eachDirector => {
-            if (eachDirector._id.equals(theMovie.director)) {
-              eachDirector.chosen = true;
-            }
-          });
-          res.render("movie-views/edit", {
-            movie: theMovie,
-            directors: allDirectors
-          });
+      Actor.find()
+        .then(allActors => {
+          Director.find()
+            .then(allDirectors => {
+              allDirectors.forEach(eachDirector => {
+                if (eachDirector._id.equals(theMovie.director)) {
+                  eachDirector.chosen = true;
+                }
+              });
+              res.render("movie-views/edit", {
+                movie: theMovie,
+                actors: allActors,
+                directors: allDirectors
+              });
+            })
+            .catch(err => {
+              next(err);
+            });
         })
         .catch(err => {
           next(err);
@@ -121,6 +129,7 @@ router.post("/movies/update/:id", (req, res, next) => {
   Movie.findByIdAndUpdate(id, {
     title: req.body.theTitle,
     director: req.body.theDirector,
+    starring: req.body.theCast,
     genre: req.body.theGenre,
     plot: req.body.thePlot,
     image: req.body.theImage

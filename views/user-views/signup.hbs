@@ -2,10 +2,26 @@
 
 <form action="/signup" method="POST" style="width:500px; margin-left:100px">
   <div class="form-group">
-    <label for="username">Username</label><br>
-    <input type="text" name="theUsername" id="username" /><br>
-    <label for="password">Password</label><br>
-    <input type="password" name="thePassword" id="password"/><br><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <label for="theUsername">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="theUsername"
+      aria-describedby="userHelp"
+      placeholder="Create a new username"
+      name="theUsername"
+    />
   </div>
+    <div class="form-group">
+    <label for="thePassword">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="thePassword"
+      aria-describedby="userHelp"
+      placeholder="Create a new password"
+      name="thePassword"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Sign In</button>
 </form>

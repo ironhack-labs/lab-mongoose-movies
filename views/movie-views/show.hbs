@@ -15,10 +15,22 @@
     <h6 class="content-tagline">
       <b
         >Director:
-        <a href="/directors/details/{{ movie.director._id }}" class="btn-link">{{
-          movie.director.name
-        }}</a></b
+        <a
+          href="/directors/details/{{ movie.director._id }}"
+          class="btn-link"
+          >{{ movie.director.name }}</a
+        ></b
       >
+    </h6>
+    <h6 class="content-tagline">
+      <b>Starring: </b>
+      <ul>
+        {{#each movie.starring}}
+        <li>
+          <a href="/actors/details/{{ this._id }}" class="btn-link">{{ this.name }}</a>
+        </li>
+        {{/each}}
+      </ul>
     </h6>
 
     <p>Genre: {{ movie.genre }}</p>
@@ -26,7 +38,9 @@
     <p class="movie-description">
       {{ movie.plot }}
     </p>
-        <a href="/movies/edit-movie/{{ movie._id }}" class="btn btn-secondary btn-sm"
+    <a
+      href="/movies/edit-movie/{{ movie._id }}"
+      class="btn btn-secondary btn-sm"
       >Edit Movie</a
     >
   </div>

@@ -37,13 +37,13 @@ router.post("/login", (req, res, next) => {
   const password = req.body.thePassword;
 
   User.findOne({ username: username })
-  .then(userFromDB => {
-    if (!userFromDB) {
+  .then(data => {
+    if (!data) {
       res.redirect("/");
     }
-    if(bcrypt.compareSync(password, userFromDB.password)){ // this saves the login in the session
-      req.session.currentUser = userFromDB; // this logs you in
-      res.redirect("/");
+    if(bcrypt.compareSync(password, data.password)){ // this saves the login in the session
+      req.session.currentUser = data; // this logs you in
+      res.redirect("/secret");
     } else {
       res.redirect('/');
     }
@@ -55,7 +55,7 @@ router.post("/login", (req, res, next) => {
 
 router.post("/log-out", (req, res, next) => {
   req.session.destroy();
-  res.redirect("/");
+  res.redirect("/login");
 });
 
 router.get("/secret", (req, res, next) => {

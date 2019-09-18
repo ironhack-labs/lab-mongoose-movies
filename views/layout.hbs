@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <nav class="movie-header">
+    {{!-- <nav class="movie-header">
       <h5>
         <a href="/directors"
         class="btn-link">
@@ -57,7 +57,68 @@
         <a href="/movies/add-new-movie" class="btn-link">Add New Movie</a>
       </h5>
       <form action="/log-out" method="POST"><button>log out</button></form>
-    </nav>
+    </nav> --}}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100vw; margin-bottom: 10px">
+  <a class="navbar-brand btn-link" href="/">Iron Cinema</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle btn-link" href="#" id="directorsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Directors
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/directors">Directors List</a>
+          <a class="dropdown-item" href="/directors/add-new-director">Add New</a>
+      </li>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle btn-link" href="#" id="actorsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Actors
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/actors">Actors List</a>
+          <a class="dropdown-item" href="/actors/add-new-director">Add New</a>
+      </li>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle btn-link" href="#" id="moviesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Movies
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/movies">Movies List</a>
+          <a class="dropdown-item" href="/movies/add-new-director">Add New</a>
+      </li>
+    </ul>
+        {{#if theUser}}
+<div class="dropdown">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:5px">
+    User Menu
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/account">My Account</a>
+    <a class="dropdown-item" href="/secret">Shh . . .</a>
+  </div>
+</div>
+    <form class="form-inline my-2 my-lg-0" action="/log-out" method="POST">
+      <button class="btn btn-outline-danger my-2 my-sm-0">Log Out</button>
+    </form>
+{{else}}
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item" style="margin-right:5px">
+                <a class="btn btn-outline-primary" href="/login">Log In</a>
+            </li>
+            <li class="nav-item" style="margin-right:5px">
+                <a class="btn btn-outline-secondary" href="/signup">Sign Up</a>
+            </li>
+        </ul>
+{{/if}}
+
+  </div>
+</nav>
+
 
     {{{body}}}
 

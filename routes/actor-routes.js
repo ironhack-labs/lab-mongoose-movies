@@ -19,7 +19,7 @@ router.get("/actors/details/:id", (req, res, next) => {
   Actor.findById(id)
     .then(actorObject => {
       Movie.find({
-        director: id
+        starring: id
       })
         .then(result => {
           console.log(result);
