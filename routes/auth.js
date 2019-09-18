@@ -54,7 +54,8 @@ router.post('/logout', (req, res, next) => {
 })
 
 router.get('/messages', (req, res, next) => {
-    if (req.session.currentUser) res.render('users/secret', { user: req.session.currentUser })
+    if (req.user) res.render('users/messages', { user: req.user })
+    console.log('yo')
     req.flash('failure', 'Must be logged in to do that...');
     res.redirect('/')
 })

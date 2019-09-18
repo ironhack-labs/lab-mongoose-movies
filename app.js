@@ -37,7 +37,7 @@ const app = express();
 
 // Auth Setup
 app.use(session({
-    secret: "shhh-super-secret",
+    secret: process.env.HASH_SECRET,
     saveUninitialized: true,
     resave: true,
 }));
