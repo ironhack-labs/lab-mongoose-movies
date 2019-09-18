@@ -29,10 +29,19 @@ button {
   background-color: gray;
 }
 
-.plot, .catchphrase {
-  width: 15%;
+.plot {
+  width: 40%;
 }
 
 .logout {
   margin-left: 55%;
+}
+
+.select {
+  position: relative;
+  margin: 10px;
+}
+
+.title, .catchphrase {
+  width: 25%;
 }

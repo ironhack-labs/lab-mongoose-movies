@@ -40,10 +40,10 @@ router.post("/login", passport.authenticate("local", {
     passReqToCallback: true
 }));
 
-router.get('/logout', (req, res, next)=>{
-    req.session.destroy();
-    res.redirect('/');
-})
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/login");
+  });
 
 router.get('/secret', (req, res, next)=>{
     if(req.session.currentuser){

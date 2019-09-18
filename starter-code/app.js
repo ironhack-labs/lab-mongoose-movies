@@ -14,6 +14,7 @@ const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash")
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const User    = require('./models/User');
 
 
 mongoose.Promise = Promise;
@@ -97,7 +98,7 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-  res.locals.currentUser = req.session.currentUser;
+  res.locals.currentUser = req.user;
   next();
  });
 

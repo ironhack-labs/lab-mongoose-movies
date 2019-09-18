@@ -3,16 +3,16 @@
 <form action="/movies/{{movie.id}}" method="POST">
 
 <p>Title</p>
-<input type="text" name="title" value="{{movie.title}}">
+<input type="text" class="title" name="title" value="{{movie.title}}">
 
 <p>Genre</p>
 <input type="text" name="genre" value="{{movie.genre}}">
 
 <p>Plot</p>
 <input type="text" class="plot" name="plot" value="{{movie.plot}}">
-<button style="background-color: gray">Save</button>
 
-<select name="celebrity">
+<div>
+Select the starring celeb: <select name="celebrity" class="select">
   <option value="" selected disabled>Please Select One</option>
 
   {{#each allTheCelebrities}}
@@ -24,5 +24,8 @@
   {{/if}}
   {{/each}}
 </select>
+</div>
+
+<button style="background-color: gray">Save</button>
 
 </form>
