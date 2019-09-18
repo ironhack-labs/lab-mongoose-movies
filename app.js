@@ -9,6 +9,16 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const bcrypt       = require('bcryptjs')
+
+
+
+// const session      = require('express-session')
+// const MongoStore = require('mongo-connect')(session)
+
+
+
+
 
 mongoose
   .connect('mongodb://localhost/MongooseMovies', {useNewUrlParser: true})
@@ -51,6 +61,12 @@ app.locals.title = 'Mongoose Movies';
 
 
 
+
+
+
+
+
+
 const index = require('./routes/index');
 app.use('/', index);
 
@@ -59,5 +75,8 @@ app.use('/', index);
 app.use('/celebrities', require('./routes/celebrities'))
 
 app.use('/movies', require('./routes/movies'));
+
+
+app.use('/user', require('./routes/users'))
 
 module.exports = app;

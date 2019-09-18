@@ -15,14 +15,6 @@
 <input type="textarea" name="image" value="{{movie.image}}" id="image">
 
 
-{{!-- <select name="actors" id="actors">
-  <option selected disabled>Pick an Actor</option>
-  {{#each actors}}
-    <option value='{{id}}'>{{name}}</option>
-  {{/each}}
-</select> --}}
-
-
 <p>checkbox actors</p>
 {{#each actors}}
   <input type="checkbox" name="actors" value="{{id}}">{{name}}<br>
