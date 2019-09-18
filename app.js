@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const jquery = require('jquery')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
@@ -36,18 +37,14 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 // Auth Setup
-
 app.use(session({
     secret: "shhh-super-secret",
     saveUninitialized: true,
     resave: true,
 }));
 app.use(passport.initialize())
-    //connects passport instance to session
 app.use(passport.session())
-passport.serializeUser((user, cb) => {
-    cb(null, user._id);
-});
+passport.serializeUser((user, cb) => cb(null, user._id));
 
 passport.deserializeUser((id, cb) => {
     User.findById(id, (err, user) => {
@@ -61,7 +58,6 @@ passport.use(new LocalStrategy((username, password, next) => {
         if (err) return next(err);
         if (!user) return next(null, false, { message: "Incorrect username" })
         if (!bcrypt.compareSync(password, user.password)) return next(null, false, { message: "Incorrect password" });
-
         return next(null, user);
     });
 }));
@@ -70,6 +66,9 @@ app.use(flash());
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     res.locals.sessionFlash = req.session.sessionFlash;
+    res.locals.failureMsg = req.flash('failure')
+    res.locals.messageMsg = req.flash('message')
+    res.locals.successMsg = req.flash('success')
     delete req.session.sessionFlash;
     next();
 })
@@ -87,9 +86,12 @@ app.use(require('node-sass-middleware')({
     sourceMap: true
 }));
 
-// Folder setup
+// Handlebars Setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
+
+// Folder setup
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/bootstrap", express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));

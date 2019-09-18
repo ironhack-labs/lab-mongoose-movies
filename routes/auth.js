@@ -16,7 +16,7 @@ router.post('/signup', (req, res, next) => {
     User.create(req.body)
         .then(user => {
             req.session.currentUser = user
-            req.flash('loginStatus', 'Logged in!');
+            req.flash('success', 'Registered and logged in!');
             res.status(201).redirect('/')
         })
         .catch(e => res.status(500).send(e))
@@ -26,15 +26,29 @@ router.get('/login', (req, res, next) => {
     res.render('users/login')
 })
 
-router.post('/login', passport.authenticate("local", {
-    successRedirect: '/',
-    failureRedirect: "/login",
-    failureFlash: true,
-    passReqToCallback: true
-}));
+router.post('/login', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) {
+            req.flash('failure', `${info.message}`);
+            return next(err);
+        }
+        if (!user) {
+            req.flash('failure', `${info.message}`);
+            return res.redirect('/login');
+        }
+        req.logIn(user, function(err) {
+            if (err) {
+                req.flash('failure', `${info.message}`);
+                return next(err);
+            }
+            req.flash('success', 'Successfully logged in!');
+            return res.redirect('/');
+        });
+    })(req, res, next);
+});
 
 router.post('/logout', (req, res, next) => {
-    req.flash('success', 'Logged in!');
+    req.flash('success', 'Logged out!');
     req.logout();
     res.redirect('/');
 })

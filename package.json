@@ -10,7 +10,6 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.3.1",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.0.0",
@@ -20,13 +19,11 @@
     "express-flash": "0.0.2",
     "express-session": "^1.16.2",
     "hbs": "^4.0.1",
-    "jquery": "^3.4.1",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "popper.js": "^1.15.0",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
