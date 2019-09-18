@@ -50,11 +50,11 @@ var initMovies = [
     image: 'https://images-na.ssl-images-amazon.com/images/I/510ec3CF%2B9L.jpg'},         
 ]  
 
-// Celebrity.insertMany(initCelebs)
-//   .then(data => console.log("add successful"))
-//   .catch(err => {
-//     console.log("error while adding", err);
-//   });
+Celebrity.insertMany(initCelebs)
+  .then(data => console.log("add successful"))
+  .catch(err => {
+    console.log("error while adding", err);
+  });
 
 Movie.insertMany(initMovies)
   .then(data => console.log("add successful"))
