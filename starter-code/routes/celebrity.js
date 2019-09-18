@@ -21,7 +21,8 @@ router.get('/celebrities/details/:theid', (req, res, next) => {
 
     Celebrity.findById(id).populate('movie')
         .then((celebrityObject) => {
-            console.log(celebrityObject)
+            console.log("MOVIE", celebrityObject)
+            console.log(celebrityObject.movie)
             res.render('celebrities/details', { theCelebrity: celebrityObject })
         })
         .catch((err) => {

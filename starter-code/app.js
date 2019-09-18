@@ -49,6 +49,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Mongoose Movies';
 
+app.use(session({
+    secret: "basic-auth-secret",
+    cookie: { maxAge: 60000 },
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 24 * 60 * 60 // 1 day
+    })
+}));
+
+
 
 
 const index = require('./routes/index');
@@ -59,5 +69,8 @@ app.use('/', celebrity);
 
 const movie = require('./routes/movie')
 app.use('/', movie);
+
+const user = require('./routes/user')
+app.use('/', user)
 
 module.exports = app;
