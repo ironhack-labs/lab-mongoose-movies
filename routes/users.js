@@ -1,14 +1,9 @@
 const express     = require('express')
 const router      = express.Router();
+const User        = require('../models/User')
 
 const bcrypt     = require("bcryptjs");
-// const saltRounds = 10;
 
-
-// const salt  = bcrypt.genSaltSync(saltRounds);
-// const hash = bcrypt.hashSync(password, salt);
-
-// console.log("Hash -", hash);
 
 
 
@@ -17,8 +12,25 @@ router.get('/signup', (req,res,next) => {
 })
 
 router.post('/signup', (req,res,next) => {
-    console.log(req.body)
-  res.redirect("/user/login")
+
+    let username = req.body.username
+    let password = req.body.password
+    let email = req.body.email
+
+    const saltRounds = 10;
+
+
+    const salt  = bcrypt.genSaltSync(saltRounds);
+    const hash = bcrypt.hashSync(password, salt);
+
+    User.create({
+      username: username,
+      password: hash,
+      email: email,
+    }).then(data => {
+      res.redirect("/user/login")
+
+    }).catch(err => next(err))
 })
 
 router.get('/login', (req, res, next) => {
@@ -26,22 +38,47 @@ router.get('/login', (req, res, next) => {
 })
 
 router.post('/login', (req, res, next) => {
-  console.log(req.body)
+  let username = req.body.username
+  let password = req.body.password
 
 
 
-
-
-  
-  res.render("users/login")
+  User.findOne({ "username": username })
+  .then(user => {
+      if (!user) {
+        res.redirect('/user/login')
+      }
+      if (bcrypt.compareSync(password, user.password)) {
+        // Save the login in the session!
+        req.session.currentUser = user;
+        res.redirect("/user/secret");
+      }
+  }).catch(error => {
+    next(error);
+  })
 })
 
 
-router.get('/logout', (req, res, next) => {
-  res.render('users/logout')
+router.post('/logout', (req, res, next) => {
+  req.session.destroy(err => {
+    res.redirect('/')
+  })
+});
+
+
+
+
+
+
+
+router.get('/secret', (req,res,next) => {
+
+  if (req.session.currentUser) {
+    res.render('users/secret', {theUser: req.session.currentUser})
+  } else {
+    res.redirect('/')
+  }
 })
-
-
 
 
 

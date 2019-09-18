@@ -35,6 +35,21 @@ footer {
   bottom: 0;
   width: 100vw; }
 
+.hello {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center; }
+
+.buttons {
+  display: flex; }
+
+.buttons a {
+  padding: 10px 15px;
+  background-color: #00B7FF;
+  color: black;
+  border-radius: 6px; }
+
 @media only screen and (max-width: 900px) {
   header {
     flex-flow: column; } }

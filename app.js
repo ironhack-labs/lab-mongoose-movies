@@ -12,9 +12,8 @@ const path         = require('path');
 const bcrypt       = require('bcryptjs')
 
 
-
-// const session      = require('express-session')
-// const MongoStore = require('mongo-connect')(session)
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 
 
@@ -60,11 +59,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Mongoose Movies';
 
 
-
-
-
-
-
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 
 const index = require('./routes/index');
