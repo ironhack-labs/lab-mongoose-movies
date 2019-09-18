@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const router = express.Router();
+const passport = require('passport')
 
 
 router.get('/signup', (req, res, next) => {
@@ -25,26 +26,20 @@ router.get('/login', (req, res, next) => {
     res.render('users/login')
 })
 
-router.post('/login', (req, res, next) => {
-    User.findOne({ username: req.body.username })
-        .then(user => {
-            if (user && bcrypt.compareSync(req.body.password, user.password)) {
-                req.session.currentUser = user;
-                req.flash('success', 'Logged In!');
-                res.redirect('/')
-            }
-            req.flash('failure', 'Login Failure...');
-            res.redirect('/')
-        })
-})
+router.post('/login', passport.authenticate("local", {
+    successRedirect: '/',
+    failureRedirect: "/login",
+    failureFlash: true,
+    passReqToCallback: true
+}));
 
 router.post('/logout', (req, res, next) => {
     req.flash('success', 'Logged in!');
-    req.session.destroy()
-    res.redirect('/')
+    req.logout();
+    res.redirect('/');
 })
 
-router.get('/secret', (req, res, next) => {
+router.get('/messages', (req, res, next) => {
     if (req.session.currentUser) res.render('users/secret', { user: req.session.currentUser })
     req.flash('failure', 'Must be logged in to do that...');
     res.redirect('/')

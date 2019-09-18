@@ -3,13 +3,20 @@
 <p>{{movie.genre}}</p>
 <blockquote class="blockquote">
   <p class="mb-0">{{movie.plot}}</p>
-  <footer class="blockquote-footer">Director: <cite title="Source Title">
+  <footer class="blockquote-footer">Director:
+    <cite title="Source Title">
       <a href="/celebrities/details/{{movie.director._id}}">
-        <h5>{{movie.director.name}}</h5></cite></footer>
+        <h5>{{movie.director.name}}</h5>
+      </a>
+    </cite>
+  </footer>
 </blockquote>
-
+<p>Created By: {{movie.createdBy.username}}</p>
 <br>
 <br>
 <br>
+{{#if movie.createdByMe}}
 <a href="/movies/{{movie._id}}/edit"><button class="btn btn-lg btn-primary">Edit Movie</button></a>
-<form action="/movies/{{movie._id}}/delete" method="POST"><button class="btn btn-lg btn-secondary">Delete Movie</button></form>
+<form action="/movies/{{movie._id}}/delete" method="POST"><button class="btn btn-lg btn-secondary">Delete Movie</button>
+{{/if}}
+</form>

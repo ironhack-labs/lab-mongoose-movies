@@ -8,18 +8,19 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
+const bcrypt = require('bcryptjs')
+
 const flash = require('express-flash');
 const passport = require('passport');
-const localStrategy = require('passport-local').Strategy;
-
-
+const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
 
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth')
 const celebrityRoutes = require('./routes/celebrity');
 const movieRoutes = require('./routes/movie');
+
+const User = require('./models/User')
 
 mongoose
     .connect('mongodb://localhost/lab-celebrity', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -35,19 +36,39 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 // Auth Setup
-app.use(flash());
+
 app.use(session({
     secret: "shhh-super-secret",
     saveUninitialized: true,
     resave: true,
-    cookie: { maxAge: 60000 },
-    store: new MongoStore({
-        mongooseConnection: mongoose.connection,
-        ttl: 24 * 60 * 60 //1 day
-    })
 }));
+app.use(passport.initialize())
+    //connects passport instance to session
+app.use(passport.session())
+passport.serializeUser((user, cb) => {
+    cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+    User.findById(id, (err, user) => {
+        if (err) { return cb(err); }
+        cb(null, user);
+    });
+});
+
+passport.use(new LocalStrategy((username, password, next) => {
+    User.findOne({ username }, (err, user) => {
+        if (err) return next(err);
+        if (!user) return next(null, false, { message: "Incorrect username" })
+        if (!bcrypt.compareSync(password, user.password)) return next(null, false, { message: "Incorrect password" });
+
+        return next(null, user);
+    });
+}));
+
+app.use(flash());
 app.use((req, res, next) => {
-    res.locals.currentUser = req.session.currentUser;
+    res.locals.currentUser = req.user;
     res.locals.sessionFlash = req.session.sessionFlash;
     delete req.session.sessionFlash;
     next();

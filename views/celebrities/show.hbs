@@ -22,9 +22,11 @@
     {{/each}}
   </tbody>
 </table>
+<p>Created By: {{celebrity.createdBy.username}}</p>
 <br>
 <br>
 <br>
+{{#if celebrity.createdByMe}}
 <a href="/celebrities/{{celebrity._id}}/edit"><button class="btn btn-lg btn-primary">Edit Celeb</button></a>
-<form action="/celebrities/{{celebrity._id}}/delete" method="POST"><button class="btn btn-lg btn-secondary">Delete
-    Celeb</button></form>
+<form action="/celebrities/{{celebrity._id}}/delete" method="POST"><button class="btn btn-lg btn-secondary">Delete Celeb</button></form>
+{{/if}}

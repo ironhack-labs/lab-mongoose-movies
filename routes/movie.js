@@ -4,7 +4,7 @@ const Movie = require('../models/Movie')
 const Celebrity = require('../models/Celebrity')
 
 router.get('/', (req, res, next) => {
-    Movie.find({})
+    Movie.find({}).populate('createdBy')
         .then(movies => {
             res.render('movies/index', { movies });
         })
@@ -12,20 +12,25 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/details/:id', (req, res, next) => {
-    Movie.findById(req.params.id).populate('director')
+    Movie.findById(req.params.id).populate('director').populate('createdBy')
         .then(movie => {
+            movie.createdByMe = movie.createdBy ? movie.createdBy.equals(req.user) : false
             res.render('movies/show', { movie });
         })
         .catch(e => next(e))
 });
 
 router.get('/new', async(req, res, next) => {
+    if (!req.user) {
+        req.flash('failure', 'Must be logged in to perform that action...')
+        res.redirect('/login')
+    }
     let directors = await Celebrity.find()
     res.render('movies/create', { directors })
 })
 
 router.post('/', (req, res, next) => {
-    Movie.create(req.body)
+    Movie.create({...req.body, createdBy: req.user.id })
         .then(movie => {
             movie.save()
             res.redirect('/movies')
