@@ -8,5 +8,9 @@
 <p>Password</p>
 <input type="password" name="thePassword">
 
+{{#if error}}
+<div class="error-message">{{ error }}</div>
+{{/if}}
+
 <button style="background-color: gray">Submit</button>
 </form>

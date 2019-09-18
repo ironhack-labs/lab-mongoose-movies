@@ -4,6 +4,8 @@ const router  = express.Router();
 const User    = require('../models/User');
 const bcrypt  = require('bcryptjs');
 
+const passport = require("passport");
+
 router.get('/signup', (req, res, next)=>{
     res.render('user-views/signup')
 })
@@ -27,31 +29,16 @@ router.post('/signup', (req, res, next)=>{
     })
 })
 
-router.get('/login', (req, res, next)=>{
-    res.render('user-views/login')
-})
-
-router.post('/login', (req, res, next)=>{
-    const username = req.body.theUsername;
-    console.log(req.body.thePassword)
-    const password = req.body.thePassword;
-
-User.findOne({ username: username })
-  .then(userfromDB => {
-      if (!userfromDB) {
-        res.redirect('/');
-      }
-      if (bcrypt.compareSync(password, userfromDB.password)) {
-        req.session.currentuser = userfromDB;
-        res.redirect('/');
-      } else {
-          res.redirect('/')
-      }
-  })
-  .catch(error => {
-    next(error);
-  })
-})
+router.get("/login", (req, res, next) => {
+    res.render("user-views/login", { "error": req.flash("error") });
+  });
+  
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+    passReqToCallback: true
+}));
 
 router.get('/logout', (req, res, next)=>{
     req.session.destroy();
