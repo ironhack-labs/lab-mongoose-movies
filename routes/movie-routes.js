@@ -5,9 +5,19 @@ const Director = require("../models/Director");
 const Actor = require("../models/Actor");
 
 router.get("/movies", (req, res, next) => {
+  // if(req.session.counter){
+  //   req.session.counter++
+  // } else {
+  //   req.session.counter = 1;
+  // }
+  // useless example of how you can edit the session whenever/however you want
+
   Movie.find()
     .then(allTheMovies => {
-      res.render("movie-views/index", { movies: allTheMovies });
+      res.render("movie-views/index", {
+        movies: allTheMovies,
+        theUser: req.session.currentUser
+      });
     })
     .catch(err => {
       next(err);
@@ -29,14 +39,17 @@ router.get("/movies/details/:id", (req, res, next) => {
 
 router.get("/movies/add-new-movie", (req, res, next) => {
   Director.find()
-    .then((allDirectors) => {
+    .then(allDirectors => {
       Actor.find()
-      .then((allActors) => {
-        res.render("movie-views/new", { directors: allDirectors, actors: allActors });
-      })
-      .catch((err)=>{
-        next(err);
-      })
+        .then(allActors => {
+          res.render("movie-views/new", {
+            directors: allDirectors,
+            actors: allActors
+          });
+        })
+        .catch(err => {
+          next(err);
+        });
     })
     .catch(err => {
       next(err);
@@ -81,10 +94,10 @@ router.post("/movies/delete/:id", (req, res, next) => {
 router.get("/movies/edit-movie/:id", (req, res, next) => {
   let id = req.params.id;
   Movie.findById(id)
-    .then((theMovie) => {
+    .then(theMovie => {
       Director.find()
         .then(allDirectors => {
-          allDirectors.forEach((eachDirector) => {
+          allDirectors.forEach(eachDirector => {
             if (eachDirector._id.equals(theMovie.director)) {
               eachDirector.chosen = true;
             }
