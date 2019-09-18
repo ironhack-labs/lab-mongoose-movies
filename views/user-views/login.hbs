@@ -9,7 +9,7 @@
       id="theUsername"
       aria-describedby="userHelp"
       placeholder="Enter your username"
-      name="theUsername"
+      name="username"
     />
   </div>
     <div class="form-group">
@@ -20,12 +20,16 @@
       id="thePassword"
       aria-describedby="userHelp"
       placeholder="Enter your password"
-      name="thePassword"
+      name="password"
     />
   </div>
   <button type="submit" class="btn btn-primary">Sign In</button>
+{{#if errorMessage}}
+<div class="error-message">{{errorMessage}}</div>
+{{/if}}
 
   <p class="account-message" style="margin-top:10px">
     Don't have an account? <a href="/signup">Sign up</a>
   </p>
 </form>
+

@@ -22,15 +22,16 @@
         </a>
       </div>
     </div>
-
-    <a href="/actors/edit-actor/{{ this._id }}" class="btn btn-secondary btn-sm"
+    {{#if ../theUser}}
+<div class="btn-group inline">
+    <a href="/actors/edit-actor/{{ this._id }}" class="btn btn-secondary btn-sm" style="margin-right: 20px"
       >Edit Actor Info</a
     >
-    <br />
-    <br />
     <form action="/actors/delete/{{ this._id }}" method="POST">
-      <button class="btn btn-outline-danger btn-sm">Delete Actor</button>
+      <button class="btn btn-danger btn-sm">Delete Actor</button>
     </form>
+    </div>
+    {{/if}}
   </div>
 
   {{/each}}

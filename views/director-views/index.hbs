@@ -22,16 +22,18 @@
         </a>
       </div>
     </div>
-
-    <a href="/directors/edit-director/{{ this._id }}" class="btn btn-secondary btn-sm"
+    {{#if ../theUser}}
+<div class="btn-group inline">
+    <a href="/directors/edit-director/{{ this._id }}" class="btn btn-secondary btn-sm" style="margin-right: 20px"
       >Edit Director Info</a
     >
     <br />
     <br />
     <form action="/directors/delete/{{ this._id }}" method="POST">
-      <button class="btn btn-outline-danger btn-sm">Delete Director</button>
+      <button class="btn btn-danger btn-sm">Delete Director</button>
     </form>
+</div>
+{{/if}}
   </div>
-
   {{/each}}
 </div>

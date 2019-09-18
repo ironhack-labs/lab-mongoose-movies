@@ -3,20 +3,15 @@ const router = express.Router();
 const Movie = require("../models/Movie");
 const Director = require("../models/Director");
 const Actor = require("../models/Actor");
+const User = require("../models/User");
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
 
 router.get("/movies", (req, res, next) => {
-  // if(req.session.counter){
-  //   req.session.counter++
-  // } else {
-  //   req.session.counter = 1;
-  // }
-  // useless example of how you can edit the session whenever/however you want
-
   Movie.find()
     .then(allTheMovies => {
       res.render("movie-views/index", {
         movies: allTheMovies,
-        theUser: req.session.currentUser
       });
     })
     .catch(err => {
@@ -38,7 +33,11 @@ router.get("/movies/details/:id", (req, res, next) => {
     });
 });
 
-router.get("/movies/add-new-movie", (req, res, next) => {
+router.get("/movies/add-new", (req, res, next) => {
+  if(!req.user){
+    req.flash('error', "please login to add a new film")
+    res.redirect('/login');
+}
   Director.find()
     .then(allDirectors => {
       Actor.find()
@@ -82,6 +81,7 @@ router.post("/movies/creation", (req, res, next) => {
 });
 
 router.post("/movies/delete/:id", (req, res, next) => {
+
   let id = req.params.id;
   Movie.findByIdAndRemove(id)
     .then(result => {
@@ -93,6 +93,7 @@ router.post("/movies/delete/:id", (req, res, next) => {
 });
 
 router.get("/movies/edit-movie/:id", (req, res, next) => {
+
   let id = req.params.id;
   Movie.findById(id)
     .then(theMovie => {

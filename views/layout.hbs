@@ -29,37 +29,8 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    {{!-- <nav class="movie-header">
-      <h5>
-        <a href="/directors"
-        class="btn-link">
-          Directors
-        </a>
-      </h5>
-      <h5>
-        <a href="/directors/add-new-director" class="btn-link">Add New Director</a>
-      </h5>
-            <h5>
-        <a href="/actors"
-        class="btn-link">
-          Actors
-        </a>
-      </h5>
-      <h5>
-        <a href="/actors/add-new-actor" class="btn-link">Add New Actor</a>
-      </h5>
-      <h5>
-        <a href="/movies" class="btn-link">
-          Movie Watchlist
-        </a>
-      </h5>
-      <h5>
-        <a href="/movies/add-new-movie" class="btn-link">Add New Movie</a>
-      </h5>
-      <form action="/log-out" method="POST"><button>log out</button></form>
-    </nav> --}}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100vw; margin-bottom: 10px">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100vw; padding-bottom: 10px">
   <a class="navbar-brand btn-link" href="/">Iron Cinema</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -73,7 +44,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/directors">Directors List</a>
-          <a class="dropdown-item" href="/directors/add-new-director">Add New</a>
+          <a class="dropdown-item" href="/directors/add-new">Add New</a>
       </li>
             <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle btn-link" href="#" id="actorsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,7 +52,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/actors">Actors List</a>
-          <a class="dropdown-item" href="/actors/add-new-director">Add New</a>
+          <a class="dropdown-item" href="/actors/add-new">Add New</a>
       </li>
             <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle btn-link" href="#" id="moviesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,7 +60,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/movies">Movies List</a>
-          <a class="dropdown-item" href="/movies/add-new-director">Add New</a>
+          <a class="dropdown-item" href="/movies/add-new">Add New</a>
       </li>
     </ul>
         {{#if theUser}}
@@ -118,7 +89,6 @@
 
   </div>
 </nav>
-
 
     {{{body}}}
 

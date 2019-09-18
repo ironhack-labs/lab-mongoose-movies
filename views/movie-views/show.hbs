@@ -24,6 +24,8 @@
     </h6>
     <h6 class="content-tagline">
       <b>Starring: </b>
+      <br>
+      <br>
       <ul>
         {{#each movie.starring}}
         <li>
@@ -38,10 +40,12 @@
     <p class="movie-description">
       {{ movie.plot }}
     </p>
+    {{#if theUser}}
     <a
       href="/movies/edit-movie/{{ movie._id }}"
       class="btn btn-secondary btn-sm"
       >Edit Movie</a
     >
+    {{/if}}
   </div>
 </div>

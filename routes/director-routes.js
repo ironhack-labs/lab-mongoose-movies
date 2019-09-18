@@ -3,6 +3,9 @@ const router = express.Router();
 const Director = require("../models/Director");
 const Movie = require("../models/Movie");
 const Actor = require("../models/Actor");
+const User = require("../models/User");
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
 
 router.get("/directors", (req, res, next) => {
   Director.find()
@@ -37,7 +40,11 @@ router.get("/directors/details/:id", (req, res, next) => {
     });
 });
 
-router.get("/directors/add-new-director", (req, res, next) => {
+router.get("/directors/add-new", (req, res, next) => {
+  if(!req.user){
+    req.flash('error', "Please login to add a new director")
+    res.redirect('/login');
+}
   res.render("director-views/new");
 });
 
@@ -62,6 +69,7 @@ router.post("/directors/creation", (req, res, next) => {
 });
 
 router.post("/directors/delete/:id", (req, res, next) => {
+
   let id = req.params.id;
   Director.findByIdAndRemove(id)
     .then(result => {
@@ -73,6 +81,7 @@ router.post("/directors/delete/:id", (req, res, next) => {
 });
 
 router.get("/directors/edit-director/:id", (req, res, next) => {
+
   let id = req.params.id;
   Director.findById(id)
     .then(theDirector => {

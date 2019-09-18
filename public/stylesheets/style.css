@@ -38,8 +38,8 @@ a {
 
 .background {
   background-image: url("/images/cinema.jpg");
-  width: 99vw;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-size: cover;
   position: relative;
   overflow: hidden; }
@@ -91,7 +91,7 @@ a {
   padding: 50px 0 0 50px; }
 
 .movie-img {
-  width: 300px;
+  width: 30vw;
   border-radius: 20px;
   padding: 10px;
   border: 1px double rgba(182, 182, 182, 0.733);
@@ -131,12 +131,20 @@ a {
   -moz-box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
   box-shadow: 10px 11px 5px -10px rgba(0, 0, 0, 0.7);
   object-fit: cover;
-  width: 400px; }
+  width: 30vw; }
 
 .card-body {
   padding: 1rem; }
 
 .btn-sm {
   margin: 0 2.5px 0 2.5px; }
+
+.error-message {
+  background: #F02B63;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

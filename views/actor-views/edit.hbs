@@ -16,17 +16,41 @@
       name="theName"
     />
   </div>
-  <div class="form-group">
-    <label for="actorQuote">Famous Quote</label>
+    <div class="form-group">
+    <label for="theNominations">Nominations [limit two]</label>
+  {{#each actor.nominations}}
     <input
       type="text"
       class="form-control"
+      aria-describedby="nominationsHelp"
+      value="{{this}}"
+      name="theNominations"
+    />
+    <br />
+  {{/each}}
+  </div>
+  <div class="form-group">
+    <label for="theAwards">Awards [limit two]</label>
+  {{#each actor.awards}}
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="awardsHelp"
+      value="{{this}}"
+      name="theAwards"
+    />
+    <br />
+  {{/each}}
+  </div>
+  <div class="form-group">
+    <label for="actorQuote">Famous Quote</label>
+    <textarea
+      class="form-control"
       id="actorQuote"
       aria-describedby="quoteHelp"
-      value="{{ actor.quote }}"
       name="theQuote"
       rows="3"
-    />
+    >{{actor.quote}}</textarea>
   </div>
   <div class="form-group">
     <label for="actorImage">Image URL</label>

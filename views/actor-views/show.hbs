@@ -36,9 +36,11 @@
       <li><a href="/movies/details/{{this._id}}" class="btn-link"><em>{{this.title}}</em></a></li>
       {{/each}}
     </ul>
+    {{#if theUser}}
       <a href="/actors/edit-actor/{{ actor._id }}" class="btn btn-secondary btn-sm"
       >Edit actor Info</a
     >
+    {{/if}}
   </div>
   
 </div>
