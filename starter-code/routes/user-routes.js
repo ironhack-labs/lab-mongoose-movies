@@ -4,6 +4,8 @@ const router  = express.Router();
 const User    = require('../models/User');
 const bcrypt  = require('bcryptjs');
 
+const passport = require('passport');
+
 router.get('/signup', (req, res, next)=>{
     res.render('user-views/signup')
 })
@@ -12,7 +14,7 @@ router.post('/signup', (req, res, next)=>{
     const username = req.body.theUsername;
     const password = req.body.thePassword;
 
-    const salt  = bcrypt.genSaltSync(10);
+    const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
 
     User.create({
@@ -31,30 +33,15 @@ router.get('/login', (req, res, next)=>{
     res.render('user-views/login')
 })
 
-router.post('/login', (req, res, next)=>{
-    const username = req.body.theUsername;
-    console.log(req.body.thePassword)
-    const password = req.body.thePassword;
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+    passReqToCallback: true
+  }));
 
-User.findOne({ username: username })
-  .then(userfromDB => {
-      if (!userfromDB) {
-        res.redirect('/');
-      }
-      if (bcrypt.compareSync(password, userfromDB.password)) {
-        req.session.currentuser = userfromDB;
-        res.redirect('/');
-      } else {
-          res.redirect('/')
-      }
-  })
-  .catch(error => {
-    next(error);
-  })
-})
-
-router.get('/logout', (req, res, next)=>{
-    req.session.destroy();
+router.post('/logout',(req, res, next)=>{
+    req.logout();
     res.redirect('/');
 })
 
