@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 1rem 4rem;
+    background-color: #222;
+    color: $white;
+  
+    @media screen and (max-width: 460px) {
+      padding: 1rem;
+    }
+  
+    nav {
+      align-self: center;
+    }
+  
+    a {
+      text-decoration: none;
+      color: $lightblue;
+    
+      &:hover {
+        color: $lightgreen;
+        border-bottom: $darkgreen;
+      }
+    }
+  
+    ul {
+  
+      li {
+        margin-right: .7rem;
+  
+        &.nav-header {
+          margin-right: 1rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }

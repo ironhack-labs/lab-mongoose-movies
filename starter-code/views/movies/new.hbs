@@ -1,6 +1,8 @@
 <div class="movie-new">
     <h2>Add Movie</h2>
-    <div class="error">{{error}}</div>
+    {{#if errorMessage }}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
     <form method="POST" action="/movies">
 
         <label for="title">Title:</label>

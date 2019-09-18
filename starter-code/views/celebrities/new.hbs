@@ -1,6 +1,8 @@
 <div class="celeb-new">
     <h2>Add Celebrity</h2>
-    <div class="error">{{error}}</div>
+    {{#if errorMessage }}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
     <form method="POST" action="/celebrities">
 
         <label for="theName">Name:</label>

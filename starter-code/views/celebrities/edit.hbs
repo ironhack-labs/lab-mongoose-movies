@@ -1,6 +1,8 @@
 <div class="celeb-edit">
     <h2>Edit Celebrity</h2>
-    <div class="error">{{error}}</div>
+    {{#if errorMessage }}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
     <form method="POST" action="/celebrities/{{celeb._id}}">
 
         <label for="theName">Name:</label>

@@ -10,30 +10,11 @@ $lightgray: #bbbbbb;
 $lightergray: #eeeeee;
 $white: #ffffff;
 
-@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
-  overflow: hidden;
-  position: relative;
-  line-height: $lineHeight;
-  max-height: $lineHeight * $lineCount; 
-  text-align: justify;
-  margin-right: -1em;
-  padding-right: 1em;
-  &:before {
-    content: '...';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
-    background: $bgColor;
-  }
-}
+@import 'parts/normalize';
+@import 'parts/mixins';
+@import 'parts/layout';
+@import 'parts/nav';
+
 
 *,
 html,
@@ -108,41 +89,6 @@ blockquote {
     font-family: georgia, sans-serif;
     color: $white;
     z-index: -1;
-  }
-}
-
-header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  padding: 1rem 4rem;
-  background-color: #222;
-  color: $white;
-
-  @media screen and (max-width: 460px) {
-    padding: 1rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: $lightblue;
-  
-    &:hover {
-      color: $lightgreen;
-      border-bottom: $darkgreen;
-    }
-  }
-
-  ul {
-
-    li {
-      margin-right: .7rem;
-
-      &.nav-header {
-        margin-right: 1rem;
-        font-weight: bold;
-      }
-    }
   }
 }
 
@@ -292,11 +238,5 @@ form {
       color: $lightgray;
       cursor: pointer;
     }
-  }
-}
-
-.celeb {
-  h2 {
-    margin-bottom: 0;
   }
 }
