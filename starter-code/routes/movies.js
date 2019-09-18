@@ -2,11 +2,27 @@ const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/Movie.js')
 const Celebrity = require('../models/Celebrity.js')
+const User = require('../models/User.js')
 
 
 router.get('/movies', (req, res, next)=>{
+
+    if(!req.user){
+        req.flash('error', "please login to view book selection")
+        res.redirect('/login');
+    }
+
     Movie.find()
+    
     .then((result)=>{
+        console.log(result)
+        result.forEach((eachMovie)=>{
+            
+            console.log("<><><><><><><><><",req.user._id)
+            if(eachMovie.creator.equals(req.user._id)){
+                eachMovie.mine = true;
+            }
+    })
         console.log("This is the list of movies")
         res.render('movies/movie', {result: result})
     })
@@ -41,14 +57,17 @@ router.post('/movies/new-movie', (req, res, next)=>{
     let genre = req.body.theGenre
     let plot = req.body.thePlot
     let actor = req.body.celebrity
-
+    
+console.log(req.user)
     Movie.create({
         title: title,
         genre: genre,
         plot: plot,
-        actor: actor
+        actor: actor,
+        creator: req.user
     })
     .then((result)=>{
+        console.log(result)
         res.redirect('/movies')
     })
     .catch((err)=>{

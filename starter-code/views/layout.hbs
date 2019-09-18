@@ -13,11 +13,17 @@
   <li><a href="/">Home</a></li>
   <li><a href="/celebs">Celebs</a></li>
   <li><a href="/movies">Movies</a></li>
-  {{#if currentUser}}
-  <li><a href="/logout">signout</a></li>
-  {{else}}
-  <li><a href="/login">Login</a></li>
-  {{/if}}
+  <li>
+  {{#if theUser}}
+ 
+   <a href="/logout">logout</a>
+
+    {{else}}
+
+      <a href="/login">Login</a>
+      
+    {{/if}}
+      </li>
   
 
     </ul>

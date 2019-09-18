@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-const Celebrity = require('../models/Celebrity.js')
-const Movie = require('../models/Movie.js')
 
 
 mongoose

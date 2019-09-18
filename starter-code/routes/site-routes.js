@@ -6,7 +6,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.use((req, res, next) => {
-  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+  if (req.user) { // <== if there's user in the session (user is logged in)
     next(); // ==> go to the next route ---
   } else {                          //    |
     res.redirect("/login");         //    |

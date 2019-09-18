@@ -4,9 +4,19 @@
 {{#each result}}
 <li>
     <h2><a href="/movies/details/{{this._id}}">{{this.title}}</a></h2>
-    <form action="/movies/{{this._id}}/delete" method="POST">
-        <button>Delete</button>
-    </form>
+    
+
+
+{{#if this.mine}}
+
+<form action="/movies/{{this._id}}/delete" method="POST">
+    <button>Delete This Movie</button>
+</form>
+
+
+<a href="/movies/{{this._id}}/edit">Edit This Movie's Info</a>
+
+{{/if}}
 </li>
 {{/each}}
 </ul>
