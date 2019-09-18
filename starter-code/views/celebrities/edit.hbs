@@ -4,15 +4,15 @@
     <form method="POST" action="/celebrities/{{celeb._id}}">
 
         <label for="theName">Name:</label>
-        <input name="theName" type="input" value="{{celeb.name}}" required />
+        <input name="theName" type="text" value="{{celeb.name}}" required />
 
         <label for="theOccupation">Occupation:</label>
-        <input name="theOccupation" type="input" value="{{celeb.occupation}}" required />
+        <input name="theOccupation" type="text" value="{{celeb.occupation}}" required />
 
         <label for="theCatchPhrase">Catch Phrase:</label>
-        <input name="theCatchPhrase" type="input" value="{{celeb.catchPhrase}}" required />
+        <input name="theCatchPhrase" type="text" value="{{celeb.catchPhrase}}" required />
 
-        <button>Submit</button>
+        <button class="submit">Submit</button>
 
     </form>
 </div>

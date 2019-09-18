@@ -1,9 +1,9 @@
 <div class="user-new">
-    <h2>User Signup</h2>
+    <h2>User Login</h2>
     {{#if errorMessage }}
     <div class="error-message">{{ errorMessage }}</div>
     {{/if}}
-    <form method="POST" action="/signup">
+    <form method="POST" action="/login">
 
         <label for="username">Username:</label>
         <input name="username" type="text" required />
@@ -11,8 +11,11 @@
         <label for="password">Password:</label>
         <input name="password" type="password" required />
 
-        <br /><br />
-        <button>Submit</button>
+        <button class="submit">Submit</button>
+
+        <p class="account-message">
+            Don't have an account? <a href="/signup">Sign up</a>
+        </p>
 
     </form>
 </div>

@@ -146,12 +146,12 @@ section {
           text-decoration: underline; }
       section ul li.hover button,
       section ul li.hover .button {
-        background-color: #b996ff;
+        background-color: #9d6bff;
         border-color: #9b7dd8;
         color: #ffffff; }
         section ul li.hover button:hover,
         section ul li.hover .button:hover {
-          background-color: #9d6bff;
+          background-color: #b996ff;
           color: #ffffff;
           text-decoration: none; }
     section ul li button,

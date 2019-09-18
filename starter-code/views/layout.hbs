@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,15 @@
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  
+
 </head>
+
 <body>
   <header>
-      <a href="/" class="title"><h1>Mongoose Movies Lab</h1></a>
-      <nav>
+    <a href="/" class="title">
+      <h1>Mongoose Movies Lab</h1>
+    </a>
+    <nav>
       <ul>
         <li class="nav-header">Celebrities</a></li>
         <li><a href="/celebrities">All</a></li>
@@ -27,8 +31,15 @@
         <li><a href="/movies/new">New</a></li>
       </ul>
       <ul>
+        {{#if currentUser}}
+
+        <li>Welcome {{currentUser.username}}</li>
+        <li><a href="/logout">Logout</a></li>
+        {{else}}
+
         <li><a href="/signup">Signup</a></li>
         <li><a href="/login">Login</a></li>
+        {{/if}}
       </ul>
     </nav>
   </header>
@@ -39,4 +50,5 @@
 
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

@@ -1,2 +1,7 @@
-<h2>{{title}}</h2>
-<p>Exercise on routing and CRUD</p>
+{{#if currentUser}}
+<h2>Welcome {{currentUser.name}}</h2>
+<p>Have you visited the <a href="/secret/">secret page</a> for only logged in users?</p>
+{{else}}
+<h2>Welcome Stranger</h2>
+<p>Please <a href="/login">login</a> or <a href="/signup">signup</a> to continue.</p>
+{{/if}}

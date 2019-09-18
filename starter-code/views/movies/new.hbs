@@ -4,13 +4,13 @@
     <form method="POST" action="/movies">
 
         <label for="title">Title:</label>
-        <input name="title" type="input" required />
+        <input name="title" type="text" required />
 
         <label for="genre">Genre:</label>
-        <input name="genre" type="input" required />
+        <input name="genre" type="text" required />
 
         <label for="plot">Plot:</label>
-        <input name="plot" type="input" required />
+        <input name="plot" type="text" required />
 
         <label for="celebrity">Select a Starring Celebrity</label>
         <select name="celebrity">
@@ -18,8 +18,8 @@
             <option value="{{this._id}}">{{this.name}}</option>
             {{/each}}
         </select>
-    <br /><br />
-        <button>Submit</button>
+        
+        <button class="submit">Submit</button>
 
     </form>
 </div>
