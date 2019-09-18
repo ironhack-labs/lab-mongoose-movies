@@ -8,6 +8,10 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session      = require("express-session");
+const MongoStore   = require("connect-mongo")(session);
+
+
 
 
 mongoose
@@ -44,6 +48,26 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
+
+app.use((req, res, next) => {
+  // console.log("this is the user info after log in ------ ", req.user);
+
+  // Passport defines "req.user" if the user is logged in
+  // ("req.user" is the result of deserialize)
+  res.locals.currentUser = req.session.currentUser;
+
+  // call "next()" to tell Express that we've finished
+  // (otherwise your browser will hang)
+  next();
+});
 
 
 // default value for title local
@@ -60,5 +84,10 @@ app.use('/', celeb)
 const movie = require('./routes/movies')
 app.use('/', movie)
 
+const user = require('./routes/users')
+app.use('/', user)
+
+app.use('/', require('./routes/users'));
+app.use('/', require('./routes/site-routes'));
 
 module.exports = app;
