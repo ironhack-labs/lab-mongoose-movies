@@ -6,6 +6,9 @@
         </ul>
         {{!-- action must be the same as post route - copy and paste works best --}}
         <form action="/celebRoutes/delete/{{this.id}}" method="POST"><button> Click to delete </button></form>
+
+        <a href ="/celebRoutes/edit/{{this.id}}" >Click to edit </a>
+        
       {{/each}}
 </h2>
 

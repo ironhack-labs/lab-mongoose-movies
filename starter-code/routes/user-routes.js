@@ -54,6 +54,8 @@ router.post('login', (req, res, next)=>{
   .then(userFromDB => {
     // if user is not a user in the database, redirect to        // homepage
     if(!userFromDB){
+
+      res.locals.errorMessage = req.flash('error')
       res.redirect('/');
     }
     if(bcrypt.comapreSync(password, userFromDB.password)){
@@ -87,5 +89,7 @@ router.get('/secret', (req,res,next)=>{
     res.redirect('/')
   }
 })
+
+
 
 module.exports = router;
