@@ -3,8 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #a0c9cb;
   background: linear-gradient(0deg, #a0c9cb 0%, #2d95fd 100%);
-  background-size: cover;
-  height: 100hv; }
+  background-size: contain; }
 
 a {
   color: black; }
@@ -38,9 +37,15 @@ a {
   font-size: 12px; }
 
 .login {
-  background: #ada74c;
-  color: white;
-  font-size: 12px;
-  border-radius: 10px; }
+  background: #fff45d;
+  color: black;
+  font-size: 10px;
+  border-radius: 5px; }
+
+.pagelogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */

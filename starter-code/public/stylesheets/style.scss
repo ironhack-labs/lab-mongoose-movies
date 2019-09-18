@@ -3,8 +3,7 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background: rgb(160, 201, 203);
     background: linear-gradient(0deg, rgba(160, 201, 203, 1) 0%, rgba(45, 149, 253, 1) 100%);
-    background-size: cover;
-    height: 100hv;
+    background-size: contain;
 }
 
 a {
@@ -45,8 +44,15 @@ a {
 }
 
 .login {
-    background: rgb(173, 167, 76);
-    color: white;
-    font-size: 12px;
-    border-radius: 10px;
+    background: rgb(255, 244, 93);
+    color: black;
+    font-size: 10px;
+    border-radius: 5px;
+}
+
+.pagelogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
 }
