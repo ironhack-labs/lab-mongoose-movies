@@ -65,36 +65,58 @@ router.get("/secret", (req, res, next) => {
 });
 
 router.get("/account", (req, res, next) => {
-  res.render("user-views/profile");
-});
-
-router.post("/user/update/:id", (req, res, next) => {
   if (!req.user) {
     req.flash("error", "Please login to your account");
     res.redirect("/login");
   }
+  res.render("user-views/profile");
+});
+
+router.post("/account/update", (req, res, next) => {
+  console.log("hi");
   let id = req.user.id;
+
+  let passVar = req.body.theOldPassword;
 
   let oldPass = req.body.theOldPassword;
   let newPass = req.body.theNewPassword;
 
-  if (!bcrypt.compareSync(oldPass, user.password)) {
+  // console.log(req.user.password);
+  // console.log(oldPass)
+  // console.log(bcrypt.compareSync(oldPass, req.user.password))
+
+  if (!bcrypt.compareSync(oldPass, req.user.password)) {
+    console.log("---!!!!!---");
     req.flash("error", "Passwords do not match");
     res.redirect("/account");
-  } else if (oldPass === "" && newPass === "") {
-    req.user.password = req.user.password;
   }
 
   const salt = bcrypt.genSaltSync(10);
-  const hash = bcrypt.hashSync(newPass, salt);
+  let hash;
+  if (newPass) {
+    hash = new Promise((resolve, reject) => {
+      resolve(bcrypt.hashSync(newPass, salt));
+    });
+  } else {
+    hash = new Promise((resolve, reject) => {
+      resolve(bcrypt.hashSync(oldPass, salt));
+    });
+  }
 
-  User.findByIdAndUpdate(id, {
-    username: req.body.theUsername,
-    password: hash,
-    image: req.body.theImage
-  })
-    .then(result => {
-      res.redirect("/account");
+  hash
+    .then(theActualPassword => {
+      User.findByIdAndUpdate(id, {
+        username: req.body.theUsername,
+        password: theActualPassword,
+        image: req.body.theImage
+      })
+        .then(result => {
+          console.log("its a race condition");
+          res.redirect("/");
+        })
+        .catch(err => {
+          next(err);
+        });
     })
     .catch(err => {
       next(err);
