@@ -7,13 +7,18 @@
   <li><img src="{{image}}"></li>
   <a href="/show-celeb/{{_id}}">Read more about this celeb</a>
 
+ {{#if theUser}}
 <form action="/delete-celeb/{{_id}}" method="POST">
     <button>Delete this Celeb</button>
 </form>
 
-<a href="/edit-celeb/{{this._id}}">Edit This Celeb's Info</a>
+<a href="/edit-celeb/{{_id}}">Edit This Celeb's Info</a>
   <br>
+
+{{/if}}
 {{/each}}
 </ul>
 
+{{#if theUser}}
  <a href="/new-celeb">Create a new celeb</a>
+{{/if}}

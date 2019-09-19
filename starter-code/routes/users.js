@@ -11,6 +11,14 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
+   
+    let admin = false;
+    if(req.user) {
+      if (req.user.isAdmin) {
+        admin = req.body.role ? req.user.role : false
+      }
+    }
+  
     let username = req.body.username;
     let password = req.body.password;
 
@@ -19,10 +27,11 @@ router.post('/signup', (req, res, next) => {
 
     User.create({
         username: username,
-        password: hash
+        password: hash,
+        isAdmin: admin
     })
     .then(()=>{
-        res.redirect('/')
+        res.redirect('/login')
     })
     .catch((err)=>{
         next(err)
@@ -43,6 +52,11 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+// router.post('/logout', (req, res, next)=> {
+//   req.logout();
+//   res.redirect('/');
+// })
+
 router.get('/logout', (req, res, next) => {
 
     req.session.destroy();
@@ -51,11 +65,49 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/favorites', (req, res, next) => {
+
   if (req.session.currentUser) {
-    res.render('movies/favorites');
+    res.render('users/favorites');
   } else {
     res.redirect('/');
   }
 
 })
+
+router.get('/profile', (req, res, next)=>{
+  res.render('users/profile');
+})
+
+router.post('/account/delete-account', (req, res, next)=>{
+
+  User.findByIdAndRemove(req.user._id)
+  .then(()=>{
+      res.redirect('/')
+  })
+  .catch((err)=>{
+      next(err)
+  })
+
+})
+
+// routes/auth-routes.js
+
+router.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
+);
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/celeb-index",
+    failureRedirect: "/" // here you would redirect to the login page using traditional login approach
+  })
+)
+
 module.exports = router;

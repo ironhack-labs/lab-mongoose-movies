@@ -4,7 +4,10 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
 
   username: String,
-  password: String
+  password: String,
+  isAdmin: Boolean,
+  role: {type: String, enum: ["Administrator", "Employee", "Customer"]},
+  googleID: String
   
 });
 

@@ -9,6 +9,10 @@
 </head>
 <body>
 
+  {{#if errorMessage}}
+  <div>{{errorMessage}}</div>
+  {{/if}}
+
   <div class="nav-container">
 
     <nav class="nav-left">
@@ -16,6 +20,13 @@
           <li><a href="/">Home</a></li>
           <li><a href="/celeb-index">Celebrities</a></li>
           <li><a href="/movie-index">Movies</a></li>
+
+        {{#if theUser.isAdmin}}
+          <a href="/create-new-account">Create New User</a>
+          <a href="/active-users">See All Users</a>
+        {{/if}}
+
+
           {{#if theUser}}
             <li><a href="/movie-index">Favorite Movies</a></li>
           {{/if}}
@@ -24,22 +35,19 @@
 
      <nav class="nav-right">
       <ul>
-       
-        <li><a href="/signup">Sign up</a></li>
-         {{#unless theUser}}
-        <li><a href="/login">Login</a></li>
-        {{/unless}}
+
         {{#if theUser}}
-        <li><a href="/logout">Logout</a></li>
+          <li><a href="/logout">Logout</a></li>
+          {{else}}
+          <li><a href="/signup">Sign up</a></li>
+          <li><a href="/login">Login</a></li>
         {{/if}}
+    
       </ul>
     </nav>
 
   </div>
 
-  <br>
-  <br>
-  <br>
 
   {{{body}}}
 
