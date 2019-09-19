@@ -45,6 +45,7 @@ button {
   padding: 3px 10px;
   border-radius: 15px;
   color: black;
+  margin-left: 5px;
   transition: .3s; }
 
 button:hover {
