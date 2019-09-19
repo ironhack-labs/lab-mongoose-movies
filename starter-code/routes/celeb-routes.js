@@ -18,6 +18,26 @@ router.get("/seed", (req, res, next) => {
     .catch(err => next(err));
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// list of celebrities
 router.get("/celebRoutes", (req, res, next) => {
   Celebrity.find()
     .then(result => {
@@ -26,6 +46,26 @@ router.get("/celebRoutes", (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // create new celebrity
 
@@ -79,21 +119,23 @@ router.get("/celebRoutes/details/:id", (req, res, next) => {
     .catch(err => next(err));
 });
 
+
 // delete celeb
 router.post("/celebRoutes/delete/:id", (req, res, next) => {
   let id = req.params.id;
-
+  
   Celebrity.findByIdAndRemove(id)
-    .then(result => {
-      res.redirect("/celebRoutes", { deletedCeleb: result });
+  .then(result => {
+    
+      res.redirect("/celebRoutes");
     })
+    
     .catch(err => {
       next(err);
-    });
-});
-
-// edit celeb
-
+    })
+  })
+  
+  // edit celeb
 router.get("/celebRoutes/edit/:id", (req, res, next) => {
   let id = req.params.id;
   // console.log(id);
@@ -107,7 +149,7 @@ router.get("/celebRoutes/edit/:id", (req, res, next) => {
 })
  
 
-
+// save edits
 router.post("/celebRoutes/update/:id", (req,res,next)=>{
 
   let id = req.params.id;

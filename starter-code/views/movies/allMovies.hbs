@@ -1,0 +1,16 @@
+<h> Movies </h>
+
+<h2> {{#each showAllMovies}}
+      <ul>
+        <li><a href="/movies/details/{{this.id}}" >{{this.title}}</a></li>
+        </ul>
+        {{!-- action must be the same as post route - copy and paste works best --}}
+        <button class ="editCeleb"><a href ="/movies/edit/{{this.id}}" >Click to edit </a></button>
+        
+        <button class="deleteCeleb"><a href="/movies/delete/{{this.id}}" method="POST"> Click to delete </button></form>
+
+        
+      {{/each}}
+</h2>
+
+<a class="newCeleb" href = "/movies/new" >Click here to add a new movie! </a>

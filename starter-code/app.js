@@ -83,6 +83,8 @@ app.use('/', index);
 const celebRoutes = require('./routes/celeb-routes')
 app.use('/', celebRoutes);
 
+const movieRoutes = require('./routes/movie-routes')
+app.use('/', movieRoutes);
 // const movieRoutes = require('./routes/movie-routes')
 // app.use('/', movieRoutes);
 
