@@ -24,9 +24,9 @@
     </div>
 
     {{#if this.mine}}
-<div class="btn-group inline">
+<div class="form-inline justify-content-center">
 
-    <a href="/movies/edit/{{ this._id }}" class="btn btn-secondary btn-sm" style="margin-right: 20px"
+    <a href="/movies/edit/{{ this._id }}" class="btn btn-secondary btn-sm"
       >Edit Movie</a
     >
     <form action="/movies/delete/{{ this._id }}" method="POST">

@@ -23,12 +23,11 @@
       </div>
     </div>
     {{#if this.mine}}
-<div class="btn-group inline">
-    <a href="/directors/edit/{{ this._id }}" class="btn btn-secondary btn-sm" style="margin-right: 20px"
-      >Edit Director Info</a
+<div class="form-inline justify-content-center">
+
+    <a href="/directors/edit/{{ this._id }}" class="btn btn-secondary btn-sm"
+      >Edit Director</a
     >
-    <br />
-    <br />
     <form action="/directors/delete/{{ this._id }}" method="POST">
       <button class="btn btn-danger btn-sm">Delete Director</button>
     </form>

@@ -72,7 +72,20 @@ router.get("/account", (req, res, next) => {
   res.render("user-views/profile");
 });
 
+router.post("/account/google-update", (req, res, next) => {
+    User.findByIdAndUpdate(req.user.id, {
+      username: req.body.theUsername
+    })
+      .then(data => {
+        req.flash("success", "Your settings have been saved");
+        res.redirect("/account");
+      })
+      .catch(err => next(err));
+  }
+)
+
 router.post("/account/update", (req, res, next) => {
+
   let id = req.user.id;
   let oldPass = req.body.theOldPassword;
   let newPass = req.body.theNewPassword;
@@ -102,6 +115,7 @@ router.post("/account/update", (req, res, next) => {
         image: req.body.theImage
       })
         .then(result => {
+          req.flash("success", "Your settings have been saved");
           res.redirect("/account");
         })
         .catch(err => {

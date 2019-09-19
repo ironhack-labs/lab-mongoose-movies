@@ -1,17 +1,33 @@
-<h2>Create New Account</h2>
+<h2 class="movies-head">Create New Account</h2>
 
-<form action="/signup" method="POST">
-  <div>
-    <label>Username</label>
-    <input type="text" name="theUsername" />
+<form action="/signup" method="POST" style="width:500px; margin-left:100px">
+  <div class="form-group">
+    <label for="theUsername">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="theUsername"
+      aria-describedby="userHelp"
+      placeholder="Create a new username"
+      name="theUsername"
+      required
+    />
   </div>
-  <div>
-    <label>Password</label>
-    <input type="text" name="thePassword" />
+    <div class="form-group">
+    <label for="thePassword">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="thePassword"
+      aria-describedby="userHelp"
+      placeholder="Create a new password"
+      name="thePassword"
+      required
+    />
   </div>
   <div>
     <label>Admininstrator Account?</label>
     <input type="checkbox" name="role" value="true" />
   </div>
-<button>Submit</button>
+<button class="btn btn-primary">Submit</button>
 </form>

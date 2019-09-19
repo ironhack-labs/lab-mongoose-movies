@@ -197,8 +197,10 @@ a {
   box-sizing: border-box;
   color: #fff;
   margin: 20px auto;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .google-link {
@@ -209,4 +211,22 @@ a {
   width:20px; 
   padding-bottom: 2px; 
   margin-left: 5px
+}
+
+.success-message {
+  background: rgba(43, 240, 53, 0.75);
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+@media (min-width:750px){
+  .user-form{
+    width: 50%;
+    margin-left: 50px;
+  }
 }
