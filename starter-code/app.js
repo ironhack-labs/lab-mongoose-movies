@@ -8,11 +8,10 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
-
 const flash = require('connect-flash');
+const GoogleStrategy = require('passport-google-oath20').Strategy;
 
 
 
@@ -76,6 +75,35 @@ app.use((req,res,next)=>{
 
   next();
 })
+
+passport.use(
+  new SlackStrategy(
+    {
+      clientID: "process.env.GOOGLE_ID",
+      clientSecret: "process.env.GOOGLE_SECRET",
+      callbackURL: "/auth/google/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Slack account details:", profile);
+
+      User.findOne({ goodleID: profile.id })
+        .then(user => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          User.create({ goodleID: profile.id })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            .catch(err => done(err)); // closes User.create()
+        })
+        .catch(err => done(err)); // closes User.findOne()
+    }
+  )
+);
 
 const index = require('./routes/index');
 app.use('/', index);
