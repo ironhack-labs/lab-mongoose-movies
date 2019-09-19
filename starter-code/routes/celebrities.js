@@ -12,7 +12,7 @@ router.get('/celeb-index', (req, res, next)=>{
       next(err);
   })
 
-})
+});
 
 router.get('/show-celeb/:id', (req, res, next)=>{
   let id = req.params.id;
@@ -24,11 +24,11 @@ router.get('/show-celeb/:id', (req, res, next)=>{
       next(err);
   })
 
-})
+});
 
 router.get('/new-celeb', (req, res, next)=>{
   res.render('celebrities/new-celeb');
-})
+});
 
 router.post('/created-celeb', (req, res, next)=>{
 
@@ -54,6 +54,7 @@ router.post('/created-celeb', (req, res, next)=>{
 
 
 router.post('/delete-celeb/:id', (req, res, next)=>{
+
   let id = req.params.id;
 
   Celebrity.findByIdAndRemove(id)
@@ -63,7 +64,7 @@ router.post('/delete-celeb/:id', (req, res, next)=>{
   .catch((err)=>{
       next(err)
   })
-})
+});
 
 
 router.get('/edit-celeb/:id', (req, res, next)=>{
@@ -97,7 +98,7 @@ router.post('/update-celeb/:id', (req, res, next)=>{
       next(err);
   })
 
-})
+});
 
 
 module.exports = router;

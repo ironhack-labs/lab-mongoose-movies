@@ -10,7 +10,11 @@ const logger       = require('morgan');
 const path         = require('path');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
-
+const flash        = require('connect-flash');
+const passport     = require("passport");
+const LocalStrategy= require("passport-local").Strategy;
+const User         = require('./models/User');
+const bcrypt       = require('bcryptjs');
 
 mongoose
   .connect('mongodb://localhost/mongoose-celebrities', {useNewUrlParser: true})
@@ -33,13 +37,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
+
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
+
 }));
-      
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -48,18 +52,76 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 //User-Info
 app.use(session({
+
   secret: "top-secret-key",
   cookie: { maxAge: 60000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
   })
+
 }));
 
 
+app.use(passport.initialize());
+// this line is basically turning passport on
+
+app.use(passport.session());
+// this line connects the passport instance you just created, with the session that you just created above it
+
+
+app.use(flash());
+
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+passport.use(new LocalStrategy((username, password, next) => {
+  //                                ^
+  //                                |
+  //                                ------------------------------------
+  //                                                                    |
+  // passport by default will grab req.body.username and put it right here
+// same thing is true for password
+
+  User.findOne({ username }, (err, user) => {
+    // in this callbacksyntax err will only exist if something goes wrong
+    // user will only exist if everything goes right
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Sorry, wrong username" });
+      // whatever message is equal to automatically gets set to req.flash('error')
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+
+app.use((req, res, next)=>{
+  res.locals.theUser = req.user;
+  // with passport, its always called req.user by default
+
+  res.locals.errorMessage = req.flash('error');
+
+  next();
+})
+
 // default value for title local
 app.locals.title = 'Entertainment Live';
-
 
 const index = require('./routes');
 app.use('/', index);

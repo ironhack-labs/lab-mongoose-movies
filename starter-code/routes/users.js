@@ -1,8 +1,8 @@
 const express   = require('express');
 const router    = express.Router();
-
-const User    = require('../models/User');
-const bcrypt  = require('bcryptjs');
+const User      = require('../models/User');
+const bcrypt    = require('bcryptjs');
+const passport  = require('passport');
 
 router.get('/signup', (req, res, next) => {
 
@@ -35,29 +35,13 @@ router.get('/login', (req, res, next) => {
 
 });
 
-router.post('/login', (req, res, next) => {
-    let currentUser = req.body.username;
-    let password = req.body.password;
 
-    const salt  = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-    
-
-    User.findOne({username: currentUser})
-    .then(user=> {
-      if(!user) {
-        res.redirect('/');
-      } if (bcrypt.compareSync(password, user.password)) {
-          req.session.currentUser = user;
-          res.redirect('/favorites');
-      } else {
-         res.redirect('/');
-      }
-    })
-    .catch(err => {
-      next(err);
-    })
-});
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
 router.get('/logout', (req, res, next) => {
 
@@ -67,8 +51,11 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/favorites', (req, res, next) => {
-
-  res.render('movies/favorites');
+  if (req.session.currentUser) {
+    res.render('movies/favorites');
+  } else {
+    res.redirect('/');
+  }
 
 })
 module.exports = router;
