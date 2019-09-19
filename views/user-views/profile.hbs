@@ -5,6 +5,13 @@
   method="POST"
   style="width:500px; margin-left:100px"
 >
+<img
+        class="card-img-top mx-auto d-block"
+        src="{{ theUser.image }}"
+        style="width:15vw; margin-bottom: 2vh"
+        alt="{{ theUser.username }}"
+        onerror="if (this.src != 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png') this.src = 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png';"
+      />
   <div class="form-group">
     <label for="theUsername">Change Username</label>
     <input

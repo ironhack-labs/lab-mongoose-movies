@@ -112,7 +112,7 @@ router.post("/account/update", (req, res, next) => {
       })
         .then(result => {
           console.log("its a race condition");
-          res.redirect("/");
+          res.redirect("/account");
         })
         .catch(err => {
           next(err);
