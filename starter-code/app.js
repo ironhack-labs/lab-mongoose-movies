@@ -22,6 +22,10 @@ mongoose
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
+const index = require('./routes/index');
+const celebrity = require('./routes/celebrity');
+const coco  = require('./routes/coco');
+
 const app = express();
 
 // Middleware Setup
@@ -51,8 +55,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+
+app.use('/', index,celebrity);
 
 
 module.exports = app;
