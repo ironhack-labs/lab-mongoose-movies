@@ -1,5 +1,42 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 
 
-<a href='/celebrities'>Celebrities</a>
+
+<div id='main-page-all'>
+
+
+{{#if theUser}}
+<div class='show-main'>
+
+<a class='secret-profile' href='/users/profile'>
+    <img src='/images/profile-icon.png'>
+    <p>Profile</p>
+</a>
+
+
+<a class='secret-profile' href='/users/secret'>
+    <img src='/images/profile-icon.png'>
+    <p>Secret</p>
+</a>
+
+</div>
+{{/if}}
+
+<div class='main-page'>
+<a href='/movies'>
+    <img src='/images/movie-icon.png'>
+    <p>Movies</p>
+</a>
+
+
+<a href='/celebrities'>
+    <img src='/images/celeb-icon.png'>
+    <p>Celebrities</p>
+</a>
+
+</div>
+
+
+
+
+
+</div>

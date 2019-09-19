@@ -1,0 +1,40 @@
+
+<div class='new-movie-page'>
+  <h2>Create a New Movie</h2>
+
+
+<form class='new-movie-form' action='/movies/new' method='POST'>
+  <div>
+    <p>Title: </p>
+    <input type='text' name='theTitle'>
+  </div>
+  
+
+  <div>
+    <p>Genre: </p>
+    <input type='text' name='theGenre'>
+  </div>
+ 
+
+  <div>
+    <p>Plot: </p>
+    <input type='text' name='thePlot'>
+  </div>
+  
+
+  <div>
+    <p>Stars: </p>
+  <select name='theStars'>
+    {{#each allCelebs}}
+    <option value='{{this._id}}'>{{this.name}}</option>
+    {{/each}}
+  </select>
+  </div>
+
+  <div class='form-save'>
+    <button type='submit'>Save</button>
+  </div>
+
+</form>
+</div>
+
