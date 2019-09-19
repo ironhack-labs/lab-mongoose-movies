@@ -14,9 +14,13 @@ router.get('/', userAuth, (req, res, next) => {
 router.post('/delete', userAuth, (req, res, next) => {
     User.findByIdAndRemove(req.user._id)
         .then(() => {
+            req.flash('success', 'Your user entry was successfully deleted.')
             res.redirect('/')
         })
-        .catch(e => next(e))
+        .catch(e => {
+            req.flash('failure', 'Your user entry was not deleted due to an error.')
+            next(e)
+        })
 })
 
 module.exports = router

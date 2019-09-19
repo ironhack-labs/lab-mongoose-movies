@@ -13,6 +13,7 @@ const bcrypt = require('bcryptjs')
 const flash = require('express-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('express-session')
 
 const indexRoutes = require('./routes/index');
@@ -62,6 +63,32 @@ passport.use(new LocalStrategy((username, password, next) => {
         return next(null, user);
     });
 }));
+
+passport.use(
+    new GoogleStrategy({
+            clientID: process.env.GOOGLE_OATH_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_OATH_CLIENT_SECRET,
+            callbackURL: process.env.GOOGLE_OATH_CALLBACK
+        },
+        (accessToken, refreshToken, profile, done) => {
+            User.findOne({ googleID: profile.id })
+                .then(user => {
+                    let userData = { googleID: profile.id, username: profile._json.name, email: profile._json.email, role: 'User' }
+                    if (profile.photos) userData.image = profile.photos[0].value
+                    if (user) {
+                        done(null, user);
+                        return;
+                    }
+                    User.create(userData)
+                        .then(newUser => {
+                            done(null, newUser);
+                        })
+                        .catch(err => done(err));
+                })
+                .catch(err => done(err));
+        }
+    )
+);
 
 app.use(flash());
 app.use((req, res, next) => {

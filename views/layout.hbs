@@ -43,8 +43,9 @@
       {{#if currentUser}}
 
       <li class="nav-item">
-        <a class="nav-link active" href="/me" tabindex="-1" aria-disabled="true">
-          Welcome: {{currentUser.username}}
+        <a class="nav-link" href="/me" tabindex="-1" aria-disabled="true">
+          
+          Welcome: <button class="btn btn-success btn-pad">{{currentUser.username}}</button>
         </a>
       </li>
       <li class="nav-item">

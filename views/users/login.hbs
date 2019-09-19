@@ -1,5 +1,4 @@
 <h1>Login</h1>
-
 <form action="/login" method="POST">
   <p>Username</p>
   <input type="text" name="username">
@@ -9,4 +8,10 @@
 
   <button type="submit">Log In</button>
 </form>
+{{#unless user}}
+  Home page
+  <div>
+    <a href="/auth/google">Login With Google</a>
+  </div>
+{{/unless}}
 {{> alert }}
