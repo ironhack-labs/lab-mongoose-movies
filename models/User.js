@@ -7,6 +7,7 @@ const userSchema = new Schema({
   isAdmin: { type: Boolean },
   // role: { type: String, enum: [ "regular", "employee", "admin" ] }
   // this would be the method for more than two roles
+  googleID: { type: String },
   image: { type: String },
 });
 

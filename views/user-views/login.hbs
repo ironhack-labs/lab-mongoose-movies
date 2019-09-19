@@ -12,7 +12,7 @@
       name="username"
     />
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <label for="thePassword">Password</label>
     <input
       type="password"
@@ -23,13 +23,19 @@
       name="password"
     />
   </div>
-  <button type="submit" class="btn btn-primary">Sign In</button>
-{{#if errorMessage}}
-<div class="error-message">{{errorMessage}}</div>
-{{/if}}
+  {{#if errorMessage}}
+  <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+    <button type="submit" class="btn btn-primary">Sign In</button>
 
+    <a href="/auth/google" class="btn btn-light google-link"
+      >Sign In with Google
+      <img
+        src="https://img.icons8.com/color/48/000000/google-logo.png"
+        class="google-svg"
+    /></a>
   <p class="account-message" style="margin-top:10px">
-    Don't have an account? <a href="/signup">Sign up</a>
+    Don't have an account? <a href="/signup" class="btn-link">Sign up</a>
   </p>
 </form>
 

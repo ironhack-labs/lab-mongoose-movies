@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 html {
   overflow: scroll;
   overflow-x: hidden; }
@@ -146,5 +147,13 @@ a {
   margin: 20px auto;
   padding: 20px;
   width: 100%; }
+
+.google-link {
+  font-family: 'Roboto'; }
+
+.google-svg {
+  width: 20px;
+  padding-bottom: 2px;
+  margin-left: 5px; }
 
 /*# sourceMappingURL=style.css.map */
