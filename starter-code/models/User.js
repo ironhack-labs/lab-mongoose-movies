@@ -5,6 +5,8 @@ const userSchema = new Schema({
   username: { type: String, unique: true },
   password: { type: String },
   isAdmin: Boolean,
+  googleID: String,
+  image: String,
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

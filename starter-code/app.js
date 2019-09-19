@@ -15,6 +15,7 @@ const flash = require("express-flash")
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User    = require('./models/User');
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 
 mongoose.Promise = Promise;
@@ -106,6 +107,46 @@ app.use((req, res, next) => {
 // res.locals.successMessage = req.flash('success');
 // res.locals.errorMessage = req.flash('error');
 // next();
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: 1082761331116-5pm8o05hne0ac6jgh5e3ojpvfqsp65c3.apps.googleusercontent.com,
+      clientSecret: NgFwnyesLb14DGzwcatND6RK,
+      callbackURL: "/google/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      console.log("Google account details:", profile);
+
+      User.findOne({ googleID: profile.id })
+        .then(user => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          let theImage = "";
+
+          if(profile.photos){
+            theImage = profile.photos[0].value;
+          }
+
+          User.create({
+             googleID: profile.id ,
+             isAdmin: false,
+             image: theImage,
+             username: profile._json.name
+
+            })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            .catch(err => done(err)); 
+        })
+        .catch(err => done(err)); 
+    }
+  )
+);
 
 const user = require('./routes/user-routes');
 app.use('/', user)
