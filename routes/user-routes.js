@@ -73,20 +73,11 @@ router.get("/account", (req, res, next) => {
 });
 
 router.post("/account/update", (req, res, next) => {
-  console.log("hi");
   let id = req.user.id;
-
-  let passVar = req.body.theOldPassword;
-
   let oldPass = req.body.theOldPassword;
   let newPass = req.body.theNewPassword;
 
-  // console.log(req.user.password);
-  // console.log(oldPass)
-  // console.log(bcrypt.compareSync(oldPass, req.user.password))
-
   if (!bcrypt.compareSync(oldPass, req.user.password)) {
-    console.log("---!!!!!---");
     req.flash("error", "Passwords do not match");
     res.redirect("/account");
   }
@@ -111,7 +102,6 @@ router.post("/account/update", (req, res, next) => {
         image: req.body.theImage
       })
         .then(result => {
-          console.log("its a race condition");
           res.redirect("/account");
         })
         .catch(err => {
