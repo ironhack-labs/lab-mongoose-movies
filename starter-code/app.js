@@ -102,6 +102,11 @@ app.use((req, res, next) => {
   next();
  });
 
+// res.locals.theUser = req.user;
+// res.locals.successMessage = req.flash('success');
+// res.locals.errorMessage = req.flash('error');
+// next();
+
 const user = require('./routes/user-routes');
 app.use('/', user)
 
@@ -113,5 +118,8 @@ app.use("/celebrities", celebrities);
 
 const movie = require('./routes/movie');
 app.use('/movies', movie);
+
+// const adminRoutes = require('./routes/admin-routes');
+// app.use('/', adminRoutes);
 
 module.exports = app;

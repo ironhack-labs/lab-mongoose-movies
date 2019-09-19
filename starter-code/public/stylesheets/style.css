@@ -37,4 +37,10 @@ button {
 .title, .catchphrase {
   width: 25%; }
 
+.btn-delete:hover {
+  background-color: red; }
+
+.btn-add:hover {
+  background-color: #51a351; }
+
 /*# sourceMappingURL=style.css.map */
