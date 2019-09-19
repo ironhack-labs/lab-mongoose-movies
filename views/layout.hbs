@@ -39,20 +39,25 @@
     </ul>
 
     <ul class="navbar-nav mr-auto">
+
       {{#if currentUser}}
+
       <li class="nav-item">
-        <a class="nav-link active" href="#" tabindex="-1" style="cursor:default" aria-disabled="true">Welcome:
-          {{currentUser.username}}</a>
+        <a class="nav-link active" href="/me" tabindex="-1" aria-disabled="true">
+          Welcome: {{currentUser.username}}
+        </a>
       </li>
       <li class="nav-item">
-        <a href="/messages"><button class="btn btn-secondary btn-pad">Messages</button></a>
+        <a href="/me/messages"><button class="btn btn-secondary btn-pad">Messages</button></a>
       </li>
       <li class="nav-item">
         <form action="/logout" method="POST">
           <button class="btn btn-secondary btn-pad">Log Out</button>
         </form>
       </li>
+
       {{else}}
+
       <li class="nav-item">
         <form action="/login" method="Get">
           <button class="btn btn-info btn-pad">Log In</button>
@@ -63,10 +68,12 @@
           <button class="btn btn-secondary btn-pad">Register</button>
         </form>
       </li>
+
       {{/if}}
+
       {{#if currentUser.isAdmin}}
-        <a href="/admin/create-new-account"><button class="btn btn-secondary btn-pad">Create User</button></a>
-        <a href="/admin/active-users"><button class="btn btn-secondary btn-pad">Active Users</button></a>
+      <a href="/admin/create-new-account"><button class="btn btn-secondary btn-pad">Create User</button></a>
+      <a href="/admin/active-users"><button class="btn btn-secondary btn-pad">Active Users</button></a>
       {{/if}}
     </ul>
   </nav>

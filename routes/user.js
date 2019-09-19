@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middleware/auth')
+const User = require('../models/User')
+const { userAuth } = require('../middleware/auth')
 
-router.get('/messages', auth, (req, res, next) => {
+router.get('/messages', userAuth, (req, res, next) => {
     res.render('users/messages', { user: req.user })
 })
 
-
-router.get('/', auth, (req, res, next) => {
+router.get('/', userAuth, (req, res, next) => {
     res.render('users/profile')
 })
 
-router.get('/delete', (req, res, next) => {
+router.post('/delete', userAuth, (req, res, next) => {
     User.findByIdAndRemove(req.user._id)
         .then(() => {
             res.redirect('/')

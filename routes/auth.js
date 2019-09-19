@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const router = express.Router();
 const passport = require('passport')
-const auth = require('../middleware/auth')
+const { userAuth } = require('../middleware/auth')
 
 
 router.get('/signup', (req, res, next) => {
@@ -56,7 +56,7 @@ router.post('/login', function(req, res, next) {
     })(req, res, next);
 });
 
-router.post('/logout', (req, res, next) => {
+router.post('/logout', userAuth, (req, res, next) => {
     req.flash('success', 'Logged out!');
     req.logout();
     res.redirect('/');

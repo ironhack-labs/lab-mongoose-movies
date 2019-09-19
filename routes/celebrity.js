@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity')
-const auth = require('../middleware/auth')
+const { userAuth } = require('../middleware/auth')
 
 router.get('/', (req, res, next) => {
     Celebrity.find({}).populate('createdBy')
@@ -20,7 +20,7 @@ router.get('/details/:id', (req, res, next) => {
         .catch(e => next(e))
 });
 
-router.get('/new', auth, (req, res, next) => {
+router.get('/new', userAuth, (req, res, next) => {
     res.render('celebrities/create')
 });
 
