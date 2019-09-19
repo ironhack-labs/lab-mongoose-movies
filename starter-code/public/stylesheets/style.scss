@@ -20,7 +20,35 @@ ul{
   margin-left: -60px;
   
 }
+body > div > ul > li > h2{
+  padding-bottom: 0px !important; 
+}
+#form > p{
+  text-align: center;
+}
+div.profile{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 50px;
 
+}
+div.profile h2{
+  margin: 3% 0% 0% 2%;
+}
+select{
+  display: flex;
+  justify-content: center;
+  margin: 0% 0% 0% 33%;
+}
+body > div > div > h2{
+  padding-bottom: 0;
+}
+#form > div > div:nth-child(3) > input{
+  display: flex;
+  justify-content: center;
+  margin: 0% 0% 4% 47%;
+}
 h2,  h3{
   display: flex;
   justify-content: center;

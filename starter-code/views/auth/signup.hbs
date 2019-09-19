@@ -22,3 +22,10 @@
     <a href="/login">Login</a>
   </p>
 </form>
+
+{{#unless user}}
+  Home page
+  <div>
+    <a href="/auth/google">Login With Google</a>
+  </div>
+{{/unless}}
