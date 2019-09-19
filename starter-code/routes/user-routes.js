@@ -66,7 +66,7 @@ router.get(
 router.get(
     "/google/callback",
     passport.authenticate("google", {
-      successRedirect: "/books",
+      successRedirect: "/movies",
       failureRedirect: "/" 
     })
   );

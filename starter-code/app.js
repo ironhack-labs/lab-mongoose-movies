@@ -111,8 +111,8 @@ app.use((req, res, next) => {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: 1082761331116-5pm8o05hne0ac6jgh5e3ojpvfqsp65c3.apps.googleusercontent.com,
-      clientSecret: NgFwnyesLb14DGzwcatND6RK,
+      clientID: "1082761331116-5pm8o05hne0ac6jgh5e3ojpvfqsp65c3.apps.googleusercontent.com",
+      clientSecret: "NgFwnyesLb14DGzwcatND6RK",
       callbackURL: "/google/callback"
     },
     (accessToken, refreshToken, profile, done) => {
