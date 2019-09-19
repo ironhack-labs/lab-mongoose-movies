@@ -12,9 +12,13 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', (req, res, next) => {
     const salt = bcrypt.genSaltSync(10)
-    req.body.password = bcrypt.hashSync(req.body.password, salt)
+    const userData = {
+        username: req.body.username,
+        password: bcrypt.hashSync(req.body.password, salt),
+        role: (req.user && req.user.role === "Admin") ? req.body.role : "User"
+    }
 
-    User.create(req.body)
+    User.create(userData)
         .then(user => {
             req.session.currentUser = user
             req.logIn(user, (err) => {
@@ -56,10 +60,6 @@ router.post('/logout', (req, res, next) => {
     req.flash('success', 'Logged out!');
     req.logout();
     res.redirect('/');
-})
-
-router.get('/messages', auth, (req, res, next) => {
-    res.render('users/messages', { user: req.user })
 })
 
 module.exports = router

@@ -64,6 +64,10 @@
         </form>
       </li>
       {{/if}}
+      {{#if currentUser.isAdmin}}
+        <a href="/admin/create-new-account"><button class="btn btn-secondary btn-pad">Create User</button></a>
+        <a href="/admin/active-users"><button class="btn btn-secondary btn-pad">Active Users</button></a>
+      {{/if}}
     </ul>
   </nav>
 

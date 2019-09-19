@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 router.get('/details/:id', (req, res, next) => {
     Movie.findById(req.params.id).populate('director').populate('createdBy')
         .then(movie => {
-            movie.createdByMe = movie.createdBy ? movie.createdBy.equals(req.user) : false
+            movie.createdByMe = (req.user && req.user.role === 'Admin') ? true : movie.createdBy ? movie.createdBy.equals(req.user) : false
             res.render('movies/show', { movie });
         })
         .catch(e => next(e))

@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 router.get('/details/:id', (req, res, next) => {
     Celebrity.findById(req.params.id).populate('movies').populate('createdBy')
         .then(async celebrity => {
-            celebrity.createdByMe = celebrity.createdBy ? celebrity.createdBy.equals(req.user) : false
+            celebrity.createdByMe = (req.user && req.user.role === 'Admin') ? true : celebrity.createdBy ? celebrity.createdBy.equals(req.user) : false
             res.render('celebrities/show', { celebrity });
         })
         .catch(e => next(e))

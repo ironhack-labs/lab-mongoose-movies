@@ -17,6 +17,8 @@ const session = require('express-session')
 
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth')
+const adminRoutes = require('./routes/admin')
+const userRoutes = require('./routes/user')
 const celebrityRoutes = require('./routes/celebrity');
 const movieRoutes = require('./routes/movie');
 
@@ -64,6 +66,7 @@ passport.use(new LocalStrategy((username, password, next) => {
 app.use(flash());
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
+    if (req.user) req.user.isAdmin = req.user.role === "Admin"
     res.locals.sessionFlash = req.session.sessionFlash;
     res.locals.failureMsg = req.flash('failure')
     res.locals.messageMsg = req.flash('message')
@@ -100,6 +103,8 @@ app.locals.title = 'Movie Library';
 
 app.use('/', indexRoutes);
 app.use('/', authRoutes);
+app.use('/me', userRoutes);
+app.use('/admin', adminRoutes);
 app.use('/celebrities', celebrityRoutes);
 app.use('/movies', movieRoutes);
 
