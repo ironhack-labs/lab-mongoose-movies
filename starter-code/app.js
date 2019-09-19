@@ -24,7 +24,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const index = require('./routes/index');
 const celebrity = require('./routes/celebrity');
-const coco  = require('./routes/coco');
+const movie  = require('./routes/movie');
 
 const app = express();
 
@@ -56,7 +56,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-app.use('/', index,celebrity);
+app.use('/', index,celebrity,movie);
 
 
 module.exports = app;

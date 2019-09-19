@@ -1,20 +1,20 @@
 
-<h2>List of Celebrities</h2>
+<h2>List of Movies</h2>
 
 
 
 
-{{#each celebrities}}
+{{#each movies}}
 
 <div style='display:flex;flex-direction:row'>
-<a href="/celebrity/{{this.id}}"">{{this.name}}</a>
+<a href="/movie/{{this.id}}"">{{this.title}}</a>
 
 <div></div>
-<form action="/celebrity/{{this.id}}/edit" method="get">
+<form action="/movie/{{this.id}}/edit" method="get">
   <button style='position:absolute;left:200px' type="submit">Edit</button>
 </form>
 
-<form action="/celebrity/{{this.id}}/delete" method="post">
+<form action="/movie/{{this.id}}/delete" method="post">
   <button style='position:absolute;left:250px' type="submit">Delete</button>
 </form>
 </div>
@@ -24,5 +24,5 @@
 
 <br>
 <br>
-<a href="/celebrity/add/new" >Add new</a>
+<a href="/movie/add/new" >Add new</a>
 
