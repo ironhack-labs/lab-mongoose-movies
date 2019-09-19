@@ -1,23 +1,46 @@
 const mongoose = require('mongoose')
-const Celebrity = require('../models/Celebrity')
+const Movies = require('../models/movies')
 
-const celebrities = [
-  {
-    name: 'Lebron James',
-    occupation: 'NBA player',
-    catchPhrase: 'HairLine'
+
+
+const movie = [{
+  title: 'AAA',
+  genre: 'Drama',
+  plot: 'very dramatic'
+},
+{
+   title: 'BBB',
+  genre: 'NBA player',
+   plot: 'HairLine'
   },
   {
-    name: 'Kobe Bryant',
-    occupation: 'GOAT',
-    catchPhrase: 'Ball is life'
+   title: 'CCC',
+  genre: 'comedy',
+   plot: 'funny'
   },
-  {
-    name: 'MJ',
-    occupation: 'GOD',
-    catchPhrase: 'Shoes are life'
-  }
+
+
+
+
+
 ]
+// const celebrities = [
+//   {
+//     name: 'Lebron James',
+//     occupation: 'NBA player',
+//     catchPhrase: 'HairLine'
+//   },
+//   {
+//     name: 'Kobe Bryant',
+//     occupation: 'GOAT',
+//     catchPhrase: 'Ball is life'
+//   },
+//   {
+//     name: 'MJ',
+//     occupation: 'GOD',
+//     catchPhrase: 'Shoes are life'
+//   }
+// ]
 
 
 
@@ -30,6 +53,6 @@ mongoose
 .then(x=> {
   console.log(`Connected to Mongo! Database name:"${x.connections[0].name}`)
 })
-Celebrity.insertMany(celebrities).then(celeb => {
-console.log(celeb)
+Movies.insertMany(movie).then(movies => {
+console.log(movies)
 }).catch(err=> console.error(err)) 
