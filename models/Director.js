@@ -6,6 +6,7 @@ const directorSchema = new Schema({
   occupation: String,
   catchPhrase: String,
   image: String,
+  creator: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 
 const Director = mongoose.model("Director", directorSchema);

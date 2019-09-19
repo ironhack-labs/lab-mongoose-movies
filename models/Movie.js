@@ -8,6 +8,7 @@ const movieSchema = new Schema({
   genre: String,
   plot: String,
   image: String,
+  creator: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

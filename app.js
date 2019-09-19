@@ -108,6 +108,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 app.use((req, res, next) => {
   res.locals.theUser = req.user;
   res.locals.errorMessage = req.flash("error");
+  res.locals.successMessage = req.flash("success");
   next();
 });
 
@@ -125,5 +126,8 @@ app.use("/", actorRoutes);
 
 const userRoutes = require("./routes/user-routes");
 app.use("/", userRoutes);
+
+const adminRoutes = require("./routes/admin-routes");
+app.use("/", adminRoutes)
 
 module.exports = app;

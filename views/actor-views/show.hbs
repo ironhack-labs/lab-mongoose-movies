@@ -3,7 +3,7 @@
     <img class="celeb-img" src="{{ actor.image }}" />
   </div>
   <div class="col-lg movie-info">
-    <a class="btn-link" href="/actors">Go Back</a>
+    <a class="btn-link" href="/actors">Back to Actors</a>
     <br />
     <br />
     <div class="content-heading">
@@ -37,7 +37,7 @@
       {{/each}}
     </ul>
     {{#if theUser}}
-      <a href="/actors/edit-actor/{{ actor._id }}" class="btn btn-secondary btn-sm"
+      <a href="/actors/edit/{{ actor._id }}" class="btn btn-secondary btn-sm"
       >Edit actor Info</a
     >
     {{/if}}

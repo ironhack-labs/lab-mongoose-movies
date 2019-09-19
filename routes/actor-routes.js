@@ -10,6 +10,13 @@ const passport = require("passport");
 router.get("/actors", (req, res, next) => {
   Actor.find()
     .then(allTheActors => {
+      if (req.user) {
+        allTheActors.forEach(eachActor => {
+          if (req.user._id.equals(eachActor.creator) || req.user.isAdmin){
+            eachActor.mine = true;
+          }
+        });
+      }
       res.render("actor-views/index", { actor: allTheActors });
     })
     .catch(err => {
@@ -81,7 +88,7 @@ router.post("/actors/delete/:id", (req, res, next) => {
     });
 });
 
-router.get("/actors/edit-actor/:id", (req, res, next) => {
+router.get("/actors/edit/:id", (req, res, next) => {
 
   let id = req.params.id;
   Actor.findById(id)

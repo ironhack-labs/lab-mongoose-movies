@@ -3,7 +3,7 @@
     <img class="celeb-img" src="{{ director.image }}" />
   </div>
   <div class="col-lg movie-info">
-    <a class="btn-link" href="/directors">Go Back</a>
+    <a class="btn-link" href="/directors">Back to Directors</a>
     <br />
     <br />
     <div class="content-heading">
@@ -26,7 +26,7 @@
       {{/each}}
     </ul>
     {{#if theUser}}
-      <a href="/directors/edit-director/{{ director._id }}" class="btn btn-secondary btn-sm"
+      <a href="/directors/edit/{{ director._id }}" class="btn btn-secondary btn-sm"
       >Edit Director Info</a
     >
     {{/if}}

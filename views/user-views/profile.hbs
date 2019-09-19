@@ -1,0 +1,69 @@
+<h2>This is your profile page</h2>
+<h4>Welcome {{theUser.username}}</h4>
+
+<form action="/account/delete-my-account" method="POST">
+
+<button>Delete My Account</button>
+
+</form>
+
+<h2 class="movies-head">Edit Information for <em>{{theUser.username}}</em></h2>
+
+<form
+  action="/account/update/{{ theUser._id }}"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="theUsername">Change Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="theUsername"
+      aria-describedby="nameHelp"
+      value="{{ theUser.username }}"
+      name="theUsername"
+    />
+  </div>
+  <div class="form-group">
+    <label for="theOldPassword">Input Your Old Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="theOldPassword"
+      aria-describedby="oldPassHelp"
+      placeholder="Old Password"
+      name="theOldPassword"
+    />
+  </div>
+  <div class="form-group">
+    <label for="theNewPassword">New Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="theNewPassword"
+      aria-describedby="newPassHelp"
+      placeholder="New Password"
+      name="theNewPassword"
+      maxlength="8"
+    />
+  </div>
+  {{#if errorMessage}}
+<div class="error-message">{{errorMessage}}</div>
+{{/if}}
+  <div class="form-group">
+    <label for="userImage">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userImage"
+      aria-describedby="imageHelp"
+      value="{{ theUser.image }}"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+      <form action="/account/delete-my-account" method="POST">
+      <button class="btn btn-danger btn-sm">Delete Account</button>
+    </form>
+</form>

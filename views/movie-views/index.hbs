@@ -23,10 +23,10 @@
       </div>
     </div>
 
-    {{#if ../theUser}}
+    {{#if this.mine}}
 <div class="btn-group inline">
 
-    <a href="/movies/edit-movie/{{ this._id }}" class="btn btn-secondary btn-sm" style="margin-right: 20px"
+    <a href="/movies/edit/{{ this._id }}" class="btn btn-secondary btn-sm" style="margin-right: 20px"
       >Edit Movie</a
     >
     <form action="/movies/delete/{{ this._id }}" method="POST">

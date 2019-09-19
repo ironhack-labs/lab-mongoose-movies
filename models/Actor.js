@@ -7,6 +7,7 @@ const actorSchema = new Schema({
   awards: Array,
   quote: String,
   image: String,
+  creator: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 
 const Actor = mongoose.model("Actor", actorSchema);

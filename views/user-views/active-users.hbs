@@ -1,0 +1,40 @@
+<div class="movies-head">
+  <h2><b>Ironhack Cinema</b></h2>
+  <h6>Click on the director to learn more</h6>
+</div>
+
+<div class="row mx-auto text-center">
+  {{#each users}}
+  <div class="col-md-2 artist mx-auto d-block text-center">
+
+      <img
+        class="card-img-top mx-auto d-block"
+        src="{{ this.image }}"
+        alt="{{ this.username }}"
+        onerror="if (this.src != 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png') this.src = 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png';"
+      />
+    <div class="card-body text-center">
+      <div class="card-title">
+          <h5 class="btn-link">{{ this.username }}</h5>
+          {{#if this.isAdmin}}
+          <p>Administrator Account</p>
+          {{else}}
+          <p>User</p>
+          {{/if}}
+      </div>
+    </div>
+<div class="btn-group inline">
+
+    <form action="/admin/delete/{{ this._id }}" method="POST">
+      <button class="btn btn-danger btn-sm">Delete User</button>
+    </form>
+</div>
+  </div>
+  {{/each}}
+</div>
+{{#if errorMessage}}
+<div class="error-message">{{errorMessage}}</div>
+{{/if}}
+{{#if successMessage}}
+<div class="success-message">{{successMessage}}</div>
+{{/if}}

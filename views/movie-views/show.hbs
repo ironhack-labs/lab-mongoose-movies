@@ -3,7 +3,7 @@
     <img class="movie-img" src="{{ movie.image }}" />
   </div>
   <div class="col-lg movie-info">
-    <a class="btn-link" href="/movies">Go Back</a>
+    <a class="btn-link" href="/movies">Back to Movies</a>
     <br />
     <br />
     <div class="content-heading">
@@ -42,7 +42,7 @@
     </p>
     {{#if theUser}}
     <a
-      href="/movies/edit-movie/{{ movie._id }}"
+      href="/movies/edit/{{ movie._id }}"
       class="btn btn-secondary btn-sm"
       >Edit Movie</a
     >

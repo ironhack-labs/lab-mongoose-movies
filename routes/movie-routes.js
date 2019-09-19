@@ -10,8 +10,15 @@ const passport = require("passport");
 router.get("/movies", (req, res, next) => {
   Movie.find()
     .then(allTheMovies => {
+      if (req.user) {
+        allTheMovies.forEach(eachMovie => {
+          if (req.user._id.equals(eachMovie.creator) || req.user.isAdmin){
+            eachMovie.mine = true;
+          }
+        });
+      }
       res.render("movie-views/index", {
-        movies: allTheMovies,
+        movies: allTheMovies
       });
     })
     .catch(err => {
@@ -34,10 +41,10 @@ router.get("/movies/details/:id", (req, res, next) => {
 });
 
 router.get("/movies/add-new", (req, res, next) => {
-  if(!req.user){
-    req.flash('error', "please login to add a new film")
-    res.redirect('/login');
-}
+  if (!req.user) {
+    req.flash("error", "please login to add a new film");
+    res.redirect("/login");
+  }
   Director.find()
     .then(allDirectors => {
       Actor.find()
@@ -63,6 +70,7 @@ router.post("/movies/creation", (req, res, next) => {
   let genre = req.body.theGenre;
   let plot = req.body.thePlot;
   let image = req.body.theImage;
+  let creator = req.user;
 
   Movie.create({
     title: title,
@@ -70,7 +78,8 @@ router.post("/movies/creation", (req, res, next) => {
     starring: cast,
     genre: genre,
     plot: plot,
-    image: image
+    image: image,
+    creator: creator
   })
     .then(result => {
       res.redirect("/movies/details/" + result._id);
@@ -81,7 +90,6 @@ router.post("/movies/creation", (req, res, next) => {
 });
 
 router.post("/movies/delete/:id", (req, res, next) => {
-
   let id = req.params.id;
   Movie.findByIdAndRemove(id)
     .then(result => {
@@ -92,8 +100,7 @@ router.post("/movies/delete/:id", (req, res, next) => {
     });
 });
 
-router.get("/movies/edit-movie/:id", (req, res, next) => {
-
+router.get("/movies/edit/:id", (req, res, next) => {
   let id = req.params.id;
   Movie.findById(id)
     .then(theMovie => {

@@ -71,6 +71,10 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="/account">My Account</a>
     <a class="dropdown-item" href="/secret">Shh . . .</a>
+    {{#if theUser.isAdmin}}
+    <a class="dropdown-item" href="/create-new-account">Create New User</a>
+        <a class="dropdown-item" href="/active-users">See All Users</a>
+    {{/if}}
   </div>
 </div>
     <form class="form-inline my-2 my-lg-0" action="/logout" method="POST">

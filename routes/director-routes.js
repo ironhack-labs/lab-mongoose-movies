@@ -10,6 +10,13 @@ const passport = require("passport");
 router.get("/directors", (req, res, next) => {
   Director.find()
     .then(allTheDirectors => {
+      if (req.user) {
+        allTheDirectors.forEach(eachDirector => {
+          if (req.user._id.equals(eachDirector.creator) || req.user.isAdmin){
+            eachDirector.mine = true;
+          }
+        });
+      }
       res.render("director-views/index", { director: allTheDirectors });
     })
     .catch(err => {
@@ -80,7 +87,7 @@ router.post("/directors/delete/:id", (req, res, next) => {
     });
 });
 
-router.get("/directors/edit-director/:id", (req, res, next) => {
+router.get("/directors/edit/:id", (req, res, next) => {
 
   let id = req.params.id;
   Director.findById(id)
