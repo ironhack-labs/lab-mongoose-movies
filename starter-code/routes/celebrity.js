@@ -10,7 +10,7 @@ router.get('/celebrities', (req, res, next) => {
   Celebrity.find({})
     .then(celebsFromDB=>{
       console.log(celebsFromDB)
-      res.render('celebrity-views/celebrities', {celebs: celebsFromDB});
+      res.render('celebrity-views/celebrities', {celebs: celebsFromDB, user: req.session.currentUser});
     })
     .catch(err => next(err))
 });
@@ -36,7 +36,7 @@ router.post('/celebrities', (req, res, next) => {
 router.get('/celebrities/new', (req, res, next) => {
   Movie.find()
     .then(moviesFromDB =>{
-      res.render("celebrity-views/new", {movies: moviesFromDB})
+      res.render("celebrity-views/new", {movies: moviesFromDB, user: req.session.currentUser})
     })
     .catch(err => next(err))
 });
@@ -51,7 +51,7 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
               movie.match = true;
             }
           })
-          res.render("Celebrity-views/edit",{celeb: resultFromDB, movies : moviesFromDB})
+          res.render("Celebrity-views/edit",{celeb: resultFromDB, movies : moviesFromDB, user: req.session.currentUser})
         })
     })
     .catch(err => next(err));
@@ -66,7 +66,7 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findById(req.params.id).populate("movies")
   .then(celebFromDB => {
-    res.render("celebrity-views/details", {celeb: celebFromDB})
+    res.render("celebrity-views/details", {celeb: celebFromDB, user: req.session.currentUser})
   })
   .catch(err => next(err))
 });

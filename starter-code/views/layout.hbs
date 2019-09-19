@@ -15,12 +15,17 @@
     <li><a href="/celebrities/new">New Celeb</a></li>
     <li><a href="/movies">All Movies</a></li>
     <li><a href="/movies/new">New Movie</a></li>
-    <li><a href="/signup">Sign Up</a></li>
-    <li><a href="/login">Log In</a></li>
     <li><a href="/secret">Member Only</a></li>
-    <li><a href="/logout">Log Off</a></li>
 
-    {{!-- {{#if}} --}}
+    {{!-- <div class="right-aligned"> --}}
+      {{#if user}}
+        <li><a href="/logout">Log Off</a></li>
+        {{else}}
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Log In</a></li>
+      {{/if}}
+    {{!-- </div> --}}
+
   </ul>
 </nav>
 

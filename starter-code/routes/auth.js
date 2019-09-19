@@ -9,7 +9,7 @@ const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 
 router.get('/signup', (req, res, next) => {
-  res.render("auth-views/signup")
+  res.render("auth-views/signup", {user: req.session.currentUser})
 });
 
 router.post('/signup', (req, res, next) => {
@@ -18,7 +18,7 @@ router.post('/signup', (req, res, next) => {
 
   if(username === "" || password === ""){
     res.render("auth-views/signup",{
-      errorMessage: "Indicate a username and a password to sign up"
+      errorMessage: "Indicate a username and a password to sign up", user: req.session.currentUser
     })
     return;
   }
@@ -27,7 +27,7 @@ router.post('/signup', (req, res, next) => {
   .then(userFromDB =>{
     if(userFromDB !== null){
       res.render("auth-views/signup", {
-        errorMessage: "User already exists"
+        errorMessage: "User already exists", user: req.session.currentUser
       })
       return;
     }
@@ -52,7 +52,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
-  res.render("auth-views/login")
+  res.render("auth-views/login", { user: req.session.currentUser})
 });
 
 router.post('/login', (req, res, next) => {
@@ -61,7 +61,7 @@ router.post('/login', (req, res, next) => {
 
   if(username === "" || password === ""){
     res.render("auth-views/signup",{
-      errorMessage: "Please provide both username and password to login."
+      errorMessage: "Please provide both username and password to login.", user: req.session.currentUser
     })
     return;
   }
@@ -70,7 +70,7 @@ router.post('/login', (req, res, next) => {
   .then(userFromDB =>{
     if(userFromDB === null){
       res.render("auth-views/login", {
-        errorMessage: "User does not exist"
+        errorMessage: "User does not exist", user: req.session.currentUser
       })
       return;
     }
@@ -98,7 +98,7 @@ router.use((req, res, next) => {
 });
 
 router.get("/secret", (req, res, next) => {
-  res.render("auth-views/secret");
+  res.render("auth-views/secret", {user: req.session.currentUser});
 });
 
 router.get("/logout", (req, res, next) => {

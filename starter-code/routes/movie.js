@@ -8,7 +8,7 @@ const Celebrity = require("../models/Celebrity");
 router.get('/movies', (req, res, next) => {
   Movie.find({})
     .then(moviesFromDB=>{
-      res.render('movie-views/movies', {movies: moviesFromDB});
+      res.render('movie-views/movies', { movies: moviesFromDB, user: req.session.currentUser});
     })
     .catch(err => next(err))
 });
@@ -34,7 +34,7 @@ router.post('/movies', (req, res, next) => {
 router.get('/movies/new', (req, res, next) => {
   Celebrity.find({})
     .then(resultFromDB => {
-      res.render("movie-views/new", {celebs: resultFromDB})
+      res.render("movie-views/new", { celebs: resultFromDB, user: req.session.currentUser})
     })
     .catch(err => next(err));
 });
@@ -53,7 +53,7 @@ router.get('/movies/:id/edit', (req, res, next) => {
 
           })
           console.log(celebsFromDB)
-          res.render("movie-views/edit", { movie: movieFromDB, celebs: celebsFromDB })
+          res.render("movie-views/edit", { movie: movieFromDB, celebs: celebsFromDB, user: req.session.currentUser})
         })
         .catch(err => next(err));
     })
@@ -69,7 +69,7 @@ router.post('/movies/:id/delete', (req, res, next) => {
 router.get('/movies/:id', (req, res, next) => {
   Movie.findById(req.params.id).populate("celebs")
   .then(movieFromDB => {
-    res.render("movie-views/details", {movie: movieFromDB})
+    res.render("movie-views/details", { movie: movieFromDB, user: req.session.currentUser})
   })
   .catch(err => next(err))
 });
