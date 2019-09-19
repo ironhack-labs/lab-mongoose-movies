@@ -2,8 +2,6 @@ const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/Movie.js')
 const Celebrity = require('../models/Celebrity.js')
-const User = require('../models/User.js')
-
 
 router.get('/movies', (req, res, next)=>{
 
@@ -17,13 +15,10 @@ router.get('/movies', (req, res, next)=>{
     .then((result)=>{
         console.log(result)
         result.forEach((eachMovie)=>{
-            
-            console.log("<><><><><><><><><",req.user._id)
-            if(eachMovie.creator.equals(req.user._id)){
+            if(eachMovie.creator.equals(req.user._id) || req.user.isAdmin){
                 eachMovie.mine = true;
             }
     })
-        console.log("This is the list of movies")
         res.render('movies/movie', {result: result})
     })
     .catch((err)=>{

@@ -1,0 +1,15 @@
+<h2>User Database</h2>
+
+<ul>
+{{#each result}}
+<li>
+   <h2 class='link' >"{{this.username}}"</h2>
+<form action="/admin/delete/{{this._id}}" method="POST">
+    <button>Delete This User</button>
+</form>
+
+
+</li>
+{{/each}}
+</ul>
+

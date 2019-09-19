@@ -18,7 +18,8 @@ ul {
 
 h2, h3 {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  padding-bottom: 50px; }
 
 .nav {
   display: flex;
@@ -75,5 +76,33 @@ h1 {
   margin: 20px auto;
   padding: 20px;
   width: 100%; }
+
+form.center {
+  display: flex;
+  justify-content: center;
+  flex-direction: inherit; }
+
+.div-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+input.center {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center; }
+
+.center {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center; }
+
+.link {
+  color: coral;
+  padding-bottom: -49px; }
 
 /*# sourceMappingURL=style.css.map */

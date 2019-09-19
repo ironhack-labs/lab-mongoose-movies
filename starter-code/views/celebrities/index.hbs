@@ -1,10 +1,10 @@
 <h2>Celebrity Database</h2>
-<h3><a href="/celebs/create-celeb">Create a celeb</a></h3>
+
 <ul>
     
 {{#each result}}
 <li>
-    <h2><a href="/celebs/details/{{this._id}}">{{this.name}}</a></h2>
+    <h2><a class="link" href="/celebs/details/{{this._id}}">{{this.name}}</a></h2>
     
     <form action="/celebs/{{this._id}}/delete" method="POST">
         <button>Delete</button>
@@ -13,3 +13,4 @@
 {{/each}}
 
 </ul>
+<h3><a href="/celebs/create-celeb">Add a celeb</a></h3>

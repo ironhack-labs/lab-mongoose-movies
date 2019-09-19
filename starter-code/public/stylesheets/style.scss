@@ -24,6 +24,7 @@ ul{
 h2,  h3{
   display: flex;
   justify-content: center;
+  padding-bottom: 50px;
 }
 
 .nav{
@@ -73,6 +74,8 @@ h1{
   width: 100%;
 }
 
+
+
 #form button:hover {
   background: #fff;
   color: #43a3e6;
@@ -85,4 +88,33 @@ h1{
   margin: 20px auto;
   padding: 20px;
   width: 100%;
+}
+form.center{
+  display: flex;
+  justify-content: center;
+  flex-direction: inherit;
+}
+.div-center{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input.center{
+  display: flex;
+  align-content: center; 
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.center{
+  display: flex;
+  align-content: center; 
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.link{
+  color: coral;
+  padding-bottom: -49px;
 }

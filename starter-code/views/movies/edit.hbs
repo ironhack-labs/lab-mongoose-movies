@@ -1,7 +1,6 @@
-<h1>{{theUser.username}}</h1>
 
 <h1>Edit Movies</h1>
-<form action="/movies/{{data.movie._id}}/edit" method="POST">
+<form id="form" action="/movies/{{data.movie._id}}/edit" method="POST">
 
 <p>Current Title</p>
 <input type="text" name="theTitle" value='{{data.movie.title}}'>

@@ -100,20 +100,10 @@ passport.use(new LocalStrategy((username, password, next) => {
 // Express View engine setup
 
 
-
-app.use(session({
-  secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day
-  })
-}));
-
 app.use((req, res, next) => {
   res.locals.theUser = req.user;
   // with passport, its always called req.user by default
-
+  res.locals.successMessage = req.flash('success')
   res.locals.errorMessage = req.flash('error');
   next();
 });
@@ -135,8 +125,12 @@ app.use('/', movie)
 const user = require('./routes/users')
 app.use('/', user)
 
+const adminRoutes = require('./routes/admin-routes')
+app.use('/', adminRoutes)
+
 app.use('/', require('./routes/users'));
 app.use('/', require('./routes/site-routes'));
+
 
 
 module.exports = app;

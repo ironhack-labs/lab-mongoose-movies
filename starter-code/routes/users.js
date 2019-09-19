@@ -13,46 +13,38 @@ router.get('/signup', (req, res, next)=>{
 })
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
   
+      let admin = false;
+  
+      if(req.user){
+        if(req.user.isAdmin){
+          admin = req.body.role? req.body.role: false
+        }
+      }
 
-  if (!username || !password) {
-    res.render("auth/signup", {
-      errorMessage: "Indicate a username and a password to sign up"
-    });
-    return;
-  }
-  User.findOne({ "username": username })
-  .then(user => {
-    if (user !== null) {
-      res.render("auth/signup", {
-        errorMessage: "The username already exists!"
-      });
-      return;
-    }
-    
-    const salt     = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-    
-    const newUser = new User({
-      username,
-      password: hashPass
-    
-    
-  })
-  newUser.save((err) => {
-    if (err) {
-      res.render("auth/signup", { message: "Something went wrong" });
-    } else {
-      res.redirect("/");
-    }
-  });
+  const username = req.body.theUsername;
+  const password = req.body.thePassword;
+
+  console.log("this is the pw >>>>>>> ", password)
+const salt  = bcrypt.genSaltSync(bcryptSalt);
+const hash = bcrypt.hashSync(password, salt);
+
+  User.create({
+    username: username,
+    password: hash,
+    isAdmin: admin
+})
+.then(()=>{
+
+    res.redirect('/')
+
 })
 .catch(error => {
+  next(error);
   console.log(error);
 })
-});
+})
+
 
 router.get("/login", (req, res, next) => {
   res.render("auth/login");
@@ -68,21 +60,35 @@ router.post("/login", passport.authenticate("local", {
 
 
 router.get("/logout", (req, res, next) => {
-    req.logout()
+    req.logout();
     res.redirect("/");
- 
+    
 });
 
 router.get('/secret', (req, res, next)=>{
-
+  
   if(req.user){
       res.render('secret', {theUser: req.user})
   } else{
-      res.redirect('/')
+      res.redirect('/login')
   }
 
 })
 
+router.get('/profile', (req, res, next)=>{
+  res.render('auth/profile');
+})
 
+router.post('/account/delete-my-account', (req, res, next)=>{
+
+  User.findByIdAndRemove(req.user._id)
+  .then(()=>{
+      res.redirect('/')
+  })
+  .catch((err)=>{
+      next(err)
+  })
+
+})
 
 module.exports = router;

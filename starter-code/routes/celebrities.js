@@ -49,6 +49,7 @@ router.post('/celebs/create-celeb', (req, res, next)=>{
 })
 router.post('/celebs/:id/delete', (req, res, next)=>{
     let id = req.params.id;
+    console.log("<><><><><><><", id)
     Celebrity.findByIdAndRemove(id)
     .then((result)=>{
         res.redirect('/celebs')
