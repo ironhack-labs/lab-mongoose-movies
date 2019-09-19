@@ -160,7 +160,4 @@ app.use("/celebrities", celebrities);
 const movie = require('./routes/movie');
 app.use('/movies', movie);
 
-// const adminRoutes = require('./routes/admin-routes');
-// app.use('/', adminRoutes);
-
 module.exports = app;

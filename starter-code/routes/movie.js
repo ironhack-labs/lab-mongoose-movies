@@ -52,6 +52,9 @@ router.post('/:id/delete', (req, res, next) => {
 router.get('/:id/edit', (req, res, next) => {
     Movie.findById(req.params.id)
         .then(movie => {
+            if (movie.creator.equals(currentUser)) {
+                movie.createdByMe = true;
+            }
             Celebrity.find()
             .then(response=>{
                 response.forEach((celeb)=>{
