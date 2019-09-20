@@ -165,7 +165,10 @@ app.use("/", actorRoutes);
 const userRoutes = require("./routes/user-routes");
 app.use("/", userRoutes);
 
-const adminRoutes = require("./routes/admin-routes");
-app.use("/", adminRoutes);
+const apiRoutes = require("./routes/api-routes");
+app.use("/api", apiRoutes);
+
+// const adminRoutes = require("./routes/admin-routes");
+// app.use("/", adminRoutes);
 
 module.exports = app;

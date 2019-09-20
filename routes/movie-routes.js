@@ -70,7 +70,7 @@ router.post("/movies/creation", (req, res, next) => {
   let genre = req.body.theGenre;
   let plot = req.body.thePlot;
   let image = req.body.theImage;
-  let creator = req.user;
+  let creator = req.user._id;
 
   Movie.create({
     title: title,
