@@ -1,0 +1,46 @@
+body {
+  padding: 0 0 50px 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+nav {
+  height: 60px;
+  background: gray; }
+
+nav a {
+  font-size: 17px;
+  display: inline-block;
+  padding: 20px;
+  color: white;
+  text-decoration: none; }
+
+button {
+  width: 150px;
+  height: 30px;
+  margin-top: 5px;
+  color: white;
+  font-size: 12px;
+  background-color: gray; }
+
+.plot {
+  width: 40%; }
+
+.logout {
+  margin-left: 55%; }
+
+.select {
+  position: relative;
+  margin: 10px; }
+
+.title, .catchphrase {
+  width: 25%; }
+
+.btn-delete:hover {
+  background-color: red; }
+
+.btn-add:hover {
+  background-color: #51a351; }
+
+/*# sourceMappingURL=style.css.map */

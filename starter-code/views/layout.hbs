@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,40 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
 
-  {{{body}}}
+  {{#if errorMessage}}
+  <div>{{errorMessage}}</div>
+  {{/if}}
+
+  {{#if successMessage}}
+  <div>{{successMessage}}</div>
+  {{/if}}
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/celebrities">All Celebs</a>
+    <a href="/movies">All movies</a>
+    {{#if currentUser}}
+    Welcome, {{currentUser.username}}!
+    {{else}}
+    <a href="/signup">Sign up</a>
+    <a href="/login">Log in</a>
+    {{/if}}
+    <a class="logout" href="/logout">Log out</a>
+  </nav>
+
+  {{#if theUser.isAdmin}}
+  <a href="/create-new-account">Create New User</a>
+  <a href="/active-users">See All Users</a>
+  {{/if}}
+
+  <div id="body">
+    {{{body}}}
+  </div>
 
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

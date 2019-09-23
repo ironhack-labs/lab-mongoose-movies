@@ -1,0 +1,12 @@
+{{#each users}}
+
+<h2>
+{{this.username}}
+</h2>
+</a>
+
+<form action="/admin/delete/{{this._id}}" method="POST">
+    <button>Delete Account</button>
+</form>
+
+{{/each}

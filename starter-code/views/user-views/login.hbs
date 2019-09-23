@@ -1,0 +1,21 @@
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+
+<p>Username</p>
+<input type="text" name="username">
+
+<p>Password</p>
+<input type="password" name="password">
+
+<p><button class="btn-add">Submit</button></p>
+
+</form>
+
+<div>
+    <a href="/auth/google">Log in With Google</a>
+</div> 
+
+{{#if error}}
+<div class="error-message" style="color: red">{{ error }}</div>
+{{/if}}
