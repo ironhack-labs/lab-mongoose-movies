@@ -1,0 +1,14 @@
+.celeb {
+    h2 {
+        margin-bottom: 0;
+    }
+}
+
+.occupation,
+.genre {
+    display: block;
+    margin-top: -3px;
+    color: $lightgray;
+    font-size: .8rem;
+    font-style: italic;
+}

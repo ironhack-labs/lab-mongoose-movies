@@ -15,6 +15,7 @@ const flash = require("express-flash")
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require('./models/User.js')
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 
 mongoose
@@ -52,6 +53,11 @@ app.use(require('node-sass-middleware')({
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+hbs.registerPartial('form-error', '{{errorFormMessage}}')
+hbs.registerPartial('site-error', '{{errorSiteMessage}}')
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
@@ -84,43 +90,46 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
+app.use(flash())
 
-passport.use(new LocalStrategy({
-  passReqToCallback: true
-}, (req, username, password, next) => {
-  User.findOne({
-    username
-  }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return next(null, false, {
-        message: "Incorrect username"
-      });
-    }
-    if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, {
-        message: "Incorrect password"
-      });
-    }
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+      callbackURL: "/auth/google/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Google account details:", profile);
 
-    return next(null, user);
-  });
-}));
+      User.findOne({ googleID: profile.id })
+        .then(user => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          User.create({ googleID: profile.id })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            .catch(err => done(err)); // closes User.create()
+        })
+        .catch(err => done(err)); // closes User.findOne()
+    }
+  )
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(flash())
 app.use((req, res, next) => {
-  console.log(res.locals.currentUser)
-  console.log('---------------------------------')
   res.locals.currentUser = req.user;
-  console.log(res.locals.currentUser)
   // passport uses req.user
   // res.locals.currentUser = req.session.currentUser;
-  res.locals.errorMessage = req.flash('error');
+  res.locals.errorGlobalMessage = req.flash('errorGlobal');
+  res.locals.errorFormMessage = req.flash('errorForm');
   next();
 });
 

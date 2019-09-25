@@ -7,9 +7,14 @@ const Celeb = require('../models/Celeb.js')
 router.get('/movies', (req, res, next) => {
     Movie.find({}).populate("celebrity")
         .then((allTheMovies) => {
-            res.render('../views/movies/index', {
-                movies: allTheMovies
-            })
+            if (!req.user) {
+                req.flash('errorGlobal', 'Please login to view movies')
+                req.redirect('/')
+            } else {
+                res.render('../views/movies/index', {
+                    movies: allTheMovies
+                })
+            }
         }).catch((err) => {
             next(err)
         })

@@ -1,8 +1,6 @@
 <div class="movie-new">
     <h2>Add Movie</h2>
-    {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
+    {{> site-error}}
     <form method="POST" action="/movies">
 
         <label for="title">Title:</label>
@@ -22,6 +20,6 @@
         </select>
         
         <button class="submit">Submit</button>
-
+        {{> form-error}}
     </form>
 </div>

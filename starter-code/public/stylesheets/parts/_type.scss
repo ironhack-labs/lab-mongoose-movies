@@ -1,0 +1,76 @@
+h1 {
+    font-size: 1.6rem;
+    text-shadow: 0 4px 4px black;
+}
+
+h2 {
+    margin: 0 0 2rem 0;
+}
+
+h3 {
+    font-size: 1.6rem;
+    color: $darkgray;
+}
+
+h4 {
+    color: #b881c5;
+    ;
+}
+
+h3 {
+    color: $gray;
+    font-weight: 500;
+}
+
+a,
+a h1 {
+    color: $lightpurple;
+    text-decoration: none;
+
+    &:hover {
+        color: $darkpurple;
+        ;
+    }
+}
+
+p {
+    margin: .8rem 0;
+    color: $lightgray;
+}
+
+blockquote {
+    position: relative;
+    height: 3.6rem;
+    margin-bottom: 7px;
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #555;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:before {
+        content: '“';
+        position: absolute;
+        top: -29px;
+        left: -22px;
+        font-size: 9rem;
+        font-family: georgia, sans-serif;
+        color: $white;
+        z-index: -1;
+    }
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+
+    @include mq("desktop", max) {
+        display: block;
+    }
+}
+
+section h1 {
+    text-shadow: unset;
+}

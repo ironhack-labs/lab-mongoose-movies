@@ -1,8 +1,7 @@
 <div class="user-new">
     <h2>User Signup</h2>
-    {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
+
+    {{> site-error}}
     <form method="POST" action="/signup">
 
         <label for="username">Username:</label>
@@ -11,8 +10,14 @@
         <label for="password">Password:</label>
         <input name="password" type="password" required />
 
+        <label for="setAdmin">Set as Administrator:</label><br />
+        <input name="setAdmin" id="NotAnAdmin" type="radio" value="false" selected>
+        <label for="NotAnAdmin">No</label>
+        <input name="setAdmin" id="MakeAnAdmin" type="radio" value="true">
+        <label for="MakeAnAdmin">Yes</label>
+
         <br /><br />
         <button>Submit</button>
-
+        {{> form-error}}
     </form>
 </div>

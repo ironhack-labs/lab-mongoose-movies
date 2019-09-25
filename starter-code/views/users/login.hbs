@@ -1,8 +1,6 @@
 <div class="user-new">
     <h2>User Login</h2>
-    {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
+    {{> site-error}}
     <form method="POST" action="/login">
 
         <label for="username">Username:</label>
@@ -12,10 +10,15 @@
         <input name="password" type="password" required />
 
         <button class="submit">Submit</button>
+        {{> form-error}}
 
         <p class="account-message">
             Don't have an account? <a href="/signup">Sign up</a>
         </p>
+
+        <div>
+            <a href="/auth/google">Login With Google</a>
+        </div>
 
     </form>
 </div>

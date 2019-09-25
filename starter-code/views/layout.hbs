@@ -15,39 +15,43 @@
 </head>
 
 <body>
-  <header>
-    <a href="/" class="title">
-      <h1>CRUD Movie Celebs</h1>
-    </a>
-    <nav>
-      <ul>
-        <li class="nav-header">Celebrities</a></li>
-        <li><a href="/celebrities">All</a></li>
-        <li><a href="/celebrities/new">New</a></li>
-      </ul>
-      <ul>
-        <li class="nav-header">Movies</a></li>
-        <li><a href="/movies">All</a></li>
-        <li><a href="/movies/new">New</a></li>
-      </ul>
-      <ul>
-        {{#if currentUser}}
+  <div class="content-wrapper">
+    <aside>
+      <a href="/" class="title">
+        <h1>CRUD Movie Celebs</h1>
+      </a>
+      <nav class="website-nav">
+        <ul>
+          <li class="nav-header">Celebrities</a></li>
+          <li><a href="/celebrities">All</a></li>
+          <li><a href="/celebrities/new">New</a></li>
+        </ul>
+        <ul>
+          <li class="nav-header">Movies</a></li>
+          <li><a href="/movies">All</a></li>
+          <li><a href="/movies/new">New</a></li>
+        </ul>
+      </nav>
+      <nav class="user-nav">
+        <ul>
+          {{#if currentUser}}
 
-        <li>Welcome {{currentUser.username}}</li>
-        <li><a href="/logout">Logout</a></li>
-        {{else}}
+          <li>Welcome {{currentUser.username}}</li>
+          <li><a href="/logout">Logout</a></li>
+          {{else}}
 
-        <li><a href="/signup">Signup</a></li>
-        <li><a href="/login">Login</a></li>
-        {{/if}}
-      </ul>
-    </nav>
-  </header>
-
-  <section>
-    {{{body}}}
-  </section>
-
+          <li><a href="/signup">Signup</a></li>
+          <li><a href="/login">Login</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+    </aside>
+    <section>
+      <article>
+        {{{body}}}
+      </article>
+    </section>
+  </div>
   <script src="/javascripts/script.js"></script>
 </body>
 

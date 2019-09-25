@@ -1,8 +1,6 @@
 <div class="movie-edit">
     <h2>Edit Movie</h2>
-    {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
+    {{> site-error}}
     <form method="POST" action="/movies/{{mov._id}}">
 
         <label for="title">Title:</label>
@@ -25,6 +23,6 @@
             {{/each}}
         </select>
         <button class="submit">Submit</button>
-
+        {{> form-error}}
     </form>
 </div>

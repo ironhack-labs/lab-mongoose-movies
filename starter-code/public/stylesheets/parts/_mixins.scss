@@ -1,24 +1,53 @@
-@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
-    overflow: hidden;
-    position: relative;
-    line-height: $lineHeight;
-    max-height: $lineHeight * $lineCount; 
-    text-align: justify;
-    margin-right: -1em;
-    padding-right: 1em;
-    &:before {
-      content: '...';
-      position: absolute;
-      right: 0;
-      bottom: 0;
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+$breakpoints: (
+    "tiny":         320px,
+    "small":        480px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
     }
-    &:after {
-      content: '';
-      position: absolute;
-      right: 0;
-      width: 1em;
-      height: 1em;
-      margin-top: 0.2em;
-      background: $bgColor;
-    }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
   }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity = $opacity-ie); //IE8
+}
+
+@mixin gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}

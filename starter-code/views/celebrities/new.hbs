@@ -1,8 +1,6 @@
 <div class="celeb-new">
     <h2>Add Celebrity</h2>
-    {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-    {{/if}}
+    {{> site-error}}
     <form method="POST" action="/celebrities">
 
         <label for="theName">Name:</label>
@@ -15,6 +13,6 @@
         <input name="theCatchPhrase" type="text" required />
 
         <button class="submit">Submit</button>
-
+        {{> form-error}}
     </form>
 </div>

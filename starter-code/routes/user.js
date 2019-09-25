@@ -5,35 +5,41 @@ const bcrypt = require('bcryptjs')
 const passport = require('passport')
 
 router.get("/signup", (req, res, next) => {
+
+    if (!req.user || req.user.isAdmin == false) {
+        req.flash('errorFormMessage', 'You do not have permission to access this page.')
+    }
     res.render("users/signup");
 });
 
 router.post('/signup', (req, res, next) => {
 
-
     const salt = bcrypt.genSaltSync(10)
     let password = bcrypt.hashSync(req.body.password, salt)
 
     User.create({
-        username: req.body.username,
-        password: password
-    })
+            username: req.body.username,
+            password: password
+        })
         .then(user => {
-            req.login(user, function(err){
-                if(!err){
+            req.login(user, function (err) {
+                if (!err) {
                     res.redirect('/')
-                } else{
+                } else {
                     next(err);
                 }
 
             })
-            })
+        })
         .catch(e => {
-            res.status(500).send(e)})
+            res.status(500).send(e)
+        })
 });
 
 router.get("/login", (req, res, next) => {
-    res.render('users/login')
+    res.render('users/login', {
+        "errornpm ": req.flash("Error loggin in")
+    })
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -42,6 +48,7 @@ router.post("/login", passport.authenticate("local", {
     failureFlash: true,
     passReqToCallback: true
 }));
+
 //
 // manual login code not using passport
 //
@@ -90,5 +97,23 @@ router.get('/secret', (req, res, next) => {
         res.redirect('/')
     }
 })
+
+
+router.get(
+    "/auth/google",
+    passport.authenticate("google", {
+        scope: [
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/userinfo.email"
+        ]
+    })
+);
+router.get(
+    "/auth/google/callback",
+    passport.authenticate("google", {
+        successRedirect: "/",
+        failureRedirect: "/login" // here you would redirect to the login page using traditional login approach
+    })
+);
 
 module.exports = router
