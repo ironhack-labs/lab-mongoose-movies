@@ -1,0 +1,31 @@
+mixin celeb(data={},edit=false,create=false)
+
+  unless (edit || create)
+    p ?
+    p
+      b Nombre:  
+      | #{data.name}
+    p 
+      b Ocupación: 
+      | #{data.occupation}
+    p 
+      b Catch Phrase: 
+      | #{data.catchPhrase}
+  else 
+
+    form(action=(create?`/celebrities/new`:`/edit/${data._id}`) method="POST" id="celeb-form")
+      div
+
+        label(for="name") 
+          b Nombre   
+        input(type="text" name="name" value=data.name)
+      div
+        label(for="occupation") 
+          b Ocupación   
+        input(type="text" name="occupation" value=data.occupation)
+      div
+        label(for="catchPhrase") 
+          b Eslogan   
+        input(type="text" name="catchPhrase" value=data.catchPhrase)
+      button(type="submit")=(create? "Crear celebridad":"Actualizar")
+
