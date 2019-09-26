@@ -55,14 +55,21 @@ router.get("/celebrities/:id", (req, res, next) => {
 });
 
 router.post("/celebrities/:id/delete", (req, res, next) => {
-  Celebrity.findById(req.body.id)
+  console.log(req.params);
+  Celebrity.deleteOne({ _id: req.params.id }).catch(err =>
+    console.log(err, "Deletion Failed")
+  );
+  res.render("index");
+  /*
+  Celebrity.findById(req.params.id)
     .then(celeb => {
       console.log(celeb, "Assimilation succesful");
     })
-    .then(error => {
+    .catch(error => {
       let msg = "Something went horribly worng";
       console.log(error, msg);
       res.render("index", msg);
     });
+    */
 });
 module.exports = router;
