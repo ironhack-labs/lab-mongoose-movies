@@ -1,0 +1,21 @@
+> node-sass@4.12.0 install /home/IronHack/Lab/lab-mongoose-movies/starter-code/node_modules/node-sass
+> node scripts/install.js
+
+Cached binary found at /home/xx/.npm/node-sass/4.12.0/linux-x64-72_binding.node
+
+> node-sass@4.12.0 postinstall /home/IronHack/Lab/lab-mongoose-movies/starter-code/node_modules/node-sass
+> node scripts/build.js
+
+Binary found at /home/IronHack/Lab/lab-mongoose-movies/starter-code/node_modules/node-sass/vendor/linux-x64-72/binding.node
+Testing binary
+Binary is fine
+
+> nodemon@1.19.2 postinstall /home/IronHack/Lab/lab-mongoose-movies/starter-code/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.9 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.9: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+added 462 packages from 255 contributors and audited 3015 packages in 20.934s
+found 0 vulnerabilities
