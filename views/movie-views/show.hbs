@@ -1,0 +1,51 @@
+<div class="row justify-content-center selected-movie">
+  <div class="col-sm">
+    <img class="movie-img" src="{{ movie.image }}" />
+  </div>
+  <div class="col-lg movie-info">
+    <a class="btn-link" href="/movies">Back to Movies</a>
+    <br />
+    <br />
+    <div class="content-heading">
+      <h4>
+        <b>{{ movie.title }}</b>
+      </h4>
+    </div>
+
+    <h6 class="content-tagline">
+      <b
+        >Director:
+        <a
+          href="/directors/details/{{ movie.director._id }}"
+          class="btn-link"
+          >{{ movie.director.name }}</a
+        ></b
+      >
+    </h6>
+    <h6 class="content-tagline">
+      <b>Starring: </b>
+      <br>
+      <br>
+      <ul>
+        {{#each movie.starring}}
+        <li>
+          <a href="/actors/details/{{ this._id }}" class="btn-link">{{ this.name }}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </h6>
+
+    <p>Genre: {{ movie.genre }}</p>
+    <br />
+    <p class="movie-description">
+      {{ movie.plot }}
+    </p>
+    {{#if theUser}}
+    <a
+      href="/movies/edit/{{ movie._id }}"
+      class="btn btn-secondary btn-sm"
+      >Edit Movie</a
+    >
+    {{/if}}
+  </div>
+</div>

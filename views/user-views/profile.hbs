@@ -1,0 +1,116 @@
+<h2 class="movies-head">Edit Information for <em>{{theUser.username}}</em></h2>
+
+  {{#if theUser.password}}
+<form
+  action="/account/update"
+  method="POST"
+  class="user-form"
+>
+<img
+        class="card-img-top mx-auto d-block"
+        src="{{ theUser.image }}"
+        style="width:30vh; margin-bottom: 2vh"
+        alt="{{ theUser.username }}"
+        onerror="if (this.src != 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png') this.src = 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png';"
+      />
+  <div class="form-group">
+    <label for="theUsername">Change Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="theUsername"
+      aria-describedby="nameHelp"
+      value="{{ theUser.username }}"
+      name="theUsername"
+    />
+  </div>
+  <div class="form-group">
+    <label for="theOldPassword">Input Your Old Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="theOldPassword"
+      aria-describedby="oldPassHelp"
+      placeholder="Old Password"
+      name="theOldPassword"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="theNewPassword">New Password</label>
+    <input
+      type="text"
+      class="form-control"
+      id="theNewPassword"
+      aria-describedby="newPassHelp"
+      placeholder="New Password"
+      name="theNewPassword"
+    />
+  </div>
+  {{#if errorMessage}}
+<div class="error-message">{{errorMessage}}</div>
+{{/if}}
+  <div class="form-group">
+    <label for="userImage">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userImage"
+      aria-describedby="imageHelp"
+      value="{{ theUser.image }}"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+      <form action="/account/delete-my-account" method="POST">
+      <button class="btn btn-danger">Delete Account</button>
+        {{#if successMessage}}
+<div class="success-message">{{successMessage}}</div>
+{{/if}}
+    </form>
+</form>
+{{else}}
+<form
+  action="/account/google-update"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+<img
+        class="card-img-top mx-auto d-block"
+        src="{{ theUser.image }}"
+        style="width:30vh; margin-bottom: 2vh"
+        alt="{{ theUser.username }}"
+        onerror="if (this.src != 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png') this.src = 'https://ra.ac.ae/wp-content/uploads/2017/02/user-icon-placeholder.png';"
+      />
+  <div class="form-group">
+    <label for="theUsername">Change Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="theUsername"
+      aria-describedby="nameHelp"
+      value="{{ theUser.username }}"
+      name="theUsername"
+    />
+  </div>
+    <div class="form-group">
+    <label for="userImage">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userImage"
+      aria-describedby="imageHelp"
+      value="{{ theUser.image }}"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+      <form action="/account/delete-my-account" method="POST">
+      <button class="btn btn-danger">Delete Account</button>
+        {{#if successMessage}}
+<div class="success-message">{{successMessage}}</div>
+{{/if}}
+    </form>
+</form>
+  {{/if}}
+

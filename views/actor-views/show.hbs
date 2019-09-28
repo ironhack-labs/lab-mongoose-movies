@@ -1,0 +1,46 @@
+<div class="row justify-content-center selected-movie">
+  <div class="col-sm">
+    <img class="celeb-img" src="{{ actor.image }}" />
+  </div>
+  <div class="col-lg movie-info">
+    <a class="btn-link" href="/actors">Back to Actors</a>
+    <br />
+    <br />
+    <div class="content-heading">
+      <h4>
+        <b>{{ actor.name }}</b>
+      </h4>
+    </div>
+    <blockquote class="blockquote text-left font-italic">
+      <p class="mb-0">"{{ actor.quote }}"</p>
+    </blockquote>
+    <h5>
+      Awards: 
+    </h5>
+    <ul>
+      {{#each actor.awards}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+    <h5>
+      Nominations: 
+    </h5>
+    <ul>
+      {{#each actor.nominations}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+    <h6>Projects: </h6>
+    <ul>
+      {{#each filteredMovies}}
+      <li><a href="/movies/details/{{this._id}}" class="btn-link"><em>{{this.title}}</em></a></li>
+      {{/each}}
+    </ul>
+    {{#if theUser}}
+      <a href="/actors/edit/{{ actor._id }}" class="btn btn-secondary btn-sm"
+      >Edit actor Info</a
+    >
+    {{/if}}
+  </div>
+  
+</div>

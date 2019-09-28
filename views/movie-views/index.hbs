@@ -1,0 +1,49 @@
+<div class="movies-head">
+  <h2><b>Ironhack Cinema</b></h2>
+  <h6>Click on the movie to learn more</h6>
+</div>
+
+
+<div class="row">
+  {{#each movies}}
+  <div class="col-md-3 artist mx-auto d-block text-center">
+    <a href="/movies/details/{{ this._id }}">
+      <img
+        class="card-img-top mx-auto d-block"
+        src="{{ this.image }}"
+        alt="{{ this.title }} theatrical release poster"
+        onerror="if (this.src != 'https://cdn.sstatic.net/Sites/stackoverflow/img/404.svg') this.src = 'https://cdn.sstatic.net/Sites/stackoverflow/img/404.svg';"
+      />
+    </a>
+
+    <div class="card-body text-center">
+      <div class="card-title">
+        <a href="/movies/details/{{ this._id }}">
+          <h3 class="btn-link">
+            <em>{{ this.title }}</em>
+          </h3>
+        </a>
+        {{!-- <button class="fetch-details-button" data-id="{{ this._id }}">
+          See Details
+        </button> --}}
+      </div>
+    </div>
+
+    {{#if this.mine}}
+    <div class="form-inline justify-content-center">
+      <a href="/movies/edit/{{ this._id }}" class="btn btn-secondary btn-sm"
+        >Edit Movie</a
+      >
+      <form action="/movies/delete/{{ this._id }}" method="POST">
+        <button class="btn btn-danger btn-sm">Delete Movie</button>
+      </form>
+    </div>
+    {{/if}}
+  </div>
+
+  {{/each}}
+</div>
+
+{{!-- <div class="details" id="deets"></div> --}}
+
+{{!-- <script src="/javascripts/movie-fetch.js"></script> --}}

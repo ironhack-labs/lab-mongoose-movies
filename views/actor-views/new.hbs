@@ -1,0 +1,78 @@
+<h2 class="movies-head">Add a New Actor</h2>
+
+<form
+  action="/actors/creation"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="actorName">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actorName"
+      aria-describedby="nameHelp"
+      placeholder="Name"
+      name="theName"
+    />
+  </div>
+  <div class="form-group">
+    <label for="theNominations">Nominations [limit two]</label>
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="nominationsHelp"
+      placeholder="Nomination"
+      name="theNominations"
+    />
+    <br />
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="nominationsHelp"
+      placeholder="Nomination"
+      name="theNominations"
+    />
+  </div>
+  <div class="form-group">
+    <label for="theAwards">Awards [limit two]</label>
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="awardsHelp"
+      placeholder="Award"
+      name="theAwards"
+    />
+    <br />
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="awardsHelp"
+      placeholder="Award"
+      name="theAwards"
+    />
+  </div>
+  <div class="form-group">
+    <label for="actorQuote">Famous Quote</label>
+    <textarea
+      class="form-control"
+      id="actorQuote"
+      aria-describedby="quoteHelp"
+      placeholder="Quote"
+      name="theQuote"
+      rows="3"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="actorImage">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actorImage"
+      aria-describedby="imageHelp"
+      placeholder="Headshot URL"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

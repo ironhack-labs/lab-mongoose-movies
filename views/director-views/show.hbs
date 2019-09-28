@@ -1,0 +1,35 @@
+<div class="row justify-content-center selected-movie">
+  <div class="col-sm">
+    <img class="celeb-img" src="{{ director.image }}" />
+  </div>
+  <div class="col-lg movie-info">
+    <a class="btn-link" href="/directors">Back to Directors</a>
+    <br />
+    <br />
+    <div class="content-heading">
+      <h4>
+        <b>{{ director.name }}</b>
+      </h4>
+    </div>
+
+    <h6 class="content-tagline">
+      <b> {{ director.occupation }}</b>
+    </h6>
+    <br />
+    <blockquote class="blockquote text-left font-italic">
+      <p class="mb-0">"{{ director.catchPhrase }}"</p>
+    </blockquote>
+    <h6>Projects: </h6>
+    <ul>
+      {{#each filteredMovies}}
+      <li><a href="/movies/details/{{this._id}}" class="btn-link"><em>{{this.title}}</em></a></li>
+      {{/each}}
+    </ul>
+    {{#if theUser}}
+      <a href="/directors/edit/{{ director._id }}" class="btn btn-secondary btn-sm"
+      >Edit Director Info</a
+    >
+    {{/if}}
+  </div>
+  
+</div>

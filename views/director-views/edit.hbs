@@ -1,0 +1,54 @@
+<h2 class="movies-head">Edit Information for <em>{{ director.name }}</em></h2>
+
+<form
+  action="/directors/update/{{ director._id }}"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="directorName">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="directorName"
+      aria-describedby="nameHelp"
+      value="{{ director.name }}"
+      name="theName"
+    />
+  </div>
+  <div class="form-group">
+    <label for="directorOccupation">Occupation</label>
+    <input
+      type="text"
+      class="form-control"
+      id="directorOccupation"
+      aria-describedby="occupationHelp"
+      value="{{ director.occupation }}"
+      name="theOccupation"
+    />
+  </div>
+  <div class="form-group">
+    <label for="directorCatchPhrase">Famous Quote</label>
+    <input
+      type="text"
+      class="form-control"
+      id="directorCatchPhrase"
+      aria-describedby="catchPhraseHelp"
+      value="{{ director.catchPhrase }}"
+      name="theCatchPhrase"
+      rows="3"
+    />
+  </div>
+  <div class="form-group">
+    <label for="directorImage">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="directorImage"
+      aria-describedby="imageHelp"
+      value="{{ director.image }}"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

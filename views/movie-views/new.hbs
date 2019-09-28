@@ -1,0 +1,77 @@
+<h2 class="movies-head">Add a New Film</h2>
+
+<form
+  action="/movies/creation"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="movieTitle">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieTitle"
+      aria-describedby="nameHelp"
+      placeholder="Movie Title"
+      name="theTitle"
+    />
+  </div>
+  <div class="form-group">
+    <label for="movieDirector">Director</label>
+    <select class="form-control" id="movieDirector" name="theDirector">
+      <option value="" selected disabled>Please Select One</option>
+
+      {{#each directors}}
+
+      <option value="{{ this._id }}">{{ this.name }}</option>
+
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="movieGenre">Genre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieGenre"
+      aria-describedby="genreHelp"
+      placeholder="Movie Genre"
+      name="theGenre"
+    />
+  </div>
+  <div class="form-group">
+    <label for="theCast">Starring:</label>
+    {{#each actors}}
+    <div class="form-check">
+      <input type="checkbox" value="{{ this._id }}" name="theCast" />
+      {{ this.name }}
+      <br />
+      <br />
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="form-group">
+    <label for="moviePlot">Synopsis</label>
+    <input
+      type="text"
+      class="form-control"
+      id="moviePlot"
+      aria-describedby="plotHelp"
+      placeholder="Movie Plot"
+      name="thePlot"
+    />
+  </div>
+  <div class="form-group">
+    <label for="movieImage">Poster URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="movieImage"
+      aria-describedby="imageHelp"
+      placeholder="Poster URL"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

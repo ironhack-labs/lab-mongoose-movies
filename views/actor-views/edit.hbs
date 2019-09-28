@@ -1,0 +1,67 @@
+<h2 class="movies-head">Edit Information for <em>{{ actor.name }}</em></h2>
+
+<form
+  action="/actors/update/{{ actor._id }}"
+  method="POST"
+  style="width:500px; margin-left:100px"
+>
+  <div class="form-group">
+    <label for="actorName">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actorName"
+      aria-describedby="nameHelp"
+      value="{{ actor.name }}"
+      name="theName"
+    />
+  </div>
+    <div class="form-group">
+    <label for="theNominations">Nominations [limit two]</label>
+  {{#each actor.nominations}}
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="nominationsHelp"
+      value="{{this}}"
+      name="theNominations"
+    />
+    <br />
+  {{/each}}
+  </div>
+  <div class="form-group">
+    <label for="theAwards">Awards [limit two]</label>
+  {{#each actor.awards}}
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="awardsHelp"
+      value="{{this}}"
+      name="theAwards"
+    />
+    <br />
+  {{/each}}
+  </div>
+  <div class="form-group">
+    <label for="actorQuote">Famous Quote</label>
+    <textarea
+      class="form-control"
+      id="actorQuote"
+      aria-describedby="quoteHelp"
+      name="theQuote"
+      rows="3"
+    >{{actor.quote}}</textarea>
+  </div>
+  <div class="form-group">
+    <label for="actorImage">Image URL</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actorImage"
+      aria-describedby="imageHelp"
+      value="{{ actor.image }}"
+      name="theImage"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

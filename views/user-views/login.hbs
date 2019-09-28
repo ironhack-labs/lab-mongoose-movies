@@ -1,0 +1,41 @@
+<h2 class="movies-head">Login to your account</h2>
+
+<form action="/login" method="POST" style="width:500px; margin-left:100px">
+  <div class="form-group">
+    <label for="theUsername">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="theUsername"
+      aria-describedby="userHelp"
+      placeholder="Enter your username"
+      name="username"
+    />
+  </div>
+  <div class="form-group">
+    <label for="thePassword">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="thePassword"
+      aria-describedby="userHelp"
+      placeholder="Enter your password"
+      name="password"
+    />
+  </div>
+  {{#if errorMessage}}
+  <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+    <button type="submit" class="btn btn-primary">Sign In</button>
+
+    <a href="/auth/google" class="btn btn-light google-link"
+      >Sign in with Google
+      <img
+        src="https://img.icons8.com/color/48/000000/google-logo.png"
+        class="google-svg"
+    /></a>
+  <p class="account-message" style="margin-top:10px">
+    Don't have an account? <a href="/signup" class="btn-link">Sign up</a>
+  </p>
+</form>
+
