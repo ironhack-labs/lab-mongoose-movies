@@ -1,0 +1,10 @@
+<ul>
+{{#each movie}}
+  <li>{{title}}</li>
+  <li>{{genre}}</li>
+  <li>{{plot}}</li>
+  <a href="/show-celeb/{{stars._id}}"><li>{{stars.name}}</li></a>
+{{/each}}
+</ul>
+
+<a href="/movie-index">Back to all movies</a>

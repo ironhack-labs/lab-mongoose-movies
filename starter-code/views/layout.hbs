@@ -9,8 +9,48 @@
 </head>
 <body>
 
+  {{#if errorMessage}}
+  <div>{{errorMessage}}</div>
+  {{/if}}
+
+  <div class="nav-container">
+
+    <nav class="nav-left">
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/celeb-index">Celebrities</a></li>
+          <li><a href="/movie-index">Movies</a></li>
+
+        {{#if theUser.isAdmin}}
+          <a href="/create-new-account">Create New User</a>
+          <a href="/active-users">See All Users</a>
+        {{/if}}
+
+
+          {{#if theUser}}
+            <li><a href="/movie-index">Favorite Movies</a></li>
+          {{/if}}
+      </ul>
+    </nav>
+
+     <nav class="nav-right">
+      <ul>
+
+        {{#if theUser}}
+          <li><a href="/logout">Logout</a></li>
+          {{else}}
+          <li><a href="/signup">Sign up</a></li>
+          <li><a href="/login">Login</a></li>
+        {{/if}}
+    
+      </ul>
+    </nav>
+
+  </div>
+
+
   {{{body}}}
 
-  <script src="/javascripts/script.js"></script>
+<script src="/javascripts/script.js"></script>
 </body>
 </html>
