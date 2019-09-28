@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const celebSchema = new Schema({
   name: String,
-  occupation: {type: String, enum: ['actor', 'singer', 'comedian', 'unknown']},
+  occupation: {type: String, enum: ['Actor', 'Singer', 'Comedian', 'Unknown']},
   catchPhrase: {type: String, require:true}
 }, {
   timestamps: true
