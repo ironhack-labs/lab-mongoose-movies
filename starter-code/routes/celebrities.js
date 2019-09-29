@@ -20,7 +20,7 @@ rout.get('/:id', (req, res, next) => {
   console.log(id);
   celebrityModel.findById(id)
     .then((data) => {
-  console.log(data);
+  // console.log(data);
   // res.send({data);
       res.render('celebrities/show', data)
     })
@@ -38,6 +38,35 @@ rout.post('/', (req, res, next) => {
   const {name,occupation,catchPhrase} = req.body;
   celebrityModel.create({name,occupation,catchPhrase})
   .then(() => res.redirect('celebrities/index'))
+  .catch(err => console.log(err));
+});
+
+rout.post('/:id/delete', (req, res, next) => {
+  const {id} = req.params;
+  celebrityModel.findByIdAndDelete(id)
+  .then((data) => {
+    res.redirect('/');
+  })  
+  .catch((err) => console.log(err))
+});
+
+rout.get('/:id/edit', (req, res, next) => {
+  const {id} = req.params;
+  celebrityModel.findById(id)
+  .then(data => {
+    // res.send(data);
+    res.render('celebrities/edit', data);
+  })  
+  .catch((err) => console.log(err))
+});
+
+rout.post('/:id', (req,res,next) => {
+  const {id} = req.params;
+  // const {name, occupation,catchPhrase} = req.body;
+  celebrityModel.findByIdAndUpdate(id, req.body)
+  .then(data => {
+    res.redirect('/');
+  })
   .catch(err => console.log(err));
 });
 
