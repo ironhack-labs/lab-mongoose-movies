@@ -30,4 +30,15 @@ rout.get('/:id', (req, res, next) => {
     })
 });
 
+rout.get('/new', (req, res, next) => {
+      res.render('celebrities/new');
+});
+
+rout.post('/', (req, res, next) => {
+  const {name,occupation,catchPhrase} = req.body;
+  celebrityModel.create({name,occupation,catchPhrase})
+  .then(() => res.redirect('celebrities/index'))
+  .catch(err => console.log(err));
+});
+
 module.exports = rout;
