@@ -1,0 +1,31 @@
+CRIAR UM MODEL
+1 - Importar, criar os campos com seus tipos e criar a constante que vai ser exportada.
+
+const mongoose = require("mongoose");
+const Schema   = mongoose.Schema;
+
+const NOME_DO_SCHEMA = new Schema({
+  title: String,
+  director: String,
+  stars: Array,
+  image: String,
+  description:String,
+  showtimes: Array
+}, {
+  timestamps: {
+    createdAt: "created_at",
+    updatedAt: "updated_at"
+  }
+});
+
+const NOME_DO_MODELO_A_EXPORTAR = mongoose.model("NOME_DA_COLLECTION", NOME_DO_SCHEMA);
+
+module.exports = Movie;
+
+
+CRIAR A BASE DE DADOS EM SEEDS(PASTA BIN)
+
+CRIAR A ROTA DO BANCO DE DADOS (NÃO ESQUECER DE COLOCAR A ROTA TAMBÉM NO APP.JS )
+
+
+

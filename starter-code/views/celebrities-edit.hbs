@@ -1,0 +1,22 @@
+<h1>Edit a celebrity</h1>
+{{#with celebrityDbTwo}}
+
+<form method="POST">
+  <label>
+    <h4>{{name}}</h4>
+  </label>
+  <input name="name" value ="{{name}}"></input>
+<label><h4>{{occupation}}</h4></label>
+<input name=" occupation" value ="{{occupation}}"></input>
+<label><h4>{{catchPhrase}}</h4></label>
+<input name=" catchPhrase" value="{{catchPhrase}}"></input>
+  <br><br>
+  <button>Submit</button>
+</form>
+<br>
+<form action="/celebrities" >
+   <button class="btn-return" type="submit">Return</button>
+</form>
+
+
+{{/with}}
