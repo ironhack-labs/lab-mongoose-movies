@@ -1,3 +1,6 @@
 {{#each e}}
-<h2>{{this.name}}</h2>
+<h2><a href="{{this._id}}">{{this.name}}</a></h2>
+<form action="/celebrities/{{this._id}}/delete" method="post">
+  <button type="submit">Like you erase it?</button>
+</form>
 {{/each}}
