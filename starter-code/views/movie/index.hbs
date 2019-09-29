@@ -1,0 +1,17 @@
+{{#each arrMovie}}
+<div>
+  <a href="/movie/{{this.id}}">
+    <h2>{{this.title}} </h2>
+  </a>
+</div>
+<form action="/movies/{{this.id}}/delete" method="post">
+  <button type="submit">delete</button>
+</form>
+<a href="/movies/{{this.id}}/edit">
+  <button type="submit">edit</button>
+</a>
+{{/each}}
+
+<div>
+  <a href="/movies/new"><button>add new movie</button> </a>
+</div>
