@@ -1,29 +1,58 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 
-const dbName = 'starter-code';
+const dbName = 'starter-code-movie';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
-const celebrity = [
+const movie = [
   {
-    name: "Joey Tribbiani",
-    occupation: "Actor",
-    catchPhrase: "How YOU doin",
+    title: "IronHack 1",
+    genre: "Adventure",
+    plot: "Students learning",
   },
   {
-    name: "Sheldon Cooper",
-    occupation: "Unknown",
-    catchPhrase: "Bazinga!",
+    title: "HSM",
+    genre: "Teen",
+    plot: "High School Musical",
   },
   {
-    name: "Barney Stinson",
-    occupation: "Comedian",
-    catchPhrase: "Suit up!",
+    title: "O auto da compadecida",
+    genre: "Comedy",
+    plot: "Nao sei, só sei que foi assim!",
   },
 ]
 
-Celebrity.create(celebrity, (err) => {
+Movie.create(movie, (err) => {
   if (err) { throw(err) }
-  console.log(`Created ${celebrity.length} celebrity`);
+  console.log(`Created ${movie.length} movies`);
   mongoose.connection.close();
 });
+
+// const Celebrity = require('../models/celebrity');
+
+// const dbName = 'starter-code';
+// mongoose.connect(`mongodb://localhost/${dbName}`);
+
+// const celebrity = [
+//   {
+//     name: "Joey Tribbiani",
+//     occupation: "Actor",
+//     catchPhrase: "How YOU doin",
+//   },
+//   {
+//     name: "Sheldon Cooper",
+//     occupation: "Unknown",
+//     catchPhrase: "Bazinga!",
+//   },
+//   {
+//     name: "Barney Stinson",
+//     occupation: "Comedian",
+//     catchPhrase: "Suit up!",
+//   },
+// ]
+
+// Celebrity.create(celebrity, (err) => {
+//   if (err) { throw(err) }
+//   console.log(`Created ${celebrity.length} celebrity`);
+//   mongoose.connection.close();
+// });
