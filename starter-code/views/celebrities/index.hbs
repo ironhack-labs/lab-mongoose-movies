@@ -1,0 +1,17 @@
+<h2>Hall of Celebrities</h2>
+{{#each celebrities}}
+    <a href="/celebrities/{{_id}}"><h2>{{this.name}}</h2></a>
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+      <button type="submit">DEL</button>
+    </form>
+    <form action="/celebrities/{{_id}}/edit" method="get">
+      <button type="submit">EDIT</button>
+    </form>
+{{/each}}
+<br>
+    <form action="/new" method="get">
+      <button type="submit">ADD YOUR CELEBRITY</button>
+    </form>
+
+{{!-- <a href="/new">ADD YOUR CELEBRITY</a> --}}
+

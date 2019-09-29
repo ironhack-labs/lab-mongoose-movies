@@ -1,0 +1,19 @@
+
+{{#with celebritiesEdit }}
+
+<h2>Edit Your {{name}}</h2>
+
+<form action="{{data.id}}" method="post">
+  <label for="">Name:</label>
+  <input type="text" name="name" value="{{name}}"">
+
+  <label for="">Occupation:</label>
+  <input type="text" name="occupation" value="{{occupation}}">
+
+  <label for="">catchPhrase:</label>
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+
+  <button type="submit">EDIT</button>
+</form>
+
+{{/with}}
