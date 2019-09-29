@@ -1,8 +1,85 @@
+*{
+  margin:0px;
+  padding: 0px;
+  text-decoration-line: none;
+}
+
 body {
-  padding: 50px;
+  padding: 10px;
+  height: 1000px;
+  width: 800px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(330deg, rgba(255,255,0,1),rgba(255,0,255,1),rgba(0,0,255,1),rgba(0,255,0,1),rgba(255,255,255,1)) no-repeat;
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+body > *{
+  margin:100px;
+  position: relative;
+  left: 30%;
+}
+
+h1{
+  animation: textRandomColor 4s infinite;
+  color:white;
+}
+
+@keyframes textRandomColor{
+  0%{
+    color:red;
+    transform: scale(1);
+  }
+  20%{
+    color:black;
+    transform: scale(2.5);
+  }
+  80%{
+    color:goldenrod;
+    transform: skew(3);
+  }
 }
 
 a {
-  color: #00B7FF;
+  font-size: 2rem;
+  color: #000000;
+}
+
+button{
+  width: 160px;
+  height: 40px;
+}
+
+input{
+  height: 30px;
+  width: 400px;
+}
+
+form > *{
+  display: flex;
+  margin: 20px;
+}
+
+section{
+  display: grid;
+  grid-template-columns: 213px 310px 184px 124px;
+}
+
+#edit{
+  height: 130px;
+  width: 180px;
+  border-radius: 30px;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 500px 300px 300px 300px;
+  grid-template-rows: 100px 100px 30px 30px;
+}
+
+main > *{
+  margin: 30px;
 }
