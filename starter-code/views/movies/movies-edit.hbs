@@ -1,0 +1,22 @@
+<h1>Edit a movie</h1>
+{{#with movieDb}}
+
+<form method="POST">
+  <label>
+    <h4>{{title}}</h4>
+  </label>
+  <input name="title" value ="{{title}}"></input>
+<label><h4>{{genre}}</h4></label>
+<input name=" genre" value ="{{genre}}"></input>
+<label><h4>{{plot}}</h4></label>
+<input name=" plot" value="{{plot}}"></input>
+  <br><br>
+  <button>Submit</button>
+</form>
+<br>
+<form action="/movies">
+   <button class="btn-return" type="submit">Return</button>
+</form>
+
+
+{{/with}}
