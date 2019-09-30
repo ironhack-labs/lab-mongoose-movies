@@ -1,39 +1,33 @@
 * {
   padding: 0px;
-  margin: 0px;
-}
+  margin: 0px; }
 
 .navbar {
-  background-color: #E84946;
-}
+  background-color: #E84946; }
 
 .home-btn {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 200px;
-}
+  top: 200px; }
 
 .home-btn > .btn {
   padding: 40px 100px;
   font-size: 60px;
-  background-color: #E84946;
-}
+  background-color: #E84946; }
 
 h1 {
-  color:  #212527;
+  color: #212527;
   border: 5px solid #E84946;
   border-radius: 50px;
   position: relative;
   top: 100px;
   padding: 10px;
-  background-color: #E84946;
-}
+  background-color: #E84946; }
 
 .header {
   display: flex;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .celebrities-list {
   display: flex;
@@ -41,33 +35,27 @@ h1 {
   color: #E84946;
   position: relative;
   top: 130px;
-  font-size: 30px;
-  
-}
+  font-size: 30px; }
 
 .cel {
   display: flex;
   flex-direction: column;
-  height: 480px;
-}
+  height: 480px; }
 
 .celebrities-list > .btn {
   padding: 10px;
   font-size: 20px;
-  color: #E84946;
-}
+  color: #E84946; }
 
 .celebrities-list > ul {
   border: 5px solid #E84946;
   padding: 30px;
   padding-right: 400px;
   border-radius: 50px;
-  background-color: #E84946;
-}
+  background-color: #E84946; }
 
 .btn > p {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .description {
   display: flex;
@@ -79,14 +67,13 @@ h1 {
   color: #212527;
   font-size: 30px;
   padding: 50px;
-  padding-left: 20px;
-}
+  padding-left: 20px; }
 
 .description > p {
   position: relative;
-  left: 20px;
-}
+  left: 20px; }
 
 .des-page > h1 {
-  padding-left: 30px;
-}
+  padding-left: 30px; }
+
+/*# sourceMappingURL=style.css.map */
