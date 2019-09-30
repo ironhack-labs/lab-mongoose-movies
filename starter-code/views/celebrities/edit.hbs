@@ -1,0 +1,23 @@
+<h2>Edit Celebrity Phrase</h2>
+<form action="edit" method="post">
+  Name:
+  <input type="text" name="name" value="{{name}}"><br>
+  Phrase:
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}"><br>
+  Occupation:
+  <select id="occupation" name="occupation">
+    <option value="actor">Actor</option>
+    <option value="singer">Singer</option>
+    <option value="comedian">Comedian</option>
+    <option value="unknown">Unknown</option>
+  </select><br>
+  <input type="submit" value="Submit">
+</form>
+<script>
+  selectElement('occupation','{{occupation}}')
+
+function selectElement(id, valueToSelect) {    
+    let element = document.getElementById(id);
+    element.value = valueToSelect;
+}
+</script>
