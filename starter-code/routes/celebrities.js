@@ -2,20 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity')
 
+const CelebrityControl = require('../controllers/celebrity-control')
+const celebrityControl = new CelebrityControl();
+
 /* GET home page */
-router.get('/celebrities', (req, res, next) => {
-  Celebrity.find()
-    .then(celebrityDb => {
-      console.log('the celebrities =>>>', celebrityDb)
-      res.render('celebrities', {
-        celebritiesList: celebrityDb
-      });
-    })
-    .catch(error => {
-      console.log('Error while getting the celebrity from the DB: ', error);
-      next();
-    })
-});
+router.get('/celebrities', celebrityControl.findCeleb());
+
 //roda para mostrar detalhes da celebridade
 router.get('/celebrities/:id', (req, res, next) => {
   const thisId = req.params.id;
