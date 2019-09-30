@@ -54,5 +54,8 @@ app.locals.title = 'Gerador de Celebridades/Filmes';
 const index = require('./routes/index');
 app.use('/', index);
 
+const movie = require('./routes/movies');
+app.use('/', index);
+
 
 module.exports = app;
