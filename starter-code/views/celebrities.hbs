@@ -1,0 +1,12 @@
+<div class="cel">
+<div class="header">
+  <h1>Our pretty celebrities</h1>
+</div>
+<div class="celebrities-list">
+  <ul>
+    {{#each celebrities}}
+    <li><button type="button" class="btn " onclick="location.href='/celebrities/{{this.id}}'"><p>{{this.name}}</p></button></li>
+    {{/each}}
+  </ul>
+</div>
+</div>
