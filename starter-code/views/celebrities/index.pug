@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+
+  h2 Celebrities
+
+  ul
+    each celebrity in celebrities
+      li 
+        a(href=`/celebrities/${celebrity._id}`) #{celebrity.name}
+        form(action=`/celebrities/${celebrity._id}/delete` method="post")
+          button(type="submit") Delete
+        form(action=`/celebrities/${celebrity._id}/edit` method="get")
+          button(type="submit") Edit
+
+  if error
+    p #{error}

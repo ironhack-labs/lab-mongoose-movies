@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+
+  h2 Edit Artist
+
+  .form-container
+    form(action=`/celebrities/${celebrity._id}` method="post")
+    
+      .form-element
+        label(for="name") Name
+        input(type="text" id="name" name="name" value=`${celebrity.name}`)
+
+      .form-element
+        label(for="occupation") Occupation
+        input(type="text" id="occupation" name="occupation" value=`${celebrity.occupation}`)
+
+      .form-element
+        label(for="catchPhrase") Catchphrase
+        input(type="text" id="catchphrase" name="catchPhrase" value=`${celebrity.catchPhrase}`)
+
+      if error 
+        p #{error}
+      button(type="submit") Edit #{celebrity.name}
