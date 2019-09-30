@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+
+  h2 Movies
+
+  ul
+    each movie in movies
+      li
+        a(href=`/movies/${movie._id}`) #{movie.title}
+        form(action=`/movies/${movie._id}/delete` method="post")
+          button(type="submit") Delete
+        form(action=`/movies/${movie._id}/edit` method="get")
+          button(type="submit") Edit
+
+  if error
+    p #{error}
