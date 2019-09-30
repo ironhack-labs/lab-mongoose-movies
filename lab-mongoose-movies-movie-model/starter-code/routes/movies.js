@@ -7,11 +7,9 @@ router.get('/movies', (req, res, next) => {
    Movie.find()
       .then(allMovies => {
           res.render('movies', { movies: allMovies });
-        //   console.log('DB:', allCelebrities);
     })
     .catch(error => {
-        next(error)
-        console.log('Error while getting the movies from the DB: ', error);
+        throw new Error(error);
       })
   });
 
@@ -22,8 +20,7 @@ router.get('/movies', (req, res, next) => {
         res.render('show', { movies: idMovies })
     })
     .catch(error => {
-      next(error);
-  console.log('Error while retrieving movies details: ', error);
+      throw new Error(error);
     })
 })
 
@@ -37,8 +34,7 @@ router.post('/movies', (req, res, next) => {
         res.redirect('/movies');
     })
     .catch((error) => {
-        res.redirect('/new')
-        console.log(error);
+        throw new Error(error);
 })
 })
 
@@ -48,7 +44,7 @@ router.post('/movies/:id/delete', (req, res, next) => {
           res.redirect('/movies')
       })
       .catch((error) => {
-          next(error)
+        throw new Error(error);
       })
   })
 
@@ -59,8 +55,7 @@ router.post('/movies/:id/delete', (req, res, next) => {
         res.render('edit', { moviesEdit })
     })
     .catch((error) => {
-        console.log(error);
-        next();
+        throw new Error(error);
     })
   })
 
@@ -71,10 +66,9 @@ router.post('/movies/:id/delete', (req, res, next) => {
         res.redirect('/movies');
       })
       .catch((error) => {
-        console.log(error);
+        throw new Error(error);
       })
     });
-
 
 
 module.exports = router;
