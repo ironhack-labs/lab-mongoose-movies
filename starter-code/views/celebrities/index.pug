@@ -8,10 +8,13 @@ block content
     each celebrity in celebrities
       li 
         a(href=`/celebrities/${celebrity._id}`) #{celebrity.name}
-        form(action=`/celebrities/${celebrity._id}/delete` method="post")
-          button(type="submit") Delete
-        form(action=`/celebrities/${celebrity._id}/edit` method="get")
-          button(type="submit") Edit
+        .button-container
+          form(action=`/celebrities/${celebrity._id}/delete` method="post")
+            button(type="submit" class="delete") Delete
+          form(action=`/celebrities/${celebrity._id}/edit` method="get")
+            button(type="submit" class="edit") Edit
 
   if error
     p #{error}
+
+  button(onclick="window.location.href = '/celebrities/new'" class="new") Add a new Celebrity

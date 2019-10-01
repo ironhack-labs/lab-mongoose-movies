@@ -27,7 +27,7 @@ router.post('/celebrities', (req, res, next) => {
   })
   .catch( error => {
     res.render('celebrities/new', {error});
-  })
+  });
 
 })
 
@@ -40,6 +40,7 @@ router.get('/celebrities/new', (req, res, next) => {
 router.get('/celebrities/:celebrityId', (req, res, next) => {
 
   let celebrityId = req.params.celebrityId;
+
   Celebrity.findById(celebrityId)
   .then( celebrity => {
     res.render('celebrities/show', { celebrity });

@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+
+  h2 Add Movie
+
+  .form-container
+    form(action="/movies" method='POST')
+
+      .form-element
+        label(for="title") Title
+        input(type="text" id="title" name="title")
+
+      .form-element
+        label(for="genre") Genre
+        input(type="text" id="genre" name="genre")
+
+      .form-element
+        label(for="plot") Plot
+        input(type="text" id="plot" name="plot")
+
+      if error 
+        p #{error}
+      button(type="submit") Add new movie!

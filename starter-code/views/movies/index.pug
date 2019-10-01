@@ -8,10 +8,13 @@ block content
     each movie in movies
       li
         a(href=`/movies/${movie._id}`) #{movie.title}
-        form(action=`/movies/${movie._id}/delete` method="post")
-          button(type="submit") Delete
-        form(action=`/movies/${movie._id}/edit` method="get")
-          button(type="submit") Edit
+        .button-container
+          form(action=`/movies/${movie._id}/delete` method="post")
+            button(type="submit" class="delete") Delete
+          form(action=`/movies/${movie._id}/edit` method="get")
+            button(type="submit" class="edit") Edit
 
   if error
     p #{error}
+
+  button(onclick="window.location.href = '/movies/new'" class="new") Add a new Movie

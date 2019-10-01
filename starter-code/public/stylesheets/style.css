@@ -62,4 +62,27 @@ main {
   margin-top: 5%;
   font-size: 16px; }
 
+.button-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around; }
+
+.button-container .edit {
+  background-color: navy;
+  border: navy 1px solid;
+  color: #FFFFFF;
+  font-size: 16px; }
+
+.button-container .delete {
+  background-color: #c00000;
+  border: #c00000 1px solid;
+  color: #FFFFFF;
+  font-size: 16px; }
+
+.new {
+  background-color: #408040;
+  border: #408040 1px solid;
+  color: #FFFFFF;
+  font-size: 16px; }
+
 /*# sourceMappingURL=style.css.map */
