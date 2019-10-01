@@ -1,0 +1,18 @@
+<h1>Hall of Movies</h1>
+
+{{#each movies}}
+<a href="/movies/{{_id}}">
+    <h2>{{this.title}}</h2>
+</a>
+<form action="/movies/{{this._id}}/delete" method="post">
+    <button type="submit">DEL</button>
+</form>
+<form action="/movies/{{_id}}/edit" method="get">
+    <button type="submit">EDIT</button>
+</form>
+{{/each}}
+
+<br>
+<form action="/new" method="get">
+    <button type="submit">ADD YOUR FAVORITE MOVIE</button>
+</form>
