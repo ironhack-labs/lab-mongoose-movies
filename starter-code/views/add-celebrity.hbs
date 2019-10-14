@@ -1,0 +1,15 @@
+<div>
+  <h2>Add Celebrity</h2>
+  {{#if error}}
+  <div>
+    {{error}}
+  </div>
+  {{/if}}
+  <p> </p>
+  <form action="/new-celebrities" method="post">
+    Name: <input type="text" name="name">
+    Occupation: <input type="text" name="occupation">
+    Catch Phrase: <input type="text" name="catchPhrase">
+    <button type="submit">Create Celebrity</button>
+  </form>
+</div>

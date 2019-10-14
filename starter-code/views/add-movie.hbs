@@ -1,0 +1,15 @@
+<div>
+  <h2>Add Movie</h2>
+  {{#if error}}
+  <div>
+    {{error}}
+  </div>
+  {{/if}}
+  <p> </p>
+  <form action="/new-movies" method="post">
+    Title: <input type="text" name="title">
+    Genre: <input type="text" name="genre">
+    Plot: <input type="text" name="plot">
+    <button type="submit">Create Movie</button>
+  </form>
+</div>

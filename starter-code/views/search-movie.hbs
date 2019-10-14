@@ -1,0 +1,22 @@
+<div>
+  <h1>Search for a movie</h1>
+  <form action="/search-movie" method="get">
+    Genre: <input type="text" name="genre">
+    <button type="submit">Search!</button>
+  </form>
+</div>
+
+
+{{#if movies}}
+<div>
+  <a href="{{linkAsc}}"><img src="./images/up.png" alt="UP" height="20px"></a>
+  <a href="{{linkDesc}}"><img src="./images/down.png" alt="UP" height="20px"></a>
+  <table>
+    {{#each movies}}
+    <tr>
+      <td>{{title}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</div>
+{{/if}}

@@ -1,0 +1,19 @@
+<div>
+  <form action="/add-actor" method="post">
+    Movie:
+    <select name="movie_id">
+      {{#each movies}}
+      {{!-- req.body will be the id of the publisher --}}
+      <option value="{{this._id}}">{{this.title}}</option>
+      {{/each}}
+    </select> <br>
+    Celebrity:
+    <select name="celebrity_id">
+      {{#each celebrities}}
+      {{!-- req.body will be the id of the publisher --}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select> <br>
+    <button type="submit">Add actor</button>
+  </form>
+</div>
