@@ -10,7 +10,6 @@ const logger       = require('morgan');
 const path         = require('path');
 const Celebrity = require('./models/Celebrity')
 
-
 mongoose
   .connect('mongodb://localhost/celebrity-db', {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
@@ -32,7 +31,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
