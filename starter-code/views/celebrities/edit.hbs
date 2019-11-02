@@ -1,0 +1,13 @@
+<h1>Edit Celebrities</h1>
+
+<form action="/celebs/{{result.id}}" method="POST" id="form">
+
+<p>Current Name</p>
+<input type="text" name="theName" value='{{result.name}}'>
+<p>Current Occupation</p>
+<input type="text" name="theOccupation" value='{{result.occupation}}'>
+<p>Current Catchphrase</p>
+<input type="text" name="theCatchphrase" value='{{result.catchphrase}}'>
+<button>Save</button>
+
+</form>

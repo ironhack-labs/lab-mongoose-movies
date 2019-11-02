@@ -1,0 +1,12 @@
+<h1>Profile</h1>
+<h3 class="link">Hello, {{theUser.username}}</h3>
+
+<div class="profile">
+<image class="profile-pic" width="100" src={{theUser.image}}><image>
+<h2>{{theUser.username}}</h2>
+</div>
+
+
+<form action="/account/delete-my-account" method="POST" class="center">
+<button>Delete My Account</button>
+</form>

@@ -1,14 +1,11 @@
 body {
-  
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
-ul{
+ul {
   text-decoration: none;
   list-style: none;
   display: flex;
@@ -17,65 +14,60 @@ ul{
   flex-wrap: wrap;
   padding-bottom: 75px;
   width: 100%;
-  margin-left: -60px;
-  
-}
-body > div > ul > li > h2{
-  padding-bottom: 0px !important; 
-}
-#form > p{
-  text-align: center;
-}
-div.profile{
+  margin-left: -60px; }
+
+body > div > ul > li > h2 {
+  padding-bottom: 0px !important; }
+
+#form > p {
+  text-align: center; }
+
+div.profile {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding: 50px;
+  padding: 50px; }
 
-}
-div.profile h2{
-  margin: 3% 0% 0% 2%;
-}
-select{
-  display: flex;
-  justify-content: center;
-  margin: 0% 0% 0% 33%;
-}
-body > div > div > h2{
-  padding-bottom: 0;
-}
-#form > div > div:nth-child(3) > input{
-  display: flex;
-  justify-content: center;
-  margin: 0% 0% 4% 47%;
-}
-h2,  h3{
-  display: flex;
-  justify-content: center;
-  padding-bottom: 50px;
-}
+div.profile h2 {
+  margin: 3% 0% 0% 2%; }
 
-.nav{
+select {
   display: flex;
   justify-content: center;
-}
-h1{
+  margin: 0% 0% 0% 33%; }
+
+body > div > div > h2 {
+  padding-bottom: 0; }
+
+#form > div > div:nth-child(3) > input {
   display: flex;
   justify-content: center;
-  padding-right: 10px;
-}
+  margin: 0% 0% 4% 47%; }
+
+h2, h3 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px; }
+
+.nav {
+  display: flex;
+  justify-content: center; }
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding-right: 10px; }
+
 #form {
   margin: 30px auto;
-  width: 380px;
-}
+  width: 380px; }
 
 #form label {
   color: #666;
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
-  width: 100%;
-}
+  width: 100%; }
 
 #form input,
 #form button {
@@ -84,8 +76,7 @@ h1{
   outline: 0;
   padding: 4px;
   width: 100%;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 #form button {
   background: #43a3e6;
@@ -99,50 +90,47 @@ h1{
   text-decoration: none;
   text-transform: uppercase;
   transition: .3s ease background;
-  width: 100%;
-}
-
-
+  width: 100%; }
 
 #form button:hover {
   background: #fff;
   color: #43a3e6;
-  transition: .3s ease background;
-}
+  transition: .3s ease background; }
+
 .error-message {
   background: #F02B63;
   box-sizing: border-box;
   color: #fff;
   margin: 20px auto;
   padding: 20px;
-  width: 100%;
-}
-form.center{
-  display: flex;
-  justify-content: center;
-  flex-direction: inherit;
-}
-.div-center{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
+  width: 100%; }
 
-input.center{
+form.center {
   display: flex;
-  align-content: center; 
+  justify-content: center;
+  flex-direction: inherit; }
+
+.div-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+input.center {
+  display: flex;
+  align-content: center;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
-}
-.center{
+  text-align: center; }
+
+.center {
   display: flex;
-  align-content: center; 
+  align-content: center;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
-}
-.link{
+  text-align: center; }
+
+.link {
   color: coral;
-  padding-bottom: -49px;
-}
+  padding-bottom: -49px; }
+
+/*# sourceMappingURL=style.css.map */

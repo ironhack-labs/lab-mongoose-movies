@@ -8,9 +8,41 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
+  {{#if errorMessage}}
+    <div>{{errorMessage}}</div>
+  {{/if}}
+  {{#if successMessage}}
+    <div>{{successMessage}}</div>
+  {{/if}}
+  <nav>
+    <ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/celebs">Celebs</a></li>
+  <li><a href="/movies">Movies</a></li>
+  {{#if theUser.isAdmin}}
+    <a href="/create-new-account">Create New User</a>
+    <a href="/active-users">See All Users</a>
+  {{/if}}
+  <li>
+  
+  {{#if theUser}}
+ 
+   <a href="/logout">Logout</a>
+   |
+   <a href="/profile">Profile</a>
 
+    {{else}}
+
+      <a href="/login">Login</a>
+
+    {{/if}}
+      </li>
+   
+    </ul>
+  </nav>
+<div class="body">
   {{{body}}}
-
+</div>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

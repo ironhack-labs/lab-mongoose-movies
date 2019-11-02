@@ -1,0 +1,24 @@
+<h2>Movie Database</h2>
+
+<ul>
+{{#each result}}
+<li>
+    <h2><a class="link" href="/movies/details/{{this._id}}">{{this.title}}</a></h2>
+    
+
+<div class="unlink">
+{{#if this.mine}}
+
+<form action="/movies/{{this._id}}/delete" method="POST">
+    <button >Delete</button>
+</form>
+
+
+<a href="/movies/{{this._id}}/edit">Edit</a>
+</div>
+{{/if}}
+</li>
+{{/each}}
+</ul>
+
+<h3><a href="/movies/new-movie">Add a new movie</a></h3>
