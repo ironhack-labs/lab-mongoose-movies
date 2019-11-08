@@ -1,5 +1,5 @@
 {
-  "name": "starter-code",
+  "name": "celebrities-lab",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,17 +8,24 @@
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
-    "hbs": "^4.0.1",
-    "mongoose": "^5.2.10",
-    "morgan": "^1.9.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "hbs": "^4.0.6",
+    "mongoose": "^5.7.8",
+    "morgan": "^1.9.1",
     "node-sass-middleware": "^0.11.0",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
+  },
+  "description": "lab-mongoose-movies",
+  "main": "app.js",
+  "author": "hanna",
+  "license": "ISC",
+  "bin": {
+    "celebrities-lab": "seed.js"
   }
 }

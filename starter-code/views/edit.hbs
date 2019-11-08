@@ -1,0 +1,15 @@
+<h2>{{title}}</h2>
+<form method="post" action="">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" value={{req.params.name}}>
+    <label for="occupation">Occupation</label>
+    <input id="occupation" name="occupation" type="text" value={{req.params.occupation}}>
+    <label for="catchPhrase">Catch Phrase</label>
+    <input id="catchPhrase" name="catchPhrase" type="text" value={{req.params.catchPhrase}}>
+    <button>Submit</button>
+</form>
+
+
+{{!-- 
+Not Done
+Bonus: When you render the edit form, make sure each of the input fields is pre-filled with the current value of the attribute for that celebrity --}}

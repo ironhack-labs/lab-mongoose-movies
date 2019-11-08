@@ -1,2 +1,16 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h2>{{title}}</h2>
+
+<ul>
+    {{#each celebrities}}
+    <li><a href="/celebrity/{{this.id}}">{{this.name}}</a></li>
+    <form method="post" action="/celebrities/{{this.id}}/delete">
+        <button>Delete</button>
+    </form>
+    <a href="/celebrities/{{this.id}}/edit">
+        <button>Edit</button>
+    </a>
+
+    {{/each}}
+</ul>
+
+<a href="/celebrities/new">Create a new celebrity</a>
