@@ -1,0 +1,15 @@
+<h2>List of movies</h2>
+<div>
+    {{#each movies}}
+    <div>
+        <h4 class="mov">{{this.title}}</h4>
+    </div>
+    <a href="/movies/show/{{this.id}}">Learn more</a>
+    <a href="/movies/delete/{{this.id}}">Delete</a>
+    <a href="/movies/edit/{{this.id}}">Edit</a>
+    {{/each}}
+</div>
+
+
+
+<button class="add"><a href="/movies/new">Add a movie</a></button></a>
