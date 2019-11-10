@@ -89,7 +89,7 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     });
 });
 
-console.log("in the celebrities.js file");
+//console.log("in the celebrities.js file");
 // enter in the celebrities.js file thanks to the route declare in the app.js file (celebrities route)
 
 module.exports = router;

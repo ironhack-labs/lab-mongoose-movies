@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const CelebrityModel = require("../models/Celebrities.js");
+const MovieModel = require("../models/Movies.js");
 
 //console.log('in seeds.js file');
 
@@ -16,26 +16,50 @@ mongoose
   });
 
 
+// // uncomment to seed again the db for the first time
+// const celebrities = [{
+//     name: "Chris Martin",
+//     occupation: "Singer",
+//     catchPhrase: "Viva la Vida"
+//   },
+//   {
+//     name: "Hayao Miyazaki",
+//     occupation: "Animator",
+//     catchPhrase: "J'ai fait une belle ballade !"
+//   },
+//   {
+//     name: "Cillian Murphy",
+//     occupation: "Actor",
+//     catchPhrase: "There is God and there is the Peaky Blinders"
+//   }
+// ];
 
-const celebrities = [{
-    name: "Chris Martin",
-    occupation: "Singer",
-    catchPhrase: "Viva la Vida"
+// CelebrityModel.create(celebrities)
+//   .then(dbResult => {
+//     console.log("the celebrities have been inserted !");
+//   })
+//   .catch(dbErr => console.log(dbErr));
+
+const movies = [{
+    title: "le voyage de Chihiro",
+    genre: "anime",
+    plot: "little girl have to find her parents"
   },
   {
-    name: "Hayao Miyazaki",
-    occupation: "Animator",
-    catchPhrase: "J'ai fait une belle ballade !"
+    title: "lord of the rings",
+    genre: "fantasy",
+    plot: "destroy the ring"
   },
   {
-    name: "Cillian Murphy",
-    occupation: "Actor",
-    catchPhrase: "There is God and there is the Peaky Blinders"
-  }
+    title: "Love Actually",
+    genre: "Romantic Comedy",
+    plot: "love story of differents people"
+  },
+
 ];
 
-CelebrityModel.create(celebrities)
+MovieModel.create(movies)
   .then(dbResult => {
-    console.log("the celebrities have been inserted !");
+    console.log("the movies have been inserted !");
   })
   .catch(dbErr => console.log(dbErr));
