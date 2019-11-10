@@ -1,0 +1,14 @@
+<h2>{{title}}</h2>
+
+<ul>
+    {{#each celebrities}}
+    <li>
+        Name : {{this.name}}
+        <a href="celebrities/{{this.id}}">See more</a>
+    </li>
+    {{/each}}
+
+    <a href="celebrities/new">Add new star</a>
+
+</ul>
+<p>{{description}}</p>
