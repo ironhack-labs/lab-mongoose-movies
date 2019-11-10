@@ -63,5 +63,9 @@ app.use('/', index);
 const celebrities = require("./routes/celebrities"); // require exported router
 app.use(celebrities); // app use the route to enter in the celebrities route
 
+// iteration 8
+const movies = require("./routes/movies");
+app.use(movies);
+
 
 module.exports = app;

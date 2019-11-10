@@ -1,0 +1,26 @@
+<header>
+  <h2>All the Movies</h2>
+</header>
+
+<div class="allMovies">
+  <ul>
+    {{#each moviesDisplay}}
+    <li>
+      <h3>
+        <a href="/movies/{{this.id}}">{{this.title}}</a>
+        <form action="movies/{{this.id}}/delete" method="post">
+          <button type="submit">delete</button>
+        </form>
+        <!-- linked to the page movies/:id of the celebrity we clicked on (page defined in the movies.js file)-->
+      </h3>
+    </li>
+    {{/each}}
+
+  </ul>
+
+  <h4><a href="/movies/new">Create a new Movie</a></h4>
+
+  <h4><a href="/">Back Home</a></h4>
+
+
+</div>
