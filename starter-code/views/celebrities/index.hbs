@@ -6,7 +6,10 @@
   <ul>
     {{#each celebritiesDisplay}}
     <li class="eachCelebrityName">
-      <h3>{{this.name}}</h3>
+      <h3>
+        <a href="/celebrities/{{this.id}}">{{this.name}}</a>
+        <!-- linked to the page celebrities/:id of the celebrity we clicked on (page defined in the celebrities.js file)-->
+      </h3>
     </li>
     {{/each}}
   </ul>

@@ -18,6 +18,24 @@ router.get('/celebrities', (req, res, next) => { // url adress
     });
 });
 
+router.get('/celebrities/:id', (req, res, next) => {
+    celebritiesModel
+      .findOne({
+        "_id": req.params.id // id = property of params which is property of req
+      })
+      .then(celebrity => {
+        res.render('celebrities/show', { // render the show.hbs file
+          celebrityShow: celebrity // celebrityShow is an object and will let us to access its data in the show.hbs file
+        });
+      })
+      .catch(error => {
+        next();
+        console.log("error while retrieving show of a celebrity", error);
+      });
+  }
+
+);
+
 console.log("in the celebrities.js file");
 // enter in the celebrities.js file thanks to the route declare in the app.js file (celebrities route)
 
