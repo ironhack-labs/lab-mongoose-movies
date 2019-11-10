@@ -8,10 +8,14 @@
     <li class="eachCelebrityName">
       <h3>
         <a href="/celebrities/{{this.id}}">{{this.name}}</a>
+        <form action="celebrities/{{this.id}}/delete" method="post">
+          <button type="submit">delete</button>
+        </form>
         <!-- linked to the page celebrities/:id of the celebrity we clicked on (page defined in the celebrities.js file)-->
       </h3>
     </li>
     {{/each}}
+
   </ul>
 
   <h4><a href="/celebrities/new">Create a new celebrity</a></h4>

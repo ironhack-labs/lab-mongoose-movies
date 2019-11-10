@@ -73,6 +73,21 @@ router.post('/celebrities', (req, res, next) => {
     });
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  celebritiesModel
+    .findByIdAndRemove({
+      "_id": req.params.id
+    })
+    .then((celebrity) => {
+      res.redirect('/celebrities');
+      // need to put the "/" here otherwise I get "error 404" because the url is /celebrities/(id)/celebrities
+    })
+    .catch((error) => {
+      next();
+      console.log(error);
+      return error;
+    });
+});
 
 console.log("in the celebrities.js file");
 // enter in the celebrities.js file thanks to the route declare in the app.js file (celebrities route)
