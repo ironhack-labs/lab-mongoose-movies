@@ -1,0 +1,23 @@
+<h2>These informations are bullshit ! Let's make it right !</h2>
+
+<a href="/celebrities">Go back</a>
+
+<h3>name of celeb : {{celebrity.name}}</h3>
+
+<form action="/celebrities/{{celebrity._id}}" method="POST">
+    <ul>
+        <li>
+            <label for="name">Name :</label>
+            <input type="text" name="name" id="name" value="{{celebrity.name}}" />
+        </li>
+        <li>
+            <label for="occupation">Occupation :</label>
+            <input type="text" name="occupation" id="occupation" value='{{celebrity.occupation}}lol'>
+        </li>
+        <li>
+            <label for="catchPhrase">Catchphrase :</label>
+            <input type="text" name="catchPhrase" id="catchPhrase" value='{{celebrity.catchPhrase}}lol'>
+        </li>
+    </ul>
+    <button>Update</button>
+</form>
