@@ -17,6 +17,13 @@ router.get('/movies', (req, res, next) => { // url adress
     });
 });
 
+// iteration 10 : needs 2 routes :
+// 1) for rendering the form where the user can fill all the info about a new movie
+router.get('/movies/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
+
 //iteration 9 : movies details
 router.get('/movies/:id', (req, res, next) => {
     moviesModel
@@ -31,11 +38,38 @@ router.get('/movies/:id', (req, res, next) => {
       })
       .catch(error => {
         next();
-        console.log("error while retrieving show of a celebrity", error);
+        console.log("error while retrieving show of a movie", error);
       });
   }
 
 );
+
+// iteration 10 : needs 2 routes :
+// 2) for getting the data about the movie and add it to the database
+router.post('/movies', (req, res, next) => {
+  const {
+    title,
+    genre,
+    plot
+  } = req.body;
+  // Create an instance of the Movie model with the object you made in the previous step:
+  const newMovie = new moviesModel({
+    title,
+    genre,
+    plot
+  });
+  console.log(newMovie);
+
+  newMovie
+    .save()
+    .then((movie) => {
+      res.redirect('movies'); // redirect to the list of the movies
+    })
+    .catch((error) => {
+      res.render('movies/new'); // render the movies/view so the user can try again
+      console.log(error);
+    });
+});
 
 console.log("inside the movies.js file !");
 
