@@ -73,6 +73,7 @@ router.post('/celebrities', (req, res, next) => {
     });
 });
 
+// iteration 5 : delete a celebrity
 router.post('/celebrities/:id/delete', (req, res, next) => {
   celebritiesModel
     .findByIdAndRemove({

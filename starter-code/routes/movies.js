@@ -71,6 +71,24 @@ router.post('/movies', (req, res, next) => {
     });
 });
 
+// iteration 11 : delete a movie
+
+router.post('/movies/:id/delete', (req, res, next) => {
+  moviesModel
+    .findByIdAndRemove({
+      "_id": req.params.id
+    })
+    .then((movie) => {
+      res.redirect('/movies');
+      // need to put the "/" here otherwise I get "error 404" because the url is /movies/(id)/movies
+    })
+    .catch((error) => {
+      next();
+      console.log(error);
+      return error;
+    });
+});
+
 console.log("inside the movies.js file !");
 
 module.exports = router;
