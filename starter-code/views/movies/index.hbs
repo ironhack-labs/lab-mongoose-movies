@@ -1,0 +1,19 @@
+<h2>Here some titles of movies:</h2>
+{{#each movie}}
+<div class="movie_item">
+    <div>{{this.title}}</div>
+    <a href="movies/{{this.id}}">see more</a>
+    <form style="display: inline" method="post" action="/delete-movie/{{this.id}}">
+        <button class="btn">
+            Delete
+        </button>
+    </form>
+    <form style="display: inline" method="post" action="movies/{{this.id}}">
+        <button class="btn">
+            Edit
+        </button>
+    </form>
+        <a href="movies/{{this.id}}/edit">edit</a>
+
+</div>
+{{/each}}

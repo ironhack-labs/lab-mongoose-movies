@@ -1,0 +1,19 @@
+<h2>Here some names of celebrities:</h2>
+{{#each celeb}}
+<div class="celeb_item">
+    <div>{{this.name}}</div>
+    <a href="celebrities/{{this.id}}">see more</a>
+    <form style="display: inline" method="post" action="/delete-celebrity/{{this.id}}">
+        <button class="btn">
+            Delete
+        </button>
+    </form>
+    <form style="display: inline" method="post" action="celebrities/{{this.id}}">
+        <button class="btn">
+            Edit
+        </button>
+    </form>
+        <a href="celebrities/{{this.id}}/edit">edit</a>
+
+</div>
+{{/each}}
