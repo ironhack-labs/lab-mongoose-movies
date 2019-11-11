@@ -1,0 +1,10 @@
+<h2>{{title}}</h2>
+<form method="post" action="">
+    <label for="title">title</label>
+    <input id="title" name="title" type="text" value={{req.params.title}}>
+    <label for="genre">Genre</label>
+    <input id="genre" name="genre" type="text" value={{req.params.genre}}>
+    <label for="plot">Plot</label>
+    <input id="plot" name="plot" type="text" value={{req.params.plot}}>
+    <button>Submit</button>
+</form>
