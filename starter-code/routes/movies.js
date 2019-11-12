@@ -17,11 +17,22 @@ router.get('/movies', (req, res, next) => { // url adress
     });
 });
 
-// iteration 10 : needs 2 routes :
+// iteration 12: needs 2 routes:
 // 1) for rendering the form where the user can fill all the info about a new movie
-router.get('/movies/new', (req, res, next) => {
-  res.render('movies/new');
+router.get('/movies/:id/update', (req, res, next) => {
+  moviesModel
+    .findOne({
+      "_id": req.params.id
+    })
+    .then(movie => {
+      console.log(movie);
+      res.render('movies/update', { // render the update.hbs ...
+        movieUpdate: movie // ... with all the infos on the form from the movie
+      });
+    });
+
 });
+
 
 
 //iteration 9 : movies details
@@ -71,6 +82,7 @@ router.post('/movies', (req, res, next) => {
     });
 });
 
+
 // iteration 11 : delete a movie
 
 router.post('/movies/:id/delete', (req, res, next) => {
@@ -86,6 +98,34 @@ router.post('/movies/:id/delete', (req, res, next) => {
       next();
       console.log(error);
       return error;
+    });
+});
+
+// iteration 12 (bonus) : needs 2 routes :
+// 2) for receive the data from the form and add it to the database
+router.post('/movies/:id/update', (req, res, next) => {
+  const {
+    title,
+    genre,
+    plot
+  } = req.body;
+
+  moviesModel
+    .update({
+      _id: req.params.id // id or _id or movie/id ?
+    }, {
+      $set: {
+        title,
+        genre,
+        plot
+      }
+    })
+    .then((movie) => {
+      res.redirect('/movies'); // redirect to the list of the movies
+    })
+    .catch((error) => {
+      next();
+      console.log("can't edit the id", error);
     });
 });
 

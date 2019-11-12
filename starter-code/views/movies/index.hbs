@@ -8,10 +8,13 @@
     <li>
       <h3>
         <a href="/movies/{{this.id}}">{{this.title}}</a>
+        <!-- linked to the page movies/:id of the movie we clicked on (page defined in the movies.js file)-->
         <form action="movies/{{this.id}}/delete" method="post">
           <button type="submit">delete</button>
         </form>
-        <!-- linked to the page movies/:id of the celebrity we clicked on (page defined in the movies.js file)-->
+        <!-- linked to the page movies/:id/update of the movie we clicked on (page defined in the movies.js file iteration 12)-->
+        <a href="/movies/{{this.id}}/update/">Edit</a>
+
       </h3>
     </li>
     {{/each}}
