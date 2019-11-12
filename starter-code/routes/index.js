@@ -11,19 +11,19 @@ router.get("/", (req, res, next) => {
 router.get("/celebrities", (req, res) => {
   Celebrity.find({})
     .then(docs => {
-      //res.send(docs);
-      res.render("celebrities", { celebrities: docs });
+      res.render("celebrities/celebrities", { celebrities: docs });
     })
     .catch(err => console.log(`Error: ${err.message}`));
 });
 
 router.get("/celebrities/new", (req, res) => {
-  res.render("celebritiesForm");
+  res.render("celebrities/celebritiesForm");
 });
 
 router.get("/celebrities/:celebrityId", (req, res) => {
-  Celebrity.findById(req.params.celebrityId).then(item => {
-    res.render("celebrityDetails", { celebrity: item });
+  const celebrityId = req.params.celebrityId;
+  Celebrity.findById(celebrityId).then(item => {
+    res.render("celebrities/celebrityDetails", { celebrity: item });
   });
 });
 
@@ -41,30 +41,34 @@ router.post("/celebrities/", (req, res) => {
 });
 
 router.get("/celebrities/:celebrityId/edit", (req, res) => {
-  Celebrity.findById(req.params.celebrityId)
+  const celebrityId = req.params.celebrityId;
+  Celebrity.findById(celebrityId)
     .then(item => {
-      res.render("celebrityEdit", { celebrity: item });
+      res.render("celebrities/celebrityEdit", { celebrity: item });
     })
     .catch(err => console.log(`Error: ${err.message}`));
 });
 
 router.post("/celebrities/:celebrityId", (req, res) => {
+  const celebrityId = req.params.celebrityId;
+  const { name, occupation, catchPhrase } = req.body;
   Celebrity.updateOne(
-    { _id: req.params.celebrityId },
+    { _id: celebrityId },
     {
-      name: req.body.name,
-      occupation: req.body.occupation,
-      catchPhrase: req.body.catchPhrase
+      name,
+      occupation,
+      catchPhrase
     }
   )
     .then(_ => {
-      res.redirect("/celebrities/" + req.params.celebrityId);
+      res.redirect("/celebrities/" + celebrityId);
     })
     .catch(err => console.log(`Error: ${err.message}`));
 });
 
 router.post("/celebrities/:celebrityId/delete", (req, res) => {
-  Celebrity.findByIdAndRemove(req.params.celebrityId)
+  const celebrityId = req.params.celebrityId;
+  Celebrity.findByIdAndRemove(celebrityId)
     .then(_ => {
       res.redirect("/celebrities");
     })

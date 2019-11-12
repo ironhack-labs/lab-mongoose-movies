@@ -1,8 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:300,400,600,700&display=swap");
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: rgb(12, 45, 42);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.btn {
+  &-custom {
+    font-weight: 600;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+
+  &--white {
+    color: #000;
+    background-color: #fff;
+    box-shadow: 8px 8px 0 rgba(24, 74, 69, 0.25);
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.75);
+      box-shadow: none;
+    }
+  }
+
+  &--red {
+    color: #fff;
+    background-color: rgb(255, 111, 97);
+    box-shadow: 8px 8px 0 rgba(251, 59, 73, 0.2);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.95);
+      box-shadow: none;
+      background-color: rgb(24, 74, 69);
+    }
+  }
+}
+
+.container-full {
+  background-color: #f7f9f7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home {
+  &-container {
+    @extend .container-full;
+  }
+
+  &-title {
+    margin-bottom: 1rem;
+  }
+}
+
+.list {
+  &-container {
+    @extend .container-full;
+  }
+
+  &-item {
+    padding: 2rem;
+    transition: transform 0.4s ease;
+    -webkit-transition: transform 0.4s ease;
+    -moz-transition: transform 0.4s ease;
+    -ms-transition: transform 0.4s ease;
+    -o-transition: transform 0.4s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transition: transform 0.2s ease;
+      -webkit-transition: transform 0.2s ease;
+      -moz-transition: transform 0.2s ease;
+      -ms-transition: transform 0.2s ease;
+      -o-transition: transform 0.2s ease;
+    }
+  }
+}
+
+.info,
+.edit,
+.add {
+  &-container {
+    @extend .container-full;
+  }
 }

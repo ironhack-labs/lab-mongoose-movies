@@ -1,9 +1,24 @@
-{{#with movie}}
-<div>
-  <h1>{{title}}</h1>
-  <p>{{genre}}</p>
-  <p>{{plot}}</p>
-  <a href="/movies" class="link">← Back to the movies list</a>
-  <a href="/movies/{{_id}}/edit" class="link">Edit info about movie</a>
+<div class="info-container">
+  <div class="container">
+    <div class="row flex-column">
+      {{#with movie}}
+      <div class="col">
+        <h1>{{title}}</h1>
+        <p class="border-bottom pb-2">{{genre}}</p>
+      </div>
+      <div class="col mb-4">
+        <p>{{plot}}</p>
+      </div>
+      <div class="d-flex flex-column flex-md-row">
+        <div class="col-md-4 col-12">
+          <a href="/movies" class="btn btn-custom btn--white btn-lg"><i class="fa fa-long-arrow-left"></i> Back to
+            the movies list</a>
+        </div>
+        <div class="col-md-4 col-12">
+          <a href="/movies/{{_id}}/edit" class="btn btn-custom btn--red btn-lg">Edit info about movie</a>
+        </div>
+      </div>
+      {{/with}}
+    </div>
+  </div>
 </div>
-{{/with}}

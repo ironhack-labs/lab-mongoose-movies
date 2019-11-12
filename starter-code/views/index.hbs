@@ -1,4 +1,16 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<a href="/celebrities">Celebrities</a>
-<a href="/movies">Movies</a>
+<div class="home-container">
+  <div class="container">
+    <div class="align-items-center flex-column mb-4 row">
+      <h1 class="home-title">{{title}}</h1>
+      <p>Welcome to {{description}}</p>
+    </div>
+    <div class="justify-content-center row flex-wrap">
+      <div class="col-sm-2 col-12">
+        <a class="btn btn-custom btn--red btn-lg d-block" href="/celebrities">Celebrities</a>
+      </div>
+      <div class="col-sm-2 col-12">
+        <a class="btn btn-custom btn--white btn-lg d-block" href="/movies">Movies</a>
+      </div>
+    </div>
+  </div>
+</div>
