@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="card">
+        <h2>MOVIES</h2>
+        <ul>
+            {{#each movies}}
+            <li> {{this.title}} </li>
+            <div class="wrap">
+                <a href="/movies/details/{{this._id}}"><button class="btn btn-celeb">Learn more</button></a>
+                <form action="/movies/{{this._id}}/delete" method='POST'>
+                    <button type='submit' class="btn btn-celeb">DELETE</button>
+                </form>
+                <a href="/movies/details/{{this._id}}/edit"><button class="btn btn-celeb">Edit</button></a>
+            </div>
+
+            {{/each}}
+            <br>
+            <a href="/movies/new"><button class="btn btn-add">Add new movie</button></a>
+        </ul>
+    </div>
+</div>
