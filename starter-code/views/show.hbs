@@ -1,0 +1,13 @@
+
+
+<h1>Name: {{celebrities.name}} </h1>
+<h1>Occupation: {{celebrities.occupation}} </h1>
+<h1>Catch Phrase: {{celebrities.catchPhrase}} </h1>
+
+<h1>Movies: 
+  
+  {{#each movcelebs}}
+  {{this._movie.title}} 
+  {{/each}}
+  
+  </h1>

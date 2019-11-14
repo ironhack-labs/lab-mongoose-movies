@@ -1,0 +1,18 @@
+
+<form action="/movCelebs/main/actor-assign" method="POST">
+
+Actor:  <select name="_actor" id="">
+{{#each celebrities}}
+<option value="{{this._id}}" name="Act" >{{this.name}} </option>
+{{/each }}
+</select>
+Film:  <select name="_movie" id="">
+{{#each movies}}
+<option value="{{this._id}}" >{{this.title}} </option>
+{{/each }}
+</select>
+
+<button type="submit">Submit</button>
+
+</form>
+
