@@ -7,7 +7,6 @@
     "dev": "nodemon ./server"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",

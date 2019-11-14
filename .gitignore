@@ -2,6 +2,10 @@
 .vscode
 node_modules
 
+# Built files
+**/public/stylesheets/*.css
+*.map
+
 # Exclude Logs
 *.log*
 
