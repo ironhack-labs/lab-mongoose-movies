@@ -1,4 +1,5 @@
-# Dependency directory
+.DS_Store
+.vscode
 node_modules
 
 # Exclude Logs
