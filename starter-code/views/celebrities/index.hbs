@@ -1,0 +1,12 @@
+<h2>Celebrities Index</h2>
+
+{{#each celebrities}}
+
+<a href="/celebrities/{{id}}"><p>Celebrity: {{name}}</p></a>
+<a href="/celebrities/{{_id}}/delete">DELETE A CELEBRITY</a>
+<a href="/celebrities/{{_id}}/edit">UPDATE A CELEBRITY</a>
+
+{{/each}}
+
+<a href="/celebrities/new">ADD NEW CELEBRITY</a>
+
