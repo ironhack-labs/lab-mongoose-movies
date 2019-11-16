@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h2>Detalles de una película</h2>
+
+  <ul>
+
+    {{#with movie}}
+    <p>Título: {{this.title}} </p>
+    <p>Género: {{this.genre}}</p>
+    <p>Trama: {{this.plot}}</p>
+    {{/with}}
+
+  </ul>
+
+</div>
