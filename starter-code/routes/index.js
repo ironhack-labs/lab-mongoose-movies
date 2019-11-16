@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost/celebdb", {
   useUnifiedTopology: true
 });
 const Celebrity = require("./../models/Celebrity");
-
+const Movie = require("../models/Movie");
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index", { title: "Trial mode" });
@@ -33,10 +33,16 @@ router.post("/celebrities/new", (req, res, next) => {
   Celebrity.create(celeb)
     .then(anterior => {
       console.log(anterior, "Celebridad creada con éxito");
-      res.render("index");
+      Celebrity.find()
+        .then(celebs => res.render("celebrities", { celebs }))
+        .catch(err => {
+          console.log(err, "Something went wrong.");
+          res.render("index");
+        });
     })
     .catch(error => {
       console.log(error, "Fallo al crear la celebridad");
+      res.render("/celebrities/new");
     });
 });
 
@@ -59,7 +65,10 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
   Celebrity.deleteOne({ _id: req.params.id }).catch(err =>
     console.log(err, "Deletion Failed")
   );
-  res.render("index");
+  Celebrity.find()
+    .then(celebs => res.render("celebrities", { celebs, title: "Trial Mode" }))
+    .catch(err => console.log(err, "Can't find my way back home"));
+
   /*
   Celebrity.findById(req.params.id)
     .then(celeb => {
