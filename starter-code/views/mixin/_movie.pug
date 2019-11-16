@@ -1,0 +1,31 @@
+mixin celeb(data={},edit=false,create=false)
+
+  unless (edit || create)
+    p ?
+    p
+      b Título:  
+      | #{data.title}
+    p 
+      b Género: 
+      | #{data.genre}
+    p 
+      b Argumento: 
+      | #{data.plot}
+  else 
+
+    form(action=(create?`/movies/new`:`/edit/${data._id}`) method="POST" id="celeb-form")
+      div
+
+        label(for="name") 
+          b Título   
+        input(type="text" name="name" value=data.title)
+      div
+        label(for="occupation") 
+          b Género   
+        input(type="text" name="occupation" value=data.genre)
+      div
+        label(for="catchPhrase") 
+          b Argumento   
+        input(type="text" name="catchPhrase" value=data.plot)
+      button(type="submit")=(create? "Crear película":"Actualizar")
+

@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
+  title=title
   <link rel="stylesheet" href="/stylesheets/style.css" />
+block styles
 </head>
 <body>
-
-  {{{body}}}
+nav
+  div(class="nav-but-cont")
+    a(href="/") Home  
+  block navcontent
+block content
 
   <script src="/javascripts/script.js"></script>
+block scripts
 </body>
 </html>

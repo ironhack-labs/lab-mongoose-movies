@@ -1,0 +1,17 @@
+extends layout
+include mixin/_celeb
+block content
+  h2=(celeb?"Celebridad":"Lista de actores")
+  //p=edit
+  if celebs
+    ul 
+      each celeb in celebs
+        li=celeb.name+" "
+          a(href=`/celebrities/${celeb._id}`) más
+          form(action=`/celebrities/${celeb.id}/delete` method="POST")
+            button(type="submit") Borrar
+          form(action=`/celebrities/${celeb._id}/edit`  method="Post")
+            button(type="submit") Editar
+    a(href="/celebrities/new") Agregar celebridad
+  else
+    +celeb(celeb,edit,create)

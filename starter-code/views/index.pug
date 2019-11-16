@@ -1,0 +1,12 @@
+extends layout
+
+block navcontent
+  div(class="nav-but-cont")
+    a(href="/celebrities") Lista de celebridades
+  div(class="nav-but-cont")
+    a(href="/movies") Lista de Películas
+
+block content
+  h1=title
+  if msg
+    p=msg

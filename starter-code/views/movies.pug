@@ -1,0 +1,15 @@
+extends layout
+include mixin/_movie
+block content
+  h2=(movie?"Película":"Lista de películas")
+
+  if movies
+    ul 
+      each movie in movies
+        li=movie.title+" "
+          a(href=`/movies/${movie._id}`) más
+          form(action=`/movies/${movie.id}/delete` method="POST")
+            button(type="submit") Borrar
+    a(href="/movies/new") Agregar película
+  else
+    +movie(movie,edit,create)

@@ -1,0 +1,3 @@
+Iniciar le sevidor: 
+  
+  npm start
