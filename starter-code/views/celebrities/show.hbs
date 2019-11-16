@@ -1,0 +1,12 @@
+{{#with celebrity}}
+<h2>Celebrity's Detail</h2>
+<p>Name:{{name}}</p>
+<p>Occupation</p>
+<ul>
+  {{#each occupation}}
+  <li>{{this}}</li>
+  {{/each}}
+</ul>
+<p>{{catchPhrase}}</p>
+{{/with}}
+<a class="button" href="/celebrities">Back</a>

@@ -1,0 +1,45 @@
+h1, h2 {
+  font-size: 3.5em;
+  text-align: center;
+  margin: 30px 0; }
+
+p {
+  margin: 30px 20px;
+  font-size: 2em; }
+
+a:hover {
+  text-decoration: none; }
+
+.button {
+  display: block;
+  text-align: center;
+  background-color: aqua;
+  color: white;
+  padding: 20px 30px;
+  width: 300px;
+  margin: 30px auto;
+  font-size: 1.3em;
+  border-radius: 5px; }
+
+.button:hover {
+  background-color: white;
+  color: aqua;
+  border: 1px solid aqua; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 40px; }
+
+.form button {
+  width: 300px;
+  margin-top: 30px; }
+
+.form input {
+  width: 600px; }
+
+.center {
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */
