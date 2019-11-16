@@ -3,7 +3,8 @@
   {{#each celebrity}}
   <p><a href="/show/{{id}}">{{name}}</a></p>
   <form method="POST" action="{{id}}/celebrities-delete/">
-  <button>Delete</button>
+    <p><a href="/edit/{{id}}">edit</a></p>
+    <button>Delete</button>
   </form>
   {{/each}}
 </div>

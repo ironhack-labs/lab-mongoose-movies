@@ -28,7 +28,7 @@ router.get("/show/:id", (req, res) => {
     });
 });
 
-router.get("/new/", (req, res) => {
+router.get("/celebrities/new", (req, res) => {
   res.render("celebrities/new");
 });
 
@@ -53,6 +53,29 @@ router.post("/celebrities-create", (req, res) => {
 router.post("/:id/celebrities-delete", (req, res) => {
   let celebrity = req.params.id;
   Celebrities.findByIdAndRemove({ _id: celebrity })
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch(err => {
+      console.log(err);
+      next();
+    });
+});
+
+router.get("/edit/:id", (req, res) => {
+  let celebrity = req.params.id;
+  Celebrities.find({ _id: celebrity })
+    .then(celebrity => {
+      res.render("celebrities/edit", celebrity[0]);
+    })
+    .catch(err => {
+      console.log(err);
+      next();
+    });
+});
+
+router.post("/celebrities-edit", (req, res) => {
+  Celebrities.findByIdAndUpdate(req.body._id, req.body)
     .then(() => {
       res.redirect("/celebrities");
     })
