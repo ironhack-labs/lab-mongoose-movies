@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h2>Lista de Famosos</h2>
+
+  <ul>
+
+    {{#each thecele}}
+    <p>Nombre: <a href="/celebrities/details/{{this._id}}">{{this.name}}</a> (<a href="/celebrities/edit?cellId={{this._id}}"> Editar</a> | <a href="/celebrities/delete?cellId={{this._id}}"> Borrar</a>)</p> 
+    {{!-- <p>Ocupación: {{this.occupation}}</p>
+    <p>Frase: {{this.catchPhrase}}</p> --}}
+    {{/each}}
+  
+  </ul>
+  <a href="/celebrities/add">Añadir un famoso</a>
+</div>
