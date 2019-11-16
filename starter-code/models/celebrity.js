@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const schemaName = new Schema(
   {
     name: String,
-    ocupation: String,
+    occupation: String,
     catchPhrase: String
   }
 );

@@ -14,17 +14,17 @@ mongoose
 
 const celebArr = [{
     name: `Viggo Mortensen`,
-    ocupation: `Actor`,
+    occupation: `Actor`,
     catchPhrase: `Kentucky Fried Chicken! In Kentucky! When's that ever gonna happen!`
   },
   {
     name: `Bruce Willis`,
-    ocupation: `Actor`,
+    occupation: `Actor`,
     catchPhrase: `Yippee-ki-yay, motherfucker`
   },
   {
     name: `Floor Jansen`,
-    ocupation: `Singer`,
+    occupation: `Singer`,
     catchPhrase: `It's good to reflect on life and take a step back and sit and relax and do something else`
   }
 ];
