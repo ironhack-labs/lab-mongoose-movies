@@ -13,19 +13,18 @@ mongoose
   });
 
 const celebrities = [{
-  name: '',
-  occupation: '',
-  catchPhrase: '',
+  name: 'Frank Constanza',
+  occupation: 'actor',
+  catchPhrase: '"Serenity now!"',
 }, {
-  name: '',
-  occupation: '',
-  catchPhrase: '',
+  name: 'Elaine Benes',
+  occupation: 'actress',
+  catchPhrase: '"Get out!"',
 }, {
-  name: '',
-  occupation: '',
-  catchPhrase: '',
-}]; //make celebrities
+  name: 'The Soup Nazi',
+  occupation: 'chef',
+  catchPhrase: '"No soup for you!"',
+}];
 
-//follow steps 5 & 6 of iteration1
 
-Celebrities.create(celebrities,()=> console.log('success!'));
+Celebrities.create(celebrities);

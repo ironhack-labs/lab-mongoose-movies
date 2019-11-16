@@ -8,5 +8,5 @@ const schemaName = new Schema({
   
 });
 
-const Celebrity = mongoose.model("Movies", schemaName);
+const Celebrity = mongoose.model("celebrities", schemaName);
 module.exports = Celebrity;
