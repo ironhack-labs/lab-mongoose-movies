@@ -6,9 +6,6 @@ const schemaName = new Schema(
     name: String,
     ocupation: String,
     catchPhrase: String
-  },
-  {
-    timestamps: true
   }
 );
 
