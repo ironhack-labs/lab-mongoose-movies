@@ -29,6 +29,13 @@ router.get(`/celebrities/:id`, (req, res, next) => {
     .catch(error => next(error));
 });
 
+router.post(`/celebrities/:id/delete`, (req, res, next) => {
+  Celebrities
+    .findByIdAndDelete(req.body.id)
+    .then(() => res.redirect(`/celebrities`))
+    .catch(error => next(error));
+});
+
 router.post(`/celebrities`, (req, res, next) => {
   Celebrities
     .create({
@@ -39,7 +46,6 @@ router.post(`/celebrities`, (req, res, next) => {
     .then(() => res.redirect(`/celebrities`))
     .catch(error => next(error));
 });
-
 
 
 
