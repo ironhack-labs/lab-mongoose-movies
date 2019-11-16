@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Celebrity = require('../models/celebrity.model')
-//const Author = require('../models/author.model')
+
 
 
 
@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
 //un famoso por su id
 router.get('/details/:id', (req, res) => {
   Celebrity.findById(req.params.id)
-    //.populate('author')
     .then(theCelebrity => res.render('celebrity', {
       cell: theCelebrity
     }))
@@ -50,7 +49,6 @@ router.post('/add', (req, res) => {
 router.get('/edit', (req, res) => {
   const cellId = req.query.cellId
   Celebrity.findById(cellId)
-    //.populate('autor')
     .then(theCelebrity => res.render('editCelebrity', theCelebrity))
     .catch(err => console.log('error!!', err))
 })
@@ -77,7 +75,6 @@ router.post('/edit', (req, res) => {
 router.get('/delete', (req, res) => {
   const cellId = req.query.cellId
   Celebrity.findByIdAndRemove(cellId)
-    //.populate('author')
     .then(res.redirect('/celebrities'))
     .catch(err => console.log("Error consultando la BBDD: ", err))
 });

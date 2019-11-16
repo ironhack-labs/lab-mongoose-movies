@@ -54,6 +54,6 @@ Movie.create(movie, (err) => {
   if (err) {
     throw (err)
   }
-  console.log(`Created ${movie.length} moviess`)
+  console.log(`Created ${movie.length} movies`)
   mongoose.connection.close();
 })
