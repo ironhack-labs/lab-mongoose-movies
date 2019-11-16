@@ -13,7 +13,9 @@ router.get('/', (req, res, next) => {
 router.get(`/celebrities`, (req, res, next) => {
   Celebrities
     .find()
-    .then(celebs => res.render(`celebrities/index`,{celebs}))
+    .then(celebs => res.render(`celebrities/index`, {
+      celebs
+    }))
     .catch(error => next(error));
 });
 
@@ -22,16 +24,34 @@ router.get(`/celebrities/new`, (req, res, next) => {
   res.render(`celebrities/new`);
 });
 
+router.get(`/celebrities/:id/edit`, (req, res, next) => {
+  Celebrities
+    .findById(req.params.id)
+    .then(celeb => res.render(`celebrities/edit`, celeb))
+    .catch(error => next(error));
+});
+
 router.get(`/celebrities/:id`, (req, res, next) => {
   Celebrities
     .findById(req.params.id)
-    .then(celeb => res.render(`celebrities/show`,celeb))
+    .then(celeb => res.render(`celebrities/show`, celeb))
     .catch(error => next(error));
 });
 
 router.post(`/celebrities/:id/delete`, (req, res, next) => {
   Celebrities
     .findByIdAndDelete(req.body.id)
+    .then(() => res.redirect(`/celebrities`))
+    .catch(error => next(error));
+});
+
+router.post(`/celebrities/:id`, (req, res, next) => {
+  Celebrities
+    .update({
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchphrase
+    })
     .then(() => res.redirect(`/celebrities`))
     .catch(error => next(error));
 });
