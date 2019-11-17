@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
         celebrityInDB
       });
     })
-    .catch(error =>{
+    .catch(error => {
       next();
       console.log(error)
     });
@@ -20,16 +20,35 @@ router.get('/', (req, res, next) => {
 
 router.get('/celebrities/:id', (req, res, next) => {
   Celebrities.findById(req.params.id)
-    .then(celebrity=> {
+    .then(celebrity => {
       console.log(celebrity)
       res.render('celebrities/show',
         celebrity
       );
     })
-      .catch(error =>{
-        next();
-        console.log(error)
-      });
+    .catch(error => {
+      next();
+      console.log(error)
+    });
 });
 
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('celebrities/new');
+})
+
+router.post("/celebrities", (req, res) => {
+  Celebrities.create({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  // }).then((newCelebrity) => {
+    // Celebrities.save(newCelebrity)
+  }).then(() => {
+    res.redirect("/");
+  })
+  .catch(error => {
+    res.redirect("/celebrities/new");
+    console.log(error)
+  });
+});
 module.exports = router;
