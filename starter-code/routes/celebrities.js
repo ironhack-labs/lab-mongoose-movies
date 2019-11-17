@@ -19,35 +19,21 @@ router.get('/celebrities', (req, res, next) => {
     })
 })
 
-
 router.get('/celebrities/:id', (req, res, next) => {
-
   let id = req.params.id
-
-    Celebrities
-      .find({ _id: id })
-      .then(celebFound => {
-        res.render("celebrities/show", { celebFound })
-      })
-      .catch(err => {
-        next();
-        console.log(`There was an error : \n ${err}`)
-      })
-  
-});
-
-
-router.get('/celebrities/new', (req, res, next) => {
-  console.log('hey')
   Celebrities
-    .find()
-    .then(() => {
-      res.render("celebrities/new")
+    .find({ _id: id })
+    .then(celebFound => {
+      res.render("celebrities/show", { celebFound })
     })
     .catch(err => {
       next();
       console.log(`There was an error : \n ${err}`)
     })
+});
+
+router.get('/celebrities/new', (req, res, next) => {
+  res.render("celebrities/new")
 });
 
 // Create movie
@@ -57,7 +43,7 @@ router.post('/celebrities/new', (req, res, next) => {
   Celebrities.findOne({ name: req.body.name })
     .then(existCeleb => {
       if (existCeleb !== null) {
-        res.json({alert: "this celebrity is already in the database"})
+        res.json({ alert: "this celebrity is already in the database" })
       } else {
         Celebrities
           .create({
@@ -82,14 +68,40 @@ router.post('/celebrities/new', (req, res, next) => {
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
   Celebrities.
-  findByIdAndDelete({_id :  req.params.id})
-  .then(deletedCeleb => {
-    res.redirect("/celebrities")
-  })
-  .catch(err => {
-    next();
-    console.log(`There has been an error creating the new celeb: \n ${err}`);
-  })
+    findByIdAndDelete({ _id: req.params.id })
+    .then(deletedCeleb => {
+      res.redirect("/celebrities")
+    })
+    .catch(err => {
+      next();
+      console.log(`There has been an error creating the new celeb: \n ${err}`);
+    })
+})
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  console.log("go to edit")
+  Celebrities
+    .find({ _id: req.params.id })
+    .then(celebToEdit => {
+      res.render('celebrities/edit', { celebToEdit })
+    })
+    .catch(err => {
+      next();
+      console.log(`There has been an error creating the new celeb: \n ${err}`);
+    })
+})
+
+
+router.post('/celebrities/:id/', (req, res, next) => {
+  Celebrities
+    .findByIdAndUpdate({_id: req.params.id}, req.body)
+    .then(updatedCeleb => {
+      res.redirect('/celebrities')
+    })
+    .catch(err => {
+      next();
+      console.log(`There has been an error creating the new celeb: \n ${err}`);
+    })
 })
 
 

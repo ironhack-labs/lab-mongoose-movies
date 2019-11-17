@@ -1,8 +1,14 @@
-
 {{#each celebFound}}
 
-    <h1>{{name}}</h1>
-    <h2>{{occupation}}</h2>
-    <p>"{{catchPhrase}}"</p>
+
+<h1>{{name}}</h1>
+
+<form action="/celebrities/{{_id}}/edit" method="get">
+    <input type="submit" value="Edit">
+</form>
+
+<h2>{{occupation}}</h2>
+<p>"{{catchPhrase}}"</p>
+
 
 {{/each}}
