@@ -1,8 +1,14 @@
 <div>
     <h2>Celebrities Page:</h2>
     <ul>
+
         {{#each celebrityDB}}
-        <li>{{name}}</li>
+        <li>
+            <a href="/celebrities/{{_id}}">{{name}}</a>
+        </li>
         {{/each}}
+
+
     </ul>
+
 </div>

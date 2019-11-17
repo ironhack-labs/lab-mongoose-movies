@@ -13,10 +13,8 @@ router.get("/", (req, res, next) => {
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
     .then(celebrityDB => {
-      console.log(celebrityDB);
-      res.render("celebrities/index", {
-        celebrityDB
-      });
+      //console.log(celebrityDB);
+      res.render("celebrities/index", {celebrityDB});
     })
     .catch(error => {
       next();
@@ -25,5 +23,16 @@ router.get("/celebrities", (req, res, next) => {
 });
 
 //----SHOW DETAILS----
+router.get("/celebrities/:id", (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(oneCelebrity => {
+      console.log(oneCelebrity);
+      res.render("celebrities/show", oneCelebrity);
+    })
+    .catch(error => {
+      next();
+      console.log(error);
+    });
+});
 
 module.exports = router;
