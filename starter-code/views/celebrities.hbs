@@ -1,0 +1,10 @@
+ <h2>Celebrities</h2>
+
+    {{#each celeb}}
+    <p>Name: {{this.name}} <p>
+      <a href="/celebrities/{{this._id}}">More Details</a>
+    
+    {{/each}}
+
+
+  <a href="/celebrities/add">Add Celeb</a>
