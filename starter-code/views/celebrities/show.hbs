@@ -1,0 +1,17 @@
+<div>
+
+    <h2>Celebrity</h2>
+
+    <ul>
+
+        {{#with celebrity}}
+        <p>Nombre: {{this.name}} </p>
+        <p>Ocupación: {{this.occupation}}</p>
+        <p>Frase: {{this.catchPhrase}}</p>
+        {{/with}}
+
+    </ul>
+    <p>
+        <a href="/celebrities">Volver</a>
+    </p>
+</div>
