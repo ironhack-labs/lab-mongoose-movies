@@ -1,0 +1,16 @@
+<div class="container">
+
+  <h2>Nuestras Movies</h2>
+
+  <ul>
+
+    {{#each movies}}
+    <li>{{this.title}} (<a href="/movies/details/{{this._id}}">Ver detalles</a> | <a
+        href="/movies/edit?movieId={{this._id}}">Editar</a> | <a
+        href="/movies/delete?movieId={{this._id}}">Eliminar</a>)
+    </li>
+    {{/each}}
+
+  </ul>
+
+</div>

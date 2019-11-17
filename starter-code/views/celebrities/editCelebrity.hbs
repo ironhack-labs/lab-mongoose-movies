@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h1>Editar celebrity {{name}}</h1>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+      <form action="/celebrities/edit?celebrityId={{_id}}" method="POST">
+        <div class="form-group">
+          <label for="field1">Nombre:</label>
+          <input type="text" class="form-control" id="field1" name="name" value="{{name}}">
+        </div>
+        <div class="form-group">
+          <label for="field2">Ocupación:</label>
+          <input type="text" class="form-control" id="field2" name="occupation" value="{{occupation}}">
+        </div>
+        <div class="form-group">
+          <label for="field3">Descripción</label>
+          <input type="text" class="form-control" id="field3" name="catchPhrase" value="{{catchPhrase}}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Actualizar celebrity</button>
+      </form>
+
+    </div>
+  </div>
+</div>
