@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/celebritiesDB', {useNewUrlParser: true})
+  .connect('mongodb://localhost/Celebrity', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -29,6 +29,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+mongoose.set('useFindAndModify', false)
 
 // Express View engine setup
 
@@ -53,6 +54,9 @@ app.locals.title = 'CelebritiesDB';
 
 const index = require('./routes/index');
 app.use('/', index);
+//Preguntar por que tiene que ser '/' en vez de '/celebrities'!!!
+const celebrities = require('./routes/celebrities');
+app.use('/', celebrities);
 
 
 module.exports = app;

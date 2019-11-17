@@ -11,5 +11,5 @@ const celebritiesSchema = new Schema(
   { timestamps: true }
 );
 
-const Celebrities = mongoose.model("Celebrities", celebritiesSchema);
-module.exports = Celebrities;
+const Celebrity = mongoose.model("celebrities", celebritiesSchema);
+module.exports = Celebrity;
