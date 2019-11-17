@@ -10,6 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
 mongoose
   .connect('mongodb://localhost/movies', {useNewUrlParser: true})
   .then(x => {
@@ -51,7 +52,7 @@ app.locals.title = 'Celebrities CRUD Lab';
 
 
 
-const index = require('./routes/index');
+const index = require('./routes/celebrities');
 app.use('/', index);
 
 

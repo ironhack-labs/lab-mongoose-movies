@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Celebrity = require("../models/Celebrity");
+const Celebrities = require("../models/Celebrity");
 
 mongoose
     .connect('mongodb://localhost/movies', { useNewUrlParser: true })
@@ -34,10 +34,10 @@ const celebrities = [
     }
 ]
 
-Celebrity
+Celebrities
     .deleteMany()
     .then(() => {
-        Celebrity
+        Celebrities
             .insertMany(celebrities)
             .then(data => console.log(`Added to the database: \n ${data}`))
             .catch(err => console.log(`There was an error: \n ${err}`))
