@@ -1,0 +1,22 @@
+<div class="row">
+    <h2>Celebrities decayed list</h2>
+</div>
+
+{{#each celebrities}}
+<ul>
+<li class="list-group-item">
+<div class="row align-items-center">
+<p>{{this.name}}</p>
+<a class="btn btn-info btn-sm " href="celebrities/details/{{this._id}}">Ver detalles</a>
+<a class="btn btn-outline-danger btn-sm " href="celebrities/delete/{{this._id}}">Delete this human mistake</a>
+<a class="btn btn-outline-warning btn-sm " href="celebrities/edit/{{this._id}}">Edit this entries</a>
+
+</div>
+</li>
+</ul>
+{{/each}}
+
+<div class="row">
+<a class="btn btn-secondary" href="celebrities/add">Add an ex celebrities</a>
+<a class="btn btn-info btn-sm " href="/">Back</a>
+</div>

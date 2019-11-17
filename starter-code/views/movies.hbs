@@ -1,0 +1,22 @@
+<div class="row">
+    <h2>Movies</h2>
+</div>
+
+{{#each movies}}
+<ul>
+    <li class="list-group-item">
+        <div class="row align-items-center">
+            <p>{{this.title}}</p>
+            <a class="btn btn-info btn-sm " href="movies/movieDetail/{{this._id}}">Ver detalles</a>
+            <a class="btn btn-outline-danger btn-sm " href="movies/delete/{{this._id}}">Delete this mistake</a>
+            <a class="btn btn-outline-warning btn-sm " href="movies/editMovies/{{this._id}}">Edit this movies</a>
+        </div>
+    </li>
+</ul>
+{{/each}}
+
+<div class="row">
+    <a class="btn btn-secondary" href="movies/addMovies">Add another Movies</a>
+    <a class="btn btn-info btn-sm " href="/">Back</a>
+
+</div>
