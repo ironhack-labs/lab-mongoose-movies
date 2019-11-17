@@ -1,0 +1,24 @@
+<h2>BEST MOVIES OF ALL TIMES</h2>
+<div class="list-wrapper">
+<ul>
+{{#each moviesFound}}
+<li>
+<h3>{{title}}</h3>
+<h4>{{genre}}</h4>
+<a href="/movies/{{_id}}">View more...</a>
+<div class="forms-container">
+<form action="/movies/{{_id}}/delete" method="POST">
+<input type="hidden" name="id" class="text" value="{{_id}}">
+<input type="submit" class="submit" value="Delete Movie"></form>
+<form action="/movies/{{_id}}/edit" method="POST">
+<input type="hidden" name="id" class="text" value="{{_id}}">
+<input type="submit" class="submit" value="Edit">
+</form>
+</div>
+</li>
+{{/each}}
+</ul>
+
+</div>
+<a class="new" href="/movies/new">create new movie</a>
+<a class="home" href="/">go back home</a>

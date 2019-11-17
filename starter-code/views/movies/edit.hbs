@@ -1,0 +1,11 @@
+<h2>Edit movie:</h2>
+<div class="celebrity-wrapper">
+<form action="/movies/{{_id}}" method="POST">
+<input type="hidden" name="id" value="{{_id}}">
+<input type="text" name="title" value="{{title}}">
+<input type="text" name="genre" value="{{genre}}">
+<input type="text" name="plot" value="{{plot}}">
+<input type="submit" class="submit" value="Update">
+</form>
+<a href="/movies">Go back</a>
+</div>
