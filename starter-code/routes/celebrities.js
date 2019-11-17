@@ -52,7 +52,6 @@ router.get('/celebrities/new', (req, res, next) => {
 
 // Create movie
 router.post('/celebrities/new', (req, res, next) => {
-
   // Check if already exists a celebrity with the name passed
   // in the form. If doesn't create it and redirect to the celebrity list
   Celebrities.findOne({ name: req.body.name })
@@ -79,6 +78,18 @@ router.post('/celebrities/new', (req, res, next) => {
           });
       }
     })
+})
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrities.
+  findByIdAndDelete({_id :  req.params.id})
+  .then(deletedCeleb => {
+    res.redirect("/celebrities")
+  })
+  .catch(err => {
+    next();
+    console.log(`There has been an error creating the new celeb: \n ${err}`);
+  })
 })
 
 
