@@ -1,0 +1,28 @@
+
+{{#with edit}}
+<h2>Edit Celebrities -- | {{name}} |</h2>
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <form action="/celebrities/edit/{{_id}}" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{name}}">                
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" class="form-control" id="occupation" name="occupation" value="{{occupation}}">
+                <div class="form-group">
+                    <label for="catchPhrase">Motto</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" value="{{catchPhrase}}">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Sumbit modify</button>
+        </form>
+
+    </div>
+</div>
+{{/with}}

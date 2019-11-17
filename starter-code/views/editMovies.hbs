@@ -1,0 +1,28 @@
+
+{{#with edit}}
+<h2>Edit Movies -- | {{title}} |</h2>
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <form action="/movies/editMovies/{{_id}}" method="POST">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{title}}">                
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" class="form-control" id="genre" name="genre" value="{{genre}}">
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{plot}}">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Sumbit modify</button>
+        </form>
+
+    </div>
+</div>
+{{/with}}

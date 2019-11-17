@@ -1,0 +1,16 @@
+
+
+<div class="container"> 
+<h2>Celebrity Detail</h2>
+<br>
+{{#with det}}
+<p>Nombre: {{name}} </p>
+<p>Occupation: {{occupation}}</p>
+<p>Motto: "{{catchPhrase}}" </p>
+<a class="btn btn-info btn-sm " href="/celebrities">Back</a>
+<a class="btn btn-outline-warning btn-sm " href="/celebrities/edit/{{this._id}}">Edit this entires</a>
+<a class="btn btn-outline-danger btn-sm " href="/celebrities/delete/{{this._id}}">Delete this human mistake</a>
+{{/with}}
+
+
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Movies Detail</h2>
+    <br>
+    {{#with det}}
+    <p>Nombre: {{title}} </p>
+    <p>Occupation: {{genre}}</p>
+    <p>Motto: "{{plot}}" </p>
+
+
+    <a class="btn btn-info btn-sm " href="/movies">Back</a>
+     <a class="btn btn-outline-warning btn-sm " href="/movies/editMovies/{{this._id}}">Edit this movies</a>
+    <a class="btn btn-outline-danger btn-sm " href="/movies/delete/{{this._id}}">Delete this mistake</a>
+    
+    {{/with}}
+</div>
