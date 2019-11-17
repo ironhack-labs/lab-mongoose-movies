@@ -1,8 +1,38 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1, h2{
+font-size: 3rem;
+}
+
+h3{
+  font-size: 2.4rem; 
 }
 
 a {
-  color: #00B7FF;
+  color: #666;
+  display: block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+p{
+  font-size: 1.4rem;
+}
+
+form input{
+  padding: .5rem;
+  font-size: 1rem;
+  overflow: visible; 
+}
+
+button{
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: .4rem;
+  margin-bottom: 2rem;
+  border: .1rem solid #666;
 }
