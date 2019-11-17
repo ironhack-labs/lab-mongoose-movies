@@ -5,6 +5,14 @@
         {{#each allMovies}}
         <li>
             <a href="/movies/{{_id}}">{{title}}</a>
+
+            <form action="/movies/{{_id}}/edit" method="get">
+                <input type="submit" value="Edit">
+            </form>
+
+             <form action="/movies/{{_id}}/delete" method="post">
+                <input type="submit" value="Delete">
+            </form>
         </li>
         {{/each}}
     </ul>

@@ -79,7 +79,6 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
 })
 
 router.get('/celebrities/:id/edit', (req, res, next) => {
-  console.log("go to edit")
   Celebrities
     .find({ _id: req.params.id })
     .then(celebToEdit => {
