@@ -1,8 +1,169 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* CSS Styles begins*/
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Noto+Serif&display=swap');
+
+$bgcolor : #ffffff;
+$textcolor: #000000;
+$highlighted: #fcff38;
+$highlightedblue: #38f2ff;
+$textcolorsoft: rgba($textcolor,0.8);
+$textcolorsupersoft: rgba($textcolor,0.3);
+$paddingXL:2rem 0 1rem 0;
+$paddingM: 1rem 0 0.5rem 0;
+$paddingS: 0.5rem 0 0.25rem 0;
+
+html{
+  font-size: 10px;
 }
 
-a {
-  color: #00B7FF;
+h1,h2,h3,h4,p,q{
+  margin:0;
 }
+
+body {
+  font-family: sans-serif;
+  background-color: $bgcolor;
+  color:$textcolor;
+  // font-family: 'Bebas Neue', cursive;
+}
+
+
+.main-wrapper{
+  display:flex;
+  width:100vw;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-wrapper{
+  display:flex;
+  width:60vw;
+  justify-content:center;
+  h3{
+    font-size:2rem;
+    padding:$paddingS;
+  }
+
+  h3:hover{
+    background-color: $highlightedblue;
+  }
+  h4{
+    font-size:1.5rem;
+    color:$textcolorsoft;
+    padding:$paddingM;
+  }
+  a{
+    font-size:1.5rem;
+    text-decoration: none;
+    color:$textcolorsoft; 
+    margin:2rem 0;
+  }
+
+  a:hover{
+    color:$textcolor;
+    transition: 0.3s;;
+  }
+  a:hover::before{
+    content: "->";
+  }
+
+  .submit{
+    background-color:$textcolorsupersoft;
+    border: none;
+    color: $textcolorsoft;
+    padding: 1rem ;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin:0.5rem 0.5rem 0.5rem 0;
+  }
+    .submit:hover{
+      background-color:$textcolor;
+      color:$bgcolor;
+      transition: 0.5s;
+    }
+  }
+
+
+ul{
+  padding:0;
+  display:flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: flex-start;
+  width:100%;
+}
+
+h2{
+  font-size:3rem;
+  margin:4rem;
+  padding:0rem 4rem;
+  background-color: $highlighted;
+}
+
+.list-wrapper li{
+  display:flex;
+  width:33%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding:$paddingXL;
+}
+
+.forms-container{
+  display:flex;
+  justify-content: flex-start;
+  width:100%;
+}
+
+.celebrity-wrapper{
+  display:flex;
+  width:60%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-wrap:wrap;
+  h4{
+    font-size:2rem;
+  }
+
+  q{
+    padding:3rem;
+    font-size:5rem;
+  }
+
+  a{
+    font-size:1.5rem;
+  }
+
+  a:hover::before{
+    content:"<< "
+  }
+
+  input{
+    text-align:left;
+    padding:2rem 4rem;
+    font-size:5rem;
+    margin:2rem;
+    width:60%;
+  }
+
+  .submit{
+    background-color:$textcolorsupersoft;
+    border: none;
+    color: $textcolorsoft;
+    padding: 2rem 4rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 3rem;
+    margin:2rem;;
+    width:60%;
+  }
+    .submit:hover{
+      background-color:$highlightedblue;
+      color:$bgcolor;
+      transition: 0.5s;
+    }
+  }
+

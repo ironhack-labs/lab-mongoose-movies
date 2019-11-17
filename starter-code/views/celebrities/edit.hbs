@@ -1,4 +1,5 @@
-<h1>Edit celebrity:</h1>
+<h2>Edit celebrity:</h2>
+<div class="celebrity-wrapper">
 <form action="/celebrities/{{_id}}" method="POST">
 <input type="hidden" name="id" value="{{_id}}">
 <input type="text" name="name" value="{{name}}">
@@ -6,3 +7,5 @@
 <input type="text" name="catchPhrase" value="{{catchPhrase}}">
 <input type="submit" class="submit" value="Update">
 </form>
+
+</div>

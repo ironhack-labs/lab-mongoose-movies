@@ -1,8 +1,123 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+/* CSS Styles begins*/
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Noto+Serif&display=swap");
+html {
+  font-size: 10px; }
 
-a {
-  color: #00B7FF; }
+h1, h2, h3, h4, p, q {
+  margin: 0; }
+
+body {
+  font-family: sans-serif;
+  background-color: #ffffff;
+  color: #000000; }
+
+.main-wrapper {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+
+.list-wrapper {
+  display: flex;
+  width: 60vw;
+  justify-content: center; }
+  .list-wrapper h3 {
+    font-size: 2rem;
+    padding: 0.5rem 0 0.25rem 0; }
+  .list-wrapper h3:hover {
+    background-color: #38f2ff; }
+  .list-wrapper h4 {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0 0.5rem 0; }
+  .list-wrapper a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 2rem 0; }
+  .list-wrapper a:hover {
+    color: #000000;
+    transition: 0.3s; }
+  .list-wrapper a:hover::before {
+    content: "->"; }
+  .list-wrapper .submit {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin: 0.5rem 0.5rem 0.5rem 0; }
+  .list-wrapper .submit:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transition: 0.5s; }
+
+ul {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: flex-start;
+  width: 100%; }
+
+h2 {
+  font-size: 3rem;
+  margin: 4rem;
+  padding: 0rem 4rem;
+  background-color: #fcff38; }
+
+.list-wrapper li {
+  display: flex;
+  width: 33%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 2rem 0 1rem 0; }
+
+.forms-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%; }
+
+.celebrity-wrapper {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap; }
+  .celebrity-wrapper h4 {
+    font-size: 2rem; }
+  .celebrity-wrapper q {
+    padding: 3rem;
+    font-size: 5rem; }
+  .celebrity-wrapper a {
+    font-size: 1.5rem; }
+  .celebrity-wrapper a:hover::before {
+    content: "<< "; }
+  .celebrity-wrapper input {
+    text-align: left;
+    padding: 2rem 4rem;
+    font-size: 5rem;
+    margin: 2rem;
+    width: 60%; }
+  .celebrity-wrapper .submit {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 2rem 4rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 3rem;
+    margin: 2rem;
+    width: 60%; }
+  .celebrity-wrapper .submit:hover {
+    background-color: #38f2ff;
+    color: #ffffff;
+    transition: 0.5s; }
 
 /*# sourceMappingURL=style.css.map */

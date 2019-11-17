@@ -1,19 +1,21 @@
 <h2>THE HALL OF FAME</h2>
+<div class="list-wrapper">
 <ul>
 {{#each celebritiesFound}}
 <li>
 <h3>{{name}}</h3>
 <h4>{{ocupation}}</h4>
-<quote>{{catchPhrase}}</quote>  
 <a href="/celebrities/{{_id}}">View more...</a>
+<div class="forms-container">
 <form action="/celebrities/{{_id}}/delete" method="POST">
 <input type="hidden" name="id" class="text" value="{{_id}}">
 <input type="submit" class="submit" value="Delete Celebrity"></form>
-</li>
 <form action="/celebrities/{{_id}}/edit" method="POST">
 <input type="hidden" name="id" class="text" value="{{_id}}">
 <input type="submit" class="submit" value="Edit">
 </form>
+</div>
 </li>
 {{/each}}
 </ul>
+</div>
