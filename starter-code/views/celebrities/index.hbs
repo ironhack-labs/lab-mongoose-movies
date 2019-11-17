@@ -3,9 +3,10 @@
     <ul>
 
         {{#each celebrityDB}}
-        <li>
+        <form action="/celebrities/{{_id}}/delete" method="POST">
             <a href="/celebrities/{{_id}}">{{name}}</a>
-        </li>
+            <input type="submit" value="Delete this Celebrity">
+        </form>
         {{/each}}
 
 
