@@ -69,6 +69,23 @@ router.post("/celebrities", [
 
 })
 
+// router.get("/celebrities/:id", (req, res) => {
+//   res.render("/celebrities/:id")
+// })
 
+// delete a celeb
+router.get("/:id/delete", (req, res, next) => {
+ 
+  let celebrityId = req.params.id;
+
+
+  Celebrities.findByIdAndDelete(celebrityId)
+  .then((celebrityDelete) => {
+    res.redirect("/celebrities");
+  })
+  .catch((error) => {
+    next(error);
+  })
+});
 
 module.exports = router;
