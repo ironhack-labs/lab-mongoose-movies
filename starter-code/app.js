@@ -12,7 +12,7 @@ const path = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {
+  .connect('mongodb://localhost/celebrity-lab', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
