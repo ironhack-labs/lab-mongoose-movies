@@ -11,6 +11,20 @@ body {
   background-color: #ffffff;
   color: #000000; }
 
+.new {
+  margin-top: 4rem;
+  font-size: 1.6rem;
+  text-decoration: none; }
+
+.new:hover::before {
+  content: "+ "; }
+
+.new:hover::after {
+  content: " +"; }
+
+.new:hover {
+  background-color: #38f2ff; }
+
 .main-wrapper {
   display: flex;
   width: 100vw;

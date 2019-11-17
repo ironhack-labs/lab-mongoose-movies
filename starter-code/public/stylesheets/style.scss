@@ -26,6 +26,26 @@ body {
   // font-family: 'Bebas Neue', cursive;
 }
 
+.new{
+margin-top:4rem;
+font-size:1.6rem;
+text-decoration: none;
+}
+
+.new:hover::before{
+  content:"+ "
+  }
+
+.new:hover::after{
+  content:" +"
+  }
+
+.new:hover{
+  background-color: $highlightedblue;
+    }
+
+
+
 
 .main-wrapper{
   display:flex;
