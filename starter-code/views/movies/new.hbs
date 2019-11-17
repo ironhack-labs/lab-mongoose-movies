@@ -1,9 +1,52 @@
-<h1>Add a new movie to the database:</h1>
+<div class="section">
+    <h1 class="title is-3">Add new movie</h1>
 
-<form action="/movies/new" method="POST">
-    <input type="text" name="title" value="The Matrix">
-    <input type="text" name="genre" value="Sci-fi">
-    <textarea name="plot"> When computer programmer Thomas Anderson, under the hacker alias "Neo", uncovers the truth, he "is drawn into a rebellion against the machines"[5] along with other people who have been freed from the Matrix.</textarea>
 
-    <input type="submit" value="Add movie">
+<form action="/movies/new" method="POST" class="section">
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Info</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded">
+                    <input class="input" type="text" name="title" value="The Matrix">
+                </p>
+            </div>
+            <div class="field">
+                <p class="control is-expanded">
+                    <input class="input" type="text" name="genre" value="Sci-fi">
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Plot</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea" name="plot">When computer programmer Thomas Anderson, under the hacker alias "Neo", uncovers the truth, he "is drawn into a rebellion against the machines"[5] along with other people who have been freed from the Matrix.</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add movie">
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
+
+</div>

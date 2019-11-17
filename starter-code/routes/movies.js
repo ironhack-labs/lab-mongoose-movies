@@ -40,7 +40,8 @@ router.post('/movies/new', (req, res, next) => {
     Movies.findOne({ title: req.body.title })
         .then(existMovie => {
             if (existMovie !== null) {
-                res.json({ alert: "this movie is already registered" })
+                res.render('error', {message : "This movie is already registered"})
+
             } else {
                 Movies.create(req.body)
                     .then(movieCreated => {

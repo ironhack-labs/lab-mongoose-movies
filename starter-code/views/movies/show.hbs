@@ -1,5 +1,19 @@
-{{#each foundMovie}}
-    <h1>{{title}}</h1>
-    <h2>{{genre}}</h2>
-    <p>{{plot}}</p>
-{{/each}}
+
+
+<div class="section">
+    <div class="container">
+
+        {{#each foundMovie}}
+
+        <p class="title is-1">{{title}}</p>
+        <p class="subtitle is-3">{{genre}}</p>
+        <p class="subtitle">{{plot}}</p>
+
+        {{/each}}<br>
+
+                <form action="/movies/{{_id}}/edit" method="get" class="is-inline-block
+">
+            <input class="button" type="submit" value="Edit">
+        </form>
+    </div>
+    </section>

@@ -1,11 +1,17 @@
-{{#each celebFound}}
-    <h1>{{name}}</h1>
+<div class="section">
+    <div class="container">
 
-    <form action="/celebrities/{{_id}}/edit" method="get">
-        <input type="submit" value="Edit">
-    </form>
+        {{#each celebFound}}
 
-    <h2>{{occupation}}</h2>
-    <p>"{{catchPhrase}}"</p>
+        <p class="title is-1">{{name}}</p>
+        <p class="subtitle is-3">{{occupation}}</p>
+        <p class="subtitle">"{{catchPhrase}}"</p>
 
-{{/each}}
+        <form action="/celebrities/{{_id}}/edit" method="get" class="is-inline-block
+">
+            <input class="button" type="submit" value="Edit">
+        </form>
+
+        {{/each}}
+    </div>
+    </section>

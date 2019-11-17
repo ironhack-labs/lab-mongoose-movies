@@ -1,19 +1,31 @@
-<h1>Movies</h1>
+<div class="section">
 
 {{#if allMovies}}
-    <ul>
+<table class="table is-striped is-hoverable is-fullwidth">
+    <thead><h1 class="title is-3">Movies</h1></thead>
+    <tbody>
         {{#each allMovies}}
-        <li>
-            <a href="/movies/{{_id}}">{{title}}</a>
+        <tr>
+            <td>
+                <h2 class="title is-5">
+                    <a href="/movies/{{_id}}">{{title}}</a>
+                </h2>
+            </td>
 
-            <form action="/movies/{{_id}}/edit" method="get">
-                <input type="submit" value="Edit">
-            </form>
+            <td>
+                <form action="/movies/{{_id}}/delete" method="POST">
+                    <input class="button is-small" type="submit" value="Delete">
+                </form>
+            </td>
 
-             <form action="/movies/{{_id}}/delete" method="post">
-                <input type="submit" value="Delete">
-            </form>
-        </li>
-        {{/each}}
-    </ul>
+            <td>
+                <form action="/movies/{{_id}}/edit" method="get">
+                    <input class="button is-small" type="submit" value="Edit">
+                </form>
+            </td>
+            </li>
+            {{/each}}
+    </tbody>
+</table>
 {{/if}}
+</div>

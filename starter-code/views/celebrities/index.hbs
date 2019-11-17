@@ -1,17 +1,30 @@
-<h1>Celebrities</h1>
-
-{{#if allCelebs}}
-    <ul>
+<div class="section">
+    {{#if allCelebs}}
+<table class="table is-striped is-hoverable is-fullwidth">
+    <thead><h1 class="title is-3">Celebrities</h1></thead>
+    <tbody>
         {{#each allCelebs}}
-        <li>
-            <a href="/celebrities/{{_id}}">{{name}}</a>
-            <form action="/celebrities/{{_id}}/delete" method="POST">
-                <input type="submit" value="Delete">
-            </form>
-            <form action="/celebrities/{{_id}}/edit" method="get">
-                <input type="submit" value="Edit">
-            </form>
-        </li>
-        {{/each}}
-    </ul>
+        <tr>
+            <td>
+                <h2 class="title is-5">
+                    <a href="/celebrities/{{_id}}">{{name}}</a>
+                </h2>
+            </td>
+
+            <td>
+                <form action="/celebrities/{{_id}}/delete" method="POST">
+                    <input class="button is-small" type="submit" value="Delete">
+                </form>
+            </td>
+
+            <td>
+                <form action="/celebrities/{{_id}}/edit" method="get">
+                    <input class="button is-small" type="submit" value="Edit">
+                </form>
+            </td>
+            </li>
+            {{/each}}
+    </tbody>
+</table>
 {{/if}}
+</div>

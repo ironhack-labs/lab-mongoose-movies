@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+
 </head>
+
 <body>
 
-  {{{body}}}
+  <header>
+    <section class="hero is-primary is-medium">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item is-title ">
+                <h1 class="is-uppercase">Movies & Stars</h1>
+              </a>
+              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+            <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+                <a href="/" class="navbar-item is-active">
+                  Home
+                </a>
+                <a href="celebrities" class="navbar-item">
+                  Celebrities
+                </a>
+                <a href="/movies" class="navbar-item">
+                  Movies
+                </a>
+                <span class="navbar-item">
+                  <a href="https://github.com/mariasimo" target="_blank" class="button is-primary is-inverted">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Go to Github</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            Movies & Stars
+          </h1>
+          <h2 class="subtitle">
+            The database that makes no sense!
+          </h2>
+        </div>
+      </div>
+
+      <!-- Hero footer: will stick at the bottom -->
+      <div class="hero-foot">
+        <nav class="tabs">
+          <div class="container">
+            <ul>
+
+              <li><a class="is-uppercase" href="/celebrities">Go check all the celebrities!</a></li>
+              <li><a class="is-uppercase" href="/movies">Go check all the movies!</a></li>
+
+              <li><a class="is-uppercase" href="/celebrities/new">Add a new celebrity</a></li>
+              <li><a class="is-uppercase" href="/movies/new">Add a new movie</a></li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </section>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      {{{body}}}
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="icon">
+        <i class="fas fa-code"></i>
+      </p>
+      <p>
+        Made with <a href="https://jgthms.com">Bulma</a> once again at <strong>IronHack</strong>
+      </p>
+    </div>
+  </footer>
 
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

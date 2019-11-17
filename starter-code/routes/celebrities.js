@@ -43,7 +43,7 @@ router.post('/celebrities/new', (req, res, next) => {
   Celebrities.findOne({ name: req.body.name })
     .then(existCeleb => {
       if (existCeleb !== null) {
-        res.json({ alert: "this celebrity is already in the database" })
+        res.render('error', {message : "This celebrity is already registered"})
       } else {
         Celebrities
           .create({

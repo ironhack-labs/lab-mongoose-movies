@@ -1,9 +1,52 @@
-<h1>Add a new celebrity to the database:</h1>
 
-<form action="/celebrities/new" method="POST">
-    <input type="text" name="name" value="Albert Einstein">
-    <input type="text" name="occupation" value="Scientist">
-    <input type="text" name="catchPhrase" value="I have no special talent, I am only passionately curious">
+<div class="section">
+    <h1 class="title is-3">Add new celebrity</h1>
 
-    <input type="submit" value="Add celebrity">
+<form action="/celebrities/new" method="POST" class="section">
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Info</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded">
+                    <input class="input" type="text" name="name" value="Albert Einstein">
+                </p>
+            </div>
+            <div class="field">
+                <p class="control is-expanded">
+                    <input class="input" type="text" name="occupation" value="Scientist">
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Phrase</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea" name="catchPhrase">I have no special talent, I am only passionately curious</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add celebrity">
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
+</div>

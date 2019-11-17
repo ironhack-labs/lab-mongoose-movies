@@ -1,13 +1,59 @@
-<h1>Edit celebrity information</h1>
+
+
+<div class="section">
+    <h1 class="title is-3">Edit celebrity information</h1>
 
 {{#each celebToEdit}}
 
-<form action="/celebrities/{{_id}}" method="POST">
-    <input type="text" name="name" value="{{name}}">
-    <input type="text" name="occupation" value="{{occupation}}">
-    <input type="textarea" name="catchPhrase" value="{{catchPhrase}}">
+<form action="/celebrities/{{_id}}" method="POST" class="section">
+   
+     <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Info</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded">
+                    <input class="input" type="text" name="name" value="{{name}}">
+                </p>
+            </div>
+            <div class="field">
+                <p class="control is-expanded">
+                    <input class="input" type="text" name="occupation" value="{{occupation}}">
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <input type="submit" value="Edit celebrity">
+
+   <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Phrase</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea" name="catchPhrase">{{catchPhrase}}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Edit celebrity">
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
 
 {{/each}}
+
+</div>
+
