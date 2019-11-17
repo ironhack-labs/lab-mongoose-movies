@@ -31,4 +31,24 @@ router.get('/movies/:id', (req, res, next) => {
 })
 
 
+router.get('/movies/new', (req, res, next) => {
+    res.render('movies/new')
+})
+
+router.post('/movies/new', (req, res, next) => {
+
+    Movies.findOne({title : req.body.title})
+    .then(existMovie => {
+        if(existMovie !== null) {
+            res.json({alert : "this movie is already registered"})
+        }else {
+            Movies.create(req.body)
+            .then(movieCreated => {
+                console.log({alert : "Movie added to the db", movieCreated})
+                res.redirect('/movies')
+            })
+        }
+    })
+})
+
 module.exports = router;
