@@ -5,6 +5,7 @@
 <p>Name: {{this.name}} <p>
     <a href="/celebrities/{{this._id}}">More Details</a>
     <a href="/celebrities/delete/{{this.id}}">Delete</a>
+    <a href="/celebrities/edit?celebrity_id={{this._id}}">Edit</a>
     {{/each}}
 
     <br>
@@ -12,4 +13,4 @@
 
     <a href="/celebrities/add">Add Celeb</a>
 
-   
+    <a href="/">Take me home</a>

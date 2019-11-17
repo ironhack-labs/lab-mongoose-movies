@@ -1,0 +1,33 @@
+<h2>Edit the Celeb</h2>
+
+{{#with editCeleb}}
+<p>{{this.name}}</p>
+<p>{{this.occupation}}</p>
+<p>{{this.catchPhrase}}</p>
+
+
+<h3>Edit your Celebrity</h3>
+<form action="edit/edit?celebrity_id={{book._id}}" method="POST">
+
+  <label for="field1">Celebrity Name</label>
+  <input type="text" id="field1" name="name" value="{{this.name}}">
+  <br>
+
+  <label for="field2">Celebrity Occupation</label>
+  <input type="text" id="field2" name="occupation" value="{{this.occupation}}">
+  <br>
+
+  <label for="field3">Celebrity Catch Phrase</label>
+  <input type="text" id="field3" name="catchPhrase" value="{{this.catchPhrase}}">
+  <br>
+  <br>
+
+  <button type="submit"> Edit your celebrity</button>
+  <br>
+  <a href="/celebrities">Go back to list of celebs</a>
+
+</form>
+
+{{/with}}
+
+    <a href="/">Take me home</a>

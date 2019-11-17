@@ -1,30 +1,69 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity.model');
+const Movies = require('../models/movies.model');
 
 const dbName = 'celebrity-lab';
-mongoose.connect(`mongodb://localhost/${celebrity-lab}`);
+mongoose.connect(`mongodb://localhost/${dbName}`);
 
-
-const celebrity = [{
-        name: "Leonardo DiCaprio",
-        occupation: "Actor",
-        catchPhrase: "I am the king of the world!",
+const movies = [{
+        title: "Titanic",
+        genre: "Romance / history",
+        plot: "Sinking ship",
     },
     {
-        name: "Madonna",
-        occupation: "Singer",
-        catchPhrase: "Like a Virgin",
+        title: "Pulp Fiction",
+        genre: "drama / comedy",
+        plot: "something",
     },
     {
-        name: "James Dean",
-        occupation: "Actor",
-        catchPhrase: "Dream as if you will live forever; Live as if you will die today.",
-    }
+        title: "Leon the Professional",
+        genre: "Crime / Comedy",
+        plot: "Baby killer",
+    },
 ]
-Celebrity.create(celebrity, (err) => {
+Movies.create(movies, (err) => {
     if (err) {
         throw (err)
     }
-    console.log(`Created ${celebrity.length} celebs`)
+    console.log(`Created ${movies.length} movies`)
     mongoose.connection.close();
 })
+
+
+
+
+
+
+
+
+
+
+// const mongoose = require('mongoose');
+// const Celebrity = require('../models/celebrity.model');
+
+// const dbName = 'celebrity-lab';
+// mongoose.connect(`mongodb://localhost/${celebrity-lab}`);
+
+
+// const celebrity = [{
+//         name: "Leonardo DiCaprio",
+//         occupation: "Actor",
+//         catchPhrase: "I am the king of the world!",
+//     },
+//     {
+//         name: "Madonna",
+//         occupation: "Singer",
+//         catchPhrase: "Like a Virgin",
+//     },
+//     {
+//         name: "James Dean",
+//         occupation: "Actor",
+//         catchPhrase: "Dream as if you will live forever; Live as if you will die today.",
+//     }
+// ]
+// Celebrity.create(celebrity, (err) => {
+//     if (err) {
+//         throw (err)
+//     }
+//     console.log(`Created ${celebrity.length} celebs`)
+//     mongoose.connection.close();
+// })
