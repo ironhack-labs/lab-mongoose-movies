@@ -9,12 +9,16 @@ const bodyParser = require("body-parser");
 router.get("/", (req, res, next) => {
   res.render("index");
 });
+router.get("/celebrities/new", (req, res, next) => {
+    res.render("celebrities/new");
+  });
+
 //----FIND----
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
     .then(celebrityDB => {
       //console.log(celebrityDB);
-      res.render("celebrities/index", {celebrityDB});
+      res.render("celebrities/index", { celebrityDB });
     })
     .catch(error => {
       next();
@@ -31,6 +35,23 @@ router.get("/celebrities/:id", (req, res, next) => {
     })
     .catch(error => {
       next();
+      console.log(error);
+    });
+});
+
+//----CREATE----
+router.post("/celebrities", (req, res) => {
+  Celebrity.create({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  })
+    .then(() => {
+        res.redirect("/celebrities");
+    })
+    .catch(error => {
+      next();
+      res.redirect("/celebrities/new");
       console.log(error);
     });
 });
