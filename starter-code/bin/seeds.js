@@ -1,9 +1,9 @@
 //require("dotenv").config();
 const mongoose = require("mongoose");
-const Celebrities = require("..models/celebrity")
+const Celebrities = require("../models/celebrity")
 
 mongoose
-    .connect('mongodb://localhost/movies', { useNewUrlParser: true })
+    .connect('mongodb://localhost/celebrities', { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
     })
@@ -36,7 +36,7 @@ Celebrities
     .deleteMany()
     .then(() => {
         Celebrities
-            .insertMany(celebrities)
+            .insertMany(celebritiesArr)
             .then(data => console.log(`Added to the database: \n ${data}`))
             .catch(err => console.log(`There was an error: \n ${err}`))
     })
