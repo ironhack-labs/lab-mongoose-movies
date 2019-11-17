@@ -10,5 +10,10 @@
 <input type="hidden" name="id" class="text" value="{{_id}}">
 <input type="submit" class="submit" value="Delete Celebrity"></form>
 </li>
+<form action="/celebrities/{{_id}}/edit" method="POST">
+<input type="hidden" name="id" class="text" value="{{_id}}">
+<input type="submit" class="submit" value="Edit">
+</form>
+</li>
 {{/each}}
 </ul>
