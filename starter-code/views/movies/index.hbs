@@ -1,0 +1,33 @@
+<h2>List of Movies:</h2>
+{{#each allMovies}}
+{{this.id}}
+  <a href="/movies/{{this.id}}">{{this.title}}</a>
+  <form action="/movies/{{this.id}}/delete" method="post">
+    <button type="submit" style="
+      border: 1px solid #a10d00;
+      color: white;
+      background-color: #a10d00;
+      padding: 5px;
+      display: flex;
+      width: 50px;
+      border-radius: 5px;
+      align-content: center;
+      justify-content: center;
+      text-decoration: none;
+      outline: none;
+      cursor: pointer;
+      margin: 5px 0 10px;
+      ">Delete</button>
+  </form>
+  
+{{/each}}
+<a style="
+  border: 1px solid #00B7FF;
+  padding: 10px;
+  display: flex;
+  width: 100px;
+  align-content: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 20px;
+  " href="/movies/new">Add</a>
