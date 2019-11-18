@@ -1,0 +1,22 @@
+<h1>MOVIES SHOWROOM</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <ul>
+        {{#each movies}}
+        <li>{{this.title}} <a class="det-btn" href="/movies/details/{{this._id}}">Ver Detalles!</a><a
+            class="det-btn" href="/movies/edit?movieId={{this._id}}">Editar!</a><a class="det-btn"
+            href="/movies/delete?movieId={{this._id}}">Eliminar!</a></li>
+        {{/each}}
+        <br>
+        <br>
+        <br>
+      </ul>
+    </div>
+    <div class="center-box">
+      <button type="button" class="btn"><a href="/">Volver!</a></button>
+      <button type="button" class="btn"><a href="/movies/add">Agregar una Movie</a></button>
+    </div>
+  </div>
+</div>

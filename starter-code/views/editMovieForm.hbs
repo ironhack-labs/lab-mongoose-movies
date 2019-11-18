@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>EDITAR MOVIE</h1>
+  <div class="row justify-content-center">
+    <div class="center-box">
+      <form action="/movies/edit?movieId={{_id}}" method="POST">
+        <div class="form-group">
+          <label for="fiel1">Title:</label>
+          <input type="text" class="form-control" id="fiel1" name="title" value="{{title}}">
+        </div>
+        <div class="form-group">
+          <label for="fiel2">Genere:</label>
+          <input type="text" class="form-control" id="fiel2" name="gnre" value="{{gnre}}">
+        </div>
+        <div class="form-group">
+          <label for="fiel3">Plot:</label>
+          <input type="text" class="form-control" id="fiel3" name="plot" value="{{plot}}">
+        </div>
+        <button type="submit" class="btn submit-btn">Actualizar Movie!</button>
+        <button type="button" class="btn"><a href="/movies">Volver al Movie
+            Showroom!</a></button>
+      </form>
+    </div>
+  </div>
+</div>

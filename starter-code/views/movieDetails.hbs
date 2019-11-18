@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>MOVIE DETAILS</h1>
+  <div class="row justify-content-center">
+    <div class="center-box">
+      {{#with movie}}
+      <p>Title: {{this.title}}</p>
+      <p>Genere: {{this.gnre}}</p>
+      <p>Plot: {{this.plot}}</p>
+      {{/with}}
+      <br>
+      <br>
+      <button type="button" class="btn"><a href="/movies">Volver al Movie Showroom!</a></button>
+    </div>
+  </div>
+</div>

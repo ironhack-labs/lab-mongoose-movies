@@ -1,0 +1,20 @@
+<h1>CELEBRITY SHOWROOM</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <ul>
+        {{#each celebs}}
+        <li>{{this.name}} <a class="det-btn" href="/celebrities/details/{{this._id}}">Ver Detalles!</a><a class="det-btn" href="/celebrities/edit?celebId={{this._id}}">Editar!</a><a class="det-btn" href="/celebrities/delete?celebId={{this._id}}">Eliminar!</a></li> 
+        {{/each}}
+        <br>
+        <br>
+        <br>
+      </ul>
+    </div>
+        <div class="center-box">
+        <button type="button" class="btn"><a href="/">Volver!</a></button>
+        <button type="button" class="btn"><a href="/celebrities/add">Agregar una Celeb</a></button>
+        </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>CELEBRITY DETAILS</h1>
+  <div class="row justify-content-center">
+    <div class="center-box">
+      {{#with celeb}}
+      <p>Name: {{this.name}}</p>
+      <p>Ocuppation: {{this.occupation}}</p>
+      <p>CatchPhrase: {{this.catchPhrase}}</p>
+      {{/with}}
+      <br>
+      <br>
+      <button type="button" class="btn"><a href="/celebrities">Volver al Celebrity Showroom!</a></button>
+    </div>
+  </div>
+</div>
