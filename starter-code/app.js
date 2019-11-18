@@ -8,7 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-const router       = require('./routes/index');
+const router       = require('./routes');
 
 
 mongoose
