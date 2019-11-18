@@ -8,6 +8,7 @@ router.get('/new', (req, res, next) =>{
   res.render("celebrities/new");
 });
 
+// Add element into the database
 router.post('/', (req, res, next) => {
   console.log("Request body: ",req.body);
   const {name, occupation, catchPhrase} = req.body;
@@ -19,6 +20,16 @@ router.post('/', (req, res, next) => {
   .catch( (err) => console.log(err));
 });
 
+// Remove a element by ID
+router.post('/:id/delete', (req, res, next) => {
+  console.log("Request body: ",req.body);
+  
+  Celebrity.deleteOne(req.body.id)
+  .then( (celeb) => {
+    res.redirect("/celebrities");
+  })
+  .catch( (err) => console.log(err));
+});
 
 
 router.post('/add', (req, res, next) => {
