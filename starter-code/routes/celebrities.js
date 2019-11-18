@@ -6,17 +6,23 @@ const Celebrity = require('./../models/Celebrity');
 router.get('/:celebrityId/edit', (req,res,next) => {
   const {celebrityId} = req.params;
   Celebrity.findById(celebrityId)
-    .then( (oneCelebrity) => res.render('/celebrities/edit',{oneCelebrity}))
+    .then( (oneCelebrity) => res.render('./celebrities/edit',{oneCelebrity}))
     .catch( (err) => console.error(err));
 });
 
 router.post('/:celebrityId', (req,res,next) => {
-  const {celebrityId} = req.query;
+  console.log('Estamos editando');
+  const {celebrityId} = req.params;
   const {name,occupation,catchPhrase} = req.body;
+  console.log(celebrityId);
   Celebrity.findByIdAndUpdate(celebrityId, {name,occupation,catchPhrase})
-    .then( () => res.redirect('/celebrities'))
+    .then( (updatedCelebrity) => {
+      console.log('updated:',updatedCelebrity);
+      res.redirect('/celebrities');
+    })
     .catch( (err) => console.error(err));
 });
+
 
 router.post('/:celebrityId/delete', (req,res,next) => {
   const {celebrityId} = req.params;
@@ -27,7 +33,6 @@ router.post('/:celebrityId/delete', (req,res,next) => {
 });
 
 router.post('/', (req,res,next) => {
-  console.log('AQUIIIIIIII');
   
  const {name,occupation,catchPhrase} = req.body;
  const celebrity = new Celebrity({name,occupation,catchPhrase});
@@ -47,10 +52,8 @@ router.get('/new', (req,res,next) => {
 
 router.get('/:celebrityId', (req,res,next) => {
   const {celebrityId} = req.params;
-  console.log(celebrityId);
   Celebrity.findById(celebrityId)
     .then( (oneCelebrity) => {
-      console.log(oneCelebrity);
       res.render('celebrities/show',{oneCelebrity})
     })
     .catch( (err) => console.error(err))
