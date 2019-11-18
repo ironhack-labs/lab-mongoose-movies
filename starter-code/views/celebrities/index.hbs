@@ -1,4 +1,4 @@
 <h2>Celebrities</h2>
 {{#each allCelebritiesFromDb}}
-  <span>{{this.name}}</span>
+  <span><a href="/celebrities/{{this._id}}">{{this.name}}</a></span>
 {{/each}}
