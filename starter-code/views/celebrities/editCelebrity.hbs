@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h1>Edit the celebrity {{name}}</h1>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+      <form action="/celebrities/edit?celebrityId={{_id}}" method="POST">
+        <div class="form-group">
+          <label for="field1">Edit Celebrity name</label>
+          <input type="text" class="form-control" id="field1" name="name" value="{{name}}">
+        </div>
+        <div class="form-group">
+          <label for="field2">Edit Celebrity occupation</label>
+          <input type="text" class="form-control" id="field2" name="occupation" value="{{occupation}}">
+        </div>
+        <div class="form-group">
+          <label for="field2">Edit Celebrity Cath Phrase</label>
+          <input type="text" class="form-control" id="field2" name="catchPhrase" value="{{catchPhrase}}">
+        </div>
+
+        <button type=" submit" class="btn btn-dark">Save Changes</button>
+
+        {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+        {{/if}}
+      </form>
+      (<a href="/">Back to index</a>)
+    </div>
+  </div>
+</div>

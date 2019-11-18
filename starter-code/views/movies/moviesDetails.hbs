@@ -1,0 +1,16 @@
+<div class="container">
+
+  <h2>Movies Details</h2>
+
+  <ul>
+
+    {{#with movie}}
+    <li>{{title}}</li>
+    <li>The genre is: {{genre}}</li>
+    <li>The plot is: {{plot}}</li>
+
+    </li> {{/with}}
+  </ul>
+  (<a href="/">Back to index</a>)
+  (<a href="/movies">Back to List</a>)
+</div>

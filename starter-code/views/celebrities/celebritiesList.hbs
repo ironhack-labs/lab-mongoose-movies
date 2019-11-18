@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h2>Celebrities List</h2>
+
+  <ul>
+
+    {{#each celebrities}}
+    <li>{{this.name}} (<a href="/celebrities/details/{{this._id}}">Details</a>)
+      (<a href="/celebrities/edit?celebrityId={{this._id}}">Edit</a>)
+      (<a href="/celebrities/delete?celebrityId={{this._id}}">Delete</a>)
+    </li> {{/each}}
+  </ul>
+
+  (<a href="/">Back to index</a>)
+</div>
