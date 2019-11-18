@@ -30,6 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -47,12 +48,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Mis Personajes favoritos';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+
+app.use('/', require('./routes/index.routes'))
+app.use('/celebrities', require('./routes/celebrities.routes'))
+
 
 
 module.exports = app;
