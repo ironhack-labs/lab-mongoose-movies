@@ -3,6 +3,13 @@ const router = express.Router();
 
 const Movie = require('./../models/Movie');
 
+router.post('/:movieId/delete', (req, res, next) => {
+  const {movieId} = req.params;
+  Movie.findByIdAndDelete(movieId)
+    .then( () => res.redirect('/movies'))
+    .catch( (err) => res.render(err));
+});
+
 router.post('/', (req, res, next) => {
   const {title,genre,plot} = req.body;
   const movie = new Movie({title,genre,plot});
