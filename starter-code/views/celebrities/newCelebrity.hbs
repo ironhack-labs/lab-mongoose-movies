@@ -1,0 +1,34 @@
+<div class="container">
+
+  <h1>Add a new celebrity!!!</h1>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+      <form action="/celebrities/newCelebrity" method="POST">
+        <div class="form-group">
+          <label for="field1">What is the name of the celebrity</label>
+          <input type="text" class="form-control" id="field1" name="name">
+        </div>
+        <div class="form-group">
+          <label for="field2">What does this celebrity do for a living?</label>
+          <input type="text" class="form-control" id="field2" name="occupation">
+        </div>
+        <div class="form-group">
+          <label for="field3">Add a famouse quote of this celebrity</label>
+          <input type="text" class="form-control" id="field3" name="catchPhrase">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Add</button>
+
+        {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+        {{/if}}
+      </form>
+
+    </div>
+  </div>
+</div>
+
+  <a href="/">Go back to the main page</a>

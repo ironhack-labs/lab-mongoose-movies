@@ -1,0 +1,22 @@
+<div class="container">
+
+  <h1>List of Celebrities:</h1>
+
+
+    {{#each celebrities}}
+      <p>
+        {{this.name}}: 
+         <a href="/celebrities/details/{{this._id}}">More info</a> |
+        <a href="/celebrities/edit?celebrityId={{this._id}}">Edit</a> |
+        <a href="/celebrities/delete?celebrityId={{this._id}}">Delete</a> 
+
+      </p> 
+    {{/each}} 
+  
+
+  <a href="/">Go back to the main page</a>
+
+</div>
+
+
+

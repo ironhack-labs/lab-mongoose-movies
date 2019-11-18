@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h1>List of Movies:</h1>
+
+
+    {{#each movies}}
+      <p>
+        {{this.title}}:
+         <a href="/movies/details/{{this._id}}">More info</a> | 
+        <a href="/movies/edit?movieId={{this._id}}">Edit</a> |
+        <a href="/movies/delete?movieId={{this._id}}">Delete</a>
+
+      </p> 
+    {{/each}} 
+  
+
+  <a href="/">Go back to the main page</a>
+
+</div>

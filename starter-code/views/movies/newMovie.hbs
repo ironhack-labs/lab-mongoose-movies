@@ -1,0 +1,37 @@
+<div class="container">
+
+  <h1>Add a new movie!!!</h1>
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+      <form action="/movies/newMovie" method="POST">
+        <div class="form-group">
+          <label for="field1">What is the name of the movie?</label>
+          <input type="text" class="form-control" id="field1" name="title">
+        </div>
+        <div class="form-group">
+          <label for="field2">What is the genre is of the movie?</label>
+          <input type="text" class="form-control" id="field2" name="genre">
+        </div>
+        <div class="form-group">
+          <label for="field3">What is the plot of the movie?</label>
+          <input type="text" class="form-control" id="field3" name="plot">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Add</button>
+
+        {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+        {{/if}}
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+  <p><a href="/">Go back to the main page</a></p>
+
+  <p><a href="/movies">Do you want to check if the movie is already listed?</a></p>
