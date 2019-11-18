@@ -63,6 +63,6 @@ router.get('/', (req,res,next) => {
   Celebrity.find()
     .then( (allCelebritiesFromDb) => res.render('celebrities',{allCelebritiesFromDb}))
     .catch( (err) => console.error(err));
-})
+});
 
 module.exports = router;
