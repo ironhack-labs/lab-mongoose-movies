@@ -1,0 +1,10 @@
+<h2>Celebrities list</h2>
+
+{{#each celebrities as |celebrity|}}
+<p><a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a></p>
+{{/each}}
+
+<a href="/newcelebrity">Add Celebrity</a>
+
+
+<a href="/">Inicio</a>
