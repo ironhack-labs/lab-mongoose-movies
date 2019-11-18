@@ -29,7 +29,7 @@ router.post('/',  (req, res, next) => {
 
 
 
-// GET /celebrities/id
+// GET /celebrities/id (details page)
 router.get('/:id', (req, res, next) => {
   console.log(req.params);
   const celebrityId = req.params.id;
