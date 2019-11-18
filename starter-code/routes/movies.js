@@ -3,6 +3,18 @@ const router = express.Router();
 
 const Movie = require('./../models/Movie');
 
+router.post('/', (req, res, next) => {
+  const {title,genre,plot} = req.body;
+  const movie = new Movie({title,genre,plot});
+  movie.save()
+    .then( () => res.redirect('/movies'))
+    .catch( () => res.redirect('/movies/new'));
+});
+
+router.get('/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
 router.get('/:movieId', (req, res, next) => {
   const {movieId} = req.params;
   Movie.findById(movieId)
