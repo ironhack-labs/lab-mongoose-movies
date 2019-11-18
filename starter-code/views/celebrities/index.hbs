@@ -3,4 +3,7 @@
 <br>
 {{#each allCelebritiesFromDb}}
   <span><a href="/celebrities/{{this._id}}">{{this.name}}</a></span>
+  <form action="/celebrities/{{this._id}}/delete" method="post">
+    <button type='submit'>DELETE</button>
+  </form>
 {{/each}}

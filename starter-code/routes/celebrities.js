@@ -5,6 +5,24 @@ const Celebrity = require('./../models/Celebrity');
 
 //Get celebrities by ID
 ///celebrities/{{this._id}}"
+/* const {celebrityId} = req.params;
+  console.log(celebrityId);
+  Celebrity.findById(celebrityId)
+    .then( (oneCelebrity) => {
+      console.log(oneCelebrity);
+      res.render('celebrities/show',{oneCelebrity})
+    })
+    .catch( (err) => console.error(err))
+})*/
+router.post('/:celebrityId/delete', (req,res,next) => {
+  const {celebrityId} = req.params;
+  Celebrity.findByIdAndRemove(celebrityId)
+    .then( (oneCelebrity) => res.redirect('/celebrities'))
+    .catch( (err) => res.render(err));
+
+});
+
+
 router.get('/new', (req,res,next) => {
   res.render('celebrities/new');
 });
