@@ -1,0 +1,9 @@
+<div class="container">
+    <h2>Estas son las "celebrities" </h2>
+    <div class="col">
+        <ul>
+            {{#each celebrities}}
+            <li>{{this.name}} (<a href="/celebrities/details/{{this._id}}">Detalles</a>) </li> {{/each}}
+        </ul>
+    </div>
+</div>
