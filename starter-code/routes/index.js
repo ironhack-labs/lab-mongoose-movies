@@ -11,7 +11,7 @@ router.use('/celebrities', celebritiesRouter);
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', { title: 'Cinema' });
 });
 
 module.exports = router;
