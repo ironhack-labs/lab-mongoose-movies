@@ -1,4 +1,4 @@
-//models/Book.js
+//models/Celebrity.js
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
