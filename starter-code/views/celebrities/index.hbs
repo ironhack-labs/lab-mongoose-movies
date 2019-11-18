@@ -1,0 +1,22 @@
+<section> 
+  <h2>Celebrities</h2>
+  <form action="" method="post">
+
+  </form>
+  <ul>
+  {{#each celebrities as |celebrity|}}
+  <li> 
+    <a href="/celebrities/{{celebrity.id}}" class="btn">{{celebrity.name}}</a> 
+    <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+      <input type="text" hidden name="id" value="{{celebrity.id}}">
+      <button type="submit">Delete</button>
+    </form>
+    <form action="/celebrities/{{celebrity.id}}/edit" method="POST">
+      <input type="text" hidden name="id" value="{{celebrity.id}}">
+      <button type="submit">Edit</button>
+    </form>
+    {{!-- <a href="/celebrities/{{celebrity.id}}/edit"><button>Edit</button></a> --}}
+  </li>
+  {{/each}}
+  </ul>
+</section>

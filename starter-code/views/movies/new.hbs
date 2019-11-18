@@ -1,0 +1,12 @@
+<h2>Add a new movie</h2>
+<h2>{{config.title}}</h2>
+
+<form action="{{config.action}}" method="POST">
+  <input type="text" name="title" placeholder="Title" value="">
+  <input type="text" name="genre" placeholder="Genre" value="">
+  <input type="text" name="plot" placeholder="Plot" value="">
+  <input type="submit" value="Create">
+  {{#if errorMessage }}
+   <div class="error-message">{{ errorMessage }}</div>
+  {{/if}}
+</form>
