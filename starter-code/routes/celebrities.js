@@ -3,17 +3,21 @@ const router = express.Router();
 
 const Celebrity = require('./../models/Celebrity');
 
-//Get celebrities by ID
-///celebrities/{{this._id}}"
-/* const {celebrityId} = req.params;
-  console.log(celebrityId);
+router.get('/:celebrityId/edit', (req,res,next) => {
+  const {celebrityId} = req.params;
   Celebrity.findById(celebrityId)
-    .then( (oneCelebrity) => {
-      console.log(oneCelebrity);
-      res.render('celebrities/show',{oneCelebrity})
-    })
-    .catch( (err) => console.error(err))
-})*/
+    .then( (oneCelebrity) => res.render('/celebrities/edit',{oneCelebrity}))
+    .catch( (err) => console.error(err));
+});
+
+router.post('/:celebrityId', (req,res,next) => {
+  const {celebrityId} = req.query;
+  const {name,occupation,catchPhrase} = req.body;
+  Celebrity.findByIdAndUpdate(celebrityId, {name,occupation,catchPhrase})
+    .then( () => res.redirect('/celebrities'))
+    .catch( (err) => console.error(err));
+});
+
 router.post('/:celebrityId/delete', (req,res,next) => {
   const {celebrityId} = req.params;
   Celebrity.findByIdAndRemove(celebrityId)
@@ -22,20 +26,22 @@ router.post('/:celebrityId/delete', (req,res,next) => {
 
 });
 
+router.post('/', (req,res,next) => {
+  console.log('AQUIIIIIIII');
+  
+ const {name,occupation,catchPhrase} = req.body;
+ const celebrity = new Celebrity({name,occupation,catchPhrase});
+ celebrity.save()
+    .then(() => res.redirect('/celebrities')
+    .catch( (err) => {
+      console.log(err);
+      res.redirect('celebrities/new');
+    }))
+  });
 
 router.get('/new', (req,res,next) => {
   res.render('celebrities/new');
 });
-
-router.post('/new', (req,res,next) => {
-  const {name,occupation,catchPhrase} = req.body;
-  const celebrity = new Celebrity({name,occupation,catchPhrase});
-  celebrity.save()
-    .then((celebrity) => res.redirect('/celebrities')
-    .catch( (err) => {
-      console.log(err);
-      res.redirect('celebrities/new');
-    }))});
 
 
 
