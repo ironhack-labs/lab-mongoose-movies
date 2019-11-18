@@ -1,0 +1,29 @@
+<main class="edit-celebrity">
+  <h2>Edit Celebrity</h2>
+  {{#if this.error}}
+  <div class="error">
+    {{this.error}}
+  </div>
+  {{/if}}
+  <form method="POST" action="/celebrities/{{ this.celebrity._id }}">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="{{ this.celebrity.name }}" required>
+    </div>
+    <div>
+      <label for="occupation">Occupation</label>
+      <select name="occupation" id="occupation" required>
+        <option value="" selected disabled>Select Occupation</option>
+        <option value="Actor">Actor</option>
+        <option value="Singer">Singer</option>
+        <option value="Comedian">Comedian</option>
+        <option value="Unknown">Unknown</option>
+      </select>
+    </div>
+    <div>
+      <label for="catchPhrase">Catchphrase</label>
+      <input type="text" name="catchPhrase" id="catchPhrase" value="{{ this.celebrity.catchPhrase }}" required>
+    </div>
+    <button type="submit">Edit Celebrity</button>
+  </form>
+</main>

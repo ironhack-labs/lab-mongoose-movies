@@ -1,0 +1,9 @@
+<main class="movies">
+  <h2>Movies</h2>
+  <ul>
+    {{#each this.movies}}
+    <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+    {{/each}}
+  </ul>
+  <p>Back to <a href="/">Home</a></p>
+</main>

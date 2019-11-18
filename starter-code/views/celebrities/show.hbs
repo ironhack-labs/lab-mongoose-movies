@@ -1,0 +1,9 @@
+<main class="celebrity">
+  <h1>{{ this.celebrity.name }}</h1>
+  <p><b>Occupation: </b>{{ this.celebrity.occupation }}</p>
+  <p><b>Catchphrase: </b>{{ this.celebrity.catchPhrase }}</p>
+  <form method="POST" action="/celebrities/{{this.celebrity._id}}/delete">
+    <a href="/celebrities/{{ this.celebrity._id }}/edit">Edit</a>
+    <button type="submit">Delete</button>
+  </form>
+</main>

@@ -1,0 +1,9 @@
+<main class="movie">
+  <h1>{{ this.movie.title }}</h1>
+  <p><b>Genre: </b>{{ this.movie.genre }}</p>
+  <p><b>Plot: </b>{{ this.movie.plot }}</p>
+  <form method="POST" action="/movies/{{this.movie._id}}/delete">
+    <a href="/movies/{{ this.movie._id }}/edit">Edit</a>
+    <button type="submit">Delete</button>
+  </form>
+</main>
