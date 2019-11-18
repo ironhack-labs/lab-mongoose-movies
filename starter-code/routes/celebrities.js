@@ -11,15 +11,10 @@ router.get('/:celebrityId/edit', (req,res,next) => {
 });
 
 router.post('/:celebrityId', (req,res,next) => {
-  console.log('Estamos editando');
   const {celebrityId} = req.params;
   const {name,occupation,catchPhrase} = req.body;
-  console.log(celebrityId);
   Celebrity.findByIdAndUpdate(celebrityId, {name,occupation,catchPhrase})
-    .then( (updatedCelebrity) => {
-      console.log('updated:',updatedCelebrity);
-      res.redirect('/celebrities');
-    })
+    .then( () =>   res.redirect('/celebrities'))
     .catch( (err) => console.error(err));
 });
 
