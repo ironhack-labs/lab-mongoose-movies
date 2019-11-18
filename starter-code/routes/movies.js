@@ -42,6 +42,44 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 
+// GET /movies/:id/edit - renders the form
+router.get('/:id/edit', (req, res, next) => {
+  console.log(req.params);
+  const movieId = req.params.id;
+
+  Movie.findById(movieId)
+    .then( (oneMovie) => {
+      console.log(oneMovie);
+      res.render('movies/edit', { oneMovie })
+    })
+    .catch( (err) => {
+      console.log(err);
+      next();
+    });
+});
+
+// POST /movies/:id - handles the inputing data in the edit form
+router.post('/:id',  (req, res, next) => {
+  console.log('PARAMS -->', req.params);
+  console.log('BODY -->', req.body);
+  // const body = JSON.parse(JSON.stringify(req.body))
+  // console.log('BODY -->', body);
+  const { id } = req.params;
+  const { title, genre, plot } = req.body; 
+
+  Movie.updateOne({ id }, { title, genre, plot }, { new: true } )
+    .then( () => { 
+      res.redirect('/movies'); 
+    })
+    .catch( (err) => {
+      console.log(err);
+      next();
+    });
+})
+
+
+
+
 
 // GET /movies/id (details page)
 router.get('/:id', (req, res, next) => {
