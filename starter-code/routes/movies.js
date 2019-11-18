@@ -26,6 +26,22 @@ router.post('/',  (req, res, next) => {
 })
 
 
+// POST /movies/:id/delete
+router.post('/:id/delete', (req, res, next) => {
+  console.log(req.params);
+  const movieId = req.params.id;
+
+  Movie.findByIdAndRemove(movieId)
+    .then( () => {
+      res.redirect('/movies'); 
+    })
+    .catch( (err) => {
+      console.log(err);
+      next();
+    });
+})
+
+
 
 // GET /movies/id (details page)
 router.get('/:id', (req, res, next) => {
