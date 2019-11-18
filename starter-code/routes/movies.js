@@ -5,6 +5,28 @@ const Movie = require('./../models/Movie');
 
 
 
+// GET /movies/new - renders the form
+router.get('/new', (req, res, next) => {  
+  res.render('movies/new');
+})
+
+// POST /movies - handles the inputing data to create new movie
+router.post('/',  (req, res, next) => {
+  console.log(req.body); 
+  const { title, genre, plot } = req.body; // destructuring
+
+  Movie.create( { title, genre, plot } )
+    .then( movie => { 
+      res.redirect('/movies'); 
+    })
+    .catch( (err) => {
+      console.log(err);
+      res.render('movies/new');
+    });
+})
+
+
+
 // GET /movies/id (details page)
 router.get('/:id', (req, res, next) => {
   console.log(req.params);
