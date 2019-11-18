@@ -3,7 +3,23 @@ const router = express.Router();
 
 const Celebrity = require("./../models/Celebrity");
 
-//GET /Celebrity
+
+
+//GET /Celebrity:id
+
+router.get("/:id", function (req, res, next) {
+   
+        Celebrity.findById(req.params.id)
+      .then(celebrity => {
+        res.render('celebrities/show', {
+            celebrity
+        });
+      })
+      .catch(err => console.log(err));
+    // then render the page with celebrity details
+  });
+  
+ //GET /Celebrity
 router.get("/", function (req, res, next) {
     Celebrity.find()
         .then(allCelebritiesFromDB => {
@@ -15,5 +31,7 @@ router.get("/", function (req, res, next) {
             console.log(err);
         });
 });
+
+
 
 module.exports = router;
