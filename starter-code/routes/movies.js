@@ -38,8 +38,9 @@ router.get("/:id/delete", (req, res)=>{
     Movie.deleteOne({_id: req.params.id})
         .then(deletion=>{
             console.log(deletion);
-            
-            res.render("movies/index", {movies: movies})
+            Movie.find({}).then(updatedMovies=>{
+                res.render("movies/index", {movies: updatedMovies})
+            })
         })
 })
 
