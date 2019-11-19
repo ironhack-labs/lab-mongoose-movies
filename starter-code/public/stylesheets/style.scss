@@ -47,3 +47,10 @@ a {
   height: 20px;
   border-radius: 6px;
   border: none; }
+
+.movie-details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

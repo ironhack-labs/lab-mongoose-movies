@@ -1,6 +1,14 @@
-{{#each movie}}
-    <p>Title: {{this.title}}</p>
-    <p>Genre: {{this.genre}}</p>
-    <p>Plot: {{this.plot}}</p>
-{{/each}}
-<a href="/movies">Back</a>
+<div class="movie-details">
+    {{#each movie}}
+        <h1>Editing {{this.title}}</h1>
+        <p>Title: {{this.title}}</p>
+        <p>Genre: {{this.genre}}</p>
+        <p>Plot: {{this.plot}}</p>
+
+        <div>
+            <a href="/movies/{{this._id}}/delete"><button class="delete-btn">Delete</button></a>
+            <a href="/movies/{{this._id}}/edit"><button class="edit-btn">Edit</button></a>
+        </div>
+    {{/each}}
+    <a href="/movies"><button class="edit-btn">Back</button></a>
+</div>

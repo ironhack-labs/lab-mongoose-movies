@@ -41,4 +41,10 @@ a {
   border-radius: 6px;
   border: none; }
 
+.movie-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
 /*# sourceMappingURL=style.css.map */
