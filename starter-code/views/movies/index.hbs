@@ -1,0 +1,13 @@
+<div class="all-celebrities">
+    {{#each movies}}
+    <div class="celebrity">
+        <a href="/movies/{{this._id}}/delete"><button class="delete-btn">Delete</button></a>
+        <a href="/movies/{{this._id}}/edit"><button class="edit-btn">Edit</button></a>
+
+        {{this.title}}
+        <a href="/movies/{{this._id}}/details">Details</a>
+    </div>
+    {{/each}}
+</div>
+    <a href="/movies/add">Add movie</a>
+    <a href="/">Back</a>

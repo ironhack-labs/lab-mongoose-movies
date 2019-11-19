@@ -1,44 +1,37 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
-.all-celebrities{
+.all-celebrities {
   display: flex;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap; }
 
 .celebrity {
   margin: 2vh 3vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
-.celebrity > div{
-  margin: 2vh 0vw;
-}
+.celebrity > div {
+  margin: 2vh 0vw; }
 
 .delete-btn {
-  background-color: red; 
+  background-color: red;
   font-weight: bold;
   height: 20px;
   border-radius: 6px;
-  border: none;
-}
+  border: none; }
 
 .edit-btn {
-  background-color: gray; 
+  background-color: gray;
   font-weight: bold;
   height: 20px;
   border-radius: 6px;
-  border: none;
-}
+  border: none; }
 
 .add-btn {
   background-color: blue;
@@ -47,3 +40,5 @@ a {
   height: 20px;
   border-radius: 6px;
   border: none; }
+
+/*# sourceMappingURL=style.css.map */
