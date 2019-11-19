@@ -55,6 +55,28 @@ router.post('/:_id/delete', (req, res, next) => {
     })
 })
 
+// ITERATION 6 - EDITING CELEBRITIES
+router.get('/:_id/edit', (req, res, post) => {
+  const celebId = req.params;  
+  Celebrity.findById(celebId)
+    .then((celebrity) => {
+      res.render('celebrities/edit', {celebrity});
+    })
+    .catch((err) => console.log("There's been an error loading the celebrity", err));
+})
+
+router.post('/:_id', (req, res, next) => {
+  const celebId = req.params;
+  console.log(celebId);
+  const {name, occupation, catchPhrase} = req.body;
+  console.log(req.body);
+  Celebrity.updateOne({_id: celebId}, {name, occupation, catchPhrase})
+    .then(() => {
+      console.log('in');
+        res.redirect('/celebrities');
+    })
+    .catch( (err) => console.log(err));
+})
 
 
 module.exports = router;

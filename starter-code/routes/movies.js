@@ -3,7 +3,7 @@ const router  = express.Router();
 
 const Movie = require('./../models/Movie');
 
-// ITERATION 2 - GET /celebrities
+// ITERATION 2 - GET /movies
 router.get('/', (req, res, next) => {
   Movie.find()
     .then( (allMovies) => {
@@ -33,7 +33,7 @@ router.post('/new', (req, res, next) => {
     .catch( (err) => res.redirect('/movies/new'));
 })
 
-// ITERATION 3 - GET /celebrities/id
+// ITERATION 3 - GET /movies/id
 router.get('/:_id', (req, res, next) => {
   const movieId = req.params;
   Movie.findById(movieId)
@@ -43,7 +43,7 @@ router.get('/:_id', (req, res, next) => {
     .catch((err) => console.log("There's been an error loading the celebrity", err));
 });
 
-// ITERATION 5 - POST celebrities/:id/delete
+// ITERATION 5 - POST movies/:id/delete
 router.post('/:_id/delete', (req, res, next) => {
   const movieId = req.params
   
@@ -52,6 +52,29 @@ router.post('/:_id/delete', (req, res, next) => {
       console.log('Movie deleted successfuly');
       res.redirect('/movies');
     })
+})
+
+// ITERATION 6 - EDITING movies
+router.get('/:_id/edit', (req, res, post) => {
+  const movieId = req.params;  
+  Movie.findById(movieId)
+    .then((movie) => {
+      res.render('movies/edit', {movie});
+    })
+    .catch((err) => console.log("There's been an error loading the movie", err));
+})
+
+router.post('/:_id', (req, res, next) => {
+  const movieId = req.params;
+  console.log(movieId);
+  const {title, genre, plot} = req.body;
+  console.log(req.body);
+  Movie.updateOne({_id: movieId}, {title, genre, plot})
+    .then(() => {
+      console.log('in');
+      res.redirect('/movies');
+    })
+    .catch( (err) => console.log(err));
 })
 
 
