@@ -32,7 +32,8 @@ mongoose.connect('mongodb://localhost:27017/celebritys', { useNewUrlParser: true
         })   
         router.get("/deletDis/:id", (req, res)=>{
             Celebrity.deleteOne({_id: req.params.id})
-                .then(deletion=>console.log(deletion))
+                .then(deletion=>{console.log(deletion)
+                res.render("celebrities/index", {celebrities: celebrities})})
                 .catch(err=>console.log(err)
                 )
         })
