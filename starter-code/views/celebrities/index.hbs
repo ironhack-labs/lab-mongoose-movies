@@ -1,0 +1,14 @@
+<h2>Celebrities</h2>
+
+
+{{#each allCelebritiesFromDB}}
+
+<p class='celebrity-name'>
+    
+    <span><a href="/celebrities/{{this._id}}">{{this.name}}</a></span>
+
+    {{!-- <a href="/books/edit?_id={{this._id}}" class="edit-button">EDIT</a>
+    <a href="/books/details/{{this._id}}">{{this.title}}</a> --}}
+
+</p>
+{{/each}}
