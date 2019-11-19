@@ -1,0 +1,18 @@
+<h2>CELEBRITIES</h2>
+<div class="all-celebrities">
+    {{#each celebrities}}
+        <div class="celebrity">
+            <h2>{{this.name}}</h2>
+            <div>
+                <a href="/cel/deletDis/{{this.id}}"><button class="delete-btn">Delete</button></a>
+                <a href="/cel/{{this.id}}/edit"><button class="edit-btn">Edit</button></a>
+            </div>
+            <a href="/cel/{{this._id}}">See details</a>
+        </div>
+    {{/each}}
+</div>
+<br>
+<br>
+<br>
+<a href="/cel/add"><button class="add-btn">Add celebrity</button></a>
+<a href="/"><button class="add-btn">Back</button></a>

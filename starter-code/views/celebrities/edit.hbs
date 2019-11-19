@@ -1,0 +1,15 @@
+<h1>Editing {{this.name}}</h1>
+
+<form action='/cel/{{this._id}}' method='POST'>
+
+  <label for=''>Name</label>
+  <input type='text' name='name' value="{{this.name}}">
+
+  <label for=''>Occupation</label>
+  <input type='text' name='occupation' value="{{this.occupation}}">
+
+  <label for=''>Catchphrase</label>
+  <input type='text' name='catchPhrase' value="{{this.catchPhrase}}">
+
+  <button type='submit'>Submit</button>
+</form>

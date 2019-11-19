@@ -1,0 +1,15 @@
+<div class="all-movies">
+    {{#each movies}}
+    <div class="movie">
+        <div>
+            <a href="/movies/{{this._id}}/delete"><button class="delete-btn">Delete</button></a>
+            <a href="/movies/{{this._id}}/edit"><button class="edit-btn">Edit</button></a>
+        </div>
+
+        <h1>{{this.title}}</h1>
+        <a href="/movies/{{this._id}}/details">Details</a>
+    </div>
+    {{/each}}
+</div>
+    <a href="/movies/add"><button class="add-btn">Add movie</button></a>
+    <a href="/"><button class="edit-btn">Back</button></a>
