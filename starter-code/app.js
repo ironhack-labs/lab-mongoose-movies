@@ -12,7 +12,8 @@ const router       = require('./routes');
 
 
 mongoose
-  .connect('mongodb://localhost:27017/Celebrity', {useNewUrlParser: true})
+  // .connect('mongodb://localhost:27017/Celebrity', {useNewUrlParser: true})
+  .connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

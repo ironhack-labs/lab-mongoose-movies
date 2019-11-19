@@ -6,9 +6,9 @@ const Schema = mongoose.Schema;
 // CREATE SCHEMA
 const moviesSchema = new Schema(
   {
-    name: String,
-    occupation: String,
-    catchPhrase: String   
+    title: String,
+    genre: String,
+    actor: String   
   },
 );
 
