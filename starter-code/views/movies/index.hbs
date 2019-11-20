@@ -1,0 +1,16 @@
+<div class='mov'>
+  <a href="/">Back</a>
+<h2>Check out the registered movies:</h2>
+<ul>
+  {{#each movies}}
+    <li>
+      <a href="/movies/{{_id}}">{{title}}</a> <a href="/movies/{{_id}}/edit">edit</a>
+      <form action="/movies/{{_id}}/delete" method="POST">
+      <button type="submit">Delete</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
+<h3>Do you want to add a new movie?</h3>
+<a href="/movies/new">Click here!</a> 
+</div>

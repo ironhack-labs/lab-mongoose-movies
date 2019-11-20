@@ -1,0 +1,16 @@
+<div class="cel">
+<a href="/">Back</a>
+<h2>Celebrities</h2>
+<ul>
+  {{#each celebrities}}
+    <li>
+      <a href="/celebrities/{{_id}}">{{name}}</a> <a href="/celebrities/{{_id}}/edit">edit</a>
+      <form action="/celebrities/{{_id}}/delete" method="POST">
+      <button type="submit">Delete</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
+<h3>Do you want to add a new celebrity?</h3>
+<a href="/celebrities/new">Click here!</a> 
+</div>

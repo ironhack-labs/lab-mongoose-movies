@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("../images/movie.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-weight: bolder;
+  color: crimson; }
+
+a {
+  color: #00B7FF;
+  text-decoration: none; }
+
+button {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: lightblue; }
+
+.ncel {
+  text-align: right; }
+
+.nmov {
+  text-align: right; }
+
+.emov {
+  text-align: right; }
+
+.ecel {
+  text-align: right; }
+
+/*# sourceMappingURL=style.css.map */
