@@ -4,26 +4,26 @@ const Celebrity = require("../models/celebrity");
 
 const seed = [
        {
-            name : "Rocki",
-            occupation : ["Matador", "actor"],
-            cathPhrase : "tun tun tun tun tuuuuun" 
+            name: "Rocki",
+            occupation: ["Matador", "actor"],
+            catchPhrase: "tun tun tun tun tuuuuun" 
         },
         {
-            name : "Matilda",
-            occupation : ["bruja", "actriz"],
-            cathPhrase : "bruce bruce bruceeee" 
+            name: "Matilda",
+            occupation: ["bruja", "actriz"],
+            catchPhrase: "bruce bruce bruceeee" 
         },
         {
-          name : "Hhiman",
-          occupation : ["meme", "actor"],
-          cathPhrase : "recuerden amiguitos" 
+          name: "Hhiman",
+          occupation: ["meme", "actor"],
+          catchPhrase: "recuerden amiguitos" 
       }
 ]
 
 mongoose
   .connect(process.env.DB, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(async () => {
-    const celebrity = await Celebrity.create(lascelebrity);
+    const celebrity = await Celebrity.insertMany(seed);
     console.log(`${celebrity.length} created successfully`);
     mongoose.connection.close();
   })
