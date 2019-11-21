@@ -20,9 +20,8 @@ const celebrities = [
 ]
 
 mongoose
-  .connect(process.env.DB, { useUnifiedTopology: true, useNewUrlParser: true })
-  .then(async () => {
-    const celebis = await Celeb.create(celebrities);
-    mongoose.connection.close();
-  })
-  .catch(err => console.log(err));
+  .connect('mongodb://localhost/celebrities', { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => {
+    Celeb.create(celebrities)
+    mongoose.connection.close(x=>console.log(x))
+  }).catch(err => console.log(err))
