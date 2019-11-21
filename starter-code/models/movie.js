@@ -1,19 +1,19 @@
 const {Schema, model} = require("mongoose")
 
-const celebritySchema = new Schema({
-    name: {
+const movieSchema = new Schema({
+    title: {
         type: String,
         required: true,
         unique: true
     },
-    occupation: {
+    genre: {
         type: String,
         required: true
     },
-    catchPhrase: {
+    plot: {
         type: String,
         required: true
     }
 })
 
-module.exports = model("Celebrity", celebritySchema)
+module.exports = model("Movie", movieSchema)
