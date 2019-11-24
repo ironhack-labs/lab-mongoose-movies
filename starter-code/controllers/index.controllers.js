@@ -10,3 +10,14 @@ exports.showCelebs = async (req, res) => {
     celebList
   })
 }
+
+exports.showOneCeleb = async (req, res) => {
+  const {
+    id
+  } = req.params
+  const celebs = await Celebrity.findById(id, err => console.log(err))
+  res.render('celebrities/show', {
+    celebs
+  })
+
+}
