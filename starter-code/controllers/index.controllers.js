@@ -19,5 +19,24 @@ exports.showOneCeleb = async (req, res) => {
   res.render('celebrities/show', {
     celebs
   })
-
 }
+
+exports.addNewCeleb = (req, res) => {
+  res.render('celebrities/new')
+}
+
+
+
+// exports.postCeleb = async (req, res) => {
+//   const {
+//     name,
+//     occupation,
+//     catchPhrase
+//   } = req.body
+//   Celebrity.create({
+//     name,
+//     occupation,
+//     catchPhrase
+//   })
+//   await res.redirect('celebrities')
+// }
