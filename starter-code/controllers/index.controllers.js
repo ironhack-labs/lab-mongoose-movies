@@ -1,4 +1,4 @@
-const Celebrity = require('../models/Celebrity')
+const Celebrity = require('../models/Celebrity.js')
 
 // exports.signupGet = (req, res) => {
 //   res.render('')
@@ -21,22 +21,20 @@ exports.showOneCeleb = async (req, res) => {
   })
 }
 
-exports.addNewCeleb = (req, res) => {
-  res.render('celebrities/new')
+exports.addNew = (req, res, next) => {
+  res.render("celebrities/new")
 }
 
 
-
-// exports.postCeleb = async (req, res) => {
-//   const {
-//     name,
-//     occupation,
-//     catchPhrase
-//   } = req.body
-//   Celebrity.create({
-//     name,
-//     occupation,
-//     catchPhrase
-//   })
-//   await res.redirect('celebrities')
-// }
+exports.postNew = (req, res, next) => {
+  Celebrity.create({
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase
+    })
+    .then(() => res.redirect("/celebrities/index"))
+    .catch(() => {
+      next();
+      // throw new Error("cannnot add this bae");
+    })
+}

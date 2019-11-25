@@ -1,7 +1,9 @@
-  const {
-    model,
-    Schema
-  } = require("mongoose")
+  // const {
+  //   model,
+  //   Schema
+  // } = require("mongoose")
+  const mongoose = require("mongoose");
+  const Schema = mongoose.Schema;
 
   const celebSchema = new Schema({
     name: String,
@@ -12,4 +14,5 @@
   })
 
 
-  module.exports = model('Celebrity', celebSchema)
+  const celebrityMod = mongoose.model("Celebrity", celebSchema);
+  module.exports = celebrityMod;

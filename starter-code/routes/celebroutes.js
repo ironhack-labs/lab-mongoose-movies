@@ -1,18 +1,19 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+
 const {
   showCelebs,
   showOneCeleb,
-  addNewCeleb,
-  // postCeleb
-} = require('../controllers/index.controllers')
+  addNew,
+  postNew
+} = require('../controllers/index.controllers.js')
 
 
 
 router.get('/celebrities', showCelebs)
 router.get('/celebrities/:id', showOneCeleb)
-router.get('/celebrities/new', addNewCeleb)
-// router.post('/celebrities', postCeleb)
+router.get('/new', addNew)
+router.post('/new', postNew)
 
 
 module.exports = router;
