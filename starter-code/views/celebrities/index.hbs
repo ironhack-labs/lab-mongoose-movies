@@ -3,7 +3,7 @@
 {{#each celebrities}}
 <div class="container">
   <p><a href="/celebrities/celebrity/{{this._id}}">{{this.name}}</a></p>
-  <button type="submit">Edit</button>
+  <button onclick="location.href='/celebrities/{{this._id}}/edit';">Edit</button>
   <form action="/celebrities/{{this._id}}/delete" method="post">
     <button type="submit">Delete</button>
   </form>

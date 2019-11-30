@@ -6,19 +6,15 @@ a {
   color: #00B7FF; }
 
 .container {
-  height: 60px;;
+  height: 60px;
   display: flex;
-  align-items: center;
+  align-items: center; }
 
- }
+.container p {
+  width: 150px;
+  margin-right: 20px; }
 
- .container p{
-   width: 150px;
-   margin-right: 20px;
- }
-
- .container button{
-  margin-right: 20px;
- }
+.container button {
+  margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */

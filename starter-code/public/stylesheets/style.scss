@@ -7,6 +7,19 @@ a {
   color: #00B7FF;
 }
 
-.container{
-  display: inline;
-}
+
+.container {
+  height: 60px;;
+  display: flex;
+  align-items: center;
+
+ }
+
+ .container p{
+   width: 150px;
+   margin-right: 20px;
+ }
+
+ .container button{
+  margin-right: 20px;
+ }
