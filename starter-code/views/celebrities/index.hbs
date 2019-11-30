@@ -1,0 +1,17 @@
+<h2>Biggest Celebrities in the World</h2>
+
+<section>
+    {{#each celebrities}}
+    <p>
+        <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+    </p>
+    <p>
+        <form action="/celebrities/{{this._id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </p>
+    {{/each}}
+
+    <button onclick="location.href='/celebrities/new' "> Add</button>
+</section>
+{{!-- <p> <a href="/celebrities/new" > Add </a></p> --}}
