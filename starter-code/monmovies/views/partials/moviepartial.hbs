@@ -1,0 +1,8 @@
+<li class='celeb-list-item'>
+    <h3>{{this.title}}
+        <a href="/movies/{{this._id}}">Movie Details</a>
+        <form action="/movies/{{this._id}}/delete" method="post">
+            <button type='submit' class='btn-delete'>Delete Movie Entry</button>
+        </form>
+    </h3>
+</li>

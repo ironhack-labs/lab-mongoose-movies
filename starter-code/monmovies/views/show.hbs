@@ -1,0 +1,27 @@
+<h2>All the info we have about this celebrity...</h2>
+
+<div class="container">
+    <div class="card">
+        {{#if new}}
+        <h3>A star is born!</h3>
+        {{/if}} {{#if updated}}
+        <h3>Something has changed about you...</h3>
+        {{/if}}
+
+
+        <h3>Name : {{data.name}}</h3>
+        <h4>Occupation : {{data.occupation}}</h4>
+        <h4>Catchphrase : {{data.catchPhrase}}</h4>
+
+        <a href="/celebrities" class='list'><button>Back to list</button></a>
+        &nbsp; &nbsp; &nbsp; 
+        
+        <a href="/celebrities/{{data._id}}/edit"><button>Edit this entry</button>
+        </a>
+        <br><br> &nbsp; &nbsp; &nbsp;
+        <form action="/celebrities/{{data._id}}/delete" method="post">
+            <button type='submit' class='btn-delete'>This is not a celebrity!</button>
+        </form>
+        </a>
+    </div>
+</div>

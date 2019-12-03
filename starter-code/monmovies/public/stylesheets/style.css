@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+  background: linear-gradient(to left, #eee 50%, green 75%); }
+
+a {
+  color: #00B7FF; }
+
+.container, h1, h2 {
+  background-color: #5c5c5c;
+  padding: 20px;
+  border-radius: 20px 50px; }
+
+.btn-delete {
+  background: linear-gradient(to left, red 25%, grey 50%, red 90%); }
+
+.go-btn {
+  background-color: whitesmoke; }
+
+/*# sourceMappingURL=style.css.map */

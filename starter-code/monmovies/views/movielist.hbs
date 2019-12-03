@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="card">
+        <div class="list-flex">
+            <h1>Movie list</h1>
+            <a href="/newmovie"><button>Make A new Movie</button></a>
+        </div>
+        <ul>
+            {{#each data}} {{> moviepartial this}} {{/each}}
+        </ul>
+    </div>
+</div>
+
+
