@@ -10,3 +10,6 @@ package-lock.json
 
 # Environment Variables should NEVER be published
 .env
+
+# No need to upload VS code files
+.vscode
