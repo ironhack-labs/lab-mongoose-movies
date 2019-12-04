@@ -2,6 +2,7 @@
 
 # Mongoose Movies
 
+![hollywood](https://images.unsplash.com/photo-1534253893894-10d024888e49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80)
 
 ## Introduction
 Everyone likes celebrities, right? Well, even if you don't, now is your chance to create your own, better, fictional celebrities!
