@@ -1,0 +1,28 @@
+<div class="list-container">
+  <div class="container">
+    <div class="justify-content-center row">
+      <h2>Movies</h2>
+    </div>
+    <div class="flex-wrap justify-content-center row">
+      {{#each movies}}
+      <div class="col-md-4 col-12">
+        <a href="/movies/{{_id}}" class="align-items-center d-flex flex-column mb-4 pointer-event list-item">
+          <h4>{{title}}</h4>
+          <form action="/movies/{{_id}}/delete" method="post">
+            <button type="submit" class="btn btn-custom btn--white btn-lg d-block">Delete <span class="text-muted"><i
+                  class="fa fa-trash"></i></span></button>
+          </form>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+    <div class="justify-content-center row">
+      <div class="col-sm-3 col-12">
+        <a class="btn btn-custom btn--red btn-lg d-block" href="/movies/new">Add a movie</a>
+      </div>
+      <div class="col-sm-2 col-12">
+        <a class="btn btn-custom btn--white btn-lg d-block" href="/">Go back</a>
+      </div>
+    </div>
+  </div>
+</div>

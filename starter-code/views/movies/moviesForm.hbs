@@ -1,0 +1,29 @@
+<div class="add-container">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Add a new movie</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <form action="/movies" method="post">
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" name="genre" id="genre" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="plot">Plot:</label>
+            <input type="text" name="plot" id="plot" class="form-control">
+          </div>
+          <button class="btn btn-custom btn--red btn-lg btn btn--red btn-custom btn-lg d-block ml-auto mr-auto mt-4"
+            type="submit">Create a movie</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
