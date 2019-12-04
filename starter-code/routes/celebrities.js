@@ -117,5 +117,17 @@ router.post('/update/:id', (req, res, next) => {
 // })
 
 
+router.post('/delete/:theID', (req, res, next)=>{
+  Celebrity.findByIdAndRemove(req.params.theID)
+  .then((wnvefih)=>{
+    res.redirect('/');
+  })
+  .catch((err)=>{
+    next(err)
+  })
+
+})
+
+
 
 module.exports = router;
