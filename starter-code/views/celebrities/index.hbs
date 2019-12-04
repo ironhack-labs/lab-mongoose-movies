@@ -5,10 +5,12 @@ Add an <h2> tag for the page's heading.
     Add a link that goes to the /celebrities route. --}}
 <div class="wrapper">
     <h2>{{title}}</h2>
+    {{!-- Add a link that goes to the page you just created with the form to create a new celebrity. --}}
+    <a href="celebrities/new">add new celebrities</a>
     {{#each celebrities}}
     <div class="single">
         <li>name :{{name}}</li>
+        <a href="/celebrities/{{id}}">See More</a>
     </div>
-    <a href="/celebrities/{{id}}">See More</a>
     {{/each}}
 </div>
