@@ -1,0 +1,10 @@
+<h2> this page is for editing {{theChar.name}}</h2>
+<form action="/characters/update/{{theChar.id}}" method="POST">
+  <p> Name </p>
+  <input type="text" name="name" value="{{theChar.name}}">
+  <p> Movie</p>
+  <input type="text" name="movie" value="{{theChar.movie}}">
+  <p> Quote </p>
+  <input type="text" name="quote" value="{{theChar.quote}}">
+  <button> Done editing!</button>
+</form>

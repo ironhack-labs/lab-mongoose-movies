@@ -1,0 +1,18 @@
+<a href="/">Go Home</a>
+<a href="/characters/new">Add your favorite character! </a>
+{{#each characters}}
+<div>
+  <a href="/characters/{{id}}">
+    <h1>name:
+      {{name}}
+    </h1>
+  </a>
+  <form action='/characters/delete/{{id}}' method='POST'>
+    <button>Delete me!</button>
+  </form>
+  <form action='/characters/edit/{{id}}' method="GET">
+    <button>Edit me!</button>
+  </form>
+
+
+  {{/each}}
