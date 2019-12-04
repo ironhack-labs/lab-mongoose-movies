@@ -1,0 +1,18 @@
+<h2> Edit Movie </h2>
+
+<form action="/movies/update/{{movie._id}}" method='post'>
+    <div>
+        <p>Edit Title:</p>
+        <input type="text" name='theTitle' value="{{movie.name}}">
+
+        <p>Edit Genre:</p>
+        <input type="text" name='theGenre' value="{{movie.occupation}}">
+
+        <p>Edit Plot:</p>
+        <input type="text" name='thePlot' value='{{movie.catchPhrase}}'>
+
+    </div>
+
+    <button type='submit'> Save </button>
+
+</form>
