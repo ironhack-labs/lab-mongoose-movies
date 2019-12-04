@@ -17,6 +17,7 @@ const celebrities = [
   }
 ];
 
+// connect to database
 mongoose
   .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
   .then(x => {
