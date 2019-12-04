@@ -48,6 +48,19 @@ router.post("/", (req, res, next) => {
     });
 });
 
+router.post("/delete/:id", (req, res, next) => {
+  let id = req.params.id;
+  console.log(id);
+  Celebrity.findByIdAndRemove(id)
+    .then(result => {
+      console.log("deleted");
+      res.redirect("/celebrities/");
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 router.get("/:id", (req, res, next) => {
   // Call the Celebrity model's findOne or findById method to retrieve the details of a specific celebrity by its id.
   Celebrity.findById(req.params.id)
