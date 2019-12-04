@@ -270,7 +270,7 @@ Okay, the next step is to make it so the user can **add new movies to the databa
 
 Review how you did this for the `celebrity` model.
   - Create 2 new routes, one to render page with the form on it, and one to send the data to after the form is filled out
-    - In the GET route that displays the form to create a new movie (which renders the `movies/new.hbs` template), make sure you pass all the celebrities from your database so your users can choose which ones are in the cast of the movie you're just creating (**hint**: You will have to use [select multiple](https://www.w3schools.com/tags/att_select_multiple.asp) tag)
+    - In the GET route that displays the form to create a new movie (which renders the `movies/new` view), make sure you pass all the celebrities from your database so your users can choose which ones are in the cast of the movie you're just creating (**hint**: You will have to use [select multiple](https://www.w3schools.com/tags/att_select_multiple.asp) tag)
   - Make sure the form is making a POST request to the other route you just created (`/movies`)
   - In your post route, create an object with all the info you just received from the form. (Remember, `req.body`)
   - Use this object to create a new movie in the database and redirect back to the page with your list of all movies
@@ -290,7 +290,7 @@ Here's the route we will be using:
 ### Steps we will follow in this iteration:
 
 Go back and review how you did this for the `celebrity` model.  You'll need to:
-  - Create a GET route that will render the file in which we will display movies (`movies/index.hbs`)
+  - Create a GET route that will render the file in which we will display movies (`movies/index` view)
   - Use a database query to retrieve all the movies from your database and render the view
   - Use a `{{#each}}` loop to display all your *movie titles* on that page
   - Add a link to the page you just created on the home page so the user can navigate to it.
@@ -298,7 +298,7 @@ Go back and review how you did this for the `celebrity` model.  You'll need to:
 
 ## Iteration #10: The Movie Details Page
 
-We've got a list of all movies that displays each of their *titles*, but what if we want to see the other details? In our `movies/index.hbs` view with our list of movies, let's add links so that the user can click on any movie's title, and go to a details page of each movie.  On this page, we will show all the details of that movie.
+We've got a list of all movies that displays each of their *titles*, but what if we want to see the other details? In our `movies/index` view with our list of movies, let's add links so that the user can click on any movie's title, and go to a details page of each movie.  On this page, we will show all the details of that movie.
 Here's the route we will be using:
 
 |     Route     | HTTP Verb |      Description      |
@@ -313,7 +313,7 @@ Here's the route we will be using:
 3. In the route:
     - On the `Movie` model call `findOne()` or `findById()` method to retrieve the details of a specific movie by its `id`
         - Don't forget you have `cast` as the array of celebrity `id`s, and we need to `populate()` in order to get the full data about the celebrities 🎯
-    - If everything is fine (*.then()*), render the `movies/show.hbs` view and pass the variable with the movie's details into the view
+    - If everything is fine (*.then()*), render the `movies/show` view and pass the variable with the movie's details into the view
     - If there's an error, catch it.
 4. In the `views/movies/show.hbs` view file:
     - Add an `<h2>` for the page's heading.
@@ -329,7 +329,7 @@ Now that we have a list of movies, a movie details page, and a page to create ne
 
 ### Steps we will follow in this iteration:
 
-1. In the `movies/show.hbs` file:
+1. In the `views/movies/show.hbs` file:
     - Add a `<form>` tag that makes a POST request to `/movies/:id/delete` where the `:id` is replaced by the actual `id` of the movie.
     - Add a `<button>` tag inside the form so that it can be submitted.
 2. Create the `/movies/:id/delete` POST route in your `routes/movies.js` file
@@ -356,7 +356,7 @@ Here are the routes we will be using:
     - Call the `Movie` model’s `findOne()` or `findById()` method to retrieve a specific movie by its *id*
     - If everything is good, render the `movies/edit` view
     - Pass the variable with the movie's details into the view
-3. In the `movies/edit.hbs` view file:
+3. In the `views/movies/edit.hbs` view file:
     - Add an `<h2>` tag for the page's heading.
     - Add a `<form>` tag that makes a POST request to `/movies/:id` with the `:id` replaced by the actual movie's *id*.
     - Add `<input>` tags inside the form for each attribute of the movie.
