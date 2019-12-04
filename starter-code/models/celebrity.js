@@ -5,3 +5,5 @@ const celebritySchema = mongoose.Schema({
   occupation: String,
   catchPhrase: String
 });
+
+module.exports = mongoose.model("celebrity", celebritySchema);
