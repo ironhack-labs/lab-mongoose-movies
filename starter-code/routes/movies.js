@@ -66,4 +66,33 @@ router.post("/delete/:id", (req, res, next) => {
     });
 });
 
+// display a edit form
+router.get("/edit/:id", (req, res, next) => {
+  let id = req.params.id;
+  console.log(id);
+  // Call the Movie model’s findOne or findById method to retrieve a specific movie by its id.
+  Movie.findById(id)
+    .then(movie => {
+      res.render("movies/edit", { movie });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+// receive the edited data from that form.
+router.post("/update/:id", (req, res, next) => {
+  let id = req.params.id;
+
+  // this stupid {new:true} thing is so that after we edit the movie, the response we get back shows us the new info instead of the old info, not sure why this isnt the default
+  Movie.findByIdAndUpdate(id, update, { new: true })
+    .then(response => {
+      console.log(response);
+      res.redirect("/movies/" + id);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 module.exports = router;

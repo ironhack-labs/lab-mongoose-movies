@@ -1,0 +1,15 @@
+<h2>Edit Movie</h2>
+
+{{!-- Add a <form> tag that makes a POST request to /movies/:id replaced by the actual movie's id. --}}
+<form action="/movies/{{id}}" method="POST">
+    <p>Title</p>
+    <input type="text" name="title" value="{{movie.title}}">
+
+    <p>Genre</p>
+    <input type="text" name="genre" value="{{movie.genre}}">
+
+    <p>Plot</p>
+    <input type="text" name="plot" value="{{movie.plot}}">
+
+    <button>Update!</button>
+</form>
