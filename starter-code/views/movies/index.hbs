@@ -1,9 +1,11 @@
 <div class="wrapper">
     <h2>{{title}}</h2>
-    <a href="/">Home</a>
-    <a href="/celebrities">Celebrities</a>
+    <div class="nav-container">
+        <a href="/">Home</a>
+        <a href="/celebrities">Celebrities</a>
+        <a href="/movies/new">Add New Movie</a>
+    </div>
     {{!-- Add a link that goes to the page you just created with the form to create a new movie. --}}
-    <a href="/movies/new">Add New Movie</a>
     {{#each movies}}
     <div class="single">
         <li>title :{{title}}</li>
