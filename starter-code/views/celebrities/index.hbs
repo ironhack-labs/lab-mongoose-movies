@@ -6,14 +6,15 @@ Add an <h2> tag for the page's heading.
 <div class="wrapper">
     <h2>{{title}}</h2>
     {{!-- Add a link that goes to the page you just created with the form to create a new celebrity. --}}
-    <a href="/celebrities/new">add new celebrities</a>
+    <a href="/celebrities/new">Add New Celebrity</a>
     {{#each celebrities}}
     <div class="single">
         <li>name :{{name}}</li>
         <a href="/celebrities/{{id}}">See More</a>
+        <a href="/celebrities/edit/{{id}}">Edit This Celebrity</a>
     </div>
     {{!-- As part of the loop, add a <form> tag that makes a POST request to celebrities/:id/delete where the :id is replaced by the actual id of each celebrity. --}}
     {{!-- Add a <button> tag inside the form so that it can be submitted. --}}
-    <form action="/celebrities/delete/{{id}}" method="POST"><button>delete</button></form>
+    <form action="/celebrities/delete/{{id}}" method="POST"><button>Delete</button></form>
     {{/each}}
 </div>

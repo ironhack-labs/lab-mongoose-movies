@@ -54,7 +54,7 @@ router.post("/delete/:id", (req, res, next) => {
   Celebrity.findByIdAndRemove(id)
     .then(result => {
       console.log("deleted");
-      res.redirect("/celebrities/");
+      res.redirect("/celebrities");
     })
     .catch(error => {
       next(error);
@@ -71,6 +71,39 @@ router.get("/:id", (req, res, next) => {
     })
     .catch(error => {
       next(error);
+    });
+});
+
+router.get("/edit/:id", (req, res, next) => {
+  let id = req.params.id;
+  console.log(id);
+  // Call the Celebrity model’s findOne or findById method to retrieve a specific celebrity by its id.
+  Celebrity.findById(id)
+    .then(celebrity => {
+      res.render("celebrities/edit", { celebrity });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+router.post("/update/:id", (req, res, next) => {
+  let id = req.params.id;
+  // id = req.body.theID;
+  // i put the ID in 2 places, you can do it either way
+
+  let newName = req.body.name;
+  let newOccupation = req.body.occupation;
+  let newCatchPhrase = req.body.catchPhrase;
+
+  // this stupid {new:true} thing is so that after we edit the book the response we get back shows us the new info instead of the old info, not sure why this isnt the default
+  Celebrity.findByIdAndUpdate(id, update, { new: true })
+    .then(response => {
+      console.log(response);
+      res.redirect("/celebrities/" + id);
+    })
+    .catch(err => {
+      next(err);
     });
 });
 
