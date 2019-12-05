@@ -1,0 +1,33 @@
+
+
+<h1 style="padding-top: 4rem">this is a form to edit celeb info</h1>
+
+<h2>Edit {{celeb.Name}} Profile </h2>
+
+<form action="/celebrities/update/{{celeb._id}}" method="POST">
+{{!-- we are passing the ID in the url because whichever route we submit this form to --}}
+{{!-- need to know which book to edit, so it needs to know the ID --}}
+{{!-- the id can be passed through params like I did right here above --}}
+{{!-- ir you can pass the ID through req.body (secretly) by adding a hidden input --}}
+
+
+
+<p>Edit {{celeb.name}}</p>
+<input type="text" name="name" value="{{celeb.name}}">
+
+<p>Occupation</p>
+<input type="text" name="occupation" value="{{celeb.occupation}}" >
+
+<p>Catch Phrase</p>
+<input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}">
+
+<p>Image</p>
+<input type="text" name="image" value="{{celeb.image}}" >
+
+
+<input type="hidden" value="{{celeb._id}}" name="theID">
+
+
+
+    <button>Save!</button>
+</form>

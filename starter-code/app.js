@@ -8,10 +8,12 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session      = require("express-session");
+const MongoStore   = require("connect-mongo")(session);
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/mongoose-movies', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -49,10 +51,31 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+// this is syntax for express-session to make a session
+app.use(session({
+  secret: "this is the secret key",
+  cookie: { maxAge: 60000 },
+  // this is syntax for connect-mongo, it keeps the user logged in for a day
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 
+  })
+}));
 
+// syntax to make a global variable user from res.locals.user
+app.use((req, res, next)=>{
+  res.locals.user = req.session.currentUser;
+  next();
+})
 
-const index = require('./routes/index');
-app.use('/', index);
+const celebrity = require('./routes/celebrity');
+app.use('/', celebrity);
+
+const movie = require('./routes/movie');
+app.use('/', movie);
+
+const user = require('./routes/user');
+app.use('/', user);
 
 
 module.exports = app;

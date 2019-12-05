@@ -1,0 +1,28 @@
+
+
+<h1 style="padding-top: 4rem">All movies</h1>
+
+<a href="/movies/new" class="btn-lab-link btn-style2 btn-blue btn-add-celeb" >Add a movie</a>
+
+<div class="table">
+{{#each moviesArr}}
+
+  <ul> 
+    <li class="card">
+      <img src={{this.image}} class="card-img" alt={{this.title}} />
+      <a href="/movies/{{this._id}}">
+        <h3 class="card-title">{{this.title}}</h3>
+      </a>
+      <div class="card-info">{{this.director}}</div>
+      <div class="card-footer">
+        <div></div>
+        <a href="/movies/edit/{{this._id}}" class="" >Edit</a>
+        <form action="/movies/{{this._id}}/delete" method="POST">
+          <button>Delete</button>
+        </form>
+      </div>
+    </li>
+  </ul>
+
+{{/each}}
+</div>

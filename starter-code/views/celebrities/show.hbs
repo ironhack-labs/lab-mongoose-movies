@@ -1,0 +1,28 @@
+
+
+<h1 style="padding-top: 4rem">All celebrities</h1>
+
+<a href="/celebrities/new" class="btn-lab-link btn-style2 btn-blue btn-add-celeb" >Add a celebrity</a>
+
+<div class="table">
+{{#each celebritiesArr}}
+
+  <ul> 
+    <li class="card">
+      <img src={{this.image}} class="card-img" alt={{this.name}} />
+      <a href="/celebrities/{{this._id}}">
+        <h3 class="card-title">{{this.name}}</h3>
+      </a>
+      <div class="card-info">{{this.occupation}}</div>
+      <div class="card-footer">
+        <div>{{this.catchPhrase}}</div>
+        <a href="/celebrities/edit/{{this._id}}" class="" >Edit</a>
+        <form action="/celebrities/delete/{{this._id}}" method="POST">
+          <button>Delete</button>
+        </form>
+      </div>
+    </li>
+  </ul>
+
+{{/each}}
+</div>

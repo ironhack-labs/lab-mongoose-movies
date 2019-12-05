@@ -5,9 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/navBar.css" />
+  <link rel="stylesheet" href="/stylesheets/button.css" />
+  <link rel="stylesheet" href="/stylesheets/table.css" />
 </head>
 <body>
+
+  {{!-- navigation bar --}}
+<div class="container-fluid nav-style">
+  <div class="nav-left">
+    <a href="/">
+      <img class="logo" src="/images/logo.png" alt="logo" />
+    </a>
+    <a href="/" class="nav-heading">Home</a>
+    <a href="/movies" class="nav-heading">Movies</a>
+    {{!-- href is the request url --}}
+    <a href="/celebrities" class="nav-heading">Celebrities</a>    
+  </div>
+
+  <div class="nav-middle">
+  </div>
+
+  <div class="nav-right">
+    
+    {{!-- user is a global variable declared inside app.js --}}
+    {{#if user}}
+    <form action="/login" method="POST">
+      <button>Logout</button>
+    </form>
+    {{else}}
+    <a href="/login" class="nav-heading">Login</a>
+    <a href="/signup" class="nav-heading">Signup</a>
+    {{/if}}
+
+    {{!-- <div class="search-box">
+      <input class="input-box"type="text" name="" placeholder="" />
+      <img class="search-img" src="/images/search.png" alt="search" />
+    </div> --}}
+  </div>
+</div>
 
   {{{body}}}
 
