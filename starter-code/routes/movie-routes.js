@@ -1,15 +1,22 @@
 const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/Movie');
-
+const Celeb  = require('../models/Celeb');
 /* GET home page */
 // router.get('/', (req, res, next) => {
 //     res.render('movieIndex')
 // });
 
 router.get('/all-movies', (req, res, next)=>{
-  Movie.find()
+  Movie.find().populate('star')
   .then((allTheMovies)=>{
+    if(req.session.currentUser){ 
+        allTheMovies.forEach((thisMovie)=>{
+          if(thisMovie.donor.equals(req.session.currentUser._id) || req.session.currentUser.admin){
+            thisMovie.isMine = true;
+          }
+        })
+      }
     res.render('movie-views/movies', {theMovie: allTheMovies});
   })
   .catch((err)=>{
@@ -19,13 +26,30 @@ router.get('/all-movies', (req, res, next)=>{
 })
 
 router.get('/add-new-movie', (req, res, next)=>{
-  res.render('movie-views/new');
-})
+    if(!req.session.currentUser){
+        res.redirect('/login');
+        return;
+      }
+      Celeb.find()
+      .then((allCelebs)=>{
+        res.render('movie-views/new', {allCelebs});
+        //                            ^ this is the same as {allAuthors:allAuthors}
+      })
+      .catch((err)=>{
+        next(err)
+      })
+    })
+    
 
 
 router.post('/create-the-movie', (req, res, next)=>{
+    if(!req.session.currentUser){
+        res.json({message: 'sorry hacker, not allowed'})
+        return;
+      }
   let theTitle = req.body.newMovieTitle;
   let theDirector = req.body.newMovieDirector;
+  let theStar = req.body.newMovieStar
   let theDescription = req.body.newMovieDescription;
   let theImage = req.body.newMovieImage;
 
@@ -33,8 +57,10 @@ router.post('/create-the-movie', (req, res, next)=>{
  Movie.create({
     title: theTitle,
     director: theDirector,
+    star: theStar, 
     description: theDescription,
-    image: theImage
+    image: theImage,
+    donor: req.session.currentUser._id,
   })
   .then((response)=>{
     res.redirect('/all-movies')
@@ -49,7 +75,7 @@ router.post('/create-the-movie', (req, res, next)=>{
 router.get('/movies/:theIdOfTheMovie', (req, res, next)=>{
   let id = req.params.theIdOfTheMovie;
 
-  Movie.findById(id)
+  Movie.findById(id).populate('star').populate('donor')
   .then((theMovie)=>{
     res.render('movie-views/singleMovie', {movie: theMovie})
   })
@@ -64,18 +90,41 @@ router.get('/movies/edit/:randomVariableIMadeToHoldTheID', (req, res, next)=>{
   Movie.findById(req.params.randomVariableIMadeToHoldTheID)
   .then((theMovie)=>{
 
-    
+    if(req.session.currentUser._id != (theMovie.donor) && !req.session.currentUser.admin){
+        res.redirect('/login')
+        return
+      }
+      Celeb.find()
+      .then((allCelebs)=>{
 
-    res.render('movie-views/edit', {theActualMovie: theMovie})
+          allCelebs.forEach((thisCeleb)=>{
+            if(thisCeleb._id.equals(theMovie.star)){
+              thisCeleb.isTheCorrectCeleb = true;
+            }
+          })
+          console.log(allCelebs, 98989898)
 
-  })
-  .catch((err)=>{
+      res.render('movie-views/edit', {theActualMovie: theMovie, star: allCelebs})
+
+         })
+    .catch((err)=>{
+        next(err);
+    })
+    })
+.catch((err)=>{
     next(err);
   })
 })
 
-
 router.post('/movies/update/:id', (req, res, next)=>{
+Movie.findById(req.params.id)
+    .then((theMovie)=>{
+
+    if(req.session.currentUser._id != (theMovie.donor) && !req.session.currentUser.admin){
+        res.json({message: "Unauthorized Injection"})
+        return
+      }
+
   let id = req.params.id;
 //   id = req.body.theID;
   
@@ -93,8 +142,7 @@ router.post('/movies/update/:id', (req, res, next)=>{
     next(err)
   })
 })
-
-
+})
 
 router.post('/movies/delete/:theID', (req, res, next)=>{
   Movie.findByIdAndRemove(req.params.theID)

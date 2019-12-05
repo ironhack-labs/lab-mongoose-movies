@@ -1,3 +1,4 @@
+
 <div class="theCelebs">
 
 
@@ -15,18 +16,25 @@
             Director:
             {{this.director}}
         </h5>
+          <h5>
+            Star:
+            {{this.star.name}}
+        </h5>
         <p>
             Description:
             {{this.description}}
         <p>
         <img style="width: 150px" src="{{this.image}}" alt="movie image"/>
-<div class="editBttns">
 
-    <a href="/movies/edit/{{this._id}}">Edit This Movie</a>
-    <form action="/movies/delete/{{this._id}}" method="POST">
-    <button>Delete</button>
-    </form>
-</div>
+
+   {{#if this.isMine}}
+    <div class="editBttns">
+        <a href="/movies/edit/{{this._id}}">Edit This Movie</a>
+        <form action="/movies/delete/{{this._id}}" method="POST">
+            <button>Delete</button>
+        </form>
+    </div>
+{{/if}}
 
 
 </div>

@@ -1,3 +1,4 @@
+
 <div class="theCelebs">
 
 {{#each theCelebs}}
@@ -20,12 +21,14 @@
         <p>
         <img style="width: 150px" src="{{this.image}}" alt="celeb image"/>
 
+ {{#if this.isMine}}
     <div class="editBttns">
         <a href="/celebs/edit/{{this._id}}">Edit This Celeb</a>
         <form action="/celebs/delete/{{this._id}}" method="POST">
             <button>Delete</button>
         </form>
     </div>
+{{/if}}
 
 </div>
 <hr>

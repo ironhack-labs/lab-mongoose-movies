@@ -1,10 +1,20 @@
-single Movie page
 
+<div class='page'>
+
+<div class="theMovie">
 
 <h1>Title: {{movie.title}}</h1>
 
 <h3>Director: {{movie.director}}</h3>
 
+
+<a href="/celebs/{{movie.star._id}}">
+<h3>star: {{movie.star.name}}</h3>
+</a>
+
+
 <p>Description: {{movie.description}}</p>
 
 <img style="width: 350px" src="{{movie.image}}"/>
+</div>
+</div>

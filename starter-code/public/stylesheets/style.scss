@@ -89,3 +89,25 @@ nav > a {
 .addForm {
   margin: 40px;
 }
+
+.page {
+  padding: 20px;
+  display: flex; 
+  justify-content: center;
+  background-color: cadetblue;
+  // height: 100vh;
+}
+
+.celebPage {
+  padding: 20px;
+  display: flex; 
+  // align-items: center;
+  justify-content: center;
+  background-color: cadetblue;
+  height: 100vh;
+}
+
+
+.theMovie {
+  margin: 40px;
+}
