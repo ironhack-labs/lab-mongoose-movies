@@ -59,7 +59,9 @@ app.use(
       //store sets the session store instance. In this case, we create a new instance of connect-mongo, so we can store the session information in our Mongo database.
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60
-    })
+    }),
+    resave: true,
+    saveUninitialized: true
   })
 );
 
