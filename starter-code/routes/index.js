@@ -70,6 +70,8 @@ router.post("/celebrities/:theID/delete", async (req, res, next) => {
   }
 });
 
+// ---------------- Movies ------------------
+
 router.get("/movies", async (req, res, next) => {
   try {
     theMovies = await Movie.find();
@@ -78,4 +80,58 @@ router.get("/movies", async (req, res, next) => {
     next(err);
   }
 });
+
+router.get("/movies/new", (req, res) => {
+  res.render("newMovie");
+});
+
+router.get("/movies/:theID", async (req, res, next) => {
+  try {
+    theMovie = await Movie.findById(req.params.theID);
+    res.render("showMovie", { theMovie });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/movies", async (req, res, next) => {
+  try {
+    await Movie.create({ ...req.body });
+    res.redirect("/movies");
+  } catch (err) {
+    res.redirect("/movies/new");
+    next(err);
+  }
+});
+
+router.post("/movies/:theID/delete", async (req, res, next) => {
+  try {
+    await Movie.findByIdAndRemove(req.params.theID);
+    res.redirect("/movies");
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/movies/:theID/edit", async (req, res, next) => {
+  try {
+    theMovie = await Movie.findById(req.params.theID);
+    res.render("editMovie", { theMovie });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/movies/:id/edit", (req, res, next) => {
+  let id = req.body.id;
+  let update = { ...req.body };
+  Movie.findByIdAndUpdate(id, update, { new: true })
+    .then(rap => {
+      res.redirect("/movies");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 module.exports = router;

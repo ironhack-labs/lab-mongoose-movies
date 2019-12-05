@@ -4,16 +4,16 @@
 {{#each theMovies}}
 
 <div>
-    <a href="/celebrities/{{this.id}}">
+    <a href="/movies/{{this.id}}">
         {{this.title}}
     </a>
     <p>
         ID: {{this.id}}
     </p>
-    <form action="/celebrities/{{this._id}}/edit" method="GET">
+    <form action="/movies/{{this._id}}/edit" method="GET">
         <button>Edit</button>
     </form>
-    <form action="/celebrities/{{this._id}}/delete" method="POST">
+    <form action="/movies/{{this._id}}/delete" method="POST">
         <button>Delete</button>
     </form>
 </div>
@@ -22,4 +22,4 @@
 {{/each}}
 <a href="/">Home</a>
 <br>
-<a href="/celebrities/new">Add a new Celebrity</a>
+<a href="/movies/new">Add a new Movie</a>
