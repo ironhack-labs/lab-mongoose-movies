@@ -67,6 +67,39 @@ router.post("/:id/delete", (req, res, next) => {
     });
 });
 
+// Edit a new Celeb
+router.get("/:id/edit", (req, res, next) => {
+  // Search for all of the celebrities
+  Celebrity.findById(req.params.id)
+    .then(data => {
+      // With that data, render the form to edit a celebrity
+      res.render("celebrities/edit", { celeb: data });
+    })
+    .catch(err => {
+      //  If an error is found, render the error page
+      next.render("error", { error: err });
+    });
+});
+
+// Update the database
+router.post("/:id", (req, res, next) => {
+  // Gather the data from the form
+  let id = req.params.id;
+  let update = { ...req.body };
+
+  // Create the object
+  Celebrity.findByIdAndUpdate(id, update, { new: true })
+    .then(response => {
+      // Send the user back to that celebrities page
+      res.redirect("/celebrities/" + id);
+    })
+    .catch(err => {
+      console.log(err);
+      // Render the error
+      next.render("error", { error: err });
+    });
+});
+
 // Celeb Details
 router.get("/:id", (req, res, next) => {
   // Search for all of the celebrities
