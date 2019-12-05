@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
-const celebrity = require("../models/celebrity");
+const Celebrity = require("../Models/Celebrity");
+const Movie = require("../Models/Movie");
 
 mongoose.connect("mongodb://localhost/starter-code");
 
-const seed = [
+const celebritySeed = [
   {
-    name: "David Harbour",
-    occupation: "Actor",
-    catchPhrase: "When did I get famous?"
+    name: "Matt D'Avella",
+    occupation: "Filmmaker",
+    catchPhrase: "As a minimalist"
   },
   {
     name: "BoJack Horseman",
@@ -21,6 +22,28 @@ const seed = [
   }
 ];
 
-celebrity.insertMany(seed, function() {
+const movieSeed = [
+  {
+    title: "Secretariat",
+    genre: "Drama",
+    plot:
+      "Secretariat, is a 2015 American film based on the life of famous racehorse, Secretariat."
+  },
+  {
+    title: "Jumanji: Welcome to the Jungle",
+    genre: "Drama",
+    plot:
+      "Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game."
+  },
+  {
+    title: "Minimalism",
+    genre: "Documentary",
+    plot: "How might your life be better with less?"
+  }
+];
+
+Celebrity.insertMany(celebritySeed, function() {
   // db.close();
 });
+
+Movie.insertMany(movieSeed, function() {});
