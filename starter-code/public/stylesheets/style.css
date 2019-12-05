@@ -1,13 +1,10 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
-
+  color: #00B7FF; }
 
 nav {
   background-color: coral;
@@ -15,44 +12,38 @@ nav {
   height: 5vh;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-}
+  align-items: center; }
 
 nav > a {
-  color: white; 
-  text-decoration: none;
-}
+  color: white;
+  text-decoration: none; }
 
 .home-page {
   background-image: url(../images/cinema.jpg);
   background-size: cover;
   display: flex;
-  // flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   height: 100vh;
-  width: 100vw;
-}
+  width: 100vw; }
 
 .home-div {
   margin-right: 15vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 22%
-}
+  width: 22%; }
 
 .home-div > h1 {
   font-size: 7vw;
   color: lime;
-  margin: 15px;
-}
+  margin: 15px; }
 
 .buttons {
   display: flex;
   width: 350px;
-  justify-content: space-evenly;
-}
+  justify-content: space-evenly; }
+
 .buttons > a {
   color: white;
   text-decoration: none;
@@ -60,32 +51,26 @@ nav > a {
   margin: 10px;
   background-color: coral;
   border: 2px solid white;
-  border-radius: 10px;
-}
+  border-radius: 10px; }
 
-
-.theCelebs{
-  background-color: lightcoral;
-}
+.theCelebs {
+  background-color: lightcoral; }
 
 .eachCeleb {
   padding: 20px;
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .eachCeleb > a {
-  margin: 0px;
-}
+  margin: 0px; }
 
 .eachCeleb > a > h3 {
-  margin: 0px;
-}
+  margin: 0px; }
 
 .eachCeleb > p {
-  margin: 10px;
-}
+  margin: 10px; }
 
 .addForm {
-  margin: 40px;
-}
+  margin: 40px; }
+
+/*# sourceMappingURL=style.css.map */

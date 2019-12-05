@@ -8,7 +8,26 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
+<nav>
+  <a href="/">Home</a>
+  <a href="/all-celebs">Celebrities</a>
+  <a href="/all-movies"> Movies</a>
+  <a href="/add-new-celeb">Add Celebrity</a>
+  <a href="/add-new-movie">Add Movie</a>
+    {{#if user}}
+  <form action="/logout" method="POST">
+  <button>Logout</button>
+  </form>
 
+  {{else}}
+
+  <a href="/login">login</a>
+  <a href="/signup">signup</a>
+
+  {{/if}}
+
+
+</nav>
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>

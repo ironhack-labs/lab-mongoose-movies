@@ -1,0 +1,36 @@
+<div class="theCelebs">
+
+
+{{#each theMovie}}
+
+<div class="eachCeleb">
+    <a href="/movies/{{this._id}}">
+
+        <h3>
+            Title:
+            {{this.title}}
+        </h3>
+    </a>
+         <h5>
+            Director:
+            {{this.director}}
+        </h5>
+        <p>
+            Description:
+            {{this.description}}
+        <p>
+        <img style="width: 150px" src="{{this.image}}" alt="movie image"/>
+<div class="editBttns">
+
+    <a href="/movies/edit/{{this._id}}">Edit This Movie</a>
+    <form action="/movies/delete/{{this._id}}" method="POST">
+    <button>Delete</button>
+    </form>
+</div>
+
+
+</div>
+<hr>
+
+{{/each}}
+</div>

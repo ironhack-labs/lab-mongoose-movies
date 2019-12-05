@@ -1,0 +1,34 @@
+<div class="theCelebs">
+
+{{#each theCelebs}}
+
+<div class="eachCeleb">
+    <a href="/celebs/{{this._id}}">
+
+        <h3>
+            Name:
+            {{this.name}}
+        </h3>
+    </a>
+         <p> 
+            Occupation:
+            {{this.occupation}}
+        </p>
+        <p>
+            Catch Phrase:
+            {{this.catchPhrase}}
+        <p>
+        <img style="width: 150px" src="{{this.image}}" alt="celeb image"/>
+
+    <div class="editBttns">
+        <a href="/celebs/edit/{{this._id}}">Edit This Celeb</a>
+        <form action="/celebs/delete/{{this._id}}" method="POST">
+            <button>Delete</button>
+        </form>
+    </div>
+
+</div>
+<hr>
+
+{{/each}}
+</div>

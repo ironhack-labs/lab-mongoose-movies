@@ -1,0 +1,30 @@
+
+<h2>Edit {{theActualMovie.title}} </h2>
+
+<form action="/movies/update/{{theActualMovie._id}}" method="POST">
+{{!-- we are passing the ID in the url because whichever route we submit this form to --}}
+{{!-- need to know which book to edit, so it needs to know the ID --}}
+{{!-- the id can be passed through params like I did right here above --}}
+{{!-- ir you can pass the ID through req.body (secretly) by adding a hidden input --}}
+
+
+
+<p>Title</p>
+<input type="text" name="title" value="{{theActualMovie.title}}">
+
+<p>Director</p>
+<input type="text" name="director" value="{{theActualMovie.director}}" >
+
+<p>Description</p>
+<input type="text" name="description" value="{{theActualMovie.description}}" >
+
+<p>Image URL</p>
+<input type="text" name="image" value="{{theActualMovie.image}}">
+
+
+{{!-- <input type="hidden" value="{{theActualMovie._id}}" name="theID">
+ --}}
+
+
+    <button>Save!</button>
+</form>
