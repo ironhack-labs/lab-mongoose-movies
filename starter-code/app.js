@@ -54,8 +54,7 @@ app.locals.title = "Mongoose Movie";
 const index = require("./routes/index");
 app.use("/", index);
 
-// every time you add new router, you have to set new variable here
-// const celebrities =
+// every time you add new router, you have to set new route here
 app.use("/celebrities", require("./routes/celebrities"));
 
 app.use("/movies", require("./routes/movies"));
