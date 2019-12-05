@@ -2,15 +2,25 @@ const express = require("express");
 const router = express.Router();
 const Movie = require("../models/Movie");
 
-// Locate the /movies GET route in routes/movies.js.
+// display all movies
 router.get("/", (req, res, next) => {
-  // In the route callback:
-  // Call the Movie model's find method to retrieve all the movies.
   Movie.find()
-    // If there isn't an error, render the movies/index view.
-    // Pass the array of movies into the view as a variable.
     .then(movies => {
       res.render("movies", { movies });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+// detail page
+router.get("/:id", (req, res, next) => {
+  // Call the Movie model's findOne or findById method to retrieve the details of a specific movie by its id.
+  Movie.findById(req.params.id)
+    .then(movie => {
+      console.log(movie);
+      //   res.render("the file",{data which is passed to the file})
+      res.render("movies/show", { movie });
     })
     .catch(error => {
       next(error);
