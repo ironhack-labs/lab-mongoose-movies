@@ -8,12 +8,15 @@
     {{!-- Add a link that goes to the page you just created with the form to create a new movie. --}}
     {{#each movies}}
     <div class="single">
-        <li>title :{{title}}</li>
-        <a href="/movies/{{id}}">See More</a>
-        <a href="/movies/edit/{{id}}">Edit This Movie</a>
+        <p>title :{{title}}</p>
+        <a class="btn btn-primary" role="button" href="/movies/{{id}}">See More</a>
+        <a class="btn btn-dark" role="button" href="/movies/edit/{{id}}">Edit This Movie</a>
     </div>
     {{!-- As part of the loop, add a <form> tag that makes a POST request to movies/:id/delete where the :id is replaced by the actual id of each movie. --}}
     {{!-- Add a <button> tag inside the form so that it can be submitted. --}}
-    <form action="/movies/delete/{{id}}" method="POST"><button>Delete</button></form>
+    <form class="mt-1" action="/movies/delete/{{id}}" method="POST">
+        <button class="btn btn-danger">Delete</button>
+    </form>
+    <hr>
     {{/each}}
 </div>

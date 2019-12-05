@@ -7,18 +7,22 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  {{#if user}} 
+  {{#if user}}
   <form action="/logout" method="POST">
     <button>Logout</button>
   </form>
 
   {{else}}
-  <a href="/">Home</a>
-  <a href="/login">login</a>
-  <a href="/signup">signup</a>
+  <div class="d-flex justify-content-around bg-dark">
+    <a href="/" class="text-white">Home</a>
+    <a href="/login" class="text-white">login</a>
+    <a href="/signup" class="text-white">signup</a>
+  </div>
   {{/if}}
 
   {{{body}}}
