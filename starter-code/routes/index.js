@@ -30,16 +30,17 @@ router.get("/celebrities/:theID/edit", async (req, res, next) => {
   }
 });
 
-router.post("/celebrities/:id/edit", (req, res, next) => {
-  let id = req.body.id;
-  let update = { ...req.body };
-  Celebrity.findByIdAndUpdate(id, update, { new: true })
-    .then(rap => {
-      res.redirect("/celebrities");
-    })
-    .catch(err => {
-      next(err);
-    });
+router.post("/celebrities/:id/edit", async (req, res, next) => {
+  try {
+    await Celebrity.findByIdAndUpdate(
+      req.body.id,
+      { ...req.body },
+      { new: true }
+    );
+    res.redirect("/celebrities");
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get("/celebrities/:theID", async (req, res, next) => {
@@ -122,16 +123,13 @@ router.get("/movies/:theID/edit", async (req, res, next) => {
   }
 });
 
-router.post("/movies/:id/edit", (req, res, next) => {
-  let id = req.body.id;
-  let update = { ...req.body };
-  Movie.findByIdAndUpdate(id, update, { new: true })
-    .then(rap => {
-      res.redirect("/movies");
-    })
-    .catch(err => {
-      next(err);
-    });
+router.post("/movies/:id/edit", async (req, res, next) => {
+  try {
+    await Movie.findByIdAndUpdate(req.body.id, { ...req.body }, { new: true });
+    res.redirect("/movies");
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
