@@ -22,6 +22,17 @@ router.get("/celebrities", (req, res, next) => {
 router.get("/celebrities/new", (req, res, next) => {
   res.render("new");
 });
+router.get("/celebrities/:id", (req, res, next) => {
+  let theID = req.params.id;
+  Celebrity.findById(theID)
+    .then(theCeleb => {
+      res.render("/celebrities/show", { singleCeleb: theCeleb });
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 router.post("/celebrities", (req, res, next) => {
   let varr = { ...req.body };
   Celebrity.create(varr)
