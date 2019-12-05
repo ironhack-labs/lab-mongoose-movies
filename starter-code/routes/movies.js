@@ -51,4 +51,19 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+// delete item
+router.post("/delete/:id", (req, res, next) => {
+  let id = req.params.id;
+  console.log(id);
+  // Use a databse query to retrieve the Movie that was just clicked, and delete it from the database.
+  Movie.findByIdAndRemove(id)
+    .then(result => {
+      console.log("deleted");
+      res.redirect("/movies");
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 module.exports = router;
