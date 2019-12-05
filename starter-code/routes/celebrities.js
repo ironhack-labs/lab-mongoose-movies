@@ -32,19 +32,37 @@ router.get("/new", (req, res, next) => {
 
 // Post to the database
 router.post("/", (req, res, next) => {
+  // Gather the data from the form
   let name = req.body.name;
   let occupation = req.body.occupation;
   let catchPhrase = req.body.catchPhrase;
 
+  // Create the object
   Celebrity.create({
     name: name,
     occupation: occupation,
     catchPhrase: catchPhrase
   })
     .then(response => {
+      // Send the user back to the celebrities page
       res.redirect("/celebrities");
     })
     .catch(err => {
+      // Render the error
+      next.render("error", { error: err });
+    });
+});
+
+// Delete from the database
+router.post("/:id/delete", (req, res, next) => {
+  // Delete the object
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(response => {
+      // Send the user back to the celebrities page
+      res.redirect("/celebrities");
+    })
+    .catch(err => {
+      // Render the error
       next.render("error", { error: err });
     });
 });
