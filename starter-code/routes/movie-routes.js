@@ -130,9 +130,7 @@ Movie.findById(req.params.id)
   
   let update = {...req.body, _id: id};
  
-  
-  
-  // this stupid {new:true} thing is so that after we edit the book the response we get back shows us the new info isntead of the old info, not sure why this isnt the default
+
   Movie.findByIdAndUpdate(id, update, {new: true})
   .then((response)=>{
     console.log(response)
@@ -154,8 +152,6 @@ router.post('/movies/delete/:theID', (req, res, next)=>{
   })
 
 })
-
-
 
 module.exports = router;
 
