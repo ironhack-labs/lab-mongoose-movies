@@ -1,8 +1,11 @@
-{{#each theCelebs}}
+<h2>All movies are here:</h2> <br> <br>
+
+
+{{#each theMovies}}
 
 <div>
     <a href="/celebrities/{{this.id}}">
-        {{this.name}}
+        {{this.title}}
     </a>
     <p>
         ID: {{this.id}}
