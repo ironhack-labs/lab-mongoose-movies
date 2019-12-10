@@ -5,9 +5,7 @@
         </div>
         <div class="s-m-content">
           <h1>{{movie.title}}</h1>
-          <a href="/celebrities/{{mmovie.celebrity._id}}">
-          <h3>Celebrity: {{movie.celebrity.name}}</h3>
-          </a>
+          <h3>Celebrity: <a href="/celebrities/{{movie.celebrity._id}}">{{movie.celebrity.name}}</a></h3>
           <h3>Genre: {{movie.genre}}</h3>
           <p>{{movie.plot}}</p>
         </div>

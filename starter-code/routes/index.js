@@ -121,9 +121,9 @@ router.post('/create-the-movie', (req, res, next)=>{
   MMovie.create({
     title: theTitle,
     genre: theGenre,
-    celebrity: auth,
     image: theImage,
-    plot: thePlot
+    plot: thePlot,
+    celebrity: auth
   })
   .then((result)=>{
     res.redirect('/')
@@ -134,17 +134,6 @@ router.post('/create-the-movie', (req, res, next)=>{
 
 })
 
-router.get('/celebrities/:theIdOfTheCelebrity', (req, res, next)=>{
-  let id = req.params.theIdOfTheCelebrity;
-
-  Celebrity.findById(id)
-  .then((theCelebrity)=>{
-    res.render('celebrities/single-celebrity', {celebrity: theCelebrity})
-  })
-  .catch((err)=>{
-    next(err);
-  })
-})
 
 router.get('/movies/:theIdOfTheMovie', (req, res, next)=>{
   let id = req.params.theIdOfTheMovie;
