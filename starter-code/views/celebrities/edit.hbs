@@ -1,0 +1,31 @@
+<div class="container">
+<div class="formbox">
+<h2>Edit {{theActualCelebrity.title}} </h2>
+
+<form action="/celebrities/update/{{theActualCelebrity._id}}" method="POST">
+{{!-- we are passing the ID in the url because whichever route we submit this form to --}}
+{{!-- need to know which celebrity to edit, so it needs to know the ID --}}
+{{!-- the id can be passed through params like I did right here above --}}
+{{!-- ir you can pass the ID through req.body (secretly) by adding a hidden input --}}
+
+
+
+<p>Name</p>
+<input type="text" name="name" value="{{theActualCelebrity.name}}">
+
+<p>Occupation</p>
+<input type="text" name="occupation" value="{{theActualCelebrity.occupation}}" >
+
+
+<p>Catch Phrase</p>
+<input type="text" name="catchphrase" value="{{theActualCelebrity.catchPhrase}}">
+
+
+<input type="hidden" value="{{theActualCelebrity._id}}" name="theID">
+
+<div class="formbutton">
+    <button>Save!</button>
+</div>
+</form>
+</div>
+</div>

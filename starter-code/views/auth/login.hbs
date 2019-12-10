@@ -1,0 +1,27 @@
+<div class="formbox">
+<h2>Login to your Account!</h2>
+
+{{#if errorMessage}}
+
+<div>{{errorMessage}}</div>
+
+{{/if}}
+
+
+<form action="/login", method="POST">
+
+<p>Username</p>
+<input type="text" name="username">
+
+
+<p>Password</p>
+<input type="password" name="password">
+
+<div class="formbutton">
+
+<button>Log In</button>
+
+</div>
+
+</form>
+</div>

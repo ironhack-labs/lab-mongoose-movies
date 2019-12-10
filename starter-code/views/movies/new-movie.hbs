@@ -1,0 +1,33 @@
+<div class="container">
+<div class="formbox">
+    <h2>Add New Movie</h2>
+    <form action="/create-the-movie" method="POST">
+
+    <p>Title</p>
+    <input type="text" name="theNewMovieTitle">
+
+    <p>Genre</p>
+    <input type="text" name="theGenre">
+
+    <p>Celebrity</p>
+<select name="theCelebrityForNewMovie" id="">
+
+    {{#each allCelebrities}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+
+
+</select>
+
+    <p>Plot</p>
+    <input type="text" name="thePlot">
+
+    <p>Image URL</p>
+    <input type="text" name="theImage">
+
+    <div class="formbutton">
+        <button>Save!</button>
+    </div>
+    </form>
+</div>
+</div>

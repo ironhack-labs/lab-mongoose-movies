@@ -1,0 +1,51 @@
+<div class="container">
+<div class="formbox">
+<h2>Edit {{theActualMovie.title}} </h2>
+
+<form action="/movies/update/{{theActualMovie._id}}" method="POST">
+{{!-- we are passing the ID in the url because whichever route we submit this form to --}}
+{{!-- need to know which celebrity to edit, so it needs to know the ID --}}
+{{!-- the id can be passed through params like I did right here above --}}
+{{!-- ir you can pass the ID through req.body (secretly) by adding a hidden input --}}
+
+
+
+<p>Title</p>
+<input type="text" name="title" value="{{theActualMovie.title}}">
+
+<p>Genre</p>
+<input type="text" name="genre" value="{{theActualMovie.genre}}" >
+
+<p>Celebrities</p>
+<select name="celebrity" id="">
+
+
+
+    {{#each celebrities}}
+
+    {{#if this.isThecorrectCelebrity}}
+    <option selected="selected" value="{{this._id}}">{{this.name}}</option>
+    {{else}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/if}}
+    
+    {{/each}}
+
+
+</select>
+
+<p>Plot</p>
+<input type="text" name="plot" value="{{theActualMovie.plot}}">
+
+<p>Image url</p>
+<input type="text" name="image" value="{{theActualMovie.image}}">
+
+
+<input type="hidden" value="{{theActualMovie._id}}" name="theID">
+
+<div class="formbutton">
+    <button>Save!</button>
+</div>
+</form>
+</div>
+</div>
