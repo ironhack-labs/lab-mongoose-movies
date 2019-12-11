@@ -10,13 +10,14 @@ single celebrity page
 
 <h3>Movies by {{celebrity.name}}</h3>
 
-<ul>
+<div class="celmoviesgallery">
 {{#each mmovies}}
+<div class="cimagebox">
 <a href="/movies/{{this._id}}">
-<li>{{this.title}}</li>
+<img src={{this.image}} alt="movie"/><h3>{{this.title}}</h3>
 </a>
+</div>
 
 {{/each}}
-
-</ul>
+</div>
 </div>
