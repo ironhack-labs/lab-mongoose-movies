@@ -1,0 +1,23 @@
+<div class="container">
+single celebrity page
+
+
+<h1>Name: {{celebrity.name}}</h1>
+
+<h3>Occupation: {{celebrity.occupation}}</h3>
+
+<h3>Catch Phrase: {{celebrity.catchPhrase}}</h3>
+
+<h3>Movies by {{celebrity.name}}</h3>
+
+<div class="celmoviesgallery">
+{{#each mmovies}}
+<div class="cimagebox">
+<a href="/movies/{{this._id}}">
+<img src={{this.image}} alt="movie"/><h3>{{this.title}}</h3>
+</a>
+</div>
+
+{{/each}}
+</div>
+</div>

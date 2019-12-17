@@ -8,9 +8,46 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
+  <header>
+    <div class="headerbox container">
+      <div class="logobox">
+    <div class="logo">
+      <img src="/images/logo.png" alt="logo" />
+    </div>
+    <a href="/">Home</a>
+    {{#if user}}
+    <a href="/celebrities">Celebrities</a>
+    <a href="/movies">Movies</a>
+    {{/if}}
+      </div>
+    {{#if user}}
+    <div class="logininfo">
+    <form action="/logout" method="POST">
+      <button>Logout</button>
+    </form>
+    </div>
+
+  {{else}}
+  <div class="logininfo">
+    <a href="/login">login</a>
+    <a href="/signup">signup</a>
+  </div>
+
+  {{/if}}
+    </div>
+  </header>
+ {{#if user}}
 
   {{{body}}}
 
+   {{else}}
+   <div class="cinemalandingpg">
+     <div class="cinemacontentfront">
+     {{{body}}}
+     </div>
+   </div>
+  
+{{/if}}
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

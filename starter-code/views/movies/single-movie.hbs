@@ -1,0 +1,13 @@
+<div class="container">
+ <div class="single-movie-box">
+        <div class="s-m-img">
+          <img src={{movie.image}} alt="movie" />
+        </div>
+        <div class="s-m-content">
+          <h1>{{movie.title}}</h1>
+          <h3>Celebrity: <a href="/celebrities/{{movie.celebrity._id}}">{{movie.celebrity.name}}</a></h3>
+          <h3>Genre: {{movie.genre}}</h3>
+          <p>{{movie.plot}}</p>
+        </div>
+      </div>
+</div>

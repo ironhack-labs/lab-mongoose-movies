@@ -1,2 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{#if user}}
+<div class="loginlandingpg">
+  <div class="logincontent container">
+
+
+    <h1>Hello, {{user.username}}</h1>
+    <div class="menubox">
+    <div class="celebritiesbox">
+      <div class="loginimg">
+      <img src="/images/celebritiesicon.png" alt="icon" />
+      </div>
+    <a href="/celebrities">Celebrities!</a>
+    <a href="/add-new-celebrity">Add a celebrity</a>
+    </div>
+    <div class="loginmoviesbox">
+      <div class="loginimg">
+      <img src="/images/moviesicon.png" alt="icon" />
+      </div>
+    <a href="/movies">Movies!</a>
+    <a href="/add-new-movie">Add a movie</a>
+    </div>
+    </div>
+  </div>
+</div>
+{{/if}}

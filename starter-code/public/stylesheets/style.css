@@ -1,53 +1,51 @@
 body {
   /* padding: 50px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
 
 html, body {
   margin: 0;
-  height: 100%;
-}
+  height: 100%; }
+
 header {
-  background-color: gold;
-}
+  background-color: gold; }
+
 .container {
   width: 85%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
+
 .headerbox {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 20px 0;
-}
+  padding: 20px 0; }
+
 .logobox {
   display: flex;
-  align-items: flex-end;
-}
+  align-items: flex-end; }
+
 .logo {
   width: 40px;
-  margin-right: 5px;
-}
+  margin-right: 5px; }
+
 .logo img {
   width: 100%;
-  height: auto;
-}
+  height: auto; }
+
 header a {
   color: black;
   font-size: 2.5em;
   text-decoration: none;
-  margin-right: 20px;
-}
+  margin-right: 20px; }
+
 .logininfo button {
   background-color: transparent;
   font-size: 2em;
   color: black;
   border: none;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .cinemalandingpg {
   display: flex;
@@ -55,31 +53,29 @@ header a {
   width: 100%;
   /* The image used */
   background-image: url("../images/cinema.jpg");
-
   /* Full height */
   height: 100%;
-
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-}
+  background-size: cover; }
+
 .cinemacontent {
-  width: 500px;
-}
+  width: 500px; }
+
 .cinemacontentfront {
-  width: 50%;
-}
+  width: 50%; }
+
 .cinemacontentfront .formbox {
-  align-items: flex-start;
-}
+  align-items: flex-start; }
+
 .cinemacontentfront .formbox h2, .cinemacontentfront .formbox p {
-  color: white;
-}
+  color: white; }
+
 .cinemacontent h1 {
   font-size: 6em;
-  color: white;
-}
+  color: white; }
+
 .cinemacontent a {
   display: inline-block;
   width: 200px;
@@ -91,32 +87,32 @@ header a {
   background-color: white;
   text-decoration: none;
   border-radius: 18px;
-  transition: 0.8s all;
-}
+  transition: 0.8s all; }
+
 .cinemacontent a:hover {
-  background-color: darkgoldenrod;
-}
+  background-color: darkgoldenrod; }
+
 .loginlandingpg {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: black;
-}
+  background-color: black; }
+
 .logincontent h1 {
   color: white;
-  text-align: center;
-}
+  text-align: center; }
+
 .menubox {
   display: flex;
   width: 100%;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
+
 .celebritiesbox, .loginmoviesbox {
   width: 48%;
   padding: 60px 0;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
+
 .celebritiesbox {
   display: flex;
   flex-direction: column;
@@ -125,38 +121,38 @@ header a {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-}
+  background-size: cover; }
+
 .celmoviesgallery {
   display: flex;
-  position: relative;
-}
+  position: relative; }
+
 .cimagebox {
   display: flex;
   flex-direction: column;
   width: 150px;
-  margin-right: 20px;
-}
+  margin-right: 20px; }
+
 .cimagebox img {
   width: 100%;
-  height: auto;
-}
+  height: auto; }
+
 .cimagebox a {
   text-align: center;
   color: black;
   text-decoration: none;
-  transition: 0.5s all;
-}
+  transition: 0.5s all; }
+
 .cimagebox a:hover {
-  color: darkgray;
-}
+  color: darkgray; }
+
 .loginimg {
   width: 200px;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
+
 .loginimg img {
-  width: 100%;
-}
+  width: 100%; }
+
 .loginmoviesbox {
   display: flex;
   flex-direction: column;
@@ -165,8 +161,8 @@ header a {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-}
+  background-size: cover; }
+
 .celebritiesbox a, .loginmoviesbox a {
   background-color: white;
   color: black;
@@ -176,83 +172,81 @@ header a {
   text-decoration: none;
   transition: 0.8s all;
   width: 150px;
-  text-align: center;
-}
+  text-align: center; }
+
 .celebritiesbox a:hover, .loginmoviesbox a:hover {
-  background-color: darkgoldenrod;
-}
+  background-color: darkgoldenrod; }
 
 .movies-gallery {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 35px 0;
-}
+  margin: 35px 0; }
+
 .moviesbox {
   text-align: center;
   width: 30%;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
+
 .moviesbox a {
   text-decoration: none;
   color: black;
-  transition: 0.8s all;
-}
+  transition: 0.8s all; }
+
 .moviesbox a:hover {
-  color: darkgray;
-}
+  color: darkgray; }
+
 .moviesbox a img {
   background-color: black;
   width: 182px;
   height: auto;
   opacity: 1;
-  transition: 0.8s all;
-}
+  transition: 0.8s all; }
+
 .moviesbox a:hover img {
-  opacity: 0.8;
-}
+  opacity: 0.8; }
+
 .single-movie-box {
   display: flex;
-  margin: 30px 0;
-}
+  margin: 30px 0; }
+
 .s-m-img {
   width: 40%;
-  margin-right: 10px;
-}
+  margin-right: 10px; }
+
 .s-m-img img {
   width: 100%;
-  height: auto;
-}
+  height: auto; }
+
 .s-m-content {
-  width: 59%;
-}
+  width: 59%; }
 
 .formbox {
   padding-top: 5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
+
 .formbox h2 {
-  margin: 20px 0;
-}
+  margin: 20px 0; }
+
 .formbox form {
-  width: 50%;
-}
+  width: 50%; }
+
 .field {
-  margin-bottom: 8px;
-}
+  margin-bottom: 8px; }
+
 .formbox form input {
   width: 100%;
   border-radius: 3px;
   padding: 10px 12px;
   font-size: 1em;
-  border: 1px solid gray;
-}
+  border: 1px solid gray; }
+
 .formbox form .formbutton {
   text-align: center;
-  margin: 10px auto;
-} 
+  margin: 10px auto; }
+
 .formbutton button {
   background-color: black;
   color: white;
@@ -261,8 +255,9 @@ header a {
   border: black;
   border-radius: 20px;
   transition: 0.5s all;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
 .formbutton button:hover {
-  background-color: darkgoldenrod;
-}
+  background-color: darkgoldenrod; }
+
+/*# sourceMappingURL=style.css.map */

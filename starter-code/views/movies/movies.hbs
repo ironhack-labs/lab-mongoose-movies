@@ -1,0 +1,26 @@
+<div class="container">
+<h1>Ironhack Cinema</h1>
+  <div class="movies-gallery">
+  {{#each theMovies}}
+
+<div class="moviesbox">
+    <a href="/movies/{{this._id}}">
+    <img src={{this.image}} alt="movie" />
+        <h3>
+            {{this.title}}
+        </h3>
+        <h4>See More</h4>
+    </a>
+    {{#if this.isMine}}
+        <a href="/movies/edit/{{this._id}}">Edit</a>
+    {{/if}}
+
+    <form action="/movies/delete/{{this._id}}" method="POST">
+    <button>Delete</button>
+    </form>
+
+</div>
+
+{{/each}}
+    </div>
+</div>
