@@ -7,17 +7,17 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 const celebrities = [
   {
     name: "Adam Sandler",
-    occupation: "actor",
+    occupation: "Actor",
     catchPhrase: "You are my closest friend, and I don't even like you."
   },
   {
     name: "Jim Carrey",
-    occupation: "actor",
+    occupation: "Actor",
     catchPhrase: "I gotta go guys! I gotta date with your mothers!"
   },
   {
     name: "Ben Stiller",
-    occupation: "actor",
+    occupation: "Actor",
     catchPhrase: "I'm sorry that good looking people like us made you throw up and feel bad about yourself."
   }
 ]
