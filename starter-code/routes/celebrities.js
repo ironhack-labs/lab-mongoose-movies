@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
   .find()
   .then(celebrities => {
     res.render('celebrities/index', { celebrities })
-    // res.send(data);
+    //res.send(data);
   })
   .catch(error => next(error));
 });

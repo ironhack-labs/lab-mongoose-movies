@@ -8,10 +8,11 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+//const Celebrity    = require('./models/celebrity')
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {
+  .connect('mongodb://localhost/mongoose-movies-project', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -49,8 +50,8 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 
-// default value for title local
-//app.locals.title = 'Express - Generated with IronGenerator';
+//default value for title local
+app.locals.title = 'Celebrities! - Lab Module 2';
 
 
 
@@ -58,7 +59,7 @@ const index = require('./routes/index');
 app.use('/', index);
 
 // const celebrities = require('./routes/celebrities');
-// app.use('/celebrities', celebrities);
+// app.use('/', celebrities);
 
 
 module.exports = app;
