@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Barriecito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+body {
+ 
+  font-family: 'Barriecito', cursive;
+  background-image: url('https://img.freepik.com/vector-gratis/fondo-sala-cine_1017-8728.jpg?size=626&ext=jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 3em;
+  text-align: center;
+}
+
+a {
+  font-size: .5em;
+  color: #96260A;
+  padding: 0%;
+  text-decoration: none;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.principal{
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.principal p{
+  margin-top: 15%;
+}
+
+.navbar {
+ margin: auto;
+  width: 80%;
+  background-color: #000;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 30%; /* Four links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #555;
+}
+
+.container{
+  width: 80%;
+  height: 50%;
+  margin:auto;
+  display:flex; 
+  flex-wrap: wrap;
+ font-family: 'Source Sans Pro', sans-serif;  
+}
+
+.container p{
+  margin: auto;
+  display: block;
+  width: 28%;
+  height: 20%;
+  border-radius: 20px;
+  background-color: #921A1F;
+  padding: 2%;
+  text-align: center;
+  font-size: .8em; 
+}
+
+.container a{
+  text-decoration: none;
+   color: #DCD3D3 ;
+}
+
+.error-message {
+  background: #F02B63;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+}
+
+.fas{
+  position: absolute;
+  top: 100px;  
+  right: 200px;       
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.open-button {
+  background-color: #96260A;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color:#313133;
+  color: #ddd;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn, .btn, button{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+ margin-top: 10%;
+  opacity: 0.8;
+  margin: 20px;
+  border-radius: 18px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.vista{
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+#form{
+  width: 60%;
+  height: 50%;
+ display: flex;
+ flex-flow: column;
+ margin: 13%;
+ font-size: .8em;
+}
+
+input{
+  height: 25px;
+}
+
+.container h2{
+  margin: auto;
+}
+
+button{
+  font-size: .5em;
+}
+
+.other{
+  background-color: #101D69;
+}

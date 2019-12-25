@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Agregar</h2>
+  <form id="form" action="" method="POST">
+    <label for="name" >Nombre</label>
+    <input name="nombre" type="text" placeholder="Ingresa el nombre" />
+   
+    <label for="occupation">Ocupación</label>
+    <input name="ocupacion" type="text" placeholder="Ingresa la ocupación" />
+    
+    <label for="phrase">Frase</label>
+    <input id="frase" name="frase" type="text" placeholder="Ingresa la Frase" />
+
+    <button type="submit">Agregar</button>
+    <a href="/celebrities" class="btn other">Volver</a>
+    
+    
+  </form>
+</div>
+
+{{#if errorMessage}}
+<div class="error-message">{{ errorMessage }}</div>
+{{/if}}
