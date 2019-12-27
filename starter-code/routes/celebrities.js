@@ -44,4 +44,21 @@ router.post('/:id/delete', (req, res, next) => {
   .catch(error => next(error));
 });
 
+router.get("/:id/edit", (req, res, next) => {
+  let { id } = req.params;
+  Celebrity
+  .findById(id)
+  .then(celebrities => {res.render("celebrities/edit", { celebrities });
+    })
+    .catch(error => next(error));
+});
+
+router.post("/:id", (req, res) => { 
+  const { id, ...celebrities } = req.body; //com o spread eu pego TUDO MENOS o id
+  Book
+  .findByIdAndUpdate(id, celebrities)
+  .then(_ => res.redirect("/celebrities"))
+  .catch(error => next(error));
+});
+
 module.exports = router;
