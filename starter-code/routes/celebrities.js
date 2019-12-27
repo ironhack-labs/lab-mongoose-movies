@@ -55,7 +55,7 @@ router.get("/:id/edit", (req, res, next) => {
 
 router.post("/:id", (req, res) => { 
   const { id, ...celebrities } = req.body; //com o spread eu pego TUDO MENOS o id
-  Book
+  Celebrity
   .findByIdAndUpdate(id, celebrities)
   .then(_ => res.redirect("/celebrities"))
   .catch(error => next(error));
