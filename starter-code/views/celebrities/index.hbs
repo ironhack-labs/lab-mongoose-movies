@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-12 d-flex justify-content-center align-items-center">
+		<h1 class="my-5">{{title}}</h1>
+	</div>
+</div>
+<div class="row row-cols-3">
+	{{#each celebrities}}
+	<div class="col d-flex justify-content-center align-items-center">
+		<a href="celebrities/{{this._id}}">{{this.name}}</a>
+	</div>
+	{{/each}}
+</div>
+<div class="row">
+	<div class="col-12 d-flex justify-content-center">
+		<a class="my-5 btn btn-dark btn-lg btn-block" href="celebrities/new">Add new celebrity</a>
+	</div>
+</div>
