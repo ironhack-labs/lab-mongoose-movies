@@ -13,9 +13,32 @@ router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
 });
 
+router.post("/new", (req, res, next) => {
+  Celebrity.create({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  })
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch(() => {
+      res.redirect(
+        "celebrities/new",
+        alert("El artista no se ha creado correctamente")
+      );
+    });
+});
+
 router.get("/:celebritiesId", (req, res, next) => {
   Celebrity.findById(req.params.celebritiesId).then(celebrity => {
     res.render("celebrities/show", celebrity);
+  });
+});
+
+router.post("/:celebritiesId/delete", (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.celebritiesId).then(() => {
+    res.redirect("/");
   });
 });
 

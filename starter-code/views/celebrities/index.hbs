@@ -3,10 +3,15 @@
 		<h1 class="my-5">{{title}}</h1>
 	</div>
 </div>
-<div class="row row-cols-3">
+<div class="row justify-content-center">
 	{{#each celebrities}}
-	<div class="col d-flex justify-content-center align-items-center">
-		<a href="celebrities/{{this._id}}">{{this.name}}</a>
+	<div class="col-3 d-flex flex-column justify-content-center align-items-center bg-info text-white rounded m-3">
+		<a class="my-5 text-light" href="celebrities/{{this._id}}">{{this.name}}</a>
+		<form action="celebrities/{{this.id}}/delete" method="POST">
+			<div class="form-group">
+				<input class="btn btn-dark btn-lg btn-block" type="submit" value="Delete">
+			</div>
+		</form>
 	</div>
 	{{/each}}
 </div>
