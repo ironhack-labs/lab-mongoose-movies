@@ -36,6 +36,22 @@ router.get("/:celebritiesId", (req, res, next) => {
   });
 });
 
+router.get("/:celebritiesId/edit", (req, res, next) => {
+  Celebrity.findById(req.params.celebritiesId).then(celebrity => {
+    res.render("celebrities/edit", { celebrity });
+  });
+});
+
+router.post("/:celebritiesId/edit", (req, res, next) => {
+  Celebrity.findOneAndUpdate(req.params.celebritiesId, {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  }).then(celebrity => {
+    res.redirect("/celebrities/" + celebrity._id);
+  });
+});
+
 router.post("/:celebritiesId/delete", (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.celebritiesId).then(() => {
     res.redirect("/");
