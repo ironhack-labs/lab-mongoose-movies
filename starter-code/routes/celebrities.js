@@ -15,4 +15,15 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/:id', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+  .then(celebrity => {
+    res.render('../views/celebrities/show.hbs', { celebrity });
+  })
+  .catch(err => {
+    console.log(err);
+    next();
+  });
+});
+
 module.exports = router;
