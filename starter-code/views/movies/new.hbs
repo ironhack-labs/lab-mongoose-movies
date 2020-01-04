@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-12 d-flex justify-content-center align-items-center">
+		<h1 class="my-5">{{title}}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12 d-flex justify-content-center align-items-center">
+		<h2 class="my-5">Add a new movie</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12 d-flex flex-column justify-content-center">
+		<form action="/movies" method="POST">
+			<div class="form-group">
+				<label for="">Title</label>
+				<input class="form-control" type="text" name="title" placeholder="Title" required>
+			</div>
+			<div class="form-group">
+				<label for="">Genre</label>
+				<input class="form-control" type="text" name="genre" placeholder="Genre" required>
+			</div>
+			<div class="form-group">
+				<label for="">Plot</label>
+				<input class="form-control" type="text" name="plot" placeholder="Plot" required>
+			</div>
+			<div class="form-group">
+				<input class="btn btn-dark btn-lg btn-block" type="submit">
+			</div>
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12 d-flex justify-content-center">
+		<a class="my-5 btn btn-dark btn-lg btn-block" href="/movies">Go back</a>
+	</div>
+</div>

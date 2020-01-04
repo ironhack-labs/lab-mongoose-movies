@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-12 d-flex justify-content-center align-items-center">
+		<h1 class="my-5">{{title}}</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 d-flex flex-column justify-content-center">
+		{{#with celebrity}}
+		<form action="/celebrities/{{this.id}}/edit" method="POST">
+			<div class="form-group">
+				<label for="">Name</label>
+				<input class="form-control" type="text" name="name" placeholder="{{this.name}}" value="{{this.name}}" required>
+			</div>
+			<div class="form-group">
+				<label for="">Occupation</label>
+				<input class="form-control" type="text" name="occupation" placeholder="{{this.occupation}}" value="{{this.occupation}}" required>
+			</div>
+			<div class="form-group">
+				<label for="">Catch Phrase</label>
+				<input class="form-control" type="text" name="catchPhrase" placeholder="{{this.catchPhrase}}" value="{{this.catchPhrase}}" required>
+			</div>
+			<div class="form-group">
+				<input class="btn btn-dark btn-lg btn-block" type="submit">
+			</div>
+		</form>
+		{{/with}}
+	</div>
+</div>

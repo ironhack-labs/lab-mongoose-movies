@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="col-12 d-flex justify-content-center align-items-center">
+		<h1 class="my-5">{{title}}</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 d-flex flex-column justify-content-center">
+		{{#with movie}}
+		<form action="/movies/{{this.id}}/edit" method="POST">
+			<div class="form-group">
+				<label for="">Title</label>
+				<input class="form-control" type="text" name="title" placeholder="{{this.title}}" value="{{this.title}}" required>
+			</div>
+			<div class="form-group">
+				<label for="">Genre</label>
+				<input class="form-control" type="text" name="genre" placeholder="{{this.genre}}" value="{{this.genre}}" required>
+			</div>
+			<div class="form-group">
+				<label for="">Plot</label>
+				<input class="form-control" type="text" name="plot" placeholder="{{this.plot}}" value="{{this.plot}}" required>
+			</div>
+			<div class="form-group">
+				<input class="btn btn-dark btn-lg btn-block" type="submit">
+			</div>
+		</form>
+		{{/with}}
+	</div>
+</div>
+<div class="row">
+	<div class="col-12 d-flex justify-content-center">
+		<a class="my-5 btn btn-dark btn-lg btn-block" href="/movies">Go back</a>
+	</div>
+</div>
