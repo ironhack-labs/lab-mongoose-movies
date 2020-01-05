@@ -23,6 +23,12 @@ router.post('/', (req, res, next) => {
   .catch(_ => res.redirect('/movies/new'));
 });
 
+router.post('/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+  .then(_ => res.redirect('/movies'))
+  .catch(err => console.log(err));
+});
+
 router.get('/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then(movie => {
