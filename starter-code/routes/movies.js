@@ -11,6 +11,18 @@ router.get('/', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('../views/movies/new.hbs');
+});
+
+router.post('/', (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  const newMovie = new Movie({ title, genre, plot });
+  newMovie.save()
+  .then(_ => res.redirect('/movies'))
+  .catch(_ => res.redirect('/movies/new'));
+});
+
 router.get('/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .then(movie => {
