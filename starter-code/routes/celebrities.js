@@ -11,6 +11,10 @@ celebrities.get('/', async (req, res, next) => {
   }
 });
 
+celebrities.get('/new', (req, res, next) => {
+  res.render('../views/celebrities/new.hbs')
+})
+
 celebrities.get('/:id', async (req, res, next) => {
   try {
     const {id} = req.params;
@@ -20,5 +24,19 @@ celebrities.get('/:id', async (req, res, next) => {
     next(err);
   }
 });
+
+celebrities.post('/', async (req, res, next) => {
+  const bodyObj = {...req.body}
+  const newCelebrityDocument = new Celebrity(bodyObj)
+  try {
+    await newCelebrityDocument.save();
+    // TODO: pergunta: O code academy sugere que é importante colocar os status de sucesso e etc... tem alguma outra coisa que está cuidando disso?
+    res.status(201).redirect('/')
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
+  
+})
 
 module.exports = celebrities;
