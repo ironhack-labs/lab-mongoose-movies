@@ -2,7 +2,9 @@
 <ul>
   {{#each celebritiesArr}}
   <li>
-    {{this.name}}
+    <a href="/celebrities/{{_id}}">
+      {{this.name}}
+    </a>
   </li>
-{{/each}}
+  {{/each}}
 </ul>

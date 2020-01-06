@@ -4,18 +4,19 @@ const Celebrity = require('../models/celebrity.js');
 const dbName = 'celebrities';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
+Celebrity.collection.drop()
 seed = [
   {
     name: 'Keanu Reaves',
     occupation: 'actor',
-    catchPharase: 'I know kung-fu',
+    catchPhrase: 'I know kung-fu',
   },
   {
     name: 'Robert Downey Jr.',
     occupation: 'actor',
-    catchPharase: 'I am ironman',
+    catchPhrase: 'I am ironman',
   },
-  {name: 'Eichiiro Oda', occupation: 'manga writer', catchPharase: 'DOM!'},
+  {name: 'Eichiiro Oda', occupation: 'manga writer', catchPhrase: 'DOM!'},
 ];
 
 Celebrity.create(seed)
