@@ -10,3 +10,7 @@ package-lock.json
 
 # Environment Variables should NEVER be published
 .env
+
+#.css generated through scss
+*.css
+*.css.map
