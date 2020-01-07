@@ -238,9 +238,9 @@ Here are the routes we will be using:
 
 At this point, we have implemented all the basic CRUD actions for the Celebrity model in our app.  Nice work!
 
-Now that we've done all this good work, it's time to do it all over again, but for the Movie model.  After all, what's the point of having all these celebrities if we can't make up fake movies to cast them in?
+Now that we've done all this good work, it's time to add the Movie model.  After all, what's the point of having all these celebrities if we can't make up fake movies to cast them in?
 
-We are going to create a `Movie` model and implement all the same CRUD actions for this model as well.  Don't worry, it's really much easier the second time around.  
+We are going to create a `Movie` model and implement some CRUD actions for this model as well.  Also, each Movie has a cast where we will have a relation to our Celebrities. 
 
 ## Iteration #7: The `Movie` Model
 Let's jump right in.
@@ -251,96 +251,57 @@ The `Movie` model should have:
 - `title` - String
 - `genre` - String
 - `plot` - String
+- `cast` - Array of Object Id's referencing the Celebrity model
 
+## Iteration #8: Adding a new movie
 
-### Steps we will follow in this iteration:
+So far we don't have any movies in our database so let's enable a user to **add new celebrities to the database**
 
-Go back and review what you did to create the `Celebrity` model.  You'll need to create a file for the model, and in that file, you'll need to create a schema for the model as well.
+|     Route     | HTTP Verb |      Description              |
+|---------------|-----------|-------------------------------|
+| `/movies/new` |    GET    | Show a form to create a movie |
+| `/movies/`    |    POST   | Send data to create the movie |
 
-Once you've done that, go to your `seeds.js` file in the `bin/` folder and either delete or comment out the seeds you made before for your celebrities.
-Replace these seeds with seeds for fake movies.  If you don't delete/comment what you had before, when you run the seeds file with the `node` command in the terminal, it will create duplicates of all your celebrities.
+Go ahead and create the nececessary routes and views as you did for the celebrities.
 
-Afterward, check the database with the `mongo` command to confirm that your data was saved.
+## Iteration #9: Adding actors to the movie cast
 
-
-## Iteration #8: Listing Our Movies
-
-Now that we've got some movies in the database, let's make a page where we list all our movies, just like we did with the `Celebrity` model.
-
-
-### Steps we will follow in this iteration:
-
-Go back and review how you did this for the `Celebrity` model.  You'll need to
-  - Create a route.
-  - Create a view file (and a folder for all your `movies` view files).
-  - Use a database query to retrieve all the movies in your database and render the view.
-  - Use a `forEach` loop to display all your movies on that page
-  - Add a link to the page you just created on the home page so the user can navigate to it.
-
-
-
-## Iteration #9: The Movie Details Page
-
-Now that we've got a list of movies,  let's add a details page for each movie just like we did with our celebrities.  
-
-
+One thinng is missing at creation of a new movie. We don't add any celebrities to the cast yet. We want a select in the form of the new movie view where we can choose from all of the celebrities that are in our database and add them to the movie.
 
 ### Steps we will follow in this iteration:
 
-Go back and review what you did for the `Celebrity` model.  You'll need to:
-  - Create a route
-  - Use a database query to retrive the specific movie that was clicked by the user.
-  - Pass that movie into the view as a variable
-  - Create the view file
-  - In the view, display all the details of the movie.
-  - On the Movies index page, make each movie a link to its own details page.
+You'll need to:
+  - In the route that renders the view with the form to add a movie get all the celebrities from the database and pass them to the view
+  - In the view render a select that shows the list of the celebrities - watch out: it has to be possible to select multiple celebrities
+  - In the post route add the cast to the movie model at creating a new movie
 
 
-## Iteration #10: Adding New Movies
+## Iteration #10: Listing all Movies
 
-Okay, the next step is to make it so the user can **add new movies to the database**
+Okay, the next step is to  **displaying a list of all movies in an index view**
+
+Here's the route we will be using:
+
+|     Route     | HTTP Verb |      Description      |
+|---------------|-----------|-----------------------|
+| `/movies/` |    GET    | Show all celebrities |
 
 ### Steps we will follow in this iteration:
 
 Review how you did this for the `Celebrity` model.
-  - Create 2 new routes, one to render page with the form on it, and one to send the data to after the form is filled out.
-  - Create a view file to render the form.
-  - Make sure the form is making a POST request to the other route you just created.
-  - In your post route, create an object with all the info you just received from the form. (Remember, `req.body`)
-  - Use this object to create a new movie and save it to the database and redirect back to the page with your list of movies.
-  - Make sure to add a link to the form on the movies index page.
+  - In the view we want to display the title, genre and plot for every movie
+  - We also want to show an unordered list with all the actors playing in the movie
+  - to have access in the view to the properties of the celebrities in the cast array you will have to populate them in the route 
 
-
-## Iteration #11: Deleting Movies
-
-Okay, only 2 features left, deleting and editing.
-
-
-### Steps we will follow in this iteration:
-Review how you did this with the `Celebrity` model.
-
-  - Add a button (inside of a form) next to each movie in your movies index page.
-  - Create a route
-  - Use a databse query to retrieve the Movie that was just clicked, and delete it from the database.
-
-
-## Iteration #12 (Bonus): Editing Movies
+### Iteration #11 Editing a movie
 
 Final piece of our CRUD puzzle: **editing existing movies**.
 
+Review how you did this for the `Celebrity` model - it is done exactly the same way for now.
 
-### Steps we will follow in this iteration:
-Review how you did this for the `Celebrity` model.
+## Iteration #12 (Bonus): Editing the cast of a movie as well
 
-  - Create 2 routes, one to display a form, and another to receive the data from that form.
-  - Create a view file to display the edit form.
-  - Use a databse query to retrieve one movie from the database and pass that movie into the page with the form on it.
-  - Render the view with the form, and pre-fill all the input fields with the current info about that movie.
-  - Make sure your form is submitting a POST request to the other route you just created.
-  - When the form is submitted, receive the data from the form and create an object with all the info.
-  - Make a databse query to retrieve the movie from the database and update the movie with the object you just created with all the info from the form.
-  - Make sure you add a link to the edit page on your movies index page.
-
+This one is a little bit tricky. You have to pass all the celebrities to the edit view. And make sure that all the actors that are part of the cast are selected. You'll have to create a custom handlebars helper function for that. 
 
 # That's it!
 
