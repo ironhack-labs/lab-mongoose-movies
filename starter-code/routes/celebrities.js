@@ -25,6 +25,17 @@ celebrities.get('/:id', async (req, res, next) => {
   }
 });
 
+celebrities.get('/:id/edit', async (req, res, next) => {
+  try {
+    const {id} = req.params;
+    const foundObjFromId = await Celebrity.findById(id);
+    res.render('../views/celebrities/edit.hbs', foundObjFromId);
+    console.log(foundObjFromId);
+  } catch (error) {
+    
+  }
+})
+
 celebrities.post('/', async (req, res, next) => {
   const bodyObj = {...req.body};
   const newCelebrityDocument = new Celebrity(bodyObj);
@@ -38,6 +49,7 @@ celebrities.post('/', async (req, res, next) => {
   }
 });
 
+
 celebrities.post('/:id/delete', async (req, res, next) => {
   const {id} = req.params;
   try {
@@ -48,5 +60,18 @@ celebrities.post('/:id/delete', async (req, res, next) => {
     next(error);
   }
 });
+
+celebrities.post('/:id', async (req, res, next) => {
+  try {
+    const {id} = req.params;
+    const bodyObj = {...req.body};
+    await Celebrity.findByIdAndUpdate(id, {$set: bodyObj});
+    res.redirect(`/celebrities/${id}`);
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+})
+
 
 module.exports = celebrities;
