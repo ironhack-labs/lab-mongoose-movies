@@ -1,0 +1,17 @@
+<h2>{{title}}</h2>
+<hr>
+<form action="/celebrities/{{_id}}" method="post">
+  <label for="name">celebrity's name</label>
+  <br>
+  <input type="text" name="name" id="name" value="{{name}}">
+  <br>
+  <label for="occupation">celebrity's occupation</label>
+  <br>
+  <input type="text" name="occupation" id="occupation" value="{{occupation}}">
+  <br>
+  <label for="catchPhrase">Catch Phrase</label>
+  <br>
+  <input type="text" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}">
+  <br>
+  <input type="submit" value="update this celebrity!">
+</form>
