@@ -1,0 +1,13 @@
+<h1>
+  this is the celebrity page
+</h1>
+<a href="/celebrity/new"><button>Create your own Celebrity</button></a>
+
+{{#each celebrity}}
+<h2>{{this.name}}</h2>
+<h3>{{this.occupation}}</h3>
+<h4>{{this.catchPhrase}}</h4>
+<a href="/celebrity/{{this._id}}"><button>See Details</button></a>
+
+{{/each}}
+

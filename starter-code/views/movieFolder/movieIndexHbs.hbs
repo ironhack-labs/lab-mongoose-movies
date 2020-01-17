@@ -1,0 +1,11 @@
+<h1>
+  this is the movie page
+</h1>
+
+{{#each movie}}
+<h2>{{this.title}}</h2>
+<h3>{{this.Celebrity.name}}</h3>
+{{!-- <img src="{{this.image}}" alt="" style="width: 100px"> --}}
+{{!-- <a href="/books/{{this._id}}">See Details</a>
+<a href="/books/{{this._id}}/edit">Edit This Book</a> --}}
+{{/each}}
