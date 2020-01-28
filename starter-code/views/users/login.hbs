@@ -1,0 +1,37 @@
+<div class='login-page'>
+
+
+
+    <h1>Login</h1>
+
+
+
+    <form class='login-form' action="/users/login" method="POST">
+
+        <div>
+            <p>Username</p>
+        <input type="text" name="username">
+        {{!-- with passport, you are not allowed to name the inputs whatever you want --}}
+        {{!-- this one has to be name="username" --}}
+        </div>
+        
+        <div>
+            <p>Password</p>
+        <input type="password" name="password">
+        {{!-- this one has to be name="password" --}}
+        </div>
+
+        
+
+
+        <button>Submit</button>
+    </form>
+
+
+    <div>
+    <a href="/users/auth/google">Login With Google</a>
+  </div>
+
+</div>
+
+

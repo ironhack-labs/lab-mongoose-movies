@@ -1,0 +1,51 @@
+
+<div id='all-celebs-page'>
+
+
+
+
+
+<h2>Celebrities</h2>
+
+
+
+<div class='all-celebs'>
+
+
+
+  {{#each allCelebs}}
+  <div class='celebs-div'>
+    <a href='/celebrities/{{this._id}}'>
+      <p>{{this.name}}</p>
+    </a>
+
+
+    {{#if ../theUser.isAdmin}}
+    <a href='/celebrities/{{this._id}}/edit'>Edit</a>
+
+    <form action='/celebrities/{{this._id}}/delete' method='POST'>
+      <button>Delete</button>
+    </form>
+
+    {{/if}}
+  </div>
+
+  {{/each}}
+
+
+
+
+</div>
+
+
+
+<br>
+{{#if theUser.isAdmin}}
+<div class='new-link'>
+<a href='/celebrities/new'>Create new Celeb!</a>
+</div>
+{{/if}}
+
+
+</div>
+

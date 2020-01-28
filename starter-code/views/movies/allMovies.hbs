@@ -1,0 +1,58 @@
+
+
+<div id='all-movies-page'>
+
+
+
+<h2>Movies</h2>
+
+
+<div class='all-movies'>
+
+
+  {{#each allMovies}}
+
+
+  <div class='movies-div'>
+
+    <a class='title-link' href='/movies/{{this._id}}'>
+      <p>{{this.title}}</p>
+    </a>
+
+
+    {{#if this.mine}}
+
+    <form action="/movies/{{this._id}}/delete" method="POST">
+      <button type='submit'>Delete</button>
+    </form>
+
+
+    <a href="/movies/{{this._id}}/edit">Edit</a>
+
+    {{/if}}
+
+
+
+  </div>
+
+
+  {{/each}}
+
+
+
+</div>
+
+
+
+<br>
+{{#if theUser}}
+<div class='new-link'>
+  <a href='/movies/new'>Create new movie</a>
+</div>
+{{/if}}
+
+
+
+</div>
+
+
