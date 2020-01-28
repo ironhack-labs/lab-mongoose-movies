@@ -1,7 +1,7 @@
 const withDbConnection = require("../withDbConnection")
 const Celebrity = require ("../models/Celebrity")
 const mongoose = require('mongoose');
-
+require('dotenv').config()
 const dbName = "starter-code";
 mongoose.connect(`mongodb://localhost/${dbName}`,{useNewUrlParser: true, useUnifiedTopology: true});
 
