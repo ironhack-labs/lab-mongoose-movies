@@ -10,3 +10,9 @@ package-lock.json
 
 # Environment Variables should NEVER be published
 .env
+
+# macOS
+.DS_Store
+
+# Visual Studio Code
+.vscode
