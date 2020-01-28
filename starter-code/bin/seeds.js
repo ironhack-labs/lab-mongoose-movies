@@ -1,8 +1,10 @@
+require('dotenv').config();
 const Celebrity = require("../models/celebrity");
 const mongoose = require('mongoose');
+const dbUrl = process.env.DBURL;
 
-const dbName = "starter-code";
-mongoose.connect(`mongodb://localhost/${dbName}`);
+mongoose.connect(dbUrl);
+
 
 const celebrities = [{
   name: "Rick Gervais",
