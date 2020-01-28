@@ -1,5 +1,11 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
-const CelebrityModel = require('../models/Celebrity');
+const Celebrity = require('../models/Celebrity');
+
+mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(x => {
+	console.log('Connected to database', x.connections[0].name);
+});
 
 const celebrities = [
 	{
@@ -18,3 +24,17 @@ const celebrities = [
 		catchPhrase: 'We are the story in print and we are writing the story ourselves.'
 	}
 ];
+
+async function seedDB() {
+	try {
+		await Celebrity.collection.drop().then(x => console.log('emptied database'));
+		await Celebrity.create(celebrities).then(data => console.log(`Seed database with ${data}`));
+	} catch (error) {
+		console.log(`Something went wrong: ${error}`);
+	} finally {
+		mongoose.disconnect();
+		console.log('Disconnected from database');
+	}
+}
+
+seedDB();
