@@ -1,13 +1,7 @@
-const { withDbConnection, dropIfExists } = require("../withDbConnection");
 const celebrity = require("../models/celebrity.js");
 
-withDbConnection(async () => {
-  await dropIfExists(celebrity);
-  await celebrity.create([
-    { taName: "Diego", taFrase: "Reutiliza las funciones" },
-    { taName: "Alejandro", taFrase: "La clave privada no se comparte" },
-    { taName: "Giorgio", taFrase: "Maaa quee cooosa!" },
-    { taName: "Simon", taFrase: "Voostrap Mola" },
-    { taName: "Marc", taFrase: "Undefined JODERRR LAS PUTAS FUNCIONES " }
+celebrity.create([
+    { name: "Tom Cruise", occupation: "actor", catchPhrase:"Show me the money" },
+    { name: "Beyonce", occupation: "singer", catchPhrase:"Single lady" },
+    { name: "Daffy Duck", occupation: "comedian", catchPhrase:"cuac cuac" },
   ]);
-});
