@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// https://mongoosejs.com/docs/validation.html
 const celebritySchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
