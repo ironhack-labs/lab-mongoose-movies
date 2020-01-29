@@ -10,7 +10,7 @@ const logger = require('morgan');
 const path = require('path');
 
 mongoose
-	.connect(process.env.DBURL, { useNewUrlParser: true })
+	.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(x => {
 		console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
 	})
@@ -35,7 +35,8 @@ app.use(
 	require('node-sass-middleware')({
 		src: path.join(__dirname, 'public'),
 		dest: path.join(__dirname, 'public'),
-		sourceMap: true
+		sourceMap: true,
+		outputStyle: 'compressed'
 	})
 );
 
