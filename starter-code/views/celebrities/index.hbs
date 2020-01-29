@@ -1,1 +1,8 @@
-<h2>Celebrities</h2>
+<h2 class="h1">Celebrities</h2>
+<div class="list-group col-lg-6">
+  {{#each celebrities}}
+  <a href="#" class="list-group-item list-group-item-action">
+    <h3 class="h3">{{this.name}}</h3>
+  </a>
+  {{/each}}
+</div>
