@@ -23,7 +23,11 @@ const celebrities = [
 ];
 
 withDbConnection(async () => {
-  await Celebrity.collection.drop();
+  try {
+    await Celebrity.collection.drop();
+  } catch (error) {
+    console.log("The DB does not exist");
+  }
   let result = await Celebrity.create(celebrities);
   console.log(result);
 });
