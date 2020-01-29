@@ -4,7 +4,7 @@ const schema = new mongoose.Schema(
   {
     name: String,
     occupation: String,
-    catchPhrase: String;
+    catchPhrase: String
   },
   {
     timestamps: true
