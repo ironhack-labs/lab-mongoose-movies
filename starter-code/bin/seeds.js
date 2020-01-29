@@ -2,7 +2,7 @@ const celebrity = require("../models/Celebrity");
 const withDbConnection = require("../withDbConnection");
 
 withDbConnection(async () => {
-  //await celebrity.collection.drop();
+  await celebrity.collection.drop();
   await celebrity.create([
     {
       name: "Dani Rovira",
