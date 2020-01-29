@@ -12,6 +12,6 @@ package-lock.json
 .env
 
 *.swp
-../*.swp
+**/*.swp
 
-    .sessions/
+.sessions/
