@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
 		res.render('celebrities/index', { title: 'Celebrities', celebrity: celebrities });
 		console.log(`Found and rendered this celebrities: ${celebrities}`);
 	} catch (error) {
-		next(error);
+		next(error.message);
 	}
 });
 
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res, next) => {
 
 		res.render('celebrities/show', { title: name, name, occupation, catchPhrase });
 	} catch (error) {
-		next(error);
+		next(error.message);
 	}
 });
 
