@@ -12,4 +12,14 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (re, res, next => {
+  try {
+    const seed = await Celebrity.find();
+    res.render("celebrities/show", { seed });
+  }catch (error) {
+    next();
+  }
+
+}))
+
 module.exports = router;
