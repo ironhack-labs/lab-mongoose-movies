@@ -1,9 +1,8 @@
-<h2>{{title}}</h2>
+<h2>Celebrities</h2>
 holaaaaa
-{{#each seeds}}
-<div>
-  <div>
-    <a href="/seeds/{{this.id}}">{{this.name}}</a>
-  </div>
+
+<div class="row">
+  {{#each seed}}
+  {{>listItem}}
+  {{/each}}
 </div>
-{{/each}}
