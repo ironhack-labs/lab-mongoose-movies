@@ -4,9 +4,8 @@
 <div>
   <div>
     <a href="/celebrities/{{this._id}}">{{this.name}}</a>
-    <form action="/celebrities/delete/{{this._id}}">
-      <button type="submit">Delete</button>
-    </form>
+    <a href="/celebrities/delete/{{this._id}}"><button>Delete</button></a>
+    <a href="/celebrities/edit/{{this._id}}"><button>Edit</button></a>
   </div>
 </div>
 {{/each}}
