@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity');
 
+// List view
 router.get('/', async (req, res, next) => {
 	try {
 		const celebrities = await Celebrity.find();
@@ -12,6 +13,7 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
+// Retrieve route
 router.get('/:id', async (req, res, next) => {
 	try {
 		const { id } = req.params;
@@ -22,7 +24,25 @@ router.get('/:id', async (req, res, next) => {
 
 		res.render('celebrities/show', { title: name, name, occupation, catchPhrase });
 	} catch (error) {
-		next(error.message);
+		next();
+		console.log(error.message);
+	}
+});
+
+// Create route
+router.get('/new', (req, res, next) => {
+	res.render('celebrities/new');
+});
+
+router.post('/new', async (req, res, next) => {
+	try {
+		const { name, occupation, catchPhrase } = req.body;
+		const celebrity = await Celebrity.create({ name, occupation, catchPhrase });
+		console.log(`New celebrity created: ${celebrity}`);
+		res.redirect('/celebrities');
+	} catch (error) {
+		res.render('celebrities/new');
+		console.log(`This went wrong ${error}, try again`);
 	}
 });
 
