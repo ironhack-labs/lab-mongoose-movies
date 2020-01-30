@@ -27,4 +27,29 @@ router.get('/:id', (req, res, next) => {
     })
 });
 
+/* /celebrities/new page */
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
+/* /celebrities/new POST data from form */
+router.post('/new', async (req, res, next) => {
+  try {
+    const newCeleb = {
+      name : req.body.name,
+      occupation : req.body.occupation,
+      catchPhrase : req.body.catchPhrase,
+    }
+
+    const newCelebRecord = new Celebrity(newCeleb);
+    await newCelebRecord.save()
+
+    res.redirect('index');
+
+  } catch(error) {
+    console.log("There was an error saving the new celebrity : ", error);
+    res.redirect('new');
+  }
+});
+
 module.exports = router;
