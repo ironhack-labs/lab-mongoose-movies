@@ -1,10 +1,9 @@
-<div class="card m-3">
-  <div class="card-header">
-    {{ this.name}}
-    <a href="/celebrities/{{this._id}}" class="btn btn-primary float-right">View</a>
+<form action="/celebrities/{{ this._id }}/delete" method="POST">
+  <div class="card m-3">
+    <div class="card-header">
+      {{ this.name}}
+      <button type="submit" class="btn btn-danger float-right">Delete</button>
+      <a href="/celebrities/{{this._id}}" class="btn btn-primary float-right mr-2">View</a>
+    </div>
   </div>
-  {{!--   <div class="card-body">
-    <h5 class="card-title">{{ this.catchPhrase }}</h5>
-    <p class="card-text">{{ this.occupation }}</p>
-  </div> --}}
-</div>
+</form>

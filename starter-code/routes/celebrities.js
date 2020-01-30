@@ -12,12 +12,42 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-/* GET a celebritie according to its id */
+/* GET form to add a celebrity */
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
+/* GET form to add a celebrity */
+router.post("/new", async (req, res, next) => {
+  try {
+    const { name, occupation, catchPhrase } = req.body;
+    const obj = await Celebrities.create({ name, occupation, catchPhrase });
+    console.log(`Celebrities.js - Added new celebrity ${obj}`);
+    res.redirect("/celebrities");
+  } catch (error) {
+    console.log(`Celebrities.js - Error adding new celebrity ${error}`);
+    res.render("celebrities/new");
+  }
+});
+
+/* GET find a celebritie according to its id */
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     const celebrity = await Celebrities.findById(id);
     res.render("celebrities/show", { celebrity });
+  } catch (error) {
+    console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
+  }
+});
+
+/* POST delete a celebritie according to its id */
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const celebrity = await Celebrities.findByIdAndRemove(id);
+    console.log(`Celebrities.js - Celebrity deleted ${celebrity}`);
+    res.redirect("/celebrities");
   } catch (error) {
     console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
   }
