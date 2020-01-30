@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const celebritySchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   occupation: String,
   catchPhrase: String
 });
