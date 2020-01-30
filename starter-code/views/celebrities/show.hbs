@@ -1,7 +1,6 @@
 <h2>Celebrity {{celebrities.name}}</h2>
-{{#each celebrities}}
+    <p><b> Name: </b>{{celebrities.name}}</p>
+    <p><b> Occupation: </b>{{celebrities.occupation}}</p>
+    <p><b> Phrase: </b>{{celebrities.catchPhrase}}</p>
 
-    <p>{{this.name}}</p>
-    <p>{{this.occupation}}</p>
-    <p>{{this.catchPhrase}}</p>
-{{/each}}
+    <a href="/celebrities" style="color: red";>Return</a>

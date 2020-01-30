@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 const Celebrity = require('../models/celebrity')
 
@@ -8,10 +8,13 @@ const Celebrity = require('../models/celebrity')
 router.get('/', (req, res, next) => {
   Celebrity.find()
     .then(allTheCelebritiesFromDB => {
-      res.render('celebrities', { celebrities : allTheCelebritiesFromDB });
+      res.render('celebrities', {
+        celebrities: allTheCelebritiesFromDB
+      });
     })
     .catch(error => {
       console.log('Error while getting the celebrities from de DB: ', error)
+      //res.redirect("/error")
     })
 
 });
@@ -19,12 +22,69 @@ router.get('/', (req, res, next) => {
 router.get("/:id", (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(theCelebrity => {
-      res.render('celebrities/show', { celebrities: theCelebrity });
+      res.render('celebrities/show', {
+        celebrities: theCelebrity
+      });
     })
     .catch(error => {
       console.log('Error while retrieving celebrities details: ', error);
+      next()
     })
+
 });
+
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
+router.post("/", (req, res, next) => {
+  // const {
+  //   name,
+  //   occupation,
+  //   catchPhrase
+  // } = req.body;
+  const newCelebrity = {
+    name : req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase
+  }
+  console.log(req.body);
+
+  Celebrity.create(newCelebrity)
+    .then((celebrity) => {
+      console.log(celebrity)
+      res.render('celebrities/new')
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+
+})
+
+
+
+
+router.post("/edit/", (req, res, next) => {
+
+ 
+  console.log(req.body);
+  Celebrity.updateOne({ _id: req.body._id }, 
+    { name : req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase,
+    })
+    .then((celebrity) => {
+      console.log(celebrity)
+      res.render('celebrities/new')
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+
+})
+
 
 
 module.exports = router;
