@@ -28,6 +28,7 @@ router.get("/new", async (req, res, next) => {
   res.render("celebrities/new");
 });
 
+// Create -> Add a new celebrity to the DB
 router.post("/new", async (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   const obj = await Celebrity.create({
@@ -37,4 +38,12 @@ router.post("/new", async (req, res, next) => {
   });
   res.redirect("/celebrities/new");
 });
+
+// Delete -> Remove a celebrity
+router.get("/:id/delete", async (req, res, next) => {
+  const { id } = req.params;
+  const obj = await Celebrity.findByIdAndRemove(id);
+  res.redirect("/celebrities");
+});
+
 module.exports = router;
