@@ -1,0 +1,11 @@
+<h2>Nombres de celebrities</h2>
+
+{{#each celebrities}}
+{{#with this}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <p class="card-text">{{name}}</p>
+  </div>
+</div>
+{{/with}}
+{{/each}}
