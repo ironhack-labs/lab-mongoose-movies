@@ -18,11 +18,16 @@ router.post("/", async (req, res, next) => {
   try {
     const celebrity = req.body;
     await Celebrity.save(celebrity);
-    res.redirect("celebrities/new");
+    res.redirect("celebrities/");
   } catch (err) {
     console.error(err);
     res.render("celebrities/new");
   }
+});
+
+// Show a form to create a celebrity
+router.get("/new", async (req, res, next) => {
+  res.render("celebrities/new", {title: "Add Celebrity"});
 });
 
 // Show a specific celebrity
@@ -40,13 +45,18 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-// Show a form to create a celebrity
-router.get("/new", async (req, res, next) => {
+// Delete a specific celebrity
+router.post("/:id/delete", async (req, res, next) => {
+  const id = req.params.id;
   try {
+    await Celebrity.findByIdAndRemove(id);
+    res.redirect("celebrities/")
   } catch (err) {
     console.error(err);
     next();
   }
 });
+
+
 
 module.exports = router;
