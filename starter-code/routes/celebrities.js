@@ -38,13 +38,8 @@ router.get("/new", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  // const {
-  //   name,
-  //   occupation,
-  //   catchPhrase
-  // } = req.body;
   const newCelebrity = {
-    name : req.body.name,
+    name: req.body.name,
     occupation: req.body.occupation,
     catchPhrase: req.body.catchPhrase
   }
@@ -62,12 +57,21 @@ router.post("/", (req, res, next) => {
 
 })
 
+router.post("/:id/delete", (req, res, next) => {
+  console.log(req.body);
+  Celebrity.findByIdAndDelete(req.body.id)
+    .then((celebrity) => {
+      res.render('celebrities')
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+
+})
 
 
-
-router.post("/edit/", (req, res, next) => {
-
- 
+/*router.post("/edit/", (req, res, next) => {
   console.log(req.body);
   Celebrity.updateOne({ _id: req.body._id }, 
     { name : req.body.name,
@@ -83,7 +87,7 @@ router.post("/edit/", (req, res, next) => {
       next()
     })
 
-})
+})*/
 
 
 
