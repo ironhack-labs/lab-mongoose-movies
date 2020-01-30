@@ -41,5 +41,5 @@ const withDbConnection = async (fn, disconnectEnd = true) => {
 
 module.exports = {
   withDbConnection,
-  dropIfExistss
+  dropIfExists
 };
