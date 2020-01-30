@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity');
 
-// List view
+// Retrieve all data route
 router.get('/', async (req, res, next) => {
 	try {
 		const celebrities = await Celebrity.find();
@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
-// Retrieve route
+// Retrieve one document route
 router.get('/:id', async (req, res, next) => {
 	try {
 		const { id } = req.params;
@@ -43,6 +43,18 @@ router.post('/new', async (req, res, next) => {
 	} catch (error) {
 		res.render('celebrities/new');
 		console.log(`This went wrong ${error}, try again`);
+	}
+});
+
+// Delete route
+router.post('/:id/delete', async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const celebrity = await Celebrity.findByIdAndRemove(id);
+		console.log(`This celebrity has been removed: ${celebrity}`);
+		res.redirect('/celebrities');
+	} catch (error) {
+		next(error.message);
 	}
 });
 
