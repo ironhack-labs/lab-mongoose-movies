@@ -1,8 +1,10 @@
 <h2>Celebrities</h2>
 
 
-<div class="row">
+<div class="col-8">
   {{#each celebrities}}
   {{> listItem}}
   {{/each}}
 </div>
+
+<a href="/celebrities/new"><button type="submit" class="btn btn-success">Add a new celebrity</button></a>
