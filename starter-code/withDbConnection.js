@@ -3,6 +3,7 @@ require("dotenv").config();
 const { MongoError } = require("mongodb");
 
 const dbUrl = process.env.DBURL;
+//const mongooseDisconnect = mongoose.disconnect;
 
 const dropIfExists = async Model => {
   try {
@@ -40,5 +41,5 @@ const withDbConnection = async (fn, disconnectEnd = true) => {
 
 module.exports = {
   withDbConnection,
-  dropIfExists
+  dropIfExistss
 };
