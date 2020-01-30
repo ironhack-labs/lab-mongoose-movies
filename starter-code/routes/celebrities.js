@@ -18,7 +18,7 @@ router.get("/", (req, res, next) => {
       res.render("celebrities/index", {
         celebrities,
         celebritiesN,
-        navList: true
+        navCelebrities: true
       });
     } catch (error) {
       next();
@@ -32,7 +32,7 @@ router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
     try {
       let celebrity = await Celebrity.findById(req.params.id);
-      res.render("celebrities/show", { celebrity, navList: true });
+      res.render("celebrities/show", { celebrity, navCelebrities: true });
     } catch (error) {
       next();
       return error;
@@ -42,7 +42,7 @@ router.get("/:id", (req, res, next) => {
 
 //add new celebrity
 router.get("/new", (req, res, next) =>
-  res.render("celebrities/new", { navNew: true })
+  res.render("celebrities/new", { navCelebrities: true })
 );
 router.post("/", (req, res, next) => {
   let { name, occupation, catchPhrase } = req.body;
@@ -78,7 +78,7 @@ router.get("/:id/edit", (req, res, next) => {
     try {
       let celebrity = await Celebrity.findOne({ _id: { $eq: req.params.id } });
       console.log(celebrity);
-      res.render("celebrities/edit", { celebrity });
+      res.render("celebrities/edit", { celebrity, navCelebrities: true });
     } catch (error) {
       next();
       return error;

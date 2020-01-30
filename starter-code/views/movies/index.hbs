@@ -1,0 +1,15 @@
+<h2 class="h1">Movies</h2>
+<div class="list list-group col-lg-6">
+  <small class="mb-3">{{moviesN}}</small>
+  {{#each movies}}
+  <a href="/movies/{{this.id}}" class="list-group-item list-group-item-action">
+    <h3 class="h3">{{this.title}}</h3>
+    <form action="/movies/{{this.id}}/delete" method="POST">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    <form action="/movies/{{this.id}}/edit" method="GET">
+      <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+  </a>
+  {{/each}}
+</div>
