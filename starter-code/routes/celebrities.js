@@ -53,4 +53,32 @@ router.post("/:id/delete", async (req, res, next) => {
   }
 });
 
+/* GET edit a celebritie according to its id */
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const celebrity = await Celebrities.findById(id);
+    res.render("celebrities/edit", { celebrity });
+  } catch (error) {
+    console.log(`Celebrities.js - Error editing celebrity by id ${error}`);
+  }
+});
+
+/* GET find a celebritie according to its id */
+router.post("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+    const celebrity = await Celebrities.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    });
+    console.log(`Celebrities.js - Celebrity updated ${celebrity} `);
+    res.redirect("/celebrities");
+  } catch (error) {
+    console.log(`Celebrities.js - Error updating celebrity by id ${error}`);
+  }
+});
+
 module.exports = router;
