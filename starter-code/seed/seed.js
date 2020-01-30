@@ -2,7 +2,7 @@ const withDbConnection = require("../withDbConnection");
 const Celebrity = require("../models/Celebrity");
 
 const dataCel = [
-  { name: "Adam Samlexr", occupation: "Actor", catchPhrase: "Mola la leche" },
+  { name: "Adam Samler", occupation: "Actor", catchPhrase: "Mola la leche" },
   {
     name: "Rubén Vaquero",
     occupation: "Ironhacker",
