@@ -3,6 +3,12 @@ require("dotenv").config();
 
 const dbUrl = process.env.DBURL;
 
+/*
+const dropIfExists = (Model) => {
+  try... copiar del repo de marc
+}
+Añadir dropIfExists en celebrity.js y aqui, abajo del todo. Revisar repo Marc
+*/
 const withDbConnection = async (fn, disconnectEnd = true) => {
   try {
     await mongoose.connect(dbUrl, {
