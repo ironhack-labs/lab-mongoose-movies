@@ -1,8 +1,8 @@
-const withDbConnection = require("../withDbConnection");
+const { withDbConnection, dropIfExists } = require("../withDbConnection");
 const Celebrity = require("../models/Celebrity");
 
 withDbConnection(async () => {
-  await Celebrity.collection.drop();
+  await dropIfExists(Celebrity);
   await Celebrity.create([
     {
       name: "Arnold Schwarzenegger",
