@@ -1,19 +1,19 @@
 require('dotenv').config();
 
-const bodyParser     = require('body-parser');
-const cookieParser   = require('cookie-parser');
-const express        = require('express');
-const mongoose       = require('mongoose');
-const logger         = require('morgan');
-const path           = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const path = require('path');
 const sassMiddleware = require("node-sass-middleware");
-const hbs            = require('hbs');
+const hbs = require('hbs');
 
 const dbUrl = process.env.DBURL;
 
 mongoose
   .connect(dbUrl, {
-    useNewUrlParser: true, 
+    useNewUrlParser: true,
     useUnifiedTopology: true
   })
   .then(x => {
@@ -31,7 +31,9 @@ const app = express();
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -43,7 +45,7 @@ app.use(
     sourceMap: true
   })
 );
-      
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
