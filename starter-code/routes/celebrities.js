@@ -47,4 +47,18 @@ router.post("/", (req, res, next) => {
   });
 });
 
+//delete celebrity
+router.post("/:id/delete", (req, res, next) => {
+  withDbConnection(async () => {
+    try {
+      let celebrity = await Celebrity.findById(req.params.id);
+      await Celebrity.deleteOne(celebrity);
+      res.redirect("/celebrities");
+    } catch (error) {
+      next();
+      return error;
+    }
+  });
+});
+
 module.exports = router;

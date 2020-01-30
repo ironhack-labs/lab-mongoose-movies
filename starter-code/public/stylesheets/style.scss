@@ -13,3 +13,12 @@ h1,
 h2 {
   padding: 0.5em 0;
 }
+
+.list {
+  h3 {
+    display: inline;
+  }
+  form {
+    float: right;
+  }
+}
