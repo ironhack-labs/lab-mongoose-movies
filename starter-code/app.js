@@ -55,11 +55,12 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "💎𝔶𝔬𝔲𝔯 𝔠𝔢𝔩𝔢𝔟𝔯𝔦𝔱𝔦𝔢𝔰 𝔡𝔞𝔱𝔞𝔟𝔞𝔰𝔢💎";
 
 const index = require("./routes/index");
 app.use("/", index);
 
+// !! added routes for crud
 const crud = require("./routes/crud");
 app.use("/celebrities", crud);
 
