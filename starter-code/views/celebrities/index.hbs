@@ -1,13 +1,9 @@
-<h2>{{title}}</h2>
+<h1 class="text-center">{{title}}</h1>
 
-{{#each celebrities}}
-<div>
-  <div>
-    <a href="/celebrities/{{this._id}}">{{this.name}}</a>
-    <a href="/celebrities/delete/{{this._id}}"><button>Delete</button></a>
-    <a href="/celebrities/edit/{{this._id}}"><button>Edit</button></a>
-  </div>
+<div class="list-group  text-center">
+  {{#each celebrities}}
+  <a href="/celebrities/{{this._id}}" class="list-group-item list-group-item-action">{{this.name}}</a>
+  {{/each}}
 </div>
-{{/each}}
 
-<div><a href="/celebrities/new">Add new celebrity</a></div>
+<a href="/celebrities/new" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Add new celebrity</a>

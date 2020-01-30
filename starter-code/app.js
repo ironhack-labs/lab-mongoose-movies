@@ -46,7 +46,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "Movies and Celebrities Management";
 
 const index = require("./routes/index");
 app.use("/", index);
