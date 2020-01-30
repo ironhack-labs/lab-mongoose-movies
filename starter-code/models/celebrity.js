@@ -1,19 +1,17 @@
 const mongoose = require("mongoose");
-/*
-function capitalize (val) {
-  if (typeof val !== 'string') {
-      val = '';
+
+function capitalize(val) {
+  if (typeof val !== "string") {
+    val = "";
   }
   return val.charAt(0).toUpperCase() + val.substring(1);
-}*/
+}
 
 const schema = new mongoose.Schema(
   {
-    //name: { type: String, required: true, set: capitalize},
-    //occupation: { type: String, default: undefined, set: capitalize},
-    name: String,
-    occupation: String,
-    catchPhrase: String
+    name: { type: String, required: true, set: capitalize },
+    occupation: { type: String, default: undefined, set: capitalize },
+    catchPhrase: { type: String, default: undefined, set: capitalize }
   },
   {
     timestamps: true
