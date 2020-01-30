@@ -9,7 +9,7 @@ const path           = require('path');
 const sassMiddleware = require("node-sass-middleware");
 const hbs            = require('hbs');
 
-const dbUrl = process.env.PORT;
+const dbUrl = process.env.DBURL;
 
 mongoose
   .connect(dbUrl, {
