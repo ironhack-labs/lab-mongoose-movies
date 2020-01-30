@@ -16,9 +16,12 @@ router.get("/", async (req, res, next) => {
 // Send the data from the form to this route to create the celebrity and save to the database
 router.post("/", async (req, res, next) => {
   try {
+    const celebrity = req.body;
+    await Celebrity.save(celebrity);
+    res.redirect("celebrities/new");
   } catch (err) {
     console.error(err);
-    next();
+    res.render("celebrities/new");
   }
 });
 
