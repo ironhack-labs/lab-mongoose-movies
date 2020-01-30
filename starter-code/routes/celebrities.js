@@ -3,9 +3,12 @@ const router = express.Router();
 const Celebrity = require("../models/Celebrity");
 
 router.get("/", async (req, res) => {
-  const celebrities = await Celebrity.find();
-  console.log(celebrities, "hola");
-  res.render("celebrities/index", { celebrities });
+  try {
+    const celebrities = await Celebrity.find();
+    res.render("celebrities/index", { celebrities });
+  } catch (e) {
+    res.render("error", { e });
+  }
 });
 
 module.exports = router;
