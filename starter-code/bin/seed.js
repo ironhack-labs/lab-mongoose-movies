@@ -1,4 +1,5 @@
 const { withDbConnection, dropIfExists } = require("../withDbConnection");
+const mongoose = require("mongoose");
 const celebrity = require("../models/celebrity");
 
 withDbConnection(async () => {
@@ -27,6 +28,12 @@ withDbConnection(async () => {
         catchPhrase: "Yo soy de la calle, yo no soy Bad Gyal."
       }
     ],
-    () => console.log("Collection successfully seeded")
+    err => {
+      console.log("Database seeded");
+      if (err != null) {
+        console.log(err);
+      }
+      mongoose.disconnect();
+    }
   );
 });
