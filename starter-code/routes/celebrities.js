@@ -8,7 +8,18 @@ router.get("/", (req, res, next) => {
   withDbConnection(async () => {
     try {
       let celebrities = await Celebrity.find();
-      res.render("celebrities/index", { celebrities, navCelebrities: true });
+
+      let celebritiesN;
+      if (celebrities.length > 1)
+        celebritiesN = `There are ${celebrities.length} celebrities`;
+      else if (celebrities.length === 1) celebritiesN = `There is 1 celebrity`;
+      else celebritiesN = `There are no celebrities`;
+
+      res.render("celebrities/index", {
+        celebrities,
+        celebritiesN,
+        navList: true
+      });
     } catch (error) {
       next();
       return error;
@@ -21,7 +32,7 @@ router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
     try {
       let celebrity = await Celebrity.findById(req.params.id);
-      res.render("celebrities/show", { celebrity, navCelebrities: true });
+      res.render("celebrities/show", { celebrity, navList: true });
     } catch (error) {
       next();
       return error;
@@ -53,6 +64,36 @@ router.post("/:id/delete", (req, res, next) => {
     try {
       let celebrity = await Celebrity.findById(req.params.id);
       await Celebrity.deleteOne(celebrity);
+      res.redirect("/celebrities");
+    } catch (error) {
+      next();
+      return error;
+    }
+  });
+});
+
+//update celebrity
+router.get("/:id/edit", (req, res, next) => {
+  withDbConnection(async () => {
+    try {
+      let celebrity = await Celebrity.findOne({ _id: { $eq: req.params.id } });
+      console.log(celebrity);
+      res.render("celebrities/edit", { celebrity });
+    } catch (error) {
+      next();
+      return error;
+    }
+  });
+});
+router.post("/:id", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  withDbConnection(async () => {
+    try {
+      await Celebrity.findByIdAndUpdate(req.params.id, {
+        name,
+        occupation,
+        catchPhrase
+      });
       res.redirect("/celebrities");
     } catch (error) {
       next();

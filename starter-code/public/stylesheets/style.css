@@ -13,6 +13,7 @@ h2 {
   display: inline; }
 
 .list form {
-  float: right; }
+  float: right;
+  margin-left: 0.5em; }
 
 /*# sourceMappingURL=style.css.map */
