@@ -1,0 +1,19 @@
+<h2>Frases de TA</h2>
+{{#each frases}}
+<div class="card {{#if this.taMola}}border-danger{{/if}}" style="margin:10px">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-8" style="display:flex; align-items:center;">
+        <div> <a href="/frases/markasmola/{{this._id}}">
+            <b>{{this.taName}}</b>: {{this.taFrase}}</a>
+        </div>
+      </div>
+      <div class="col-4 text-right">
+        <a href="/frases/delete/{{this._id}}"><button type=" button" class="btn btn-danger">Borrar</button></a>
+        {{!-- <a href="/frases/delete?id={{this._id}}"><button type=" button" class="btn btn-danger">Borrar</button></a> --}}
+        <a href="/frases/edit/{{this._id}}"><button type=" button" class="btn btn-success">Editar</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}

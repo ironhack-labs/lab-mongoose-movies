@@ -1,0 +1,11 @@
+<h2>Crear frase de TA</h2>
+<form method="POST">
+  {{> input label="Nombre del TA" help="Pon aqui a un TA" name="taName" placeholder="Diego" value=obj.taName }}
+  {{> input label="Frase" help="La frase mítica" name="taFrase" placeholder="Usa funciones" value=obj.taFrase }}
+  {{> inputCheck label="¿Mola esta frase?" name="taMola" value=obj.taMola}}
+  {{#if isUpdate}}
+  <button type="submit" class="btn btn-success">Update</button>
+  {{else}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {{/if}}
+</form>
