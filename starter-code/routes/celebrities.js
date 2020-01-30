@@ -46,4 +46,32 @@ router.get("/:id/delete", async (req, res, next) => {
   res.redirect("/celebrities");
 });
 
+// Update -> Get the page for editing
+router.get("/:id/edit", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const celebrity = await Celebrity.findById(id);
+    res.render("celebrities/edit", { celebrity });
+  } catch (e) {
+    next();
+  }
+});
+
+// Update -> Update the celebrity
+router.post("/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const { name, occupation, catchPhrase } = req.body;
+  try {
+    await Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    });
+    res.redirect("/celebrities");
+  } catch (e) {
+    console.log(e);
+    next();
+  }
+});
+
 module.exports = router;
