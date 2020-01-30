@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const schema = new mongoose.Schema({
+const celebritySchema = new Schema({
   name: String,
   occupation: String,
   catchPhrase: String
@@ -8,4 +9,6 @@ const schema = new mongoose.Schema({
   timestamp: true
 });
 
-module.exports = mongoose.model("celebrity", schema);
+const Celebrity = mongoose.model("Celebrity", celebritySchema);
+
+module.exports = Celebrity;
