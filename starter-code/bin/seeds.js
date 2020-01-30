@@ -8,14 +8,14 @@ withDbConnection(async () => {
   await dropIfExists(Celebrity);
   await Celebrity.create(
     [{
-        name: "Tom Cruise",
-        occupation: "actor",
-        catchPhrase: "yeah!"
+        name: "Thom Yorke",
+        occupation: "musician",
+        catchPhrase: "creep"
       },
       {
-        name: "Beyonce",
-        occupation: "singer",
-        catchPhrase: "all the single ladies"
+        name: "Quentin Tarantino",
+        occupation: "director",
+        catchPhrase: "say 'what' again"
       },
       {
         name: "Kobe Briant",
@@ -26,11 +26,37 @@ withDbConnection(async () => {
         name: "Steve Jobs",
         occupation: "entrepreneur",
         catchPhrase: "think different"
-      }
-    ],
-    (err, celebrity) => {
-      if (err) return console.log("create error", err);
-      else return Celebrity;
-    }
-  );
+      },
+      {
+        name: "Esther Perel",
+        occupation: "writer",
+        catchPhrase: "rethinking infidelity"
+      },
+      {
+        name: "Anthony Bourdain",
+        occupation: "chef",
+        catchPhrase: "kitchen confidential"
+      },
+      {
+        name: "Leo Laporte",
+        occupation: "journalist",
+        catchPhrase: "another twit is in the can"
+      },
+      {
+        name: "Peter Attia",
+        occupation: "physician",
+        catchPhrase: "longevity"
+      },
+      {
+        name: "Elon Musk",
+        occupation: "entrepreneur",
+        catchPhrase: "we live in a simulation"
+      },
+      {
+        name: "Ira Glass",
+        occupation: "journalist",
+        catchPhrase: "this american life"
+      },
+    ]
+  )
 });
