@@ -2,31 +2,29 @@ const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/celebrity");
 
-
 // CRUD -> (R) Retrieve
 router.get("/", async (req, res) => {
   const celebrity = await Celebrity.find();
+  console.log(celebrity);
   res.render("crud/list", { celebrity });
 });
 
-/*
-
 // CRUD -> (C) Create: Show form
 router.get("/create", (req, res, next) => {
-  res.render("crud/createForm", { title: "Hola" });
+  res.render("crud/createForm");
 });
 
 // CRUD -> (C) Create: Submit & Process form data
 router.post("/create", async (req, res, next) => {
   console.log(req.body);
-  const { taName, taFrase, taMola } = req.body;
-  const obj = await FraseTa.create({
-    taName,
-    taFrase,
-    taMola: taMola ? true : false
+  const { name, occupation, catchPhrase } = req.body;
+  const obj = await Celebrity.create({
+    name,
+    occupation,
+    catchPhrase
   });
-  console.log(obj);
-  res.redirect("/frases/create");
+  console.log(obj, "added to database");
+  res.redirect("/crud/list");
 });
 
 // CRUD -> (D) Delete the object in database with query params
@@ -36,7 +34,7 @@ router.post("/create", async (req, res, next) => {
     res.redirect("/frases");
     });*/
 
-    /*
+/*
 // CRUD -> (D) Delete the object in database with route params
 router.get("/delete/:id", async (req, res) => {
   const { id } = req.params;
