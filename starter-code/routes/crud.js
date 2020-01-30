@@ -5,7 +5,6 @@ const Celebrity = require("../models/celebrity");
 // CRUD -> (R) Retrieve
 router.get("/", async (req, res) => {
   const celebrity = await Celebrity.find();
-  console.log(celebrity);
   res.render("crud/list", { celebrity });
 });
 
@@ -24,7 +23,7 @@ router.post("/create", async (req, res, next) => {
     catchPhrase
   });
   console.log(obj, "added to database");
-  res.redirect("/crud/list");
+  res.redirect("/");
 });
 
 // CRUD -> (D) Delete the object in database with query params
