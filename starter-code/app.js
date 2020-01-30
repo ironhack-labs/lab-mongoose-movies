@@ -31,9 +31,6 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-// Express View engine setup
-
 app.use(
   sassMiddleware({
     src: path.join(__dirname, "public"),
@@ -42,6 +39,7 @@ app.use(
   })
 );
 
+// Express View engine setup
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 app.set("views", path.join(__dirname, "views"));
