@@ -4,8 +4,9 @@
 {{#each Celebrity}}
 
 <ul><li><a href="celebrities/show/{{this.id}}">{{this.name}}</a></li></ul>
-
+<button><a href="celebrities/delete/{{this.id}}">Delete Celebrities</a></button>
 
 {{/each}}
 
-<button><a href="celebrities/new">Create new Celebrity</a></button>
+<button><a href="/celebrities/new">Create new Celebrity</a></button>
+

@@ -17,6 +17,7 @@ router.get("/", async (req, res, next) => {
 // Page to create new celebrities
 router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
+
 });
 router.post("/new", async (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body; //Coge los parámetros del formulario
@@ -36,6 +37,19 @@ router.get("/show/:id", async (req, res, next) => {
     const { id } = req.params;
     const foundObjFromId = await celebrity.findById(id);
     res.render("celebrities/show", { foundObjFromId });
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
+// CRUD -> (D) Delete the object in database with route params
+router.get("/delete/:id", async (req, res, next) => {
+  try {
+    //const id  = req.params.id;
+    const { id } = req.params;
+    await celebrity.findByIdAndRemove(id);
+    res.redirect("/celebrities/");
   } catch (err) {
     res.send(`error: ${err}`);
     next();
