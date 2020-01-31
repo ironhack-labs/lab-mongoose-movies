@@ -3,7 +3,7 @@ const schema = new mongoose.Schema(
   {
     name: String,
     occupation: String,
-    cachPhrase: String
+    catchPhrase: String
   },
   {
     timestamps: true

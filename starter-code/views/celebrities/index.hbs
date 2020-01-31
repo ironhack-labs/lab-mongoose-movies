@@ -3,7 +3,9 @@
 {{#each celebrity}}
 
 <ul>
-    <li>{{this.name}}</li>
+    <li>
+        <a href="/celebrities/show/{{this._id}}">{{this.name}}</a>
+    </li>
 </ul>
 
 {{/each}}

@@ -5,8 +5,8 @@ withDbConnection(async () => {
     //await dropIfExists(celebrity);
     await celebrity.deleteMany();
     await celebrity.create([
-      { name: "Rafa Nadal", occupation: "Tennis Player", cachPhrase: "Vamos RAFA!" },
-      { name: "Cristiano Ronaldo", occupation: "Soccer Player", cachPhrase: "Siiiiuuuuh" },
-      { name: "Andres Montes", occupation: "Sport Journalist", cachPhrase: "La vida puede ser maravillosa" }
+      { name: "Rafa Nadal", occupation: "Tennis Player", catchPhrase: "Vamos RAFA!" },
+      { name: "Cristiano Ronaldo", occupation: "Soccer Player", catchPhrase: "Siiiiuuuuh" },
+      { name: "Andres Montes", occupation: "Sport Journalist", catchPhrase: "La vida puede ser maravillosa" }
     ]);
   });
