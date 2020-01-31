@@ -1,0 +1,22 @@
+<h1 class="display-4 m-5">Edit celebrity</h1>
+
+<div class="row">
+  <div class="col-8">
+    <form action="/movies/{{ movies._id }}" method="POST">
+      <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{movies.title}}">
+      </div>
+      <div class="form-group">
+        <label for="genre">genre</label>
+        <input type="text" class="form-control" id="genre" name="genre" value="{{movies.genre}}">
+      </div>
+      <div class="form-group">
+        <label for="plot">plot</label>
+        <textarea class="form-control" id="plot" name="plot" rows="3">{{movies.plot}}</textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>
