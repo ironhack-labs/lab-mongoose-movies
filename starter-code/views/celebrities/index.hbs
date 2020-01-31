@@ -4,9 +4,12 @@
   <div class="row">
     <div class="col-8" style="display:flex; align-items:center;">
       <div>
-        <b>{{this.name}}</b>
+        <b>{{this.name}}</b> <a href="/celebrities/show/{{this._id}}">Details</a><a
+          href="/celebrities/delete/{{this._id}}">Delete</a><a href="/celebrities/edit/{{this._id}}">Edit</a>
       </div>
     </div>
   </div>
 </div>
 {{/each}}
+
+<a href="/celebrities/add">Add a celebrity</a>
