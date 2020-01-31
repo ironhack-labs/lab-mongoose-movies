@@ -6,7 +6,7 @@ const Celebrity = require("../models/Celebrity");
 router.get("/", async (req, res, next) => {
   try {
     const celebrities = await Celebrity.find();
-    res.render("celebrities/index", { title: "Celebrities", celebrities });
+    res.render("celebrities/index", { title: "Celebrities | List", celebrities });
   } catch (err) {
     console.error(err);
     next();

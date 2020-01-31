@@ -1,0 +1,9 @@
+<h1 class="text-center">{{title}}</h1>
+
+<div class="list-group text-center">
+  {{#each movies}}
+  <a href="/movies/{{this._id}}" class="list-group-item list-group-item-action">{{this.title}}</a>
+  {{/each}}
+</div>
+
+<a href="/movies/new" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Add new movie</a>
