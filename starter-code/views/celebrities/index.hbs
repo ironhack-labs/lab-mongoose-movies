@@ -3,5 +3,8 @@
 <div class="row">
   {{#each seed}}
   {{>item}}
+  <form action="/celebrities/delete/{{this._id}}">
+    <button type="submit">Delete</button>
+  </form>
   {{/each}}
 </div>
