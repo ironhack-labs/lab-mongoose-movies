@@ -1,6 +1,9 @@
 <h2 class="h1">Celebrities</h2>
+<div class="col-lg-6 mb-3 d-flex">
+  <small class="align-self-end">{{celebritiesN}}</small>
+  <a class="btn btn-success ml-auto" href="/celebrities/new" role="button">New</a>
+</div>
 <div class="list list-group col-lg-6">
-  <small class="mb-3">{{celebritiesN}}</small>
   {{#each celebrities}}
   <a href="/celebrities/{{this.id}}" class="list-group-item list-group-item-action">
     <h3 class="h3">{{this.name}}</h3>

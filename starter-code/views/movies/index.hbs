@@ -1,6 +1,9 @@
 <h2 class="h1">Movies</h2>
+<div class="col-lg-6 mb-3 d-flex">
+  <small class="align-self-end">{{moviesN}}</small>
+  <a class="btn btn-success ml-auto" href="/movies/new" role="button">New</a>
+</div>
 <div class="list list-group col-lg-6">
-  <small class="mb-3">{{moviesN}}</small>
   {{#each movies}}
   <a href="/movies/{{this.id}}" class="list-group-item list-group-item-action">
     <h3 class="h3">{{this.title}}</h3>

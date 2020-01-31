@@ -7,7 +7,7 @@ const Movie = require("./../models/movie");
 router.get("/", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      let movies = await Movie.find();
+      const movies = await Movie.find();
 
       let moviesN;
       if (movies.length > 1) moviesN = `There are ${movies.length} movies`;
@@ -30,11 +30,29 @@ router.get("/", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      let movie = await Movie.findById(req.params.id);
+      const movie = await Movie.findById(req.params.id);
       res.render("movies/show", { movie, navMovies: true });
     } catch (error) {
       next();
       return error;
+    }
+  });
+});
+
+//add new movie
+router.get("/new", (req, res, next) =>
+  res.render("movies/new", { navMovies: true })
+);
+router.post("/", (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  const newMovie = new Movie({ title, genre, plot });
+  withDbConnection(async () => {
+    try {
+      await newMovie.save();
+      res.redirect("/movies");
+    } catch (error) {
+      console.log(error);
+      res.render("movies/new");
     }
   });
 });
