@@ -1,0 +1,10 @@
+<h2>Celebrities Info!</h2>{{#each celebrities}}
+{{#each celebrities}}
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{this.name}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{this.occupation}}</h5>
+    <p class="card-text">{{this.catchPhrase}}</p>
+  </div>
+</div>
+{{/each}}

@@ -1,9 +1,17 @@
 <h2>Celebrities List!</h2>
-
-<div class="card">
+{{#each celebrities}}
+<div class="card bg-light mb-3">
    <div class="card-body">
-      {{#each celebrities}}
       {{this.name}}
-      {{/each}}
+   </div>
+   <div>
+      <a href="/celebrities/{{this._id}}" <button type="button" class="btn btn-primary float-right">Show</button></a>
+   </div>
+</div>
+{{/each}}
+
+<div class="row">
+   <div class="col">
+      <a href="/celebrities/new" class="btn btn-success ">Add New</a>
    </div>
 </div>
