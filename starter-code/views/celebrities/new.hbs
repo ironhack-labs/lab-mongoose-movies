@@ -1,6 +1,6 @@
 <h2>NEW</h2>
 
-<form method="POST" action="/celebrities">
+<form class="form" method="POST" action="/celebrities">
   {{> inputForm label="Nombre de la celebridad" placeholder="Jim Carrey" name="name" value=obj.name }}
   {{> inputForm label="Ocupación de la celebridad" placeholder="Actor" name="occupation"
   value=obj.occupation }}
@@ -10,4 +10,4 @@
 </form>
 
 
-<a href="/celebrities/">Return</a>
+<a class="button" href="/celebrities/">Return</a>

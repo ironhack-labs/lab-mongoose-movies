@@ -2,7 +2,7 @@
 
 {{#with foundObjFromId}}
 
-<form method="POST" action="/celebrities/edit/{{this._id}}">
+<form class="form" method="POST" action="/celebrities/edit/{{this._id}}">
   {{> inputForm label="Nombre de la celebridad" placeholder="this.name" name="name" value=this.name }}
   {{> inputForm label="Ocupación de la celebridad" placeholder="this.occupation" name="occupation"
   value=this.occupation }}
@@ -13,4 +13,4 @@
 
 {{/with}}
 
-<a href="/celebrities/">Return</a>
+<a class="button" href="/celebrities/">Return</a>

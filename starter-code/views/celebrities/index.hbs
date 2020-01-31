@@ -4,10 +4,11 @@
 <ul>
   <li>
     <a href="/celebrities/show/{{this._id}}">{{this.name}}</a>
-    <form action="/celebrities/{{this.id}}/delete" method="POST">
+    <form action="/celebrities/delete/{{this._id}}
+    " method="POST">
       <button type="submit">Borrar</button>
     </form>
-    <form action="/celebrities/edit/{{this.id}}">
+    <form action="/celebrities/edit/{{this._id}}">
       <button type="submit">editar</button>
     </form>
   </li>
@@ -15,4 +16,4 @@
 
 {{/each}}
 
-<a href="/celebrities/new">Crear Nuevo</a>
+<a class="button" href="/celebrities/new">Crear Nuevo</a>

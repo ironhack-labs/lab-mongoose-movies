@@ -58,7 +58,7 @@ router.post("/", async (req, res, next) => {
 });
 
 //Delete the object in database with route params
-router.post("/:id/delete", async (req, res) => {
+router.post("/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const foundObjFromId = await Celebrity.findById(id);
