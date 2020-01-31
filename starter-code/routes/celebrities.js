@@ -2,65 +2,69 @@ const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/celebrity");
 
-// CRUD -> (R) Retrieve
-router.get("/", async (req, res) => {
+// R : Retrieve list of celebs
+router.get("/index", async (req, res) => {
+  const celebrity = await Celebrity.find();
+  res.render("celebrities/index", { celebrity });
+});
+
+// R : Retrieve details of a particular celeb
+router.get("/show/:id", async (req, res) => {
+  const { id } = req.params;
+  const celebrity = await Celebrity.findById(id);
+  res.render("celebrities/show", { celebrity });
+});
+
+// C: Show add a celebrity form
+router.get("/add", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
+// C: POST new celebrity
+router.post("/add", async (req, res, next) => {
   try {
-    const celebrity = await Celebrity.find();
-    res.render("celebrities/index", { celebrity });
-  } catch (error) {
-    console.error(error);
+    const { name, occupation, catchPhrase } = req.body;
+    const obj = await Celebrity.create({
+      name,
+      occupation,
+      catchPhrase
+    });
+    console.log(obj, "added to database");
+    res.redirect("/celebrities/index");
+  } catch (err) {
+    console.log(err);
+    res.redirect("/celebrities/add");
   }
 });
 
-// CRUD -> (C) Create: Show form
-router.get("/create", (req, res, next) => {
-  res.render("celebrities/createForm");
-});
-
-// CRUD -> (C) Create: Submit & Process form data
-router.post("/create", async (req, res, next) => {
-  console.log(req.body);
-  const { name, occupation, catchPhrase } = req.body;
-  const obj = await Celebrity.create({
-    name,
-    occupation,
-    catchPhrase
-  });
-  console.log(obj, "added to database");
-  res.redirect("/");
-});
-
-// CRUD -> (D) Delete the object in database with query params
-/*router.get("/delete", async (req, res) => {
-    const id = req.query.id;
-    await FraseTa.findByIdAndRemove(id);
-    res.redirect("/frases");
-    });*/
-
-/*
-// CRUD -> (D) Delete the object in database with route params
+// D: delete celeb in database
 router.get("/delete/:id", async (req, res) => {
-  const { id } = req.params;
-  await FraseTa.findByIdAndRemove(id);
-  res.redirect("/frases");
+  try {
+    const { id } = req.params;
+    await Celebrity.findByIdAndRemove(id);
+    res.redirect("/celebrities/index");
+  } catch (err) {
+    console.log(err);
+    res.redirect("/celebrities/index");
+  }
 });
 
-// CRUD -> (U) Update/Edit the object in db
+// U: update celeb in database
 router.get("/edit/:id", async (req, res) => {
   const { id } = req.params;
-  const obj = await FraseTa.findById(id);
-  res.render("crud/createForm", { obj, isUpdate: true });
+  const obj = await Celebrity.findById(id);
+  res.render("celebrities/edit", { obj });
 });
 
 router.post("/edit/:id", async (req, res) => {
   const { id } = req.params;
-  const { taName, taFrase, taMola } = req.body;
-  await FraseTa.findByIdAndUpdate(id, {
-    taName,
-    taFrase,
-    taMola: taMola ? true : false
+  const { name, occupation, catchPhrase } = req.body;
+  await Celebrity.findByIdAndUpdate(id, {
+    name,
+    occupation,
+    catchPhrase
   });
-  res.redirect("/frases");
+  res.redirect("/celebrities/index");
 });
-*/
+
 module.exports = router;
