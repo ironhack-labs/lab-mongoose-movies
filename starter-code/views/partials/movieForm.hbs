@@ -1,14 +1,24 @@
 <div class="formBlock">
   <label for="movie-title">Title</label>
-  <input id="movie-title" name="title" type="text" value="{{movie.title}}">
+  <input id="movie-title" name="title" type="text" value="{{movie.title}}" required>
 </div>
 
 <div class="formBlock">
   <label for="movie-director">Director</label>
-  <input id="movie-director" name="director" type="text" value="{{movie.director}}">
+  <input id="movie-director" name="director" type="text" value="{{movie.director}}" required>
 </div>
 
 <div class="formBlock">
   <label for="movie-description">Description</label>
   <input id="movie-description" name="description" type="text" value="{{movie.description}}">
+</div>
+
+<div class="formBlock">
+  <label for="movie-celebrity">Celebrity</label>
+  <select id="movie-celebrity" name="celebrity">
+    <option value="" selected>Optional : choose celebrity</option>
+    {{#each celebrities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
 </div>

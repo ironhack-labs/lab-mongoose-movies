@@ -7,22 +7,30 @@
   <div id="movie-details">
     <div><b>Director : </b>{{movie.director}}</div>
 
-    <div><b>Stars :</b>
-      <ul>
-      {{#each movie.stars}}
-        <li>{{this}}</li>
-      {{/each}}
-      </ul>
+    {{#if movie.stars}}
+      <div><b>Stars :</b>
+        <ul>
+        {{#each movie.stars}}
+          <li>{{this}}</li>
+        {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+
+    {{#if movie.description}}
+    <div><b>Description :</b>
+      <p>{{movie.description}}</p>
     </div>
+    {{/if}}
 
-    <p>{{movie.description}}</p>
-
+    {{#if movie.showtimes}}
     <div>
       <b>Show times :</b>
       {{#each movie.showtimes}}
         <span>{{this}}</span>|
       {{/each}}
     </div>
+    {{/if}}
 
     <div>
       <a class="delete-link" href="/movies/{{movie._id}}/delete">Delete movie</a>

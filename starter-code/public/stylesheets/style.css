@@ -13,6 +13,30 @@ a {
   font-size: 0.8rem;
   color: red; }
 
+.form .formBlock {
+  height: 40px; }
+
+.form label {
+  display: inline-block;
+  width: 100px;
+  font-size: 0.8rem;
+  font-weight: bold; }
+
+.form input {
+  display: inline-block;
+  width: 200px;
+  height: 1rem; }
+
+.form button {
+  width: 200px;
+  height: 40px;
+  border: 1px solid lightgrey;
+  font-size: 0.8rem; }
+  .form button:hover {
+    border: 2px solid lightblue;
+    cursor: pointer;
+    color: lightcoral; }
+
 /** CELEBRITIES **/
 .celebrity-card span {
   margin-right: 10px; }
