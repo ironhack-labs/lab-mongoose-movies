@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
+const Movie = require('../models/Movies');
 
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(x => {
 	console.log(`Connected to database ${x.connections[0].name}`);
@@ -25,13 +26,36 @@ const celebrities = [
 	}
 ];
 
-async function seedDB() {
-	const count = await Celebrity.collection.countDocuments({});
+const movies = [
+	{
+		title: 'Les Misérables',
+		genres: [ 'Drama', 'Musical' ],
+		plot:
+			"In 19th-century France, Jean Valjean, who for decades has been hunted by the ruthless policeman Javert after breaking parole, agrees to care for a factory worker's daughter. The decision changes their lives forever."
+	},
+	{
+		title: 'Silver Linings Playbook',
+		genres: [ 'Drama', 'Romance' ],
+		plot:
+			'After a stint in a mental institution, former teacher Pat Solitano moves back in with his parents and tries to reconcile with his ex-wife. Things get more challenging when Pat meets Tiffany, a mysterious girl with problems of her own.'
+	},
+	{
+		title: 'Us',
+		genres: [ 'Horror', 'Thriller' ],
+		plot:
+			"A family's serene beach vacation turns to chaos when their doppelgängers appear and begin to terrorize them."
+	}
+];
+
+async function seedDB(collecName, data) {
+	const count = await collecName.collection.countDocuments({});
 	try {
 		if (count !== 0) {
-			await Celebrity.collection.drop().then(x => console.log('emptied database'));
+			await collecName.collection.drop();
+			console.log('emptied database');
 		}
-		await Celebrity.create(celebrities).then(data => console.log(`Seed database with ${data}`));
+		const celebCollection = await collecName.create(data);
+		console.log(`Seed database with ${celebCollection}`);
 	} catch (error) {
 		console.log(`Something went wrong: ${error}`);
 	} finally {
@@ -40,4 +64,5 @@ async function seedDB() {
 	}
 }
 
-seedDB();
+seedDB(Celebrity, celebrities);
+seedDB(Movie, movies);
