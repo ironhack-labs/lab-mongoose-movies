@@ -15,4 +15,17 @@ router.get("/", async (req, res,next) => {
 
 });
 
+//show details of a celebrity
+router.get("/:id", async (req, res, next) => {
+  try{
+    const { id } = req.params;
+    const details = await Celebrity.findById(id);
+    console.log(details);
+    res.render("celebrities/show", { details });
+  }catch (err){
+    console.error(err);
+    next();
+  }
+})
+
 module.exports = router;
