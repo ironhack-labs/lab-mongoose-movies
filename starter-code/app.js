@@ -47,10 +47,7 @@ app.use(
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
-
-// !! added to set partials
 hbs.registerPartials(__dirname + "/views/partials");
-
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
@@ -59,7 +56,6 @@ app.locals.title = "💎𝔶𝔬𝔲𝔯 𝔠𝔢𝔩𝔢𝔟𝔯𝔦𝔱𝔦�
 
 const index = require("./routes/index");
 app.use("/", index);
-
 // !! added routes for celebrities crud
 const crud = require("./routes/celebrities");
 app.use("/celebrities", crud);
