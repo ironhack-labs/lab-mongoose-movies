@@ -70,4 +70,33 @@ router.post("/:id/delete", async (req, res) => {
   }
 });
 
+// Show the list celebrity in celebrity/edit
+router.get("/edit/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const foundObjFromId = await Celebrity.findById(id);
+    res.render("celebrities/edit", { foundObjFromId });
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
+//Editar y actualizar el dato
+router.post("/edit/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+    await Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    });
+    res.redirect("/celebrities");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
 module.exports = router;
