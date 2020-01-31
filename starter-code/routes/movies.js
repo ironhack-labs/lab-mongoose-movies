@@ -46,4 +46,30 @@ router.get("/:id/delete", async (req, res, next) => {
   res.redirect("/movies");
 });
 
+// Update -> Get the page for editing
+router.get("/:id/edit", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const movie = await Movie.findById(id);
+    res.render("movies/edit", { movie });
+  } catch (e) {
+    next();
+  }
+});
+
+router.post("/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const { title, genre, plot } = req.body;
+  try {
+    await Movie.findByIdAndUpdate(id, {
+      title,
+      genre,
+      plot
+    });
+    res.redirect("/movies");
+  } catch (e) {
+    next();
+  }
+});
+
 module.exports = router;
