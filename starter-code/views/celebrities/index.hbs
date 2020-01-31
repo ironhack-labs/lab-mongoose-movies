@@ -2,7 +2,7 @@
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
     {{#each celebrities}}
-      <li class="list-group-item">{{this.name}}</li>
+      <li class="list-group-item"><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
     {{/each}}
   </ul>
 </div>
