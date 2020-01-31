@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eee; }
+
+.list-group {
+  margin: 5% 0; }
+
+.wrapper-btn {
+  display: flex;
+  justify-content: space-evenly; }
+
+.card {
+  margin: 5% 0; }
+
+form {
+  margin: 5% 0; }
+
+.btn-index {
+  margin: 5% 0; }
+
+/*# sourceMappingURL=style.css.map */

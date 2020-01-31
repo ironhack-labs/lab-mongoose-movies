@@ -1,0 +1,9 @@
+<h1 class="text-center">{{title}}</h1>
+
+<div class="list-group  text-center">
+  {{#each celebrities}}
+  <a href="/celebrities/{{this._id}}" class="list-group-item list-group-item-action">{{this.name}}</a>
+  {{/each}}
+</div>
+
+<a href="/celebrities/new" class="btn btn-primary btn-lg btn-block" role="button" aria-pressed="true">Add new celebrity</a>
