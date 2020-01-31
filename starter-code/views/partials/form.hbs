@@ -1,8 +1,15 @@
 <h2>{{title}}</h2>
 <form method="POST">
+  {{#if isCeleb}}
   {{> input label="Name" help="Write your celeb name" name="name" placeholder="La Zowi" value=obj.name }}
   {{> input label="Occupation" help="Write his or her occupation" name="occupation" placeholder="Singer" value=obj.occupation }}
   {{> input label="CatchPhrase" help="Write their known catch phrase" name="catchPhrase" placeholder="Lo que hago es música punk y la música punk no se explica." value=obj.catchPhrase }}
+  {{else if isMovie}}
+  {{> input label="Title" help="Write the movie's title" name="title" placeholder="Todo sobre mi madre" value=obj.title }}
+  {{> input label="Genre" help="Write its genre" name="genre" placeholder="Drama" value=obj.genre }}
+  {{> input label="Plot" help="Write its plot" name="plot" placeholder="Madrid. Manuela, una madre soltera, ve morir a su hijo el día en que cumple 17 años, por echarse a correr para conseguir el autógrafo de Huma Rojo, su actriz favorita. Destrozada, Manuela viaja entonces a Barcelona en busca del padre del chico." value=obj.plot }}
+  {{/if}}
+
 
   {{#if isUpdate}}
   <button type="submit" class="btn btn-success">Update</button>
@@ -10,3 +17,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
   {{/if}}
 </form>
+{{>returnHome}}

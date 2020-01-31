@@ -5,6 +5,7 @@ const movies = require("../models/movies");
 
 withDbConnection(async () => {
   await dropIfExists(celebrity);
+  await dropIfExists(movies);
   await celebrity.create([
     {
       name: "Bad Gyal",

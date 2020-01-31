@@ -1,0 +1,16 @@
+<h2>Movies</h2>
+{{#each movie}}
+<div class="card-body">
+  <div class="row">
+    <div class="col-8" style="display:flex; align-items:center;">
+      <div>
+        <b>{{this.title}}</b> <a href="/movies/show/{{this._id}}">Details</a><a
+          href="/movies/delete/{{this._id}}">Delete</a><a href="/movies/edit/{{this._id}}">Edit</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+<a href="/movies/add">Add a movie</a>
+{{>returnHome}}
