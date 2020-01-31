@@ -26,4 +26,35 @@ router.get("/show/:id", async (req, res, next) => {
   }
 });
 
+// Show the list celebrity in celebrity/new
+router.get("/new", async (req, res, next) => {
+  try {
+    res.render("celebrities/new");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
+// Create: Submit & Process form data
+router.post("/", async (req, res, next) => {
+  //console.log("req.body:", req.body);
+  const { name, occupation, catchPhrase } = req.body;
+  const addCelebrity = new Celebrity({ name, occupation, catchPhrase }); //Crear nueva entrada
+  try {
+    //Crear objeto .create()
+    // await Celebrity.create({
+    //   name,
+    //   occupation,
+    //   catchPhrase
+    // });
+    await addCelebrity.save(); //Guardar objeto .save()
+    res.redirect("/celebrities/");
+  } catch (err) {
+    console.log("este es el error", err);
+    res.render("celebrities/new");
+    next();
+  }
+});
+
 module.exports = router;
