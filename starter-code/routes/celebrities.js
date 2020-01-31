@@ -10,6 +10,34 @@ router.get("/", async (req, res) => {
   })
 })
 
+
+router.get("/new", async (req, res, next) => {
+  try {
+    await res.render("celebrities/new")
+  } catch (e) {
+    console.log(`Celebrities.js - error rendering new page ${e}`)
+  }
+})
+
+router.post("/new", async (req, res) => {
+  try {
+    const {
+      name,
+      occupation,
+      catchPhrase
+    } = req.body;
+    const obj = await Celebrity.create({
+      name,
+      occupation,
+      catchPhrase
+    });
+    console.log(obj, "name", name, "oc", occupation, "catch", catchPhrase);
+    res.redirect("/celebrities")
+  } catch (err) {
+    console.log(`Celebrities.js - error creating new celebrity ${err}`)
+  }
+})
+
 router.get("/:id", async (req, res) => {
   try {
     const {
