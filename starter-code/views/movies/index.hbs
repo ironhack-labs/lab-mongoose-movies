@@ -1,0 +1,13 @@
+<h2>All the movies <a class="go-back-link" href="/">&lt; Back to home</a></h2>
+
+<div id="movies-container">
+
+  {{#each movies}}
+    <div class="movie-card">
+      <img class="movie-img" src="{{this.image}}" alt="{{this.title}}">
+      <span class="movie-title">{{this.title}}</span>
+      <a href="/movies/{{this._id}}">See more</a>
+    </div>
+  {{/each}}
+
+</div>

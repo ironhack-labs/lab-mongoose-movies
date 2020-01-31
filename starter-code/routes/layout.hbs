@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Spotif&iuml;</title>
+
+  <link rel="stylesheet" href="/styles/layout.css">
+
+  {{#each css}}
+  <link rel="stylesheet" href="/styles/{{this}}.css">
+  {{/each}}
+
+  {{#each scripts}}
+  <script type="module" src="/js/{{this}}.js"></script>
+  {{/each}}
+
+</head>
+<body>
+  {{> navigation }}
+
+  <div id="content-main">
+    {{{body}}}
+  </div>
+</body>
+</html>

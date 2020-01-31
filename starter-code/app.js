@@ -43,11 +43,16 @@ app.locals.title = 'Mongoose movies - Celebrity edition';
 
 
 
+// General routing
 const index = require('./routes/index');
 app.use('/', index);
 
-const celebrities = require('./routes/celebrities');
-app.use('/celebrities', celebrities);
+// Celebrity routing
+const celebritiesRoutes = require('./routes/celebrities');
+app.use('/celebrities', celebritiesRoutes);
 
+// Movie routing
+const moviesRoutes = require('./routes/movies');
+app.use('/movies', moviesRoutes);
 
 module.exports = app;
