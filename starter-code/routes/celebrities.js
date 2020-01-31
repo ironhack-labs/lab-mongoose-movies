@@ -57,6 +57,17 @@ router.post("/", (req, res, next) => {
 })
 
 
+router.post("/:id/delete", (req, res, next) => {
+  console.log(req.body);
+  Celebrity.findByIdAndDelete(req.body.id)
+    .then((celebrity) => {
+      res.render('celebrities')
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+})
 
 
 router.get("/:id/edit", (res, req, next) => {
@@ -71,17 +82,6 @@ router.get("/:id/edit", (res, req, next) => {
 })
 
 
-router.post("/:id/delete", (req, res, next) => {
-  console.log(req.body);
-  Celebrity.findByIdAndDelete(req.body.id)
-    .then((celebrity) => {
-      res.render('celebrities')
-    })
-    .catch((error) => {
-      console.log(error)
-      next()
-    })
-})
 
 router.post('/:id/edit', (req, res, next) => {
   Celebrity.findOne({

@@ -51,7 +51,17 @@ router.post("/", (req, res, next) => {
       console.log(error)
       next()
     })
+})
 
+router.post("/:id/delete", (req, res, next) => {
+  Movie.findByIdAndDelete(req.body.id)
+    .then(() => {
+      res.render('movies')
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
 })
 
 
