@@ -1,8 +1,12 @@
-<h2>Edit Movie</h2>
+<h2>Movie Edition</h2>
 <form action="/movies/{{_id}}" method="POST">
-<input type="hidden" name="id" value="{{_id}}">
-<input type="text" name="title" value="{{title}}">
-<input type="text" name="genre" value="{{genre}}">
-<input type="text" name="plot" value="{{plot}}">
-<input type="submit" class="submit" value="Update">
+  <input class="form-control" type="hidden" name="id" value="{{_id}}">
+  <label class="font-size" for="">Movie</label>
+  <input class="form-control" type="text" name="title" value="{{title}}">
+  <label class="font-size" for="">Genre</label>
+  <input class="form-control" type="text" name="genre" value="{{genre}}">
+  <label class="font-size" for="">Plot</label>
+  <input class="form-control" type="text" name="plot" value="{{plot}}" style="margin-bottom: 2rem;">
+  <input type="submit" class="btn btn-secondary" value="Update">
+  <a class="btn btn-secondary" href="/movies" role="button">Go to movies</a>
 </form>
