@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
 
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(x => {
-	console.log('Connected to database', x.connections[0].name);
+	console.log(`Connected to database ${x.connections[0].name}`);
 });
 
 const celebrities = [
@@ -26,8 +26,11 @@ const celebrities = [
 ];
 
 async function seedDB() {
+	const count = await Celebrity.collection.countDocuments({});
 	try {
-		await Celebrity.collection.drop().then(x => console.log('emptied database'));
+		if (count !== 0) {
+			await Celebrity.collection.drop().then(x => console.log('emptied database'));
+		}
 		await Celebrity.create(celebrities).then(data => console.log(`Seed database with ${data}`));
 	} catch (error) {
 		console.log(`Something went wrong: ${error}`);
