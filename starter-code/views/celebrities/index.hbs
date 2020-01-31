@@ -6,6 +6,7 @@
     <p class="card-text"><a href="/celebrities/{{this._id}}">{{this.name}}</a></p>
   </div>
   <form action="/celebrities/delete/{{this._id}}" method="POST"><button type="submit">Borrar</button></form>
+  <form action="/celebrities/edit/{{this._id}}"><button type="submit">Editar</button></form>
 </div>
 {{/each}}
 

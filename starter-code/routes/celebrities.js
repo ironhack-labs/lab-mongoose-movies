@@ -57,6 +57,33 @@ router.post("/delete/:id", async (req,res,next) => {
 
 })
 
+router.get("/edit/:id", async (req,res,next) => {
+  try{
+    const { id } = req.params;
+    const obj = await Celebrity.findById(id);
+    res.render("celebrities/edit",{obj});
+  } catch(err){
+    console.log(err);
+    next();
+  }
+})
 
+router.post("/edit/:id", async (req, res,next) => {
+  try{
+    const { id } = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+    await Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    });
+    res.redirect("/celebrities");
+  }catch{
+    console.log(err);
+    next();
+  }
+  
+  
+});
 
 module.exports = router;
