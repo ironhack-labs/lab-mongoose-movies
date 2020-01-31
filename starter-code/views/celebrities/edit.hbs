@@ -1,0 +1,22 @@
+<h1 class="display-4 m-5">Edit celebrity</h1>
+
+<div class="row">
+  <div class="col-8">
+    <form action="/celebrities/{{ celebrity._id }}" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{celebrity.name}}">
+      </div>
+      <div class="form-group">
+        <label for="occupation">Occupation</label>
+        <input type="text" class="form-control" id="occupation" name="occupation" value="{{celebrity.occupation}}">
+      </div>
+      <div class="form-group">
+        <label for="catchPhrase">Catchphrase</label>
+        <textarea class="form-control" id="catchPhrase" name="catchPhrase" rows="3">{{celebrity.catchPhrase}}</textarea>
+      </div>
+      <input type="file" class="form-control-file" name="photo">
+      <button type="submit" class="btn btn-primary float-right">Update</button>
+    </form>
+  </div>
+</div>

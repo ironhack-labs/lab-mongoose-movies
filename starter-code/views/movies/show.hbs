@@ -1,0 +1,24 @@
+<h1 class="display-4 m-5">Movies</h1>
+<div class="container m-5">
+  <div class="row">
+    <div class="col">
+
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ movie.picPath }}" class="card-img" alt="{{ movie.name}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="card-title">{{ movie.title }}</h3>
+              <p class="card-text">{{ movie.plot }}</p>
+              <p class="card-text"><small class="text-muted">{{ movie.genre }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
