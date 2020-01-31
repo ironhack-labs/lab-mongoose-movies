@@ -57,4 +57,17 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+//Delete the object in database with route params
+router.post("/:id/delete", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const foundObjFromId = await Celebrity.findById(id);
+    await Celebrity.findByIdAndRemove(foundObjFromId);
+    res.redirect("/celebrities/");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
 module.exports = router;
