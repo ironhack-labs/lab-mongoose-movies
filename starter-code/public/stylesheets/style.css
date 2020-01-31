@@ -5,4 +5,14 @@ body {
 a {
   color: #00B7FF; }
 
+.celebrity-card {
+  display: flex;
+  margin: 10px 0; }
+
+.celebrity-card span {
+  margin-right: 10px; }
+
+.celebrity-card a {
+  margin-right: 10px; }
+
 /*# sourceMappingURL=style.css.map */
