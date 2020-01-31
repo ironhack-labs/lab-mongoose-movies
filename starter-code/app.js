@@ -55,12 +55,15 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'IH Mongoose Movies';
 
 
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrities = require ('./routes/celebrities');
+app.use('/celebrities', celebrities)
 
 // const catchPhrases = require("./routes/crudFrases");
 // app.use("/frases", catchPhrases);
