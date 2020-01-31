@@ -1,2 +1,31 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mongoose-Movies</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/modules.css">
+    <link rel="stylesheet" href="/css/form.css">
+
+</head>
+
+
+<body>
+    <header id="header-main" class="row">
+        <a href="/" class="logo">Mongoose Movies</a>
+        <nav id="nav-main" class="nav">
+            <a href="/" class="link">| home </a>
+            <a href="/all-celebrities" class="link">| all celebrities</a>
+            <a href="/all-teams" class="link">| all Teams</a>
+            {{!-- <a href="/admin/artists" class="link">| admin artists</a> --}}
+        </nav>
+    </header>
+
+    {{{body}}}
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<form action="/team/update/{{team._id}}" method="post" class="form">
+    <h1 class="title">Update Team</h1>
+
+    <label class="label" for="name">name</label>
+    <input class="input" id="name" type="text" name="name" value="{{team.name}}">
+
+    <label class="label" for="game">game</label>
+    <textarea class="input2" id="game" type="text" name="game">{{team.game}}
+    </textarea>
+
+    <label class="label" for="description">description</label>
+    <textarea class="input" id="description" type="text" name="description">{{team.description}}
+    </textarea>
+
+    
+    <button class="btn">ok</button>
+    {{!-- <input class="btn" type="submit" value="ok"> --}}
+</form>

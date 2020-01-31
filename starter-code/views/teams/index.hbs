@@ -1,0 +1,18 @@
+<h2>Teams</h2>
+
+{{#unless teams}}
+<p>no celebrities yet sorry</p>
+{{/unless}}
+
+<ul class="list celebrities">
+    {{#each teams}}
+    <li class="celebrity">
+        <h2>{{this.name}}</h2>
+        <a class="link" href="/team/{{this._id}}">see more</a>
+        <a class="link" href="/team/update/{{this._id}}/">update</a>
+        <a class="link" href="/team/delete/{{this._id}}">delete</a>
+    </li>
+    {{/each}}
+    <li class="celebrity"><a class="link" href="/team/new">create team</a></li>
+
+</ul>
