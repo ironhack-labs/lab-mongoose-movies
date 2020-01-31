@@ -60,8 +60,8 @@ app.locals.title = "💎𝔶𝔬𝔲𝔯 𝔠𝔢𝔩𝔢𝔟𝔯𝔦𝔱𝔦�
 const index = require("./routes/index");
 app.use("/", index);
 
-// !! added routes for crud
-const crud = require("./routes/crud");
+// !! added routes for celebrities crud
+const crud = require("./routes/celebrities");
 app.use("/celebrities", crud);
 
 module.exports = app;
