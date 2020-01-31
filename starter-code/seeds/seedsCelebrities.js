@@ -4,15 +4,10 @@ const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity');
 
 mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(x => {
-	console.log('Connected to database', x.connections[0].name);
+	console.log(`Connected to database ${x.connections[0].name}`);
 });
 
 const celebrities = [
-	{
-		name: 'Matthew McConaughey',
-		occupation: 'Actor',
-		catchPhrase: 'All right, all right, all right.'
-	},
 	{
 		name: 'Taylor Swift',
 		occupation: 'Singer',
@@ -22,12 +17,20 @@ const celebrities = [
 		name: 'Elisabeth Moss',
 		occupation: 'Actress',
 		catchPhrase: 'We are the story in print and we are writing the story ourselves.'
+	},
+	{
+		name: 'Carrie Fisher',
+		occupation: 'Actress',
+		catchPhrase: 'Stay afraid, but do it anyway.'
 	}
 ];
 
 async function seedDB() {
+	const count = await Celebrity.collection.countDocuments({});
 	try {
-		await Celebrity.collection.drop().then(x => console.log('emptied database'));
+		if (count !== 0) {
+			await Celebrity.collection.drop().then(x => console.log('emptied database'));
+		}
 		await Celebrity.create(celebrities).then(data => console.log(`Seed database with ${data}`));
 	} catch (error) {
 		console.log(`Something went wrong: ${error}`);
