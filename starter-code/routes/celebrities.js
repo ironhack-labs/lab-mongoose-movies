@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
 	try {
 		const { id } = req.params;
-		const celebrity = await Celebrity.findById({ _id: id });
+		const celebrity = await Celebrity.findById(id);
 		const { name, occupation, catchPhrase } = celebrity;
 
 		console.log(`Found celebrity is ${name}`);
