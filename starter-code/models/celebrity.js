@@ -4,7 +4,7 @@ const celebritySchema = new mongoose.Schema(
   {
     name: String,
     occupation: String,
-    catchPrase: String
+    catchPhrase: String
   },
   {
     timestamps: true

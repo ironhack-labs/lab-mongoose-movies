@@ -14,4 +14,14 @@ router.get("/", async (req, res, next) => {
   next();
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params; //request del parametro
+    const celebrity = await Celebrity.findById(id);
+    res.render("celebrities/show", { celebrity }); // response a la vista
+  } catch (error) {
+    console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
+  }
+});
+
 module.exports = router;

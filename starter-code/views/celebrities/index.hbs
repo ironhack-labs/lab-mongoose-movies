@@ -3,11 +3,17 @@
   <div class="row">
     <div class="col">
 
-      {{#each celebrities}}
 
-      {{!-- vistaparcial --}}
-      {{!-- {{> celebName this }}  --}}
+      {{#each celebrities}}
+      <div class="card m-3">
+        <div class="card-header">
+          {{ this.name}}
+          <a href="/celebrities/{{this._id}}" class="btn btn-primary float-right">View</a>
+        </div>
+      </div>
       {{/each}}
+
+
 
     </div>
   </div>
