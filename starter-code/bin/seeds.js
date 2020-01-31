@@ -1,5 +1,5 @@
 const { withDbConnection, dropIfExists } = require("../withDbConnection");
-const Celebrity = require("../models/celebrity");
+const celebrity = require("../models/celebrity");
 
 withDbConnection(async () => {
   await dropIfExists(Celebrity);
