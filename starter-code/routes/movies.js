@@ -21,8 +21,29 @@ router.get("/", (req, res, next) => {
         navMovies: true
       });
     } catch (error) {
-      next();
-      return error;
+      next(error);
+    }
+  });
+});
+
+//add new movie
+router.get("/new", (req, res, next) =>
+  res.render("movies/new", { navMovies: true })
+);
+
+router.post("/", (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  const newMovie = new Movie({ title, genre, plot });
+  withDbConnection(async () => {
+    try {
+      await newMovie.save();
+      res.redirect("/movies");
+    } catch (error) {
+      console.log(error);
+      res.render("movies/new", {
+        errorMessage: "The movie must have a title!",
+        navMovies: true
+      });
     }
   });
 });
@@ -34,26 +55,7 @@ router.get("/:id", (req, res, next) => {
       const movie = await Movie.findById(req.params.id);
       res.render("movies/show", { movie, navMovies: true });
     } catch (error) {
-      next();
-      return error;
-    }
-  });
-});
-
-//add new movie
-router.get("/new", (req, res, next) =>
-  res.render("movies/new", { navMovies: true })
-);
-router.post("/", (req, res, next) => {
-  const { title, genre, plot } = req.body;
-  const newMovie = new Movie({ title, genre, plot });
-  withDbConnection(async () => {
-    try {
-      await newMovie.save();
-      res.redirect("/movies");
-    } catch (error) {
-      console.log(error);
-      res.render("movies/new", { navMovies: true });
+      next(error);
     }
   });
 });
@@ -66,8 +68,7 @@ router.post("/:id/delete", (req, res, next) => {
       await Movie.deleteOne(movie);
       res.redirect("/movies");
     } catch (error) {
-      next();
-      return error;
+      next(error);
     }
   });
 });
@@ -79,11 +80,11 @@ router.get("/:id/edit", (req, res, next) => {
       const movie = await Movie.findOne({ _id: { $eq: req.params.id } });
       res.render("movies/edit", { movie, navMovies: true });
     } catch (error) {
-      next();
-      return error;
+      next(error);
     }
   });
 });
+
 router.post("/:id", (req, res, next) => {
   const { title, genre, plot } = req.body;
   withDbConnection(async () => {
@@ -95,8 +96,7 @@ router.post("/:id", (req, res, next) => {
       });
       res.redirect("/movies");
     } catch (error) {
-      next();
-      return error;
+      next(error);
     }
   });
 });

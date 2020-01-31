@@ -1,4 +1,9 @@
 <h2 class="h1">New celebrity</h2>
+{{#if errorMessage}}
+<div class="alert alert-danger" role="alert">
+  {{this.errorMessage}}
+</div>
+{{/if}}
 <form action="/celebrities" method="POST" class="col-lg-6">
   <div class="form-group">
     <label for="name">Name</label>

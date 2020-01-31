@@ -22,8 +22,29 @@ router.get("/", (req, res, next) => {
         navCelebrities: true
       });
     } catch (error) {
-      next();
-      return error;
+      next(error);
+    }
+  });
+});
+
+//add new celebrity
+router.get("/new", (req, res, next) =>
+  res.render("celebrities/new", { navCelebrities: true })
+);
+
+router.post("/", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+  withDbConnection(async () => {
+    try {
+      await newCelebrity.save();
+      res.redirect("/celebrities");
+    } catch (error) {
+      console.log(error);
+      res.render("celebrities/new", {
+        errorMessage: "The celebrity must have a name!",
+        navCelebrities: true
+      });
     }
   });
 });
@@ -35,26 +56,7 @@ router.get("/:id", (req, res, next) => {
       const celebrity = await Celebrity.findById(req.params.id);
       res.render("celebrities/show", { celebrity, navCelebrities: true });
     } catch (error) {
-      next();
-      return error;
-    }
-  });
-});
-
-//add new celebrity
-router.get("/new", (req, res, next) =>
-  res.render("celebrities/new", { navCelebrities: true })
-);
-router.post("/", (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body;
-  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
-  withDbConnection(async () => {
-    try {
-      await newCelebrity.save();
-      res.redirect("/celebrities");
-    } catch (error) {
-      console.log(error);
-      res.render("celebrities/new", { navCelebrities: true });
+      next(error);
     }
   });
 });
@@ -67,8 +69,7 @@ router.post("/:id/delete", (req, res, next) => {
       await Celebrity.deleteOne(celebrity);
       res.redirect("/celebrities");
     } catch (error) {
-      next();
-      return error;
+      next(error);
     }
   });
 });
@@ -80,14 +81,13 @@ router.get("/:id/edit", (req, res, next) => {
       const celebrity = await Celebrity.findOne({
         _id: { $eq: req.params.id }
       });
-      console.log(celebrity);
       res.render("celebrities/edit", { celebrity, navCelebrities: true });
     } catch (error) {
-      next();
-      return error;
+      next(error);
     }
   });
 });
+
 router.post("/:id", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   withDbConnection(async () => {
@@ -99,8 +99,7 @@ router.post("/:id", (req, res, next) => {
       });
       res.redirect("/celebrities");
     } catch (error) {
-      next();
-      return error;
+      next(error);
     }
   });
 });
