@@ -5,9 +5,10 @@ const Celebrity = require("../models/celebrity");
 router.get("/", async (req, res, next) => {
   try {
     const celebrity = await Celebrity.find();
-    return res.render("celebrities/index", { celebrity });
+    console.log(celebrity, "celebewonfawlknglasnlkgsadlknglkdsnglkdnl")
+    res.render("celebrities/", { celebrity });
   } catch (err) {
-    return res.send(`error: ${err}`);
+    res.send(`error: ${err}`);
     next();
   }
 });
@@ -25,12 +26,30 @@ return res.render("celebrities/show", { foundObject });
   next();
 }
 });
+ 
+//ITERACION 4
+router.get("/new", async (req, res, next) => {
+  try {
+    return res.render("celebrities/new");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
 
-
-
-
-
-
+//CREACION DEL BOTON SUBMIT Y EL PROCESO DEL FORMULARIO
+router.post("/", async (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+  try {
+    await newCelebrity.save();
+    res.redirect("/celebrities/");
+  } catch (err) {
+    console.log("este es el error", err);
+    res.render("celebrities/new");
+    next();
+  }
+});
 
 
 
