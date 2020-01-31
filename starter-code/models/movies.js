@@ -3,13 +3,13 @@ const { capitalize } = require("../models/schemaFunctions");
 
 const schema = new mongoose.Schema(
   {
-    name: { type: String, required: true, set: capitalize },
-    occupation: { type: String, default: undefined, set: capitalize },
-    catchPhrase: { type: String, default: undefined, set: capitalize }
+    title: { type: String, required: true, set: capitalize },
+    genre: { type: String, default: undefined, set: capitalize },
+    plot: { type: String, default: undefined, set: capitalize }
   },
   {
     timestamps: true
   }
 );
 
-module.exports = mongoose.model("celebrity", schema);
+module.exports = mongoose.model("movie", schema);
