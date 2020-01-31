@@ -5,7 +5,6 @@ const Celebrity = require("../models/celebrity");
 router.get("/", async (req, res, next) => {
   try {
     const celebrity = await Celebrity.find();
-    console.log(celebrity, "celebewonfawlknglasnlkgsadlknglkdsnglkdnl")
     res.render("celebrities/", { celebrity });
   } catch (err) {
     res.send(`error: ${err}`);
@@ -51,7 +50,47 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+//Creacion boton eliminar
+router.post("/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const foundObject = await Celebrity.findById(id);
+    await Celebrity.findByIdAndRemove(foundObject);
+    res.redirect("/celebrities/");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
 
+//creacion boton editar
+router.get("/edit/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const foundObject = await Celebrity.findById(id);
+    res.render("celebrities/edit", { foundObject });
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
+//Editar y actualizar el dato
+router.post("/edit/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+    await Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    });
+    res.redirect("/celebrities");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
 
 
 module.exports = router;
