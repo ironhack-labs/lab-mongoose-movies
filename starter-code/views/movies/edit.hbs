@@ -1,0 +1,16 @@
+<h2 class="h1">Update</h2>
+<form action="/movies/{{movie.id}}" method="POST" class="col-lg-6">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" value="{{movie.title}}">
+  </div>
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}">
+  </div>
+  <div class="form-group">
+    <label for="plot">Plot</label>
+    <textarea class="form-control" id="plot" name="plot" rows="3">{{movie.plot}}</textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>

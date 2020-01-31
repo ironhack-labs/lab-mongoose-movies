@@ -52,7 +52,7 @@ router.post("/", (req, res, next) => {
       res.redirect("/movies");
     } catch (error) {
       console.log(error);
-      res.render("movies/new");
+      res.render("movies/new", { navMovies: true });
     }
   });
 });
@@ -63,6 +63,35 @@ router.post("/:id/delete", (req, res, next) => {
     try {
       const movie = await Movie.findById(req.params.id);
       await Movie.deleteOne(movie);
+      res.redirect("/movies");
+    } catch (error) {
+      next();
+      return error;
+    }
+  });
+});
+
+//update movie
+router.get("/:id/edit", (req, res, next) => {
+  withDbConnection(async () => {
+    try {
+      const movie = await Movie.findOne({ _id: { $eq: req.params.id } });
+      res.render("movies/edit", { movie, navMovies: true });
+    } catch (error) {
+      next();
+      return error;
+    }
+  });
+});
+router.post("/:id", (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  withDbConnection(async () => {
+    try {
+      await Movie.findByIdAndUpdate(req.params.id, {
+        title,
+        genre,
+        plot
+      });
       res.redirect("/movies");
     } catch (error) {
       next();

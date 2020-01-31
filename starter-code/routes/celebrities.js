@@ -7,7 +7,7 @@ const Celebrity = require("./../models/celebrity");
 router.get("/", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      let celebrities = await Celebrity.find();
+      const celebrities = await Celebrity.find();
 
       let celebritiesN;
       if (celebrities.length > 1)
@@ -31,7 +31,7 @@ router.get("/", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      let celebrity = await Celebrity.findById(req.params.id);
+      const celebrity = await Celebrity.findById(req.params.id);
       res.render("celebrities/show", { celebrity, navCelebrities: true });
     } catch (error) {
       next();
@@ -45,15 +45,15 @@ router.get("/new", (req, res, next) =>
   res.render("celebrities/new", { navCelebrities: true })
 );
 router.post("/", (req, res, next) => {
-  let { name, occupation, catchPhrase } = req.body;
-  let newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+  const { name, occupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
   withDbConnection(async () => {
     try {
       await newCelebrity.save();
       res.redirect("/celebrities");
     } catch (error) {
       console.log(error);
-      res.render("celebrities/new");
+      res.render("celebrities/new", { navCelebrities: true });
     }
   });
 });
@@ -62,7 +62,7 @@ router.post("/", (req, res, next) => {
 router.post("/:id/delete", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      let celebrity = await Celebrity.findById(req.params.id);
+      const celebrity = await Celebrity.findById(req.params.id);
       await Celebrity.deleteOne(celebrity);
       res.redirect("/celebrities");
     } catch (error) {
@@ -76,7 +76,9 @@ router.post("/:id/delete", (req, res, next) => {
 router.get("/:id/edit", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      let celebrity = await Celebrity.findOne({ _id: { $eq: req.params.id } });
+      const celebrity = await Celebrity.findOne({
+        _id: { $eq: req.params.id }
+      });
       console.log(celebrity);
       res.render("celebrities/edit", { celebrity, navCelebrities: true });
     } catch (error) {
