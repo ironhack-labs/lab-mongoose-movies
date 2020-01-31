@@ -1,0 +1,21 @@
+<h1>
+    Tous les films
+</h1>
+
+{{#unless movies}}
+    <p class="nothing">Sorry, nothing here yet...</p>
+{{/unless}}
+
+<p>Click on the movie</p>
+
+<div class="movie-container">
+ <ul>{{#each movies}}
+    <li>
+        <div class= "movie-title">{{this.title}}</div>
+        <div class= "movie-title">{{this.genre}}</div>
+        <div class= "movie-title">{{this.plot}}</div>        
+        <a href="movie/{{this._id}}"><div class= "movie-link">See MORE</div></a>
+    </li>
+    {{/each}}</ul>
+</div>
+

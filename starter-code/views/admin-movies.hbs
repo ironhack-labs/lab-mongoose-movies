@@ -1,0 +1,35 @@
+<div class="page">
+    <h1 class="title">Admin Movies</h1>
+    <table>
+        <thead>
+            <th>id</th>
+            <th>name</th>
+            <th>genre</th>
+            <th>plot</th>
+            <th>Update</th>
+            <th>Edit</th>
+
+        </thead>
+        <tbody>
+            {{#unless movies}}
+            <tr>
+                <td colspan="7">sorry, no movies registered yet :/</td>
+            </tr>
+            {{/unless}}
+            {{#each movies}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.title}}</td>
+                <td>{{this.genre}}</td>
+                <td>{{this.plot}}</td>
+                <td>
+                    <a href="/admin/movies/update/{{this._id}}">edit</a>
+                </td>
+                <td>
+                    <a href="/admin/movies/delete/{{this._id}}">x</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

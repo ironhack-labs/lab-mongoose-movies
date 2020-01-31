@@ -1,0 +1,21 @@
+<h1>
+    Toutes les célébrités
+</h1>
+
+{{#unless celebrities}}
+    <p class="nothing">Sorry, nothing here yet...</p>
+{{/unless}}
+
+<p>Click on the celbrity</p>
+
+<div class="clelebrity-container">
+ <ul>{{#each celebrities}}
+    <li>
+        <div class= "movie-title">{{this.name}}</div>
+        <div class= "movie-title">{{this.occupation}}</div>
+        <div class= "movie-title">{{this.catchPhrase}}</div>        
+        <a href="celebrity/{{this._id}}"><div class= "movie-link">See MORE</div></a>
+    </li>
+    {{/each}}</ul>
+</div>
+

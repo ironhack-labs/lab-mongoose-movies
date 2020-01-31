@@ -1,0 +1,17 @@
+<form action="/admin/movies/update/{{movie._id}}" method="post" class="form">
+    <h1 class="title">Create movie</h1>
+
+    <label class="label" for="title">title</label>
+    <input class="input" id="title" type="text" name="title" value="{{movie.title}}">
+
+    <label class="label" for="genre">genre</label>
+    <textarea class="input" id="genre" type="text" name="genre">{{movie.genre}}
+    </textarea>
+
+    <label class="label" for="plot">plot</label>
+    <textarea class="input" id="plot" type="text" name="plot">{{movie.plot}}
+    </textarea>
+
+    <button class="btn">ok</button>
+    {{!-- <input class="btn" type="submit" value="ok"> --}}
+</form>

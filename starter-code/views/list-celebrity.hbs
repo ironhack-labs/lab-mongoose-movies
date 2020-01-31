@@ -1,0 +1,21 @@
+<div class="page">
+    <h1 class="title">All celebrities</h1>
+    <hr>
+
+    {{#unless celebrities}}
+    <p>no celebritys yet sorry</p>
+    {{/unless}}
+
+    <ul class="list celebrities">
+    {{#each celebrities}}
+        <li class="celebrity">
+            {{this.name}}
+            <h1 class="title">{{this.name}}</h1>
+            <p>{{this.occupation}}</p>
+            <p>{{this.catchPhrase}}</p>
+           <a class="link" href="/celebrity/{{this._id}}">... see more</a>
+        </li>
+    {{/each}}
+    </ul>
+
+</div>

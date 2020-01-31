@@ -1,0 +1,34 @@
+<div class="page">
+    <h1 class="title">Admin celebrities</h1>
+    <table>
+        <thead>
+            <th>id</th>
+            <th>name</th>
+            <th>occupation</th>
+            <th>catchPhrase</th>
+            <th>Update</th>
+            <th>Edit</th>
+        </thead>
+        <tbody>
+            {{#unless celebrities}}
+            <tr>
+                <td colspan="7">sorry, no celebrities registered yet :/</td>
+            </tr>
+            {{/unless}}
+            {{#each celebrities}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.occupation}}</td>
+                <td>{{this.catchPhrase}}</td>
+                <td>
+                    <a href="/admin/celebrity/update/{{this._id}}">edit</a>
+                </td>
+                <td>
+                    <a href="/admin/celebrity/delete/{{this._id}}">x</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

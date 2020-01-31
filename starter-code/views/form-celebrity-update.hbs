@@ -1,0 +1,17 @@
+<form action="/admin/celebrity/update/{{celebrity._id}}" method="post" class="form">
+    <h1 class="title">Create celebrity</h1>
+
+    <label class="label" for="name">name</label>
+    <input class="input" id="name" type="text" name="name" value="{{celebrity.name}}">
+
+    <label class="label" for="occupation">occupation</label>
+    <textarea class="input" id="occupation" type="text" name="occupation">{{celebrity.occupation}}
+    </textarea>
+
+    <label class="label" for="catchPhrase">catchPhrase</label>
+    <textarea class="input" id="catchPhrase" type="text" name="catchPhrase">{{celebrity.catchPhrase}}
+    </textarea>
+
+    <button class="btn">ok</button>
+    {{!-- <input class="btn" type="submit" value="ok"> --}}
+</form>

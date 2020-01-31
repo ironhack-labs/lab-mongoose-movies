@@ -1,0 +1,21 @@
+<div class="page">
+    <h1 class="title">All movies</h1>
+    <hr>
+
+    {{#unless movies}}
+    <p>no movies yet sorry</p>
+    {{/unless}}
+
+    <ul class="list movies">
+    {{#each movies}}
+        <li class="movie">
+            {{this.title}}
+            <h1 class="title">{{this.title}}</h1>
+            <p>{{this.genre}}</p>
+            <p>{{this.plot}}</p>
+           <a class="link" href="/movie/{{this._id}}">... see more</a>
+        </li>
+    {{/each}}
+    </ul>
+
+</div>
