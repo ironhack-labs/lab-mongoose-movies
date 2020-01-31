@@ -27,33 +27,27 @@ router.get("/:id", async (req, res, next) => {
 });
 
 //create a new celebrity
-router.get("/new", (req, res, next) => {
+router.get("/new", async (req, res, next) => {
   res.render("celebrities/new");
 });
 
 //create the celebrity and send to the database
 router.post("/new", async (req, res, next) => {
-  const { name, celebrity, phrase } = req.body;
-  try {
-    await Celebrity.save(name, celebrity, phrase);
-    res.redirect("celebrities/");
-  } catch (error) {
-    console.log(error);
-    res.render("celebrities/new");
-  }
+  const { name, occupation, catchPhrase } = req.body;
+  const obj = await Celebrity.create({
+    name,
+    occupation,
+    catchPhrase
+  });
+  res.redirect("/celebrities/new");
 });
 
 //delete the celebrity
 
 router.get("/delete/:id", async (req, res, next) => {
   const { id } = req.params;
-  try {
-    await Celebrity.findByIdAndRemove(id);
-    res.redirect("celebrities/");
-  } catch (error) {
-    console.log(error);
-    next();
-  }
+  const obj = await Celebrity.findByIdAndRemove(id);
+  res.redirect("/celebrities");
 });
 
 module.exports = router;
