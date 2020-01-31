@@ -1,0 +1,44 @@
+const express = require("express");
+const router = express.Router();
+const Movies = require("../models/movie");
+
+/* GET show all movies */
+router.get("/", async (req, res, next) => {
+  try {
+    const movies = await Movies.find();
+    res.render("movies/index", { movies });
+  } catch (error) {
+    console.log(`Movies.js - Error retrieving all movies ${error}`);
+  }
+});
+
+/* GET form to add a celebrity */
+router.get("/new", (req, res, next) => {
+  res.render("movies/new");
+});
+
+/* GET form to add a celebrity */
+router.post("/new", async (req, res, next) => {
+  try {
+    const { title, genre, plot } = req.body;
+    const obj = await Movies.create({ title, genre, plot });
+    console.log(`Movies.js - Added new movie ${obj}`);
+    res.redirect("/movies");
+  } catch (error) {
+    console.log(`Movies.js - Error adding new movie ${error}`);
+    res.render("movies/new");
+  }
+});
+
+/* GET find a movie according to its id */
+router.get("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const movie = await Movies.findById(id);
+    res.render("movies/show", { movie });
+  } catch (error) {
+    console.log(`Movie.js - Error finding movie by id ${error}`);
+  }
+});
+
+module.exports = router;
