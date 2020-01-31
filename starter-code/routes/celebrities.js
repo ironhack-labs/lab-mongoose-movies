@@ -7,7 +7,7 @@ const router  = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const celebrity = await Celebrity.find();
-    res.render("celebrities/index", { celebrity }); // Esta línea es la que le pasa cosas a la celebrities.hbs
+    return res.render("celebrities/index", { celebrity }); // Esta línea es la que le pasa cosas a la celebrities.hbs
   } catch (err) {
     res.send(`Error al listar las Celebrity: ${err}`);
     next();
@@ -34,13 +34,26 @@ router.post("/new", async (req, res, next) => {
   return res.redirect("/celebrities");
 });
 
+// Borrar Celebrities
+
+router.post("/:id/delete", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const celebridad = await Celebrity.findByIdAndRemove(id);
+    return res.redirect("/celebrities"); // Esta línea es la que le pasa cosas al show.hbs
+  } catch (err) {
+    res.send(`Error al mostrar una celebrity: ${err}`);
+    next();
+  }
+  });
+
 /* Según la celebrity por ID que quiera ver devuelvo todos sus datos */
 
 router.get("/:id", async (req, res, next) => {
 const { id } = req.params;
 try {
   const celebridad = await Celebrity.findById(id);
-  res.render("celebrities/show", { celebridad }); // Esta línea es la que le pasa cosas al show.hbs
+  return res.render("celebrities/show", { celebridad }); // Esta línea es la que le pasa cosas al show.hbs
 } catch (err) {
   res.send(`Error al mostrar una celebrity: ${err}`);
   next();
