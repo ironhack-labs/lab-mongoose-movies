@@ -63,8 +63,10 @@ router.get('/:id/edit', async (req, res, next) => {
 	try {
 		const { id } = req.params;
 		const celebrity = await Celebrity.findById(id);
+		const { name, occupation, catchPhrase } = celebrity;
+
 		console.log(`This celebrity is going to be edited: ${celebrity}`);
-		res.render('celebrities/edit', { title: `Edit ${celebrity.name}`, celebrity });
+		res.render('celebrities/edit', { title: `Edit ${celebrity.name}`, name, occupation, catchPhrase });
 	} catch (error) {
 		next(error.message);
 	}
