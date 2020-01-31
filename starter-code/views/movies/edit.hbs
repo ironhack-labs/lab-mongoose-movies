@@ -1,0 +1,8 @@
+<h2>Edit Movie</h2>
+<form action="/movies/{{_id}}" method="POST">
+<input type="hidden" name="id" value="{{_id}}">
+<input type="text" name="title" value="{{title}}">
+<input type="text" name="genre" value="{{genre}}">
+<input type="text" name="plot" value="{{plot}}">
+<input type="submit" class="submit" value="Update">
+</form>
