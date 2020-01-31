@@ -2,18 +2,8 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     {{#each movie}}
-      <div class="col-md-3 col-12 mr-2 mt-2 p-3 text-center">
-        <h5>{{title}}</h5>
-        <a href="/movies/{{_id}}" class="btn btn-info mt-2">Detail page</a>
-        <a href="/movies/{{_id}}/edit" class="btn btn-success mt-2">Edit</a>
-        <form action="/movies/{{_id}}/delete" method="POST" class="mt-2">
-          <button class="btn btn-danger">Delete</button>
-        </form>
-      </div>
+      {{> itemCard heading=title item="movies" id=_id}}
     {{/each}}
   </div>
 </div>
-<div class="add-celebrity">
-  <span>Add new movies to the page</span>
-  <a href="/movies/new"><i class="fas fa-plus"></i></a>
-</div>
+{{> addContainer item="movies"}}
