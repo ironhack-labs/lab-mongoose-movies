@@ -54,4 +54,32 @@ router.post("/:id/delete", async (req, res, next) => {
   }
 });
 
+/* GET edit a movie according to its id */
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const movie = await Movies.findById(id);
+    res.render("movies/edit", { movie });
+  } catch (error) {
+    console.log(`Movies.js - Error editing movie by id ${error}`);
+  }
+});
+
+/* GET update a movie according to its id */
+router.post("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { title, genre, plot } = req.body;
+    const movie = await Movies.findByIdAndUpdate(id, {
+      title,
+      genre,
+      plot
+    });
+    console.log(`Movies.js - Movie updated ${movie} `);
+    res.redirect("/movies");
+  } catch (error) {
+    console.log(`Movies.js - Error updating movie by id ${error}`);
+  }
+});
+
 module.exports = router;

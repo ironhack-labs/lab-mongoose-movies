@@ -64,7 +64,7 @@ router.get("/:id/edit", async (req, res, next) => {
   }
 });
 
-/* GET find a celebritie according to its id */
+/* GET update a celebrity according to its id */
 router.post("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
