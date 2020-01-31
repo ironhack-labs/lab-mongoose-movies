@@ -14,6 +14,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// Page to create new celebrities
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+router.post("/new", async (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body; //Coge los parámetros del formulario
+  const obj = await celebrity.create({
+    name,
+    occupation,
+    catchPhrase,
+  });
+  console.log(obj);
+  res.redirect("/celebrities");
+});
+
 // Show the list celebrity ID in celebrity/show
 router.get("/show/:id", async (req, res, next) => {
   try {
@@ -26,5 +41,4 @@ router.get("/show/:id", async (req, res, next) => {
     next();
   }
 });
-
 module.exports = router;
