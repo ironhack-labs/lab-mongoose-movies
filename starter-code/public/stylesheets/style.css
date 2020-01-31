@@ -5,4 +5,28 @@ body {
 a {
   color: #00b7ff; }
 
+nav {
+  border: 1px solid red; }
+
+h2 {
+  margin: 10px;
+  text-align: center; }
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  text-align: center; }
+
+.buttonfather {
+  display: flex;
+  margin: 10px; }
+
+.button {
+  margin: 25px; }
+
+.button2 {
+  margin: 25px 25px 25px 0;
+  border: 0px solid green; }
+
 /*# sourceMappingURL=style.css.map */
