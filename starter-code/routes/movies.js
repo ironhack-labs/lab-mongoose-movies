@@ -7,7 +7,8 @@ const Movie = require("./../models/movie");
 router.get("/", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      const movies = await Movie.find();
+      let movies = await Movie.find();
+      movies.sort((a, b) => a.title.localeCompare(b.title));
 
       let moviesN;
       if (movies.length > 1) moviesN = `There are ${movies.length} movies`;

@@ -7,7 +7,8 @@ const Celebrity = require("./../models/celebrity");
 router.get("/", (req, res, next) => {
   withDbConnection(async () => {
     try {
-      const celebrities = await Celebrity.find();
+      let celebrities = await Celebrity.find();
+      celebrities.sort((a, b) => a.name.localeCompare(b.name));
 
       let celebritiesN;
       if (celebrities.length > 1)
