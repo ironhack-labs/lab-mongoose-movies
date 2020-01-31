@@ -1,0 +1,23 @@
+<div class="page">
+    <h2 class="title">All movies</h2>
+    <hr>
+
+    {{#unless movies}}
+    <p>No movie yet sorry!</p>
+    {{/unless}}
+
+    {{#each movies}}
+        <p class="movie">
+            {{this.title}} |
+            <a class="link" href="/movies/show/{{this._id}}">Learn more</a> |
+            <a href="/movies/delete/{{this._id}}">Delete movie</a> |
+            <a href="/movies/edit/{{this._id}}">Edit movie</a>
+        </p>
+        <br><br>
+    {{/each}}
+    
+    <br>
+    <a class="link" href="/movies/new">Add more movies</a>
+    <br><br>
+    <a href="/">Go back home</a>
+</div>

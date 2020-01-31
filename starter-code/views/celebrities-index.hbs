@@ -1,0 +1,22 @@
+<div class="page">
+    <h2 class="title">All celebrities</h2>
+    <hr>
+
+    {{#unless celebrities}}
+    <p>No celebrity yet sorry!</p>
+    {{/unless}}
+
+    {{#each celebrities}}
+        <p class="celebrity">
+            {{this.name}} |
+            <a class="link" href="/celebrities/show/{{this._id}}">Learn more</a> |
+            <a href="/celebrities/delete/{{this._id}}">Delete celebrity</a> |
+            <a href="/celebrities/edit/{{this._id}}">Edit celebrity</a>
+        </p>
+        <br><br>
+    {{/each}}
+    <br>
+    <a class="link" href="/celebrities/new">Add more celebrities</a>
+    <br><br>
+    <a href="/">Go back home</a>
+</div>
