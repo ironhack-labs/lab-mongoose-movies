@@ -31,7 +31,7 @@ router.get('/:id', async (req, res, next) => {
 
 // Create route
 router.get('/new', (req, res, next) => {
-	res.render('celebrities/new');
+	res.render('celebrities/new', { title: 'Add new celebrities' });
 });
 
 router.post('/new', async (req, res, next) => {
@@ -64,7 +64,7 @@ router.get('/:id/edit', async (req, res, next) => {
 		const { id } = req.params;
 		const celebrity = await Celebrity.findById(id);
 		console.log(`This celebrity is going to be edited: ${celebrity}`);
-		res.render('celebrities/edit', celebrity);
+		res.render('celebrities/edit', { title: `Edit ${celebrity.name}`, celebrity });
 	} catch (error) {
 		next(error.message);
 	}

@@ -1,10 +1,19 @@
-<h2>Celebrities index 👩🏻‍💻</h2>
-{{#each celebrity}}
-  <p>{{name}}</p>
-  <a href="/celebrities/{{_id}}">Detail page</a>
-  <a href="/celebrities/{{_id}}/edit"><button>Edit</button></a>    
-  <form action="/celebrities/{{_id}}/delete" method="POST">
-    <button>Delete</button>
-  </form>
-{{/each}}
-<p><a href="/celebrities/new">Click here</a> to add new celebrities to the page</p>
+<h2 class="title text-center">Celebrities 🎭</h2>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    {{#each celebrity}}
+      <div class="col-md-3 col-12 mr-2 mt-2 p-3 text-center" id="celeb-container">
+        <h5>{{name}}</h5>
+        <a href="/celebrities/{{_id}}" class="btn btn-info mt-2">Detail page</a>
+        <a href="/celebrities/{{_id}}/edit" class="btn btn-success mt-2">Edit</a>
+        <form action="/celebrities/{{_id}}/delete" method="POST" class="mt-2">
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    {{/each}}
+  </div>
+</div>
+<div class="add-celebrity">
+  <span>Add new celebrities to the page</span>
+  <a href="/celebrities/new"><i class="fas fa-plus"></i></a>
+</div>
