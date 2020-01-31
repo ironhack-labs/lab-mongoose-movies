@@ -1,0 +1,14 @@
+<h2>{{title}}</h2>
+
+<div class="card">
+  <div class="card-body">
+    <p><span class="h4">Genre: </span><span class="h5 text-secondary">{{movie.genre}}</span></p>
+    <p><span class="h4">Plot: </span><span class="h5 text-secondary">{{movie.plot}}</span></p>
+    <br><br>
+    <div class="wrapper-btn">
+      <a href="/movies/delete/{{movie._id}}" class="col-2 btn btn-danger btn-lg" role="button">Delete</a>
+      <a href="/movies/edit/{{movie._id}}" class="col-2 btn btn-success btn-lg" role="button">Edit</a>
+      <a href="/movies" class="col-2 btn btn-secondary btn-lg" role="button">Back</a>
+    </div>
+  </div>
+</div>

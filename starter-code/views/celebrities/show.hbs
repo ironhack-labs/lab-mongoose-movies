@@ -1,0 +1,15 @@
+<h2>{{title}}</h2>
+
+<div class="card">
+  <div class="card-body">
+    <p><span class="h4">Occupation: </span><span class="h5 text-secondary">{{celebrity.occupation}}</span></p>
+    <p><span class="h4">Catch Phrase: </span><span class="h5 text-secondary">{{celebrity.catchPhrase}}</span></p>
+    <br>
+    <br>
+    <div class="wrapper-btn">
+      <a href="/celebrities/delete/{{celebrity._id}}" class="col-2 btn btn-danger btn-lg" role="button">Delete</a>
+      <a href="/celebrities/edit/{{celebrity._id}}" class="col-2 btn btn-success btn-lg" role="button">Edit</a>
+      <a href="/celebrities" class="col-2 btn btn-secondary btn-lg" role="button">Back</a>
+    </div>
+  </div>
+</div>
