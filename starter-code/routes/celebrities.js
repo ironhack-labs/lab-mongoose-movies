@@ -49,7 +49,7 @@ router.post("/:id/delete", async (req, res, next) => {
     console.log(`Celebrities.js - Celebrity deleted ${celebrity}`);
     res.redirect("/celebrities");
   } catch (error) {
-    console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
+    console.log(`Celebrities.js - Error deleting celebrity by id ${error}`);
   }
 });
 

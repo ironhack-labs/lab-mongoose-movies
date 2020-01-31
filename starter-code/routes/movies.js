@@ -12,12 +12,12 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-/* GET form to add a celebrity */
+/* GET form to add a movie */
 router.get("/new", (req, res, next) => {
   res.render("movies/new");
 });
 
-/* GET form to add a celebrity */
+/* GET form to add a movie */
 router.post("/new", async (req, res, next) => {
   try {
     const { title, genre, plot } = req.body;
@@ -38,6 +38,19 @@ router.get("/:id", async (req, res, next) => {
     res.render("movies/show", { movie });
   } catch (error) {
     console.log(`Movie.js - Error finding movie by id ${error}`);
+  }
+});
+
+/* POST delete a movie according to its id */
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    console.log("EEEEENTRA");
+    const { id } = req.params;
+    const movie = await Movies.findByIdAndRemove(id);
+    console.log(`Movies.js - Movie deleted ${movie}`);
+    res.redirect("/movies");
+  } catch (error) {
+    console.log(`Movies.js - Error deleting movie by id ${error}`);
   }
 });
 
