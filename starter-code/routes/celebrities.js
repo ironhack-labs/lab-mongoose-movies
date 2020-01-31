@@ -36,7 +36,7 @@ router.post("/new", async (req, res, next) => {
 
 // Borrar Celebrities
 
-router.post("/:id/delete", async (req, res, next) => {
+router.post("/delete/:id", async (req, res, next) => {
   const { id } = req.params;
   try {
     const celebridad = await Celebrity.findByIdAndRemove(id);
@@ -46,6 +46,38 @@ router.post("/:id/delete", async (req, res, next) => {
     next();
   }
   });
+
+
+  // Ir a la página de Editar Celebrities 
+
+  router.get("/edit/:id", async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const celebridad = await Celebrity.findById(id);
+      return res.render("celebrities/edit", { celebridad }); 
+    } catch (err) {
+      res.send(`Error: ${err}`);
+      next();
+    }
+    });
+
+    // Guardar la página de Editar Celebrities, osea, editar la Celebrity 
+
+    router.post("/edit/:id", async (req, res, next) => {
+      const { id } = req.params;
+      const { name, occupation, catchPhrase } = req.body;
+      try {
+        await Celebrity.findByIdAndUpdate(id, {
+          name,
+          occupation,
+          catchPhrase
+        });
+        return res.redirect("/celebrities"); 
+      } catch (err) {
+        res.send(`Error: ${err}`);
+        next();
+      }
+      });
 
 /* Según la celebrity por ID que quiera ver devuelvo todos sus datos */
 

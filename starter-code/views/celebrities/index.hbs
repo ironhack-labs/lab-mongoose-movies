@@ -5,9 +5,12 @@
 <ul class="list-group" style="margin-top: 70px; max-width: 800px;">
 {{#each celebrity}}
   <li class="list-group-item">
-    <a href="/celebrities/{{_id}}">VER FICHA: {{name}}</a>
-     <form action="/celebrities/{{_id }}/delete" method="POST">
+    VER FICHA: <a href="/celebrities/{{_id}}">{{name}}</a>
+    <form action="/celebrities/delete/{{_id }}" method="POST">
       <input class="btn btn-primary" type="submit" value="Borrar {{name}}" style="margin-top: 20px;">
+    </form>
+    <form action="/celebrities/edit/{{_id }}" method="GET">
+      <input class="btn btn-primary" type="submit" value="Editar" style="margin-top: 20px;">
     </form>
  
   </li>
