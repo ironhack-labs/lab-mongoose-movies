@@ -26,11 +26,12 @@ router.get("/:id/edit", async (req, res, next) => {
     const celebrity = await Celebrity.findById(id);
     res.render("celebrities/edit", { celebrity });
   } catch (error) {
-    console.log(`Celebrities.js - Error editing celebrity by id ${error}`);
+    console.log(` Error editing celebrity by id ${error}`);
   }
+  next();
 });
 
-// crear nuevos con metodo post
+// post add new
 router.post("/new", async (req, res, next) => {
   try {
     const { name, occupation, catchPhrase } = req.body; // request del body
@@ -38,22 +39,23 @@ router.post("/new", async (req, res, next) => {
     console.log(obj);
     return res.redirect("/celebrities");
   } catch (error) {
-    console.log(`Celebrities.js - Error retrieving database ${error}`);
+    console.log(` Error retrieving database ${error}`);
   }
 });
 
-//borrar celebrities
+//delete celebrities
 router.post("/:id/delete", async (req, res, next) => {
   try {
     const { id } = req.params;
     const celebrity = await Celebrity.findByIdAndRemove(id);
-    console.log(`Celebrities.js - Celebrity deleted ${celebrity}`);
+    console.log(` Celebrity deleted ${celebrity}`);
     return res.redirect("/celebrities");
   } catch (error) {
-    console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
+    console.log(`Error finding celebrity by id ${error}`);
   }
 });
 
+// post update celebrities
 router.post("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -63,10 +65,10 @@ router.post("/:id", async (req, res, next) => {
       occupation,
       catchPhrase
     });
-    console.log(`Celebrities.js - Celebrity updated ${celebrity} `);
-    res.redirect("/celebrities");
+    console.log(` Celebrity updated ${celebrity} `);
+    return res.redirect("/celebrities");
   } catch (error) {
-    console.log(`Celebrities.js - Error updating celebrity by id ${error}`);
+    console.log(` Error updating celebrity by id in database  ${error}`);
   }
 });
 // get show celebrities id esto siempre el ultimo
