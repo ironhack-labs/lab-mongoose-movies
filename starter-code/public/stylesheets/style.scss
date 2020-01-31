@@ -1,8 +1,25 @@
+$color: #00b7ff;
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: $color;
+}
+
+h1,
+h2 {
+  padding: 0.5em 0;
+}
+
+.list {
+  h3 {
+    display: inline;
+  }
+  form {
+    float: right;
+    margin-left: 0.5em;
+  }
 }

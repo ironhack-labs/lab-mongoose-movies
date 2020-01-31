@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00b7ff; }
+
+h1,
+h2 {
+  padding: 0.5em 0; }
+
+.list h3 {
+  display: inline; }
+
+.list form {
+  float: right;
+  margin-left: 0.5em; }
+
+/*# sourceMappingURL=style.css.map */
