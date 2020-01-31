@@ -1,0 +1,29 @@
+<h2 class="title text-center">Add new movie</h2>
+<form method="POST" class="w-75 mx-auto mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 mt-3">
+      <input class="form-control" type="text" name="title" id="title" placeholder="title" required>
+    </div>
+    <div class="col-md-4 col-12 mt-3">
+      <input class="form-control" type="text" name="plot" id="plot" placeholder="plot">
+    </div>
+  </div>
+  <div class="row justify-content-center">  
+    <div class="col-md-4 col-12 mt-3">
+      <p>Movie genres(s):</p>
+      <label for="drama">Drama</label>
+      <input type="checkbox" name="genres" id="drama" value="Drama"/>
+      <label for="musical">Musical</label>
+      <input type="checkbox" name="genres" id="musical" value="Musical"/>
+      <label for="thriller">Thriller</label>
+      <input type="checkbox" name="genres" id="thriller" value="Thriller"/>
+      <label for="comedy">Comedy</label>
+      <input type="checkbox" name="genres" id="comedy" value="Comedy"/>
+      <input type="text" name="genres" id="" placeholder="Other genre...">
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+      <button type="submit" class="btn btn-success btn-lg" value="Drama">Add Celebrity</button>
+  </div>
+
+</form>
