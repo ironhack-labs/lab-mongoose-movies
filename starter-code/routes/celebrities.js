@@ -14,6 +14,26 @@ router.get("/", async (req, res, next) => {
   next();
 });
 
+/* GET form to add a celebrity */
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
+// crear nuevos con metodo post
+router.post("/new", async (req, res, next) => {
+  try {
+    const { name, occupation, catchPhrase } = req.body; // request del body
+    const obj = await Celebrity.create({ name, occupation, catchPhrase });
+    console.log(obj);
+    return res.redirect("/celebrities");
+  } catch (error) {
+    console.log(`Celebrities.js - Error retrieving database ${error}`);
+    // res.render("celebrities/new");
+  }
+  // next();
+});
+
+// get show celebrities id
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params; //request del parametro
@@ -23,5 +43,4 @@ router.get("/:id", async (req, res, next) => {
     console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
   }
 });
-
 module.exports = router;
