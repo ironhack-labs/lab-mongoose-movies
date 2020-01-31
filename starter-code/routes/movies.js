@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Movie = require("../models/Movie");
 
+// Retrieve -> Get a list of all movies
 router.get("/", async (req, res, next) => {
   try {
     const movies = await Movie.find();
@@ -12,6 +13,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// Retrieve -> Get a specific movie
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -26,6 +28,7 @@ router.get("/new", async (req, res, next) => {
   res.render("movies/new");
 });
 
+// Create -> Add a new movie
 router.post("/new", async (req, res, next) => {
   const { title, genre, plot } = req.body;
   const obj = await Movie.create({
@@ -34,6 +37,13 @@ router.post("/new", async (req, res, next) => {
     plot
   });
   res.redirect("/celebrities/new");
+});
+
+// Delete -> Remove a movie
+router.get("/:id/delete", async (req, res, next) => {
+  const { id } = req.params;
+  const obj = await Movie.findByIdAndDelete(id);
+  res.redirect("/movies");
 });
 
 module.exports = router;
