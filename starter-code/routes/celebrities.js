@@ -71,6 +71,47 @@ router.post("/:id/delete", (req, res, next) => {
 })
 
 
+/*router.get("/:id/edit", (res, req, next) =>{
+  Celebrity.findById(req.params.id)
+  .then(theCelebrity => {
+    res.render('celebrities/edit',  theCelebrity)
+  })
+  .catch((error) => {
+    console.log(error)
+    next()
+  })
+})*/
+
+router.post('/:id/edit', (req, res, next) => {
+  Celebrity.findOne({ _id: req.body.id })
+    .then((celebrity) => {
+      res.render('celebrities/edit', celebrity)
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+  })
+
+router.post('/:id/edit', (req, res, next) => {
+  celebrities.updateOne(
+    {_id: req.body.id},
+    {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+      }
+    )
+    .then(()=>{
+      res.redirect('celebrities')
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+
+})
+
 /*router.post("/edit/", (req, res, next) => {
   console.log(req.body);
   Celebrity.updateOne({ _id: req.body._id }, 
@@ -85,9 +126,9 @@ router.post("/:id/delete", (req, res, next) => {
     .catch((error) => {
       console.log(error)
       next()
-    })
+    })*/
 
-})*/
+
 
 
 
