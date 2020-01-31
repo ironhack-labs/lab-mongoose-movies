@@ -1,8 +1,12 @@
 <h2>Edit Celebrity</h2>
 <form action="/celebrities/{{_id}}" method="POST">
-<input type="hidden" name="id" value="{{_id}}">
-<input type="text" name="name" value="{{name}}">
-<input type="text" name="occupation" value="{{occupation}}">
-<input type="text" name="catchPhrase" value="{{catchPhrase}}">
-<input type="submit" class="submit" value="Update">
+  <input class="form-control" type="hidden" name="id" value="{{_id}}">
+  <label class="font-size" for="">Celebrity</label>
+  <input class="form-control" type="text" name="name" value="{{name}}">
+  <label class="font-size" for="">Genre</label>
+  <input class="form-control" type="text" name="occupation" value="{{occupation}}">
+  <label class="font-size" for="">Phrase</label>
+  <input class="form-control" type="text" name="catchPhrase" value="{{catchPhrase}}" style="margin-bottom: 2rem;">
+  <input type="submit" class="btn btn-secondary" value="Update">
+  <a class="btn btn-secondary" href="/movies" role="button">Go to Celebrities</a>
 </form>

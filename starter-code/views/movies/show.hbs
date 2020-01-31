@@ -1,10 +1,15 @@
-<h2>Movie {{movies.title}}</h2>
-    <p><b> title: </b>{{movies.title}}</p>
-    <p><b> Genre: </b>{{movies.genre}}</p>
-    <p><b> Plot: </b>{{movies.plot}}</p>
-<div>
-    <a href="/movies" style="color: red";>Go to movies</a>
+<h2>{{movies.title}}</h2>
+<div class="card bg-light mb-3" style="max-width: 188rem; opacity: .8; text-align: center">
+  <div class="card-header" style="font-size: 1.5rem; font-weight: 400">{{movies.genre}}</div>
+  <div class="card-body">
+    <p class="card-text">Plot: {{movies.plot}}</p>
+  </div>
 </div>
 <div>
-    <a href="/" style="color: red;">Return</a>
+    <a class="btn btn-secondary button" href="/movies" role="button">Go to movies</a>
 </div>
+<div>
+    <a class="btn btn-secondary button" href="/" role="button">Home</a>
+
+</div>
+
