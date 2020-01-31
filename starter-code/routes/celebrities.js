@@ -28,12 +28,22 @@ router.post("/new", async (req, res, next) => {
     return res.redirect("/celebrities");
   } catch (error) {
     console.log(`Celebrities.js - Error retrieving database ${error}`);
-    // res.render("celebrities/new");
   }
-  // next();
 });
 
-// get show celebrities id
+//borrar celebrities
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const celebrity = await Celebrity.findByIdAndRemove(id);
+    console.log(`Celebrities.js - Celebrity deleted ${celebrity}`);
+    return res.redirect("/celebrities");
+  } catch (error) {
+    console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
+  }
+});
+
+// get show celebrities id esto siempre el ultimo
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params; //request del parametro
@@ -43,4 +53,5 @@ router.get("/:id", async (req, res, next) => {
     console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
   }
 });
+
 module.exports = router;
