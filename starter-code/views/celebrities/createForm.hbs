@@ -1,0 +1,12 @@
+<h2>Add a celebrity</h2>
+<form method="POST">
+  {{> input label="Name" help="Write your celeb name" name="name" placeholder="La Zowi" value=obj.name }}
+  {{> input label="Occupation" help="Write his or her occupation" name="occupation" placeholder="Singer" value=obj.occupation }}
+  {{> input label="CatchPhrase" help="Write their known catch phrase" name="catchPhrase" placeholder="Lo que hago es música punk y la música punk no se explica." value=obj.catchPhrase }}
+
+  {{#if isUpdate}}
+  <button type="submit" class="btn btn-success">Update</button>
+  {{else}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {{/if}}
+</form>
