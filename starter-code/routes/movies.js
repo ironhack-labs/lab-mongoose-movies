@@ -13,3 +13,14 @@ router.get("/", async (req, res, next) => {
   }
   next();
 });
+router.get("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params; //request del parametro
+    const movie = await Movies.findById(id);
+    res.render("movies/show", { movie }); // response a la vista
+  } catch (error) {
+    console.log(` Error finding celebrity by id ${error}`);
+  }
+});
+
+module.exports = router;
