@@ -1,0 +1,13 @@
+<h2>Celebrities</h2>
+
+<div class="row">
+  {{#each seed}}
+  {{>item}}
+  <form action="/celebrities/delete/{{this._id}}">
+    <button type="submit">Delete</button>
+  </form>
+  <form action="/celebrities/edit/{{this._id}}">
+    <button type="submit">Update</button>
+  </form>
+  {{/each}}
+</div>

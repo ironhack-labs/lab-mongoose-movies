@@ -1,0 +1,9 @@
+<h2>Edit celebrity</h2>
+{{#with seed}}
+<form method="POST" action="/celebrities/edit/{{this._id}}">
+  <input type="text" value="{{this.name}}" name="name">
+  <input type="text" value="{{this.occupation}}" name="occupation">
+  <input type="text" value="{{this.catchPhrase}}" name="catchPhrase">
+  <button type="submit">Update</button>
+</form>
+{{/with}}
