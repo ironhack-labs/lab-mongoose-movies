@@ -1,7 +1,19 @@
-<h2 class="title">Edit celebrity page</h2>
-<form method="POST">
-  <input type="text" name="name" id="name" placeholder="name" value="{{name}}">
-  <input type="text" name="occupation" id="occupation" placeholder="occupation" value="{{occupation}}">
-  <textarea name="catchPhrase" id="catchPhrase" cols="50" rows="7" placeholder="Write something they said...">{{catchPhrase}}</textarea>
-  <button type="submit">Update</button>
+<h2 class="title text-center">Edit celebrity page</h2>
+<form method="POST" class="w-75 mx-auto mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 mt-3">
+      <input class="form-control" type="text" name="name" id="name" placeholder="name" value="{{name}}" required>
+    </div>
+    <div class="col-md-4 col-12 mt-3">
+      <input class="form-control" type="text" name="occupation" id="occupation" placeholder="occupation" value="{{occupation}}">
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-8 col-12">
+      <textarea class="form-control" name="catchPhrase" id="" cols="50" rows="7" placeholder="Write something they said...">{{catchPhrase}}</textarea>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <button type="submit" class="btn btn-success btn-lg">Update</button>
+  </div>
 </form>
