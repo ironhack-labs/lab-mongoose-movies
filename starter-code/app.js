@@ -57,6 +57,8 @@ app.locals.title = "TIERRA MEDIA";
 const index = require("./routes/index");
 app.use("/", index);
 
+app.use("/", require("./routes/celebrities"));
+
 const celebrities = require("./routes/celebrities");
 app.use("/celebrities",celebrities);
 
