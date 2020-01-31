@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 
-const schema = new mongoose.Schema(
+const celebritySchema = new mongoose.Schema(
   {
     name: String,
     occupation: String,
     catchPrase: String
+  },
+  {
+    timestamps: true
   }
-  // {
-  //   timestamps: true
-  // }
 );
 
-module.exports = mongoose.model("celebrity", schema);
+const Celebrity = mongoose.model("Celebrity", celebritySchema);
+module.exports = Celebrity;
