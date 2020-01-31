@@ -1,0 +1,16 @@
+<form action="/celebrities/show/{{celeb._id}}" method="post" class="form">
+    <h1 class="title">Create celebrity</h1>
+
+    <label class="label" for="name">Name</label>
+    <input class="input" id="name" type="text" name="name" value={{celeb.name}}>
+
+    <label class="label" for="occupation">Occupation</label>
+    <input class="input" id="occupation" type="text" name="occupation" value={{celeb.occupation}}>
+
+    <label class="label" for="catch-phrase">Catch Phrase</label>
+    <input class="input" id="catch-phrase" type="text" name="catchPhrase" value={{celeb.catchPhrase}}>
+
+
+    <button class="btn">ok</button>
+    {{!-- <input class="btn" type="submit" value="ok"> --}}
+</form>

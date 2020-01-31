@@ -1,0 +1,25 @@
+<div class="page">
+    <h2 class="title">All Movies</h2>
+    <hr>
+
+    {{#unless movies}}
+    <p>no movies yet sorry</p>
+    {{/unless}}
+
+    <ul class="list artists">
+    {{#each movies}}
+        <li class="artist">
+            {{this.title}}
+            <a class="link" href="/movies/show/{{this._id}}">... see more</a>
+
+            <a class="btn" href="/movies/show/{{this._id}}/edit">edit movie</a>
+
+            <form action="/movies/show/{{this._id}}/delete" method="post" class="form">
+                <button class="btn">kill movie</button>
+            </form>
+
+        </li>
+    {{/each}}
+    </ul>
+
+</div>

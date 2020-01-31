@@ -1,91 +1,73 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 * {
   box-sizing: border-box;
   padding: 0;
-  margin: 0;
-}
+  margin: 0; }
 
 body {
   font-family: Arial;
   max-width: 1280px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 table, td, th {
   border: 1px solid;
-  border-collapse: collapse;
-}
+  border-collapse: collapse; }
 
 td, th {
   padding: 10px;
-  text-align: center;
-}
+  text-align: center; }
 
 a {
   text-decoration: none;
-  color: inherit
-}
+  color: inherit; }
 
 .title {
   margin-bottom: 20px;
-  font-size: 1.6rem;
-}
+  font-size: 1.6rem; }
 
 .link:hover {
-  color: darksalmon
-}
+  color: darksalmon; }
 
 .row,
 .col {
-  display: flex;
-}
+  display: flex; }
 
 .col {
-  flex-direction: column;
-}
-
+  flex-direction: column; }
 
 .form.samples.kit .instrument {
   min-height: 200px;
   flex: 1;
   max-width: 300px;
-  background: dodgerblue;
-}
+  background: dodgerblue; }
 
 .form.samples.kit #instruments {
-  justify-content: flex-start;
-}
+  justify-content: flex-start; }
 
 .form {
   display: flex;
   flex-direction: column;
   max-width: 540px;
   margin-bottom: 20px;
-  padding: 10px;
-}
+  padding: 10px; }
 
 .form .row {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 15px;
-}
+  margin-bottom: 15px; }
 
 .form .row.justify-start {
-  justify-content: start;
-}
+  justify-content: start; }
 
 .form .label {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .btn {
   outline: none;
@@ -93,60 +75,50 @@ a {
   color: whitesmoke;
   cursor: pointer;
   border-color: black;
-  width: fit-content;
-}
+  width: fit-content; }
 
 .btn.is-active,
 .btn:hover {
   background: whitesmoke;
-  color: black;
-}
+  color: black; }
 
 .form .input,
 .form .btn {
-  height: 38px;
-}
+  height: 38px; }
 
 .form textarea.input {
   min-height: 38px;
   height: 100px;
   width: 100%;
-  max-width: 100%;
-}
+  max-width: 100%; }
 
 .form .input,
 .form textarea.input,
 .form .btn {
-  border: 1px solid black;
-}
+  border: 1px solid black; }
 
 .form .input {
   padding: 5px 0 5px 20px;
   margin-bottom: 15px;
   width: 100%;
-  outline: none;
-}
+  outline: none; }
 
 .form select,
 .form .input,
 .form option {
-  background: whitesmoke;
-}
+  background: whitesmoke; }
 
 .form .input.color {
   height: 32px;
   width: 32px;
-  padding: 0;
-}
+  padding: 0; }
 
 .form .row > .input,
 .form .row > .btn {
-  margin: 0;
-}
+  margin: 0; }
 
 .form .row > .input + .icon {
-  margin-left: 20px;
-}
+  margin-left: 20px; }
 
 .form .btn {
   display: flex;
@@ -155,8 +127,7 @@ a {
   max-width: 200px;
   cursor: pointer;
   outline: none;
-  margin-top: 15px;
-}
+  margin-top: 15px; }
 
 #header-main {
   justify-content: space-between;
@@ -165,25 +136,20 @@ a {
   color: whitesmoke;
   height: 50px;
   align-items: center;
-  padding: 0 20px;
-}
+  padding: 0 20px; }
 
 .logo {
-  font-size: 1rem;
-}
+  font-size: 1rem; }
 
 .page {
-  padding: 0 20px;
-}
-
+  padding: 0 20px; }
 
 .list.artists {
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 20px;
-  grid-row-gap: 20px;
-}
+  grid-row-gap: 20px; }
 
 .list.artists .artist {
   height: 240px;
@@ -193,5 +159,6 @@ a {
   align-items: center;
   border: 1px solid;
   padding: 10px;
-  border-radius: 0.3rem;
-}
+  border-radius: 0.3rem; }
+
+/*# sourceMappingURL=style.css.map */

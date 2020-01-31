@@ -1,0 +1,25 @@
+<div class="page">
+    <h2 class="title">All Celebrities</h2>
+    <hr>
+
+    {{#unless celebs}}
+    <p>no labels yet sorry</p>
+    {{/unless}}
+
+    <ul class="list artists">
+    {{#each celebs}}
+        <li class="artist">
+            {{this.name}}
+            <a class="link" href="/celebrities/show/{{this._id}}">... see more</a>
+
+            <a class="btn" href="/celebrities/show/{{this._id}}/edit">edit celebrity</a>
+
+            <form action="/celebrities/show/{{this._id}}/delete" method="post" class="form">
+                <button class="btn">kill celebrity</button>
+            </form>
+
+        </li>
+    {{/each}}
+    </ul>
+
+</div>
