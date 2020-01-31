@@ -58,4 +58,27 @@ router.post('/:id/delete', async (req, res, next) => {
 	}
 });
 
+// Update route
+router.get('/:id/edit', async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const celebrity = await Celebrity.findById(id);
+		console.log(`This celebrity is going to be edited: ${celebrity}`);
+		res.render('celebrities/edit', celebrity);
+	} catch (error) {
+		next(error.message);
+	}
+});
+
+router.post('/:id/edit', async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const { name, occupation, catchPhrase } = req.body;
+		await Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase });
+		res.redirect('/celebrities');
+	} catch (error) {
+		next(error.message);
+	}
+});
+
 module.exports = router;
