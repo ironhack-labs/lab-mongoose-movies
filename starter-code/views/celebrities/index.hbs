@@ -1,9 +1,5 @@
-<h2 class="title text-center">Celebrities 🎭</h2>
-<div class="container mt-4">
-  <div class="row justify-content-center">
+{{> cardHeader heading="Celebrities 🎭"}}
     {{#each celebrity}}
       {{> itemCard heading=name item="celebrities" id=_id}}
     {{/each}}
-  </div>
-</div>
 {{> addContainer item="celebrities"}}
