@@ -60,6 +60,12 @@ const movies = [
     genre: "Sci-fy",
     plot:
       "Andrei Tarkovsky masterpiece is a Soviet science fiction art film based on Stanisław Lem's novel of the same name published in 1961"
+  },
+  {
+    title: "Eternal Sunshine of the Spotless Mind",
+    genre: "Drama",
+    plot:
+      "The film uses elements of the psychological thriller and a nonlinear narrative to explore the nature of memory and romantic love"
   }
 ];
 
