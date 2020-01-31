@@ -5,6 +5,7 @@ const Movie = require("../models/Movie");
 // Show all movies
 router.get("/", async (req, res, next) => {
   try {
+    console.log("Entro en movies")
     const movies = await Movie.find();
     res.render("movies/index", { title: "Movies | List", movies });
   } catch (err) {

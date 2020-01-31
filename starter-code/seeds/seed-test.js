@@ -23,7 +23,7 @@ const celebrities = [
 const movies = [
   {
     title: "Inception",
-    genre: "Action, Thriller, Science Fictio",
+    genre: "Action, Thriller, Science Fiction",
     plot: "The protagonist must enter the dreams of his victim and introduce an idea into his mind"
   },
   {
@@ -32,15 +32,15 @@ const movies = [
     plot: "A Roman general forced to be a gladiator seeks revenge against his family's murderer"
   },
   {
-    title: "The Goofather",
+    title: "The Goodfather",
     genre: "Thriller",
     plot: "History of the family of Italian gangsters most powerful in New York"
   }
 ];
 
 connection(async () => {
-  //await Celebrity.collection.drop();
-  //await Movie.collection.drop();
+  await Celebrity.collection.drop();
+  await Movie.collection.drop();
   await Celebrity.create(celebrities);
   await Movie.create(movies);
 });

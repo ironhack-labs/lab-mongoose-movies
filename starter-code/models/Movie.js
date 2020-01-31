@@ -4,7 +4,7 @@ const Movie = new mongoose.Schema(
   {
     title: String,
     genre: String,
-    plot : String
+    plot: String
   },
   {
     timestamps: true
