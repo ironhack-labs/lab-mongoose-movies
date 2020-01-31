@@ -31,7 +31,7 @@ router.get("/:id/edit", async (req, res, next) => {
   next();
 });
 
-// post add new
+// post add new add
 router.post("/new", async (req, res, next) => {
   try {
     const { name, occupation, catchPhrase } = req.body; // request del body

@@ -46,6 +46,34 @@ router.post("/:id/delete", async (req, res, next) => {
   }
 });
 
+// post update movies
+router.post("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { title, genre, plot } = req.body;
+    const movies = await Movies.findByIdAndUpdate(id, {
+      title,
+      genre,
+      plot
+    });
+    console.log(` movies updated ${movies} `);
+    return res.redirect("/movies");
+  } catch (error) {
+    console.log(` Error updating movies by id in database  ${error}`);
+  }
+});
+//get edit
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const movies = await Movies.findById(id);
+    res.render("movies/edit", { movies });
+  } catch (error) {
+    console.log(` Error editing movies by id ${error}`);
+  }
+  next();
+});
+
 //get show view details
 router.get("/:id", async (req, res, next) => {
   try {
