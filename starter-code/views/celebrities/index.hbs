@@ -1,16 +1,22 @@
 <h2>Celebrities</h2>
 {{#each celebrity}}
-<div class="card-body">
-  <div class="row">
-    <div class="col-8" style="display:flex; align-items:center;">
-      <div>
-        <b>{{this.name}}</b> <a href="/celebrities/show/{{this._id}}">Details</a><a
-          href="/celebrities/delete/{{this._id}}">Delete</a><a href="/celebrities/edit/{{this._id}}">Edit</a>
+<div class="card mb-4">
+  <div class="card-body">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-sm">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text">{{this.occupation}}</p>
+        </div>
+        <div class="col-sm-3 justify-content-md-center">
+          <a href="/celebrities/show/{{this._id}}" class="btn btn-primary">Details</a>
+          <a href="/celebrities/edit/{{this._id}}" class="btn btn-warning">Edit</a>
+          <a href="/celebrities/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 {{/each}}
 
-<a href="/celebrities/add">Add a celebrity</a>
-{{>returnHome}}
+<a href="/celebrities/add" class="btn btn-success d-flex justify-content-md-center">Add a celebrity</a>

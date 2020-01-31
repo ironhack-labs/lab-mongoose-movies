@@ -1,16 +1,22 @@
 <h2>Movies</h2>
 {{#each movie}}
-<div class="card-body">
-  <div class="row">
-    <div class="col-8" style="display:flex; align-items:center;">
-      <div>
-        <b>{{this.title}}</b> <a href="/movies/show/{{this._id}}">Details</a><a
-          href="/movies/delete/{{this._id}}">Delete</a><a href="/movies/edit/{{this._id}}">Edit</a>
+<div class="card mb-4">
+  <div class="card-body">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-sm">
+          <h5 class="card-title">{{this.title}}</h5>
+          <p class="card-text">{{this.genre}}</p>
+        </div>
+        <div class="col-sm-3 justify-content-md-center">
+          <a href="/movies/show/{{this._id}}" class="btn btn-primary">Details</a>
+          <a href="/movies/edit/{{this._id}}" class="btn btn-warning">Edit</a>
+          <a href="/movies/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 {{/each}}
 
-<a href="/movies/add">Add a movie</a>
-{{>returnHome}}
+<a href="/movies/add" class="btn btn-success d-flex justify-content-md-center">Add a movie</a>

@@ -1,5 +1,18 @@
 <h2>{{celebrity.name}} details</h2>
-{{celebrity.name}}
-{{celebrity.occupation}}
-{{celebrity.catchPhrase}}
-{{>returnHome}}
+<div class="card">
+  <div class="card-body">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-sm">
+          <h5 class="card-title">{{celebrity.name}}</h5>
+          <p class="card-text">{{celebrity.occupation}}</p>
+          <p class="blockquote mb-0">{{celebrity.catchPhrase}}</p>
+        </div>
+        <div class="col-sm-2 justify-content-md-center">
+          <a href="/celebrities/edit/{{celebrity._id}}" class="btn btn-warning">Edit</a>
+          <a href="/celebrities/delete/{{celebrity._id}}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
