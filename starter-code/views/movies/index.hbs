@@ -1,6 +1,12 @@
 <h2>Movies</h2>
 {{#each movies}}
 <p><a href="/movies/{{this._id}}">{{this.title}}</a></p>
+<div>
+    <form action="/movies/{{_id}}/delete" method="POST">
+        <input type="hidden" name="id" class="text" value="{{_id}}">
+        <input type="submit" class="submit" value="Delete Movie">
+    </form>
+</div>
 {{/each}}
 <div>
     <a href="/movies" style="color: red;">Go to Movies</a>
