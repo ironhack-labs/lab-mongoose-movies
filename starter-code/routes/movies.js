@@ -25,4 +25,39 @@ router.get('/:id', (req, res, next) => {
     })
 });
 
+/* /movies/new page */
+router.get('/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
+/* /movies/new POST data from form */
+router.post('/new', async (req, res, next) => {
+  try {
+    const newMovie = {
+      title : req.body.title,
+      director : req.body.director,
+      description : req.body.description,
+    }
+
+    const newMovieRecord = new Movie(newMovie);
+    await newMovieRecord.save()
+
+    res.redirect('index');
+
+  } catch(error) {
+    res.redirect('new');
+  }
+});
+
+/* /movies/:id/delete GET data from delete link */
+router.get('/:id/delete', async (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(movie => {
+      res.redirect('/movies/index');
+    })
+    .catch(error => {
+      next();
+    })
+});
+
 module.exports = router;

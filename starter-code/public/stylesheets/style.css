@@ -9,6 +9,10 @@ a {
 .go-back-link {
   font-size: 0.8rem; }
 
+.delete-link {
+  font-size: 0.8rem;
+  color: red; }
+
 /** CELEBRITIES **/
 .celebrity-card span {
   margin-right: 10px; }
