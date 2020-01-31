@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
-app.locals.title = "BIENVENIDO A LA TIERRA MEDIA";
+app.locals.title = "TIERRA MEDIA";
 
 const index = require("./routes/index");
 app.use("/", index);
