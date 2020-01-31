@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const Celebrities = require("../models/celebrity");
+const Celebrity = require("../models/celebrity");
+const multer = require("multer");
+
+// Route to upload from project base path
+const upload = multer({ dest: "./public/uploads" });
 
 /* GET show all celebrities */
 router.get("/", async (req, res, next) => {
   try {
-    const celebrities = await Celebrities.find();
+    const celebrities = await Celebrity.find();
     res.render("celebrities/index", { celebrities });
   } catch (error) {
     console.log(`Celebrities.js - Error retrieving all celebrities ${error}`);
@@ -18,10 +22,15 @@ router.get("/new", (req, res, next) => {
 });
 
 /* GET form to add a celebrity */
-router.post("/new", async (req, res, next) => {
+router.post("/new", upload.single("photo"), async (req, res, next) => {
   try {
-    const { name, occupation, catchPhrase } = req.body;
-    const obj = await Celebrities.create({ name, occupation, catchPhrase });
+    const celeb = new Celebrity({
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase,
+      picPath: `/uploads/${req.file.filename}`
+    });
+    const obj = await Celebrity.create(celeb);
     console.log(`Celebrities.js - Added new celebrity ${obj}`);
     res.redirect("/celebrities");
   } catch (error) {
@@ -34,7 +43,7 @@ router.post("/new", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const celebrity = await Celebrities.findById(id);
+    const celebrity = await Celebrity.findById(id);
     res.render("celebrities/show", { celebrity });
   } catch (error) {
     console.log(`Celebrities.js - Error finding celebrity by id ${error}`);
@@ -45,7 +54,7 @@ router.get("/:id", async (req, res, next) => {
 router.post("/:id/delete", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const celebrity = await Celebrities.findByIdAndRemove(id);
+    const celebrity = await Celebrity.findByIdAndRemove(id);
     console.log(`Celebrities.js - Celebrity deleted ${celebrity}`);
     res.redirect("/celebrities");
   } catch (error) {
@@ -57,7 +66,7 @@ router.post("/:id/delete", async (req, res, next) => {
 router.get("/:id/edit", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const celebrity = await Celebrities.findById(id);
+    const celebrity = await Celebrity.findById(id);
     res.render("celebrities/edit", { celebrity });
   } catch (error) {
     console.log(`Celebrities.js - Error editing celebrity by id ${error}`);
@@ -65,14 +74,17 @@ router.get("/:id/edit", async (req, res, next) => {
 });
 
 /* GET update a celebrity according to its id */
-router.post("/:id", async (req, res, next) => {
+router.post("/:id", upload.single("photo"), async (req, res, next) => {
   try {
     const { id } = req.params;
+    const picPath = `/uploads/${req.file.filename}`;
     const { name, occupation, catchPhrase } = req.body;
-    const celebrity = await Celebrities.findByIdAndUpdate(id, {
+
+    const celebrity = await Celebrity.findByIdAndUpdate(id, {
       name,
       occupation,
-      catchPhrase
+      catchPhrase,
+      picPath
     });
     console.log(`Celebrities.js - Celebrity updated ${celebrity} `);
     res.redirect("/celebrities");

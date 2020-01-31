@@ -5,7 +5,8 @@ const movieSchema = new Schema(
   {
     title: String,
     genre: String,
-    plot: String
+    plot: String,
+    picPath: String
   },
   {
     timestamps: true

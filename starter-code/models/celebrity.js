@@ -5,7 +5,8 @@ const celebritySchema = new Schema(
   {
     name: String,
     occupation: String,
-    catchPhrase: String
+    catchPhrase: String,
+    picPath: String
   },
   {
     timestamps: true

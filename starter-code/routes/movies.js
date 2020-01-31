@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const Movies = require("../models/movie");
+const Movie = require("../models/movie");
+const multer = require("multer");
+
+// Route to upload from project base path
+const upload = multer({ dest: "./public/uploads" });
 
 /* GET show all movies */
 router.get("/", async (req, res, next) => {
   try {
-    const movies = await Movies.find();
+    const movies = await Movie.find();
     res.render("movies/index", { movies });
   } catch (error) {
     console.log(`Movies.js - Error retrieving all movies ${error}`);
@@ -18,10 +22,15 @@ router.get("/new", (req, res, next) => {
 });
 
 /* GET form to add a movie */
-router.post("/new", async (req, res, next) => {
+router.post("/new", upload.single("photo"), async (req, res, next) => {
   try {
-    const { title, genre, plot } = req.body;
-    const obj = await Movies.create({ title, genre, plot });
+    const movie = new Movie({
+      title: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot,
+      picPath: `/uploads/${req.file.filename}`
+    });
+    const obj = await Movie.create(movie);
     console.log(`Movies.js - Added new movie ${obj}`);
     res.redirect("/movies");
   } catch (error) {
@@ -34,7 +43,7 @@ router.post("/new", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const movie = await Movies.findById(id);
+    const movie = await Movie.findById(id);
     res.render("movies/show", { movie });
   } catch (error) {
     console.log(`Movie.js - Error finding movie by id ${error}`);
@@ -46,7 +55,7 @@ router.post("/:id/delete", async (req, res, next) => {
   try {
     console.log("EEEEENTRA");
     const { id } = req.params;
-    const movie = await Movies.findByIdAndRemove(id);
+    const movie = await Movie.findByIdAndRemove(id);
     console.log(`Movies.js - Movie deleted ${movie}`);
     res.redirect("/movies");
   } catch (error) {
@@ -58,7 +67,7 @@ router.post("/:id/delete", async (req, res, next) => {
 router.get("/:id/edit", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const movie = await Movies.findById(id);
+    const movie = await Movie.findById(id);
     res.render("movies/edit", { movie });
   } catch (error) {
     console.log(`Movies.js - Error editing movie by id ${error}`);
@@ -66,14 +75,17 @@ router.get("/:id/edit", async (req, res, next) => {
 });
 
 /* GET update a movie according to its id */
-router.post("/:id", async (req, res, next) => {
+router.post("/:id", upload.single("photo"), async (req, res, next) => {
   try {
     const { id } = req.params;
+    const picPath = `/uploads/${req.file.filename}`;
     const { title, genre, plot } = req.body;
-    const movie = await Movies.findByIdAndUpdate(id, {
+
+    const movie = await Movie.findByIdAndUpdate(id, {
       title,
       genre,
-      plot
+      plot,
+      picPath
     });
     console.log(`Movies.js - Movie updated ${movie} `);
     res.redirect("/movies");
