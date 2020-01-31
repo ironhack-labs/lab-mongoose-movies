@@ -48,11 +48,13 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 //linea para meter los partials
 hbs.registerPartials(__dirname + "/views/celebrities/partials");
+// hbs.registerPartials(__dirname + "/views/movies/partials");
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "Alberto - CRUD";
 
 const index = require("./routes/index");
 app.use("/", index);
@@ -60,5 +62,9 @@ app.use("/", index);
 //linea agregada para poder ver el archivo celebrities.js
 const celebrities = require("./routes/celebrities");
 app.use("/celebrities", celebrities);
+
+//linea agregada para poder ver el archivo movies.js
+const movies = require("./routes/movies");
+app.use("/movies", movies);
 
 module.exports = app;
