@@ -13,4 +13,18 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
+// Retrieve one document route
+router.get('/:id', async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const movie = await Movie.findById(id);
+		const { title, genres, plot } = movie;
+		console.log(`Found movie is ${movie}`);
+		res.render('movies/show', { title, genres, plot });
+	} catch (error) {
+		next();
+		console.log(error.message);
+	}
+});
+
 module.exports = router;
