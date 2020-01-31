@@ -5,7 +5,7 @@ const Celebrity = require('../models/celebrity.js');
 withDbConnection (async () => {
   await Celebrity.deleteMany();
   await Celebrity.create ( [
-    { name: "Steve Jobs", occupation: "Developer", catchPhrase:"Connecting th dots" },
+    { name: "Steve Jobs", occupation: "Developer", catchPhrase:"Connecting the dots" },
     { name: "Harry Potter", occupation: "Hogwart's Student", catchPhrase:"Expelliarmus" },
     { name: "Marc", occupation: "Teacher", catchPhrase:"Ya lo iréis pillando" }
   ])

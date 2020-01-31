@@ -14,15 +14,17 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-/* Asi pintamos el error con .then
-router.get('/', (req, res, next) => {
-  celebrity.find()
-    .then( (Celebrity) => {
-      res.render('celebrities/index', {Celebrity});
-    })
-    .catch( (err) => console.log('Error ocurred:', err));
-})
-*/
-
+// Show the list celebrity ID in celebrity/show
+router.get("/show/:id", async (req, res, next) => {
+  try {
+    //const id  = req.params.id;
+    const { id } = req.params;
+    const foundObjFromId = await celebrity.findById(id);
+    res.render("celebrities/show", { foundObjFromId });
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
 
 module.exports = router;
