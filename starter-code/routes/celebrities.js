@@ -19,6 +19,17 @@ router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
 });
 
+//get edit
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const celebrity = await Celebrity.findById(id);
+    res.render("celebrities/edit", { celebrity });
+  } catch (error) {
+    console.log(`Celebrities.js - Error editing celebrity by id ${error}`);
+  }
+});
+
 // crear nuevos con metodo post
 router.post("/new", async (req, res, next) => {
   try {
@@ -43,6 +54,21 @@ router.post("/:id/delete", async (req, res, next) => {
   }
 });
 
+router.post("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+    const celebrity = await Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    });
+    console.log(`Celebrities.js - Celebrity updated ${celebrity} `);
+    res.redirect("/celebrities");
+  } catch (error) {
+    console.log(`Celebrities.js - Error updating celebrity by id ${error}`);
+  }
+});
 // get show celebrities id esto siempre el ultimo
 router.get("/:id", async (req, res, next) => {
   try {

@@ -5,15 +5,7 @@
 
 
       {{#each celebrities}}
-      <form action="/celebrities/{{ this._id }}/delete" method="POST">
-        <div class="card m-3">
-          <div class="card-header">
-            {{ this.name}}
-            <button type="submit" class="btn btn-danger float-right">Delete</button>
-            <a href="/celebrities/{{this._id}}" class="btn btn-primary float-right mr-2">View</a>
-          </div>
-        </div>
-      </form>
+      {{> celebPartial this}}
       {{/each}}
 
       <div class="row">
