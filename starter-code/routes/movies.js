@@ -57,4 +57,18 @@ router.post("/", (req, res, next) => {
   });
 });
 
+//delete movie
+router.post("/:id/delete", (req, res, next) => {
+  withDbConnection(async () => {
+    try {
+      const movie = await Movie.findById(req.params.id);
+      await Movie.deleteOne(movie);
+      res.redirect("/movies");
+    } catch (error) {
+      next();
+      return error;
+    }
+  });
+});
+
 module.exports = router;
