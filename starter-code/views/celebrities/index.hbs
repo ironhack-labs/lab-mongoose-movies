@@ -1,11 +1,9 @@
-<h2>Nombres de celebrities</h2>
+<h2>Personajes Tierra Media</h2>
 
 {{#each celebrities}}
-{{#with this}}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <p class="card-text">{{name}}</p>
+    <p class="card-text">{{this.name}}</p>
   </div>
 </div>
-{{/with}}
 {{/each}}
