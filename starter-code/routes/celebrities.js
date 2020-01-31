@@ -14,6 +14,20 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+/* Según la celebrity por ID que quiera ver devuelvo todos sus datos */
+
+router.get("/:id", async (req, res, next) => {
+const { id } = req.params;
+try {
+  const celebridad = await Celebrity.findById(id);
+  res.render("celebrities/show", { celebridad }); // Esta línea es la que le pasa cosas al .hbs
+} catch (err) {
+  res.send(`Error al mostrar una celebrity: ${err}`);
+  next();
+}
+});
+
+
 /* Exporto un objeto "router" con todas las celebrities */
 
 module.exports = router;
