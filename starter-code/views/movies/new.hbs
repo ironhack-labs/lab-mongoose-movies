@@ -1,0 +1,13 @@
+<h2>NEW</h2>
+
+<form class="form" method="POST" action="/movies">
+  {{> inputForm label="Nombre de la celebridad" placeholder="La bella y la bestia" name="title" value=obj.title }}
+  {{> inputForm label="Ocupación de la celebridad" placeholder="género" name="genre"
+  value=obj.genre }}
+  {{> inputForm label="Frase de la celebridad" placeholder="Sintaxis" name="plot"
+  value=obj.plot }}
+  <button type="submit">Submit</button>
+</form>
+
+
+<a class="button" href="/movies/">Return</a>

@@ -1,5 +1,6 @@
 const withDbConnection = require("../withDbConnection");
 const Celebrity = require("../models/Celebrity");
+const Movies = require("../models/Movies");
 
 const dataCel = [
   { name: "Adam Samler", occupation: "Actor", catchPhrase: "Mola la leche" },
@@ -15,8 +16,15 @@ const dataCel = [
   }
 ];
 
+const dataCel2 = [
+  { title: "La vida es Bella", genre: "Drama", plot: "Peli bonita de cosas" },
+  { title: "Terminator", genre: "Acción", plot: "Tiros" }
+];
+
 withDbConnection(async () => {
   //await Celebrity.collection.drop();
   await Celebrity.deleteMany();
+  await Movies.deleteMany();
   await Celebrity.create(dataCel);
+  await Movies.create(dataCel2);
 });

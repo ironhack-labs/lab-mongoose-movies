@@ -1,0 +1,19 @@
+<h2>Lista Películas</h2>
+{{#each movies}}
+
+<ul>
+  <li>
+    <a href="/movies/show/{{this._id}}">{{this.title}}</a>
+    <form action="/movies/delete/{{this._id}}
+    " method="POST">
+      <button type="submit">Borrar</button>
+    </form>
+    <form action="/movies/edit/{{this._id}}">
+      <button type="submit">editar</button>
+    </form>
+  </li>
+</ul>
+
+{{/each}}
+
+<a class="button" href="/movies/new">Crear Nuevo</a>
