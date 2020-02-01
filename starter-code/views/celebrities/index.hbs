@@ -2,5 +2,5 @@
 {{#if error}} <h2>No found celebrities</h2> {{/if}}
 
 {{#each celebrities}}
-<li>{{ this.name }}</li>
+<li><a href="/celebrities/{{this._id}}">{{ this.name }}</a></li>
 {{/each}}
