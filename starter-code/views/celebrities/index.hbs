@@ -1,12 +1,11 @@
-<h2>Celebrities</h2>
-
-
 <div>
-  {{#each celebrities}}
-  {{> celeb this}}
-  {{/each}}
+  <a href="/">Home</a>
 </div>
 
+
+<h2>Celebrities</h2>
 <div>
-  <a href="/celebrities/index">Go to celebrities route</a>
+  {{#each celebrities}}
+  <p>{{this.name}}</p>
+  {{/each}}
 </div>
