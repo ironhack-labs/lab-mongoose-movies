@@ -22,9 +22,9 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-router.get('/new', async (req, res, next) => {
+router.get('/form', async (req, res, next) => {
     try {
-        res.render('celebrities/new');
+        res.render('celebrities/form');
     } catch (err) {
         console.error(err);
         next();
@@ -39,7 +39,7 @@ router.post('/', async (req, res, next) => {
         res.redirect('/celebrities');
     } catch (err) {
         console.error(err);
-        res.redirect('celebrities/new');
+        res.redirect('celebrities/form');
         next();
     }
 });
@@ -57,7 +57,7 @@ router.post('/:id/delete', async (req, res, next) => {
 router.get('/:id/edit', async (req, res, next) => {
     try {
         const celebrity = await celebrityModel.findById(req.params.id);
-        res.render('celebrities/new', { celebrity });
+        res.render('celebrities/form', { celebrity });
     } catch (err) {
         console.error(err);
         next();
