@@ -4,13 +4,13 @@
 <div style="margin: 20px 0px">
 <ul class="list-group" style="margin-top: 70px; max-width: 800px;">
 {{#each celebrity}}
-  <li class="list-group-item">
-    VER FICHA: <a href="/celebrities/{{_id}}">{{name}}</a>
+  <li class="list-group-item" style="display: flex;align-items: center;">
+    <a style="float: left; font-size: 18px" href="/celebrities/{{_id}}">{{name}}</a>
     <form action="/celebrities/delete/{{_id }}" method="POST">
-      <input class="btn btn-primary" type="submit" value="Borrar {{name}}" style="margin-top: 20px;">
+      <input class="btn btn-primary" type="submit" value="Borrar" style="margin: 15px;">
     </form>
     <form action="/celebrities/edit/{{_id }}" method="GET">
-      <input class="btn btn-primary" type="submit" value="Editar" style="margin-top: 20px;">
+      <input class="btn btn-primary" type="submit" value="Editar" style="margin: 15px;">
     </form>
  
   </li>
