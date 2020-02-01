@@ -2,5 +2,10 @@
 {{#if error}} <h2>No found celebrities</h2> {{/if}}
 <a href="/celebrities/new">Add Celebrity</a>
 {{#each celebrities}}
-<li><a href="/celebrities/{{this._id}}">{{ this.name }}</a></li>
+<li>
+  <a href="/celebrities/{{this._id}}">{{ this.name }}</a>
+  <form action="/celebrities/{{this._id}}/delete" method="POST">
+    <input type="submit" value="delete">
+  </form>
+</li>
 {{/each}}

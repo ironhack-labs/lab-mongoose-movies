@@ -1,24 +1,14 @@
 const Celebrity = require('../models/Celebrity')
 
 exports.celebritiesGet = async (req, res, next) => {
-  const celebrities = await Celebrity.find()
-
-  if( celebrities.length === 0) {
-    res.render('celebrities/', {error: true})
-    next()
-  }
-
+  const celebrities = await Celebrity.find().catch( err => next( err ))
   res.render('celebrities/', {celebrities})
 }
 
 
 exports.celebrityGet = async (req, res, next) => {
-  const celebrity = await Celebrity.findById(req.params.id)
-  if( !celebrity ){
-    res.render('celebrities/show', {error: true})
-    next()
-  }
-
+  const celebrity = await Celebrity.findById( req.params.id )
+                                   .catch( err=>next( err ) )
   res.render('celebrities/show', {celebrity})
 
 }
@@ -26,14 +16,16 @@ exports.celebrityGet = async (req, res, next) => {
 exports.celebritiesPost = async (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body
   const newCelebrity = { name, occupation, catchPhrase }
-  const celebrityCreated = await Celebrity.create( newCelebrity )
-  console.log(celebrityCreated)
-  if( celebrityCreated ) return res.redirect('/celebrities')
 
-  res.render('celebrities/new', {...newCelebrity, error: true})
+  await Celebrity.create( newCelebrity )
+                 .catch(err => next(err))
+  res.redirect('/celebrities')
 }
 
-exports.celebrityNewGet = (req, res, next) => {
-  res.render('celebrities/new')
+exports.celebrityDelPost = async (req, res, next) => {
+  await Celebrity.findByIdAndDelete( req.params.id )
+                 .catch(err => next(err))
+  res.redirect('/celebrities')
 }
 
+exports.celebrityNewGet = (req, res, next) => res.render('celebrities/new')
