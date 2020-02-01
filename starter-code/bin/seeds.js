@@ -1,19 +1,36 @@
-const celebrityModel = require("../models/Celebrity");
+const Celebrity = require("../models/Celebrity");
+const Movie = require("../models/Movie");
 const mongoose = require("mongoose");
-const celebrities = [{
-    name: "Bernie Sanders",
-    occupation: "US Senator",
-    catchPhrase: "Medicare for all!",
+// const celebrities = [{
+//     name: "Bernie Sanders",
+//     occupation: "US Senator",
+//     catchPhrase: "Medicare for all!",
+// },
+// {
+//     name: "Donald Trump",
+//     occupation: "US President",
+//     catchPhrase: "She's nasty!",
+// },
+// {
+//     name: "Elizabeth Warren",
+//     occupation: "US Senator",
+//     catchPhrase: "I have a plan.",
+// }]
+
+const movies = [{
+  title: "The Lion King",
+  genre: "Animation",
+  plot: "A lion becomes king"
 },
 {
-    name: "Donald Trump",
-    occupation: "US President",
-    catchPhrase: "She's nasty!",
+  title: "Titanic",
+  genre: "Drama",
+  plot: "based on true story"
 },
 {
-    name: "Elizabeth Warren",
-    occupation: "US Senator",
-    catchPhrase: "I have a plan.",
+  title: "It",
+  genre: "Horror",
+  plot: "Scary"
 }]
 
 mongoose
@@ -25,10 +42,20 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
-celebrityModel.create(celebrities)
-    .then(dbRes => {
-        console.log("Celebrities Inserted Successfully", dbRes)
-    })
-    .catch(dbErr => {
-        console.log("OH NO!", dbErr);
-    })
+// Celebrity.create(celebrities)
+//     .then(dbRes => {
+//         console.log("Celebrities Inserted Successfully", dbRes)
+//     })
+//     .catch(dbErr => {
+//         console.log("OH NO!", dbErr);
+//     })
+
+Movie.create(movies)
+  .then(dbRes => {
+    console.log("Movies Created Successfully", dbRes)
+  })
+  .catch(dbErr => {
+    console.log("OH NO!", dbErr);
+  })
+
+// run 'node bin/seeds.js' to create db
