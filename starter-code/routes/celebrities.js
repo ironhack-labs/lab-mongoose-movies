@@ -15,7 +15,6 @@ router.get("/", async (req, res, next) => {
 
 //get for a new celebrity
 router.get("/new", async (req, res, next) => {
-  console.log("hola");
   return res.render("celebrities/new");
 });
 
