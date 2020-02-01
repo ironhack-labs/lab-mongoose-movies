@@ -2,7 +2,11 @@
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
     {{#each celebrities}}
-      <li class="list-group-item"><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+      <li class="list-group-item"><a href="/celebrities/{{this._id}}">{{this.name}}</a>
+        <form action="/celebrities/delete/{{this._id}}" method="GET">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </li>
     {{/each}}
   </ul>
 </div>
