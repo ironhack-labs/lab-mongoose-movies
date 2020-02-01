@@ -13,4 +13,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//See one movies
+router.get("/:id", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const movie = await Movie.findById(id);
+    res.render("movies/show", { movie });
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+});
+
 module.exports = router;
