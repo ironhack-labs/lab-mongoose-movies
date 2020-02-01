@@ -19,7 +19,7 @@ router.get("/new", (req, res) => {
     res.render("celebrities/new");
   });
   
-  router.post("/new", (req, res) => {
+router.post("/new", (req, res) => {
           const { name, occupation, catchPhrase } = req.body;
           // if some tests must be performed, do so before database query
           celebrityModel
@@ -44,5 +44,20 @@ router.get("/new", (req, res) => {
         .catch(dbErr => console.error("OH no, db err :", dbErr));
     });
     
+    router.post("/:id/delete", (req, res) => {
+        const { name, occupation, catchPhrase } = req.body;
+        // if some tests must be performed, do so before database query
+        celebrityModel
+    .findByIdAndDelete(req.params.id)
+    .then(dbRes => res.redirect("/celebrities/all"))
+    .catch(dbErr => {
+          console.log(dbErr);
+          res.render("celebrities/all");
+        });
+    });
+
+
+
+
     
     module.exports = router;

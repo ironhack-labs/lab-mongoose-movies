@@ -1,19 +1,22 @@
 <header>
-  <h2>All Celebrities</h2>
+    <h2>All Celebrities</h2>
 </header>
 <hr>
-    {{#unless celebrities}}
-    <p>no celebrities yet sorry</p>
-    {{/unless}}
+{{#unless celebrities}}
+<p>no celebrities yet sorry</p>
+{{/unless}}
 
-    <ul class="list label">
+<ul class="list label">
     {{#each celebrities}}
-        <li>
-            {{this.name}}
-            <a class="link" href="/celebrities/{{this._id}}">... see more</a>
-        </li>
+    <li>
+        {{this.name}}
+        <a class="link" href="/celebrities/{{this._id}}">... see more</a>
+        <form action="/celebrities/{{this._id}}/delete" method="post" class="form">
+        <button>delete this artist</button>
+        </form>
+    </li>
     {{/each}}
-    </ul>
+</ul>
 
-    <a class="link" href="/celebrities/new">create a new celebrity</a>
+<a class="link" href="/celebrities/new">create a new celebrity</a>
 </div>
