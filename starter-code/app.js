@@ -19,6 +19,7 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
@@ -52,7 +53,13 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const celebritiesRouter = require('./routes/celebrities')
 app.use('/', index);
+app.use('/celebrities', celebritiesRouter)
+
+
+const moviesRouter = require('./routes/movies')
+app.use('/movies', moviesRouter);
 
 
 module.exports = app;

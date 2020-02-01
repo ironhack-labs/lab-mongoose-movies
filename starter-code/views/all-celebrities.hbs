@@ -1,0 +1,9 @@
+<h2>Here are displayed the celebrities</h2>
+
+<ul>
+{{#each celebrity}}
+  <li>{{this.name}}: <a href="/celebrities/{{_id}}">see the details!</a></li>
+{{/each}}
+</ul>
+
+<p><a href="/celebrities/create-celebrity">create a new celebrity</a></p>
