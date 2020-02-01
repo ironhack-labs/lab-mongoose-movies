@@ -1,0 +1,7 @@
+<h2>EDIT CELEBRITY</h2>
+<form action="/celebrities/{{theCelebrity._id}}/edit" method="POST">
+  <input type="text" placeholder="Name" name="cName" value="{{theCelebrity.cName}}">
+  <input type="text" placeholder="Occupation" name="cOccupation" value="{{theCelebrity.cOccupation}}">
+  <input type="text" placeholder="Phrase" name="cCatchPhrase" value="{{theCelebrity.cCatchPhrase}}">
+  <input type="submit" value="EDIT">
+</form>

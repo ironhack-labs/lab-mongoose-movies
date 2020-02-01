@@ -21,6 +21,7 @@ router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
 });
 
+
 router.get("/:id", (req, res, next) => {
   celebrities.findOne({
       '_id': req.params.id
@@ -35,6 +36,43 @@ router.get("/:id", (req, res, next) => {
     })
 });
 
+router.get("/:id/edit", (req, res, next) => {
+  celebrities.findOne({
+      '_id': req.params.id
+    })
+    .then(theCelebrity => {
+      res.render('celebrities/edit', {
+        theCelebrity
+      });
+    })
+    .catch(error => {
+      console.log('Error trying to edit the celebrity: ', error);
+    })
+});
+
+router.post("/:id/edit", (req, res, next) => {
+  const {
+    cName,
+    cOccupation,
+    cCatchPhrase
+  } = req.body;
+  celebrities.findOneAndUpdate({
+      "_id": req.params.id
+    }, {
+      $set: {
+        cName,
+        cOccupation,
+        cCatchPhrase
+      }
+    })
+    .then((celebrity) => {
+      res.redirect('/celebrities');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+});
+
 router.post("/:id/delete", (req, res, next) => {
   celebrities.findOneAndRemove({
       '_id': req.params.id
@@ -44,6 +82,7 @@ router.post("/:id/delete", (req, res, next) => {
       console.log('Error while deleting celebrity: ', error);
     })
 });
+
 
 
 router.post('/new', (req, res, next) => {
