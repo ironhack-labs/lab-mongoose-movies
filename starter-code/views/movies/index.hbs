@@ -1,10 +1,15 @@
 <h2>Movies</h2>
 
-
-<div class="col-5">
-  {{#each movies}}
-  {{> movieList}}
-  {{/each}}
+<div class="row">
+  <div class="col-sm-10">
+    {{#each movies}}
+    {{> movieList}}
+    {{/each}}
+  </div>
 </div>
 
-<a href="/movies/new"><button type="submit" class="btn btn-success">Add a new movie</button></a>
+<div class="row">
+  <div class="col-sm-10">
+    <a href="/movies/new"><button type="submit" class="btn btn-success btn-add">Add a new movie</button></a>
+  </div>
+</div>

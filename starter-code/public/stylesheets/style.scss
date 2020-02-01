@@ -16,14 +16,6 @@ body {
   flex-direction: column;
 }
 
-a {
-  color: #000;
-}
-
-p {
-  margin: 0;
-}
-
 .btn-dark {
   background-color: #2081c3;
   border-color: #2081c3;
@@ -71,4 +63,36 @@ footer {
   background-color: transparent;
   border-color: transparent;
   color: $dark-color;
+}
+
+.card {
+  margin: 5px;
+  background-color: $back-color-shade;
+  border: 0px;
+  justify-content: baseline;
+  a {
+    color: #000;
+    :hover {
+      color: #000;
+      text-decoration: none;
+    }
+    :active {
+      text-decoration: none;
+    }
+  }
+}
+
+.card-title {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.col-8 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-add {
+  margin: 10px 20px;
 }
