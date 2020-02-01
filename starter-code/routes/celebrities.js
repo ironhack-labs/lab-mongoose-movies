@@ -53,4 +53,16 @@ router.get("/:id", async (req, res) => {
   }
 })
 
+router.get("/delete/:id", async (req, res) => {
+  try {
+    const {
+      id
+    } = req.params;
+    const obj = await Celebrity.findByIdAndRemove(id);
+    console.log(obj)
+    res.redirect("/celebrities")
+  } catch (err) {
+    console.log(`celebrities.js - error finding new celebrity by id ${err}`)
+  }
+})
 module.exports = router;
