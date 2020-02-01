@@ -1,12 +1,7 @@
 <h2 class="title text-center">{{title}}</h2>
 <div class="card mx-auto mt-4" id="item-container" style="width: 18rem;">
   <div class="card-body">
-    <h6 class="card-subtitle mb-2">Genre:</h6>
-    <ul>
-      {{#each genres}}
-        <li class="text-muted">{{this}}</li>
-      {{/each}}
-    </ul>
+    <h6 class="card-subtitle mb-2">Genre: <span class="text-muted">{{genre}}</span></h6>
 	  <p class="card-text">{{plot}}</p>
     <a href="/movies" class="card-link">Back to Index</a>
   </div>
