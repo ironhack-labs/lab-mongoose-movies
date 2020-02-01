@@ -27,6 +27,19 @@ router.get("/new", (req, res, next) => {
   });
 });
 
+/* GET edit */
+router.get("/:id/edit", (req, res, next) => {
+  withDbConnection(async () => {
+    const celebId = req.params.id;
+    try {
+      const celeb = await Celebrity.findById(celebId);
+      res.render("celebrities/edit", { celeb });
+    } catch (error) {
+      next(error);
+    }
+  });
+});
+
 /* POST new */
 router.post("/", (req, res, next) => {
   const celebrityData = {
@@ -72,6 +85,26 @@ router.get("/:id", (req, res, next) => {
       res.render("celebrities/show", { celeb });
     } catch (error) {
       next(error);
+    }
+  });
+});
+
+/* POST edit */
+router.post("/:id", (req, res, next) => {
+  const celebrityData = {
+    name: req.body.name,
+    occupation: req.body.name,
+    catchPhrase: req.body.catchPhrase
+  };
+
+  const celebId = req.params.id;
+  withDbConnection(async () => {
+    try {
+      await Celebrity.findByIdAndUpdate(celebId, celebrityData);
+      res.redirect("/celebrities");
+    } catch (error) {
+      next(error);
+      res.render("celebrities/new");
     }
   });
 });
