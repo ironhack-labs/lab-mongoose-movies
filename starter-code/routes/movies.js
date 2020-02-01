@@ -29,6 +29,40 @@ router.post("/new", async (req, res, next) => {
   res.redirect("/movies/new");
 });
 
+//Delete the celebrity
+router.get("/delete/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const obj = await Movie.findByIdAndRemove(id);
+  res.redirect("/movies");
+});
+
+//Update the Movie
+router.get("/edit/:id", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const seed = await Movie.findById(id);
+    return res.render("movies/edit", { seed });
+  } catch (error) {
+    next();
+  }
+});
+
+router.post("/edit/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const { title, genre, plot } = req.body;
+  try {
+    await Movie.findByIdAndUpdate(id, {
+      title,
+      genre,
+      plot
+    });
+    res.redirect("/movies");
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+});
+
 //See one movies
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
@@ -39,13 +73,6 @@ router.get("/:id", async (req, res, next) => {
     console.log(error);
     next();
   }
-});
-
-//delete the celebrity
-router.get("/delete/:id", async (req, res, next) => {
-  const { id } = req.params;
-  const obj = await Movie.findByIdAndRemove(id);
-  res.redirect("/movies");
 });
 
 module.exports = router;

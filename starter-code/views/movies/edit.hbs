@@ -1,0 +1,9 @@
+<h2>Edit Film</h2>
+{{#with seed}}
+<form method="POST" action="/movies/edit/{{this._id}}">
+  <input class="form-control form-control-lg" type="text" value="{{this.title}}" name="title">
+  <input class="form-control" type="text" value="{{this.genre}}" name="genre">
+  <input class="form-control form-control-sm" type="text" value="{{this.plot}}" name="plot">
+  <button type="submit" class="btn btn-success button2">Update</button>
+</form>
+{{/with}}
