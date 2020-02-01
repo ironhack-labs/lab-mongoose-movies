@@ -1,0 +1,19 @@
+<h2>Celebrities</h2>
+
+<div>
+  {{#each seed}}
+  {{>item}}
+  <div class="buttonfather">
+    <div class="button">
+      <form action="/celebrities/delete/{{this._id}}">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+    <div class="button">
+      <form action="/celebrities/edit/{{this._id}}">
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>
