@@ -1,0 +1,6 @@
+<h2>Celebrities</h2>
+{{#if error}} <h2>No found celebrities</h2> {{/if}}
+
+{{#each celebrities}}
+<li>{{ this.name }}</li>
+{{/each}}
