@@ -1,0 +1,5 @@
+{{> cardHeader heading="Movies 🎥"}}
+    {{#each movie}}
+      {{> itemCard heading=title item="movies" id=_id}}
+    {{/each}}
+{{> addContainer item="movies"}}
