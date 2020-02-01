@@ -9,7 +9,6 @@ router.get("/", async (req, res, next) => {
     res.render("celebrities/index", { seed });
   } catch (error) {
     console.log(error);
-    //check if this works
     next();
   }
 });
