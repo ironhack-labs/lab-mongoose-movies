@@ -11,17 +11,21 @@ mongoose.connect(process.env.DBURL, { useNewUrlParser: true, useUnifiedTopology:
 
 async function seedDB(collecName, data) {
 	const count = await collecName.collection.countDocuments({});
+
 	try {
 		if (count !== 0) {
 			await collecName.collection.drop();
 			console.log('emptied database');
 		}
+
 		const celebCollection = await collecName.create(data);
+
 		console.log(`Seed database with ${celebCollection}`);
 	} catch (error) {
 		console.log(`Something went wrong: ${error}`);
 	} finally {
 		mongoose.disconnect();
+
 		console.log('Disconnected from database');
 	}
 }
