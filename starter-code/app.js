@@ -33,7 +33,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.use(
   require("node-sass-middleware")({
     src: path.join(__dirname, "public"),
@@ -53,8 +52,5 @@ app.locals.title = "Web of celebrities";
 
 const index = require("./routes/index");
 app.use("/", index);
-
-const celebrities = require("./routes/celebrities");
-app.use("/celebrities", celebrities);
 
 module.exports = app;
