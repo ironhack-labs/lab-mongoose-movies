@@ -1,0 +1,21 @@
+<header>
+  <h2>All Movies</h2>
+  <hr>
+</header>
+<div>
+{{#unless movies}}
+  <p>no movies yet sorry</p>
+{{/unless}}
+
+<ul>
+  {{#each movies}}
+    <li>
+      {{this.title}}
+      <a href="/movies/{{this._id}}"> see more</a>
+      <a href="/movies/{{this._id}}/edit"> edit</a>
+      <form action="/movies/{{this._id}}/delete" method="post"><button> delete</button></form>
+    </li>
+  {{/each}}
+</ul>
+<a href="/movies/new"><button>Add new movie</button></a>
+</div>
