@@ -4,5 +4,50 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+/* Encabezados */
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+/* Celebrities page */
+
+#box-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+}
+
+.remove {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: white;
+  padding: 0.5em;
+  background-color: red;
+}
+
+.edit {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: white;
+  padding: 0.5em;
+  background-color: green;
+}
+
+.options {
+  margin: 2em 0;
 }

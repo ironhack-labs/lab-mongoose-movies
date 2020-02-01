@@ -1,9 +1,11 @@
 <h2>Celebrities</h2>
 {{#each celebrities}}
-<div>
-    <a href="/celebrities/{{this._id}}" style="text-decoration: none; font-size: 1.2em;">{{name}}</a>
-    <a href="/celebrities/{{this._id}}/delete">- ELIMINAR</a>
-    <a href="/celebrities/{{this._id}}/edit">| EDITAR</a>
+<div id="box-name">
+    <a href="/celebrities/{{this._id}}" class="name">{{name}}</a>
+    <div class="options">
+        <a href="/celebrities/{{this._id}}/delete" class="remove">ELIMINAR</a>
+        <a href="/celebrities/{{this._id}}/edit" class="edit">EDITAR</a>
+    </div>
 </div>
 
 {{/each}}
