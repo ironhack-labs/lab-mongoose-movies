@@ -1,19 +1,19 @@
 const celebrityModel = require("../models/Celebrity");
 const mongoose = require("mongoose");
 const celebrities = [{
-    name: "",
-    occupation: "",
-    catchPhrase: "",
+    name: "Bernie Sanders",
+    occupation: "US Senator",
+    catchPhrase: "Medicare for all!",
 },
 {
-    name: "",
-    occupation: "",
-    catchPhrase: "",
+    name: "Donald Trump",
+    occupation: "US President",
+    catchPhrase: "She's nasty!",
 },
 {
-    name: "",
-    occupation: "",
-    catchPhrase: "",
+    name: "Elizabeth Warren",
+    occupation: "US Senator",
+    catchPhrase: "I have a plan.",
 }]
 
 mongoose
