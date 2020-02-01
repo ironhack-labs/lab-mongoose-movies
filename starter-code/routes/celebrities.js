@@ -13,6 +13,25 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//get for a new celebrity
+router.get("/new", async (req, res, next) => {
+  console.log("hola");
+  return res.render("celebrities/new");
+});
+
+//create a new celebrity
+router.post("/", async (req, res, next) => {
+  try {
+    const { name, occupation, catchPhrase } = req.body;
+    const obj = await Celebrity.create({ name, occupation, catchPhrase });
+    console.log(`Add new celebrity in db ${obj}`);
+    res.redirect("/celebrities");
+  } catch (err) {
+    console.log(err);
+    res.render("celebrities/new");
+  }
+});
+
 //show details of a celebrity
 router.get("/:id", async (req, res, next) => {
   try {
@@ -26,22 +45,8 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-//get for a new celebrity
-router.get("/new", async (req, res, next) => {
-  res.render("celebrities/new");
-});
-//create a new celebrity
-router.post("/", async (req, res, next) => {
-  try {
-    const { name, occupation, catchPhrase } = req.body;
-    const obj = await Celebrity.create({ name, occupation, catchPhrase });
-    console.log(`Add new celebrity in db ${obj}`);
-    res.redirect("/celebrities");
-  } catch (err) {
-    console.log(err);
-    res.render("celebrities/new");
-  }
-});
+
+
 
 //delete celebrity
 router.post("/delete/:id", async (req,res,next) => {
@@ -57,6 +62,33 @@ router.post("/delete/:id", async (req,res,next) => {
 
 })
 
+router.get("/edit/:id", async (req,res,next) => {
+  try{
+    const { id } = req.params;
+    const obj = await Celebrity.findById(id);
+    res.render("celebrities/edit",{obj});
+  } catch(err){
+    console.log(err);
+    next();
+  }
+})
 
+router.post("/edit/:id", async (req, res,next) => {
+  try{
+    const { id } = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+    const obj = await Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
+    });
+    res.redirect("/celebrities");
+  }catch(err){
+    console.log(err);
+    next();
+  }
+  
+  
+});
 
 module.exports = router;
