@@ -10,3 +10,12 @@ exports.movieGet= async (req, res, next) => {
                                    .catch( err=>next( err ) )
   res.render('movies/show', movie )
 }
+
+exports.moviesPost = async (req, res, next) => {
+  const newMovie = { title, genre, plot} = req.body
+  await Movie.create(newMovie).catch( err => next(err))
+
+  res.redirect('/movies')
+}
+
+exports.moviesNewGet = (req, res, next) => res.render('movies/new')
