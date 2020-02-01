@@ -13,6 +13,22 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//create a new movie
+router.get("/new", async (req, res, next) => {
+  res.render("movies/new");
+});
+
+//create the movie and send to the database
+router.post("/new", async (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  const obj = await Movie.create({
+    title,
+    genre,
+    plot
+  });
+  res.redirect("/movies/new");
+});
+
 //See one movies
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
