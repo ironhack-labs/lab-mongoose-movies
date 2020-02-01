@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const movies = new mongoose.Schema(
   {
-    tittle: String,
+    title: String,
     genre: String,
     plot: String
   },
