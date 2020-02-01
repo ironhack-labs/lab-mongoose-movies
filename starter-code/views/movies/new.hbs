@@ -1,7 +1,35 @@
-<h2>NEW MOVIE FORM</h2>
+{{!-- <h2>NEW MOVIE FORM</h2>
 <form action="/movies/new" method="POST">
   <input type="text" placeholder="Title" name="title">
   <input type="text" placeholder="Genre" name="genre">
   <input type="text" placeholder="Plot" name="plot">
   <input type="submit" value="CREATE">
-</form>
+</form> --}}
+
+<div class="form-container">
+  <form class="form-signin" action="/movies/new" method="POST">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">🎦<br><br>New Movie Form</h1>
+      <p>Add a new movie using this beautiful form<br>made with ♥ and Bootstrap.</p>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="title" class="form-control" placeholder="Title" required autofocus>
+      <label for="Title">Title</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="genre" class="form-control" placeholder="Genre" required autofocus>
+      <label for="Genre">Genre</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="plot" class="form-control" placeholder="Plot" required autofocus>
+      <label for="Plot">Plot</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">CREATE</button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; Iván Herranz</p>
+  </form>
+</div>

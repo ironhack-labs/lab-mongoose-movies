@@ -35,7 +35,7 @@ router.post('/new', (req, res, next) => {
   })
   newMovie.save()
     .then((movies) => {
-      res.redirect('/');
+      res.redirect('/movies');
     })
     .catch((error) => {
       console.log('Error while creating new movie');

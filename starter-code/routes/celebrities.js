@@ -36,7 +36,7 @@ router.post('/new', (req, res, next) => {
   })
   newCelebrity.save()
     .then((celebrities) => {
-      res.redirect('/');
+      res.redirect('/celebrities');
     })
     .catch((error) => {
       console.log('Error while creating new celebrity');
