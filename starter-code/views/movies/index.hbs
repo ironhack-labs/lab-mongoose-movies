@@ -1,0 +1,14 @@
+<h2>Peliculas de la Tierra Media</h2>
+
+{{#each movies}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <p class="card-text"><a href="/movies/{{this._id}}">{{this.title}}</a></p>
+  </div>
+  <form action="/movies/delete/{{this._id}}" method="POST"><button type="submit">Borrar</button></form>
+  <form action="/movies/edit/{{this._id}}"><button type="submit">Editar</button></form>
+</div>
+{{/each}}
+
+<div><a href="/">Portada</a></div>
+<div><a href="/movies/new">Crea una nueva pelicula</a></div>
