@@ -41,4 +41,11 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+//delete the celebrity
+router.get("/delete/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const obj = await Movie.findByIdAndRemove(id);
+  res.redirect("/movies");
+});
+
 module.exports = router;
