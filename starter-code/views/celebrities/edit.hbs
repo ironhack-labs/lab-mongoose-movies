@@ -1,7 +1,39 @@
-<h2>EDIT CELEBRITY</h2>
+{{!-- <h2>EDIT CELEBRITY</h2>
 <form action="/celebrities/{{theCelebrity._id}}/edit" method="POST">
   <input type="text" placeholder="Name" name="cName" value="{{theCelebrity.cName}}">
   <input type="text" placeholder="Occupation" name="cOccupation" value="{{theCelebrity.cOccupation}}">
   <input type="text" placeholder="Phrase" name="cCatchPhrase" value="{{theCelebrity.cCatchPhrase}}">
   <input type="submit" value="EDIT">
-</form>
+</form> --}}
+
+
+<div class="form-container">
+  <form class="form-signin" action="/celebrities/{{theCelebrity._id}}/edit" method="POST">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">😎 <br><br>Edit Celebrity Form</h1>
+      <p>Edit this celebrity using this beautiful form<br>made with ♥ and Bootstrap.</p>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="cName" class="form-control" placeholder="Name" value="{{theCelebrity.cName}}" required
+        autofocus>
+      <label for="cName">Name</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="cOccupation" class="form-control" placeholder="Occupation"
+        value="{{theCelebrity.cOccupation}}" required autofocus>
+      <label for="cOccupation">Occupation</label>
+    </div>
+
+    <div class="form-label-group">
+      <input rows="2" type="text" name="cCatchPhrase" class="form-control" placeholder="Catch Phrase"
+        value="{{theCelebrity.cCatchPhrase}}" required autofocus>
+      <label for="cCatchPhrase">Catch Phrase</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">EDIT</button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; Iván Herranz</p>
+  </form>
+</div>

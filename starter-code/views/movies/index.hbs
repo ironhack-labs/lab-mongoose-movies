@@ -1,0 +1,44 @@
+{{!-- <h2>Movies</h2>
+{{#each movies}}
+<p>{{this.title}}</p>
+<a href="/movies/{{this._id}}">Ver información</a><br><br>
+<form action="/movies/{{this._id}}/delete" method="POST">
+  <input type="submit" value="REMOVE">
+</form>
+<a href="/movies/{{this._id}}/edit">
+  EDIT
+</a>
+<br><br>
+{{/each}}
+
+<a href="/movies/new">CREATE NEW</a> --}}
+
+
+
+<div class="header-list-items">
+  <h2 class="text-center mt-4 mb-4">Movies</h2>
+  <a class="btn btn-success mt-4" href="/movies/new">CREATE NEW</a>
+  <div class="clear"></div>
+</div>
+
+<div class="list-container">
+  <div class="row">
+    {{#each movies}}
+    <div class="col-lg-4">
+      <div class="card mb-4" style="width: 100%">
+        <div class="card-body">
+          <h5 class="card-title title-item">{{this.title}}</h5>
+          <div class="container-buttons">
+            <a href="/movies/{{this._id}}" class="btn btn-link">Show</a>
+            <a href="/movies/{{this._id}}/edit" class="btn btn-outline-secondary">Edit</a>
+            <form action="/movies/{{this._id}}/delete" method="POST">
+              <input class="btn btn-danger" type="submit" value="Remove">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>

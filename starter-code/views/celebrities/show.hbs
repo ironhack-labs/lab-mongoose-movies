@@ -1,3 +1,12 @@
-<h2>{{celebrity.cName}}</h2>
+{{!-- <h2>{{celebrity.cName}}</h2>
 <p><b>Occupation: </b>{{celebrity.cOccupation}}</p>
-<p><b>Phrase: </b>{{celebrity.cCatchPhrase}}</p>
+<p><b>Phrase: </b>{{celebrity.cCatchPhrase}}</p> --}}
+
+<div class="card">
+  <h5 class="card-header">🤑 {{celebrity.cName}}</h5>
+  <div class="card-body">
+    <p class="card-text"><b>Occupation: </b>{{celebrity.cOccupation}}</p>
+    <footer class="blockquote-footer"><cite title="Source Title"
+        style="font-size: 15px;">{{celebrity.cCatchPhrase}}</cite></footer>
+    <a href="/celebrities" class="btn btn-link" style="float: right;">
+      < Back</a> </div> </div>

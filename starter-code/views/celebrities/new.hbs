@@ -1,7 +1,28 @@
-<h2>NEW CELEBRITY FORM</h2>
-<form action="/celebrities/new" method="POST">
-  <input type="text" placeholder="Name" name="cName">
-  <input type="text" placeholder="Occupation" name="cOccupation">
-  <input type="text" placeholder="Phrase" name="cCatchPhrase">
-  <input type="submit" value="CREATE">
-</form>
+<div class="form-container">
+  <form class="form-signin" action="/celebrities/new" method="POST">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">😎 <br><br>New Celebrity Form</h1>
+      <p>Add a new celebrity using this beautiful form<br>made with ♥ and Bootstrap.</p>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="cName" class="form-control" placeholder="Name" required autofocus>
+      <label for="cName">Name</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="cOccupation" class="form-control" placeholder="Occupation" required autofocus>
+      <label for="cOccupation">Occupation</label>
+    </div>
+
+    <div class="form-label-group">
+      <input rows="2" type="text" name="cCatchPhrase" class="form-control" placeholder="Catch Phrase" required
+        autofocus>
+      <label for="cCatchPhrase">Catch Phrase</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">CREATE</button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; Iván Herranz</p>
+  </form>
+</div>

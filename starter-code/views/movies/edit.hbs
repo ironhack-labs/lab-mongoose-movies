@@ -1,0 +1,39 @@
+{{!-- <h2>EDIT MOVIE</h2>
+<form action="/movies/{{theMovie._id}}/edit" method="POST">
+  <input type="text" placeholder="Title" name="title" value="{{theMovie.title}}">
+  <input type="text" placeholder="Genre" name="genre" value="{{theMovie.genre}}">
+  <input type="text" placeholder="Plot" name="plot" value="{{theMovie.plot}}">
+  <input type="submit" value="EDIT">
+</form> --}}
+
+
+<div class="form-container">
+  <form class="form-signin" action="/movies/{{theMovie._id}}/edit" method="POST">
+    <div class="text-center mb-4">
+      <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">🎦<br><br>Edit Movie Form</h1>
+      <p>Edit this movie using this beautiful form<br>made with ♥ and Bootstrap.</p>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="title" class="form-control" placeholder="Title" value="{{theMovie.title}}" required
+        autofocus>
+      <label for="Title">Title</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="genre" class="form-control" placeholder="Genre" value="{{theMovie.genre}}" required
+        autofocus>
+      <label for="Genre">Genre</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" name="plot" class="form-control" placeholder="Plot" value="{{theMovie.plot}}" required
+        autofocus>
+      <label for="Plot">Plot</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">EDIT</button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; Iván Herranz</p>
+  </form>
+</div>
