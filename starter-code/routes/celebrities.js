@@ -16,6 +16,38 @@ router.get("/", (req, res, next) => {
   });
 });
 
+/* GET new */
+router.get("/new", (req, res, next) => {
+  withDbConnection(async () => {
+    try {
+      res.render("celebrities/new");
+    } catch (error) {
+      next(error);
+    }
+  });
+});
+
+/* POST new */
+router.post("/", (req, res, next) => {
+  const celebrityData = {
+    name: req.body.name,
+    occupation: req.body.name,
+    catchPhrase: req.body.catchPhrase
+  };
+
+  const newCelebrity = new Celebrity(celebrityData);
+
+  withDbConnection(async () => {
+    try {
+      await newCelebrity.save();
+      res.redirect("/celebrities");
+    } catch (error) {
+      next(error);
+      res.render("celebrities/new");
+    }
+  });
+});
+
 /* GET celebrity */
 router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
