@@ -1,11 +1,14 @@
-<h2>Nombres de celebrities</h2>
+<h2>Personajes Tierra Media</h2>
 
 {{#each celebrities}}
-{{#with this}}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <p class="card-text">{{name}}</p>
+    <p class="card-text"><a href="/celebrities/{{this._id}}">{{this.name}}</a></p>
   </div>
+  <form action="/celebrities/delete/{{this._id}}" method="POST"><button type="submit">Borrar</button></form>
+  <form action="/celebrities/edit/{{this._id}}"><button type="submit">Editar</button></form>
 </div>
-{{/with}}
 {{/each}}
+
+<div><a href="/">Portada</a></div>
+<div><a href="/celebrities/new">Crea un nuevo personaje</a></div>

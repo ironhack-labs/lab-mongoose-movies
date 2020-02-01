@@ -1,0 +1,12 @@
+<h2>Descripcion de las Peliculas</h2>
+{{#with details}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <p class="card-text">{{this.title}}</p>
+    <p class="card-text">{{this.genre}}</p>
+    <p class="card-text">{{this.plot}}</p>
+  </div>
+</div>
+{{/with}}
+
+<div><a href="/movies">Peliculas</a></div>
