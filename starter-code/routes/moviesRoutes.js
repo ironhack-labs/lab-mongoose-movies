@@ -54,4 +54,29 @@ router.post('/:id/delete', async (req, res, next) => {
     }
 });
 
+router.get('/:id/edit', async (req, res, next) => {
+    try {
+        const movie = await movieModel.findById(req.params.id);
+        res.render('movies/form', { movie });
+    } catch (err) {
+        console.error(err);
+        next();
+    }
+});
+
+router.post('/:id', async (req, res, next) => {
+    try {
+        const { title, genre, plot } = req.body;
+        const movie = await movieModel.findByIdAndUpdate(req.params.id, {
+            title,
+            genre,
+            plot
+        });
+        res.redirect('/movies');
+    } catch (err) {
+        console.error(err);
+        next();
+    }
+});
+
 module.exports = router;
