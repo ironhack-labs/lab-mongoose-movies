@@ -1,0 +1,11 @@
+<h1>All the movies we have</h1>
+
+<div class="allmovies">
+    {{#each movies}}
+    <div class="box-movie">
+        <div class="title-movie"> <h2>{{this.title}}</h2></div>
+    </div>
+    <a href="/movies/info-movie/{{this._id}}">see more</a>
+    <a href="/movies/delete/{{this._id}}">X</a>
+    {{/each}}
+</div>

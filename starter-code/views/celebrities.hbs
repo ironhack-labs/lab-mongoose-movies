@@ -1,0 +1,17 @@
+<div id="content-celeb">
+    <div class="box-celeb">
+        {{#each celebrities}}
+        <div class="name">
+            <h1>{{this.name}}</h1>
+            <a href="/celebrities/info-celebrity/{{this._id}}">see more</a>
+            <a href="/celebrities/remove/{{this._id}}/">X</a>
+        </div>
+        {{!-- <div class="occupation">
+            <p>{{this.occupation}}</p>
+        </div>
+        <div class="phrase">
+            <p>{{this.catchPhrase}}</p>
+        </div> --}}
+        {{/each}}
+    </div>
+</div>
