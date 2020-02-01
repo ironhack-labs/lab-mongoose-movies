@@ -48,6 +48,21 @@ router.post("/", (req, res, next) => {
   });
 });
 
+/* POST delete id */
+router.post("/:id/delete", (req, res, next) => {
+  const celebId = req.params.id;
+
+  withDbConnection(async () => {
+    try {
+      await Celebrity.findByIdAndRemove(celebId);
+      res.redirect("/celebrities");
+    } catch (error) {
+      next(error);
+      res.render("celebrities/new");
+    }
+  });
+});
+
 /* GET celebrity */
 router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
