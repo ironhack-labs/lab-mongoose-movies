@@ -1,0 +1,19 @@
+<h2 class="title text-center">{{heading}}</h2>
+<form method="POST" class="w-75 mx-auto mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 mt-3">
+      <input class="form-control" type="text" name="title" id="name" placeholder="Title" value="{{movieTitle}}" required >
+    </div>
+    <div class="col-md-4 col-12 mt-3">
+      <input class="form-control" type="text" name="genre" id="genre" placeholder="Genre" value="{{genre}}">
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-8 col-12">
+      <textarea class="form-control" name="plot" id="" cols="50" rows="7" placeholder="What's the movie about?">{{plot}}</textarea>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+      <button type="submit" class="btn btn-success btn-lg">{{action}} Movie</button>
+  </div>
+</form>
