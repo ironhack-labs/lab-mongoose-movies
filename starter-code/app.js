@@ -9,11 +9,11 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
+const dbUrl = process.env.DBURL;
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect(dbUrl, {useNewUrlParser: true,useUnifiedTopology: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${dbUrl}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -38,21 +38,25 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
+//Aqui le decimos que coja views como raiz
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
-
+app.locals.title = 'Create your own Celebrities & Movies';
 
 const index = require('./routes/index');
 app.use('/', index);
 
+//app.use es la raiz de esa ruta celebrities
+const celebrities = require("./routes/celebrities");
+app.use("/celebrities", celebrities);
 
+//app.use es la raiz de esa ruta movies
+const movies = require("./routes/movies");
+app.use("/movies", movies);
 module.exports = app;

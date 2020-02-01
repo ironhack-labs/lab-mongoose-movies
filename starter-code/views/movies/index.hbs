@@ -1,0 +1,14 @@
+
+{{> nav}}
+
+<section class="section-1">
+<h2>Movies Page</h2>
+
+{{#each Movies}}
+
+<ul><li><a href="/movies/show/{{this.id}}">{{this.title}}</a></li></ul>
+<button><a href="/movies/edit/{{this.id}}">Edit {{this.title}}</a></button>
+<button><a href="movies/delete/{{this.id}}">Delete {{this.title}}</a></button>
+
+{{/each}}
+</section>

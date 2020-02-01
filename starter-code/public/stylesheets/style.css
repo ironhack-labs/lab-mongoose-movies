@@ -1,0 +1,30 @@
+body {
+  margin: 0 auto;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+.section-1 {
+  padding: 20px 50px; }
+
+a {
+  color: #00B7FF; }
+
+.menu {
+  display: flex;
+  justify-content: center;
+  background-color: #f7f7f7; }
+
+.menu ul {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  list-style-type: none; }
+
+.menu ul li {
+  padding: 0px 10px;
+  font-size: 16px;
+  font-weight: 400; }
+
+.menu ul li a {
+  text-decoration: none; }
+
+/*# sourceMappingURL=style.css.map */
