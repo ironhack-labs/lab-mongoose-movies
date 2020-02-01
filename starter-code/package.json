@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=starter-code:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www",
-    "seed-db": "node bin/seeds.js"
+    "seed-db-celebrity": "node bin/seeds-celebrity.js",
+    "seed-db-movie": "node bin/seeds-movie.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

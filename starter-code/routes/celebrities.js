@@ -17,11 +17,34 @@ router.get('/', (req, res, next) => {
 
 });
 
+// Page to create new celebrity
 router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
 });
 
+// Send info to create new celebrity
+router.post('/new', (req, res, next) => {
+  const {
+    cName,
+    cOccupation,
+    cCatchPhrase
+  } = req.body;
+  const newCelebrity = new celebrities({
+    cName,
+    cOccupation,
+    cCatchPhrase
+  })
+  newCelebrity.save()
+    .then((celebrities) => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      console.log('Error while creating new celebrity');
+      res.render("celebrities/new");
+    })
+});
 
+// Detail page of celebrity ID
 router.get("/:id", (req, res, next) => {
   celebrities.findOne({
       '_id': req.params.id
@@ -36,6 +59,7 @@ router.get("/:id", (req, res, next) => {
     })
 });
 
+// Edit page for a celebrity ID
 router.get("/:id/edit", (req, res, next) => {
   celebrities.findOne({
       '_id': req.params.id
@@ -50,6 +74,7 @@ router.get("/:id/edit", (req, res, next) => {
     })
 });
 
+// Send the updates after edit
 router.post("/:id/edit", (req, res, next) => {
   const {
     cName,
@@ -73,6 +98,7 @@ router.post("/:id/edit", (req, res, next) => {
     })
 });
 
+// Send delete action
 router.post("/:id/delete", (req, res, next) => {
   celebrities.findOneAndRemove({
       '_id': req.params.id
@@ -85,25 +111,5 @@ router.post("/:id/delete", (req, res, next) => {
 
 
 
-router.post('/new', (req, res, next) => {
-  const {
-    cName,
-    cOccupation,
-    cCatchPhrase
-  } = req.body;
-  const newCelebrity = new celebrities({
-    cName,
-    cOccupation,
-    cCatchPhrase
-  })
-  newCelebrity.save()
-    .then((celebrities) => {
-      res.redirect('/');
-    })
-    .catch((error) => {
-      console.log('Error while creating new celebrity');
-      res.render("celebrities/new");
-    })
-});
 
 module.exports = router;
