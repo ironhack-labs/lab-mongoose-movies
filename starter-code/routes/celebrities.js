@@ -54,7 +54,7 @@ router.post("/new", (req, res) => {
           console.log(dbErr);
           res.render("celebrities/all");
         });
-    });
+    });  
 
 
 
