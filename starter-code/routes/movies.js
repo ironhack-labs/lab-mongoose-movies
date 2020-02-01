@@ -14,6 +14,24 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//get for a new movie
+router.get("/new", async (req, res, next) => {
+  return res.render("movies/new");
+});
+
+//create a new movie
+router.post("/", async (req, res, next) => {
+  try {
+    const { title, genre, plot } = req.body;
+    const obj = await Movie.create({ title, genre, plot });
+    console.log(`Add new movie in db ${obj}`);
+    res.redirect("/movies");
+  }catch (err) {
+    console.log(err);
+    res.render("movies/new");
+  }
+});
+
 //show details of a movie
 router.get("/:id", async (req, res, next) => {
   try {
