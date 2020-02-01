@@ -1,0 +1,18 @@
+<header>
+    <h2>Edit Movie</h2>
+</header>
+<hr>
+
+<form action="/movies/{{movie._id}}" method="post" class="form">
+
+    <label class="artist" for="title">title</label>
+    <input class="input" id="title" type="text" name="title" value="{{movie.name}}">
+    <br>
+    <label class="artist" for="genre">genre</label>
+    <input class="input" id="genre" type="text" name="genre" value="{{movie.genre}}">
+    <br>
+    <textarea class="artist" for="plot">What is his/her best punchline ever ?</textarea>
+    <input class="input" id="plot" type="text" name="plot" value="{{movie.plot}}">
+
+    <button class="btn">ok</button>
+</form>

@@ -1,13 +1,13 @@
 const express = require("express");
 const router = new express.Router();
-const celebrityModel = require("../models/Celebrity");
+const movieModel = require("../models/Movie");
 
 router.get("/all", (req, res) => {
-  celebrityModel
+  movieModel
     .find()
-    .then(celebrities => {
-      res.render("celebrities", {
-        celebrities
+    .then(movies => {
+      res.render("movies/index", {
+        movies
       });
     })
     .catch(dbErr => {
@@ -16,63 +16,63 @@ router.get("/all", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-    res.render("celebrities/new");
+    res.render("movies/new");
   });
   
 router.post("/new", (req, res) => {
-          const { name, occupation, catchPhrase } = req.body;
+          const { title, genre, plot } = req.body;
           // if some tests must be performed, do so before database query
-          celebrityModel
+          movieModel
       .create({
-            name,
-        occupation,
-        catchPhrase,
+            title,
+        genre,
+        plot,
       })
-      .then(dbRes => res.redirect("/celebrities/all"))
+      .then(dbRes => res.redirect("/movies/all"))
       .catch(dbErr => {
             console.log(dbErr);
-            res.render("celebrities/new");
+            res.render("movies/new");
           });
       });
   
     router.get("/:id", (req, res) => {
-      celebrityModel
+      movieModel
         .findById(req.params.id)
-        .then(celebrity => {
-          res.render("celebrities/show", {celebrity});
+        .then(movie => {
+          res.render("movies/show", {movie});
         })
         .catch(dbErr => console.error("OH no, db err :", dbErr));
     });
     
     router.post("/:id/delete", (req, res) => {
-        // if some tests must be performed, do so before database query
-        celebrityModel
+
+        movieModel
     .findByIdAndDelete(req.params.id)
-    .then(dbRes => res.redirect("/celebrities/all"))
+    .then(dbRes => res.redirect("/movies/all"))
     .catch(dbErr => {
           console.log(dbErr);
-          res.render("celebrities/all");
+          res.render("movies/all");
         });
     });  
 
     router.get("/:id/edit", (req, res) => {
-        celebrityModel
+        movieModel
           .findById(req.params.id)
-          .then(celebrity => {
-            res.render("celebrities/edit", {celebrity});
+          .then(movie => {
+            res.render("movies/edit", {movie});
           })
           .catch(dbErr => console.error("OH no, db err :", dbErr));
       });
 
     router.post("/:id", (req, res) => {
-        const { name, occupation, catchPhrase } = req.body;
+        const { title, genre, plot } = req.body;
         // if some tests must be performed, do so before database query
-        celebrityModel
-    .findByIdAndUpdate(req.params.id,{ name, occupation, catchPhrase })
-    .then(dbRes => res.redirect("/celebrities/all"))
+        movieModel
+    .findByIdAndUpdate(req.params.id,{ title, genre, plot })
+    .then(dbRes => res.redirect("/movies/all"))
     .catch(dbErr => {
           console.log(dbErr);
-          res.render("celebrities/edit");
+          res.render("movies/edit");
         });
     });  
 

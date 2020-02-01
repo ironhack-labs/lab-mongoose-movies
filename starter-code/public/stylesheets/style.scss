@@ -1,14 +1,35 @@
+
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
 }
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Arial;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: inherit
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.link:hover {
+  color: darksalmon
+}
+
+.row,
+.col {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
 }
