@@ -17,8 +17,14 @@ router.get('/', (req, res, next) => {
 
 });
 
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
 router.get("/:id", (req, res, next) => {
-  celebrities.findById(req.params.id)
+  celebrities.findOne({
+      '_id': req.params.id
+    })
     .then(theCelebrity => {
       res.render('celebrities/show', {
         celebrity: theCelebrity
@@ -26,6 +32,38 @@ router.get("/:id", (req, res, next) => {
     })
     .catch(error => {
       console.log('Error while retrieving celebrity ID: ', error);
+    })
+});
+
+router.post("/:id/delete", (req, res, next) => {
+  celebrities.findOneAndRemove({
+      '_id': req.params.id
+    })
+    .then(res.redirect("/celebrities"))
+    .catch(error => {
+      console.log('Error while deleting celebrity: ', error);
+    })
+});
+
+
+router.post('/new', (req, res, next) => {
+  const {
+    cName,
+    cOccupation,
+    cCatchPhrase
+  } = req.body;
+  const newCelebrity = new celebrities({
+    cName,
+    cOccupation,
+    cCatchPhrase
+  })
+  newCelebrity.save()
+    .then((celebrities) => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      console.log('Error while creating new celebrity');
+      res.render("celebrities/new");
     })
 });
 
