@@ -51,3 +51,24 @@ footer {
 .navbar-collapse {
   justify-content: flex-end;
 }
+
+.btn-primary {
+  background-color: $edit-color;
+  border-color: $edit-color;
+}
+
+.btn-danger {
+  background-color: $delete-color;
+  border-color: none;
+}
+
+.btn-success {
+  background-color: $update-color;
+  border-color: $update-color;
+}
+
+.btn:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: $dark-color;
+}
