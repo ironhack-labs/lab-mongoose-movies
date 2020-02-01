@@ -1,8 +1,15 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+.action-btn {
+  background: none;
+  border: none;
+  color: gray; }
+  .action-btn:hover, .action-btn:focus {
+    color: blue;
+    text-decoration: none; }
+  .action-btn:active, .action-btn:focus {
+    outline: none;
+    box-shadow: none; }
 
-a {
-  color: #00B7FF; }
+.plot-container {
+  max-width: 650px; }
 
 /*# sourceMappingURL=style.css.map */
