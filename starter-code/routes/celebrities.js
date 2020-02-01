@@ -7,6 +7,7 @@ router.get('/', async (req, res, next) => {
 	try {
 		const celebrities = await Celebrity.find();
 		res.render('celebrities/index', { title: 'Celebrities', celebrity: celebrities });
+
 		console.log(`Found and rendered this celebrities: ${celebrities}`);
 	} catch (error) {
 		next(error.message);
@@ -19,10 +20,9 @@ router.get('/:id', async (req, res, next) => {
 		const { id } = req.params;
 		const celebrity = await Celebrity.findById(id);
 		const { name, occupation, catchPhrase } = celebrity;
+		res.render('celebrities/show', { title: name, name, occupation, catchPhrase });
 
 		console.log(`Found celebrity is ${name}`);
-
-		res.render('celebrities/show', { title: name, name, occupation, catchPhrase });
 	} catch (error) {
 		next();
 		console.log(error.message);
@@ -31,17 +31,19 @@ router.get('/:id', async (req, res, next) => {
 
 // Create route
 router.get('/new', (req, res, next) => {
-	res.render('celebrities/new', { title: 'Add new celebrities' });
+	res.render('celebrities/new', { title: 'Add new celebrity' });
 });
 
 router.post('/new', async (req, res, next) => {
 	try {
 		const { name, occupation, catchPhrase } = req.body;
 		const celebrity = await Celebrity.create({ name, occupation, catchPhrase });
-		console.log(`New celebrity created: ${celebrity}`);
 		res.redirect('/celebrities');
+
+		console.log(`New celebrity created: ${celebrity}`);
 	} catch (error) {
 		res.render('celebrities/new');
+
 		console.log(`This went wrong ${error}, try again`);
 	}
 });
@@ -51,8 +53,9 @@ router.post('/:id/delete', async (req, res, next) => {
 	try {
 		const { id } = req.params;
 		const celebrity = await Celebrity.findByIdAndRemove(id);
-		console.log(`This celebrity has been removed: ${celebrity}`);
 		res.redirect('/celebrities');
+
+		console.log(`This celebrity has been removed: ${celebrity}`);
 	} catch (error) {
 		next(error.message);
 	}
@@ -63,8 +66,10 @@ router.get('/:id/edit', async (req, res, next) => {
 	try {
 		const { id } = req.params;
 		const celebrity = await Celebrity.findById(id);
+		const { name, occupation, catchPhrase } = celebrity;
+		res.render('celebrities/edit', { title: `Edit ${celebrity.name}`, name, occupation, catchPhrase });
+
 		console.log(`This celebrity is going to be edited: ${celebrity}`);
-		res.render('celebrities/edit', { title: `Edit ${celebrity.name}`, celebrity });
 	} catch (error) {
 		next(error.message);
 	}

@@ -1,8 +1,8 @@
-<h2>detail page</h2>
-<p>{{title}}</p>
-<ul>
-  {{#each genres}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul>
-<p>{{plot}}</p>
+<h2 class="title text-center">{{title}}</h2>
+<div class="card mx-auto mt-4" id="item-container" style="width: 18rem;">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2">Genre: <span class="text-muted">{{genre}}</span></h6>
+	  <p class="card-text">{{plot}}</p>
+    <a href="/movies" class="card-link">Back to Index</a>
+  </div>
+</div>

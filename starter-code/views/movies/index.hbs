@@ -1,5 +1,5 @@
-<h2>Movies index 🎥</h2>
-{{#each movie}}
-<p>{{title}}</p>
-<a href="/movies/{{_id}}">Detail page</a>
-{{/each}}
+{{> cardHeader heading="Movies 🎥"}}
+    {{#each movie}}
+      {{> itemCard heading=title item="movies" id=_id}}
+    {{/each}}
+{{> addContainer item="movies"}}
