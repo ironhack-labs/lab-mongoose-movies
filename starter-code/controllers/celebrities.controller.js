@@ -7,24 +7,36 @@ exports.celebritiesGet = async (req, res, next) => {
 
 
 exports.celebrityGet = async (req, res, next) => {
-  const celebrity = await Celebrity.findById( req.params.id )
+  const celebrity = await Celebrity.findById( req.params.id)
                                    .catch( err=>next( err ) )
-  res.render('celebrities/show', {celebrity})
+  res.render('celebrities/show', celebrity )
 
+}
+
+exports.celebrityEditGet = async (req, res, next) => {
+  const celebrityFound = await Celebrity.findById( req.params.id ).catch( err => next(err) )
+  res.render('celebrities/edit', celebrityFound)
+}
+
+exports.celebrityEditPost = async (req, res, next) => {
+  const editCelebrity = { name, occupation, catchPhrase} = req.body
+  await Celebrity.findByIdAndUpdate(req.params.id, editCelebrity)
+                 .catch( err => next(err))
+  res.redirect('/celebrities')
 }
 
 exports.celebritiesPost = async (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body
   const newCelebrity = { name, occupation, catchPhrase }
-
+  
   await Celebrity.create( newCelebrity )
-                 .catch(err => next(err))
+  .catch(err => next(err))
   res.redirect('/celebrities')
 }
 
 exports.celebrityDelPost = async (req, res, next) => {
   await Celebrity.findByIdAndDelete( req.params.id )
-                 .catch(err => next(err))
+  .catch(err => next(err))
   res.redirect('/celebrities')
 }
 

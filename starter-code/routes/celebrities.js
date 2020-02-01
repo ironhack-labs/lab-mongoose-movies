@@ -4,16 +4,20 @@ const {
   celebritiesGet, 
   celebrityGet, 
   celebrityNewGet, 
+  celebrityEditGet,
   celebritiesPost,
-  celebrityDelPost
+  celebrityDelPost,
+  celebrityEditPost
 } = require('../controllers/celebrities.controller')
 
-/* GET celebrities page */
+/* POST / GET celebrities ROUTES */
 router
   .post('/', celebritiesPost)
-  .post('/:id/delete', celebrityDelPost)
+  .post('/:id', celebrityEditPost)
   .get('/', celebritiesGet)
   .get('/new', celebrityNewGet)
+  .get('/:id/delete', celebrityDelPost)
+  .get('/:id/edit', celebrityEditGet)
   .get('/:id', celebrityGet)
 
 module.exports = router;
