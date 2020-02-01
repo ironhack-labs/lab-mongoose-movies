@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/Celebrity");
 
-//show all db
+//show all db celebrities
 router.get("/", async (req, res, next) => {
   try {
     const celebrities = await Celebrity.find();
