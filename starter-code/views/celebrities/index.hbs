@@ -1,13 +1,18 @@
 <h2>Celebrities List!</h2>
 {{#each celebrities}}
-<div class="card bg-light mb-3">
-   <div class="card-body">
-      {{this.name}}
+<form action="/celebrities/{{ this._id }}/delete" method="POST">
+   <div class="card bg-light mb-3">
+      <div class="card-body">
+         {{this.name}}
+      </div>
+      <div>
+         <a href="/celebrities/{{this._id}}" <button type="button" class="btn btn-primary float-right">Show</button></a>
+         <a href="/celebrities/{{this._id}}/edit" <button type="button"
+            class="btn btn-success float-right">Edit</button></a>
+         <button type="submit" class="btn btn-danger float-right">Delete</button>
+      </div>
    </div>
-   <div>
-      <a href="/celebrities/{{this._id}}" <button type="button" class="btn btn-primary float-right">Show</button></a>
-   </div>
-</div>
+</form>
 {{/each}}
 
 <div class="row">
