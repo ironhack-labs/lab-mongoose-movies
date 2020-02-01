@@ -33,8 +33,8 @@ router.get('/new', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try {
-        const { name, ocuppation, catchPhrase } = req.body;
-        const celebrity = await celebrityModel.create({ name, ocuppation, catchPhrase });
+        const { name, occupation, catchPhrase } = req.body;
+        const celebrity = await celebrityModel.create({ name, occupation, catchPhrase });
         celebrity.save();
         res.redirect('/celebrities');
     } catch (err) {
@@ -47,6 +47,31 @@ router.post('/', async (req, res, next) => {
 router.post('/:id/delete', async (req, res, next) => {
     try {
         const celebrity = await celebrityModel.findByIdAndRemove(req.params.id);
+        res.redirect('/celebrities');
+    } catch (err) {
+        console.error(err);
+        next();
+    }
+});
+
+router.get('/:id/edit', async (req, res, next) => {
+    try {
+        const celebrity = await celebrityModel.findById(req.params.id);
+        res.render('celebrities/new', { celebrity });
+    } catch (err) {
+        console.error(err);
+        next();
+    }
+});
+
+router.post('/:id', async (req, res, next) => {
+    try {
+        const { name, occupation, catchPhrase } = req.body;
+        const celebrity = await celebrityModel.findByIdAndUpdate(req.params.id, {
+            name,
+            occupation,
+            catchPhrase
+        });
         res.redirect('/celebrities');
     } catch (err) {
         console.error(err);
