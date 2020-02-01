@@ -1,53 +1,44 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff;
-}
+  color: #00b7ff; }
 
 /* Encabezados */
-
 h1 {
-  font-size: 2.5em;
-}
+  font-size: 2.5em; }
 
 h2 {
-  font-size: 2em;
-}
+  font-size: 2em; }
 
 /* Celebrities page */
-
 #box-name {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
+  align-items: center; }
 
 .name {
   font-size: 1.5em;
   text-decoration: none;
   color: black;
-  margin: 0 10px;
-}
+  margin: 0 10px; }
 
 .remove {
   font-size: 1.5em;
   text-decoration: none;
   color: white;
   padding: 0.5em;
-  background-color: red;
-}
+  background-color: red; }
 
 .edit {
   font-size: 1.5em;
   text-decoration: none;
   color: white;
   padding: 0.5em;
-  background-color: green;
-}
+  background-color: green; }
 
 .options {
-  margin: 2em 0;
-}
+  margin: 2em 0; }
+
+/*# sourceMappingURL=style.css.map */
