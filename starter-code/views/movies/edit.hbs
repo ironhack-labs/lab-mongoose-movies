@@ -1,0 +1,18 @@
+<h2>Edicion de Peliculas</h2>
+
+
+<form action="/movies/edit/{{obj._id}}" method="POST">
+  <div class="form-group">
+    <label for="title">Pelicula</label>
+    <input type="text" class="form-control" id="title" name="title" value="{{obj.title}}">
+  </div>
+  <div class="form-group">
+    <label for="genre">Género</label>
+    <input type="text" class="form-control" id="genre" name="genre" value="{{obj.genre}}">
+  </div>
+    <div class="form-group">
+    <label for="plot">Argumento</label>
+    <input type="text" class="form-control" id="plot" name="plot" value="{{obj.plot}}">
+  </div>
+  <button type="submit" class="btn btn-success">Editar</button>
+</form>

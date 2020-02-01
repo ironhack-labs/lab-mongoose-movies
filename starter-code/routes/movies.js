@@ -45,6 +45,52 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+//delete movies
+router.post("/delete/:id", async (req,res,next) => {
+  try{
+    const { id } = req.params;
+    await Movie.findByIdAndRemove(id);
+    res.redirect("/movies");
+  } catch(err){
+    console.log(err);
+    next();
+  }
+
+
+});
+
+//edit movies GET
+router.get("/edit/:id", async (req,res,next) => {
+  try{
+    const { id } = req.params;
+    const obj = await Movie.findById(id);
+    res.render("movies/edit",{obj});
+  } catch(err){
+    console.log(err);
+    next();
+  }
+});
+
+//edit movies POST
+router.post("/edit/:id", async (req, res,next) => {
+  try{
+    const { id } = req.params;
+    const { title, genre, plot } = req.body;
+    const obj = await Movie.findByIdAndUpdate(id, {
+      title,
+      genre,
+      plot
+    });
+    res.redirect("/movies");
+  }catch(err){
+    console.log(err);
+    next();
+  }
+  
+  
+});
+
+
 
 
 
