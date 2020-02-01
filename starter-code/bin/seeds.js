@@ -23,19 +23,19 @@ withDbConnection(async () => {
   // ]);
   await movie.create([
     {
-      title: "Harry Potter1",
+      title: "fight club",
+      genre: "Thriller",
+      plot: "Hay que verla"
+    },
+    {
+      title: "Harry potter",
       genre: "Magic",
       plot: "Leviousa"
     },
     {
-      title: "Harry Potter2",
-      genre: "Magic",
-      plot: "Leviousa"
-    },
-    {
-      title: "Harry Potter3",
-      genre: "Magic",
-      plot: "Leviousa"
+      title: "Advengers",
+      genre: "Accion",
+      plot: "Flipas!"
     }
   ]);
 });
