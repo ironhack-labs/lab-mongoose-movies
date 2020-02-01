@@ -1,18 +1,18 @@
 <h2>Edicion de Personajes</h2>
 
 
-<form action="/edit/{{obj._id}}" method="POST">
+<form action="/celebrities/edit/{{obj._id}}" method="POST">
   <div class="form-group">
     <label for="name">Nombre del Personaje</label>
-    <input type="text" class="form-control" id="name" name="name">
+    <input type="text" class="form-control" id="name" name="name" value="{{obj.name}}">
   </div>
   <div class="form-group">
     <label for="occupation">Profesión</label>
-    <input type="text" class="form-control" id="occupation" name="occupation">
+    <input type="text" class="form-control" id="occupation" name="occupation" value="{{obj.occupation}}">
   </div>
     <div class="form-group">
     <label for="catchPhrase">Frase Preferida</label>
-    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" value="{{obj.catchPhrase}}">
   </div>
   <button type="submit" class="btn btn-success">Editar</button>
 </form>
