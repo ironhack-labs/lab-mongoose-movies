@@ -1,0 +1,23 @@
+<h2>{{title}}</h2>
+
+<form method="POST" {{#if movie}} action="/movies/{{ movie._id }}" {{else}} action="/movies" {{/if}}>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" {{#if movie.title}} value="{{ movie.title }}" {{/if}}>
+    </div>
+    <div class="form-group">
+        <label for="genre">Genre</label>
+        <input type="text" class="form-control" id="genre" name="genre" {{#if movie.genre}} value="{{ movie.genre }}" {{/if}}>
+    </div>
+    <div class="form-group">
+        <label for="plot">Plot</label>
+        <input type="text" class="form-control" id="plot" name="plot" {{#if movie.plot}} value="{{ movie.plot }}" {{/if}}>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        {{#if movie}}
+            Update
+        {{else}}
+            Create
+        {{/if}}
+    </button>
+</form>

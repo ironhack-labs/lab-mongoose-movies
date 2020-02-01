@@ -22,5 +22,27 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+router.get('/form', async (req, res, next) => {
+    try {
+        res.render('movies/form');
+    } catch (err) {
+        console.error(err);
+        next();
+    }
+});
+
+router.post('/', async (req, res, next) => {
+    try {
+        const { title, genre, plot } = req.body;
+        const movie = await movieModel.create({ title, genre, plot });
+        movie.save();
+        res.redirect('/movies');
+    } catch (err) {
+        console.error(err);
+        res.redirect('movies/form');
+        next();
+    }
+});
+
 
 module.exports = router;
