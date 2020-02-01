@@ -26,7 +26,7 @@ const dbConnection = async (action) => {
         });
         console.log('Connected to DB');
 
-        await action();
+        if (action) await action();
 
     // DB CONNECTION ERROR
     } catch (error) {
