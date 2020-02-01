@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+{{#each celebrities}}
+<div>
+    <a href="/celebrities/{{this._id}}" style="text-decoration: none; font-size: 1.2em;">{{name}}</a>
+    <a href="/celebrities/{{this._id}}/delete">- ELIMINAR</a>
+    <a href="/celebrities/{{this._id}}/edit">| EDITAR</a>
+</div>
+
+{{/each}}
+
+<p><a href="/celebrities/new">Agregar Nuevo Figura </a></p>
