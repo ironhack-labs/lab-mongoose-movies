@@ -12,4 +12,15 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const celebrity = await celebrityModel.findById(req.params.id);
+        res.render("celebrities/show", { celebrity });
+    } catch (err) {
+        console.error(err);
+        next();
+    }
+});
+
+
 module.exports = router;
