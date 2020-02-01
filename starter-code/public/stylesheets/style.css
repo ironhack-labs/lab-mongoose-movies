@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+#homepage {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around; }
+
+#homepage li {
+  list-style: none; }
+
+#homepage li a {
+  text-decoration: none;
+  font-size: 5vh;
+  color: lightskyblue; }
+
+#homepage li a:hover {
+  color: darkblue; }
+
+/*# sourceMappingURL=style.css.map */
