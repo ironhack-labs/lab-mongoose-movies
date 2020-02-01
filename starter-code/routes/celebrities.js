@@ -50,7 +50,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-//Creacion boton eliminar
+//Creacion boton eliminarr
 router.post("/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
