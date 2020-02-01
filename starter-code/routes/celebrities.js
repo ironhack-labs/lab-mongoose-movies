@@ -16,4 +16,17 @@ router.get("/", (req, res, next) => {
   });
 });
 
+/* GET celebrity */
+router.get("/:id", (req, res, next) => {
+  withDbConnection(async () => {
+    const celebId = req.params.id;
+    try {
+      const celeb = await Celebrity.findById(celebId);
+      res.render("celebrities/show", { celeb });
+    } catch (error) {
+      next(error);
+    }
+  });
+});
+
 module.exports = router;
