@@ -1,0 +1,18 @@
+<header>
+    <h2>Edit Celebrity</h2>
+</header>
+<hr>
+
+<form action="/celebrities/{{celebrity._id}}" method="post" class="form">
+
+    <label class="artist" for="name">name</label>
+    <input class="input" id="name" type="text" name="name" value="{{celebrity.name}}">
+    <br>
+    <label class="artist" for="occupation">occupation</label>
+    <input class="input" id="occupation" type="text" name="occupation" value="{{celebrity.occupation}}">
+    <br>
+    <label class="artist" for="catchPhrase">What is his/her best punchline ever ?</label>
+    <input class="input" id="catchPhrase" type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+
+    <button class="btn">ok</button>
+</form>

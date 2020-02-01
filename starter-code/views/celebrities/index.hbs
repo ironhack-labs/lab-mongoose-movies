@@ -12,8 +12,10 @@
         {{this.name}}
         <a class="link" href="/celebrities/{{this._id}}">... see more</a>
         <form action="/celebrities/{{this._id}}/delete" method="post" class="form">
-        <button>delete this artist</button>
+        <button>delete</button>
         </form>
+        <a class="link" href="/celebrities/{{this._id}}/edit"><button>edit</button></a>
+
     </li>
     {{/each}}
 </ul>
