@@ -1,4 +1,6 @@
-<h2>{{title}}</h2>
+<div class="header d-flex justify-content-between align-items-center mb-3">
+    <h2>{{title}}</h2>
+</div>
 
 <form method="POST" {{#if movie}} action="/movies/{{ movie._id }}" {{else}} action="/movies" {{/if}}>
     <div class="form-group">
@@ -11,13 +13,16 @@
     </div>
     <div class="form-group">
         <label for="plot">Plot</label>
-        <input type="text" class="form-control" id="plot" name="plot" {{#if movie.plot}} value="{{ movie.plot }}" {{/if}}>
+        <textarea class="form-control" id="plot" name="plot">{{#if movie.plot}} {{ movie.plot }} {{/if}}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary">
-        {{#if movie}}
-            Update
-        {{else}}
-            Create
-        {{/if}}
-    </button>
+    <div class="d-flex justify-content-between">
+        <a class="btn btn-secondary" href="/movies">Cancel</a>
+        <button type="submit" class="btn btn-primary">
+            {{#if movie}}
+                Update
+            {{else}}
+                Create
+            {{/if}}
+        </button>
+    </div>
 </form>

@@ -1,5 +1,7 @@
-<h2>{{title}}</h2>
+<h2 class="mb-4">{{title}}</h2>
 
-<p>{{movie.title}}</p>
-<p>{{movie.genre}}</p>
-<p>{{movie.plot}}</p>
+<div class="d-flex align-items-center mb-4">
+    <b class="mr-1">Genre:</b>
+    <span class="font-italic badge badge-secondary text-wrap">{{movie.genre}}</span>
+</div>
+<p class="lead">{{movie.plot}}</p>

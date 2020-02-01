@@ -8,9 +8,10 @@
     "dev-windows": "nodemon ./bin/www",
     "seed-celebrities": "node seeds/celebrities.js",
     "seed-movies": "node seeds/movies.js"
-},
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap-icons": "^1.0.0-alpha2",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",

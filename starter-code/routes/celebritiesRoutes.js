@@ -5,7 +5,7 @@ const celebrityModel = require('../model/celebrity');
 router.get('/', async (req, res, next) => {
     try {
         const celebrities = await celebrityModel.find();
-        res.render('celebrities/index', { celebrities });
+        return res.render('celebrities/index', { celebrities, title: 'Celebrities' });
     } catch (err) {
         console.error(err);
         next();
@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try {
         const celebrity = await celebrityModel.findById(req.params.id);
-        res.render('celebrities/show', { celebrity });
+        return res.render('celebrities/show', { celebrity, title: celebrity.name });
     } catch (err) {
         console.error(err);
         next();
@@ -23,12 +23,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.get('/form', async (req, res, next) => {
-    try {
-        res.render('celebrities/form');
-    } catch (err) {
-        console.error(err);
-        next();
-    }
+    return res.render('celebrities/form', { title: 'Create Celebrity' });
 });
 
 router.post('/', async (req, res, next) => {
@@ -36,18 +31,16 @@ router.post('/', async (req, res, next) => {
         const { name, occupation, catchPhrase } = req.body;
         const celebrity = await celebrityModel.create({ name, occupation, catchPhrase });
         celebrity.save();
-        res.redirect('/celebrities');
+        return res.redirect('/celebrities');
     } catch (err) {
-        console.error(err);
-        res.redirect('celebrities/form');
-        next();
+        return res.redirect('celebrities/form');
     }
 });
 
 router.post('/:id/delete', async (req, res, next) => {
     try {
-        const celebrity = await celebrityModel.findByIdAndRemove(req.params.id);
-        res.redirect('/celebrities');
+        await celebrityModel.findByIdAndRemove(req.params.id);
+        return res.redirect('/celebrities');
     } catch (err) {
         console.error(err);
         next();
@@ -57,7 +50,7 @@ router.post('/:id/delete', async (req, res, next) => {
 router.get('/:id/edit', async (req, res, next) => {
     try {
         const celebrity = await celebrityModel.findById(req.params.id);
-        res.render('celebrities/form', { celebrity });
+        return res.render('celebrities/form', { celebrity, title: `Edit: ${celebrity.name}` });
     } catch (err) {
         console.error(err);
         next();
@@ -67,12 +60,12 @@ router.get('/:id/edit', async (req, res, next) => {
 router.post('/:id', async (req, res, next) => {
     try {
         const { name, occupation, catchPhrase } = req.body;
-        const celebrity = await celebrityModel.findByIdAndUpdate(req.params.id, {
+        await celebrityModel.findByIdAndUpdate(req.params.id, {
             name,
             occupation,
             catchPhrase
         });
-        res.redirect('/celebrities');
+        return res.redirect('/celebrities');
     } catch (err) {
         console.error(err);
         next();
