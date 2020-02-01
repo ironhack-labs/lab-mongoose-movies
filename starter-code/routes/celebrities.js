@@ -12,8 +12,8 @@ router.get("/", async (req, res, next) => {
   })
 });
 
-router.get("/:id", (req, res, next) => {
- Celebrity.findById(req.params.id)
+router.get("/:id", async (req, res, next) => {
+ await Celebrity.findById(req.params.id)
   .then(celebritiesId => {
     res.render("celebrities/show", { celebrities: celebritiesId });
   })
