@@ -78,7 +78,7 @@ router.post("/edit/:id", async (req, res,next) => {
       catchPhrase
     });
     res.redirect("/celebrities");
-  }catch{
+  }catch(err){
     console.log(err);
     next();
   }
