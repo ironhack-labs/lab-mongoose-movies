@@ -1,0 +1,11 @@
+<h2>CELEBRITIESSS</h2>
+
+<div>
+    <ul>
+        {{#each celebrities}}
+        {{#with this}}
+        {{> celeb}}
+        {{/with}}
+        {{/each}}
+    </ul>
+</div>
