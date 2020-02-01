@@ -1,0 +1,11 @@
+<h2>Here are displayed the celebrities</h2>
+
+<ul>
+{{#each movie}}
+  <li>{{this.title}}: <a href="/movies/{{_id}}">see the details!</a>
+  <a href="/movies/delete/{{this._id}}">     delete this movie</a>
+  <a href="/movies/update/{{this._id}}">     edit this movie</a></li>
+{{/each}}
+</ul>
+
+<p><a href="/movies/create-movie">create a new movie</a></p>
