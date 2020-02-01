@@ -5,5 +5,8 @@
 {{#each celebrities}}
     <p>
         <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+        <form method="POST" action="/celebrities/{{this._id}}/delete">
+            <button type="submit">Delete</button>
+        </form>
     </p>
 {{/each}}
