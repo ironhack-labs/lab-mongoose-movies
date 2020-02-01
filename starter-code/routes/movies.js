@@ -29,7 +29,7 @@ router.get('/:id', async (req, res, next) => {
 
 // Create route
 router.get('/new', (req, res, next) => {
-	res.render('movies/new', { title: 'Add new movies' });
+	res.render('movies/new', { title: 'Add new movie' });
 });
 
 router.post('/new', async (req, res, next) => {

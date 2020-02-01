@@ -31,7 +31,7 @@ router.get('/:id', async (req, res, next) => {
 
 // Create route
 router.get('/new', (req, res, next) => {
-	res.render('celebrities/new', { title: 'Add new celebrities' });
+	res.render('celebrities/new', { title: 'Add new celebrity' });
 });
 
 router.post('/new', async (req, res, next) => {
