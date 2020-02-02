@@ -1,8 +1,8 @@
-const Celebrity = require("../models/celebrity")
-const express = require('express');
-const router  = express.Router();
+const Celebrity = require("../models/celebrity");
+const express = require("express");
+const router = express.Router();
 
-/* Viene desde el App.js y me devuelve todas las celebrities que hay en la bbdd */ 
+/* Viene desde el App.js y me devuelve todas las celebrities que hay en la bbdd */
 
 router.get("/", async (req, res, next) => {
   try {
@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
 /* Página de crear las Celebrities */
 
 router.get("/new", (req, res, next) => {
-    res.render("celebrities/new"); 
+  res.render("celebrities/new");
 });
 
 /* Envio del formulario de create a la bbdd */
@@ -45,58 +45,52 @@ router.post("/delete/:id", async (req, res, next) => {
     res.send(`Error al mostrar una celebrity: ${err}`);
     next();
   }
-  });
+});
 
+// Ir a la página de Editar Celebrities
 
-  // Ir a la página de Editar Celebrities 
+router.get("/edit/:id", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const celebridad = await Celebrity.findById(id);
+    return res.render("celebrities/edit", { celebridad });
+  } catch (err) {
+    res.send(`Error: ${err}`);
+    next();
+  }
+});
 
-  router.get("/edit/:id", async (req, res, next) => {
-    const { id } = req.params;
-    try {
-      const celebridad = await Celebrity.findById(id);
-      return res.render("celebrities/edit", { celebridad }); 
-    } catch (err) {
-      res.send(`Error: ${err}`);
-      next();
-    }
+// Guardar la página de Editar Celebrities, osea, editar la Celebrity
+
+router.post("/edit/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const { name, occupation, catchPhrase } = req.body;
+  try {
+    await Celebrity.findByIdAndUpdate(id, {
+      name,
+      occupation,
+      catchPhrase
     });
-
-    // Guardar la página de Editar Celebrities, osea, editar la Celebrity 
-
-    router.post("/edit/:id", async (req, res, next) => {
-      const { id } = req.params;
-      const { name, occupation, catchPhrase } = req.body;
-      try {
-        await Celebrity.findByIdAndUpdate(id, {
-          name,
-          occupation,
-          catchPhrase
-        });
-        return res.redirect("/celebrities"); 
-      } catch (err) {
-        res.send(`Error: ${err}`);
-        next();
-      }
-      });
+    return res.redirect("/celebrities");
+  } catch (err) {
+    res.send(`Error: ${err}`);
+    next();
+  }
+});
 
 /* Según la celebrity por ID que quiera ver devuelvo todos sus datos */
 
 router.get("/:id", async (req, res, next) => {
-const { id } = req.params;
-try {
-  const celebridad = await Celebrity.findById(id);
-  return res.render("celebrities/show", { celebridad }); // Esta línea es la que le pasa cosas al show.hbs
-} catch (err) {
-  res.send(`Error al mostrar una celebrity: ${err}`);
-  next();
-}
+  const { id } = req.params;
+  try {
+    const celebridad = await Celebrity.findById(id);
+    return res.render("celebrities/show", { celebridad }); // Esta línea es la que le pasa cosas al show.hbs
+  } catch (err) {
+    res.send(`Error al mostrar una celebrity: ${err}`);
+    next();
+  }
 });
-
-
-
 
 /* Exporto un objeto "router" con todas las celebrities */
 
 module.exports = router;
-
-
