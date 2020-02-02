@@ -1,0 +1,19 @@
+<h2 style="margin-top: 50px">Editando Película</h2>
+
+<div style="max-width: 700px; margin-top: 50px;">
+  <form method="POST">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Título</label>
+      <input type="text" class="form-control" value="{{pelicula.title}}" name="title">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Género</label>
+      <input type="text" class="form-control" value="{{pelicula.genre}}" name="genre">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Sinopsis</label>
+      <input type="text" class="form-control" value="{{pelicula.plot}}" name="plot">
+    </div>
+    <button type="submit" class="btn btn-primary">Editar</button>
+  </form>
+</div>

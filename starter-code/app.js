@@ -11,11 +11,9 @@ const path = require("path");
 const dbUrl = process.env.DBURL;
 
 mongoose
-  .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true  })
+  .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
-    console.log(
-      `Connected to Mongo! Database name: ${dbUrl}`
-    );
+    console.log(`Connected to Mongo! Database name: ${dbUrl}`);
   })
   .catch(err => {
     console.error("Error connecting to mongo", err);
@@ -54,6 +52,10 @@ app.locals.title = "LAB Mongoose Movies";
 
 const index = require("./routes/index");
 app.use("/", index);
+
+// Primer paso para que vaya a movies.js
+const pelis = require("./routes/movies");
+app.use("/movies", pelis);
 
 // Primer paso para que vaya a celebrities.js
 const celebrities = require("./routes/celebrities");

@@ -1,0 +1,22 @@
+<h1 style="margin-top: 50px">Películas</h1>
+<h3>¡Hora de ir al cine!</h3>
+
+<div style="margin: 20px 0px">
+  <ul class="list-group" style="margin-top: 70px; max-width: 800px;">
+    {{#each movies}}
+    <li class="list-group-item" style="display: flex;align-items: center;">
+      <a style="float: left; font-size: 18px" href="/movies/{{_id}}">{{title}}</a>
+      <form action="/movies/delete/{{_id }}" method="POST">
+        <input class="btn btn-primary" type="submit" value="Borrar" style="margin: 15px;">
+      </form>
+      <form action="/movies/edit/{{_id }}" method="GET">
+        <input class="btn btn-primary" type="submit" value="Editar" style="margin: 15px;">
+      </form>
+
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+<a class="btn btn-primary" href="/movies/new" role="button" style="max-width: 200px; margin-top: 60px">Crear
+  Nueva Película</a>
