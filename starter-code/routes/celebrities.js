@@ -10,6 +10,11 @@ router.get("/", (req, res) => {
   .catch(err => console.log(err));
 });
 
+
+router.get("/new", (req, res) => {
+  res.render("celebrities/new");
+});
+
 router.get("/:id", (req, res) => {
   celebrityModel
     .findById(req.params.id)
@@ -17,10 +22,6 @@ router.get("/:id", (req, res) => {
       res.render("celebrities/show", { celebrity: dbRes });
     })
     .catch(err => console.log(err));
-});
-
-router.get("/new", (req, res) => {
-  res.render("celebrities/new");
 });
 
 router.post("/new", (req, res) => {
@@ -65,4 +66,3 @@ router.get("/:id/delete", (req, res) => {
 
 
 module.exports = router;
-
