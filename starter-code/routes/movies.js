@@ -33,4 +33,12 @@ router.get("/:id", async (req, res) => {
   res.render("movies/show", { obj });
 });
 
+router.get("/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  const obj = await Movie.findById(id);
+  res.render("movie/edit", {
+    obj,
+    isUpdate: true
+  });
+});
 module.exports = router;
