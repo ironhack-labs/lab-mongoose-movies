@@ -3,5 +3,10 @@
 <ul>
     <p>-{{celebrity.occupation}}</p>
     <p>-{{celebrity.catchPhrase}}</p>
-    <p><a href="/celebrities/edit/{{celebrity._id}}">edit</a></p>
+    <a href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+    {{!-- <p>
+        <form action="/celebrities/:{{celebrity._id}}/edit" method="post">
+            <button type="submit">Edit</button>
+        </form>
+    </p> --}}
 </ul>
