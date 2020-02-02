@@ -1,0 +1,13 @@
+<h2>MOVIEESS</h2>
+
+<div>
+  <ul>
+    {{#each movies}}
+    {{#with this}}
+    {{> movie}}
+    {{/with}}
+    {{/each}}
+  </ul>
+</div>
+
+<!--<a href="./celebrities/new">Crea una celebrity!!</a>-->
