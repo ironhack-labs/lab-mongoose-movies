@@ -12,4 +12,11 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const obj = await Movie.findById(id);
+  console.log(obj);
+  res.render("movies/show", { obj });
+});
+
 module.exports = router;
