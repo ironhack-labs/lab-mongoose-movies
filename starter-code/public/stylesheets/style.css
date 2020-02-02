@@ -11,3 +11,19 @@ li {
   display: flex;
   justify-content: space-between;
 }
+button,
+a {
+  padding: 7px 15px;
+  margin: 0 10px;
+  background-color: #00b7ff;
+  color: aliceblue;
+  text-decoration: none;
+  cursor: pointer;
+}
+li > a {
+  color: #00b7ff;
+  background-color: white;
+}
+button[type='submit'] {
+  background-color: red;
+}

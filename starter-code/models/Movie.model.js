@@ -1,3 +1,4 @@
+// Iteration #7: The Movie Model
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 

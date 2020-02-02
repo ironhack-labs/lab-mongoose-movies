@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity.model');
 
-//1.Show all celebrities list
+//1. Iteration #2: Listing Our Celebrities
+// Show all celebrities list
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebritiesFromDB => {
@@ -12,7 +13,8 @@ router.get('/celebrities', (req, res, next) => {
     .catch(err => next(err));
 });
 
-//3. Request to add a new celebrity to the database
+//3. Iteration #4: Adding New Celebrities
+// Request to add a new celebrity to the database
 // |Needs to come before /celebrities/:theId, else will never get rendered
 router.get('/celebrities/add', (req, res, next) => {
   //   console.log(req.body);
@@ -29,7 +31,8 @@ router.post('/celebrities/new', (req, res, next) => {
     .catch(err => next(err));
 });
 
-//5.Delete celebrities, use POST request
+//5. Iteration #5: Deleting Celebrities
+//Delete celebrities, use POST request
 router.post('/celebrities/:theId/delete', (req, res) => {
   Celebrity.findByIdAndRemove(req.params.theId)
     .then(data => {
@@ -73,7 +76,8 @@ router.post('/celebrities/:theId/update', (req, res) => {
     .catch(err => console.log('Err while updating in DB:', err));
 });
 
-//2. Get celebrity details
+//2. Iteration #3: The Celebrity Details Page
+//Get celebrity details
 router.get('/celebrities/:theId', (req, res, next) => {
   Celebrity.findById(req.params.theId)
     .then(celebrityFromDB => {
