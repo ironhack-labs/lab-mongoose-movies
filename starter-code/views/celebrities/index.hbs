@@ -1,10 +1,9 @@
 <h2>Celebrities</h2>
-<div class="card" style="width: 28rem;">
   <ul class="list-group list-group-flush">
     {{#each celebrities}}
       <div class="row">
         <div class="col-8">
-          <li class="list-group-item" style="width:100%"><a href="/celebrities/{{this._id}}">{{this.name}}</a>
+          <li class="list-group-item"><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
         </div>
         <form action="/celebrities/edit/{{this._id}}" method="GET">
           <button type="submit" class="btn btn-secondary btn-sm">Edit</button>
@@ -12,10 +11,8 @@
         <form action="/celebrities/delete/{{this._id}}" method="GET">
           <button type="submit" class="btn btn-danger btn-sm">Delete</button>
         </form>
-        </li>
       </div>
     {{/each}}
   </ul>
-</div>
 <br />
 <a href="/celebrities/new">Create</a>
