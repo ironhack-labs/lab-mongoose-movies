@@ -30,6 +30,18 @@ router.post('/celebrities/new', (req, res, next) => {
     .catch(err => next(err));
 });
 
+//5.Delete celebrities
+router.post('/celebrities/:id/delete', (req, res) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(data => {
+      console.log(`${data} successfully removed from DB`);
+      res.redirect('/celebrities');
+    })
+    .catch(err =>
+      console.log(`Error accrued while trying to remove the celebrity ${err}`)
+    );
+});
+
 //2. Get celebrity details
 router.get('/celebrities/:theId', (req, res, next) => {
   Celebrity.findById(req.params.theId)
