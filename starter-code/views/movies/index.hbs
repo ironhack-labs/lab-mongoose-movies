@@ -1,7 +1,17 @@
 <h2>Movies</h2>
 <ul class="list-group list-group-flush">
   {{#each movies}}
-  <li class="list-group-item"><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+  <li class="list-group-item dblist">
+    <a href="/movies/{{this._id}}">{{this.title}}</a>
+    <div>
+      <form action="/movies/edit/{{this._id}}" method="GET">
+      <button type="submit" class="edit">Edit</button>
+      </form>
+      <form action="/movies/delete/{{this._id}}" method="GET">
+      <button type="submit" class="delete">Delete</button>
+      </form>
+    </div>
+  </li>
   {{/each}}
 </ul>
 <br>

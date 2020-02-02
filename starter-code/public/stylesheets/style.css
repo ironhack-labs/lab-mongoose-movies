@@ -3,6 +3,22 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #00b7ff; }
+
+.dblist {
+  display: flex;
+  justify-content: space-between; }
+  .dblist div {
+    display: flex; }
+  .dblist div button {
+    margin: 0 5px;
+    text-decoration: none;
+    border: none; }
+
+.edit {
+  color: gray; }
+
+.delete {
+  color: red; }
 
 /*# sourceMappingURL=style.css.map */

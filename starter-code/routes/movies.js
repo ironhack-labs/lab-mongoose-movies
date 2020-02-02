@@ -33,4 +33,30 @@ router.get("/:id", async (req, res) => {
   res.render("movies/show", { obj });
 });
 
+router.get("/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  const obj = await Movie.findById(id);
+  res.render("movies/edit", {
+    obj,
+    isUpdate: true
+  });
+});
+
+router.post("/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, genre, plot } = req.body;
+  await Movie.findByIdAndUpdate(id, {
+    title,
+    genre,
+    plot
+  });
+  res.redirect("/movies");
+});
+
+router.get("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  await Movie.findByIdAndRemove(id);
+  res.redirect("/movies");
+});
+
 module.exports = router;
