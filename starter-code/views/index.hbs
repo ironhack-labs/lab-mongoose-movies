@@ -1,10 +1,32 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}} ESTO</p>
+{{> nav}}
 
-<ul>
-    <li><a href="./celebrities">Celebrities</a></li>
-</ul>
+<div class="container-fluid">
+    <h2>Contribuye generando contenido:</h2>
+</div>
 
-<ul>
-    <li><a href="./movies">Movies</a></li>
-</ul>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Celebrities</h3>
+                    <p class="card-text"> Consulta nuestra wiki de famosos, su profesión y sus frases más famosas.
+                    </p>
+                    <a href="./celebrities" class="btn btn-dark">Ver celebrities</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Movies</h3>
+                    <p class="card-text"> Consulta nuestra wiki de películas, su género y su argumento.
+                    </p>
+                    <a href="./movies" class="btn btn-dark">Ver movies</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

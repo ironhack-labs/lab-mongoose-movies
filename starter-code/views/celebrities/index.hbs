@@ -1,13 +1,25 @@
-<h2>CELEBRITIESSS</h2>
+{{> nav}}
 
-<div>
-    <ul>
-        {{#each celebrities}}
-        {{#with this}}
-        {{> celeb}}
-        {{/with}}
-        {{/each}}
-    </ul>
+<div class="container-fluid">
+    <h2>Celebrities</h2>
 </div>
 
-<a href="./celebrities/new">Crea una celebrity!!</a>
+<div id="celebrities" class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <ul>
+                {{#each celebrities}}
+                {{#with this}}
+                {{> celeb}}
+                {{/with}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid footer">
+    <div class="row text-right">
+        <a class="btn btn-light" href="./celebrities/new">Añade una celebrity</a>
+    </div>
+</div>

@@ -1,5 +1,15 @@
-<li>
-  <a href="movies/{{this.id}}">{{this.title}}</a>
-  <form action="/movies/{{this.id}}/delete " method="POST"><button type="submit" class="btn btn-primary">BORRAR</button>
-  </form>
-</li>
+<div class="card">
+  <div class="card-body">
+    <div class="row row-cols-2">
+      <div class="col">
+        <a href="movies/{{this.id}}">{{this.title}}</a>
+      </div>
+      <div class="col text-right">
+        <form action="/movies/{{this.id}}/delete " method="POST"><button type="submit"
+            class="btn btn-dark pull-right">Eliminar</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

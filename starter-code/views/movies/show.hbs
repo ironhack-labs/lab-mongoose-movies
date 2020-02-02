@@ -1,9 +1,22 @@
-<h1>MOVIE</h1>
+{{> nav}}
 
-<div>
-  <div>{{movie.title}}</div>
-  <div>{{movie.genre}}</div>
-  <div>{{movie.plot}}</div>
+<div class="container-fluid">
+  <h2>Movie:</h2>
 </div>
 
-<a href="/movies/{{movie.id}}/edit"> EDITAR INFO</a>
+<div id="movies" class="container-fluid">
+  <div class="row boxed">
+    <div class="container-fluid">
+      <h3>{{movie.title}}</h3>
+    </div>
+    <div class="container-fluid">
+      <p>{{movie.genre}}</p>
+    </div>
+    <div class="container-fluid">
+      <p>"{{movie.plot}}"</p>
+    </div>
+    <div class="container-fluid">
+      <a class="btn btn-dark" href="/movies/{{movie.id}}/edit"> Editar info</a>
+    </div>
+  </div>
+</div>
