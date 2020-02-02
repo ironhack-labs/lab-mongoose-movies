@@ -1,6 +1,6 @@
 <form method="POST" accept-charset="utf-8">
-  <input class="form-control form-control-lg" type="text" name="name" id="name" placeholder="celebrity name">
-  <input class="form-control form-control-lg" type="text" name="occupation" id="occupation" placeholder="occupation">
-  <input class="form-control form-control-lg" type="text" name="catchPhrase" id="catchPhrase" placeholder="catcha phrase">
+  {{> input label="Name" name="name"}}
+  {{> input label="Occupation" name="occupation"}}
+  {{> input label="Catch Phrase" name="catchPhrase"}}
   <button type="submit" class="btn btn-success">Add</button>
 </form>

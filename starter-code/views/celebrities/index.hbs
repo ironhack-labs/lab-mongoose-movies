@@ -1,14 +1,18 @@
 <h2>Celebrities</h2>
-<div class="card" style="width: 18rem;">
-  <ul class="list-group list-group-flush">
-    {{#each celebrities}}
-      <li class="list-group-item"><a href="/celebrities/{{this._id}}">{{this.name}}</a>
-        <form action="/celebrities/delete/{{this._id}}" method="GET">
-          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-        </form>
-      </li>
-    {{/each}}
-  </ul>
-</div>
+<ul class="list-group list-group-flush">
+  {{#each celebrities}}
+  <li class="list-group-item dblist">
+    <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+    <div>
+      <form action="/celebrities/edit/{{this._id}}" method="GET">
+      <button type="submit" class="edit">Edit</button>
+      </form>
+      <form action="/celebrities/delete/{{this._id}}" method="GET">
+      <button type="submit" class="delete">Delete</button>
+      </form>
+    </div>
+  </li>
+  {{/each}}
+</ul>
 <br />
-<a href="/celebrities/new">Create</a>
+<button type="button" class="btn btn-primary"><a href="/celebrities/new" style="text-decoration: none; color:white">Add Celebrity</a></button>

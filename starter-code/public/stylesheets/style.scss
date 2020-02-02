@@ -4,5 +4,24 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.dblist {
+  display: flex;
+  justify-content: space-between;
+  div {
+    display: flex;
+  }
+  div button {
+    margin: 0 5px;
+    text-decoration: none;
+    border: none;
+  }
+}
+.edit {
+  color: gray;
+}
+.delete {
+  color: red;
 }
