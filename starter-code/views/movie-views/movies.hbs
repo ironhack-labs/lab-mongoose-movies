@@ -1,6 +1,6 @@
 <h1>Movies collections from DB</h1>
 <ul>
     {{#each moviesFromDB}}
-    <li> {{this.title}} </li>
+    <li><a href="/movie-details?movies_id={{this._id}}"> {{this.title}}</a> </li>
     {{/each}}
 </ul>
