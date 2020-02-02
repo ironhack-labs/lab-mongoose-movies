@@ -25,6 +25,19 @@ router.get("/:celebritiesId", async (req, res, next) => {
   }
 });
 
+//Iteration 4: Adding New Celebrities
+
+router.get("/new", async (req, res, next) => {
+  try {
+    const celebrities = await Celebrities.find();
+    res.render("celebrities/index", { celebrities });
+  } catch (error) {
+    console.log(`Error retrieving celebrities ${error}`);
+  }
+});
+
+
+
 
 
 // router.get('/celebrities/:celebritiesId', (req, res, next) => {
