@@ -59,4 +59,5 @@ app.locals.title = 'Express - Generated with IronGenerator';
 app.use('/', index);
 app.use('/celebrities', celebrities);
 
+
 module.exports = app;

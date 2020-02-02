@@ -15,10 +15,10 @@ router.get("/", async (req, res, next) => {
 
 //Iteration 3: The Celebrity Details Page
 
-router.get("/", async (req, res, next) => {
+router.get("/:celebritiesId", async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const celebrity = await Celebrity.findById(id);
+    const { celebritiesId } = req.params;
+    const celebrity = await Celebrities.findById(celebritiesId);
     res.render("celebrities/show", { celebrity });
   } catch (error) {
     console.log(`Error finding celebrity by id ${error}`);
