@@ -29,6 +29,17 @@ router.get("/new", (req, res, next) => {
 });
 
 /* GET edit */
+router.get("/:id/edit", (req, res, next) => {
+  withDbConnection(async () => {
+    const movieId = req.params.id;
+    try {
+      const movies = await Movie.findById(movieId);
+      res.render("movies/edit", { movies });
+    } catch (error) {
+      next(error);
+    }
+  });
+});
 
 /* POST new */
 router.post("/", (req, res, next) => {
@@ -80,5 +91,23 @@ router.get("/:id", (req, res, next) => {
 });
 
 /* POST edit */
+router.post("/:id", (req, res, next) => {
+  const movieData = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
+  };
+
+  const movieId = req.params.id;
+  withDbConnection(async () => {
+    try {
+      await Movie.findByIdAndUpdate(movieId, movieData);
+      res.redirect("/movies");
+    } catch (error) {
+      next(error);
+      res.render("movies/new");
+    }
+  });
+});
 
 module.exports = router;
