@@ -1,0 +1,67 @@
+body {
+  padding: 50px;
+  font: 400 normal 10px/1.45rem $primary-font;
+  background: $text-color-medium;
+}
+
+.btn-dark {
+  font-family: $secondary-font;
+  font-size: 1.2rem;
+  &:hover {
+    background: $color-highlight;
+    border: solid 1px $color-highlight;
+  }
+}
+
+.navbar-light .navbar-brand {
+  color: $color-highlight;
+}
+
+#celebrities,
+#movies {
+  margin-top: 2rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin-bottom: 1rem;
+}
+
+.boxed {
+  width: 100%;
+  max-width: 45rem;
+  box-sizing: border-box;
+  padding: 2rem;
+  border: solid 1px $text-color-medium;
+  border-radius: 1.5rem;
+  background: $text-color-light;
+}
+
+.footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: $text-color-dark;
+  height: 8rem;
+  text-align: center;
+  .btn-light {
+    background-color: $color-highlight;
+    color: $text-color-light;
+    border: solid 1px $color-highlight;
+    display: block;
+    margin: 2rem auto;
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+  }
+}
+
+form {
+  input {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+{{> nav}}
+
+<div class="container-fluid">
+  <h2>Añade una nueva movie</h2>
+</div>
+
+<div id="celebrities" class="container-fluid">
+  <div class="row">
+    <form class="boxed" action="/movies" method="POST">
+      <div class="form-group">
+        <label for="title">Título:</label>
+        <input type="text" class="form-control" id="title" placeholder="Escribe aquí..." name="title">
+      </div>
+      <div class="form-group">
+        <label for="genre">Género:</label>
+        <input type="text" class="form-control" id="genre" placeholder="Escribe aquí..." name="genre">
+      </div>
+      <div class="form-group">
+        <label for="plot">Argumento:</label>
+        <textarea class="form-control" id="plot" rows="3"
+          name="plot">Escribe un breve resumen de la película.</textarea>
+      </div>
+      <button type="submit" class="btn btn-dark">Enviar</button>
+    </form>
+
+  </div>
+</div>

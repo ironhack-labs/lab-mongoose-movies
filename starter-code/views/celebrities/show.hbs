@@ -1,0 +1,22 @@
+{{> nav}}
+
+<div class="container-fluid">
+    <h2>Celebrity:</h2>
+</div>
+
+<div id="celebrities" class="container-fluid">
+    <div class="row boxed">
+        <div class="container-fluid">
+            <h3>{{celeb.name}}</h3>
+        </div>
+        <div class="container-fluid">
+            <p>{{celeb.occupation}}</p>
+        </div>
+        <div class="container-fluid">
+            <p>"{{celeb.catchPhrase}}"</p>
+        </div>
+        <div class="container-fluid">
+            <a class="btn btn-dark" href="/celebrities/{{celeb.id}}/edit"> Editar info</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{{> nav}}
+
+<div class="container-fluid">
+    <h2>Edita la información:</h2>
+</div>
+
+<div id="celebrities" class="container-fluid ">
+    <div class="row">
+        <form class="boxed" action="/celebrities/{{celeb.id}}" method="POST">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="celebrityName" value="{{celeb.name}}" name="name">
+            </div>
+            <div class="form-group">
+                <label for="occupation">Ocupación</label>
+                <input type="text" class="form-control" id="occupation" value="{{celeb.occupation}}" name="occupation">
+            </div>
+            <div class="form-group">
+                <label for="catchPhrase">Frase famosa:</label>
+                <textarea class="form-control" id="catchPhrase" rows="3"
+                    name="catchPhrase">{{celeb.catchPhrase}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Guardar</button>
+        </form>
+    </div>
+</div>

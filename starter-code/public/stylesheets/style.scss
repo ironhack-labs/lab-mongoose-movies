@@ -1,8 +1,14 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+/*
+================================================
+IMPORTAR MI ESTRUCTURA EN EL FICHERO PRINCIPAL
+================================================
+*/
 
-a {
-  color: #00B7FF;
-}
+// 1. Configuration and helpers
+@import "abstracts/variables";
+
+// 2. Vendors
+//@import "vendors/normalize";
+
+// 3. Base stuff
+@import "base/base", "base/fonts", "base/typography";

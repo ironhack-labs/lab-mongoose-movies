@@ -1,0 +1,44 @@
+h1 {
+  font-family: $primary-font;
+  color: $color-highlight;
+  margin: 0;
+  line-height: 1rem;
+}
+
+h2 {
+  font-family: $primary-font;
+  color: $text-color-light;
+  font-size: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-family: $primary-font;
+  color: $text-color-dark;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+p,
+label {
+  font-family: $secondary-font;
+  color: $text-color-dark;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+  &::selection {
+    background-color: $text-color-dark;
+    color: white;
+  }
+}
+
+a {
+  font-family: $secondary-font;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+  color: $color-highlight;
+  &:hover {
+    color: $color-highlight;
+  }
+}

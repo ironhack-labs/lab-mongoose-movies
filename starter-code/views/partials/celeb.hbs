@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-body">
+        <!--<h3 class="card-title">Celebrities</h3>-->
+        <div class="row row-cols-2">
+            <div class="col">
+                <a href="celebrities/{{id}}">{{name}}</a>
+            </div>
+            <div class="col text-right">
+                <form action="/celebrities/{{id}}/delete " method="POST"><button type="submit"
+                        class="btn btn-dark pull-right">Eliminar</button></form>
+            </div>
+        </div>
+    </div>
+</div>
