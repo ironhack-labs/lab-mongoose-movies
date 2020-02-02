@@ -12,6 +12,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/new", (req, res) => {
+  res.render("movies/new");
+});
+
+router.post("/new", async (req, res) => {
+  const { title, genre, plot } = req.body;
+  await Movie.create({
+    title,
+    genre,
+    plot
+  });
+  res.redirect("/movies");
+});
+
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const obj = await Movie.findById(id);
