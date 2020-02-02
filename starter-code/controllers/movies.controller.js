@@ -23,4 +23,15 @@ exports.movieDelGet = async (req, res,next) => {
   res.redirect('/movies')
 }
 
+exports.movieEditPost = async (req, res, next) => {
+  const editMovie = { title, genre, plot} = req.body
+  await Movie.findByIdAndUpdate(req.params.id, editMovie).catch( err => next(err))
+
+  res.redirect('/movies')
+}
+exports.movieEditGet = async (req, res, next) => {
+  const movieFound = await Movie.findById( req.params.id ).catch( err => next(err) )
+  res.render('movies/edit', movieFound)
+}
+
 exports.moviesNewGet = (req, res, next) => res.render('movies/new')
