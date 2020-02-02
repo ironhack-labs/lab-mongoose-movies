@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const celebrity = require("../models/celebrity");
 
 /* GET home page */
-router.get("/celebrities", async (req, res) => {
-  const celeb = await celebrity.find();
-  res.render("../views/test.hbs");
+router.get("/", (req, res) => {
+  res.render("index");
 });
 
 module.exports = router;
