@@ -40,6 +40,15 @@ footer {
   width: 100vw;
 }
 
+.landing-container {
+  margin: 40px 30px;
+  p {
+    font-size: 18px;
+    margin: 20px 0;
+    max-width: 500px;
+  }
+}
+
 .navbar-collapse {
   justify-content: flex-end;
 }
