@@ -17,6 +17,38 @@ router.get("/", (req, res, next) => {
   });
 });
 
+/* GET new */
+router.get("/new", (req, res, next) => {
+  withDbConnection(async () => {
+    try {
+      res.render("movies/new");
+    } catch (error) {
+      next(error);
+    }
+  });
+});
+
+/* POST new */
+router.post("/", (req, res, next) => {
+  const movieData = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot
+  };
+
+  const newMovie = new Movie(movieData);
+
+  withDbConnection(async () => {
+    try {
+      await newMovie.save();
+      res.redirect("/movies");
+    } catch (error) {
+      next(error);
+      res.render("movies/new");
+    }
+  });
+});
+
 /* GET movie */
 router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
