@@ -1,0 +1,19 @@
+<h2 style="margin-top: 50px">Editando</h2>
+
+<div style="max-width: 700px; margin-top: 50px;">
+<form method="POST">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Nombre</label>
+    <input type="text" class="form-control" value="{{celebridad.name}}" name="name">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Ocupación</label>
+    <input type="text" class="form-control" value="{{celebridad.occupation}}" name="occupation">
+  </div>
+    <div class="form-group">
+    <label for="formGroupExampleInput2">Frase Famosa</label>
+    <input type="text" class="form-control" value="{{celebridad.catchPhrase}}" name="catchPhrase">
+  </div>
+  <button type="submit" class="btn btn-primary">Editar</button>
+</form>
+</div>
