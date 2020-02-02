@@ -6,7 +6,7 @@ const {
   celebrityNewGet, 
   celebrityEditGet,
   celebritiesPost,
-  celebrityDelPost,
+  celebrityDelGet,
   celebrityEditPost
 } = require('../controllers/celebrities.controller')
 
@@ -16,7 +16,7 @@ router
   .post('/:id', celebrityEditPost)
   .get('/', celebritiesGet)
   .get('/new', celebrityNewGet)
-  .get('/:id/delete', celebrityDelPost)
+  .get('/:id/delete', celebrityDelGet)
   .get('/:id/edit', celebrityEditGet)
   .get('/:id', celebrityGet)
 

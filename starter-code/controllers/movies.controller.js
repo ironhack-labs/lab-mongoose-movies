@@ -18,4 +18,9 @@ exports.moviesPost = async (req, res, next) => {
   res.redirect('/movies')
 }
 
+exports.movieDelGet = async (req, res,next) => {
+  await Movie.findByIdAndDelete( req.params.id ).catch(err => next(err))
+  res.redirect('/movies')
+}
+
 exports.moviesNewGet = (req, res, next) => res.render('movies/new')

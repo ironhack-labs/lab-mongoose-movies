@@ -4,7 +4,8 @@ const {
   moviesGet,
   movieGet,
   moviesPost,
-  moviesNewGet
+  moviesNewGet,
+  movieDelGet
 } = require('../controllers/movies.controller')
 
 /* POST / GET movies ROUTES */
@@ -12,6 +13,7 @@ router
   .post('/', moviesPost)
   .get('/', moviesGet)
   .get('/new', moviesNewGet)
+  .get('/:id/delete', movieDelGet)
   .get('/:id', movieGet)
 
 module.exports = router;

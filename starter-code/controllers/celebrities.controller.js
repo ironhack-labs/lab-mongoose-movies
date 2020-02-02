@@ -34,7 +34,7 @@ exports.celebritiesPost = async (req, res, next) => {
   res.redirect('/celebrities')
 }
 
-exports.celebrityDelPost = async (req, res, next) => {
+exports.celebrityDelGet = async (req, res, next) => {
   await Celebrity.findByIdAndDelete( req.params.id )
   .catch(err => next(err))
   res.redirect('/celebrities')
