@@ -13,7 +13,15 @@ a {
   div {
     display: flex;
   }
-  div a {
+  div button {
     margin: 0 5px;
+    text-decoration: none;
+    border: none;
   }
+}
+.edit {
+  color: gray;
+}
+.delete {
+  color: red;
 }

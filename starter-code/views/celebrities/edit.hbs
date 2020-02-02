@@ -1,6 +1,6 @@
 <form method="POST" accept-charset="utf-8">
-  <input class="form-control form-control-lg" type="text" name="name" id="name" placeholder="celebrity name" value="{{obj.name}}">
-  <input class="form-control form-control-lg" type="text" name="occupation" id="occupation" placeholder="occupation" value="{{obj.occupation}}">
-  <input class="form-control form-control-lg" type="text" name="catchPhrase" id="catchPhrase" placeholder="catcha phrase"value="{{obj.catchPhrase}}">
+  {{> input label="Name" name="name" value=obj.name}}
+  {{> input label="Occupation" name="occupation" value=obj.occupation}}
+  {{> input label="Catch Phrase" name="catchPhrase" value=obj.catchPhrase}}
   <button type="submit" class="btn btn-primary">Update</button>
 </form>

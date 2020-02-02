@@ -1,6 +1,6 @@
 <form method="POST" accept-charset="utf-8">
-  <input class="form-control form-control-lg" type="text" name="title" id="title" placeholder="movie title" value="{{obj.title}}">
-  <input class="form-control form-control-lg" type="text" name="genre" id="genre" placeholder="genre" value="{{obj.genre}}">
-  <input class="form-control form-control-lg" type="text" name="plot" id="plot" placeholder="plot" value="{{obj.plot}}">
-  <button type="submit" class="btn btn-success">Add</button>
+  {{> input label="Title" name="title" value=obj.title}}
+  {{> input label="Genre" name="genre" value=obj.genre}}
+  {{> input label="Plot" name="plot" value=obj.plot}}
+  <button type="submit" class="btn btn-primary">Update</button>
 </form>

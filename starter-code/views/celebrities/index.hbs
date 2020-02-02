@@ -5,10 +5,10 @@
     <a href="/celebrities/{{this._id}}">{{this.name}}</a>
     <div>
       <form action="/celebrities/edit/{{this._id}}" method="GET">
-      <button type="submit" class="btn btn-secondary btn-sm">Edit</button>
+      <button type="submit" class="edit">Edit</button>
       </form>
       <form action="/celebrities/delete/{{this._id}}" method="GET">
-      <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+      <button type="submit" class="delete">Delete</button>
       </form>
     </div>
   </li>

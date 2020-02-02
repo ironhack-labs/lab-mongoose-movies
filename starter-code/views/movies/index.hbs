@@ -4,8 +4,12 @@
   <li class="list-group-item dblist">
     <a href="/movies/{{this._id}}">{{this.title}}</a>
     <div>
-      <a href="/movies/edit/{{this._id}}">Edit</a>
-      <a href="/movies/delete/{{this._id}}">Delete</a>
+      <form action="/movies/edit/{{this._id}}" method="GET">
+      <button type="submit" class="edit">Edit</button>
+      </form>
+      <form action="/movies/delete/{{this._id}}" method="GET">
+      <button type="submit" class="delete">Delete</button>
+      </form>
     </div>
   </li>
   {{/each}}

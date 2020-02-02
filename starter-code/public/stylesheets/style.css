@@ -10,7 +10,15 @@ a {
   justify-content: space-between; }
   .dblist div {
     display: flex; }
-  .dblist div a {
-    margin: 0 5px; }
+  .dblist div button {
+    margin: 0 5px;
+    text-decoration: none;
+    border: none; }
+
+.edit {
+  color: gray; }
+
+.delete {
+  color: red; }
 
 /*# sourceMappingURL=style.css.map */
