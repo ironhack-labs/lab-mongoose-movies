@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/", async (req, res, next) => {
   try {
-    //const { id } = req.params;
+    const { id } = req.params;
     const celebrity = await Celebrity.findById(id);
     res.render("celebrities/show", { celebrity });
   } catch (error) {
