@@ -17,4 +17,17 @@ router.get("/", (req, res, next) => {
   });
 });
 
+/* GET movie */
+router.get("/:id", (req, res, next) => {
+  withDbConnection(async () => {
+    const movieId = req.params.id;
+    try {
+      const movie = await Movie.findById(movieId);
+      res.render("movies/show", { movie });
+    } catch (error) {
+      next(error);
+    }
+  });
+});
+
 module.exports = router;
