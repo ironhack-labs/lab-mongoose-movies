@@ -56,7 +56,7 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use("/static", express.static("static"));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "Wiki Fame";
 
 const index = require("./routes/index");
 app.use("/", index);

@@ -1,8 +1,101 @@
+/*
+================================================
+IMPORTAR MI ESTRUCTURA EN EL FICHERO PRINCIPAL
+================================================
+*/
+@import url("https://fonts.googleapis.com/css?family=Lora|Quicksand&display=swap");
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 400 normal 10px/1.45rem "Lora", "Georgia", serif;
+  background: #2e2e2e; }
+
+.btn-dark {
+  font-family: "Quicksand", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.2rem; }
+  .btn-dark:hover {
+    background: #ff7f50;
+    border: solid 1px #ff7f50; }
+
+.navbar-light .navbar-brand {
+  color: #ff7f50; }
+
+#celebrities,
+#movies {
+  margin-top: 2rem; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+.card {
+  margin-bottom: 1rem; }
+
+.boxed {
+  width: 100%;
+  max-width: 45rem;
+  box-sizing: border-box;
+  padding: 2rem;
+  border: solid 1px #2e2e2e;
+  border-radius: 1.5rem;
+  background: #ffffff; }
+
+.footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #0b0b11;
+  height: 8rem;
+  text-align: center; }
+  .footer .btn-light {
+    background-color: #ff7f50;
+    color: #ffffff;
+    border: solid 1px #ff7f50;
+    display: block;
+    margin: 2rem auto;
+    font-size: 1.2rem;
+    line-height: 2.5rem; }
+
+form input {
+  width: 100%; }
+
+h1 {
+  font-family: "Lora", "Georgia", serif;
+  color: #ff7f50;
+  margin: 0;
+  line-height: 1rem; }
+
+h2 {
+  font-family: "Lora", "Georgia", serif;
+  color: #ffffff;
+  font-size: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem; }
+
+h3 {
+  font-family: "Lora", "Georgia", serif;
+  color: #0b0b11;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; }
+
+p,
+label {
+  font-family: "Quicksand", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #0b0b11;
+  font-size: 1.2rem;
+  line-height: 2.5rem; }
+  p::selection,
+  label::selection {
+    background-color: #0b0b11;
+    color: white; }
 
 a {
-  color: #00B7FF; }
+  font-family: "Quicksand", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+  color: #ff7f50; }
+  a:hover {
+    color: #ff7f50; }
 
 /*# sourceMappingURL=style.css.map */
