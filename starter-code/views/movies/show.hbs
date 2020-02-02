@@ -1,8 +1,9 @@
-<h2>Movie Detail's</h2>
+{{#with movie}}
+<h2 class="center-title">More about {{title}}</h2>
+
 <div class="row justify-content-center">
   <div class="col text-center" style="max-width: fit-content">
-    {{#with movie}}
     {{> moviePage}}
-    {{/with}}
   </div>
 </div>
+{{/with}}

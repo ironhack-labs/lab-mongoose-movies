@@ -1,6 +1,7 @@
 {{#with movie}}
+<h2 class="center-title">Edit {{title}}</h2>
 
-<form method="POST" action="/movies/{{_id}}">
+<form method="POST" action="/movies/{{_id}}" class="input-container">
   <div class="form-group">
     <input type="text" class="form-control" value="{{title}}" name="title">
   </div>

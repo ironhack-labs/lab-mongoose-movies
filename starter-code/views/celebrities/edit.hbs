@@ -1,6 +1,7 @@
 {{#with celebrity}}
+<h2 class="center-title">Edit {{name}}</h2>
 
-<form method="POST" action="/celebrities/{{_id}}">
+<form method="POST" action="/celebrities/{{_id}}" class="input-container">
   <div class="form-group">
     <input type="text" class="form-control" value="{{name}}" name="name">
   </div>
