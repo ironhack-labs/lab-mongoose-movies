@@ -28,6 +28,8 @@ router.get("/new", (req, res, next) => {
   });
 });
 
+/* GET edit */
+
 /* POST new */
 router.post("/", (req, res, next) => {
   const movieData = {
@@ -49,6 +51,21 @@ router.post("/", (req, res, next) => {
   });
 });
 
+/* POST delete id */
+router.post("/:id/delete", (req, res, next) => {
+  const movieId = req.params.id;
+
+  withDbConnection(async () => {
+    try {
+      await Movie.findByIdAndRemove(movieId);
+      res.redirect("/movies");
+    } catch (error) {
+      next(error);
+      res.render("movies/new");
+    }
+  });
+});
+
 /* GET movie */
 router.get("/:id", (req, res, next) => {
   withDbConnection(async () => {
@@ -61,5 +78,7 @@ router.get("/:id", (req, res, next) => {
     }
   });
 });
+
+/* POST edit */
 
 module.exports = router;

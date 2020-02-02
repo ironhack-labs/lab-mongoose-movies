@@ -1,3 +1,5 @@
 <li>
-  <div>{{title}}</div>
+  <a href="movies/{{this.id}}">{{this.title}}</a>
+  <form action="/movies/{{this.id}}/delete " method="POST"><button type="submit" class="btn btn-primary">BORRAR</button>
+  </form>
 </li>
