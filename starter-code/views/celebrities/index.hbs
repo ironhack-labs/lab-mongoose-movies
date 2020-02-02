@@ -1,0 +1,24 @@
+<section class="page">
+    <h2 class="title">WELCOME TO THE CELEBRITIES' PAGE</h2>
+    <hr>
+
+    {{#unless celebs}}
+    <p class="nothing">Sorry, nothing here yet...</p>
+    {{/unless}}
+
+    <div class="grid">
+        {{#each celebs}}
+        <ul>
+            <li>
+                <a class="celebrity" href="/celebrities/show/{{this._id}}">{{this.name}}</a>
+                <form action="/celebrities/show/{{this._id}}/edit" method="post">
+                    <button><a href="/celebrities/show/{{this._id}}/edit">edit</a></button>
+                </form>
+                <form action="/celebrities/show/{{this._id}}/delete" method="post">
+                    <button><a href="/celebrities/show/{{this._id}}/delete">delete this {{this.occupation}}!</a></button>
+                </form>
+            </li>
+        </ul>
+        {{/each}}
+    </div>
+</section>

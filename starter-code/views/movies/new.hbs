@@ -1,0 +1,17 @@
+{{!-- MAKE A FORM TO CREATE NEW MOVIES --}}
+<h2 class="title">WELCOME TO THE CREATE PAGE</h2>
+<hr>
+
+<form action="/movies/new" method="post" class="form">
+    <h3 class="title">Create Movie</h3>
+    <label for="title" >Title</label>
+    <input type="text" name="title" placeholder="Matrix" required>
+
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" placeholder="Sci-fi">
+
+    <label for="plot">Plot</label>
+    <input type="text" name="plot" placeholder="Rebellion against machines">
+
+    <button class="btn">Add</button>
+</form>

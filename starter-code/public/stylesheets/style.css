@@ -1,0 +1,26 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+nav {
+  border: 2px solid black;
+  background-image: linear-gradient(to right, white, teal); }
+
+nav ul {
+  list-style-type: none; }
+
+nav a {
+  color: black;
+  text-decoration: none; }
+
+nav a:hover {
+  text-decoration: underline; }
+
+button a {
+  text-decoration: none;
+  color: black; }
+
+/*# sourceMappingURL=style.css.map */

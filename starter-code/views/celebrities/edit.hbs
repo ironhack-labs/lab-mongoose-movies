@@ -1,0 +1,16 @@
+<h2>WELCOME TO THE EDIT CELEBRITY PAGE</h2>
+<hr>
+
+<form action="/celebrities/show/{{celebrity.id}}" method="post" class="form">
+    <h3 class="title">Edit Celebrity</h3>
+    <label for="name" >Name</label>
+    <input type="text" name="name" placeholder="{{celebrity.name}}" required>
+
+    <label for="occupation" >Occupation</label>
+    <input type="text" name="occupation" placeholder="{{celebrity.occupation}}">
+
+    <label for="catchPhrase" >Catch Phrase</label>
+    <input type="text" name="catchPhrase" placeholder="{{celebrity.catchPhrase}}">
+
+    <button class="btn">Edit</button>
+</form>

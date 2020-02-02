@@ -1,0 +1,16 @@
+<h2>WELCOME TO THE EDIT MOVIE PAGE</h2>
+<hr>
+
+<form action="/movies/show/{{movie.id}}" method="post" class="form">
+    <h3 class="title">Edit Movie</h3>
+    <label for="title" >Title</label>
+    <input type="text" name="title" placeholder="{{movie.title}}" required>
+
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" placeholder="{{movie.genre}}">
+
+    <label for="plot">Plot</label>
+    <input type="text" name="plot" placeholder="{{movie.plot}}">
+
+    <button class="btn">Edit</button>
+</form>

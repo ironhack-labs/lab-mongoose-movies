@@ -1,0 +1,24 @@
+<section class="page">
+    <h2 class="title">WELCOME TO THE MOVIES' PAGE</h2>
+    <hr>
+
+    {{#unless movies}}
+    <p class="nothing">Sorry, nothing here yet...</p>
+    {{/unless}}
+
+    <div class="grid">
+        {{#each movies}}
+        <ul>
+            <li>
+                <a class="movies" href="/movies/show/{{this._id}}">{{this.title}}</a>
+                <form action="/movies/show/{{this._id}}/edit" method="post">
+                    <button><a href="/movies/show/{{this._id}}/edit">edit</a></button>
+                </form>
+                <form action="/movies/show/{{this._id}}/delete" method="post">
+                    <button><a href="/movies/show/{{this._id}}/delete">delete</a></button>
+                </form>
+            </li>
+        </ul>
+        {{/each}}
+    </div>
+</section>
