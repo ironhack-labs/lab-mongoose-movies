@@ -6,7 +6,7 @@ const Celebrity = require('../models/Celebrity.model');
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebritiesFromDB => {
-      console.log('celebritiesFromDB: ', celebritiesFromDB);
+      // console.log('celebritiesFromDB: ', celebritiesFromDB);
       res.render('celebrities/index', { celebrities: celebritiesFromDB });
     })
     .catch(err => next(err));
@@ -23,8 +23,8 @@ router.get('/celebrities/add', (req, res, next) => {
 router.post('/celebrities/new', (req, res, next) => {
   Celebrity.create(req.body)
     .then(celebrityFromDB => {
-      // console.log('celebritiesFromDB: ', celebrityFromDB);
-      res.redirect(`/celebrities/${celebrityFromDB._id}`);
+      res.redirect(`/celebrities`);
+      // res.redirect(`/celebrities/${celebrityFromDB._id}`);
     })
     .catch(err => next(err));
 });
