@@ -1,0 +1,12 @@
+<h2>Yay movies</h2>
+  {{#each movies}}
+  <ul><li>{{this.title}}</li></ul>
+  <a href="/movies/{{this.id}}">click me</a>
+  
+  <form action="/movies/{{this.id}}/delete" method="get" class="form">
+    <h1 class="title">Delete a movie</h1>
+
+    <button class="btnc">ok</button>
+    {{!-- <input class="btn" type="submit" value="ok"> --}}
+</form>
+  {{/each}}

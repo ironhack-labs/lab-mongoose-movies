@@ -3,20 +3,9 @@
   <ul><li>{{this.name}}</li></ul>
   <a href="/celebrities/{{this.id}}">click me</a>
   
-  <form action="celebrities/{{this.id}}/delete" method="post" class="form">
+  <form action="/celebrities/{{this.id}}/delete" method="get" class="form">
     <h1 class="title">Delete a celebrity</h1>
 
-    <label class="label" for="name">name</label>
-    <input class="input" id="name" type="text" name="name" value="test celebrity">
-
-    <label class="label" for="occupation">description</label>
-        <input class="input" id="occupation" type="text" name="occupation" value="test occupation">
-
-   <label class="label" for="catch-phrase">catch phrase</label>
-        <input class="input" id="catch-phrase" type="text" name="catch-phrase" value="catch-phrase">
-
-
-    
     <button class="btn">ok</button>
     {{!-- <input class="btn" type="submit" value="ok"> --}}
 </form>
