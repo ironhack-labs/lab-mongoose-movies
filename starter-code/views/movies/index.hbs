@@ -1,0 +1,22 @@
+<h2>Movies List!</h2>
+{{#each movies}}
+<form action="/movies/{{ this._id }}/delete" method="POST">
+   <div class="card bg-light mb-3">
+      <div class="card-body">
+         {{this.title}}
+      </div>
+      <div>
+         <a href="/movies/{{this._id}}" <button type="button" class="btn btn-primary float-right">Show</button></a>
+         <a href="/movies/{{this._id}}/edit" <button type="button"
+            class="btn btn-success float-right">Edit</button></a>
+         <button type="submit" class="btn btn-danger float-right">Delete</button>
+      </div>
+   </div>
+</form>
+{{/each}}
+
+<div class="row">
+   <div class="col">
+      <a href="/movies/new" class="btn btn-success ">Add New</a>
+   </div>
+</div>
