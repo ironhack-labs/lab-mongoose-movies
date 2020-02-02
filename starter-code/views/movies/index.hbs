@@ -2,9 +2,9 @@
 
 {{#each movies}}
     <a href = "/movies/{{this._id}}"><p>{{this.title}}</p></a>
-    {{!-- <form method = "POST" action = "/celebrities/{{this._id}}/delete">
+    <form method = "POST" action = "/movies/{{this._id}}/delete">
     <button type = "Submit">Delete</button>    
-    </form> --}}
+    </form>
 {{/each}}
 <br><br>
-{{!-- <a href = "/celebrities/new"> Add a celebrity!</a> --}}
+<a href = "/movies/new"> Add a movie!</a>
