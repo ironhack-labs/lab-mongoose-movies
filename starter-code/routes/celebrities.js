@@ -8,6 +8,7 @@ router.get("/", (req, res, next) => {
   res.render("celebrities/index", { celebrities });
   })
   .catch(error => {
+    next();
     console.log(error);
   })
 });
@@ -18,16 +19,13 @@ router.get("/:id", (req, res, next) => {
     res.render("celebrities/show", { celebrities: celebritiesId });
   })
   .catch(error => {
-    console.log(error);
     next();
+    console.log(error);
   })
 });
 
 router.get("/new", (req, res, next) => {
-  
-    res.render("celebrities/new");
-  
-  
+    res.render("celebrities/new"); 
 });
 
 router.post("/", (req, res, next) => {
@@ -45,5 +43,16 @@ router.post("/", (req, res, next) => {
   })
   object.save();
   });
+
+  router.post("/:id/delete", (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+    .then(celebritiesDel => {
+      res.redirect("/celebrities")
+    })
+    .catch(error => {
+      next();
+      console.log(error);
+    })
+  })
 
 module.exports = router;
