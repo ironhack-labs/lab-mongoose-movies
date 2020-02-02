@@ -96,3 +96,16 @@ footer {
 .btn-add {
   margin: 10px 20px;
 }
+
+.form-control {
+  background-color: $back-color;
+  border-color: $back-color-shade;
+  :focus {
+    background-color: $back-color;
+  }
+}
+
+.input-container {
+  min-width: 80vw;
+  margin: 50px auto;
+}
