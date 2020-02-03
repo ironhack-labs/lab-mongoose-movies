@@ -1,0 +1,14 @@
+<h2>Oscars</h2>
+
+<form action="/celebrities" method="post">
+{{> form label="Name" placeholder="Tomasito" name="Name" value=obj.name }}
+  {{> form label="Occupation" placeholder="singer?" name="occupation"
+  value=obj.occupation }}
+  {{> form label="Phrase" placeholder="Phrase" name="catchPhrase"
+  value=obj.catchPhrase }}
+  <button type="submit">Submit</button>
+</form>
+
+<a href="/celebrities">Celebrities</a>
+
+<a href="/">Home</a>
