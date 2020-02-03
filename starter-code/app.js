@@ -12,6 +12,9 @@ const path         = require('path');
 const data = require('./bin/seeds')
 const Celebrity = require('./models/Celebrity')
 
+const moviesData = require('./bin/data')
+const Movie = require('./models/Movie')
+
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true, useUnifiedTopology: true})
@@ -19,6 +22,7 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
 
     await Celebrity.create(data, () => console.log('⭐️ Celebrities DB created!'))
+    await Movie.create(moviesData, () => console.log('🍿 Movies DB created!'))
 
   })
   .catch(err => {
@@ -60,5 +64,8 @@ app.use('/', index);
 
 const celebritiesRoute = require('./routes/celebrities')
 app.use('/', celebritiesRoute) /* --- DUDA --- */
+
+const moviesRoute = require('./routes/movies')
+app.use('/', moviesRoute) /* --- DUDA --- */
 
 module.exports = app;
