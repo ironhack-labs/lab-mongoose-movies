@@ -10,9 +10,16 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+const Celebrity=require("./models/celebrity");
+const {seedCelebrity,seedMovie}=require("./bin/seeds");
+const Movie=require("./models/movie");
+
+
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true, useUnifiedTopology:true})
   .then(x => {
+    Celebrity.create(seedCelebrity);
+    Movie.create(seedMovie);
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {

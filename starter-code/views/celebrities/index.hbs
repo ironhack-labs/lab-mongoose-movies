@@ -1,0 +1,10 @@
+<h2>Celebrities</h2>
+<a href="/new">Añadir Celebridad</a>
+<br><br>
+{{#each allCelebrities}}
+<a href="/celebrities/{{this._id}}">{{this.name}}</a>
+<a href="/celebrities/{{this._id}}/delete">Eliminar</a>
+<br>
+{{/each}}
+<br><br>
+<a href="/">Regresar a primera pagina</a>

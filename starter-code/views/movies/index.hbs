@@ -1,0 +1,11 @@
+<h2>Movies</h2>
+<a href="/newMovie">Añadir Pelicula</a>
+<br><br>
+{{#each allMovies}}
+<a href="/movies/{{this._id}}">{{this.title}}</a>
+<a href="/movies/{{this._id}}/delete">Borrar</a>
+<br>
+{{/each}}
+<br><br>
+<a href="/">Regresar a primera pagina</a>
+
