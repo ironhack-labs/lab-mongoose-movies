@@ -1,0 +1,17 @@
+<h2>Celebrities</h2> <a class="btn btn-success" href="/new" role="button">Add a Celebrity</a>
+<br><br>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+    {{#each listCelebrities}}
+        <li class="list-group-item">
+            <h2>{{name}} </h2>
+            <br>
+            <div class="btn-group">
+            <a href="/celebrities/{{_id}}" class="btn btn-primary">More</a>
+            <a href="/celebrities/{{_id}}/edit" class="btn btn-warning">Edit</a>
+            <a href="/{{_id}}/delete" class="btn btn-danger">DELETE</a>
+            </div>
+        </li>
+    {{/each}}
+    </ul>
+</div>

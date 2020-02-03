@@ -1,0 +1,13 @@
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        {{#each celebritie}}
+            <h5 class="card-title">{{name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{occupation}}</h6>
+            <p class="card-text">{{catchPhrase}}</p>
+        {{/each}}
+            <div class="btn-group">
+            <a class="btn btn-success" href="/" role="button">return</a>
+            <a href="/celebrities/{{celebritie._id}}/edit" class="btn btn-warning">Edit</a>
+            </div>
+        </div>
+    </div>
