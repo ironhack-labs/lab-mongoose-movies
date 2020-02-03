@@ -3,10 +3,10 @@
 {{#with foundObject}}
 
 <form class="form" method="POST" action="/celebrities/edit/{{this._id}}">
-  {{> inputForm label="Name" placeholder="this.name" name="name" value=this.name }}
-  {{> inputForm label="Occupation" placeholder="this.occupation" name="occupation"
+  {{> form label="Name" placeholder="this.name" name="name" value=this.name }}
+  {{> form label="Occupation" placeholder="this.occupation" name="occupation"
   value=this.occupation }}
-  {{> inputForm label="Phrase placeholder="this.catchPhrase" name="catchPhrase"
+  {{> form label="Phrase placeholder="this.catchPhrase" name="catchPhrase"
   value=this.catchPhrase }}
   <button type="submit">Editar</button>
 </form>
