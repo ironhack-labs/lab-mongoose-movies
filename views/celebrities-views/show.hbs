@@ -1,0 +1,12 @@
+<h2>This is {{this.name}}'s page</h2>
+<ul>
+    <li>{{this.name}}</li>
+    <li>{{this.occupation}}</li>
+    <li>{{this.catchPhrase}}</li>
+    <form action="/celebrities/{{this._id}}/delete" method="POST">
+        <button type="submit">Delete celebrity from list</button> 
+    </form>
+    <form action="/celebrities/{{this._id}}/edit" method="GET">
+        <button type="submit">Edit celebrity details</button> 
+    </form>
+</ul>
