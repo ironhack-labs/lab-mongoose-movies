@@ -23,6 +23,7 @@ mongoose
 
     //await Celebrity.create(data)
     //console.log(Celebrity)
+    await Celebrity.create(data, () => console.log('Celebridad creada'))
 
   })
   .catch(err => {
@@ -69,6 +70,11 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+
+ const celebritiesRoute = require('./routes/celebrities')
+ app.use('/', celebritiesRoute)
+
 
 
 module.exports = app;

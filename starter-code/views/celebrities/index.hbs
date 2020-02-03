@@ -1,7 +1,17 @@
 <h2>Celebridades</h2>
 <p>Hora de las Celebridades</p>
+<a href="/new">Agrega tu nueva celebridad</a>
+
 
 {{#each todaslasCelebridades}}
+
+
+<a href='/celebrities/{{this._id}}'>
 <h3>{{name}}</h3>
-<a href='/celebrities/{{this._id}}'> <h2>{{name}}</h2></a>
+ </a>
+
+<a href="/celebrities/{{this._id}}/delete">Eliminar 👈</a>
+
+
+
 {{/each}}
