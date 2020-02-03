@@ -9,11 +9,17 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+// const Celebrity = require("./models/Celebrity")
+// const celebrities = require("./bin/seeds")
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/lab-movies', {useNewUrlParser: true, 
+  useUnifiedTopology: true, useCreateIndex: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    // Celebrity.create(celebrities)
+    // .then(success => console.log('DB Ready'))
+    // .catch(err => console.log(err))
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -52,7 +58,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const celebrities = require("./routes/celebrities")
+
 app.use('/', index);
+app.use('/celebrities', celebrities)
 
 
 module.exports = app;
