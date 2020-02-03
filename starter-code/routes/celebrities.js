@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require("../models/celebrity");
+
 /* Get the Celebrities */
 router.get("/", async (req, res, next) => {
   try {
@@ -19,19 +20,19 @@ router.get("/show/:id", async (req, res, next) => {
     //foundObjFromId
     const foundObject = await Celebrity.findById(id);
     console.log(foundObject)
-return res.render("celebrities/show", { foundObject });
-  }catch (err) {
-  res.send(`error: ${err}`);
-  next();
-}
+    return res.render("celebrities/show", { foundObject });
+  } catch (err) {
+    return res.send(`error: ${err}`);
+    next();
+  }
 });
- 
+
 //ITERACION 4
 router.get("/new", async (req, res, next) => {
   try {
     return res.render("celebrities/new");
   } catch (err) {
-    res.send(`error: ${err}`);
+    return res.send(`error: ${err}`);
     next();
   }
 });
@@ -42,10 +43,10 @@ router.post("/", async (req, res, next) => {
   const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
   try {
     await newCelebrity.save();
-    res.redirect("/celebrities/");
+    return res.redirect("/celebrities/");
   } catch (err) {
     console.log("este es el error", err);
-    res.render("celebrities/new");
+    return res.render("celebrities/new");
     next();
   }
 });
@@ -68,9 +69,9 @@ router.get("/edit/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     const foundObject = await Celebrity.findById(id);
-    res.render("celebrities/edit", { foundObject });
+    return res.render("celebrities/edit", { foundObject });
   } catch (err) {
-    res.send(`error: ${err}`);
+    return res.send(`error: ${err}`);
     next();
   }
 });
@@ -85,9 +86,9 @@ router.post("/edit/:id", async (req, res) => {
       occupation,
       catchPhrase
     });
-    res.redirect("/celebrities");
+    return res.redirect("/celebrities");
   } catch (err) {
-    res.send(`error: ${err}`);
+    return res.send(`error: ${err}`);
     next();
   }
 });
