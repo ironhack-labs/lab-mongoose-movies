@@ -13,10 +13,10 @@ const data = require('./bin/seeds')
 const Celebrity = require('./models/celebrity')
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then( async x => {
+  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true, seUnifiedTopology: true})
+  .then( /*async*/ x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-    await Celebrity.create(data, () => console.log ('DB created! yupi'))
+   //await Celebrity.create(data, () => console.log ('DB created! yupi'))
   })
 
   .catch(err => {
