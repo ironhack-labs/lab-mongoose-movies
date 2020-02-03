@@ -1,0 +1,6 @@
+<h2>Celebrities</h2>
+<ul>
+{{#each celebs}}
+  <li>{{name}} {{_id}} <a href="/celebrities/{{_id}}/updateCeleb">update</a>  <a href="/celebrities/{{_id}}/deleteCeleb">delete</a></li>
+{{/each}}
+</ul>

@@ -1,0 +1,14 @@
+<form action="/celebrities/createCeleb" method="post">
+  <h2>Create Celebrity</h2>
+  <p>Name:</p>
+  <input type="text" name="name" placeholder="Name" required>
+  <p>Occupation:</p>
+  <select name="occupation">
+    {{#each ocupacion as |occup|}}
+      <option value="{{occup}}">{{occup}}</option>
+    {{/each}}
+  </select>
+  <p>Catchphrase:</p>
+  <input type="text" name="catchPhrase" placeholder="Catchphrase" required>
+  <input type="submit" value="create">
+</form>

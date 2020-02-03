@@ -1,0 +1,18 @@
+<form action="/celebrities/{{_id}}/updateCeleb" method="post">
+  <h2>Update Celebrity</h2>
+  <p>Name:</p>
+  <input type="text" name="name" value="{{name}}" required>
+  <p>Occupation:</p>
+  <select name="occupation">
+    {{#each ocupacion as |occup|}}
+    {{#if occup.select}}
+    <option value="{{occup.name}}" selected="selected">{{occup.name}}</option>
+    {{else}}
+    <option value="{{occup.name}}">{{occup.name}}</option>
+    {{/if}}
+    {{/each}}
+  </select>
+  <p>Catchphrase:</p>
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}" required>
+  <input type="submit" value="update">
+</form>
