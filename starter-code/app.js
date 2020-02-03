@@ -13,7 +13,7 @@ const data = require('./bin/seeds')
 const Celebrity = require('./models/celebrity')
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true, seUnifiedTopology: true})
+  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true, useUnifiedTopology: true})
   .then( /*async*/ x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
    //await Celebrity.create(data, () => console.log ('DB created! yupi'))
@@ -58,5 +58,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrityRoute= require('./routes/celebrities')
+app.use('/', celebrityRoute)
 
 module.exports = app;

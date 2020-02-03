@@ -8,3 +8,6 @@ router.get('/celebrities', async (req, res, next)=>{
   console.log(data)
   res.render('celebrities/index', {data})
 })
+
+
+module.exports = router
