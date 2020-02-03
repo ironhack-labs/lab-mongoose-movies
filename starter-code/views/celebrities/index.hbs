@@ -1,8 +1,11 @@
 <h2>Celebrities</h2>
+<a href="/new">⭐️ ADD CELEBRITY</a><br>
 {{#each allCelebrities}}
 
 <a href="/celebrities/{{this._id}}">
-  <h3>{{name}}</h3>
+    {{name}}
 </a>
+<a href="/celebrities/{{this._id}}/delete">❌</a>
+<br>
 
 {{/each}}

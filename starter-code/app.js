@@ -15,10 +15,10 @@ const Celebrity = require('./models/Celebrity')
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true, useUnifiedTopology: true})
-  .then( /* async */ x => {
+  .then(  async  x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
 
-    // await Celebrity.create(data, () => console.log('⭐️ Celebrities DB created!'))
+    await Celebrity.create(data, () => console.log('⭐️ Celebrities DB created!'))
 
   })
   .catch(err => {
