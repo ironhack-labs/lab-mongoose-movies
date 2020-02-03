@@ -9,8 +9,8 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
-const Celebrity = require('./models/celebrity')
-const data = require('./bin/seeds.js')
+const Celebrity = require('./models/Celebrity')
+const data = require('./bin/seeds')
 
 
 mongoose
@@ -21,7 +21,8 @@ mongoose
   .then(async x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
 
-    //const celebrities = await Celebrity.create(data)
+    //await Celebrity.create(data)
+    //console.log(Celebrity)
 
   })
   .catch(err => {

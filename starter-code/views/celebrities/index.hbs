@@ -1,9 +1,7 @@
 <h2>Celebridades</h2>
-<p>Cosas sobre tus Celebridades</p>
+<p>Hora de las Celebridades</p>
 
-{{#each celebrities}}
-
-<h3>{{this.name}}</h3>
-    
+{{#each todaslasCelebridades}}
+<h3>{{name}}</h3>
+<a href='/celebrities/{{this._id}}'> <h2>{{name}}</h2></a>
 {{/each}}
-
