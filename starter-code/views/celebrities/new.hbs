@@ -1,0 +1,14 @@
+<h2>Jogo Bonito</h2>
+
+<form action="/celebrities" method="post">
+  {{> form label="Nombre" placeholder="Cristiano Ronaldo" name="name" value=obj.name }}
+  {{> form label="Ocupación" placeholder="profesion" name="occupation"
+  value=obj.occupation }}
+  {{> form label="Frase" placeholder="Frase" name="catchPhrase"
+  value=obj.catchPhrase }}
+  <button type="submit">Submit</button>
+</form>
+
+<a href="/celebrities">Celebrities</a>
+
+<a href="/">Home</a>

@@ -1,0 +1,16 @@
+<h2>Edit Celebrities</h2>
+
+{{#with foundObject}}
+
+<form class="form" method="POST" action="/celebrities/edit/{{this._id}}">
+  {{> form label="Name" placeholder="this.name" name="name" value=this.name }}
+  {{> form label="Occupation" placeholder="this.occupation" name="occupation"
+  value=this.occupation }}
+  {{> form label="Phrase placeholder="this.catchPhrase" name="catchPhrase"
+  value=this.catchPhrase }}
+  <button type="submit">Editar</button>
+</form>
+
+{{/with}}
+
+<a class="button" href="/celebrities/">Return</a>
