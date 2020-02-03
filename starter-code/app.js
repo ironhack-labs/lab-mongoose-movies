@@ -49,18 +49,19 @@ app.use(
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(path.join(__dirname, 'public')));
-
-
+hbs.registerPartials(__dirname + "/views/celebrities/partials");
+hbs.registerPartials(__dirname + "/views/movies/partials");
 
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
 const index = require('./routes/index');
 app.use('/', index);
 
+const crudCelebrities = require("./routes/crudCelebrities");
+app.use("/celebrities", crudCelebrities);
 
 module.exports = app;
