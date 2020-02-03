@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "npm run dev",
     "dev": "DEBUG=starter-code:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
@@ -19,6 +19,6 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.19.4"
   }
 }
