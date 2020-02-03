@@ -9,12 +9,16 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const data = require('./bin/seeds')
+const Celebrity = require('./models/celebrity')
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then(x => {
+  .then( async x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    await Celebrity.create(data, () => console.log ('DB created! yupi'))
   })
+
   .catch(err => {
     console.error('Error connecting to mongo', err)
   });
