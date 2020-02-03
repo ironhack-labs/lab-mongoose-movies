@@ -52,7 +52,13 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const celebritiesRouter = require("./routes/celebrities");
+const moviesRouter = require("./routes/movies")
+
 app.use('/', index);
+app.use('/celebrities', celebritiesRouter);
+// OR app.use("/celebrities", require(./routes/celebrities)) => all the page in the ./routes/celebrities will be prefixed with /celebrities
+app.use('/movies', moviesRouter);
 
 
 module.exports = app;

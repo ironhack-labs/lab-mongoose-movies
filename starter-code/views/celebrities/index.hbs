@@ -1,0 +1,36 @@
+<div id="celebs-body">
+  <a href="/">HOME</a>
+  <h2>LIST OF CELEBRITIES</h2>
+
+  <table>
+    <tbody>
+      {{#each celebrities}} <!--this celebrities refers to the celebrities on the celebrities.js(in the render)-->
+      <tr>
+        <td>
+          <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+        </td>
+
+        <td>
+          <form method="post" action="/celebrities/{{this._id}}/delete">
+          <button>delete</button>
+          </form>
+        </td>
+
+        <td>
+          <form method="GET" action="/celebrities/{{this._id}}/edit">
+          <button>update</button>
+          </form>
+        </td>
+      </tr>
+        {{/each}}
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>ADD CELEBRITY PROFILE</h2>
+
+  <a href="celebrities/new" style="border: solid 1px black; padding: 5px 10px; background-color: rgb(248, 248, 248); text-decoration: none; color: black">click here</a>
+
+
+</div>

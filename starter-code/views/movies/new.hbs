@@ -1,0 +1,24 @@
+<h2>Add new movie</h2>
+<form action="/movies/new" method="POST">
+  <div>
+    <label class="label" for="title">Title</label>
+  </div>
+  <input class="input" id="title" type="text" name="title">
+
+  <div>
+    <label class="label" for="genre">Genre</label>  
+  </div>
+  <input class="input" id="genre" type="text" name="genre">
+
+  <div>
+    <label for="plot">Plot</label>
+  </div>
+  <textarea id="plot" name="plot" rows="5" cols="30"></textarea>
+
+  <div>
+    <button class="btn">submit</button>
+  </div>
+</form>
+
+<hr>
+<a href="/movies">back</a>

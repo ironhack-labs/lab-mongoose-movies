@@ -1,0 +1,36 @@
+<div id="movies-body">
+  <a href="/">HOME</a>
+  <h2>LIST OF MOVIES</h2>
+
+  <table>
+    <tbody>
+      {{#each movies}}
+      <tr>
+        <td>
+          <a href="/movies/{{this._id}}">{{this.title}}</a>
+        </td>
+
+        <td>
+          <form method="post" action="/movies/{{this._id}}/delete">
+          <button>delete</button>
+          </form>
+        </td>
+
+        <td>
+          <form method="GET" action="/movies/{{this._id}}/edit">
+          <button>update</button>
+          </form>
+        </td>
+
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>ADD NEW MOVIES</h2>
+
+  <a href="movies/new" style="border: solid 1px black; padding: 5px 10px; background-color: rgb(248, 248, 248); text-decoration: none; color: black">click here</a>
+
+</div>
