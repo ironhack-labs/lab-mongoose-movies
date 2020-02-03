@@ -13,6 +13,25 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+
+//Iteration 4: Adding New Celebrities
+
+router.get("/new", async (req, res, next) => {
+  try {
+    //const celebrities1 = await Celebrities.find();
+    res.render("celebrities/new");
+  } catch (error) {
+    console.log(`Error adding celebrities ${error}`);
+  }
+});
+
+
+router.post('/celebrities/new', (req, res, next) => {
+
+});
+
+
+
 //Iteration 3: The Celebrity Details Page
 
 router.get("/:celebritiesId", async (req, res, next) => {
@@ -25,21 +44,12 @@ router.get("/:celebritiesId", async (req, res, next) => {
   }
 });
 
-//Iteration 4: Adding New Celebrities
-
-router.get("/new", async (req, res, next) => {
-  try {
-    //const celebrities1 = await Celebrities.find();
-    res.render("new");
-  } catch (error) {
-    console.log(`Error adding celebrities ${error}`);
-  }
-});
 
 
-router.post('/celebrities/new', (req, res, next) => {
 
-});
+
+
+
 
 
 
