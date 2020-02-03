@@ -1,0 +1,14 @@
+ <h2>Celebrities</h2>
+
+<div>
+  <ul>
+  {{#each celebrities}}
+    <li>
+      {{this.name}}
+      <a href="/views/index.hbs"> see more</a>
+      <a href="/celebrities/{{this.id}}">click me</a>
+     
+    </li>
+  {{/each}}
+</ul>
+</div>
