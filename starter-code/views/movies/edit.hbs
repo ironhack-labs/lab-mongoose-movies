@@ -1,0 +1,16 @@
+<h2>Edit</h2>
+
+{{#with foundObject}}
+
+<form class="form" method="POST" action="/movies/edit/{{this._id}}">
+  {{> form label="Nombre Película" placeholder="this.title" name="title" value=this.title }}
+  {{> form label="Género de la Película" placeholder="this.genre" name="genre"
+  value=this.genre }}
+  {{> form label="Sintaxis de la Película" placeholder="this.catchPhrase" name="plot"
+  value=this.plot }}
+  <button type="submit">Enviar edición</button>
+</form>
+
+{{/with}}
+
+<a class="button" href="/movies/">Volver</a>

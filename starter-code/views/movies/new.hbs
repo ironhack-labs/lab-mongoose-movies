@@ -1,0 +1,13 @@
+<h2>Nueva Película</h2>
+
+<form class="form" method="POST" action="/movies">
+  {{> form label="Nombre" placeholder="Titanic" name="title" value=obj.title }}
+  {{> form label="" placeholder="Género" name="genre"
+  value=obj.genre }}
+  {{> form label="" placeholder="Trama" name="plot"
+  value=obj.plot }}
+  <button type="submit">Submit</button>
+</form>
+
+
+<a class="button" href="/movies/">Volver</a>
