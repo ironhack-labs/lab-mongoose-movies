@@ -9,21 +9,12 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-/*const Celeb=require('./models/Celebrity')
 
-const Movie=require('./models/Movie')
-const {celebData,movieData}=require("./bin/seeds")
-*/
 mongoose
   .connect('mongodb://localhost/movieMongoose', {useNewUrlParser: true})
-  .then(/*async*/ x => {
+  .then( x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-    /*await Celeb.create(celebData)
-    .then(success=>console.log('Celebrities imported to DB'))
-    .catch(err=>console.log('Error importing data'))
-    await Movie.create(movieData)
-    .then(success=>console.log('Movies imported to DB'))
-    .catch(err=>console.log('Error importing data'))*/
+
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)

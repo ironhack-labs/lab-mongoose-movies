@@ -1,12 +1,12 @@
-/*
+
 const mongoose     = require('mongoose');
 
 const Celeb=require('../models/Celebrity')
 
 const Movie=require('../models/Movie')
-*/
 
-exports.celebData=[
+
+const celebData=[
     {    name:'Arnold Schwarzenegger',
         occupation:'Actor',
         catchPhrase:'Hasta la vista, baby'
@@ -22,7 +22,7 @@ exports.celebData=[
         catchPhrase:'Smize'
     }]
 
-exports.movieData=[
+const movieData=[
     {
         title:'Made of honor',
         genre:'Romance Comedy',
@@ -38,7 +38,7 @@ exports.movieData=[
         genre:'Sci-Fi Action',
         plot:'An augmented human and Sarah Connor must stop an advanced liquid Terminator, from hunting down a young girl, whose fate is critical to the human race.'
     }]
-/*mongoose
+mongoose
 .connect('mongodb://localhost/movieMongoose',{useCreateIndex:true,useUnifiedTopology:true})
 .then( async x=>{
     console.log('Connected to Mongo!')
@@ -51,5 +51,5 @@ exports.movieData=[
     await mongoose.connection.close()
     console.log('Connection closed')
 })
-.catch(err=> console.log('Error conecting to  Mongo'))*/
+.catch(err=> console.log('Error conecting to  Mongo'))
 
