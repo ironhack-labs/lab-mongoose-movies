@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema(
   {
     name: { type: String },
-    ocuppation: { type: String },
+    occupation: { type: String },
     catchPhrase: { type: String }
   },
   {

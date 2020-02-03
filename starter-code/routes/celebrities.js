@@ -1,12 +1,13 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 const Celebrity = require("../models/celebrity");
-
-router.get("/", async (req, res) => {
+/* Get the Celebrities */
+router.get("/", async (req, res, next) => {
   try {
-    const celebrities = await Celebrity.find();
-    res.render("celebrities", { celebrities });
+    const celebrity = await Celebrity.find();
+    res.render("celebrities/", { celebrity });
   } catch (e) {
+    res.send(`error: ${e}`);
     next();
   }
 });

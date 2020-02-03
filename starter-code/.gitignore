@@ -9,4 +9,5 @@ node_modules
 package-lock.json
 
 # Environment Variables should NEVER be published
-.env
+uploaded this time
+
