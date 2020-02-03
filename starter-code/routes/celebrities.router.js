@@ -13,12 +13,12 @@ const {
 
 router
     .get('/', celebritiesList)
-    .get('/celebrities/:id', celebritieShow)
-    .get('/new', celebritieAddGet)
-    .post('/new', celebritieAddPost)
+    .get('/add', celebritieAddGet)
     .get('/:id/delete', celebritieDelete)
-    .get('/celebrities/:id/edit', celebritieEditGet)
-    .post('/celebrities/:id', celebritieEditPost)
+    .get('/:id', celebritieShow)
+    .post('/add', celebritieAddPost)
+    .get('/:id/edit', celebritieEditGet)
+    .post('/:id', celebritieEditPost)
 
 
 module.exports = router

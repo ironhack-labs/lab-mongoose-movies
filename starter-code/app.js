@@ -51,8 +51,13 @@ app.locals.title = 'Mogoose Movies';
 
 
 //Celebrities Routes
-const celebrities = require('./routes/celebrities.router');
-app.use('/', celebrities);
+const index = require('./routes/index');
+const celebrities = require('./routes/celebrities.router')
+const movies = require('./routes/movies.router')
+
+app.use('/', index)
+app.use('/celebrities', celebrities)
+app.use('/movies', movies)
 
 
 module.exports = app;

@@ -2,16 +2,16 @@ const Celebrity = require('../models/Celebrity')
 
 exports.celebritiesList = async (req, res , next) => {
     const listCelebrities = await Celebrity.find().catch(err => console.log(err))
-    res.render('celebrities', {listCelebrities}) 
+    res.render('celebrities/celebrities', {listCelebrities}) 
 }
 
 exports.celebritieShow = async (req, res, next) => {
     const celebritie = await Celebrity.findById(req.params.id).catch(err=>console.log(err))
-    res.render('celebritieShow', {celebritie})
+    res.render('celebrities/celebritieShow', {celebritie})
 }
 
 exports.celebritieAddGet = async (req, res, next) => {
-    res.render('newCelebritie')
+    res.render('celebrities/newCelebritie')
 }
 
 exports.celebritieAddPost = async (req,res,next) => {
@@ -19,21 +19,21 @@ exports.celebritieAddPost = async (req,res,next) => {
     const newCelebritie = {name,occupation,catchPrase}
 
     await Celebrity.create( newCelebritie )
-        .then( res.redirect('/'))
+        .then( res.redirect('/celebrities'))
         .catch( err => console.log(err) )
 }
 
 exports.celebritieDelete = async (req,res,next) => {
     await Celebrity.findByIdAndDelete( req.params.id )
         .catch(err => console.log(err))
-    res.redirect('/')
+    res.redirect('/celebrities')
 }
 
 exports.celebritieEditGet = async (req,res,post) => {
     const celebritie = await Celebrity.findById(req.params.id)
         .catch(err => console.log(err))
     console.log(celebritie)
-    res.render('celebritieEdit', {celebritie})
+    res.render('celebrities/celebritieEdit', {celebritie})
 }
 
 exports.celebritieEditPost = async (req,res,next) => {

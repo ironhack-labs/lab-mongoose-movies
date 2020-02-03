@@ -1,0 +1,13 @@
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        {{#each movie}}
+            <h5 class="card-title">{{title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+            <p class="card-text">{{plot}}</p>
+        {{/each}}
+            <div class="btn-group">
+            <a class="btn btn-success" href="/movies" role="button">return</a>
+            <a href="/movies/{{movie._id}}/edit" class="btn btn-warning">Edit</a>
+            </div>
+        </div>
+    </div>

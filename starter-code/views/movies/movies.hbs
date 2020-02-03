@@ -1,0 +1,18 @@
+<h2>Movies</h2> 
+<a class="btn btn-success" href="/movies/add" role="button">Add a Movie</a>
+<br><br>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+    {{#each listMovies}}
+        <li class="list-group-item">
+            <h2>{{title}} </h2>
+            <br>
+            <div class="btn-group">
+            <a href="/movies/{{_id}}" class="btn btn-primary">More</a>
+            <a href="/movies/{{_id}}/edit" class="btn btn-warning">Edit</a>
+            <a href="/movies/{{_id}}/delete" class="btn btn-danger">DELETE</a>
+            </div>
+        </li>
+    {{/each}}
+    </ul>
+</div>
