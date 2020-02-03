@@ -14,6 +14,7 @@ const index = require('./routes/index');
 const celebrities = require('./routes/celebrities');
 
 
+
 mongoose
   .connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
   .then(x => {

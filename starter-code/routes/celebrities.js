@@ -21,7 +21,7 @@ router.get("/:celebritiesId", async (req, res, next) => {
     const celebrity = await Celebrities.findById(celebritiesId);
     res.render("celebrities/show", { celebrity });
   } catch (error) {
-    console.log(`Error finding celebrity by id ${error}`);
+    console.log(`ERROR finding celebrity by id ${error}`);
   }
 });
 
@@ -29,43 +29,31 @@ router.get("/:celebritiesId", async (req, res, next) => {
 
 router.get("/new", async (req, res, next) => {
   try {
-    const celebrities = await Celebrities.find();
-    res.render("celebrities/index", { celebrities });
+    //const celebrities1 = await Celebrities.find();
+    res.render("new");
   } catch (error) {
-    console.log(`Error retrieving celebrities ${error}`);
+    console.log(`Error adding celebrities ${error}`);
   }
+});
+
+
+router.post('/celebrities/new', (req, res, next) => {
+
 });
 
 
 
 
-
-// router.get('/celebrities/:celebritiesId', (req, res, next) => {
-//   Book.findById(req.params.bookId)
-//     .then(theCelebrity => {
-//       res.render('celebrities/show', { celebrities: theCelebrity });
-//     })
-//     .catch(error => {
-//       console.log('Error while retrieving celebrity details: ', error);
-//     })
-// });
-
-// router.get("/:id", async (req, res, next) => {
+// router.get("/new", async (req, res, next) => {
 //   try {
-//     const { id } = req.params;
-//     const celebrity = await Celebrity.findById(id);
-//     res.render("celebrities/show", { celebrity });
+//     const celebNew = await Celebrities.find();
+//     res.render("celebrities/new", { celebNew });
 //   } catch (error) {
-//     console.log(`Error finding celebrity by id ${error}`);
+//     console.log(`Error retrieving celebrities ${error}`);
 //   }
 // });
 
-// Iteration 3
 
-// router.get('/celebrities/:celebritiesId', (req, res, next) => {
-//   console.log('The ID from the URL is: ', celebritiesId);
-//   res.render('celebrity-details');
-// });
 
 
 
