@@ -7,7 +7,7 @@ exports.getAllCelebs = async (req, res) => {
 };
 
 exports.celebDetail = async (req, res) => {
-  const celebs = await Celeb.find({id:req.params.celebId});
+  const celebs = await Celeb.findById(req.params.celebId);
   res.render("celebrity", { celebs });
 };
 // C en CRUD

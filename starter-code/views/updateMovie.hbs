@@ -1,0 +1,12 @@
+<form action="/movies/{{_id}}/updateMovie" method="post">
+  <h2>Update Movie</h2>
+  <p>Title:</p>
+  <input type="text" name="title" value="{{title}}" required>
+  <p>Genre:</p>
+  <input type="text" name="genre" value="{{genre}}" required>
+  <p>Plot:</p>
+  <input type="text" name="plot" value="{{plot}}" required>
+  <input type="submit" value="update">
+</form>
+
+<a href="/">Go home</a>
