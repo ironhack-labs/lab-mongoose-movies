@@ -1,10 +1,62 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #bada55;
+  background-image: url('/images/fondo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+
+
 }
 
 a {
-  color: #00B7FF;
+  color: rgb(15, 167, 255);
+  text-decoration: none;
+  font-size: 30px;
+  background-color: rgb(133, 210, 212);
+
 }
 
+.inicio {
+  background-color: rgb(73, 207, 151);
+  padding: 5px;
+  
+}
+
+
+
+h2 {
+  font-size: 80px;
+  color: lighten($color: #bada55, $amount: 5);
+  background-color: cornflowerblue;
+  width: 100%;
+  text-align: center;
+}
+
+h3{
+  font-size: 30px;
+  color: black;
+  background-color: rgb(255, 200, 17);
+
+}
+
+p{
+  font-size: 35px;
+  color: rgb(112, 255, 93);
+  background-color: rgba(72, 141, 226, 0.527);
+  text-align: center;
+  width: 100%;
+}
+
+#eliminar {
+  text-align: right;
+
+}
+
+#full{
+  width: 100vh;
+  text-align: center;
+}

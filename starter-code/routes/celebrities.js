@@ -2,7 +2,7 @@ const router = require('express').Router()
 const Celebrity = require('../models/Celebrity')
 
 
-
+//DSe mandara con el render a las celebridades a todas las celebridades
 router.get('/celebrities', async (req, res, next) => {
 
   const todaslasCelebridades = await Celebrity.find()

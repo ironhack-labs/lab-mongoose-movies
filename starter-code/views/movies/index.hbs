@@ -1,0 +1,18 @@
+<h2>Movies</h2>
+<p>Peliculas a Full</p>
+
+<a href="/new" id="full">Agregar Pelicula</a> 
+
+
+{{#each allMovies}}
+
+<div id="titulos">
+<a href='/movies/{{this._id}}'>
+<h3>{{title}}</h3>
+</a>
+<a href="/movies/{{this._id}}/delete" id="eliminar">Eliminar 👈</a>
+
+</div>
+
+
+{{/each}}

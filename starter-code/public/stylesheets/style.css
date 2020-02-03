@@ -1,9 +1,47 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #bada55; }
+  background-image: url("/images/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; }
 
 a {
-  color: #00B7FF; }
+  color: #0fa7ff;
+  text-decoration: none;
+  font-size: 30px;
+  background-color: #85d2d4; }
+
+.inicio {
+  background-color: #49cf97;
+  padding: 5px; }
+
+h2 {
+  font-size: 80px;
+  color: #c3df6a;
+  background-color: cornflowerblue;
+  width: 100%;
+  text-align: center; }
+
+h3 {
+  font-size: 30px;
+  color: black;
+  background-color: #ffc811; }
+
+p {
+  font-size: 35px;
+  color: #70ff5d;
+  background-color: rgba(72, 141, 226, 0.527);
+  text-align: center;
+  width: 100%; }
+
+#eliminar {
+  text-align: right; }
+
+#full {
+  width: 100vh;
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

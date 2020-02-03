@@ -9,7 +9,9 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
-const Celebrity = require('./models/Celebrity')
+// const Celebrity = require('./models/Celebrity')
+// const data = require('./bin/seeds')
+const Movie = require('./models/Movie')
 const data = require('./bin/seeds')
 
 
@@ -23,7 +25,11 @@ mongoose
 
     //await Celebrity.create(data)
     //console.log(Celebrity)
-    await Celebrity.create(data, () => console.log('Celebridad creada'))
+    //await Celebrity.create(data, () => console.log('Celebridad creada'))
+    //await Movie.create(data, () =>console.log('Pelicula creada') )
+    
+
+
 
   })
   .catch(err => {
@@ -72,9 +78,11 @@ const index = require('./routes/index');
 app.use('/', index);
 
 
- const celebritiesRoute = require('./routes/celebrities')
- app.use('/', celebritiesRoute)
+ //const celebritiesRoute = require('./routes/celebrities')
+ //app.use('/', celebritiesRoute)
 
+const moviesRoute = require ('./routes/movies')
+app.use('/', moviesRoute)
 
 
 module.exports = app;
