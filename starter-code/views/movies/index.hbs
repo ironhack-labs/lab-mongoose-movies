@@ -1,0 +1,13 @@
+{{!-- /*---movies/index.hbs---*/ --}}
+
+<h1>Movies</h1>
+
+<ul>
+  {{#each movies}} 
+    <li>
+      <a href="/movies/{{this._id}}">{{this.title}}</a>
+    </li>
+  {{/each}}
+  <br><br>
+  <a href="/movies/new">Add new movie</a>
+</ul>
