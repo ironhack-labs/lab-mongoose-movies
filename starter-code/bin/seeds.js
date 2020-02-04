@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Celebrity = require('../models/celebrity.model');
+const Celebrity = require('../models/celebrity_model');
 
 const DB_TITLE = 'ironhack-lab-mongoose-movies';
 
