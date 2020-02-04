@@ -9,11 +9,20 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const data = require('./bin/seeds')
+const Celebrity = require('./models/Celebrity')
+
+const moviesData = require('./bin/data')
+const Movie = require('./models/Movie')
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then(x => {
+  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(  async  x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+
+    await Celebrity.create(data, () => console.log('⭐️ Celebrities DB created!'))
+    await Movie.create(moviesData, () => console.log('🍿 Movies DB created!'))
+
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -54,5 +63,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebritiesRoute = require('./routes/celebrities')
+app.use('/', celebritiesRoute)
+
+const moviesRoute = require('./routes/movies')
+app.use('/', moviesRoute)
 
 module.exports = app;
