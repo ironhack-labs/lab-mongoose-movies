@@ -23,7 +23,7 @@ celebrityRouter.post('/celebrities/create', (req, res) => {
       //      ^       ->  this is the URL so it HAS to start with '/'
       //      |      |
       //      |      |
-      res.redirect('/celebrities/new-celebrity');
+      res.redirect('/celebrities/new');
     })
     .catch(err => console.log(`Error while saving celebrity in the DB: ${err}`));
 });
@@ -32,13 +32,13 @@ celebrityRouter.post('/celebrities/create', (req, res) => {
 // GET all authors from the DB
 // ****************************************************************************************
 
-// authorRouter.get('/authors', (req, res) => {
-//   Author.find() // <-- .find() method gives us always an ARRAY back
-//     .then(authorsFromDB => {
-//       // console.log('Authors from DB: ========', authorsFromDB);
-//       res.render('authors-views/authors-list', { authors: authorsFromDB });
-//     })
-//     .catch(err => console.log(`Error while getting authors from DB: ${err}`));
-// });
+celebrityRouter.get('/celebrities', (req, res) => {
+  Celebrity.find() // <-- .find() method gives us always an ARRAY back
+    .then(celebrityFromDB => {
+      // console.log('Authors from DB: ========', authorsFromDB);
+      res.render('/celebrities/new', { Celebrities: celebrityFromDB });
+    })
+    .catch(err => console.log(`Error while getting clebrity from DB: ${err}`));
+});
 
-// module.exports = authorRouter;
+module.exports = authorRouter;
