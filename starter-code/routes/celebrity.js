@@ -34,6 +34,13 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     .catch( err => console.log('Error while deleting celebrity ', err ) )
 })
 
+/* GET edit celebrity */
+router.get('/celebrities/:id/edit', (req, res, next) => {
+    Celebrity.findById( req.params.id )
+    .then( res.render('./celebrities/edit'))
+    .catch( err => console.log('Error while getting celebrity details ', err ) )
+})
+
 
 /* GET celebrity detail page */
 router.get('/celebrities/:id', (req, res, next) => {
