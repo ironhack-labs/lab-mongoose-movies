@@ -34,11 +34,18 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
     .catch( err => console.log('Error while deleting celebrity ', err ) )
 })
 
-/* GET edit celebrity */
+/* GET & POST edit celebrity */
 router.get('/celebrities/:id/edit', (req, res, next) => {
     Celebrity.findById( req.params.id )
-    .then( res.render('./celebrities/edit'))
+    .then( foundCeleb => res.render('./celebrities/edit', {foundCeleb}) )
     .catch( err => console.log('Error while getting celebrity details ', err ) )
+})
+
+router.post('/celebrities/:id', (req, res, next) => {
+    const { name, occupation, catchPhrase} = req.body;
+    Celebrity.findByIdAndUpdate( req.params.id , req.body )
+    .then( updCeleb => res.redirect('/celebrities') )
+    .catch( err => console.log('Error while updating celebrity details ', err ))
 })
 
 
