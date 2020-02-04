@@ -16,6 +16,12 @@ const celebrities = [
   }
 ];
 
+const movies = [
+  { title: "test1", genre: "test1", plot: "test1" },
+  { title: "test2", genre: "test2", plot: "test2" },
+  { title: "test3", genre: "test3", plot: "test3" }
+];
+
 let mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/celebrity-lab", () => {
@@ -27,6 +33,19 @@ let Celebrity = require("../models/Celebrity");
 Celebrity.collection.drop();
 
 Celebrity.create(celebrities)
+  .then(res => {
+    console.log("created");
+    mongoose.connection.close();
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+let Movie = require("../models/Movie.js");
+
+Movie.collection.drop();
+
+Movie.create(movies)
   .then(res => {
     console.log("created");
     mongoose.connection.close();
