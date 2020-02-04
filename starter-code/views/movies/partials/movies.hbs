@@ -1,0 +1,13 @@
+<div class="movieCcard">
+  <form action="/movies/{{ this._id }}/delete" method="POST">
+    <div class="card m-3">
+      <div class="card-header">
+        <h5>{{this.title}}</h5>
+        <h6>{{this.genre}}</h6>
+        <p>{{this.plot}}</p>
+        <button type="submit" class="btn btn-danger float-right">Delete</button>
+        <a href="/movies/{{this._id}}/edit" class="btn btn-warning float-right mr-2">Edit</a>
+      </div>
+    </div>
+  </form>
+</div>
