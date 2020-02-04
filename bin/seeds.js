@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/Celebrity.model');
+const Movies = require('../models/Movies.model');
 
 const DB_NAME = 'lab-mongoose&express-movies';
 
 mongoose
-  .connect('mongodb://localhost/lab-mongoose&express-movies', {useNewUrlParser: true})
+  .connect('mongodb://localhost/lab-mongoose&express-movies', {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -12,28 +15,28 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
-  const celebrities = [
+  const movies = [
       {
-          name: 'Daniel Craig',
-          occupation: 'Actor/Actress',
-          catchPhrase: "The name is Bond. James Bond."
+        title: 'Inception',
+        genre: 'Action',
+        plot: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."
       },
       {
-          name: 'Jay-Z',
-          occupation: 'Singer',
-          catchPhrase: "I got 99 problems but a bitch ain't one!"
+        title: 'Peter Pan',
+        genre: 'Animation',
+        plot: "Wendy and her brothers are whisked away to the magical world of Neverland with the hero of their stories, Peter Pan."
       },
       {
-          name: 'Chris Rock',
-          occupation: 'Comedian',
-          catchPhrase: 'What you want, a cookie?!'
+        title: 'Black Swan',
+        genre: 'Drama',
+        plot: "A committed dancer struggles to maintain her sanity after winning the lead role in a production of Tchaikovsky's 'Swan Lake'."
       }
   ];
 
-  Celebrity.create(celebrities, err => {
+  Movies.create(movies, err => {
     if (err) {
       throw err;
     }
-    console.log(`Created ${celebrities.length} celebrity files`);
+    console.log(`Created ${movies.length} movie files`);
     mongoose.connection.close();
   });

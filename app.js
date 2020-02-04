@@ -52,11 +52,13 @@ app.locals.title = 'LAB-Mongoose&Express-Movies';
 
 const index = require('./routes/index');
 const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 app.use('/', index);
 app.use('/', celebrities);
+app.use('/', movies);
 
 app.listen(process.env.PORT, () =>
-  console.log('My CRUD project is running on port 3000')
+  console.log(`My CRUD project is running on port ${process.env.PORT}`)
 );
 
 module.exports = app;
