@@ -1,0 +1,16 @@
+{{!-- /*---celebrities/edit.hbs---*/ --}}
+
+<h1>Edit Celebrity</h1>
+<br>
+<form action="/celebrities/{{celebrity._id}}" method="post">
+  <label for="">Name:</label>
+  <input value="{{celebrity.name}}" type="text" name="name" />
+  <br><br>
+  <label for="">Occupation:</label>
+  <input value="{{celebrity.occupation}}" type="text" name="occupation" />
+  <br><br>
+  <label for="">Catch Phrase:</label>
+  <input value="{{celebrity.catchPhrase}}" type="text" name="catchPhrase" />
+  <br><br>
+  <button type="submit">Update</button>
+</form>
