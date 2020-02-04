@@ -1,0 +1,24 @@
+<h1>Cartoon characters </h1>
+<div class="celebrities">
+  {{#each celebList}}
+
+  <div class="celebcard">
+    <div>
+      <a href="/celebrities/{{_id}}">
+        <h2>{{this.Name}}</h2>
+      </a>
+    </div>
+    {{!-- <div>
+      <h3>{{this.Occupation}}</h3>
+    </div>
+
+    <div>
+      <p>catch phrase: "{{this.Catchphrase}}"</p>
+    </div> --}}
+  </div>
+
+
+
+  {{/each}}
+
+</div>
