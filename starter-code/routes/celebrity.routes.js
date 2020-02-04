@@ -8,27 +8,32 @@ router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebritiesFromDB => {
       // console.log('celebritiesFromDB: ', celebritiesFromDB);
-      res.render('celebrities/index', { celebrities: celebritiesFromDB });
+      res.render('celebrities/celebrities', { celebrities: celebritiesFromDB });
     })
     .catch(err => next(err));
 });
 
 //3. Iteration #4: Adding New Celebrities
-// Request to add a new celebrity to the database
-// |Needs to come before /celebrities/:theId, else will never get rendered
-router.get('/celebrities/add', (req, res, next) => {
-  //   console.log(req.body);
-  res.render('celebrities/new');
+router.get('/celebrities/add-new', (req, res, next) => {
+  res.render('celebrities/new-celebrity');
 });
 //4. Using Post get requested celebrity, create celebrity
 //and redirect to /celebrities to display list of celebrities
-router.post('/celebrities/new', (req, res, next) => {
+router.post('/celebrities/create', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  if (name === '' || occupation === '' || catchPhrase === '') {
+    res.render(`celebrities/new-celebrity`, {
+      errorMsg: 'Please fill all the inputs and try again!',
+    });
+    return;
+  }
   Celebrity.create(req.body)
     .then(celebrityFromDB => {
       res.redirect(`/celebrities`);
-      // res.redirect(`/celebrities/${celebrityFromDB._id}`);
     })
-    .catch(err => next(err));
+    .catch(err => {
+      next(err);
+    });
 });
 
 //5. Iteration #5: Deleting Celebrities
@@ -52,7 +57,7 @@ router.get('/celebrities/:theId/edit', (req, res) => {
     .then(theCelebrity => {
       Celebrity.find()
         .then(allCelebrities => {
-          res.render('celebrities/edit', {
+          res.render('celebrities/edit-celebrity', {
             celebrity: theCelebrity,
             allCelebrities,
           });
@@ -82,7 +87,9 @@ router.get('/celebrities/:theId', (req, res, next) => {
   Celebrity.findById(req.params.theId)
     .then(celebrityFromDB => {
       // console.log('celebritiesFromDB: ', celebrityFromDB);
-      res.render('celebrities/show', { celebrity: celebrityFromDB });
+      res.render('celebrities/celebrity-details', {
+        celebrity: celebrityFromDB,
+      });
     })
     .catch(err => next(err));
 });

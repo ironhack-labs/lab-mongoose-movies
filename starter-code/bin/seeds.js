@@ -6,22 +6,22 @@ Celebrity.collection.drop();
 
 const celebrities = [
   {
-    name: 'Ava DuVernay',
-    occupation: 'Actor',
+    name: 'Tom Cruise',
+    occupation: 'American actor and film producer',
     catchPhrase:
-      'Ava debuted with Premam alongside Nivin Pauly, which was a commercial success. She then had a cameo in James & Alice, a Malayalam movie. Later she forayed into Telugu films with a handful of projects including A Aa, where she played a lead role along with Nithiin and Samantha Ruth Prabhu.',
+      'Thomas Cruise (born Thomas Cruise Mapother IV; July 3, 1962) is an American actor and film producer. He has received several accolades for his work, including three Golden Globe Awards and nominations for three Academy Awards. Cruise is one of the best-paid actors in the world, and his films have grossed over $4 billion in North America and over $10.1 billion worldwide, making him one of the highest-grossing box-office stars of all time.',
   },
   {
-    name: 'Johannes Roberts',
-    occupation: 'Sport',
+    name: 'Johnny Depp',
+    occupation: 'American actor, producer and musician.',
     catchPhrase:
-      'Johannes Roberts was born on 11 October 1993 in Surat, Gujarat. His father, Himanshu Pandya, ran a small car finance business in Surat which he shut down and shifted to Vadodara when Johannes was five; he did so in order to facilitate his sons with better cricket training facilities',
+      'John Christopher Depp II (born June 9, 1963) is an American actor, producer, and musician. He has been nominated for 10 Golden Globe Awards, winning one for Best Actor for his performance of the title role in Sweeney Todd: The Demon Barber of Fleet Street (2008), and has been nominated for three Academy Awards for Best Actor, among other accolades. He is regarded as one of the world.',
   },
   {
-    name: 'Anthony Anderson',
-    occupation: 'Actor',
+    name: 'Leonardo DiCaprio',
+    occupation: 'American actor, producer, and environmentalist',
     catchPhrase:
-      'Anthony Anderson (born August 15, 1970)[1][2] is an American comedian, actor, writer, and game show host. He has starred in his own short-lived sitcom, All About the Andersons, as well as the ABC sitcom Black-ish and the Fox sitcom The Bernie Mac Show during its fifth and final season.',
+      "Leonardo Wilhelm DiCaprio (born November 11, 1974) is an American actor, producer, and environmentalist. He has often played unconventional parts, particularly in biopics and period films. As of 2019, his films have earned US$7.2 billion worldwide, and he has placed eight times in annual rankings of the world's highest-paid actors. His accolades include an Academy Award and three Golden Globe Awards.",
   },
 ];
 

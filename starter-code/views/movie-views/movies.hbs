@@ -2,7 +2,7 @@
 <ul>
     {{#each moviesFromDB}}
     <li><a href="/movie-details?movies_id={{this._id}}"> {{this.title}}</a>
-        <form action="/movie-details?movie_id={{this._id}}" method="post">
+        <form action="/movie-delete?movie_id={{this._id}}" method="post">
             <button type="submit">Delete</button>
         </form>
     </li>

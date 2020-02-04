@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/Movie.model');
-
+const Celebrity = require('../models/Celebrity.model');
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //1. Iteration #8: Listing Our Movies
 // Get /movies route
 router.get('/movies', (req, res) => {
@@ -12,25 +13,35 @@ router.get('/movies', (req, res) => {
     })
     .catch(err => console.log(`Error while getting movies from DB: ${err}`));
 });
-
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //2. Iteration #9: The Movie Details Page
 // Get /movie-details route
 router.get('/movie-details', (req, res) => {
   //   console.log(req.query);
   Movie.findById(req.query.movies_id)
+    .populate('cast')
     .then(gotTheMovie => {
+      console.log('gotTheMovie: ', gotTheMovie);
       res.render('movie-views/movie-details', { gotTheMovie });
     })
     .catch(err => console.log(`Error while looking for the req movie: ${err}`));
 });
-
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //3. Iteration #10: Adding New Movies
-// Get the /add movie route - to add we need to render form and then request
+// Get the /add movie route - to add we need to render the movie form for the user
 router.get('/add-movie', (req, res) => {
-  res.render('movie-views/add-movie-form');
+  Celebrity.find()
+    .then(allCelebrities => {
+      res.render('movie-views/add-movie-form', { allCelebrities });
+    })
+    .catch(err =>
+      console.log(
+        `Error while trying to get all celebrities for movies from DB ${err}`
+      )
+    );
 });
-
-//4.
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//4. Get the requested movie from user and
 //POST the movie - to mongoDB
 router.post('/add-movie', (req, res) => {
   Movie.create(req.body)
@@ -40,10 +51,10 @@ router.post('/add-movie', (req, res) => {
     })
     .catch(err => console.log(`Error while trying to save your movie: ${err}`));
 });
-
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //5. Iteration #11: Deleting Movies
-router.post('/movie-details', (req, res) => {
-  console.log(req.query);
+router.post('/movie-delete', (req, res) => {
+  // console.log(req.query);
   Movie.findByIdAndDelete(req.query.movie_id)
     .then(data => {
       // console.log(`The Movie successfully deleted`)
@@ -51,7 +62,7 @@ router.post('/movie-details', (req, res) => {
     })
     .catch(err => console.log('error: ', err));
 });
-
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 //6. Iteration #12 (Bonus): Editing Movies
 router.get('/movie-edit', (req, res) => {
   //   console.log(req.query.movie_id);
@@ -61,7 +72,7 @@ router.get('/movie-edit', (req, res) => {
     })
     .catch(err => console.log(err));
 });
-//POST received form
+//Get and POST received form
 router.post('/movie-edit', (req, res) => {
   //   console.log(req.query.movie_id);
   Movie.findByIdAndUpdate(req.query.movie_id, req.body)
