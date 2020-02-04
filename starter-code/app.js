@@ -64,4 +64,7 @@ app.use('/', index);
 const crudCelebrities = require("./routes/crudCelebrities");
 app.use("/celebrities", crudCelebrities);
 
+const crudMovies = require("./routes/crudMovies");
+app.use("/movies", crudMovies);
+
 module.exports = app;
