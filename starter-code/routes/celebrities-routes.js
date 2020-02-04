@@ -35,7 +35,14 @@ router.post('/celebrities/create', (req, res) => {
 
 //GET list of all celebrities
 router.get('/celebrities-list', (req, res) => {
-    res.render('celebrities/celebrities-list')
+    
+    Celebrity.find()
+    .then(allCelebrities => {
+        res.render('celebrities/celebrities-list', {allCelebrities})
+
+    })
+    .catch(err => console.log('Error while getting all celebrities from DB', err)
+    )
 });
 
 
