@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Celebrity = require('../models/Celebrity.model');
-const DB_NAME = 'moongoose-movies';
+const DB_NAME = 'mongoose-movies';
 
 // require('../configs/db.config'); ---- if I was uding a config file
 

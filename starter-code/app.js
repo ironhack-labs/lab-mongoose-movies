@@ -58,6 +58,6 @@ app.locals.title = 'Movies and Celebrities';
 const index = require('./routes/index');
 app.use('/', index);
 
-app.use('/', require('./routes/celebrities.routes'));
+app.use('/', require('./routes/celebrities'));
 
 module.exports = app;
