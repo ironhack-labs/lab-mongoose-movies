@@ -1,0 +1,9 @@
+<h1> {{gotTheMovie.title}}</h1>
+
+<h3>Title: {{gotTheMovie.title}} </h3>
+<p> Genre: {{gotTheMovie.genre}} </p>
+<p> Plot: {{gotTheMovie.plot}} </p>
+{{#each gotTheMovie.cast}}
+<p> Cast: <a style="background-color: white;color:blue" href="/celebrities/{{this._id}}">{{this.name}}</a></p>
+{{/each}}
+<a href="/movie-edit?movie_id={{gotTheMovie._id}}">Edit</a>

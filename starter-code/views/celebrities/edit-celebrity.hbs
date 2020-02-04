@@ -1,0 +1,20 @@
+<h1>Edit: {{celebrity.name}}</h1>
+
+<form action="/celebrities/{{celebrity._id}}/update" method="post">
+    <label for="">Name:
+        <input type="text" name="name" placeholder="Enter name">
+        {{!-- <select name="name" id="">
+            <option value="{{this._id}}"></option>
+            {{#each allCelebrities}}
+            <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+        </select> --}}
+    </label>
+    <label for="">Occupation:
+        <input type="text" name="occupation" placeholder="Enter occupation">
+    </label>
+    <label for="">Catch phrase:
+        <input type="text" name="catchPhrase" placeholder="Enter details">
+    </label>
+    <button type="submit">Add</button>
+</form>

@@ -1,0 +1,16 @@
+<h2>Add new celebrities</h2>
+<form action="/celebrities/create" method="post">
+    {{#if errorMsg}}
+    <span style="color: red;">{{errorMsg}}</span><br>
+    {{/if}}
+    <label for="">name:
+        <input type="text" name="name">
+    </label>
+    <label for="">Occupation:
+        <input type="text" name="occupation">
+    </label>
+    <label for="">Catch phrase:
+        <input type="text" name="catchPhrase">
+    </label>
+    <button type="submit">Add</button>
+</form>

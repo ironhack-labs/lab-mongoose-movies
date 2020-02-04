@@ -1,0 +1,12 @@
+<h2>Show celebrity details</h2>
+{{celebrity.name}}
+<ul>
+    <p>-{{celebrity.occupation}}</p>
+    <p>-{{celebrity.catchPhrase}}</p>
+    <a href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+    {{!-- <p>
+        <form action="/celebrities/:{{celebrity._id}}/edit" method="post">
+            <button type="submit">Edit</button>
+        </form>
+    </p> --}}
+</ul>
