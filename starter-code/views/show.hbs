@@ -1,0 +1,28 @@
+<h1> This is {{this.Name}} </h1>
+<div class="celebrities">
+  <div class="celebcard">
+    <div>
+      <h3>{{this.Occupation}}</h3>
+    </div>
+
+    <div>
+      <p>catch phrase: "{{this.Catchphrase}}"</p>
+    </div>
+  </div>
+  <div>
+    <a href="/celebrities/new">add your own character</a>
+  </div>
+
+  <div>
+    <a href="/celebrities/{{id}}/delete">delete this character</a>
+  </div>
+
+  <div>
+    <a href="/celebrities/{{id}}/edit">edit this character's details</a>
+  </div>
+
+  <div>
+    <a href="/celebrities">See the full list</a>
+  </div>
+
+</div>
