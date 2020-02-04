@@ -56,6 +56,6 @@ const celebrities = require('./routes/celebrity');
 app.use('/', index);
 app.use('/', celebrities);
 
-app.listen(3000, () => console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊'));
+app.listen(3000, () => console.log('My project running on port 3000 🎧 🥁 🎸 🔊'));
 
-//module.exports = app;
+module.exports = app;
