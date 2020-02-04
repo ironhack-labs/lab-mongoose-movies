@@ -1,11 +1,18 @@
-<h2>Edit {{this.title}}'s details here</h2>
+<h2>Edit {{movieFound.title}}'s details here</h2>
 
-<form action="/movies/{{this.id}}/update" method="POST">
-    <label for="titleInput">Artist's Name</label>
-    <input type="text" name="title" id="titleInput" placeholder="Goldenye" value="{{this.title}}">
-    <label for="genreInput">Artist's occupation</label>
-    <input type="text" name="genre" id="genreInput" placeholder="Action" value="{{this.genre}}">
-    <label for="plot">Artist's catchphrase</label>
-    <input type="text" name="plot" id="plot" placeholder="Agent 007, along with Natalia Simonav, travels to Russia to locate the satellite nuclear weapon stolen by Alec, a former agent, who Bond believed was dead." value="{{this.plot}}">
-    <button>Edit celebrity's details</button>
+<form action="/movies/{{movieFound.id}}/update" method="POST">
+    <label for="titleInput">Movie name</label>
+    <input type="text" name="title" id="titleInput" placeholder="Goldenye" value="{{movieFound.title}}">
+    <label for="genreInput">Movie genre</label>
+    <input type="text" name="genre" id="genreInput" placeholder="Action" value="{{movieFound.genre}}">
+    <label for="plot">Movie plot</label>
+    <input type="text" name="plot" id="plot" placeholder="Agent 007, along with Natalia Simonav, travels to Russia to locate the satellite nuclear weapon stolen by Alec, a former agent, who Bond believed was dead." value="{{movieFound.plot}}">
+    <label for="cast">Movie cast</label>
+    <select name="cast" id="cast">
+        <option disable selected value=""></option>
+        {{#each almostAllCelebrities}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <button>Edit movie details</button>
 </form>

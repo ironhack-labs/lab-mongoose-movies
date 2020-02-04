@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Celebrity = require('../models/Celebrity.model');
 const Movies = require('../models/Movies.model');
 
 const DB_NAME = 'lab-mongoose&express-movies';
@@ -19,17 +20,20 @@ mongoose
       {
         title: 'Inception',
         genre: 'Action',
-        plot: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."
+        plot: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+        cast: [Celebrity[0].name]
       },
       {
         title: 'Peter Pan',
         genre: 'Animation',
-        plot: "Wendy and her brothers are whisked away to the magical world of Neverland with the hero of their stories, Peter Pan."
+        plot: "Wendy and her brothers are whisked away to the magical world of Neverland with the hero of their stories, Peter Pan.",
+        cast: [Celebrity[1].name]
       },
       {
         title: 'Black Swan',
         genre: 'Drama',
-        plot: "A committed dancer struggles to maintain her sanity after winning the lead role in a production of Tchaikovsky's 'Swan Lake'."
+        plot: "A committed dancer struggles to maintain her sanity after winning the lead role in a production of Tchaikovsky's 'Swan Lake'.",
+        cast: [Celebrity[2].name]
       }
   ];
 

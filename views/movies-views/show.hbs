@@ -3,6 +3,7 @@
     <li><b>Title:</b> {{this.title}}</li>
     <li><b>Genre:</b> {{this.genre}}</li>
     <li><b>Plot:</b> {{this.plot}}</li>
+    <li><b>Cast:</b> {{this.cast.name}}</li>
     <form action="/movies/{{this._id}}/delete" method="POST">
         <button type="submit">Delete movie from list</button> 
     </form>

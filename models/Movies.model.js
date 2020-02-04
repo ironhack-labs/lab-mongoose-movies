@@ -8,7 +8,11 @@ const movieSchema = new Schema(
             required: true
         },
         genre: String, 
-        plot: String
+        plot: String,
+        cast: {
+            type: Schema.Types.ObjectId,
+            ref: 'Celebrity'
+        },
     },
     {
         timestamps: true
