@@ -31,7 +31,50 @@ router.get("/celebrities/:id", (req, res, next) => {
     });
 });
 
-// route to submit the form when adding a new celbrity
+// route to display a form to edit a celebrity
+router.get("/celebrities/:id/edit", (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebDocs => {
+      res.render("celebrities/edit.hbs", celebDocs);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+// delete a celebrity
+router.get("/celebrities/:id/delete", (req, res, next) => {
+  Celebrity.deleteOne({ _id: req.params.id })
+    .then(() => {
+      res.redirect("/celebrities/index");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+// edit a celebrity
+// still an issue: when saving the changes, it creates a new entry
+router.post("/celebrities/:id/", (req, res, next) => {
+  Celebrity.updateOne(
+    { _id: req.params.id },
+    {
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase
+    }
+  )
+    .then(() => {
+      res.redirect("/celebrities/index");
+    })
+    .catch(err => {
+      // this one's not working yet; it should stay
+      // on the same page when trying to submit without input in the fields
+      res.redirect("celebrities/:id/edit");
+    });
+});
+
+// route to submit the form when adding a new celebrity
 router.post("/celebrities", (req, res, next) => {
   // create a new celebrity
   Celebrity.create({
@@ -45,17 +88,6 @@ router.post("/celebrities", (req, res, next) => {
     })
     .catch(err => {
       res.redirect("celebrities/newCeleb");
-    });
-});
-
-// delete a celebrity
-router.get("/celebrities/:id/delete", (req, res, next) => {
-  Celebrity.deleteOne({ _id: req.params.id })
-    .then(() => {
-      res.redirect("/celebrities/index");
-    })
-    .catch(err => {
-      next(err);
     });
 });
 
