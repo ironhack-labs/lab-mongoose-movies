@@ -1,0 +1,35 @@
+<h4>Edit</h4>
+<h2>{{Celebrity.name}}</h2>
+
+
+<form action="/celebrities/update/{{celebrity._id}}" method="POST">
+
+
+<p>Name</p>
+<input type="text" name="theName" value=" {{celebrity.name}}">
+
+
+<p>Occupation</p>
+<input type="text" name="theOccupation" value="{{celebrity.occupation}}">
+
+
+<p>Movies</p>
+<select name="themovie">
+
+    <option value="" selected disabled> Please Select One</option>
+
+{{#each movies}}
+        <option value="{{this._id}}">{{this.title}}</option>
+{{/each}} 
+
+</select>
+
+<p>Catchphrase</p>
+<input type="text" name="thecatchPhrase" value="{{celebrity.catchPhrase}}">
+
+
+
+<br>
+<button class="button">Save</button>
+
+</form>

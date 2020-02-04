@@ -1,0 +1,51 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #a0c9cb;
+  background: linear-gradient(0deg, #a0c9cb 0%, #2d95fd 100%);
+  background-size: contain; }
+
+a {
+  color: black; }
+
+.navbar {
+  background: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px; }
+
+.navbar a {
+  color: black;
+  text-decoration: none; }
+
+.all {
+  color: #b31f1f;
+  display: flex;
+  justify-content: center; }
+
+.button {
+  background: #b13636;
+  color: white;
+  font-size: 12px;
+  border-radius: 10px; }
+
+.edit {
+  text-decoration: none;
+  color: black;
+  font-size: 12px; }
+
+.login {
+  background: #fff45d;
+  color: black;
+  font-size: 10px;
+  border-radius: 5px; }
+
+.pagelogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px; }
+
+/*# sourceMappingURL=style.css.map */

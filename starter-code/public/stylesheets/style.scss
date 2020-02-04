@@ -1,8 +1,58 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: rgb(160, 201, 203);
+    background: linear-gradient(0deg, rgba(160, 201, 203, 1) 0%, rgba(45, 149, 253, 1) 100%);
+    background-size: contain;
 }
 
 a {
-  color: #00B7FF;
+    color: black;
+}
+
+.navbar {
+    background: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+}
+
+.all {
+    color: rgb(179, 31, 31);
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background: rgb(177, 54, 54);
+    color: white;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.edit {
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+}
+
+.login {
+    background: rgb(255, 244, 93);
+    color: black;
+    font-size: 10px;
+    border-radius: 5px;
+}
+
+.pagelogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
 }
