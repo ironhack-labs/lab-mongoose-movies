@@ -26,6 +26,15 @@ router.post('/celebrities', (req, res, next) => {
     .catch( err => console.log('Error while creating a new celebrity ', err ) )
 })
 
+/* POST delete celebrity */
+router.post('/celebrities/:id/delete', (req, res, next) => {
+    //console.log( req.params )
+    Celebrity.findByIdAndDelete( req.params.id )
+    .then( () => res.redirect('/celebrities'))
+    .catch( err => console.log('Error while deleting celebrity ', err ) )
+})
+
+
 /* GET celebrity detail page */
 router.get('/celebrities/:id', (req, res, next) => {
     Celebrity.findById( req.params.id)
