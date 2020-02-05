@@ -14,8 +14,8 @@ exports.celebrtysController = async (req,res,next)=>{
 
 
 exports.celebritysDetails = async (req,res)=>{
-  const celeb = await dataCeleb.findById(req.params.alias_id)
-  console.log({celeb});
+  const celeb = await dataCeleb.findById(req.params.celebrityid)
+  console.log(celeb);
   res.render("celebritys/celebritysDetail", {celeb})
 
 }
