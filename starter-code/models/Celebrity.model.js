@@ -4,11 +4,11 @@ const {Schema, model} = mongoose;
 
 const celebritySchema = new Schema(
     {
-    name: String,
-    occupation: String,
-    catchPhrase: String,
-    // birthday: Date,
-    // pictureUrl: String
+        name: String,
+        occupation: String,
+        catchPhrase: String,
+        // birthday: Date,
+        // pictureUrl: String
     },
     {
         timestamps: true,
