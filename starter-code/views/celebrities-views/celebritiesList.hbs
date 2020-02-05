@@ -1,0 +1,21 @@
+<h1>All Celebrities in db</h1>
+
+
+{{#each cel}}
+<div style="display:flex; align-items: center; justify-content: center;">
+  <div style="width: 150px; display:flex">
+    <a href="/celebrities/{{this._id}}">{{this.firstName}} {{this.lastName}} </a>
+  </div>
+  <button><a href="/celebrities/{{this._id}}/edit"> Update </a></button>
+
+  <form action="/celebrities/{{this._id}}/delete" method="POST">
+    <button type="submit"> Delete </button>
+  </form>
+</div>
+<br>
+<br>
+{{/each}}
+
+<br>
+<br>
+<button><a href="/celebrities/new"> Add Celebrity </a></button>
