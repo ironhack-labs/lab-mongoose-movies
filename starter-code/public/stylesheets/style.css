@@ -12,8 +12,6 @@ a {
   color: #00B7FF; 
 }
 
-/*# sourceMappingURL=style.css.map */
-
 .home-page-container p {
   margin: 20px 0 30px;
 }
@@ -21,6 +19,7 @@ a {
 .title {
   font-size: 2rem;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .button {
@@ -59,4 +58,20 @@ a {
 
 .details-container h3, .details-container h4, .details-container p {
   margin: 20px 0;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form > div {
+  padding: 10px 0;
+}
+
+.form input {
+  height: 30px;
+  width: 300px;
 }
