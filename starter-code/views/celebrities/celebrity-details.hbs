@@ -1,9 +1,9 @@
-<h2>Celebrity Details</h2>
-<div>
+<h2 class="title">Celebrity Details</h2>
+<div class="details-container">
     <h3>{{celebrity.name}}</h3>
     <h4>{{celebrity.occupation}}</h4>
     <p>{{celebrity.catchPhrase}}</p>
     <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
-        <button type="submit">Delete</button>
+        <button class="delete-button" type="submit">Delete</button>
     </form>
 </div>
