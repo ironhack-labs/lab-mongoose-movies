@@ -1,0 +1,9 @@
+<h2>THE STARS</h2>
+<a href="/celebrities/new">Add a new celeb</a>
+{{#each celebrities}}
+    <h4>{{name}}</h4>
+    <a href="/celebrities/{{_id}}">See More about this celeb</a>
+    <form action="/celebrities/{{_id}}/delete" method="post">
+    <button>Delete</button>
+    </form>
+{{/each}}

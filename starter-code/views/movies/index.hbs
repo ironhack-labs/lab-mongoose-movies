@@ -1,0 +1,9 @@
+<h2>THE FLICKS</h2>
+<a href="/movies/new">Add a new movie</a>
+{{#each movies}}
+    <h4>{{title}}</h4>
+    <a href="/movies/{{_id}}">See More about this Movie</a>
+    <form action="/movies/{{_id}}/delete" method="post">
+    <button>Delete</button>
+    </form>
+{{/each}}
