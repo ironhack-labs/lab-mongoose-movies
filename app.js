@@ -56,8 +56,8 @@ app.use('/', index);
 app.use('/', celebrities);
 app.use('/', movies);
 
-app.listen(process.env.PORT, () =>
-  console.log(`My CRUD project is running on port ${process.env.PORT}`)
-);
+// app.listen(process.env.PORT, () =>
+//   console.log(`My CRUD project is running on port ${process.env.PORT}`)
+// );
 
 module.exports = app;

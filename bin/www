@@ -40,5 +40,5 @@ server.on('error', error => {
 });
 
 server.listen(process.env.PORT, () => {
-  console.log(`Listening on http://localhost:${process.env.PORT}`);
+  console.log(`My CRUD project is running on port ${process.env.PORT}: http://localhost:${process.env.PORT}`);
 });
