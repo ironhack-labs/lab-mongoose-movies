@@ -1,0 +1,29 @@
+<div class="ugly-container"><h2>L'index des célébrissimes célébrités</h2>
+  <ul class="liste-celeb">
+    <div class="uglier-container">
+      {{#each celebrities}}
+      <div class="unit">
+        <a href="./{{this._id}}">
+          <li class= "celeb">{{this.name}}</li>
+        </a>
+      <form action="/celebrities/{{this._id}}/delete" method="post">
+        <button class="delete-btn">Cette personne ne mérite pas le rang de célèbre célébrité</button>
+      </form>
+      <form action="/celebrities/{{this._id}}/update" method="get">
+        <button class="update-btn">Cette célébrité nécessite modification</button>
+      </form>
+      <button class="no-delete-btn">Cette personne est effectivement une célèbre célébrité</button>
+      </div>
+      {{/each}}
+    </div>
+  </ul><nav>
+    <ul>
+      <li><a href="/celebrities/all">Nos célébrités les plus épatantes</a></li>
+      <li><a href="/celebrities/new">Ajouter une épatante célébrité</a></li>
+      
+      <li><a href="/movies/all">Nos films les plus épatantes</a></li>
+      <li><a href="/movies/new">Ajouter un épatant film</a></li>
+    </ul>
+  </nav>
+  
+</div>

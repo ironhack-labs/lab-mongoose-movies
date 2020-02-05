@@ -1,0 +1,29 @@
+<div class="ugly-container">
+    <h2>Ajoute tes propres célébrités célèbres !!!!</h2>
+
+    <form action="/celebrities/new" method="post" class="form">
+    <h1 class="title">Créé ta propre célébrité</h1>
+
+    <label class="label" for="name">name</label>
+    <input class="input" id="name" type="text" name="name" placeholder="OBLIGATOIRE" value="{{celebrity.name}}" required>
+
+    <label class="label" for="occupation">occupation</label>
+    <textarea class="input" id="occupation" type="text" placeholder="OBLIGATOIRE" name="occupation" required/>{{celebrity.occupation}}
+    </textarea>
+
+    <label class="label" for="catchPhrase">Citation célébère de la célèbre célébrité</label>
+    <textarea class="input" id="catchPhrase" type="text" placeholder="OBLIGATOIRE" name="catchPhrase" required>{{celebrity.catchPhrase}}
+    </textarea>
+
+    
+    <button class="btn">ok d'accord c'est tout bon je souhaite ajouter ma célébrité à l'index des célèbres célébrités</button>
+    {{!-- <input class="btn" type="submit" value="ok"> --}}
+</form>
+<nav>
+    <ul>
+      <li><a href="/celebrities/all">Toutes nos célébrités les plus épatantes</a></li>
+      <li><a href="/celebrities/new">Ajouter une autre épatante célébrité</a></li>
+    </ul>
+  </nav>
+  
+</div>

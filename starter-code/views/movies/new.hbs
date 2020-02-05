@@ -1,0 +1,29 @@
+<div class="ugly-container">
+    <h2>Ajoute tes propres films filmiques !!!!</h2>
+
+    <form action="/movies/new" method="post" class="form">
+    <h1 class="title">Créé ton propre film</h1>
+
+    <label class="label" for="title">titre</label>
+    <input class="input" id="title" type="text" name="title" placeholder="OBLIGATOIRE" value="{{movie.title}}" required>
+
+    <label class="label" for="genre">genre</label>
+    <textarea class="input" id="genre" type="text" placeholder="OBLIGATOIRE" name="genre" required/>{{movie.genre}}
+    </textarea>
+
+    <label class="label" for="plot">Intrigue du filmique film</label>
+    <textarea class="input" id="plot" type="text" placeholder="OBLIGATOIRE" name="plot" required>{{movie.plot}}
+    </textarea>
+
+    
+    <button class="btn">ok d'accord c'est tout bon je souhaite ajouter mon film au panthéon du cinéma</button>
+    {{!-- <input class="btn" type="submit" value="ok"> --}}
+</form>
+<nav>
+    <ul>
+      <li><a href="/movies/all">Toutes nos films les plus épatants</a></li>
+      <li><a href="/movies/new">Ajouter un autre épatant film</a></li>
+    </ul>
+  </nav>
+  
+</div>

@@ -1,0 +1,22 @@
+<div class="ugly-container"><h2>L'index des filmiques films</h2>
+  <ul class="liste-celeb">
+    <div class="uglier-container">
+      {{#each movies}}
+      {{this.title}} est un film de type {{this.genre}}.
+      L'histoire est la suivante : {{this.plot}}
+      <div class="unit"><a href="./delete/{{this._id}}"><li class= "celeb">{{this.name}}</li></a>
+      <form action="/delete/{{this._id}}" method="post">
+      <button class="delete-btn">Ce film ne mérite pas le rang de filmique film</button>
+      </form>
+      <button class="no-delete-btn">Ce film est effectivement filmique</button>
+      </div>
+      {{/each}}
+    </div>
+  </ul><nav>
+    <ul>
+      <li><a href="/movies/all">Nos films les plus épatants</a></li>
+      <li><a href="/movies/new">Ajouter un épatant film</a></li>
+    </ul>
+  </nav>
+  
+</div>

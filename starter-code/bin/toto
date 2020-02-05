@@ -1,0 +1,44 @@
+
+
+
+const Cat = mongoose.model('Cat', { name: String });
+
+const kitty = new Cat({ name: 'Zildjian' });
+kitty.save().then(() => console.log('meow'));
+
+
+model/schema
+to creata a model, you need a schema
+le model holds the functions to interact with the schema
+
+ex. 
+const mongoose = require("mongoose") ;
+const Schema = mongoose.Schema ;
+const celebSchema = new Schema ({
+  name: {
+    type : String, required : true, unique : true
+  },
+  occupation: String,
+  catchPhrase : String
+})
+validator : à mettre frontend, backend, ET dans le Schema 
+
+const celebModel = mongoose.model("Celebrity", celebSchema)
+"Celebrity" ==> le nom de la collection
+nb : mongoose passera le nom de la collection en bd et au pluriel
+
+
+
+où sera la db ?
+la fin de l'url à laquelle c'est lié dans mongoose.connect (app.js)
+
+/////////////
+ton fichier seed
+
+celebModel.create(celebrities).then(dbResponse => console.log(dbResponse)).catch(dbErr => console.error(dbErr))
+ !!!! à mettre dans le .then de la connection à MongoDB
+ node seed (pour que cela n'arrive qu'une seule fois)
+
+ dans le res.render, l'endroit où trouver "celebrities" est défini par le app.js 
+
+create() = new + save 
