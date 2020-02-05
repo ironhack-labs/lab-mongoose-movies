@@ -1,0 +1,27 @@
+ <a href="/movies">Back to Movies</a>
+ 
+<h1>Add a Movie</h1>
+
+<form action="/movies/create" method="POST">
+  <label for="title-input"> Title </label>
+  <input type="text" name="title" id="title-input">
+  <br>
+
+  <label for="genre-select"> Genre </label>
+  <input type="text" name="genre" id="genre-select">
+  <br>
+
+  <label for="plot-input"> Plot </label>
+  <input type="text" name="plot" id="plot-input">
+  <br>
+
+  <label for="cast-input"> Cast </label>
+  <select name="cast" id="cast-select">
+    <option disable selected value=""></option>
+    {{#each celebrities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+    </select>
+
+  <button type="submit"> Add Movie </button>
+</form>
