@@ -36,7 +36,7 @@ mongoose.connect(`mongodb://localhost/${DB_TITLE}`, {
 //})
 //.catch( err => console.log(`Error during data saving: ${err}`))
 
-const celebrities = [
+const movies = [
     {
         title: 'Joker',
         genre: 'Drama/Thriller',
@@ -46,20 +46,22 @@ const celebrities = [
         into madness as he transforms into the criminal mastermind known as the Joker.`
     },
     {
-        title: 'Ana de Armas',
-        genre: 'Actress',
-        plot: `You can always go back to the place where you were comfortable, the place where you're from`
+        title: 'Dolemite is My Name',
+        genre: 'Drama/Comedy',
+        plot: `Performer Rudy Ray Moore develops an outrageous character named Dolemite, who becomes an underground sensation 
+        and star of a kung-fu, anti-establisment film that could make or break Moore.`
     },
     {
-        title: 'Johnny Depp',
-        genre: 'Actor',
-        plot: `Music touches us emotionally, where words alone can't`
-    },
+        title: 'The Professor',
+        genre: 'Drama/Comedy',
+        plot: `After learning he has six months to live, a college lecturer transforms into a rebellious party animal. To the 
+        shock of his wife and school chancellor -- and to the delight of his students -- he leads a crusade against authority and hypocrisy.`
+    }
 ]
 
-Celebrity.create( celebrities )
-.then( savedCelebs => {
-    console.log(`Created ${savedCelebs.length} records`);
+Movie.create( movies )
+.then( savedMovies => {
+    console.log(`Created ${savedMovies.length} records`);
     mongoose.connection.close();
 })
 .catch( err => console.log(`Error during data saving: ${err}`))
