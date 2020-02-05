@@ -1,0 +1,29 @@
+<h2>Updating Celebrity {{foundCel.firstName}} {{foundCel.lastName}}</h2>
+<br>
+<form action="/celebrities/{{foundCel._id}}/edit" method="POST">
+  <label for="name-input">First Name:</label>
+  <input type="text" id="name-input" name="firstName" value="{{foundCel.firstName}}">
+  <br>
+  <br>
+  <br>
+
+  <label for="last-input">Last Name:</label>
+  <input type="text" id="last-input" name="lastName" value="{{foundCel.lastName}}">
+  <br>
+  <br>
+  <br>
+
+  <label for="occupation-input">Occupation:</label>
+  <input type="text" id="occupation-input" name="occupation" value="{{foundCel.occupation}}">
+  <br>
+  <br>
+  <br>
+
+  <label for="catchPhrase-input">CatchPhrase:</label>
+  <input type="text" id="catchPhrase-input" name="catchPhrase" value="{{foundCel.catchPhrase}}">
+  <br>
+  <br>
+  <br>
+  <button type="submit">Save Updates</button>
+
+</form>
