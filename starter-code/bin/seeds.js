@@ -17,7 +17,7 @@ const celebrities = [{
     {
         name: 'Alexey Navalny',
         occupation: 'politician',
-        catchPhrase: 'Over here, we don\'t lie'
+        catchPhrase: 'Russia will be free!'
     },
 ];
 
