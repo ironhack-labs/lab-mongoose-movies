@@ -3,39 +3,21 @@ const router = express.Router();
 
 const Movie = require('../models/movie')
 
+
 router.get('/', (req, res, next) => {
   Movie.find()
-    .then(moviesDB => {
-      res.render('movies', {
-        movies: moviesDB
-      });
-    })
-    .catch(error => {
-      console.log('Error while getting the movies from de DB: ', error)
-      next()
-    })
-
+  .then(moviesDB => {
+    res.render('movies', {
+      movies: moviesDB
+    });
+  })
+  .catch(error => {
+    console.log(error)
+    next()
+  })
 });
 
-router.get("/:id", (req, res, next) => {
-  Movie.findById(req.params.id)
-    .then(theMovie => {
-      res.render('movies/show', {
-        movies: theMovie
-      });
-    })
-    .catch(error => {
-      console.log('Error while retrieving movies details: ', error);
-      next()
-    })
-
-});
-
-router.get("/new", (req, res, next) => {
-  res.render("movies/new");
-});
-
-router.post("/", (req, res, next) => {
+router.post('/', (req, res, next) => {
   const newMovie = {
     title: req.body.title,
     genre: req.body.genre,
@@ -43,8 +25,7 @@ router.post("/", (req, res, next) => {
   }
 
   Movie.create(newMovie)
-    .then((movie) => {
-      console.log(movie)
+    .then(() => {
       res.render('movies/new')
     })
     .catch((error) => {
@@ -53,38 +34,19 @@ router.post("/", (req, res, next) => {
     })
 })
 
-router.post("/:id/delete", (req, res, next) => {
-  Movie.findByIdAndDelete(req.body.id)
-    .then(() => {
-      res.render('movies')
+router.get('/new', (req, res, next) => {
+  res.render("movies/new");
+});
+
+router.get('/:id', (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then(theMovie => {
+      res.render('movies/show', {
+        movies: theMovie
+      });
     })
-    .catch((error) => {
+    .catch(error => {
       console.log(error)
-      next()
-    })
-})
-
-router.get("/:id/edit", (res, req, next) => {
-  Celebrity.findById(req.params.id)
-    .then(theCelebrity => {
-      res.render('celebrities/edit', theCelebrity)
-    })
-    .catch((error) => {
-      console.log(error)
-      next()
-    })
-})
-
-
-
-router.post('/:id/edit', (req, res, next) => {
-  Movie.findOne({
-      _id: req.body.id
-    })
-    .then((movie) => {
-      res.render('movies/edit', movie)
-    })
-    .catch(() => {
       next()
     })
 });
@@ -100,8 +62,41 @@ router.post('/:id', (req, res, next) => {
     .then(() => {
       res.redirect('/movies')
     })
-
 })
 
+router.post('/delete/:id', (req, res, next) => {
+  Movie.findByIdAndDelete(req.body.id)
+    .then(() => {
+      res.render('movies')
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+})
+
+router.get('/edit/:id', (res, req, next) => {
+  Celebrity.findById(req.params.id)
+    .then(theCelebrity => {
+      res.render('celebrities/edit', theCelebrity)
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+})
+
+router.post('/edit/:id', (req, res, next) => {
+  Movie.findOne({
+      _id: req.body.id
+    })
+    .then((movie) => {
+      res.render('movies/edit', movie)
+    })
+    .catch((error) => {
+      console.log(error)
+      next()
+    })
+});
 
 module.exports = router;
