@@ -1,13 +1,13 @@
-<h2 style="margin: 2rem 0rem;">Movies</h2>
+<h2 style="margin: 2rem 0rem;">{{Movies}}</h2>
 {{#each movies}}
 <p><a href="/movies/{{this._id}}" class="link">{{this.title}}</a></p>
 <div class="horizontal">
-  <form action="/movies/{{_id}}/edit" method="POST">
+  <form action="/movies/edit/{{_id}}" method="POST">
     <input type="hidden" name="id" class="text" value="{{_id}}">
     <input type="submit" class="btn btn-danger" style="margin-right: 10px;" value="Edit">
 
   </form>
-  <form action="/movies/{{_id}}/delete" method="POST">
+  <form action="/movies/delete/{{_id}}" method="POST">
     <input type="hidden" name="id" class="text" value="{{_id}}">
     <input type="submit" class="btn btn-danger" value="Delete Movie">
   </form>
