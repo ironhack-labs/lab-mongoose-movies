@@ -1,7 +1,7 @@
+
 const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema
-const celebritySchema = new Schema(
+const celebritySchema = new mongoose.Schema(
   {
     name: String,
     occupation: { type: String, default: 'unknown' },
