@@ -38,6 +38,21 @@ router.post('/movies/:id/delete', (req, res, next) => {
 })
 
 
+/* GET & POST edit celebrity */
+router.get('/movies/:id/edit', (req, res, next) => {
+    Movie.findById( req.params.id )
+    .then( foundMovie => res.render('./movies/edit', {foundMovie}) )
+    .catch( err => console.log('Error while getting movie details ', err ) )
+})
+
+router.post('/movies/:id', (req, res, next) => {
+    const { title, genre, plot} = req.body;
+    Movie.findByIdAndUpdate( req.params.id , req.body )
+    .then( () => res.redirect('/movies') )
+    .catch( err => console.log('Error while updating movie details ', err ))
+})
+
+
 
 /* GET celebrity detail page */
 router.get('/movies/:id', (req, res, next) => {
