@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/movie_model')
 
+
 /* GET movies  page */
 router.get('/movies', (req, res, next) => {
     Movie.find()
@@ -11,6 +12,22 @@ router.get('/movies', (req, res, next) => {
     })
     .catch( err => console.log('Error while getting movies ', err ))
 });
+
+
+/* GET & POST new movies */
+router.get('/movies/new', (req, res, next) => {
+    res.render('./movies/new')
+})
+
+router.post('/movies', (req, res, next) => {
+    Movie.create( req.body )
+    .then( newMovie => {
+        console.log(`New movie created: ${newMovie.title}`)
+        res.redirect('/movies')
+    } )
+    .catch( err => console.log('Error while creating a new movie ', err ) )
+})
+
 
 /* GET celebrity detail page */
 router.get('/movies/:id', (req, res, next) => {
