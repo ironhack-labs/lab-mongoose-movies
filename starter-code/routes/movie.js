@@ -29,6 +29,16 @@ router.post('/movies', (req, res, next) => {
 })
 
 
+/* POST delete celebrity */
+router.post('/movies/:id/delete', (req, res, next) => {
+    //console.log( req.params )
+    Movie.findByIdAndDelete( req.params.id )
+    .then( () => res.redirect('/movies'))
+    .catch( err => console.log('Error while deleting movie ', err ) )
+})
+
+
+
 /* GET celebrity detail page */
 router.get('/movies/:id', (req, res, next) => {
     Movie.findById( req.params.id)
