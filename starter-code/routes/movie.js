@@ -9,7 +9,17 @@ router.get('/movies', (req, res, next) => {
         //console.log(foundMovies);
         res.render('./movies/index', {foundMovies});
     })
-    .catch( err => console.log('Error while getting celebrities ', err ))
+    .catch( err => console.log('Error while getting movies ', err ))
 });
+
+/* GET celebrity detail page */
+router.get('/movies/:id', (req, res, next) => {
+    Movie.findById( req.params.id)
+    .then( foundMovie => {
+        //console.log(foundCeleb)
+        res.render('./movies/show', {foundMovie})
+    })
+    .catch( err => console.log('Error while getting movie details ', err ) )
+})
 
 module.exports = router;
