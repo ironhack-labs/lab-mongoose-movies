@@ -1,11 +1,18 @@
 <h1>Celebrities</h1>
+<br>
 <ul>
-{{#each celebrity}}
+    {{#each celebrity}}
     <br>
     <h2>Name:
-    <a href="/celebrities/{{this._id}}/description">    
-     {{this.name}} </h2>
+        <a href="/celebrities/{{this._id}}/description">
+            {{this.name}} </h2>
     </a>
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+
+    <button class="btn btn-primary" type="submit">Delete</button>
+
+    </form>
     <br>
-{{/each}}
+    <br>
+    {{/each}}
 </ul>
