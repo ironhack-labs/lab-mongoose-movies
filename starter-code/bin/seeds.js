@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/Celebrity-model');
+const Celebrity = require('../models/celebrity');
 mongoose.connect(`mongodb://localhost/celebrities`, {
   useUnifiedTopology: true,
   useCreateIndex: true,

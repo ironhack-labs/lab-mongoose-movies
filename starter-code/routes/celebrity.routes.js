@@ -7,7 +7,7 @@ const celebrityRouter = express.Router();
 
 // Require Celebrity model in order to use it for CRUD
 
-const Celebrity = require('.../models/Celebrity-model');
+const Celebrity = require('.../models/celebrity');
 
 
 // ****************************************************************************************
