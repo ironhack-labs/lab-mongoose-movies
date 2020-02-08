@@ -20,3 +20,38 @@ const Celebrity = require('.../models/Celebrity-model');
 //   localhost:3000/celebrity-input
 
 celebrityRouter.get('/celebrities/new', (req, res) => res.render('celebrities/new-celebrity'));
+
+// ****************************************************************************************
+// POST route to create a new author in the DB
+// ****************************************************************************************
+
+// <form action="/authors" method="POST">
+celebrityRouter.post('/celebrities/create', (req, res) => {
+  // console.log(req.body);
+
+  Celebrity.create(req.body)
+    .then(savedCelebrity => {
+     
+
+      // take us to the page that already exist in our app
+      //      ^       ->  this is the URL so it HAS to start with '/'
+      //      |      |
+      //      |      |
+      res.redirect('/celebrities/create');
+    })
+    .catch(err => console.log(`Error while saving author in the DB: ${err}`));
+});
+// ****************************************************************************************
+// GET all celebrities from the DB
+// ****************************************************************************************
+
+celebrityRouter.get('/celebrities/create', (req, res) => {
+  Celebrity.find() // <-- .find() method gives us always an ARRAY back
+    .then(celebritiesFromDB => {
+      
+      res.render('celebrities/celebrities', { celebrities: celebritiesFromDB });
+    })
+    .catch(err => console.log(`Error while getting celebrities from DB: ${err}`));
+});
+
+module.exports = celebrityRouter;
