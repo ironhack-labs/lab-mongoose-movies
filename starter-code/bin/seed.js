@@ -1,7 +1,9 @@
+require("dotenv").config()
 const mongoose = require("mongoose")
 const Celebrity = require("../models/celebrity.model")
 
 mongoose.connect(`mongodb://localhost/${process.env.DB}`)
+console.log(process.env.DB, "que pedo")
 
 const celebrities = [{
     name: "Leonardo DiCaprio",
