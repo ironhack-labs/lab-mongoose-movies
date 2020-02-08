@@ -1,0 +1,9 @@
+<h1>Lista de libros</h1>
+
+<ul>
+    {{#each celebrity}}
+    <li>
+        <a href="/books/details/{{_id}}">{{name}}</a> - [<a href="/books/edit?bookId={{_id}}">editar</a>]
+    </li>
+    {{/each}}
+</ul>
