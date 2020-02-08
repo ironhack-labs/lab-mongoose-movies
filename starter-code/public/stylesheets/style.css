@@ -1,38 +1,32 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: rgb(91, 116, 240);
+  color: #5b74f0;
   font-size: 30px;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 h2 {
   font-size: 50px;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 30px;
-
-}
+  padding: 30px; }
 
 p {
   font-size: 70px;
   font-style: italic;
-  text-align: center;
-}
+  text-align: center; }
 
 .index {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 30vw;
-}
+  height: 30vw; }
 
 .index a {
-  background-color: rgb(91, 116, 240);
+  background-color: #5b74f0;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   padding: 15px 15px;
@@ -41,75 +35,64 @@ p {
   transform: rotate3d(3, 2, -4, 45deg);
   transition: 1s;
   text-decoration: none;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
 .index a:hover {
   transform: translateX(20px);
-  transition: 1s;
-}
+  transition: 1s; }
 
 .indexCel li {
   display: flex;
   justify-content: left;
   align-items: center;
   text-decoration: none;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .indexCel button {
   border: 0;
   font-size: 30px;
-  color: rgb(91, 116, 240);
-  cursor: pointer;
-}
+  color: #5b74f0;
+  cursor: pointer; }
 
 .indexCel button:hover {
-  font-size: 35px;
-}
+  font-size: 35px; }
 
 .show {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .show h2 {
-  box-shadow: 17px 17px 17px -4px rgba(0, 0, 0, 0.25);
-}
+  box-shadow: 17px 17px 17px -4px rgba(0, 0, 0, 0.25); }
 
 .new,
 .edit {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 .new input,
 .edit input {
   font-size: 20px;
   padding: 10px 10px;
-  width: 33vw;
-}
+  width: 33vw; }
 
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 .new button,
 .edit button {
   font-size: 30px;
   margin-top: 30px;
-  background-color: rgb(91, 116, 240);
-  font-family: Arial,
-    Helvetica,
-    sans-serif;
+  background-color: #5b74f0;
+  font-family: Arial, Helvetica, sans-serif;
   color: white;
   padding: 10px 20px;
   border: 0;
   border-radius: 10px;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */
