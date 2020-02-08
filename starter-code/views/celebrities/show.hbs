@@ -1,0 +1,9 @@
+<h1>Celebridad</h1>
+<h3>{{this.name}}</h3>
+<q>{{catchPhrase}}</q>
+<h3>{{occupation}}</h3>
+<img class="picture-detail" src={{picture}} onmouseover="this.src='{{picture2}}'" onmouseout="this.src='{{picture}}'" />
+<form action="/celebrities/{{_id}}/edit" method="POST">
+  <button>Editar</button>
+</form>
+<a href="/celebrities">Vuelve a las celebridades</a>

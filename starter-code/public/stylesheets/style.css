@@ -1,40 +1,31 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff;
-}
+  color: #00b7ff; }
 
-// .celebrity {
-//   width: 300px;
-//   height: 300px;
-// }
 .celebrity {
   margin: 30px;
-  position: relative;
-}
+  position: relative; }
 
 .celebrity img {
   width: 220px;
   height: 300px;
-  object-fit: cover;
-}
+  object-fit: cover; }
 
 .celebrities {
   display: flex;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap; }
 
 .picture .picture2 {
   position: absolute;
   top: 0;
-  left: 0;
-}
+  left: 0; }
 
 .picture-detail {
   width: 400px;
   height: 400px;
-  object-fit: cover;
-}
+  object-fit: cover; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,32 @@
+<h2>Celebridades</h2>
+<div class="celebrities">
+  {{#each celebritiesFound}}
+  <div class="celebrity">
+
+    <img src={{picture}} onmouseover="this.src='{{picture2}}'" onmouseout="this.src='{{picture}}'" />
+    {{!-- <img class="picture" src={{picture}} onmouseover="this.src={{picture2}}" onmouseout="this.src={{picture}}" /> --}}
+    {{!-- <img class="picture" src={{picture}} alt={{name}} style="width:100px;" alt="25" />
+    <img class="picture2" src={{picture2}} alt={{name}} /> --}}
+    <h3>{{name}}</h3>
+    <a href="/celebrities/{{_id}}">Descubre todos sus secretos</a>
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+      <button>Eliminar</button>
+    </form>
+  </div>
+  {{/each}}
+</div>
+
+<div>
+  <h2>Crea una nueva celebridad</h2>
+  <form action="/celebrities" method="POST">
+    <input type="text" name="name" placeholder="Nombre">
+    <input type="text" name="picture" placeholder="url de la imagen">
+    <input type="text" name="occupation" placeholder="Ocupación">
+    <button>Crear</button>
+    {{#if error}}
+    {{error}}
+    {{/if}}
+  </form>
+</div>
+
+<a href="/">Vuelve a la fama</a>

@@ -1,0 +1,16 @@
+<h1>Celebridad</h1>
+<h3>{{this.name}}</h3>
+<img class="picture-detail" src={{picture}} onmouseover="this.src='{{picture2}}'" onmouseout="this.src='{{picture}}'" />
+<form action="/celebrities/{{_id}}" method="POST">
+  <label for="name">Nombre: </label><input type="text" name="name" value='{{this.name}}'>
+  <label for="picture">Imagen Principal: </label><input type="text" name="picture" value={{picture}}>
+  <label for="picture2">Imagen alternativa: </label><input type="text" name="picture2" value={{picture2}}>
+  <label for="occupation">Ocupación: </label><input type="text" name="occupation" value='{{occupation}}'>
+  <label for="catchPhrase">Cita célebre: </label><input type="text" name="catchPhrase" value='{{this.catchPhrase}}'>
+  <button>Editar</button>
+  {{#if error}}
+  {{error}}
+  {{/if}}
+</form>
+<a href="/celebrities/{{_id}}">Cancelar edición</a>
+<a href="/celebrities">Vuelve a las celebridades</a>
