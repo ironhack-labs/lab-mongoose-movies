@@ -1,0 +1,13 @@
+<h1>Tus peliculas conocidas:</h1>
+
+{{#each movie}}
+  <a href="/movies/details/{{_id}}">- {{title}}</a>
+<a class="btn btn-outline-info" href="movies/edit/{{_id}}" style="margin-left: 30px" role="button">Edit</a>
+<a class="btn btn-outline-danger" href="movies/delete/{{_id}}"  role="button">Delete</a></BR>
+{{/each}}
+</br>
+</br>
+</br>
+</br>
+</br>
+<a href="/movies/add" class="btn btn-primary btn-lg active" role="button">Nueva pelicula</a>

@@ -5,5 +5,8 @@ const router  = express.Router();
 router.get('/', (req, res, next) => {
   res.render('index');
 });
+router.get('/cositas', (req, res, next) => {
+  res.render('cositas');
+});
 
 module.exports = router;
