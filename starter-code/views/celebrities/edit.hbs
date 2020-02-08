@@ -1,0 +1,8 @@
+<h1>Edit celebrity information</h1>
+{{#each celebToEdit}}
+  <form action="/celebrities/{{_id}}" method="POST">
+    <input type="text" name="name" id="">
+    <input type="text" name="occupation" id="">
+    <input type="text" name="catchPhrase" id="">
+  </form>
+{{/each}}

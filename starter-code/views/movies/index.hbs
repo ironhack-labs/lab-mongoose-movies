@@ -1,0 +1,17 @@
+<div>
+    <h2>Movies</h2>
+
+{{#each allMovies}}
+    <h3>{{name}}</h3>
+    <a href="/movies/{{_id}}">Ver mas</a>
+    <form action="/movies/{{_id}}/delete" method="POST">
+        <button>Borrar</button>
+    </form>
+    <form action="/movies/{{_id}}/edit" method="POST">
+        <button>Editar</button>
+    </form>
+{{/each}}
+
+</div>
+
+  <a href="/movies/new">Go register a new movie</a>
