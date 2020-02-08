@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SECRET,
-  cookie: { maxAge: 60 * 1000 }, // 60 seconds
+  // cookie: { maxAge: 60 * 1000 }, // 60 seconds
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     resave: true,
