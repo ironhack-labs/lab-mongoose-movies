@@ -1,0 +1,11 @@
+<h1>celebrities</h1>
+
+{{!-- {{celebritiesArray}} --}}
+{{#each celeb}}
+<li><a href="/celebrities/{{_id}}">{{name}}</a></li>
+<a href='/celebritiesDEL/{{_id}}'>🗑</a>
+{{/each}}
+
+<a href="/index">Index</a>
+<a href="/celebrities">All Celebritites</a>
+<a href="/celebrities/add">Add Celebrity</a>
