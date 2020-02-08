@@ -1,21 +1,21 @@
 <ul class="nav nav-pills nav-justified">
     <li class="nav-item">
-        <a class="nav-link" href="/index">Index</a>
+        <a class="nav-link text-dark" href="/index">Index</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/celebrities">All Celebritites</a>
+        <a class="nav-link bg-warning text-dark" href="/movies">All Movies</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/celebrities/add">Add Celebrity</a>
+        <a class="nav-link text-dark" href="/movies/add">Add Movies</a>
     </li>
 </ul>
 
-<h1>All Celebrities</h1>
+<h1>All Movies</h1>
 
-<div class='container-fluid pl-5'>
-    <div class='d-flex justify-content-around flex-wrap'>
-        {{#each celeb}}
-        <div class='d-flex justify-content-around'>
+<div class='container-fluid pl-5 '>
+    <div class='d-flex justify-content-around flex-wrap '>
+        {{#each mov}}
+        <div class='d-flex justify-content-around '>
             <div class="card text-center" style="width: 18rem;">
                 <div id='loader' class="text-center loader">
                     <div class="spinner-grow text-primary" role="status">
@@ -24,14 +24,14 @@
                 </div>
                 <img id='myImg' style="display: none;" src="{{img}}" class="card-img-top myImg" alt="...">
                 <div class="card-body">
-                    <a href="/celebrities/{{_id}}">
-                        <h5 class="card-title">{{name}}</h5>
+                    <a href="/movies/{{_id}}">
+                        <h5 class="card-title text-dark">{{title}}</h5>
                     </a>
                 </div>
 
-                <div class="card-body">
-                    <a href='/celebritiesDEL/{{_id}}' class="card-link">Delete🗑</a>
-                    <a href="/celebrities/update/{{_id}}" class="card-link">Update🖊</a>
+                <div class="card-body text-dark">
+                    <a href='/moviesDEL/{{_id}}' class="card-link text-dark">Delete🗑</a>
+                    <a href="/movies/update/{{_id}}" class="card-link text-dark">Update🖊</a>
                 </div>
             </div>
         </div>

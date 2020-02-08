@@ -16,29 +16,56 @@ function dbConnect(cb) {
             console.error("Error connecting to mongo", err);
         });
 }
+// dbConnect(() => {
+//     // mongoose models import so we can CRUD the data
+//     const Celebrities = require("../models/celebrity");
 
+//     const fakeCelebrities = Array(6)
+//         .fill()
+//         .map(() => {
+//             const occupation = ["Actor", "Singer", "Comedian"];
 
+//             return {
+//                 name: faker.name.firstName(),
+//                 occupation: occupation[randomInt(0, occupation.length - 1)],
+//                 catchPhrase: faker.lorem.paragraph(),
+//                 img: `http://lorempixel.com/640/480/animals/${randomInt(1, 10)}`
+//             };
+//         });
+
+//     Celebrities.deleteMany()
+//         .then(() => {
+//             return Celebrities.create(fakeCelebrities);
+//         })
+//         .then(() => {
+//             console.log("succesfully added celebrities to the data");
+//             mongoose.connection.close();
+//             process.exit(0);
+//         });
+// });
 
 dbConnect(() => {
-    // mongoose models import so we can CRUD the data
-    const Celebrities = require("../models/celebrity");
+    const Movies = require('../models/movies');
 
-    const fakeCelebrities = Array(6)
+    const fakeMovies = Array(6)
         .fill()
         .map(() => {
-            const occupation = ["Actor", "Singer", "Comedian"];
+            const genre = ['drama', 'action', 'comedian', 'superhero']
 
             return {
-                name: faker.name.firstName(),
-                occupation: occupation[randomInt(0, occupation.length - 1)],
-                catchPhrase: faker.lorem.paragraph(),
-                img: `http://lorempixel.com/640/480/animals/${randomInt(1, 10)}`
-            };
-        });
-
-    Celebrities.deleteMany()
-        .then(() => {
-            return Celebrities.create(fakeCelebrities);
+                title: faker.name.jobTitle(),
+                genre: genre[randomInt(0, genre.length - 1)],
+                plot: faker.lorem.paragraphs(),
+                img: faker.image.abstract()
+            }
         })
-
-});
+    Movies.deleteMany()
+        .then(() => {
+            return Movies.create(fakeMovies)
+        })
+        .then(() => {
+            console.log('succesfully added the movies to te data')
+            mongoose.connection.close()
+            process.exit(0)
+        })
+})
