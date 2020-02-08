@@ -6,6 +6,7 @@ const schemaName = new Schema({
     name: String,
     occupation: String,
     catchPhrase: String,
+    img: String
 }, {
     timestamps: true
 });

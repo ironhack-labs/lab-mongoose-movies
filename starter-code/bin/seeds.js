@@ -26,11 +26,13 @@ dbConnect(() => {
     const fakeCelebrities = Array(6)
         .fill()
         .map(() => {
-            const occupation = ["actor", "singer", "comedian"];
+            const occupation = ["Actor", "Singer", "Comedian"];
+
             return {
                 name: faker.name.firstName(),
                 occupation: occupation[randomInt(0, occupation.length - 1)],
-                catchPhrase: 'faker.lorem'
+                catchPhrase: faker.lorem.paragraph(),
+                img: `http://lorempixel.com/640/480/animals/${randomInt(1, 10)}`
             };
         });
 

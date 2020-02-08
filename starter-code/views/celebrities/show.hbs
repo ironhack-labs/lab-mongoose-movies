@@ -1,10 +1,34 @@
-<h1>ShowMore</h1>
+<ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+        <a class="nav-link" href="/index">Index</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/celebrities">All Celebritites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/celebrities/add">Add Celebrity</a>
+    </li>
+</ul>
 
-{{#each celebShow}}
-<h3>{{name}}</h3>
-<div>{{occupation}}</div>
-<div>{{catchPhrase}}</div>
-{{/each}}
-<a href="/celebrities">Celebrities</a>
-<a href="/">Index</a>
-<a href="/celebrities/add">Add Celebrity</a>
+<div id="showContainer">
+
+    <h1>ShowMore</h1>
+
+
+    {{#celebShow}}
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">{{occupation}}</p>
+            <p class="card-text">{{catchPhrase}}</p>
+        </div>
+        <div class="card-body">
+            <a href='/celebritiesDEL/{{_id}}' class="card-link">Delete🗑</a>
+            <a href="/celebrities/update/{{_id}}" class="card-link">Update🖊</a>
+        </div>
+    </div>
+
+
+    {{/celebShow}}
+</div>

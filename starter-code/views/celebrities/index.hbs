@@ -1,11 +1,43 @@
-<h1>celebrities</h1>
+<ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+        <a class="nav-link" href="/index">Index</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/celebrities">All Celebritites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/celebrities/add">Add Celebrity</a>
+    </li>
+</ul>
 
-{{!-- {{celebritiesArray}} --}}
-{{#each celeb}}
-<li><a href="/celebrities/{{_id}}">{{name}}</a></li>
-<a href='/celebritiesDEL/{{_id}}'>🗑</a>
-{{/each}}
+<h1>All Celebrities</h1>
 
-<a href="/index">Index</a>
-<a href="/celebrities">All Celebritites</a>
-<a href="/celebrities/add">Add Celebrity</a>
+<div class='container'>
+<div class='row'>
+    {{#each celeb}}
+    <div class='celebritiyIndex'>
+        <div class="card text-center" style="width: 18rem;">
+            <div id='loader' class="text-center loader">
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <img id='myImg' style="display: none;" src="{{img}}" class="card-img-top myImg" alt="...">
+            <div class="card-body">
+                <a href="/celebrities/{{_id}}">
+                    <h5 class="card-title">{{name}}</h5>
+                </a>
+            </div>
+
+            <div class="card-body">
+                <a href='/celebritiesDEL/{{_id}}' class="card-link">Delete🗑</a>
+                <a href="/celebrities/update/{{_id}}" class="card-link">Update🖊</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+
+
+</div>
+</div>
