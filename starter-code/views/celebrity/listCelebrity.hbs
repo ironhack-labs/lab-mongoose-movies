@@ -1,0 +1,13 @@
+<h1>Tus celebridades conocidas:</h1>
+
+{{#each celebrity}}
+  <a href="/celebrity/details/{{_id}}">- {{name}}</a>
+<a class="btn btn-outline-info" href="celebrity/edit/{{_id}}" style="margin-left: 30px" role="button">Edit</a>
+<a class="btn btn-outline-danger" href="celebrity/delete/{{_id}}"  role="button">Delete</a></BR>
+{{/each}}
+</br>
+</br>
+</br>
+</br>
+</br>
+<a href="/celebrity/add" class="btn btn-primary btn-lg active" role="button">Nueva celebridad</a>

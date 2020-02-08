@@ -1,0 +1,15 @@
+<h1>EDITA TUS PELICULAS</h1>
+
+<form action="/movies/edit/{{_id}}" method="post">
+  <label for="">Titulo:</label>
+  <input type="text" name="title" value="{{title}}"><br>
+
+  <label for="">Genero:</label>
+  <input type="text" name="genre" value="{{genre}}"><br>
+
+  <label for="">Sinopsis:</label>
+  <input type="text" name="plot" value="{{plot}}"><br>
+
+
+  <button type="submit">UPDATE</button>
+</form>
