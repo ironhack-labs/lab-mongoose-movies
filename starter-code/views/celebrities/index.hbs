@@ -1,0 +1,19 @@
+<h2 style="margin: 2rem 0rem;">{{Celebrities}}</h2>
+{{#each celebrities}}
+<p><a href="/celebrities/{{this._id}}" class="link">{{this.name}}</a></p>
+<div class="horizontal">
+    <form action="/celebrities/edit/{{_id}}" method="POST">
+        <input type="hidden" name="id" class="text" value="{{_id}}">
+        <input type="submit" class="btn btn-danger" value="Edit" style="margin-right: .5rem;">
+    </form>
+    <form action="/celebrities/delete/{{_id}}" method="POST">
+        <input type="hidden" name="id" class="text" value="{{_id}}">
+        <input type="submit" class="btn btn-danger" value="Delete Celebrity">
+    </form>
+</div>
+{{/each}}
+<div style="margin-top: 1.5rem;">
+    <a class="btn btn-secondary" href="/">Home</a>
+    <a class="btn btn-secondary" href="/celebrities/new">Add New Celebrity</a>
+</div>
+  </form>
