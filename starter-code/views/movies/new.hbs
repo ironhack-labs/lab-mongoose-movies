@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Add new Movie</h2>
+      <form action="/movies" method="post">
+        <div class="form-group">
+          <label for="title">Movie Title</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Enter movie title" required>
+        </div>
+        <div class="form-group">
+          <label for="genre">Movie genre</label>
+          <input type="text" class="form-control" id="genre" name="genre" placeholder="Enter movie genre" required>
+        </div>
+        <div class="form-group">
+          <label for="plot">Movie Plot</label>
+          <input type="text" class="form-control" id="plot" name="plot" placeholder="Enter movie plot" required>
+        </div>
+        {{#if error}}
+        <p>{{error}}</p>
+        {{/if}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
