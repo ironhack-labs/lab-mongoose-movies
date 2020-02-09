@@ -1,8 +1,11 @@
 <h2>Add a new Star</h2>
-<form action="/celebrities/new" method="post">
+<form class="form-add" action="/celebrities/new" method="post">
+  <label for="">Name</label>
   <input type="text" name="name" id="" value="Terry Gilliam" required>
+  <label for="">Occupation</label>
   <input type="text" name="occupation" id="" value="comedian" required>
+  <label for="">Catch Phrase</label>
   <input type="text" name="catchPhrase" id="" value="Help! Help! I'm being repressed!" required>
-  <button type="submit">A Star is born</button>
+  <button class="btn-menu" type="submit">A Star is born</button>
   <p>{{error}}</p>
 </form>
