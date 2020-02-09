@@ -2,14 +2,20 @@
 
 <ul>
     {{#each movies}}
-        <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
-        <a href="/movies/{{_id}}/edit">Edit movie</a>
-        <form action="/movies/{{this._id}}/delete" method="POST">
-            <button type="submit">Delete movie</button>
-        </form>
+        <div class="content-wrapper">
+            <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+            <div class="action-buttons">
+                <a href="/movies/{{_id}}/edit">Edit movie</a>
+                <form action="/movies/{{this._id}}/delete" method="POST">
+                    <button type="submit">Delete movie</button>
+                </form>
+            </div>
+        </div>
+        <hr>
     {{/each}}
 </ul>
 
-<a href="/movies/new">Add new movie</a>
-
-<a href="/">Back to home page</a>
+<div class="nav-links">
+    <a href="/">🔙 Back to home page</a>
+    <a href="/movies/new">➕ Add new movie</a>
+</div>
