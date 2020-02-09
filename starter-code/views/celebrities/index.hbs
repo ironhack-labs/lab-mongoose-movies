@@ -1,6 +1,11 @@
 <h2>Our Celebrities</h2>
+
 {{#each celeb}}
 <p>{{name}}</p><a href="/celebrities/{{_id}}">More information</a>
+<form action="/celebrities/{{_id}}/delete" method="post"><button type="submit">Let's don't shine</button></form>
 {{/each}}
+<p>{{error}}</p>
+<br><br>
+<a href="/celebrities/new">Add a new star</a>
 <br><br>
 <a href="/">Volver a Main</a>
