@@ -72,7 +72,7 @@ main {
 
 .listElement {
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 0;
   border-bottom: 1px solid #e0e0e0;
   display: flex;
   align-self: center;
@@ -91,5 +91,8 @@ main {
 
 .listElement .button.edit {
   color: #ffea00; }
+
+.bold {
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
