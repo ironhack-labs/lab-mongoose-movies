@@ -33,3 +33,25 @@ Celebrities.deleteMany()
     mongoose.connection.close();
     process.exit(0)
   })
+
+const Movies= require(`../models/Movie`)
+
+Movies.deleteMany().then(() => {
+  const movies = [{
+      name: "Silence",
+      genre: "Drama",
+      plot: "Hard Life"
+    },
+    {
+      name: "Noise",
+      genre: "Comedy",
+      plot: "Comedy and fun"
+    },
+    {
+      name: "Study",
+      genre: "Terror",
+      plot: "Scary"
+    }
+  ];
+  Movies.insertMany(movies);
+});

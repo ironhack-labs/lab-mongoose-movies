@@ -10,6 +10,7 @@ const logger = require('morgan');
 const path = require('path');
 
 
+
 mongoose
   .connect('mongodb://localhost/starter-code', {
     useNewUrlParser: true,
@@ -54,10 +55,17 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
+process.env.PORT = 3000
 
 const index = require('./routes/index');
 app.use('/', index);
+
+
+const celebrities = require('./routes/celebrities');
+app.use("/", celebrities);
+
+const movies = require('./routes/movies');
+app.use("/", movies);
 
 
 module.exports = app;
