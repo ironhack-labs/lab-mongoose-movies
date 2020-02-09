@@ -1,0 +1,21 @@
+<h2>Celebrities page</h2>
+
+<ul>
+    {{#each celebs}}
+        <div class="content-wrapper">
+            <li><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+            <div class="action-buttons">
+                <a href="/celebrities/{{_id}}/edit">Edit celebrity</a>
+                <form action="/celebrities/{{this._id}}/delete" method="POST">
+                    <button type="submit">Delete celebrity</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+    {{/each}}
+</ul>
+
+<div class="nav-links">
+    <a href="/">🔙 Back to home page</a>
+    <a href="/celebrities/new">➕ Add new celebrity</a>
+</div>
