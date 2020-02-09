@@ -1,8 +1,9 @@
 <h1>Edit celebrity information</h1>
+<a href="/celebrities">Go Back</a>
 {{#each celebToEdit}}
   <form action="/celebrities/{{_id}}" method="POST">
-    <input type="text" name="name" id="">
-    <input type="text" name="occupation" id="">
-    <input type="text" name="catchPhrase" id="">
+    <input type="text" name="name" value="{{name}}">
+    <input type="text" name="occupation" value="{{occupation}}">
+    <input type="text" name="catchPhrase" value="{{catchPhrase}}">
   </form>
 {{/each}}

@@ -1,7 +1,8 @@
-<div>
+<a href="/">Go Back</a>
+<div class="index-celeb">
     <h2>Celebrities</h2>
 
-{{#each allCelebs}}
+    {{#each allCeleb}}
     <h3>{{name}}</h3>
     <a href="/celebrities/{{_id}}">Ver mas</a>
     <form action="/celebrities/{{_id}}/delete" method="POST">
@@ -10,8 +11,10 @@
     <form action="/celebrities/{{_id}}/edit" method="POST">
         <button>Editar</button>
     </form>
-{{/each}}
 
+    {{/each}}
+
+
+    <a href="/celebrities/new">New celebrity</a>
 </div>
 
-  <a href="/celebrities/new">Go register a new celebrity</a>
