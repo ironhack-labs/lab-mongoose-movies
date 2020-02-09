@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Edit {{title}} Movie</h2>
+      <form action="/movies/{{_id}}" method="POST">
+        <div class="form-group">
+          <label for="title">Movie Title</label>
+          <input type="text" class="form-control" id="title" name="title" value="{{title}}" required>
+        </div>
+        <div class="form-group">
+          <label for="genre">Movie Genre</label>
+          <input type="text" class="form-control" id="genre" name="genre" value="{{genre}}" required>
+        </div>
+        <div class="form-group">
+          <label for="plot">Movie Plot</label>
+          <input type="text" class="form-control" id="plot" name="plot" value="{{plot}}" required>
+        </div>
+        {{#if error}}
+        <p>{{error}}</p>
+        {{/if}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

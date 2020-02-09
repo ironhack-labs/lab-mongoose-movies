@@ -1,22 +1,35 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h2>Celebrities List</h2>
+            <h2 class="catHeader">Celebrities List</h2>
             <ul>
+                {{#unless celebrities}}
+                <p>No celebrities found in database</p>
+                {{/unless}}
                 {{#each celebrities}}
-                <li>
+                <li class="listElement">
                     <a href="/celebrities/{{_id}}">{{name}}</a>
-                    <form action="celebrities/{{_id}}/delete" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
-                    <form action="celebrities/{{_id}}/edit" method="GET">
-                        <button type="submit">Edit</button>
-                    </form>
+                    <div class="buttons">
+                        <form id="e{{_id}}" action="celebrities/{{_id}}/edit" method="GET">
+                            <a class="button edit" onclick="document.querySelector('#e{{_id}}').submit()"><i
+                                    class="material-icons">
+                                    create
+                                </i></a>
+                        </form>
+                        <form id="d{{_id}}" action="celebrities/{{_id}}/delete" method="POST">
+                            <a class="button delete" onclick="document.querySelector('#d{{_id}}').submit()"><i
+                                    class="material-icons">
+                                    clear
+                                </i></a>
+                        </form>
+                    </div>
                 </li>
                 {{/each}}
             </ul>
 
-            <a href="/celebrities/new">Add New Celebrity</a>
+            <a class="addButton" href="/celebrities/new"><i class="material-icons">
+                    add
+                </i></a>
         </div>
     </div>
 </div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="catHeader">Movies List</h2>
+      <ul>
+        {{#unless movies}}
+        <p>No movies found in database</p>
+        {{/unless}}
+        {{#each movies}}
+        <li class="listElement">
+          <a href="/movies/{{_id}}">{{title}}</a>
+          <div class="buttons">
+            <form id="e{{_id}}" action="movies/{{_id}}/edit" method="GET">
+              <a class="button edit" onclick="document.querySelector('#e{{_id}}').submit()"><i class="material-icons">
+                  create
+                </i></a>
+            </form>
+            <form id="d{{_id}}" action="movies/{{_id}}/delete" method="POST">
+              <a class="button delete" onclick="document.querySelector('#d{{_id}}').submit()"><i class="material-icons">
+                  clear
+                </i></a>
+            </form>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+      <a class="addButton" href="/movies/new"><i class="material-icons">
+          add
+        </i></a>
+    </div>
+  </div>
+</div>
