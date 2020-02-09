@@ -1,0 +1,18 @@
+<div class="container-title">
+    <h2>Movies</h2>
+    <a href="movies/new"><button class="add">Add Celebrity</button></a>
+</div>
+
+{{#each movies}}
+<ul class="list">
+    <li class="title">
+        <a href="movies/{{this._id}}">{{this.title}}</a>
+        <div class="button">
+            <a href="movies/{{this._id}}/edit"><button class="edit">Edit</button></a>
+            <form action="movies/{{this._id}}/delete" method="POST">
+                <button class="delete">Delete</button>
+            </form>
+        </div>
+    </li>
+</ul>
+{{/each}}

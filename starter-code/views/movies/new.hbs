@@ -1,0 +1,21 @@
+<div class="container-form">
+    <form action="/movies" method="POST">
+        <div class="form-group">
+            <label>Title: </label>
+            <input type="text" class="form-control" name="title">
+        </div>
+
+        <div class="form-group">
+            <label>Genre: </label>
+            <input type="text" class="form-control" name="genre">
+        </div>
+
+        <div class="form-group">
+            <label>Plot: </label>
+            <textarea name="plot" rows="6" class="form-control"></textarea>
+        </div>
+
+        <a href="/movies"><button type="button" class="btn btn-danger btn-sm">Cancel</button></a>
+        <button class="btn btn-success btn-sm">Create</button>
+    </form>
+</div>
