@@ -15,13 +15,13 @@ router.get('/new', (req, res, next) => {
 });
 
 
-// Create - Adds celebrity to DB
+// Create - Add celebrity to DB
 router.post('/', (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body;
     const newCeleb = new Celebrity({name, occupation, catchPhrase});
     newCeleb.save()
-    .then(_ => res.redirect('/celebrities'))
-    .catch(_ => res.render('celebrities/new'));
+    .then(() => res.redirect('/celebrities'))
+    .catch(() => res.render('celebrities/new'));
 });
 
 // Show more info about specific celebrity
@@ -31,10 +31,10 @@ router.get('/:id', (req, res, next) => {
     .catch(error => console.log(error));
 });
 
-// Delete - Delete a specific ceebrity
+// Delete - Delete a specific celebrity
 router.post('/:id/delete', (req, res, next) => {
     Celebrity.findByIdAndRemove(req.params.id)
-    .then(_ => res.redirect('/celebrities'))
+    .then(() => res.redirect('/celebrities'))
     .catch(error => console.log(error));
 });
 
@@ -49,10 +49,9 @@ router.get('/:id/edit', (req, res, next) => {
 router.post('/:id', (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body;
     Celebrity.update({_id: req.params.id}, {$set: {name, occupation, catchPhrase}})
-    .then(_ => res.redirect('/celebrities'))
+    .then(() => res.redirect('/celebrities'))
     .catch(error => console.log(error));
 })
-
 
 
 module.exports = router;
