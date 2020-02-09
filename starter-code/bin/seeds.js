@@ -21,17 +21,17 @@ dbConnect(() => {
         {
             name: 'Tom Cruise',
             occupation: 'Actor',
-            catchPhrase: 'In this life, it´s not what you hope for, it´s not what you deserve - it´s what you take!'
+            catchPhrase: '"In this life, it´s not what you hope for, it´s not what you deserve - it´s what you take!"'
         },
         {
             name: 'Beyonce',
             occupation: 'Singer',
-            catchPhrase: 'If everything was perfect, you would never learn and you would never grow.'
+            catchPhrase: '"If everything was perfect, you would never learn and you would never grow."'
         },
         {
             name: 'Daffy Duck',
             occupation: 'Comedian',
-            catchPhrase: 'Of course you realize, this means war.'
+            catchPhrase: '"Of course you realize, this means war."'
         }
     ]
 

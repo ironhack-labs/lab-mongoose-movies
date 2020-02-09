@@ -4,11 +4,18 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   box-sizing: border-box; }
 
-a {
-  color: #00B7FF; }
+#home {
+  background-image: url("../images/cinema.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -10; }
 
 .container {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   padding-top: 80px; }
 
@@ -84,16 +91,19 @@ a {
 .list li {
   width: 100%;
   list-style-type: none;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   background-color: #dadce0;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  color: #4aa9e8; }
+  color: #4aa9e8;
+  -webkit-box-shadow: 10px 10px 7px -4px rgba(171, 168, 171, 0.96);
+  -moz-box-shadow: 10px 10px 7px -4px rgba(171, 168, 171, 0.96);
+  box-shadow: 10px 10px 7px -4px rgba(171, 168, 171, 0.96); }
 
 .list li:hover {
   background-color: #c7c7c7; }
@@ -110,13 +120,13 @@ a {
   min-width: 300px; }
 
 .button {
-  width: 18%;
+  width: 22%;
   display: flex;
   align-items: center;
   justify-content: space-around; }
 
 .container-form {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
   padding: 15px;
   -webkit-box-shadow: 10px 10px 7px -4px rgba(171, 168, 171, 0.96);
@@ -130,5 +140,23 @@ a {
 
 .form-group input {
   font-size: 14px; }
+
+.show {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #dadce0;
+  padding: 15px;
+  -webkit-box-shadow: 10px 10px 7px -4px rgba(171, 168, 171, 0.96);
+  -moz-box-shadow: 10px 10px 7px -4px rgba(171, 168, 171, 0.96);
+  box-shadow: 10px 10px 7px -4px rgba(171, 168, 171, 0.96); }
+
+.show h4 {
+  margin-bottom: 20px; }
+
+.show p {
+  text-align: justify; }
+
+.phrase-celebrity {
+  font-style: italic; }
 
 /*# sourceMappingURL=style.css.map */

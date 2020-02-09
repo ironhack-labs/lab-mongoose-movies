@@ -1,25 +1,27 @@
-<div class="container-form">
-    <h2>Edit the information about {{movie.name}}</h2>
+<div class="container">
+    <div class="container-form">
+        <h2>Edit the information about {{movie.name}}</h2>
 
-    <form action="/movies/{{movie._id}}" method="POST">
-        <input type="hidden" name="id" value="{{movie._id}}">
+        <form action="/movies/{{movie._id}}" method="POST">
+            <input type="hidden" name="id" value="{{movie._id}}">
 
-        <div class="form-group">
-            <label>Title: </label>
-            <input type="text" class="form-control" name="title" value="{{movie.title}}">
-        </div>
+            <div class="form-group">
+                <label>Title: </label>
+                <input type="text" class="form-control" name="title" value="{{movie.title}}">
+            </div>
 
-        <div class="form-group">
-            <label>Genre: </label>
-            <input type="text" class="form-control" name="genre" value="{{movie.genre}}">
-        </div>
+            <div class="form-group">
+                <label>Genre: </label>
+                <input type="text" class="form-control" name="genre" value="{{movie.genre}}">
+            </div>
 
-        <div class="form-group">
-            <label>Plot: </label>
-            <textarea class="form-control" name="plot" rows="6">{{movie.plot}}</textarea>
-        </div>
+            <div class="form-group">
+                <label>Plot: </label>
+                <textarea class="form-control" name="plot" rows="6">{{movie.plot}}</textarea>
+            </div>
 
-        <a href="/movies"><button type="button" class="btn btn-danger btn-sm">Cancel</button></a>
-        <button class="btn btn-success btn-sm">Save</button>
-    </form>
+            <a href="/movies"><button type="button" class="btn btn-danger btn-sm">Cancel</button></a>
+            <button class="btn btn-success btn-sm">Save</button>
+        </form>
+    </div>
 </div>
