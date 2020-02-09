@@ -1,0 +1,16 @@
+<h1>Peliculas</h1>
+<ul>
+    {{#each movie}}
+    <li>
+        <a href="/moviess/details/{{_id}}">{{title}}</a> - [<a href="/moviess/edit?id={{_id}}">editar</a>]
+        <form action="/moviess/{{_id}}/delete" method="POST">
+            <button type="submit">Borrar</button>
+        </form>
+        
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/moviess/add">Crear una nueva pelicula</a>
+
+<a href="/">Volver al inicio</a>

@@ -11,7 +11,7 @@ const path         = require('path')
 
 
 mongoose
-  .connect('mongodb://localhost/moviesBBDD', {useNewUrlParser: true})
+  .connect('mongodb://localhost/moviesBBDD', {useNewUrlParser: true ,useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -47,12 +47,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
 
 // default value for title local
-app.locals.title = 'Movies'
+app.locals.title = 'Peliculas y Famosos'
 
 
 // URLS
-const index = require('./routes/index.routes')
-app.use('/', index)
-app.use('/celebrities/celebrities-name', require('./routes/celebrities.routes'))
+app.use('/',require('./routes/index.routes'))
+app.use('/celebrities',require('./routes/celebrities.routes'))
+app.use('/moviess' , require('./routes/movies.routes'))
 
 module.exports = app
