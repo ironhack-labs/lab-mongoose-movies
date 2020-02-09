@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Nombre de famosos</h1>
+    <ul>
+        <div class="row">
+            <div class="col">
+                {{#each celebrity}}
+                <li>
+                    <a class="btn btn-outline-info" href="/celebrities/details/{{_id}}">{{name}}</a>  <a class="btn btn-outline-success" href="/celebrities/edit?id={{_id}}">editar</a>
+                    <form action="/celebrities/{{_id}}/delete" method="POST">
+                        <button class="btn btn-outline-danger" type="submit">Borrar</button>
+                    </form>
+                    
+                </li>
+                {{/each}}
+            </div>
+        </div>
+    </ul>
+    <a href="/celebrities/add" class="btn-secondary btn-lg active">Crear un nuevo famoso</a>
+    <a href="/" class="btn-secondary btn-lg active">Volver al inicio</a>
+</div>
+
+
+
+
