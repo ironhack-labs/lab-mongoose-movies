@@ -1,0 +1,26 @@
+<h2 class="margin-left">Nueva película en {{title}}</h2>
+
+
+<div class="container">
+
+  <form action="/movies/new" method="post">
+    <div class="form-group">
+      <label for="name">Introduce el título:</label>
+      <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp"
+        placeholder="Ej: Fue a por trabajo y le comieron lo de abajo">
+    </div>
+    <div class="form-group">
+      <label for="genre">Género</label>
+      <input type="text" name="genre" class="form-control" id="genre" placeholder="Ej: Fantasía">
+    </div>
+    <div class="form-group">
+      <label for="plot">Frase Célebre</label>
+      <input type="text" name="plot" class="form-control" id="plot"
+        placeholder="Ej: Había una vez un hombre que se murió">
+    </div>
+    <button type="submit" class="btn btn-primary ">Submit</button>
+  </form>
+</div>
+<div class="text-center margin-top">
+  <a class="btn btn-dark " href="/movies"> Volver atrás</a>
+</div>

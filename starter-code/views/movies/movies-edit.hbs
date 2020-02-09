@@ -1,0 +1,27 @@
+<h2 class="margin-left">Editando a {{title}}</h2>
+
+
+<div class="container">
+
+  <form action="/movies/edit/{{_id}}" method="post">
+    <div class="form-group">
+      <label for="title">Título: </label>
+      <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp"
+        placeholder="Ej: Jesus Del Sagrado Corazón de la Virgen Sánchez" value="{{title}}">
+    </div>
+    <div class="form-group">
+      <label for="genre">Género</label>
+      <input type="text" name="genre" class="form-control" id="genre" value="{{genre}}"
+        placeholder="Ej: Domador de lombrices">
+    </div>
+    <div class="form-group">
+      <label for="plot">Sinopsis</label>
+      <input type="text" name="plot" class="form-control" id="plot" value="{{plot}}"
+        placeholder="Ej: España es una gran nación y los españoles muy españoles y mucho españoles.">
+    </div>
+    <button type="submit" class="btn btn-primary ">Submit</button>
+  </form>
+</div>
+<div class="text-center margin-top">
+  <a class="btn btn-dark " href="/movies">Volver al listado</a>
+</div>
