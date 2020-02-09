@@ -15,4 +15,39 @@ router.get('/:id', (req, res, next) => {
     })
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
+router.post('/', (req, res, next) => {
+  Celebrity.create({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  })
+  .then(() => {
+    res.redirect('/celebrities')
+  })
+});
+
+router.post('/:id/edit', (req, res, next) => {
+  Celebrity.findOneAndUpdate({ _id: req.body.id })
+    .then((celebrity) => {
+      res.render('celebrities/edit', celebrity)
+    })
+    .catch(() => {
+      next()
+    })
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.body.id)
+    .then(() => {
+      res.redirect('/celebrities')
+    })
+    .catch(() => {
+      next()
+    })
+});
+
 module.exports = router;

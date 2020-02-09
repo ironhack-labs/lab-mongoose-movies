@@ -1,22 +1,22 @@
 <section class="displayInfo">
-<h2>Celebrities</h2>
+<h2>Movies</h2>
   <ul>
-    {{#each allCelebs}}
+    {{#each allMovies}}
     <li>
-      <h3>{{name}}</h3>
-      <a href="/celebrities/{{_id}}">See more!</a>
+      <h3>{{title}}</h3>
+      <a href="/movie/{{_id}}">See more!</a>
       <div class="form">
-        <form action="/celebrities/{{_id}}/delete" method="POST">
+        <form action="/movies/{{_id}}/delete" method="POST">
           <input type="hidden" name="id" class="text" value="{{_id}}">
           <button type="submit" class="delete"><i class="far fa-trash-alt"></i></button>
         </form>
-        <form action="/celebrities/{{_id}}/edit" method="POST">
+        <form action="/movies/{{_id}}/edit" method="POST">
           <input type="hidden" name="id" class="text" value="{{_id}}">
           <button type="submit" class="edit"><i class="far fa-edit"></i></button>
         </form>
       </div>
     </li>
     {{/each}}
-    <li class="newElement"><a href="/celebrities/new">Create new celebrity</a></li>
+    <li class="newElement"><a href="/movies/new">Create new movie</a></li>
   </ul>
 </section>
