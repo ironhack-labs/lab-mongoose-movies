@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12">
+      <h4>Lista de celebridades:</h4>
+      <hr>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-12">
+      <ul class="list-unstyled">
+        {{#each celebrities}}
+        <li>
+          <a href="/celebrities/celebritie-details/{{_id}}">{{name}}</a> -
+          <form action="/celebrities/delete?id={{_id}}" method="post"><button type="submit"
+              class="btn btn-secondary">Borrar</button></form>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

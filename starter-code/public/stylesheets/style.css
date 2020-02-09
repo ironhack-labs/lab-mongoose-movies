@@ -1,42 +1,33 @@
-
 body {
   font: 0.8em 'Playfair Display', serif;
   font-weight: 100;
   text-align: center;
-  font-size: 1.125rem;
-  
-}
+  font-size: 1.125rem; }
 
-nav{
+nav {
   margin-bottom: 20px;
-  background-color: rgb(179, 202, 190);
-  color:rgb(101, 112, 107);
-}
-
+  background-color: #b3cabe;
+  color: #65706b; }
 
 nav ul {
   padding: 10px;
   font-family: 'Open Sans', sans-serif;
   line-height: 4em;
   font-size: 1rem;
-  line-height: 1.6;
-}
+  line-height: 1.6; }
 
-button{
+button {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
-  margin: 5px;
-}
+  margin: 5px; }
 
 li {
-  margin: 10px;
-}
+  margin: 10px; }
 
 a {
-  color: rgb(77, 76, 76);
-}
+  color: #4d4c4c; }
 
-form{
-  text-align: center;
-}
+form {
+  text-align: center; }
 
+/*# sourceMappingURL=style.css.map */
