@@ -33,6 +33,9 @@ router.post("/movies/new", (req, res, next) => {
     plot: req.body.plot
   }).then(() => {
     res.render("/movies");
+  })
+  .catch(() => {
+    next();
   });
 });
 

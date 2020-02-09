@@ -37,6 +37,9 @@ router.post("/celebrities/new", (req, res, next) => {
     catchPhrase: req.body.catchPhrase
   }).then(() => {
     res.redirect("/celebrities");
+  })
+  .catch(() => {
+    next();
   });
 });
 
