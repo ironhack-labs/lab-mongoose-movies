@@ -34,6 +34,27 @@ router.get("/:id", (req, res) => {
     .catch(err => console.log("HA habido un error :S ", err));
 });
 
-router.get("/:id/delete", (req, res) => {});
+router.post("/:id", (req, res) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebs.findByIdAndUpdate(
+    req.params.id,
+    { name, occupation, catchPhrase },
+    { new: true }
+  )
+    .then(UpdatedCeleb => res.redirect(`/celebrities/${UpdatedCeleb._id}`))
+    .catch(err => console.log("An error have occurred: ", err));
+});
+
+router.post("/:id/delete", (req, res) => {
+  Celebs.findByIdAndDelete(req.params.id)
+    .then(x => res.redirect("/celebrities"))
+    .catch(err => console.log("An error have ocurred: ", err));
+});
+
+router.post("/:id/edit", (req, res) => {
+  Celebs.findById(req.params.id)
+    .then(celeb => res.render("celeb/edit", celeb))
+    .catch(err => console.log("Ha ocurrido un error: ", err));
+});
 
 module.exports = router;
