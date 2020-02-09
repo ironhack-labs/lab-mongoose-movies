@@ -1,0 +1,24 @@
+<section class="displayInfo">
+<h2>Celebrities</h2>
+  <ul>
+    {{#each allCelebs}}
+    <li>
+      <h3>{{name}}</h3>
+      <a href="/celebrities/{{_id}}">See more!</a>
+      <div class="form">
+        <form action="/celebrities/{{_id}}/delete" method="POST">
+          <input type="hidden" name="id" class="text" value="{{_id}}">
+          <button type="submit" class="delete"><i class="far fa-trash-alt"></i></button>
+        </form>
+        <form action="/celebrities/{{_id}}/edit" method="POST">
+          <input type="hidden" name="id" class="text" value="{{_id}}">
+          <button type="submit" class="edit"><i class="far fa-edit"></i></button>
+        </form>
+      </div>
+    </li>
+    {{/each}}
+    <li class="newElement">
+      <a href="/celebrities/new">Create a new celebritie</a>
+    </li>
+  </ul>
+</section>

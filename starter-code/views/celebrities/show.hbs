@@ -1,0 +1,15 @@
+<section class="displayInfo details">
+  <h2>{{name}}</h2>
+  <h3>{{occupation}}</h3>
+  <p>{{catchPhrase}}</p>
+  <div class="form">  
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+      <input type="hidden" name="id" class="text" value="{{_id}}">
+      <button type="submit" class="delete"><i class="far fa-trash-alt"></i></button>
+    </form>
+    <form action="/celebrities/{{_id}}/edit" method="POST">
+      <input type="hidden" name="id" class="text" value="{{_id}}">
+      <button type="submit" class="edit"><i class="far fa-edit"></i></button>
+    </form>
+  </div>
+</section>

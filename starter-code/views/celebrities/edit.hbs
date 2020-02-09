@@ -1,0 +1,13 @@
+<section class="displayInfo">
+  <h2>Edit celebrity:</h2>
+  <form class="createform" action="/celebrities" method="POST">
+    <input type="hidden" name="id" value="{{_id}}">
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{name}}">
+    <label for="occupation">Occupation</label>
+    <input type="text" name="occupation" value="{{occupation}}">
+    <label for="catchPhrase">Quote</label>
+    <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+    <input class="button" type="submit" value="Update">
+  </form>
+</section>
