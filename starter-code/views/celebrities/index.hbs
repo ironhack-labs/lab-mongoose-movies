@@ -1,0 +1,9 @@
+<h2>Celebrities page</h2>
+
+<ul>
+    {{#each celebs}}
+        <li><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+    {{/each}}
+</ul>
+
+<a href="/">Back to home page</a>
