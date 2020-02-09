@@ -1,0 +1,1 @@
+module.exports = app => app.locals.title = 'Wiki Celebrities & Movies'

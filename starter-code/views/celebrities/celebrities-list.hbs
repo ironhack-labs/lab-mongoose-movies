@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Todas las celebridades:</h2>
+  <ul>
+    {{#each celebrities}}
+    <li class="margin-bottom">
+      <a class="names" href="/celebrities/details/{{_id}}">{{name}}</a> -
+      <a class="green" href="/celebrities/edit/?id={{_id}}">[Editar]</a> -
+      <a class="red" href="/celebrities/delete/{{_id}}">[Eliminar]</a>
+    </li>
+
+    {{/each}}
+  </ul>
+  <div class="text-center">
+    <a class="btn btn-primary" href="/">Volver Atrás</a>
+    <a class="btn btn-dark" href="/celebrities/new">Añadir Celebrity</a>
+
+  </div>
+</div>

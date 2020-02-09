@@ -1,103 +1,82 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url('../images/round.png');
-}
+  background-image: url("../images/round.png"); }
 
 .navbar-dark .navbar-nav .nav-link {
   color: white;
-  margin-right: 25px;
-}
-
+  margin-right: 25px; }
 
 a {
-  color: rgb(68, 68, 170);
-}
+  color: #4444aa; }
 
 ul {
-  list-style: upper-roman;
-}
+  list-style: upper-roman; }
 
 a:hover {
   text-decoration: none;
-  color: rgb(68, 68, 170);
-}
+  color: #4444aa; }
 
 nav {
-  margin-bottom: 50px;
-}
-
+  margin-bottom: 50px; }
 
 h1 {
   margin: 100px;
   font-size: 5em;
-  color: silver;
-}
+  color: silver; }
 
 h2 {
   margin-bottom: 50px;
   color: chocolate;
-  font-size: 3.5em;
-}
+  font-size: 3.5em; }
 
 .margin-top {
-  margin-top: 50px;
-}
+  margin-top: 50px; }
 
 p.text-center {
   color: crimson;
-  font-size: 2.5em;
-}
+  font-size: 2.5em; }
 
 .names {
   font-size: 1.5em;
-  color: blue;
-}
+  color: blue; }
 
 li.margin-bottom {
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .names:hover {
-  color: red;
-}
+  color: red; }
 
 h2.margin-left {
-  margin-left: 50px;
-}
+  margin-left: 50px; }
 
 h3 {
   font-size: 3.5em;
   color: blue;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .text-center.margin-bottom {
-  margin-bottom: 50px;
-}
+  margin-bottom: 50px; }
 
 label {
   font-size: 2em;
-  color: blue;
-}
+  color: blue; }
 
 .red {
   color: red;
-  text-decoration: underline
-}
+  text-decoration: underline; }
 
 .red:hover {
   text-transform: uppercase;
   color: red;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .green {
   color: green;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .green:hover {
   text-transform: uppercase;
   color: green;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
+
+/*# sourceMappingURL=style.css.map */
