@@ -1,66 +1,55 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 .index {
   margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .index h1 {
-  font-size: 60px;
-}
+  font-size: 60px; }
 
 .index p {
-  font-size: 20px;
-}
+  font-size: 20px; }
 
 .index-btn {
-  margin: 50px;
-}
+  margin: 50px; }
 
 .index-btn a {
   padding: 20px;
   font-size: 30px;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .index-btn a:hover {
-  color: rgb(28, 13, 95);
-  transition: .6s;
-}
+  color: #1c0d5f;
+  transition: .6s; }
 
-.index-celeb{
+.index-celeb {
   margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .index-celeb h2 {
-  font-size: 40px;
-}
+  font-size: 40px; }
 
 .index-celeb h3 {
-  font-size: 20px;
-}
+  font-size: 20px; }
 
 .index-celeb a {
-  margin: 20px;
-}
+  margin: 20px; }
 
 .view-celeb {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
+
+/*# sourceMappingURL=style.css.map */

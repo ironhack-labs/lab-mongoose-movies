@@ -10,8 +10,9 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/movies', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -47,12 +48,20 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
-
+app.locals.title = 'MONGOOSE MOVIE LAB';
 
 const index = require('./routes/index');
 app.use('/', index);
 
 
+const celebritiesRoutes = require('./routes/celebrities');
+app.use('/', celebritiesRoutes)
+
+
+const moviesRoutes = require('./routes/movies');
+app.use('/', moviesRoutes)
+
+
+
 module.exports = app;
+

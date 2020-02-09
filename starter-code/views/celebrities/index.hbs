@@ -1,0 +1,20 @@
+<a href="/">Go Back</a>
+<div class="index-celeb">
+    <h2>Celebrities</h2>
+
+    {{#each allCeleb}}
+    <h3>{{name}}</h3>
+    <a href="/celebrities/{{_id}}">Ver mas</a>
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+        <button>Borrar</button>
+    </form>
+    <form action="/celebrities/{{_id}}/edit" method="POST">
+        <button>Editar</button>
+    </form>
+
+    {{/each}}
+
+
+    <a href="/celebrities/new">New celebrity</a>
+</div>
+
