@@ -41,9 +41,9 @@ router.get('/:id', (req, res, next) => {
     .then(celeb => {
       res.render('celebrities/show', celeb)
     })
-    .catch(res.redirect('/celebrities', {
-      error: `There was an error trying to access the star profile`
-    }));
+    // .catch(res.redirect('/celebrities', {
+    //   error: `There was an error trying to access the star profile`
+    // }));
 });
 
 
