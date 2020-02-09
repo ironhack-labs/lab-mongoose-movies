@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Lemonada&display=swap');
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  background:#fff;
+  color:#000; 
+}
+.homeTitle {
+          font-size:50px;
+          font-family: 'Lemonada', cursive;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+}
+.homeP{
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 50px;
+
+}
+.one {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        text-decoration: none; 
+        border-radius: 30px;
+        color: #619DAF;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 2px 2px 6px rgba(0,0,0,.6);
+        height: 50px;
+        margin: 0 450px;
+        transition: all .2s ease;       
+          
+ }
+
+ .one:hover{
+  background-color: #619DAF;
+  color: #fff;
+
+ }
+
+ .list{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+.element .two{
+  font-size: 20px;
+  text-decoration:none;
+  
+} 
+.delete{
+  margin: 15px 0;
+  padding: 5px 7px;
+  border-radius: 10px;
+  background: #e63f1e;
+}
+
+.edition{
+  padding: 5px 15px;
+  border-radius: 10px;
+  background: #fab802;
+}
+
+.edit, .new{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 100px;
+}
+
+.news {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+        padding: 5px 15px;
+        border-radius: 10px;
+        background: #66bf43;
+        width: 200px;
+        
+        
+}
+/*# sourceMappingURL=style.css.map */
