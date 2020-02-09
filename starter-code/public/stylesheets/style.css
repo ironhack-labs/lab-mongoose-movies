@@ -3,7 +3,11 @@ body {
   margin: 0;
   font-family: 'Lemonada', cursive;
   font-size: 1rem;
-  background-color: #0B85EC; }
+  background-color: #0B85EC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 nav {
   background-color: #FFE90F;
@@ -65,5 +69,108 @@ footer {
 footer h3 {
   margin: auto 4rem;
   padding: 2rem 0; }
+
+.displayInfo {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75); }
+
+.displayInfo h2 {
+  font-size: 3rem; }
+
+.displayInfo ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%; }
+
+.displayInfo li {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 1rem;
+  width: 20%;
+  text-align: center;
+  margin: 2rem 1rem; }
+
+.displayInfo li:hover {
+  border: 1px solid #FFE90F;
+  -webkit-box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.75); }
+
+.displayInfo a {
+  text-decoration: none;
+  color: #0B85EC; }
+
+.displayInfo a:hover {
+  text-decoration: underline;
+  text-transform: uppercase; }
+
+.form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2rem; }
+
+.delete {
+  border: none;
+  font-size: 1rem; }
+
+.delete:hover {
+  color: red;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: darkgrey; }
+
+.edit {
+  border: none;
+  font-size: 1rem; }
+
+.edit:hover {
+  color: #0B85EC;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: darkgrey; }
+
+.newCeleb {
+  background-color: darkgray;
+  height: 6rem;
+  font-size: 1.5rem; }
+
+.celebrity h2 {
+  margin-bottom: 0;
+  text-decoration: underline; }
+
+.celebrity h3 {
+  margin-top: 0;
+  font-size: 1rem; }
+
+.celebrity p {
+  font-size: 1.5rem;
+  background-color: darkgray;
+  border-radius: 1px solid black;
+  padding: 1rem;
+  border-radius: 50px;
+  width: 70%; }
+
+.celebrity form {
+  width: 50%;
+  margin: auto auto;
+  text-align: center; }
+
+.celebrity form button {
+  font-size: 2rem;
+  margin: auto auto;
+  padding: 1rem; }
 
 /*# sourceMappingURL=style.css.map */

@@ -8,4 +8,11 @@ router.get('/', (req, res, next) => {
   })
 });
 
+router.get('/:id', (req, res, next) => {
+  Celebrity.findOne({ _id: req.params.id })
+    .then((celebrityFound) => {
+      res.render('celebrities/show', celebrityFound)
+    })
+});
+
 module.exports = router;
