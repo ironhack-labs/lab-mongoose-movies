@@ -14,4 +14,8 @@
       placeholder="********">
 
     <button type="submit">Create account</button>
+    
+    {{#if errorMessage }}
+      <div class="error-message">{{errorMessage}}</div>
+    {{/if}}
   </form>

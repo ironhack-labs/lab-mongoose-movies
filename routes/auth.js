@@ -1,4 +1,5 @@
 const express    = require('express');
+const mongoose   = require('mongoose');
 const router     = express.Router();
 const User       = require('../models/User.model');
 const session    = require("express-session");
@@ -14,23 +15,44 @@ router.get("/signup", (req, res, next) =>
 
 // POST Create user on db
 router.post("/signup", (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const email    = req.body.email
-    const salt     = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
+  const { username, email, password } = req.body;
+  const salt     = bcrypt.genSaltSync(bcryptSalt);
+  const hashPass = bcrypt.hashSync(password, salt);
+
+  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+  if (!regex.test(password)) {
+    res
+      .status(500)
+      .render('auth/signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
+    return;
+  }
+
+  if (!username || !email || !password) {
+    res.render('auth/signup', {
+      errorMessage: 'All fields are mandatory. Please provide your username, email and password.'
+    });
+    return;
+  }
   
-    User.create({
-      username,
-      email,
-      password: hashPass
-    })
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(error => {
-      console.log(error);
-    })
+  User.create({
+    username,
+    email,
+    password: hashPass
+  })
+  .then(() => {
+    res.redirect("/");
+  })
+  .catch(error => {
+    if (error instanceof mongoose.Error.ValidationError) {
+      res.status(500).render('auth/signup', { errorMessage: error.message });
+    } else if (error.code === 11000) {
+      res.status(500).render('auth/signup', { 
+         errorMessage: 'Username and email need to be unique. Either username or email is already used.' 
+      });
+    } else {
+      next(error);
+    }
+  });
 });
 
 

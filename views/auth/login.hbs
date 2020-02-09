@@ -9,11 +9,13 @@
   <label for="password">Password</label>
   <input type="password" name="password">
 
-  {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
+
 
   <button>Sign in</button>
+
+  {{#if errorMessage }}
+    <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
 
   <p class="account-message">
     Don't have an account? <a href="/signup">Sign up</a>
