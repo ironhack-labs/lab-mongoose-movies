@@ -1,16 +1,24 @@
-<h1>Peliculas</h1>
-<ul>
-    {{#each movie}}
-    <li>
-        <a href="/moviess/details/{{_id}}">{{title}}</a> - [<a href="/moviess/edit?id={{_id}}">editar</a>]
-        <form action="/moviess/{{_id}}/delete" method="POST">
-            <button type="submit">Borrar</button>
-        </form>
-        
-    </li>
-    {{/each}}
-</ul>
+<div class="container">
+    <h1>Peliculas</h1>
+    <div class="row">
+        <ul>
+            <div class="col">
+                {{#each movie}}
+                <li>
+                    <a class="btn btn-outline-info"href="/moviess/details/{{_id}}">{{title}}</a> <a class="btn btn-outline-success" href="/moviess/edit?id={{_id}}">editar</a>
+                    <form action="/moviess/{{_id}}/delete" method="POST">
+                        <button class="btn btn-outline-danger" type="submit">Borrar</button>
+                    </form>
+                </li>
+                {{/each}}
+            </div>
+        </ul>
+    </div>
+    <a href="/moviess/add" class="btn-secondary btn-lg active">Crear una nueva pelicula</a>
+    <a href="/" class="btn-secondary btn-lg active">Volver al inicio</a>
+</div>
 
-<a href="/moviess/add">Crear una nueva pelicula</a>
 
-<a href="/">Volver al inicio</a>
+    
+
+
