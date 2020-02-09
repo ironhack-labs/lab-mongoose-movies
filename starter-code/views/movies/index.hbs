@@ -1,0 +1,35 @@
+<div class="marquee title">
+  <div>
+    <span>PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES
+      PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES PELICULONES
+      PELICULONES PELICULONES </span>
+  </div>
+</div>
+<div class="movies cards">
+  {{#each moviesFound}}
+  <div class="movie card">
+    <img src={{picture}} onmouseover="this.src='{{picture2}}'" onmouseout="this.src='{{picture}}'" />
+    {{!-- <img class="picture" src={{picture}} onmouseover="this.src={{picture2}}" onmouseout="this.src={{picture}}" /> --}}
+    {{!-- <img class="picture" src={{picture}} alt={{name}} style="width:100px;" alt="25" />
+    <img class="picture2" src={{picture2}} alt={{name}} /> --}}
+    <h3>{{title}}</h3>
+    <a href="/movies/{{_id}}"><span class="normal-text">Explora todas sus maravillas</span><span
+        class="emoji">🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓</span></a>
+    <form action="/movies/{{_id}}/delete" method="POST">
+      <button>Eliminar</button>
+    </form>
+  </div>
+  {{/each}}
+</div>
+
+<div class="create-new">
+  <h2>Crea un nuevo peliculón</h2>
+  <form class="create-form" action="/movies" method="POST">
+    <input type="text" name="title" placeholder="Título">
+    <input type="text" name="picture" placeholder="url de la imagen">
+    <input type="text" name="genre" placeholder="Género">
+    <button>Crear</button>
+  <a class="vuelve" href="/"><span class="normal-text">Vuelve a la fama</span><span
+        class="emoji">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</span></a>
+  </form>
+</div>
