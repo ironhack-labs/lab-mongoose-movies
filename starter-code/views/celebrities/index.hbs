@@ -3,7 +3,13 @@
 <ul>
     {{#each celebs}}
         <li><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+        <a href="/celebrities/{{_id}}/edit">Edit celebrity</a>
+        <form action="/celebrities/{{this._id}}/delete" method="POST">
+            <button type="submit">Delete celebrity</button>
+        </form>
     {{/each}}
 </ul>
+
+<a href="/celebrities/new">Add new celebrity</a>
 
 <a href="/">Back to home page</a>
