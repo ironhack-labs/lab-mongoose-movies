@@ -1,13 +1,13 @@
-require("dotenv").config()
-const mongoose = require("mongoose")
-const Celebrity = require("../models/celebrity.model")
+require("dotenv").config();
+const mongoose = require("mongoose");
+const Celebrity = require("../models/celebrity.model");
 
-mongoose.connect(`mongodb://localhost/${process.env.DB}`)
-console.log(process.env.DB, "que pedo")
+mongoose.connect(`mongodb://localhost/${process.env.DB}`);
 
-const celebrities = [{
+const celebrities = [
+  {
     name: "Leonardo DiCaprio",
-    catchPhrase: "Where is my Oscar?",
+    catchPhrase: "Where is my Oscar?"
   },
   {
     name: "Jonny Dep",
@@ -19,9 +19,9 @@ const celebrities = [{
     occupation: "Random thing",
     catchPhrase: "Some random and deep phrase about him career"
   }
-]
+];
 
 Celebrity.insertMany(celebrities)
   .then(allCeleb => console.log("Seed finished, all created: ", allCeleb))
   .then(x => mongoose.connection.close())
-  .catch(err => console.log("An error with the seed: ", err))
+  .catch(err => console.log("An error with the seed: ", err));
