@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
+// const Celebrity = require('../models/celebrity.model');
 const Movie = require('../models/movie.model');
 
-const dbTitle = 'webmad0120-celebrities';
+
+const dbTitle = 'webmad0120-lab-mongoose-movies';
 mongoose.connect(`mongodb://localhost/${dbTitle}`);
+
 
 Movie.collection.drop();
 
@@ -24,7 +27,11 @@ const movies = [
   },
 ]
 
-
+Movie.create(movies, (err) => {
+  if (err) { throw (err) }
+  console.log(`Created ${movies.length} movies`)
+  mongoose.connection.close();
+});
 
 
 
@@ -55,8 +62,8 @@ const movies = [
 //   },
 // ]
 
-Movie.create(movies, (err) => {
-  if (err) { throw (err) }
-  console.log(`Created ${movies.length} movies`)
-  mongoose.connection.close();
-});
+// Celebrity.create(celebrities, (err) => {
+//   if (err) { throw (err) }
+//   console.log(`Created ${celebrities.length} movies`)
+//   mongoose.connection.close();
+// });
