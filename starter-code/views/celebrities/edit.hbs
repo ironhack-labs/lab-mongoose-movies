@@ -1,0 +1,26 @@
+<div class="marquee title">
+  <div>
+    <span>CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD
+      CELEBRIDAD CELEBRIDAD CELEBRIDAD CELEBRIDAD </span>
+  </div>
+</div>
+<div class="edit">
+  <div class="edit-prev">
+    <h3>{{this.name}}</h3>
+    <img class="picture-detail" src={{picture}} onmouseover="this.src='{{picture2}}'"
+      onmouseout="this.src='{{picture}}'" />
+  </div>
+  <div class="edit-form">
+    <form action="/celebrities/{{_id}}" method="POST">
+      <label for="name">Nombre: </label><input type="text" name="name" value='{{this.name}}'>
+      <label for="picture">Imagen principal: </label><input type="text" name="picture" value={{picture}}>
+      <label for="picture2">Imagen alternativa: </label><input type="text" name="picture2" value={{picture2}}>
+      <label for="occupation">Ocupación: </label><input type="text" name="occupation" value='{{occupation}}'>
+      <label for="catchPhrase">Cita célebre: </label><input type="text" name="catchPhrase" value='{{this.catchPhrase}}'>
+      <button>Editar</button>
+      <a class="cancel" href="/celebrities/{{_id}}">Cancelar edición</a>
+    </form>
+  </div>
+</div>
+<div class="detail-buttons">
+  <a class="vuelve" href="/celebrities">Vuelve a las celebridades</a></div>

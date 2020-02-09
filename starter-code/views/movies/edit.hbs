@@ -1,0 +1,25 @@
+<div class="marquee title">
+  <div>
+    <span>PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON
+      PELICULON PELICULON PELICULON </span>
+  </div>
+</div>
+<div class="edit">
+  <div class="edit-prev">
+    <h3>{{this.title}}</h3>
+    <img class="picture-detail" src={{picture}} onmouseover="this.src='{{picture2}}'"
+      onmouseout="this.src='{{picture}}'" />
+  </div>
+  <div class="edit-form">
+    <form action="/movies/{{_id}}" method="POST">
+      <label for="title">Título: </label><input type="text" name="title" value='{{this.title}}'>
+      <label for="picture">Imagen principal: </label><input type="text" name="picture" value={{picture}}>
+      <label for="picture2">Imagen alternativa: </label><input type="text" name="picture2" value={{picture2}}>
+      <label for="genre">Género: </label><input type="text" name="genre" value='{{genre}}'>
+      <label for="plot">Argumento: </label><input type="text" name="plot" value='{{this.plot}}'>
+      <button>Editar</button>
+      <a class="cancel" href="/movies/{{_id}}">Cancelar edición</a>
+    </form>
+  </div>
+</div>
+<div class="detail-buttons"><a class="vuelve" href="/movies">Vuelve a los peliculones</a></div>

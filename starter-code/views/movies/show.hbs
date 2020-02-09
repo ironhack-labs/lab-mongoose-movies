@@ -1,0 +1,21 @@
+<div class="marquee title">
+  <div>
+    <span>PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON PELICULON
+      PELICULON PELICULON </span>
+  </div>
+</div>
+<div class="detail">
+  <div class="detail-text">
+    <h2>{{this.title}}</h2>
+    <p>{{plot}}</p>
+    <h3>género: {{genre}}</h3>
+  </div>
+  <div class="detail-image"> <img class="picture-detail" src={{picture}} onmouseover="this.src='{{picture2}}'"
+      onmouseout="this.src='{{picture}}'" />
+  </div>
+
+</div>
+  <form action="/movies/{{_id}}/edit" method="POST">
+<div class="detail-buttons"><button>Editar</button>
+  </form>
+  <a class="vuelve" href="/movies">Vuelve a los peliculones</a></div>

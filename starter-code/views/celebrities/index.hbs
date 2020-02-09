@@ -1,0 +1,34 @@
+<div class="marquee title">
+  <div>
+    <span>CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES
+      CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES CELEBRIDADES
+      CELEBRIDADES </span>
+  </div>
+</div>
+<div class="celebrities cards">
+  {{#each celebritiesFound}}
+  <div class="celebrity card">
+    <img src={{picture}} onmouseover="this.src='{{picture2}}'" onmouseout="this.src='{{picture}}'" />
+    <h3>{{name}}</h3>
+    <a href="/celebrities/{{_id}}"><span class="normal-text">Descubre todos sus secretos</span><span
+        class="emoji">😜😜😜😜😜😜😜😜😜😜</span></a>
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+      <button>Eliminar</button>
+    </form>
+  </div>
+  {{/each}}
+</div>
+
+
+
+<div class="create-new">
+  <h2>Crea una nueva celebridad</h2>
+  <form class="create-form" action="/celebrities" method="POST">
+    <input type="text" name="name" placeholder="Nombre">
+    <input type="text" name="picture" placeholder="url de la imagen">
+    <input type="text" name="occupation" placeholder="Ocupación">
+    <button>Crear</button>
+    <a class="vuelve" href="/"><span class="normal-text">Vuelve a la fama</span><span
+        class="emoji">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</span></a>
+  </form>
+</div>
