@@ -8,6 +8,10 @@ router.get('/', (req, res, next) => {
   })
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
 router.get('/:id', (req, res, next) => {
   Celebrity.findOne({ _id: req.params.id })
     .then((celebrityFound) => {
@@ -15,9 +19,6 @@ router.get('/:id', (req, res, next) => {
     })
 });
 
-router.get('/new', (req, res, next) => {
-  res.render('celebrities/new');
-});
 
 router.post('/', (req, res, next) => {
   Celebrity.create({
@@ -31,13 +32,27 @@ router.post('/', (req, res, next) => {
 });
 
 router.post('/:id/edit', (req, res, next) => {
-  Celebrity.findOneAndUpdate({ _id: req.body.id })
+  Celebrity.findById(req.params.id)
     .then((celebrity) => {
       res.render('celebrities/edit', celebrity)
     })
     .catch(() => {
       next()
     })
+});
+
+router.post('/celebrities/:id', (req, res, next) => {
+  Celebrity.findByIdAndUpdate(
+    req.body.id,
+      {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase
+      },
+      { new: true }
+  ).then(() => {
+     res.redirect('/celebrities');
+  });
 });
 
 router.post('/:id/delete', (req, res, next) => {

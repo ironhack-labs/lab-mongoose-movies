@@ -8,15 +8,15 @@ router.get('/', (req, res, next) => {
   })
 });
 
+router.get('/new', (req, res, next) => {
+  res.render('movies/new');
+});
+
 router.get('/:id', (req, res, next) => {
   Movie.findOne({ _id: req.params.id })
     .then((movieFound) => {
       res.render('movies/show', movieFound)
     })
-});
-
-router.get('/new', (req, res, next) => {
-  res.render('movies/new');
 });
 
 router.post('/', (req, res, next) => {
@@ -31,13 +31,27 @@ router.post('/', (req, res, next) => {
 });
 
 router.post('/:id/edit', (req, res, next) => {
-  Movie.findOneAndUpdate({ _id: req.body.id })
+  Movie.findById(req.params.id)
     .then((movie) => {
       res.render('movies/edit', movie)
     })
     .catch(() => {
       next()
     })
+});
+
+router.post('/movies/:id', (req, res, next) => {
+  Movie.findByIdAndUpdate(
+    req.body.id,
+    {
+      titel: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot
+    },
+    { new: true }
+  ).then(() => {
+    res.redirect('/movies');
+  });
 });
 
 router.post('/:id/delete', (req, res, next) => {
