@@ -1,0 +1,14 @@
+<h1>Lista de Celebrities</h1>
+
+<ul>
+    {{#each cels}}
+    <li>
+        <a href="/celebrities/details/{{_id}}">{{name}}</a>
+        <form action="/celebrities/{{_id}}/delete" method="post">
+          <button type="submit">DEL</button>
+        </form>
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/celebrities">Atras</a>
