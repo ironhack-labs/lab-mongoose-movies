@@ -11,14 +11,23 @@
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
-    "express": "^4.16.3",
-    "hbs": "^4.0.1",
+    "express": "^4.17.1",
+    "hbs": "^4.1.0",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
     "node-sass-middleware": "^0.11.0",
+    "path": "^0.12.7",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
-  }
+  },
+  "main": "app.js",
+  "bin": {
+    "starter-code": "seeds.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
