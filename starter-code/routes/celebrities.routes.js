@@ -43,7 +43,15 @@ router.post('/celebrities-new', (req, res) => {
         .then(() => res.redirect('/celebrities/celebrities-list'))
         .catch(err => console.log(err))
 })
+// Eliminar famoso
+router.post('/celebrities-list/:id', (req, res) => {
 
+    const id = req.params.id
+
+    Celebrity.findByIdAndDelete(id)
+        .then((x) => res.redirect('/celebrities/celebrities-list'))
+        .catch(err => console.log("ha ocurrido un error eliminando famoso de la bbdd", err))
+})
 
 
 // Editar famosos

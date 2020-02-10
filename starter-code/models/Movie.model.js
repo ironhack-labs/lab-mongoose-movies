@@ -9,6 +9,6 @@ const movieSchema = new Schema({
     timestamps: true
 });
 
-const Movie = mongoose.model("Celebrity", movieSchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
 module.exports = Movie;

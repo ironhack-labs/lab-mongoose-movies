@@ -4,6 +4,8 @@
     {{#each celebrities}}
     <li><a href="/celebrities/celebrities-details/{{_id}}">{{name}}</a> - [<a
             href="./celebrities-edit?celebrityId={{_id}}">editar</a>]
+        <form action="/celebrities/celebrities-list/{{_id}}" method="post">
+            <button type="submit">DEL</button>
     </li>
 
 

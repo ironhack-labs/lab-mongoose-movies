@@ -11,7 +11,7 @@ const path = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/celebrity2', {
+  .connect('mongodb://localhost/celebrity3', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -55,8 +55,8 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Celebrities, movies and other creatures';
 
 
-// const celebs = require('./routes/celebrities.routes')
-// app.use('/celebrities', celebs);
+const celebs = require('./routes/celebrities.routes')
+app.use('/celebrities', celebs);
 
 const movies = require('./routes/movies.routes')
 app.use('/movies', movies);
