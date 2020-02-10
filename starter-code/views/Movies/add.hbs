@@ -1,0 +1,36 @@
+<ul class="nav nav-pills nav-justified">
+    <li class="nav-item ">
+        <a class="nav-link text-dark" href="/index">Index</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="/movies">All Movies</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link bg-warning text-dark" href="/movies/add">Add Movie</a>
+    </li>
+</ul>
+
+
+
+<h2>Add Movie</h2>
+
+<form action="/moviesPOST" method="POST">
+    <div class="form-group ">
+        <label for="exampleFormControlInput1">Movie Name</label>
+        <input type="text" name='title' class="form-control" placeholder="someone" value="someone">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Occupation</label>
+        <select name='genre' class="form-control">
+            <option value="drama">Drama</option>
+            <option value="action">Comedian</option>
+            <option value="comedian">Comedian</option>
+            <option value="superhero">Superhero</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Phrase</label>
+        <input type="text" name='plot' class="form-control" placeholder="someone" value="something">
+    </div>
+    <button class="btn btn-warning">Add</button>
+</form>

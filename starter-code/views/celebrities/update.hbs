@@ -1,0 +1,44 @@
+<ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+        <a class="nav-link" href="/index">Index</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/celebrities">All Celebritites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/celebrities/add">Add Celebrity</a>
+    </li>
+</ul>
+
+<h1>Update</h1>
+{{!-- if you open and close this lines without the each, you only print one --}}
+<div id='updateContainer'>
+    {{#celebUpd}}
+    <h3>{{name}}</h3>
+    <div>{{occupation}}</div>
+    <div>{{catchPhrase}}</div>
+
+
+    <form id='formUpdate' action='/celebritiesUPD/{{_id}}' method="POST">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Star Name</label>
+            <input type="text" name='name' class="form-control" placeholder="someone" value={{name}}>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Occupation</label>
+            <select name='occupation' class="form-control">
+                <option value="actor">Actor</option>
+                <option value="comedian">Comedian</option>
+                <option value="singer">Singer</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Phrase</label>
+            <input type="text" name='catchPhrase' class="form-control" placeholder="someone" value={{catchPhrase}}>
+        </div>
+        <button class="btn btn-success">Update</button>
+    </form>
+
+    {{/celebUpd}}
+
+</div>

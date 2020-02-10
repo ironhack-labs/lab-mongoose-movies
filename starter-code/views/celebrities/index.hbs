@@ -1,0 +1,43 @@
+<ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+        <a class="nav-link" href="/index">Index</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/celebrities">All Celebritites</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/celebrities/add">Add Celebrity</a>
+    </li>
+</ul>
+
+<h1>All Celebrities</h1>
+
+<div class='container-fluid pl-5'>
+    <div class='d-flex justify-content-around flex-wrap'>
+        {{#each celeb}}
+        <div class='d-flex justify-content-around'>
+            <div class="card text-center" style="width: 18rem;">
+                <div id='loader' class="text-center loader">
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <img id='myImg' style="display: none;" src="{{img}}" class="card-img-top myImg" alt="...">
+                <div class="card-body">
+                    <a href="/celebrities/{{_id}}">
+                        <h5 class="card-title">{{name}}</h5>
+                    </a>
+                </div>
+
+                <div class="card-body">
+                    <a href='/celebritiesDEL/{{_id}}' class="card-link">Delete🗑</a>
+                    <a href="/celebrities/update/{{_id}}" class="card-link">Update🖊</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+
+
+    </div>
+</div>

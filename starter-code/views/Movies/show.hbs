@@ -1,0 +1,29 @@
+<ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+        <a class="nav-link" href="/index">Index</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/movies">All Movies</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/movies/add">Add Movie</a>
+    </li>
+</ul>
+
+<div id="showContainer">
+    <h1>ShowMore</h1>
+    {{#movShow}}
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{genre}}</p>
+            <p class="card-text">{{plot}}</p>
+        </div>
+        <div class="card-body">
+            <a href='/moviesDEL/{{_id}}' class="card-link">Delete🗑</a>
+            <a href="/movies/update/{{_id}}" class="card-link">Update🖊</a>
+        </div>
+    </div>
+    {{/movShow}}
+</div>
