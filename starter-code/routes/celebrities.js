@@ -18,5 +18,13 @@ router.get('/celebrities/', (req, res, next) => {
   // celebrities.find().then(celebritiesFound => res.render("/celebrities/index", {celebritiesFound}));
 });
 
+/* GET Celebrities id */
+router.get("/celebrities/:id", (req, res, next) => {
+  let { id } = req.params;
+  celebrities.findById(id).then(celebrityFound =>
+    res.render("onecelebrity", { celebrityFound })
+  );
+});
 
 module.exports = router; 
+
