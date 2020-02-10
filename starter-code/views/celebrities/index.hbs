@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Celebridades</h2>
+
+  <div class="row">
+
+    {{#each celebrities}}
+    {{this.name}}
+
+
+    <div class="col">
+      <a href="/celebrities/{{this._id}}">
+        <button type="button" class="btn btn-link">Ir a esta</button>
+      </a>
+    </div>
+
+    <div>
+      <form action="/celebrities/{{this._id}}/delete" method="post">
+
+        <button type="submit">Eliminar</button>
+      </form>
+    </div>
+
+    {{/each}}
+
+  </div>
+
+  <div class="col">
+    <a href="/celebrities/add">
+      <button type="button" class="btn btn-link">Agregar nueva celebridad</button>
+    </a>
+  </div>
+
+</div>
