@@ -2,6 +2,42 @@ var express = require('express');
 var router = express.Router();
 var Movie = require("../models/MovieModel");
 
+//GET to edit a movie
+router.get("/:id/edit", (req, res) => {
+    const {
+        id
+    } = req.query;
+    Movie.findOne({
+            id: id
+        })
+        .then(oneMovie => {
+            const data = {
+                movie: oneMovie
+            };
+            res.render("./../views/movies/edit", data);
+        })
+        .catch(err => console.log(err));
+})
+
+//POST to update a movie
+router.post("/:id", (req, res) => {
+    const id = req.query.id; 
+    const {
+      title,
+      genre,
+      plot
+    } = req.body;
+    Movie.updateOne({id},
+        {title,
+        genre,
+        plot})
+        .then((data) => {
+            console.log(data)
+            res.redirect("/movies")
+          })
+          .catch((err) => console.log(err));  
+})
+
 
 // POST to delete movies
 router.post("/:id/delete", (req, res) => {

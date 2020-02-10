@@ -3,11 +3,47 @@ var router = express.Router();
 var Celebrety = require("../models/CelebModel");
 
 
+//GET to edit a celeb
+router.get("/:id/edit", (req, res) => {
+    const {
+        id
+    } = req.query;
+    Celebrety.findOne({
+            id: id
+        })
+        .then(oneCeleb => {
+            const data = {
+                celeb: oneCeleb
+            };
+            res.render("./../views/celebrities/edit", data);
+        })
+        .catch(err => console.log(err));
+})
+
+//POST to update a celeb
+router.post("/:id", (req, res) => {
+    const id = req.query.id; 
+    const {
+      name,
+      occupation,
+      catchPrase
+    } = req.body;
+    Celebrety.updateOne({id},
+        {name,
+        occupation,
+        catchPrase})
+        .then((data) => {
+            console.log(data)
+            res.redirect("/celebrities")
+          })
+          .catch((err) => console.log(err));  
+})
+
 // POST to delet celebs
 router.post("/:id/delete", (req, res) => {
     Celebrety.findByIdAndRemove(req.params.id)
-    .then( () => res.redirect("/celebrities"))
-    .catch( (err) => console.log(err));
+        .then(() => res.redirect("/celebrities"))
+        .catch((err) => console.log(err));
 })
 
 // POST from new Celeb Form
