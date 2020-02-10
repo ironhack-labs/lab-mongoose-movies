@@ -1,0 +1,14 @@
+<h1>Editar Famoso</h1>
+
+<form action="/celebrities/edit/{{_id}}" method="post">
+  <label for="">Nombre:</label>
+  <input type="text" name="name" value="{{name}}"><br>
+
+  <label for="">Ocupacion:</label>
+  <input type="text" name="occupation" value="{{occupation}}"><br>
+
+  <label for="">Frase celebre:</label>
+  <input type="text" name="description" value="{{catchPhrase}}"><br>
+
+  <button type="submit">Editar</button>
+</form>
