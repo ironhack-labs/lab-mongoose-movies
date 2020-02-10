@@ -43,13 +43,11 @@ router.post('/new', (req, res) => {
 //     });
 // })
 
-router.post('/delete/:id', (req, res, next) => {
+router.get('/:id/delete', (req, res, next) => {
   const celebrityId = req.params.id;
-  console.log("toma", id)
-  Celebrity.findByIdAndRemove(celebrityId, (err) => {
-    if (err) throw err;
-    res.redirect('/celebrities');
-  });
+  Celebrity.findByIdAndRemove(celebrityId)
+    .then(x => res.redirect('/celebrities'))
+    .catch(err => console.log(err))
 });
 
 // Editar celebridad
