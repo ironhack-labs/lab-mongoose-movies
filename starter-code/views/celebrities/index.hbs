@@ -2,8 +2,13 @@
 
 <a href="celebrities/details/{{_id}}">
   <h2>{{name}}</h2>
+  <a class="btn btn-outline-info" href="/celebrities/details/{{_id}}">{{name}}</a> <a class="btn btn-outline-success"
+    href="/celebrities/edit?id={{_id}}">editar</a>
+  <form action="/celebrities/{{_id}}/delete" method="POST">
+    <button class="btn btn-outline-danger" type="submit">Borrar</button>
+  </form>
 </a>
 
 {{/each}}
-
+<br>
 <a href="celebrities/new/">Create a new celebrity</a>
