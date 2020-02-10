@@ -1,0 +1,19 @@
+<h2>Celebrities Page</h2>
+{{#each celebrity}}
+   <br><br>
+ <div class="col-4">
+   <h2>{{name}}</h2>
+   <br>
+   <a class="btn btn-primary btn-sm" href="/celebrities/details/{{id}}" role="button">More info</a>
+   <a class="btn btn-primary btn-sm" href="/celebrities/edit/{{id}}" role="button">Edit</a>
+      <a class="btn btn-primary btn-sm" href="/celebrities/delete/{{id}}" role="button">Delete</a>
+   <br><br>
+ </div>
+{{/each}}
+<div class="col-4">
+Añadir nuevo:
+<br>
+ <a class="btn btn-primary btn-sm" href="/celebrities/new" role="button">Crear nuevo</a>
+
+ 
+</div>

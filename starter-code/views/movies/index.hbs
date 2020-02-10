@@ -1,0 +1,19 @@
+<h2>Movies Page</h2>
+{{#each movie}}
+   <br><br>
+ <div class="col-4">
+   <h2>{{title}}</h2>
+   <br>
+   <a class="btn btn-primary btn-sm" href="/movies/details/{{id}}" role="button">More info</a>
+   <a class="btn btn-primary btn-sm" href="/movies/edit/{{id}}" role="button">Edit</a>
+      <a class="btn btn-primary btn-sm" href="/movies/delete/{{id}}" role="button">Delete</a>
+   <br><br>
+ </div>
+{{/each}}
+<div class="col-4">
+Añadir nueva:
+<br>
+ <a class="btn btn-primary btn-sm" href="/movies/new" role="button">Crear nueva pelicula</a>
+
+ 
+</div>
