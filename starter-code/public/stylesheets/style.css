@@ -1,89 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../images/Diseño\ sin\ título.png");
+  background-image: url("../images/Diseño sin título.png");
   background-size: cover;
   background-repeat: none;
   font-family: 'Montserrat', sans-serif;
-  font-weight: bolder;
-}
+  font-weight: bolder; }
 
 h1 {
   font-size: 4em;
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 h2 {
   font-size: 3em;
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 h3 {
   font-size: 2em;
-  margin-bottom: 0.5em;
-}
+  margin-bottom: 0.5em; }
 
 h4 {
   font-size: 1.5em;
-  text-decoration: underline;
-
-}
+  text-decoration: underline; }
 
 q {
-  margin-top: 0;
-}
+  margin-top: 0; }
 
 p {
   width: 30%;
-  text-align: center;
-}
+  text-align: center; }
 
 label {
-  font-size: 1.5em;
-}
+  font-size: 1.5em; }
 
 .btn-main {
   padding: 10px;
   margin-top: 100px;
   margin-left: 15px;
   font-size: 3em;
-  border: none;
-
-}
+  border: none; }
 
 .form-add {
   display: flex;
   flex-direction: column;
-  margin-top: 2em;
-}
+  margin-top: 2em; }
 
 input {
   padding: 5px;
   margin: 15px auto;
-  font-size: 1em;
-}
+  font-size: 1em; }
 
 .btn-menu {
   padding: 15px;
   margin-top: 1em;
   font-size: 1em;
-  border: none;
-}
+  border: none; }
 
 a {
   text-decoration: none;
-  color black;
-}
+  color: black; }
 
 a:visited {
-  color: black;
-}
+  color: black; }
 
-
+/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */
