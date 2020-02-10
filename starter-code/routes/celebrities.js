@@ -5,9 +5,7 @@ var Celebrety = require("../models/CelebModel");
 
 // POST to delet celebs
 router.post("/:id/delete", (req, res) => {
-    console.log("logged ", req.body)
-    const id = req.body;
-    Celebrety.findByIdAndRemove(_id)
+    Celebrety.findByIdAndRemove(req.params.id)
     .then( () => res.redirect("/celebrities"))
     .catch( (err) => console.log(err));
 })
