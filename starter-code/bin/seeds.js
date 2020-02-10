@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
-const Celebrities = require('./models/Celebrities');
-
-
-
-
+const Celebrity = require('../models/Celebrity');
 
 const dataCelebrities = [{
     name: 'Macaulay Culkin',
@@ -38,14 +34,10 @@ mongoose
 
 Celebrity.deleteMany()
   .then(() => {
-    return Celebrities.create(datacelebrities);
+    return Celebrity.create(dataCelebrities);
   })
   .then(() => {
     console.log('the data was added correctly');
     mongoose.connection.close();
     process.exit(0);
   })
-
-
-
-
