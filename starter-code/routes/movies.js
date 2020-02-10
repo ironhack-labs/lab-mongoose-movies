@@ -20,7 +20,7 @@ router.get("/:id/edit", (req, res) => {
 })
 
 //POST to update a movie
-router.post("/:id", (req, res) => {
+router.post("/:id/edit", (req, res) => {
     const id = req.query.id; 
     const {
       title,
