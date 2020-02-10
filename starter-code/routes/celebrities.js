@@ -47,6 +47,26 @@ router.post('/:id/delete', (req, res) => {
     .catch(err => console.log(err))
 })
 
+// Editar una celebridad
+router.get('/:id/edit', (req, res) => {
+
+  const celebrityId = req.query.celebrityId
+
+  Book.findById(celebrityId)
+    .then(editedCelebrity => res.render('celebrities/edit', editedCelebrity))
+    .catch(err => console.log(err))
+})
+router.post('/:id/edit', (req, res) => {
+  console.log("EL Id de la celebridad es:", req.params.celebrityId)
+  const celebrityId = req.params.celebrityId
+
+  // Retorna el objeto actualizado:
+  // Book.findByIdAndUpdate(bookId, req.body, {new: true}) 
+
+  Book.findByIdAndUpdate(celebrityId, req.body)
+    .then(x => res.redirect(`celebrities/show/${celebrityId}`))
+    .catch(err => console.log(err))
+})
 
 
 module.exports = router
