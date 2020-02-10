@@ -26,8 +26,10 @@ router.post('/', (req, res) => {
   })
 })
 
-Celebrity.findByIdAndDelete(id)
-Celebrity.findByIdAndUpdate(id, req.body)
+
+
+/* Celebrity.findByIdAndDelete(id)
+Celebrity.findByIdAndUpdate(id, req.body) */
 
 
 
