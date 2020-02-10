@@ -12,7 +12,7 @@ const router       = require('./routes/index');
 
 
 mongoose
-  .connect('mongodb://localhost/celebrityDb', {useNewUrlParser: true})
+  .connect('mongodb://localhost/moviesDb', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
