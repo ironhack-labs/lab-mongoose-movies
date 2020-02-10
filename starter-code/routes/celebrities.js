@@ -3,25 +3,6 @@ const celebritiesRouter = express.Router();
 
 const Celebrity = require("./../models/Celebrity");
 
-celebritiesRouter.get("/", (req, res, next) => {
-  Celebrity.find()
-    .then( (celebritiesArr) => {
-      const data = {celebrities: celebritiesArr};
-      res.render("celebrities/index", data);
-    })
-    .catch( (err) => console.log(err));
-});
-
-celebritiesRouter.get("/:celebrityId", (req, res, index) => {
-  const celebrityId = req.params.celebrityId;
-  Celebrity.findById(celebrityId)
-    .then( (celebrityFound) => {
-      const data = {celebrity: celebrityFound};
-      res.render("celebrities/show", data);
-    })
-    .catch( (err) => console.log(err));
-});
-
 celebritiesRouter.get("/new", (req, res) => {
   res.render("celebrities/new");
 });
@@ -37,6 +18,16 @@ celebritiesRouter.post("/new", (req, res) => {
   })
 });
 
+celebritiesRouter.get("/:celebrityId", (req, res, index) => {
+  const celebrityId = req.params.celebrityId;
+  Celebrity.findById(celebrityId)
+    .then( (celebrityFound) => {
+      const data = {celebrity: celebrityFound};
+      res.render("celebrities/show", data);
+    })
+    .catch( (err) => console.log(err));
+});
+
 celebritiesRouter.post("/:celebrityId/delete", (req, res, next) => {
   const celebrityId = req.params.celebrityId;
   Celebrity.findByIdAndDelete(celebrityId)
@@ -44,7 +35,16 @@ celebritiesRouter.post("/:celebrityId/delete", (req, res, next) => {
       res.redirect("/celebrities");
     })
     .catch( (err) => next(err));
-})
+});
+
+celebritiesRouter.get("/", (req, res, next) => {
+  Celebrity.find()
+    .then( (celebritiesArr) => {
+      const data = {celebrities: celebritiesArr};
+      res.render("celebrities/index", data);
+    })
+    .catch( (err) => console.log(err));
+});
 
 
 module.exports = celebritiesRouter;
