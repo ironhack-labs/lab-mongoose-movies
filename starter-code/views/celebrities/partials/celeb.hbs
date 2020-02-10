@@ -1,0 +1,13 @@
+<div class="celebcard">
+  <form action="/celebrities/{{ this._id }}/delete" method="POST">
+    <div class="card m-3">
+      <div class="card-header">
+        <h5>{{this.name}}</h5>
+        <h6>{{this.occupation}}</h6>
+        <p>{{this.catchPhrase}}</p>
+        <button type="submit" class="btn btn-danger float-right">Delete</button>
+        <a href="/celebrities/{{this._id}}/edit" class="btn btn-warning float-right mr-2">Edit</a>
+      </div>
+    </div>
+  </form>
+</div>

@@ -10,3 +10,6 @@ package-lock.json
 
 # Environment Variables should NEVER be published
 .env
+
+# Debug log from npm
+npm-debug.log
