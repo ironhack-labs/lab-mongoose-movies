@@ -4,17 +4,17 @@ const router = express.Router()
 const Celebrity = require('../models/Celebrity.model')
 
 
-// Listado de libros
+// Listado de famosos
 router.get('/celebrities-list', (req, res) => {
     Celebrity.find()
         .then(allCelebrities => res.render('celebrities/celebrities-list', {
             celebrities: allCelebrities
         }))
-        .catch(err => console.log("Error consultadno los libros en la BBDD: ", err))
+        .catch(err => console.log("Error consultadno los famosos en la BBDD: ", err))
 })
 
 
-// Detalle de libro
+// Detalle de famosos
 router.get('/celebrities-details/:theCelebrityIdFromTheURL', (req, res) => {
 
     const celebrityId = req.params.theCelebrityIdFromTheURL
@@ -25,7 +25,7 @@ router.get('/celebrities-details/:theCelebrityIdFromTheURL', (req, res) => {
 })
 
 
-// Creación de libro
+// Creación de famosos
 router.get('/celebrities-new', (req, res) => res.render('celebrities/celebrities-new'))
 router.post('/celebrities-new', (req, res) => {
 
@@ -46,7 +46,7 @@ router.post('/celebrities-new', (req, res) => {
 
 
 
-// Editar libro
+// Editar famosos
 router.get('/celebrities-edit', (req, res) => {
 
     const celebrityId = req.query.celebrityId
