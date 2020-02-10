@@ -55,4 +55,5 @@ const index = require('./routes/index');
 app.use('/', index);
 
 
+app.listen(process.env.PORT)
 module.exports = app;
