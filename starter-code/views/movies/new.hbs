@@ -1,0 +1,33 @@
+<div class="container ">
+  <div class="row d-flex justify-content-around">
+    <div class="col-12">
+      <h4>Incluir una nueva celebridad en la base de datos</h4>
+      <hr>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-around">
+    <div class="col-12">
+      <div class="form-group">
+        <form action="/celebrities/new" method="post">
+          <div class="row d-flex justify-content-around">
+            <div class="col-5">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-control" name="name" value=""><br>
+            </div>
+            <div class="col-5">
+              <label for="">Profesión:</label>
+              <input type="text" class="form-control" name="occupation" value=""><br>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-around">
+            <div class="col-11">
+              <label for="">Frase célebre:</label>
+              <input type="text" class="form-control" name="catchPhrase" value=""><br>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-secondary">Añadir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

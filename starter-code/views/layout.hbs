@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+    integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
+<header>
+  <nav class="nav-bar">
+    <div class="navbar-bar-continer">
+      <ul class="nav-menu nav-primary-menu list-unstyled list-inline d-flex justify-content-around text-uppercase">
+        <li class="nav-item list-inline-item"><a href="/">Inicio</a></li>
+        <li class="nav-item list-inline-item"><a href="/celebrities">Listado de celebridades</a></li>
+        <li class="nav-item list-inline-item"><a href="/celebrities/new">Añadir celebridades</a></li>
+        <li class="nav-item list-inline-item"><a href="/movies">Listado de películas</a></li>
+        <li class="nav-item list-inline-item"><a href="/movies/new">Añadir películas</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
 <body>
 
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
+
 </body>
+
 </html>

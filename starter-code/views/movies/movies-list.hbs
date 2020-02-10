@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12">
+      <h4>Lista de películas:</h4>
+      <hr>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-12">
+      <ul class="list-unstyled">
+        {{#each movies}}
+        <li>
+          <a href="/movies/movie-details/{{_id}}">{{title}}</a> -
+          [<a href="/movies/delete?id={{_id}}">Borrar</a>]
+          [<a href="/movies/edit?id={{_id}}">Editar</a>]
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
