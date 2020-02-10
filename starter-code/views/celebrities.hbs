@@ -6,11 +6,14 @@
   <ul>
     {{#each allcelebrities}}
     <li>
-      {{name}}
+      <p>
+        <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+      </p>
+      {{!-- {{name}}
 
       {{ocupation}}
 
-      {{catchPhrase}}
+      {{catchPhrase}} --}}
     </li>
     {{/each}}
   </ul>
