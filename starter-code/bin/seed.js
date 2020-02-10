@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Celebrety = require("../models/CelebModel");
-
-const dbName = "movie-lab"
+require('dotenv').config();
 
 const celebreties = [{
         name: "Arnold Schwarzenegger",
@@ -26,7 +25,7 @@ const celebreties = [{
 ]
 
 // 0. connect
-mongoose.connect(`mongodb://localhost/${dbName}`, {
+mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })
