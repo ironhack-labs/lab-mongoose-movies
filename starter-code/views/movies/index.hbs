@@ -1,0 +1,13 @@
+<h2>Our Movies</h2>
+{{#each movie}}
+<h3>{{title}}</h3>
+<button class="btn-menu"><a href="/movies/{{_id}}">More information</a></button>
+<form action="/movies/{{_id}}/delete" method="post"><button class="btn-menu" type="submit">Delete don't look the
+        bright side of the
+        life!!</button></form>
+{{/each}}
+<p>{{error}}</p>
+<div>
+    <button class="btn-menu"><a href="/movies/new">Add a new Movie</a></button>
+    <button class="btn-menu"><a href="/">Back to Main</a></button>
+</div>

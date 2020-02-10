@@ -1,0 +1,13 @@
+<h2>Add a new Movies</h2>
+<form class="form-add" action="/movies/new" method="post">
+  <label for="">Title</label>
+  <input type="text" name="title" id="" value="The life of Brian" required>
+  <label for="">Genre</label>
+  <input type="text" name="genre" id="" value="comedia" required>
+  <label for="">Plot</label>
+  <input type="text" name="plot" id=""
+    value="Monty Python's Life of Brian, also known as Life of Brian, is a 1979 British comedy film starring and written by the comedy group Monty Python (Graham Chapman, John Cleese, Terry Gilliam, Eric Idle, Terry Jones and Michael Palin). It was also directed by Jones. The film tells the story of Brian Cohen (played by Chapman), a young Jewish man who is born on the same day as—and next door to—Jesus Christ, and is subsequently mistaken for the Messiah."
+    required>
+  <button class="btn-menu" type="submit">Always look on the bright....</button>
+  <p>{{error}}</p>
+</form>
