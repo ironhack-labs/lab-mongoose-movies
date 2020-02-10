@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 })
 
 // Mostras detalles de película
-router.get('/movies-details/:id', (req, res) => {
+router.get('/movie-details/:id', (req, res) => {
   const movieId = req.params.id
   Movie.findById(movieId)
     .then(theMovie => res.render('movies/movie-details', theMovie))
