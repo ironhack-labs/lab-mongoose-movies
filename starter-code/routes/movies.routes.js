@@ -57,7 +57,7 @@ router.get('/delete/:id', (req, res, next) => {
 // // Editar pelicula
 router.get('/edit/:movieId', (req, res) => {
 
-    const movieId = req.query.movieId
+    const movieId = req.params.movieId
 
     Movie.findById(movieId)
         .then(mov => res.render('movies/edit', mov))

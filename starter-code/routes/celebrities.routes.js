@@ -61,7 +61,7 @@ router.get('/delete/:id', (req, res, next) => {
 // // Editar celebrity
 router.get('/edit/:celebrityId', (req, res) => {
 
-    const celebrityId = req.query.celebrityId
+    const celebrityId = req.params.celebrityId
 
     Celebrity.findById(celebrityId)
         .then(celebri => res.render('celebrities/edit', celebri))
