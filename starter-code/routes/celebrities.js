@@ -63,7 +63,7 @@ router.post(`/celebrities/:id/delete`, (req, res, next) => {
 
 
 
-router.get("/celebrities/:id/edit", (req, res, next) => {
+router.post("/celebrities/:id/edit", (req, res, next) => {
   Celebrity.find({
       _id: req.params.id
     })

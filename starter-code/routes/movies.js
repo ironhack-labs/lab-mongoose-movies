@@ -18,7 +18,7 @@ router.get('/movies', (req, res, next) => {
       next()
     })
 });
- .
+
 router.get("/movies/:id", (req, res, next) => {
   Movies.findOne({
       '_id': req.params.id
@@ -67,7 +67,7 @@ router.post(`/movies/:id/delete`, (req, res, next) => {
 
 
 
-router.get("/movies/:id/edit", (req, res, next) => {
+router.post("/movies/:id/edit", (req, res, next) => { ///
   Movies.find({
       _id: req.params.id
     })
