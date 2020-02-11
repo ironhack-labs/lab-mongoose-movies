@@ -1,0 +1,9 @@
+<h2>Celebrities!</h2>
+{{#each celebrityArr}}
+<h3>{{this.name}}</h3>
+<a href="/celebrities/{{this._id}}">Learn more!</a>
+<form action="/celebrities/{{this._id}}/delete" , method="POST">
+    <button>Delete</button>
+</form>
+{{/each}}
+<a href="/celebrities/new"> Add your own celebs!</a>
