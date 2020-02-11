@@ -1,0 +1,16 @@
+<h2>AQUÍ SU FAMOSO</h2>
+
+{{#each celebritiesObj}}
+
+<a href="/celebrities/{{this._id}}">{{this.name}}</a>
+
+
+<form action="celebrities/{{this._id}}/delete" method="post">
+  <button type="submit">DELETE</button>
+</form>
+
+
+{{/each}}
+
+
+<a href="/celebrities/new">ADD CELEBRITY</a>
