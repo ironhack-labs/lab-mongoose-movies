@@ -5,11 +5,9 @@ var Celebrety = require("../models/CelebModel");
 
 //GET to edit a celeb
 celebRouter.get("/:id/edit", (req, res) => {
-    const {
-        id
-    } = req.query;
+    const id = req.params.id;
     Celebrety.findOne({
-            id: id
+            _id: id
         })
         .then(oneCeleb => {
             const data = {
@@ -22,21 +20,20 @@ celebRouter.get("/:id/edit", (req, res) => {
 
 //POST to update a celeb
 celebRouter.post("/:id/edit", (req, res) => {
-    const id = req.query.id;
+    const id = req.params.id;
     const {
         name,
         occupation,
-        catchPrase
+        catchPhrase
     } = req.body;
     Celebrety.updateOne({
-            id
+            _id: id
         }, {
             name,
             occupation,
-            catchPrase
+            catchPhrase
         })
-        .then((data) => {
-            console.log(data)
+        .then(() => {
             res.redirect("/celebrities")
         })
         .catch((err) => console.log(err));

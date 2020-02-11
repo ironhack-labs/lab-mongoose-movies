@@ -4,11 +4,9 @@ var Movie = require("../models/MovieModel");
 
 //GET to edit a movie
 router.get("/:id/edit", (req, res) => {
-    const {
-        id
-    } = req.query;
+    const id = req.params.id;
     Movie.findOne({
-            id: id
+            _id: id
         })
         .then(oneMovie => {
             const data = {
@@ -21,18 +19,17 @@ router.get("/:id/edit", (req, res) => {
 
 //POST to update a movie
 router.post("/:id/edit", (req, res) => {
-    const id = req.query.id; 
+    const id = req.params.id; 
     const {
       title,
       genre,
       plot
     } = req.body;
-    Movie.updateOne({id},
+    Movie.updateOne({_id:id},
         {title,
         genre,
         plot})
-        .then((data) => {
-            console.log(data)
+        .then(() => {
             res.redirect("/movies")
           })
           .catch((err) => console.log(err));  
