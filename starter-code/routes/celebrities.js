@@ -32,6 +32,7 @@ celebrityRouter.post("/new", (req, res) => {
 // GET for editing
 celebrityRouter.get('/edit', (req, res) => { 
     const {_id } = req.query;
+    console.log(req.query)
         Celebrity.findOne( {_id: _id})
         .then (oneCelebrity => {
             const data = {
@@ -44,8 +45,7 @@ celebrityRouter.get('/edit', (req, res) => {
 
 // POST for editing
 celebrityRouter.post('/edit', (req, res) => {
-    const _id = req.query._id;
-    const {name, occupation, catchPhrase} = req.body
+    const {name, occupation, catchPhrase} = req.body  //DESTRUCTURING
 
     Celebrity.updateOne( {_id}, {name, occupation, catchPhrase})
     .then( (data) => {
@@ -55,7 +55,7 @@ celebrityRouter.post('/edit', (req, res) => {
 })
 
 celebrityRouter.get("/delete/:id", (req, res) => {
-    //deconstruct body that is sent through POST method
+//with the GET request it is enough to use an <a> tag in the index.hbs file: you don't need a separate form
     Celebrity.findByIdAndRemove(req.params.id)
     .then((celebrityToDelete) => {
         res.redirect('/celebrities');

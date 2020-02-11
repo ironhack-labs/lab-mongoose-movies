@@ -27,24 +27,27 @@ moviesRouter.post("/new", (req, res) => {
 });
 
 // GET for editing
-moviesRouter.get('/edit', (req, res) => { 
-    const {_id } = req.query;
-        Movie.findOne( {_id: _id})
+moviesRouter.get('/edit/:id', (req, res) => { 
+    const {id } = req.params;
+        Movie.findOne( {_id: id})
         .then (oneMovie => {
+            console.log('oneMovie :', oneMovie);
             const data = {
                 movie: oneMovie
             }
-            res.render('./../views/movies/edit', oneMovie);
+            res.render('movies/edit', data);
         })
         .catch(err => console.log(err));
 });
 
 // POST for editing
-moviesRouter.post('/edit', (req, res) => {
-    const _id = req.query._id;
-    const {title, genre, plot} = req.body
+moviesRouter.post('/edit/:id', (req, res) => {
+    const id = req.params.id;
+    const { title, genre, plot} = req.body
+    console.log('req.body :', req.body);
+    console.log('req.params.id :', req.params.id);
 
-    Movie.updateOne( {_id}, {title, genre, plot})
+    Movie.update({_id: id}, {title, genre, plot})
     .then( data => {
         res.redirect('/movies');
     })

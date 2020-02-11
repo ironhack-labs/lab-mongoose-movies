@@ -58,7 +58,7 @@ mongoose.connect('mongodb://localhost/moviesDb', {useNewUrlParser: true})
 })
 //the array of celebrities has been created and is forwarded from the previous 'then'
 .then((createdMovies) => {
-    console.log(`Number of celebrities: ${createdMovies.length}`);
+    console.log(`Number of movies: ${createdMovies.length}`);
 
     //CLOSE THE CONNECTION
     const pr = mongoose.connection.close();

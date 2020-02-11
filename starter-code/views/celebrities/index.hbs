@@ -8,9 +8,10 @@
 <p>{{this.name}}</p>
 </a>
 
-
 <button><a href="/celebrities/edit/{{this._id}}">Edit</a></button>
+
 <button><a href="/celebrities/delete/{{this._id}}">Delete</a></button>
+{{!-- An anchor tag will use a GET request; if you use a form for 'delete' you need a POST request --}}
 
 {{/each}}
 
