@@ -8,7 +8,7 @@ celebritiesRouter.post('/edit', (req, res) => {
   const _id = req.query._id;
   const {name, occupation, catchPhrase} = req.body;
 
-  Movie.updateOne({_id}, {name, occupation, catchPhrase})
+  Celebrity.updateOne({_id}, {name, occupation, catchPhrase})
     .then( () => {
       res.redirect('/celebrities')
     })
@@ -27,6 +27,29 @@ celebritiesRouter.get('/edit', (req, res) => {
     .catch( (err) => console.log(err));
 })
 
+/*
+ALT WAY TO DO /EDIT
+//POST '/celebrities/edit'
+celebritiesRouter.post('/:id/edit', (req, res) => {
+  const {id} = req.params;
+  const {name, occupation, catchPhrase} = req.body;
+
+  Celebrity.FindByIdAndUpdate(id, {name, occupation, catchPhrase})
+    .then( () => {
+      res.redirect('/celebrities')
+    })
+    .catch( (err) => console.log(err));
+})
+
+celebritiesRouter.get('/:id/edit', (req, res) => {
+  Celebrity.findById(req.query._id)
+    .then( oneCelebrity => {
+      const celebrity = oneCelebrity;
+      res.render('celebrities/edit', {celebrity});
+    })
+    .catch( (err) => console.log(err));
+})
+*/
 
 //GET /celebrities/:id/delete
 celebritiesRouter.post('/:id/delete', (req, res) => {
