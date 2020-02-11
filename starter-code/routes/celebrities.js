@@ -3,6 +3,27 @@ var celebritiesRouter = express.Router();
 
 const Celebrity = require("./../models/Celebrity");
 
+celebritiesRouter.post('/celebrities/:id', (req, res)=>{
+    const {name, occupation, catchphrase} = req.body;
+    Celebrity.update(req.params.id)
+        .then(celebrity => {
+        res.redirect("/celebrities");
+    })
+        .catch( (err) => {
+        console.log(err)
+    });
+})
+
+celebritiesRouter.get('/:id/edit', (req, res) => {
+    Celebrity.findById(req.params.id)
+    .then(celebrity => {
+        res.redirect("/celebrities/edit");
+    })
+    .catch( (err) => {
+        console.log(err)
+    });
+})
+
 celebritiesRouter.post('/:id/delete', (req, res) => {
     Celebrity.findByIdAndRemove(req.params.id)
         .then(celebrity => {
