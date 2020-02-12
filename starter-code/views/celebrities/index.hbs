@@ -1,0 +1,20 @@
+<section class="page">
+  <h2>Celebrities</h2>
+
+  {{#unless celebs}}
+  <p class="nothing">Sorry, nothing here yet...</p>
+  {{/unless}}
+  <a class ="create" href="/celebrities/new">Add a new celebrity</a>
+
+  <div class="grid">
+  {{#each celebs}}
+      <div class="cell">
+          <a class="celebrity" href="/celebrities/show/{{this._id}}">{{this.name}}</a>
+          <div class="buttons">
+            <form action="/celebrities/{{this._id}}/edit" method="get"><button type="submit">Edit</button></form>
+            <form action="/celebrities/{{this._id}}/delete" method="post"><button type="submit">Delete</button></form>
+          </div>
+      </div>
+  {{/each}}
+  </div>
+</section
