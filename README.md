@@ -81,13 +81,15 @@ The `Celebrity` model should have:
    - Create the celebrity schema with the properties `name`, `occupation` and `catchPhrase`.
    - Create the `Celebrity` model with the schema.
    - Export the `Celebrity` model.
-3. Create the `seeds.js` file in the `bin/` folder.
-4. In `seeds.js` file:
+3. In `seed.js` file:
    - Create an array of 3 objects, each with `name`, `occupation` and `catchPhrase` for our initial celebrities.
+   - Connect to the database.
    - Call the `Celebrity` model's `create` static, passing the array as argument.
    - When a call to `create` has succeeded, log a message to the console with feedback on the operation.
-5. Run the seed file with `node` to seed your database.
-6. Check the database with the `mongo` command to confirm that your data was saved.
+   - Disconnect from the database.
+4. Run the seed file with `node` to seed your database.
+
+Afterward, check the database with the MongoDB Compass to confirm that your data was saved.
 
 ## Iteration #2: Listing Our Celebrities
 
@@ -250,7 +252,7 @@ The `Movie` model should have:
 
 Go back and review what you did to create the `Celebrity` model. You'll need to create a file for the model, and in that file, you'll need to create a schema for the model as well.
 
-Once you've done that, go to your `seeds.js` file in the `bin/` folder and either delete or comment out the seeds you made before for your celebrities.
+Once you've done that, go to your `seed.js` file and either delete or comment out the seeds you made before for your celebrities.
 Replace these seeds with seeds for fake movies. If you don't delete/comment what you had before, when you run the seeds file with the `node` command in the terminal, it will create duplicates of all your celebrities.
 
 Afterward, check the database with the MongoDB Compass to confirm that your data was saved.
