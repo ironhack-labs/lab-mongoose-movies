@@ -17,6 +17,8 @@ app.use(
   require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
     dest: path.join(__dirname, 'public'),
+    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    force: process.env.NODE_ENV === 'development',
     sourceMap: true
   })
 );

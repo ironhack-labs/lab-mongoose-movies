@@ -50,16 +50,24 @@ $ git push origin master
 
 ### Iteration 0 | Initialize the project
 
-After forking and cloning the project, you will have to add a `.env` file:
+After forking and cloning the project, you will have to add a `.env` file with some environment variables:
 
 ```
+NODE_ENV=development
 PORT=3000
+MONGODB_URI=mongodb://localhost:27017/lab-mongoose-movies
 ```
 
 And you have to install all the dependencies:
 
 ```bash
 $ npm install
+```
+
+To make your life easier, we added a development script to the `package.json` file. Instead of having to run `node index.js` every time you make an update, you can run the following command (that uses the package `nodemon` behind the scenes):
+
+```bash
+$ npm run dev
 ```
 
 Now you are ready to start 🚀
