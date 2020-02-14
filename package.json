@@ -1,10 +1,9 @@
 {
-  "name": "starter-code",
-  "version": "0.0.0",
-  "private": true,
+  "name": "lab-mongoose-movies",
+  "version": "0.1.0",
   "scripts": {
     "start": "node ./server",
-    "dev": "nodemon ./server"
+    "dev": "nodemon ./server -e js,json,hbs,scss,css"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",
@@ -17,6 +16,6 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.19.4"
   }
 }
