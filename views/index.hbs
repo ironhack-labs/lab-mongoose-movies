@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+
+<p>Welcome to {{title}}</p>
+
+{{#if currentUser}}
+<p>Welcome back, {{currentUser.username}}</p>
+<form action="/logout" method="GET">
+    <p>Ready to logout ? </p><button type="submit">Logout</button>
+</form>
+{{else}}
+<p>Want to see the list of celebrities and movies? <a href="/login">Click here</a> to login.</p>
+
+<p>Not registered? <a href="/signup">Register here</a>.</p>
+{{/if}}
+
+{{#if currentUser}}
+<p>Check the list of movies and celebrities</p>
+<ul>
+    <p>Celebrity list</p>
+    <li><a href="/celebrities">List of celebrities!</a></li>
+    <li><a href="/celebrities/new">Add a new celebrity to the list</a></li>
+    <p>Movie list</p>
+    <li><a href="/movies">List of movies!</a></li>
+    <li><a href="/movies/new">Add a new movie to the list</a></li>
+</ul>
+{{/if}}

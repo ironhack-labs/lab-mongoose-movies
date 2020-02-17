@@ -1,0 +1,15 @@
+<a href="javascript:history.back()">Go back</a>
+
+<h2>This is {{this.name}}'s page</h2>
+
+<ul>
+    <li><b>Title:</b> {{this.name}}</li>
+    <li><b>Genre:</b> {{this.occupation}}</li>
+    <li><b>Plot:</b> {{this.catchPhrase}}</li>
+    <form action="/celebrities/{{this._id}}/delete" method="POST">
+        <button type="submit">Delete celebrity from list</button> 
+    </form>
+    <form action="/celebrities/{{this._id}}/edit" method="GET">
+        <button type="submit">Edit celebrity details</button> 
+    </form>
+</ul>

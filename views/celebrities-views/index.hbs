@@ -1,0 +1,9 @@
+<a href="javascript:history.back()">Go back</a>
+
+<h2>Celebrities' list</h2>
+
+<ul>
+{{#each celebritiesFromDB}}
+    <li><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+{{/each}}
+</ul>

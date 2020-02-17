@@ -1,0 +1,11 @@
+<h2>Edit {{this.name}}'s details here</h2>
+
+<form action="/celebrities/{{this.id}}/update" method="POST">
+    <label for="nameInput">Artist's Name</label>
+    <input type="text" name="name" id="nameInput" placeholder="James Bond" value="{{this.name}}">
+    <label for="occupationInput">Artist's occupation</label>
+    <input type="text" name="occupation" id="occupationInput" placeholder="Actor/Actress, Singer, Comedian, or Unknown" value="{{this.occupation}}">
+    <label for="catchphraseInput">Artist's catchphrase</label>
+    <input type="text" name="catchPhrase" id="catchphraseInput" value="{{this.catchPhrase}}"> 
+    <button>Edit celebrity's details</button>
+</form>

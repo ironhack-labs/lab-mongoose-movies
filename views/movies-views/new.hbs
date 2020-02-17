@@ -1,0 +1,18 @@
+<h2>Add a new movie to the list</h2>
+
+<form action="/movies" method="POST">
+    <label for="titleInput">Movie Name</label>
+    <input type="text" name="title" id="titleInput" placeholder="Goldenye">
+    <label for="genreInput">Movie genre</label>
+    <input type="text" name="genre" id="genreInput" placeholder="Action">
+    <label for="plot">Movie plot</label>
+    <input type="text" name="plot" id="plot" placeholder="Agent 007, along with Natalia Simonav, travels to Russia to locate the satellite nuclear weapon stolen by Alec, a former agent, who Bond believed was dead.">
+    <label for="cast">Movie cast</label>
+    <select name="cast" id="cast">
+        <option disable selected value=""></option>
+        {{#each celebritiesAvailable}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <button>Add movie</button>
+</form>
