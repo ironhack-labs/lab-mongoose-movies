@@ -1,10 +1,11 @@
 <h2>Celebrities</h2>
-{{#if error}} <h2>No found celebrities</h2> {{/if}}
-<a href="/celebrities/new">Add Celebrity</a>
-{{#each celebrities}}
-<li>
-  <a href="/celebrities/{{this._id}}">{{ this.name }}</a> | 
-  <a href="/celebrities/{{this._id}}/delete">Delete</a> | 
-  <a href="/celebrities/{{this._id}}/edit">Edit</a>
-</li>
+<a href="/new">⭐️ ADD CELEBRITY</a><br>
+{{#each allCelebrities}}
+
+<a href="/celebrities/{{this._id}}">
+    {{name}}
+</a>
+<a href="/celebrities/{{this._id}}/delete">❌</a>
+<br>
+
 {{/each}}

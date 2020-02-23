@@ -1,23 +1,41 @@
-const express = require('express');
-const router  = express.Router();
-const {
-  moviesGet,
-  movieGet,
-  moviesPost,
-  moviesNewGet,
-  movieDelGet,
-  movieEditPost,
-  movieEditGet
-} = require('../controllers/movies.controller')
+const router = require('express').Router()
 
-/* POST / GET movies ROUTES */
+const Movie = require('../models/Movie')
+
 router
-  .post('/', moviesPost)
-  .post('/:id', movieEditPost)
-  .get('/', moviesGet)
-  .get('/new', moviesNewGet)
-  .get('/:id/delete', movieDelGet)
-  .get('/:id/edit', movieEditGet)
-  .get('/:id', movieGet)
+  .get('/movies', async (req, res, next) => {
 
-module.exports = router;
+    const allMovies = await Movie.find() /* --- DUDA --- */
+    res.render('movies/index', {allMovies})
+
+  })
+  .get('/movies/:id', async (req, res, next) => {
+
+    const {id} = req.params
+    const movie = await Movie.findById(id)
+    // console.log(celebrity)
+    res.render('movies/show', movie)
+
+  })
+  .get('/newmovie', (req, res, next) => {
+    res.render('movies/new')
+  })
+  .post('/movies', async (req, res, next) => {
+
+    const {title, genre, plot} = req.body
+    const newMovie = {
+      title: title,
+      genre: genre,
+      plot: plot
+    }
+    await Movie.create(newMovie)
+    res.redirect('/movies')
+
+  })
+  .get('/movies/:id/delete', async (req, res, next) => {
+    const {id} = req.params
+    await Movie.findByIdAndDelete(id)
+    res.redirect('/movies')
+  })
+
+  module.exports = router
