@@ -1,7 +1,7 @@
 const mongoose     = require('mongoose');
 const Celeb = require('../models/Celebrities')
-//const Movie=require('../models/Movie')
-exports.celebsSpecs = [
+const Movie=require('../models/Movie')
+/*exports.celebsSpecs = [
   {
     name: "Tera",
     occupation: "unknown",
@@ -17,6 +17,27 @@ exports.celebsSpecs = [
     occupation: "unknown",
     catchphrase: "*loud scream*"
   }
+]
+*/
+
+exports.movieSeeds = [
+  {
+    title: "Blade Runner", 
+    genre: "Sci-fi",
+    plot: "Rain, robots and a unicorn."
+  },  
+  {
+    title: "My Neighbor Totoro", 
+    genre: "Cartoon",
+    plot: "Kids meet a bear, happen to not die."
+  }, 
+  {
+    title: "Marine", 
+    genre: "Action",
+    plot: "John Cena thinks he is Rambo."
+  }, 
+  
+
 ]
 
 mongoose
