@@ -1,0 +1,10 @@
+<h2>Celebrities</h2>
+{{#each celebSpecs as |celeb|}}
+<p>{{celeb.name}}</p>
+<p>{{celeb.occupation}}</p>
+<p>{{celeb.catchphrase}}</p>
+<form action="celebrities/{{_id}}/edit" method="GET">
+  <button type="submit"> Edit</button>
+</form>
+{{/each}}
+<h2><a href="celebrities/create">Create</a></h2>
