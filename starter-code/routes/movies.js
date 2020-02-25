@@ -1,4 +1,5 @@
-const router = require("router")
+const express = require("express");
+const router = express.Router();
 
 router.get("/movies", async(req, res)=>{
   const all = await Movies.find()

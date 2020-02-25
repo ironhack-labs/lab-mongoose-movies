@@ -1,7 +1,9 @@
 const mongoose     = require('mongoose');
 const Celeb = require('../models/Celebrities')
-const Movie=require('../models/Movie')
-/*exports.celebsSpecs = [
+const Movie=require('../models/Movies')
+
+
+ const celebsSpecs = [
   {
     name: "Tera",
     occupation: "unknown",
@@ -18,9 +20,9 @@ const Movie=require('../models/Movie')
     catchphrase: "*loud scream*"
   }
 ]
-*/
 
-exports.movieSeeds = [
+
+const movieSeeds = [
   {
     title: "Blade Runner", 
     genre: "Sci-fi",
@@ -53,4 +55,8 @@ mongoose
     await mongoose.connection.close()
     console.log('Connection closed')
 })
-.catch(err=> console.log('Error conecting to  Mongo'))
+.catch(err=> console.log('Error conecting to  Mongo: ' + err))
+
+module.exports= {
+  celebsSpecs, movieSeeds
+}

@@ -10,12 +10,16 @@ router.get("/", (req, res, next) => {
 
 router.get("/movies", async (req, res) => {
   const all = await Movies.find();
-  res.render("/Movies/index", { all });
+  res.render("/movies/index", { all });
 });
 
+/*
 router.get("/celebrities", async (req, res) => {
   const all = await Celebrities.find();
   res.render("celebrities/index", { all });
 });
+*/
 
 module.exports = router;
+
+
