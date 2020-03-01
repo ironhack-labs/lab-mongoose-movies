@@ -1,0 +1,9 @@
+<h1>Edit Celebrity</h1>
+<form action="/celebrities/{{celeb._id}}" method="post">
+  Name: <input type="text" value="{{celeb.name}}" name="name"> <br>
+  Occupation: <input type="text" value="{{celeb.occupation}}" name="occupation"><br>
+  Catchphrase: <input type="text" value="{{celeb.catchPhrase}}" name="catchPhrase"><br>
+  <button type="submit">Edit</button>
+</form>	
+
+<a href='/celebrities'>Back</a>

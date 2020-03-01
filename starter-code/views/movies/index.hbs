@@ -1,0 +1,13 @@
+<h1>MONGOOSE ATTACK</h1>
+
+<ul>
+{{#each movies}}
+<li>
+  <a href="movies/{{this._id}}">{{this.title}}</a>
+  <form action="movies/{{this._id}}/delete" method="post"><button type="submit">Delete</button></form>
+  <form action="movies/{{this._id}}/edit" method="get"><button type="submit">Edit</button></form>
+</li>
+{{/each}}
+</ul>
+<p>Click <a href="../movies/new"> here </a> to add a movie</p>
+<a href="/">Back</a>
