@@ -7,9 +7,11 @@ router.get('/', (req, res, next) => {
     .then(celebrities => {
       res.render('celebrities/index', { celebrities });
     })
-    .catch(error => {
-      next(error);
-    })
+    .catch(next);
+});
+
+router.get('/new', (req, res, next) => {
+	res.render('celebrities/new');
 });
 
 router.get('/:id', (req, res, next) => {
@@ -17,9 +19,20 @@ router.get('/:id', (req, res, next) => {
     .then(celebrity => {
       res.render('celebrities/show', { celebrity });
     })
-    .catch(error => {
-      next(error);
-    })
+    .catch(next);
+});
+
+router.post('/', (req, res, next) => {
+	const { name, occupation, catchPhrase } = req.body;
+	Celebrity.create({
+		name,
+		occupation,
+		catchPhrase,
+	})
+		.then(() => {
+			res.redirect('/celebrities');
+		})
+		.catch(next);
 });
 
 module.exports = router;
