@@ -8,17 +8,17 @@ const celebrities = [
     {
       name: "Popeye",
       occupation: "Sailor",
-      catchPhrase: "lorem ipsum"
+      catchPhrase: "I yam what I yam an' tha's all I yam"
     },
     {
       name: "Donald Trump",
-      occupation: "Prime Minister",
-      catchPhrase: "lorem ipsum"
+      occupation: "President of the USA",
+      catchPhrase: "Make America Great Again"
     },
     {
       name : "Bob Marley",
       ocuppation: "Musician",
-      catchPhrase: "lorem ipsum"
+      catchPhrase: "No Woman no cry"
     }
   ];
 
@@ -26,6 +26,6 @@ Celebrity.create(celebrities, err => {
   if (err) {
     throw err;
   }
-  console.log(`Created ${celebrities.length} movies`);
+  console.log(`Created ${celebrities.length} celebrities`);
   mongoose.connection.close();
 });
