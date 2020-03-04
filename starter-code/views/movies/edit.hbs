@@ -1,0 +1,10 @@
+<h1>Edit movie data</h1>
+<form action="/movies/{{movie._id}}" method="post">
+  <label for="title">title</label>
+  <input type="text" name="title" value="{{movie.title}}">
+  <label for="genre">genre</label>
+  <input type="text" name="genre" value="{{movie.genre}}">
+  <label for="plot">plot</label>
+  <input type="text" name="plot" value="{{movie.plot}}">
+  <input type="submit" value="register">
+</form>
