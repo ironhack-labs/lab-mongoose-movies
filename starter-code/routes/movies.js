@@ -14,13 +14,13 @@ router.get('/', (req, res, next) => {
 // 	res.render('celebrities/new');
 // });
 
-// router.get('/:id', (req, res, next) => {
-//   Celebrity.findById(req.params.id)
-//     .then(celebrity => {
-//       res.render('celebrities/show', { celebrity });
-//     })
-//     .catch(next);
-// });
+router.get('/:id', (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then(movie => {
+      res.render('movies/show', { movie });
+    })
+    .catch(next);
+});
 
 // router.post('/', (req, res, next) => {
 // 	const { name, occupation, catchPhrase } = req.body;
