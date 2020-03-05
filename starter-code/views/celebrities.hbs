@@ -4,9 +4,18 @@
     {{#each celebrity}}
     <li>
       <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+
+      <form action="/celebrities/{{this._id}}/delete" method="post">
+        <button type="submit">Delete?</button>
+      </form>
+      <a href="/celebrities/{{this._id}}/update">Do you want to update this celebrity?</a>
     </li>
+    </br>
     {{/each}}
 
     </br></br></br><a href="/celebrities/new">Do you want to create a new celebrity?</a>
+
+  
+
   </ul>
 </div>
