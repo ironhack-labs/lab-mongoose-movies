@@ -47,4 +47,17 @@ router.post('/', (req, res, next) => {
     })
 });
 
+router.post('/:id/delete', (req, res, next) => {
+	const { id } = req.params;
+	Celebrity.deleteOne( {_id: id})
+		.then(success => {
+			console.log(`Deleted celebrity`);
+			res.redirect('/celebrities');
+		})
+		.catch(error => {
+			console.log('Error while deleting a celebrity: ', error);
+			next(error);
+		});
+});
+
 module.exports = router;
