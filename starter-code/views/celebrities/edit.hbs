@@ -1,0 +1,12 @@
+<form action="/celebrities/{{celebrity._id}}" method="post">
+  <label for="name">name</label>
+  <input type="text" name="name" value="{{celebrity.name}}"><br><br>
+
+  <label for="occupation">occupation</label>
+  <input type="text" name="occupation" value="{{celebrity.occupation}}"><br><br>
+
+  <label for="catchPhrase">description</label>
+  <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}"><br><br>
+  
+  <input type="submit" value="register">
+</form> 
