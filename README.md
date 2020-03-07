@@ -81,8 +81,8 @@ The `Celebrity` model should have:
 
 ### Steps we will follow in this iteration:
 
-1. Create the `celebrity.js` model file in the `models/` folder.
-2. In the `celebrity.js` model file:
+1. Create the `Celebrity.js` model file in the `models/` folder.
+2. In the `Celebrity.js` model file:
     - Create the `Celebrity` model with the schema.
     - Create the celebrity schema with `name`, `occupation` and `catchPhrase`.
     - Export the `Celebrity` model.

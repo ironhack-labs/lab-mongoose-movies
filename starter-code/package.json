@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "DEBUG=starter-code:* nodemon ./bin/www",
-    "dev-windows": "nodemon ./bin/www"
+    "start-dev": "nodemon ./bin/www",
+    "init": "eslint --init"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -19,6 +20,9 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
     "nodemon": "^1.12.1"
   }
 }

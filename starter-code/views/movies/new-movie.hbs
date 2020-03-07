@@ -1,0 +1,11 @@
+<h1>New movie</h1>
+<form method="post" action="/movies/new">
+    Title <input name="title">
+    Genre <input name="genre">
+    Plot <input name="plot"><br>
+    Cast :
+    {{#each celebrities }}
+        <div><input type="checkbox" name="cast" value="{{this._id}}">{{this.name}}</div>
+    {{/each}}
+    <button type="submit">Create</button>
+</form>
