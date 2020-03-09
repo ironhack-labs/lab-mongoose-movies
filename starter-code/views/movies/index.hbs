@@ -1,0 +1,20 @@
+
+
+<h2>Our Movie Database</h2>
+
+{{#each movies}}
+
+<a href="/movies/{{this.id}}">
+<p>{{this.title}}</p>
+</a>
+
+<button><a href="/movies/delete/{{this._id}}">Delete this movie</a></button>
+<button><a href="/movies/edit/{{this._id}}">Edit this movie</a></button>
+
+{{/each}}
+
+
+<br>
+<br>
+
+<button><a href="/movies/new">Add new movie</a></button>
