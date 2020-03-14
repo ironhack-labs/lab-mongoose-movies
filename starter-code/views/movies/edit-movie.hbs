@@ -1,0 +1,26 @@
+<h2>Edit the movie!</h2>
+{{!-- this part is not show in the hbs,only for get the cast information to DOM --}}
+<ul style="display: none;" class="edit-movie-cast">
+    {{#each movie.cast}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>
+<form action="/movies/{{movie.id}}" method="POST" class="edit-movie-form">
+    <label for="movie-title">title</label>
+    <input type="text" id="movie-title" name="title" value="{{movie.title}}">
+
+    <label for="movie-genre">genre</label>
+    <input type="text" id="movie-genre" name="genre" value="{{movie.genre}}">
+
+    <label for="movie-plot">plot</label>
+    <input type="text" id="movie-plot" name="plot" value="{{movie.plot}}">
+
+    <label for="edit-movie-cast">Choice the cast</label>
+    <select name="cast" id="edit-movie-cast"  multiple>
+        {{#each celebrities}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+
+    <button type="submit">Update the movie!</button>
+</form>
