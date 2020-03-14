@@ -26,7 +26,7 @@ router.get("/new", (req, res, next) => {
 
 router.get("/:id/edit", (req, res, next) => {
   const celebrities = Celebrity.find();
-  const movies = Movie.findById(req.params.id).populate("celebrities");
+  const movies = Movie.findById(req.params.id).populate("cast");
 
   Promise.all([movies, celebrities])
     .then(result => {
@@ -37,11 +37,11 @@ router.get("/:id/edit", (req, res, next) => {
 
 router.get("/:id", (req, res, next) => {
   const celebrities = Celebrity.find();
-  const movies = Movie.findById(req.params.id).populate("celebrities");
+  // Reference to the location where the id's are place, instead of the whole object.
+  const movies = Movie.findById(req.params.id).populate("cast");
 
     Promise.all([movies,celebrities])
     .then(result => {
-      console.log(result[0])
       res.render("movies/show", { movieId: result[0], celebrityId: result[1] });
     })
     .catch(e => next(e));
@@ -70,7 +70,6 @@ router.post("/:id/delete", (req, res, next) => {
 router.post("/:id", (req, res, next) => {
   const { title, genre, plot } = req.body;
   // Here the '_id' is necessary instead of 'id', otherwise it will not work..
-  // Cat.updateOne({ _id: req.params.id }, { $push: { foods: req.body.foodId } });
   console.log(req.body.castId)
   Movie.updateOne({ _id: req.params.id }, { $set: { title, genre, plot } })
   Movie.updateOne({ _id: req.params.id }, { $push: { cast: req.body.castId } })

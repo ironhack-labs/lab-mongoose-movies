@@ -45,12 +45,12 @@ connect("mongodb://localhost/lab-mongoose-movies", {useNewUrlParser: true})
   console.log("Error connecting to MongoDB: ", err);
 });
 
-// const Celebrity = require('../models/celebrity');
+const Celebrity = require('../models/celebrity');
 
-// Celebrity.insertMany(celebs).then(celebrity => {
-//   console.log(`Filled the database with ${celebrity}`);
-//   mongoose.disconnect();
-// });
+Celebrity.insertMany(celebs).then(celebrity => {
+  console.log(`Filled the database with ${celebrity}`);
+  mongoose.disconnect();
+});
 
 const Movie = require('../models/movie');
 
