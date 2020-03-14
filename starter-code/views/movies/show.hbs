@@ -1,0 +1,10 @@
+ <h2> Movie Info</h2>
+
+ <p>{{movieId.title}}</p>
+ <p>{{movieId.genre}}</p>
+ <p>{{movieId.plot}}</p>
+ 
+ {{#each movieId.cast}}
+ <p>{{name}}</p>
+ {{/each}}  
+ <p><a href="/movies">Go back</a></p>
