@@ -1,0 +1,19 @@
+<h2>Celebrities</h1>
+{{#each allTheCelebrities}}
+{{this.name}}
+<a href="celebrities/{{this._id}}">See more details</a>
+<a href="/celebrities/{{this._id}}/edit">Edit celebrity</a>
+<form action="/celebrities/{{this._id}}/delete" method="POST">
+  <button type="submit">Delete celebrity</button>
+</form>
+{{/each}}
+
+<form action="/celebrities/add" method="POST">
+  <label>Name</label>
+   <input type="text" name="name">
+  <label>Occupation</label>
+   <input type="text" name="occupation">
+  <label>Catch Phrase</label>
+   <input type="text" name="catchPhrase">
+  <button type="submit">Create celebrity</button>
+</form>
