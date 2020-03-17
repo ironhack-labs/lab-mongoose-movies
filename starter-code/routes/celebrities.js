@@ -12,6 +12,10 @@ routerCelebretity.get('/', (req, res) => {
     .catch( (err) => console.log(err));
 })
 
+routerCelebretity.get('/new', (req, res) =>{
+  res.render('celebrities/new');
+})
+
 routerCelebretity.get('/:id', (req, res) =>{
   Celebrity.findById(req.params.id)
     .then( oneCelebrity => {
@@ -19,5 +23,8 @@ routerCelebretity.get('/:id', (req, res) =>{
     })
     .catch( (err) => console.log(err));
 })
+
+
+
 
 module.exports = routerCelebretity; 
