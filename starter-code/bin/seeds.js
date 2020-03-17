@@ -27,7 +27,9 @@ mongoose
 //     }
 // ];
 
-// Celebrity.create(celebrities).then(celebrities => { console.log(`${celebrities.length} celebrities have been created!`) })
+// Celebrity.create(celebrities).then(celebrities => { 
+//  console.log(`${celebrities.length} celebrities have been created!`) })
+// mongoose.connection.close();
 // .catch(err => { console.log('An error happened:', err)
 // });
 

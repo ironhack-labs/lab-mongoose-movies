@@ -43,14 +43,14 @@ router.get('/:id', (req, res, next) => {
   router.get("/:id/edit", (req, res, next) => {
     Movie.findById(req.params.id)
       .then(movieEdit => {
-        res.render("movies/edit", { movieEdit });
+        res.render("movies/edit", {movieEdit});
       })
       .catch(e => next(e));
   });
 
-  router.post ('/:id', (req, res, next) => {
+  router.post ('/:id/edit', (req, res, next) => {
     const { title, genre, plot } = req.body;
-    const { id} = req.params;
+    const {id} = req.params;
     Movie.update({_id : id},
         {$set: {title, genre, plot}})
         .then(() => {
@@ -58,5 +58,7 @@ router.get('/:id', (req, res, next) => {
         })
         .catch(next)
 });
+
+
 
 module.exports = router;
