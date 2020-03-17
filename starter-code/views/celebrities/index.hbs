@@ -1,5 +1,9 @@
 <div>
+    <ul>
 {{#each celebrities}}
-<h2>{{this}}</h2>
+<li>nombre: {{this.name}} <a class="btn btn-info"href="celebrities/{{this._id}}">Más info</a><form action="celebrities/{{this._id}}/delete" method="post"><button>Delete</button></form><a class="btn btn-info"href="celebrities/{{this._id}}/edit">Edit</a></li>
 {{/each}}
+</ul>
+<a href="/celebrities/new">Añadir</a>
+
 </div>

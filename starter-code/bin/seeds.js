@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 
-const dbtitle = 'serverCelebrity';
+const dbtitle = 'celebrity';
 mongoose.connect(`mongodb://localhost/${dbtitle}`, { useNewUrlParser: true, useUnifiedTopology: true });
 Celebrity.collection.drop();
 
