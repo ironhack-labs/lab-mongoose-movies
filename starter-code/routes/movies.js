@@ -48,7 +48,7 @@ router.get('/:id', (req, res, next) => {
       .catch(e => next(e));
   });
 
-  router.post ('/:id/edit', (req, res, next) => {
+  router.post ('/:id', (req, res, next) => {
     const { title, genre, plot } = req.body;
     const {id} = req.params;
     Movie.update({_id : id},
