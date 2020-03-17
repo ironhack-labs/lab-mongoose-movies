@@ -1,17 +1,16 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 .indexbackground {
   background: url("../images/cinema.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
-}
+  overflow: hidden; }
+
+/*# sourceMappingURL=style.css.map */

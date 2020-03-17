@@ -2,9 +2,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 //Model Movie
 const Celebrity = require('../models/celebrity');
-
+const Movie = require('../models/movie');
 //Connecting DB
-
 mongoose.connect(`mongodb://localhost/${process.env.DBNAME}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Remove previous collection if exist
@@ -29,7 +28,32 @@ const celebrities = [
 ];
 
 Celebrity.create(celebrities, (err)=>{
-  if (err) {throw(err)};
+  if (err) {throw(err);}
   console.log(`Created ${celebrities.length} celebrities`);
+});
+
+Movie.collection.drop();
+
+const movies = [
+  {
+    title: "Avatar",
+    genre: "Ciencia ficcion",
+    plot: "Unos"
+  },
+  {
+    title : "Avatar 2",
+    genre: "Ciencia ficcion",
+    plot: "Se anunciara"
+  },
+  {
+    title : "Avatar 3",
+    genre: "Ciencia ficcion",
+    plot: "Se anunciara"
+  }
+];
+
+Movie.create(movies, (err)=>{
+  if (err) {throw(err);}
+  console.log(`Created ${movies.length} movies`);
   mongoose.connection.close();
 });
