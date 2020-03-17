@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/Celebrity-project', {useNewUrlParser: true, useUnifiedTopology:true} )
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -49,10 +49,19 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+/* como acceder a las distintas rutas: (recuerda que para hacerselo más fácil a js vamos a tener las rutas en varios archivos js) */
 
+/* como le digo a la app en que archivo buscar las rutas? */
 
-const index = require('./routes/index');
+/* le vamos a decir que las rutas qeu empiexen por / las mire en index.js */
+
+/* y las que empiecen por /celebrities qeu las bbbbbbbusque en celebrities.js */
+
+const index = require('./routes/index.js');
 app.use('/', index);
+
+const celebritiesCall /* celebritisCall es el nombre que tu quieras */= require ('./routes/celebrities.js' /* es el archivo .js donde la app tiene que buscar mi ruta */);
+app.use ('/celebrities' /* /celebrities es como van a empezar a las rutas */, celebritiesCall /* es como yo haya llamado a mi constante de la linea anterior */);
 
 
 module.exports = app;
