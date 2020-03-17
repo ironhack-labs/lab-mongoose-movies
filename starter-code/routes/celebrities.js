@@ -27,6 +27,13 @@ routerCelebretity.post('/new', (req, res) =>{
     })
 })
 
+routerCelebretity.post('/:id/delete', (req, res) =>{
+  Celebrity.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.redirect('/celebrities')
+    })
+    .catch( (err) => console.log(err));
+})
 
 routerCelebretity.get('/:id', (req, res) =>{
   Celebrity.findById(req.params.id)
@@ -36,7 +43,21 @@ routerCelebretity.get('/:id', (req, res) =>{
     .catch( (err) => console.log(err));
 })
 
+routerCelebretity.post("/:id", (req, res, next) => {
+    const { name, occupation, catchPhrase} = req.body;    
+    Celebrity.updateOne({ _id: req.params.id }, { $set: { name, occupation, catchPhrase } })
+    .then(() => res.redirect("/celebrities"))
+    .catch(err => next(err));
+});
 
+
+routerCelebretity.get('/:id/edit', (req, res) =>{
+  Celebrity.findById(req.params.id)
+    .then( oneCelebrity => {
+      res.render('celebrities/edit', {celebrity: oneCelebrity})
+    })
+    .catch( (err) => console.log(err));
+})
 
 
 module.exports = routerCelebretity; 

@@ -5,6 +5,7 @@ const Celebrity = require('../models/celebrity');
 const dbtitle = 'celebritiesAndMovies';
 mongoose.connect(`mongodb://localhost/${dbtitle}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
+
 const celebrities = [
     {
       name: "Kanye West",
