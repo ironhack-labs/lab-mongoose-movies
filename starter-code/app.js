@@ -52,8 +52,13 @@ app.locals.title = 'Celebrityyyyyyy';
 
 
 const index = require('./routes/index');
-const routeCelebrities = require('./routes/celebrities.js');
 app.use('/', index);
+
+const routeCelebrities = require('./routes/celebrities.js');
 app.use('/celebrities', routeCelebrities)
+
+const routeMovies = require('./routes/movies.js');
+app.use('/movies', routeMovies)
+
 
 module.exports = app;
