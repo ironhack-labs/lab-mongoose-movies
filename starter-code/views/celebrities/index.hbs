@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+{{#each celebrities}}
+<p >{{this.name}}</p>
+<img src="{{this.image}}" alt="" srcset="">
+<button  class="btn btn-danger " type="submit"><a href= "/celebrities/{{this._id}}" class="edit-button">>See More</a></button> 
+<form action="/celebrities" method="post">
+<button type="submit" ><a href="/celebrities/delete/{{this._id}}">Remove</a></button>
+</form>
+{{/each}}
+<a href="/celebrities/new">Add</a>
+<a href="/">Return</a>
