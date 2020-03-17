@@ -12,6 +12,7 @@ const path = require('path');
 
 const dbtitle = 'celebrity';
 
+
 mongoose
     .connect(`mongodb://localhost/${dbtitle}`, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(x => {
@@ -55,7 +56,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/site-routes');
 const celebrities = require('./routes/celebrities/celebrities');
+const movies = require('./routes/movies/movies');
 app.use('/', index);
 app.use('/celebrities', celebrities);
+app.use('/movies', movies);
 
 module.exports = app;
