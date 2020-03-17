@@ -7,7 +7,7 @@ a {
   color: #00B7FF;
 }
 
-img {
+.celebrities {
   object-fit: cover;
   width: auto;
   height: auto;
@@ -15,4 +15,14 @@ img {
   min-height: 300px;
   max-width: 400px;
   max-height: 300px;
+}
+
+.movies {
+  max-width: 30%
+}
+
+.posters {
+  object-fit: contain;
+  height: 400px;
+  width: auto;
 }

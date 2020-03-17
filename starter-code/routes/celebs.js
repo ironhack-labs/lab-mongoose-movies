@@ -8,7 +8,7 @@ const Celebrity = require("../models/celebrities")
 module.exports = router;
 
 
-router.get('/celebrities', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     celebrities = await Celebrity.find()
     res.render('celebrities/celebrities', {celebrities});
@@ -32,11 +32,11 @@ router.get('/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
-router.post('/celebrities', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const {name, occupation, catchPhrase, image} = req.body
     await Celebrity.create({name, occupation, catchPhrase, image})
-    res.redirect('/celebrities/celebrities');
+    res.redirect('/celebrities/');
   } catch {
     next();
     (err)=> console.error("There was an error: ",err)}  
@@ -46,7 +46,7 @@ router.post('/celebrities', async (req, res, next) => {
 router.get('/celebrity-delete/:id', async (req, res, next) => {
   try {
     celebrities = await Celebrity.findByIdAndRemove(req.params.id)
-    res.redirect('/celebrities/celebrities');
+    res.redirect('/celebrities/');
   } catch {
     next();
     (err)=> console.error("There was an error: ",err)}  
@@ -67,7 +67,7 @@ router.post("/:id", async (req,res,next) =>{
  try {
   const {name, occupation, catchPhrase, image}= req.body
   await Celebrity.update({_id: req.params.id}, {$set: {name, occupation, catchPhrase, image}}, {new: true})
-  res.redirect("/celebrities/celebrities")
+  res.redirect("/celebrities/")
   } catch {
   next();
   (err)=> console.error("There was an error: ",err)}  

@@ -1,23 +1,23 @@
 <div class="card col-lg-6 form align-items-center">
-  <form action="/celebrities/{{_id}}" method="POST">
-    <h1 class="mt-4 mb-2">Add a new celebrity to the list</h1>
-    <label class="mt-3" d-block for="name">Name</label>
-    <input class="d-block w-100" type="text" name="name" required title="Please input a valid name" onchange="
+  <form action="/movies/{{_id}}" method="POST">
+    <h1 class="mt-4 mb-2">Add a new film to the list</h1>
+    <label class="mt-3" d-block for="title">Title</label>
+    <input class="d-block w-100" type="text" name="title" required title="Please input a valid title" onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" placeholder="Raphael delaGhetto"
-      value="{{name}}">
+      value="{{title}}">
     <br>
-    <label class="mt-3" d-block for="occupation">Occupation</label>
-    <input class="d-block w-100" type="text" name="occupation" required title="Please input a valid occupation"
+    <label class="mt-3" d-block for="genre">Genre</label>
+    <input class="d-block w-100" type="text" name="genre" required title="Please input a valid genre"
       onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');"
-      placeholder="Chemical weapon human test subject" value="{{occupation}}">
+      placeholder="Chemical weapon human test subject" value="{{genre}}">
 
     <br>
-    <label class="mt-3" d-block for="catchPhrase">Catchphrase</label>
-    <input class="d-block w-100" type="text" name="catchPhrase" required title="Please input a valid catchphrase"
+    <label class="mt-3" d-block for="plot">Plot</label>
+    <input class="d-block w-100" type="text" name="plot" required title="Please input a valid plot"
       onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" placeholder="Who let the dogs out?"
-      value="{{catchPhrase}}">
+      value="{{plot}}">
     <br>
     <label class="mt-3 d-block" for="image">Image</label>
     <input class="d-block w-100" type="text" name="image" required title="Please input a valid image URL" onchange="
