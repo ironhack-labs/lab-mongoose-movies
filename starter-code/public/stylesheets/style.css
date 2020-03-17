@@ -22,4 +22,22 @@ a {
   height: 400px;
   width: auto; }
 
+.movie-waypoint {
+  background-image: url("https://img.moviepostershop.com/the-evil-dead-movie-poster-1983-1020292502.jpg");
+  background-size: contain;
+  height: 425px;
+  width: 320px;
+  text-decoration: none !important;
+  color: white;
+  text-shadow: 0.075em 0.08em 0.1em black; }
+
+.celeb-waypoint {
+  background-image: url("https://i.pinimg.com/originals/26/5d/88/265d88e7b255c2b3de8044a60670add9.jpg");
+  background-size: contain;
+  height: 425px;
+  width: 320px;
+  text-decoration: none !important;
+  color: white;
+  text-shadow: 0.075em 0.08em 0.1em black; }
+
 /*# sourceMappingURL=style.css.map */
