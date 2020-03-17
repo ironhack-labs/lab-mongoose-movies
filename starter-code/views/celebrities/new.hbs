@@ -1,0 +1,33 @@
+<div class="card col-lg-6 form align-items-center">
+  <form action="/celebrities/celebrities" method="POST">
+    <h1 class="mt-4 mb-2">Add a new celebrity to the list</h1>
+    <label class="mt-3" d-block for="password">Name</label>
+    <input class="d-block w-100" type="text" name="name" required title="Please input a valid name" onchange="
+        this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" placeholder="Raphael delaGhetto">
+    <br>
+    <label class="mt-3" d-block for="password">Occupation</label>
+    <input class="d-block w-100" type="text" name="occupation" required title="Please input a valid occupation"
+      onchange="
+        this.setCustomValidity(this.validity.patternMismatch ? this.title : '');"
+      placeholder="Chemical weapon human test subject">
+
+    <br>
+    <label class="mt-3" d-block for="password">Catchphrase</label>
+    <input class="d-block w-100" type="text" name="catchPhrase" required title="Please input a valid catchphrase"
+      onchange="
+        this.setCustomValidity(this.validity.patternMismatch ? this.title : '');"
+      placeholder="Who let the dogs out?">
+    <br>
+    <label class="mt-3 d-block" for="image">Image</label>
+    <input class="d-block w-100" type="text" name="image" required title="Please input a valid image URL" onchange="
+        this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" placeholder="Image URL goes here">
+    <br>
+    <button type="submit" class="btn my-4 btn-primary w-100">What monstruosity shall you unleash upon this cursed
+      world?</button>
+  </form>
+
+  {{#if errorMessage}}
+  <h4 class="rounded-pill text-center font-weight-bold py-3 px-2 bt-danger text-light font-weight-bold mb-5">{{ errorMessage}}</h4>
+  {{/if}}
+
+</div>
