@@ -13,7 +13,7 @@ const path = require('path');
 const dbtitle = 'celebrity';
 
 mongoose
-    .connect(`mongodb://localhost/${dbtitle}`, { useNewUrlParser: true })
+    .connect(`mongodb://localhost/${dbtitle}`, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
     })

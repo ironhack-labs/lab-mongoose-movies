@@ -69,15 +69,18 @@ router.get('/:_id/edit', async(req, res, next) => {
 router.post('/:_id/edit', async(req, res, next) => {
     try {
         console.log(req.body);
-        const { name, occupation, catchPhrase } = req.body;
-        await Celebrity.updateOne({}, {
-            name,
-            occupation,
-            catchPhrase
-        }).save();
+        const { id, name, occupation, catchPhrase } = req.body;
+        console.log(id);
+        await Celebrity.update({ _id: id }, {
+            $set: {
+                name,
+                occupation,
+                catchPhrase
+            }
+        });
         res.redirect('/celebrities')
-    } catch {
-        res.render('celebrities/new')
+    } catch (error) {
+        console.log(error);
     }
 
 });
