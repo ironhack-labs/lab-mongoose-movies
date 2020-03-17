@@ -10,8 +10,9 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/Celebrity-project', {useNewUrlParser: true, useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -51,8 +52,14 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const index  /* cualquier nombre de variable */ = require('./routes/index' /* el archivo .js donde están mis rutas */);
+app.use('/' /* como queremos que empiece la ruta */, index /* la constante de la linea anterior */);
+
+const indexCeleb = require('./routes/celebrities');
+app.use('/celebrities', indexCeleb);
+
+const movies = require('./routes/movies');
+app.use('/movies', movies);
 
 
 module.exports = app;
