@@ -1,0 +1,29 @@
+<div class="d-flex flex-column justify-content-center align-items-center w-100">
+<h2>ADD A NEW CELEBRITY</h2>
+
+<form action="/celebrities" method="POST">
+    <!--NAME-->
+  <div class="form-group">
+
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+    
+  </div>
+<!--OCCUPATION-->
+  <div class="form-group">
+
+    <label for="occupation">Occupation</label>
+    <input type="text" class="form-control" name="occupation" id="occupation" placeholder="Enter occupation">
+    
+  </div>
+  <!--CATCHPHRASE-->
+  <div class="form-group">
+
+    <label for="catchPhrase">Catch phrase</label>
+    <input type="text" class="form-control" name="catchPhrase" id="catchPhrase" placeholder="Enter catch phrase">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">SUBMIT</button>
+<a class="btn btn-dark ml-4" href="/celebrities">Go back</a>
+</form>
+</div>

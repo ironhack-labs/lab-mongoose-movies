@@ -1,0 +1,17 @@
+<div class="d-flex flex-column justify-content-center align-items-center w-100">
+<h2>MOVIES</h2>
+<div class="d-flex flex-row justify-content-between align-items-center">
+{{#each movies}}
+
+<div class="card d-flex flex-column justify-content-center align-items-center p-4 mx-3 my-3">
+<a href="/movies/{{this._id}}">{{this.title}}</a>
+<form action="/movies/{{this._id}}/delete" method="POST">
+  <button type="submit" class="btn btn-danger my-3">Delete</button>
+</form>
+ <a href="/movies/{{this._id}}/edit" type="submit" class="btn btn-info my-3">Edit</a>
+</div>
+{{/each}}
+</div>
+<a class="btn btn-success mb-3" href="/movies/new">Add new movie</a>
+<a class="btn btn-dark" href="/">Go back</a>
+</div>

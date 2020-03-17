@@ -1,0 +1,29 @@
+<div class="d-flex flex-column justify-content-center align-items-center w-100">
+<h2>EDIT THE MOVIE</h2>
+
+<form action="/movies/{{movie._id}}" method="POST">
+    <!--Title-->
+  <div class="form-group">
+
+    <label for="editedTitle">Title</label>
+    <input value="{{movie.title}}" type="text" class="form-control" name="editedTitle" id="editedTitle" placeholder="Enter title">
+    
+  </div>
+<!--Genre-->
+  <div class="form-group">
+
+    <label for="editedGenre">Genre</label>
+    <input value="{{movie.genre}}" type="text" class="form-control" name="editedGenre" id="editedGenre" placeholder="Enter genre">
+    
+  </div>
+  <!--Plot-->
+  <div class="form-group">
+
+    <label for="editedPlot">Plot</label>
+    <input value="{{movie.plot}}" type="text" class="form-control" name="editedPlot" id="editedPlot" placeholder="Enter plot">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">EDIT</button>
+<a class="btn btn-dark ml-5" href="/movies">Go back</a>
+</form>
+</div>
