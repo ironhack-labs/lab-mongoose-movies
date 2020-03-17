@@ -1,0 +1,15 @@
+<div class="py-5 text-center" >
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-lg-8">
+          <form action="/movies/{{_id}}/edit" method="POST" class=" d-flex flex-column align-items-center align-content-center justify-content-center m-5">
+            <input name="id" type="hidden" value="{{_id}}" class="m-2">
+            <input name="title" type="text" value="{{title}}" class="m-2" required>
+            <input name="genre" type="text" value="{{genre}}" class="m-2" required>
+            <input name="plot" type="text" value="{{plot}}" class="m-2" required>
+            <button class="m-5 btn btn-warning text-white" type="submit">EDIT</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

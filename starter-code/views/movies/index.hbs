@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row m-5 d-flex align-items-center align-content-center justify-content-center">
+    <div class="col-10 text-center"><a href="/movies/new"><button class="btn btn-success">ADD</button></a></div>
+    {{#each movies}}
+    <div class="card m-5 d-flex align-items-center align-content-center justify-content-center">
+      <div class="m-5 card-title">
+      <a href="/movies/{{this._id}}" class="h2">{{this.title}}</a>
+      </div>
+      <div class="card-body">
+        <form action="/movies/{{this._id}}/delete" method="POST">
+        <button type="submit" class="btn btn-danger">DELETE</button>
+        </form>
+      </div>
+      <div class="card-body"><a href="/movies/{{this._id}}/edit"><button type="submit" class="btn btn-warning text-white">EDIT</button></a></li>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
