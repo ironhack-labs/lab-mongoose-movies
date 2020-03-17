@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
+
 
 const dbtitle = 'celebritiesAndMovies';
 mongoose.connect(`mongodb://localhost/${dbtitle}`, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -27,3 +29,25 @@ Celebrity.create(celebrities, (err) => {
     mongoose.connection.close();
   });
 
+  Movie.collection.drop();
+
+  const movies = [{
+        title: 'Joker',
+        genre: 'Thriller',
+        plot: 'In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.'
+    },{        
+        title: 'Onward',
+        genre: 'Animation',
+        plot: 'Set in a suburban fantasy world, two teenage elf brothers embark on a quest to discover if there is still magic out there.'
+    }, {        
+        title: 'Vengadores: Endgame',
+        genre: 'Action',
+        plot: 'After the devastating events of Vengadores: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\'actions and restore balance to the universe.'
+    }
+];
+
+Movie.create(movies, (err) => {
+    if (err) {throw(err) }
+    console.log(`Created ${movies.length} movies`)
+    mongoose.connection.close();
+  });

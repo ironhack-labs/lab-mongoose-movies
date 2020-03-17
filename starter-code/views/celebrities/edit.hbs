@@ -1,0 +1,29 @@
+<div class="d-flex flex-column justify-content-center align-items-center w-100">
+<h2>EDIT THE CELEBRITY</h2>
+
+<form action="/celebrities/{{celebrity._id}}" method="POST">
+    <!--NAME-->
+  <div class="form-group">
+
+    <label for="editedName">Name</label>
+    <input value="{{celebrity.name}}" type="text" class="form-control" name="editedName" id="editedName" placeholder="Enter name">
+    
+  </div>
+<!--OCCUPATION-->
+  <div class="form-group">
+
+    <label for="editedOccupation">Occupation</label>
+    <input value="{{celebrity.occupation}}" type="text" class="form-control" name="editedOccupation" id="editedOccupation" placeholder="Enter occupation">
+    
+  </div>
+  <!--CATCHPHRASE-->
+  <div class="form-group">
+
+    <label for="editedCatchPhrase">Catch phrase</label>
+    <input value="{{celebrity.catchPhrase}}" type="text" class="form-control" name="editedCatchPhrase" id="editedCatchPhrase" placeholder="Enter catch phrase">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">EDIT</button>
+<a class="btn btn-dark ml-5" href="/celebrities">Go back</a>
+</form>
+</div>
