@@ -17,8 +17,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-	const { name, occupation, catchPhrase } = req.body;
-	Movie.create({ name, occupation, catchPhrase })
+	const { title, genre, plot } = req.body;
+	Movie.create({ title, genre, plot })
 		.then(() => {
 			res.redirect('/movies');
 		})
