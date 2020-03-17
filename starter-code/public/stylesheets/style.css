@@ -1,11 +1,9 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 .celebrities {
   object-fit: cover;
@@ -14,18 +12,15 @@ a {
   min-width: 300px;
   min-height: 300px;
   max-width: 400px;
-  max-height: 300px;
-}
+  max-height: 300px; }
 
 .movies {
-  max-width: 30%
-}
+  max-width: 30%; }
 
 .posters {
   object-fit: contain;
   height: 400px;
-  width: auto;
-}
+  width: auto; }
 
 .movie-waypoint {
   background-image: url("https://img.moviepostershop.com/the-evil-dead-movie-poster-1983-1020292502.jpg");
@@ -34,8 +29,7 @@ a {
   width: 320px;
   text-decoration: none !important;
   color: white;
-  text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1); 
-}
+  text-shadow: 0.075em 0.08em 0.1em black; }
 
 .celeb-waypoint {
   background-image: url("https://i.pinimg.com/originals/26/5d/88/265d88e7b255c2b3de8044a60670add9.jpg");
@@ -44,5 +38,6 @@ a {
   width: 320px;
   text-decoration: none !important;
   color: white;
-  text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1); 
-}
+  text-shadow: 0.075em 0.08em 0.1em black; }
+
+/*# sourceMappingURL=style.css.map */
