@@ -16,6 +16,18 @@ routerCelebretity.get('/new', (req, res) =>{
   res.render('celebrities/new');
 })
 
+routerCelebretity.post('/new', (req, res) =>{
+  const {name, occupation, catchPhrase} = req.body;
+  Celebrity.create({name,occupation, catchPhrase})
+    .then((newCelebrity) => {
+      res.redirect('/celebrities')
+    })
+    .catch( (err) => {
+      res.render('celebrities/new');
+    })
+})
+
+
 routerCelebretity.get('/:id', (req, res) =>{
   Celebrity.findById(req.params.id)
     .then( oneCelebrity => {
