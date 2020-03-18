@@ -72,7 +72,7 @@ router.get('/:_id/edit', async (req, res, next) => {
 		next(error);
 	}
 });
-router.post('/:_id/edit', async (req, res, next) => {
+router.post('/:_id/', async (req, res, next) => {
 	try {
 		console.log(req.body);
 		const {
