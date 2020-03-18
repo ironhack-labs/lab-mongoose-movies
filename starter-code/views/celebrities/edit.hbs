@@ -2,8 +2,8 @@
 <br>
 <form action="/celebrities/edit" method="POST">
 	<input name="id" type="hidden" value={{_id}}>
-	<input name="name" type="text" placeholder="{{name}}" required>
-	<input name="occupation" type="text" placeholder="{{occupation}}" required>
-	<input name="catchPhrase" type="text" placeholder="{{catchPhrase}}" required>
+	<input name="name" type="text" value="{{name}}" required>
+	<input name="occupation" type="text" value="{{occupation}}" required>
+	<input name="catchPhrase" type="text" value="{{catchPhrase}}" required>
 	<button type="submit" class="btn btn-primary">EDIT</button>
 </form>

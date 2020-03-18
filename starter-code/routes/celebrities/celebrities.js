@@ -96,9 +96,9 @@ router.post('/:_id/edit', async (req, res, next) => {
         } = req.body;
         console.log(id);
         await Celebrity.update({
-            _id: id
+            _id: id //condición para encontrarlo
         }, {
-            $set: {
+            $set: { //se entregan los nuevos valores
                 name,
                 occupation,
                 catchPhrase
