@@ -43,7 +43,7 @@ const celebrities = [{
 
 //Call model and create method to save to DB .create(array, (feedback))
 Celebrity.create(celebrities, (err) => {
-	if (err) {throw (err)}
+	if (err) {throw (err);}
 	console.log(`Created ${celebrities.length} celebrities`);
 	mongoose.connection.close();
 });
@@ -86,8 +86,8 @@ const movies = [{
 //Call model and create method to save to DB .create(array, (feedback))
 Movie.create(movies, (err) => {
 	if (err) {
-		throw (err)
+		throw (err);
 	}
-	console.log(`Created ${movies.length} movies`)
+	console.log(`Created ${movies.length} movies`);
 	mongoose.connection.close();
 });
