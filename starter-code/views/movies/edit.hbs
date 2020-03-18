@@ -1,0 +1,9 @@
+<h2>EDIT THE MOVIE</h2>
+<br>
+<form action="/movies/edit" method="POST">
+	<input name="id" type="hidden" value={{_id}}>
+	<input name="title" type="text" placeholder="{{title}}" required>
+	<input name="genre" type="text" placeholder="{{genre}}" required>
+	<input name="plot" type="text" placeholder="{{plot}}" required>
+	<button type="submit" class="btn btn-primary">EDIT</button>
+</form>
