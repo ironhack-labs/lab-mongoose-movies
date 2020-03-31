@@ -54,5 +54,31 @@ module.exports = {
             })
             .catch(error => console.log(error))
 
+    },
+
+    editMovie: function(req, res) {
+        let { id } = req.params;
+        Movie.findById(id).then(response => {
+            res.render('movies/edit', { movies: response })
+        });
+    },
+
+    saveMovie: function(req, res) {
+        let {
+            id,
+            title,
+            genre,
+            plot
+        } = req.body;
+
+        Movie.findByIdAndUpdate(id, {
+            $set: {
+                title,
+                genre,
+                plot
+            }
+        }).then(() => {
+            res.redirect('/movies')
+        })
     }
 }

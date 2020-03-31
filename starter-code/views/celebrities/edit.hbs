@@ -1,0 +1,18 @@
+
+<h1>Edit</h1>
+{{#with celebrity}}
+    <form action="/celebrities/{{_id}}/edit" method="POST">
+        <input value="{{_id}}" type="hidden" name="id">
+        <label for="name">Name</label>
+        <input value="{{this.name}}" type="text" name="name">
+
+        <label for="name">Occupation</label>
+        <input value="{{this.occupation}}" type="text" name="occupation">
+
+        <label for="name">Catch-phrase</label>
+        <input value="{{this.catchPhrase}}" type="text" name="catchPhrase">
+
+        <input value="SAVE" type="submit">
+    </form>
+    <a href="/celebrities/{{this._id}}">Go Back</a>
+{{/with}}

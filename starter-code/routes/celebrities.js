@@ -54,5 +54,33 @@ module.exports = {
             })
             .catch(error => console.log(error))
 
+    },
+    editCelebrity: function(req, res) {
+        let { id } = req.params;
+        Celebrity.findById(id).then(response => {
+            res.render('celebrities/edit', { celebrity: response })
+        });
+    },
+
+    saveCelebrity: function(req, res) {
+        let {
+            id,
+            name,
+            occupation,
+            catchPhrase
+        } = req.body;
+
+        Celebrity.findByIdAndUpdate(id, {
+            $set: {
+                name,
+                occupation,
+                catchPhrase
+            }
+        }).then(() => {
+            res.redirect('/celebrities')
+        })
     }
+
+
+
 }
