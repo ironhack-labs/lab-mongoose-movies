@@ -1,0 +1,9 @@
+<span><a href="/celebrities">Back</a></span><br>
+<div>
+{{#with celebrities}}
+<h2>{{this.name}}</h2>
+<h4>{{this.occupation}}</h4>
+<h4>{{this.catchPhrase}}</h4>
+<a href="/celebrities/edit/{{_id}}">Edit celebrity</a>
+{{/with}}
+</div>
