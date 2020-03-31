@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
-const dbName = 'celebrity-project';
+const dbName = 'movie-project';
 mongoose
 	.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true })
 	.then((x) => {
