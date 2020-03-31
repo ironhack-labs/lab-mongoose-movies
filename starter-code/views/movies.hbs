@@ -1,0 +1,10 @@
+<h2>Movies</h2>
+
+<ul>
+  {{#each movies}}
+    <li> <a href="/show-movie/{{_id}}">{{title}}</a> | <a href="/delete-movie/{{_id}}">Delete</a></li> 
+  {{/each}}
+</ul>
+
+<a href="/new-movie">Add movie</a> <br>
+<a href="/">Go back</a>
