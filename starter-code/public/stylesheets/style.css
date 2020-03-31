@@ -1,8 +1,200 @@
 body {
-  padding: 50px;
+  padding: 0px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00B7FF; }
+.container-home {
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  display: flex; }
+
+.container-home-movies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightseagreen;
+  height: 100vh;
+  width: 100vh; }
+
+.container-home-celebrities {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightsalmon;
+  height: 100vh;
+  width: 100vh; }
+
+.button-home {
+  color: white;
+  font-size: 20px;
+  border: 1px solid white;
+  background-color: rgba(223, 223, 223, 0.2);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  text-decoration: none; }
+
+.button-home:hover {
+  background-color: rgba(223, 223, 223, 0.5); }
+
+.celebrities-container {
+  background-color: lightsalmon;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white; }
+
+.celebrities-container h4 {
+  width: 400px;
+  color: white;
+  font-size: 16px; }
+
+.celebrities-container h4 b {
+  color: salmon;
+  font-size: 18px;
+  padding-right: 5px; }
+
+.celebrities-container h3 {
+  color: white;
+  font-size: 24px;
+  border-bottom: 1px solid white; }
+
+.celebrities-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.celebrities-container input {
+  font-size: 14px;
+  width: 300px;
+  padding-left: 5px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 20px;
+  background-color: rgba(223, 223, 223, 0.5);
+  margin-bottom: 20px;
+  margin-top: 5px; }
+
+.movies-container {
+  background-color: lightseagreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white; }
+
+.movies-container h4 {
+  width: 500px;
+  color: white;
+  font-size: 16px; }
+
+.movies-container h4 b {
+  color: seagreen;
+  font-size: 18px;
+  padding-right: 5px; }
+
+.movies-container h3 {
+  color: white;
+  font-size: 24px;
+  border-bottom: 1px solid white; }
+
+.movies-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.movies-container input {
+  font-size: 14px;
+  width: 300px;
+  padding-left: 5px;
+  margin-top: 5px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 20px;
+  background-color: rgba(223, 223, 223, 0.5);
+  margin-bottom: 20px; }
+
+.celebrities-container h1, .movies-container h1 {
+  color: white;
+  border-bottom: 1px solid white;
+  margin-bottom: 30px; }
+
+.button-celeb {
+  color: white;
+  font-size: 12px;
+  border: 1px solid white;
+  background-color: rgba(223, 223, 223, 0.2);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  text-decoration: none; }
+
+.button-celeb-p {
+  color: white;
+  font-size: 16px;
+  border: 1px solid white;
+  background-color: rgba(223, 223, 223, 0.2);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  text-decoration: none; }
+
+.button-celeb-p:hover {
+  background-color: rgba(223, 223, 223, 0.5); }
+
+.celebrities-container-each {
+  display: flex; }
+
+.celebrities-container-each a {
+  display: flex; }
+
+.celebs-add {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.celebrities-container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.movies-container-title h2:hover {
+  color: salmon; }
+
+.movies-container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.celebrities-container-title h2:hover {
+  color: salmon; }
+
+.celebrities-container-title a {
+  text-decoration: none; }
+
+.movies-container-title h2:hover {
+  color: seagreen; }
+
+.movies-container-title a {
+  text-decoration: none; }
+
+.celebrities-container-title h2, .movies-container-title h2 {
+  color: white;
+  height: 42px;
+  padding-right: 10px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,17 +1,20 @@
-{{#each arrMovie}}
-<div>
-  <a href="/movie/{{this.id}}">
-    <h2>{{this.title}} </h2>
-  </a>
-</div>
-<form action="/movies/{{this.id}}/delete" method="post">
-  <button type="submit">delete</button>
-</form>
-<a href="/movies/{{this.id}}/edit">
-  <button type="submit">edit</button>
-</a>
-{{/each}}
-
-<div>
-  <a href="/movies/new"><button>add new movie</button> </a>
+<div class="movies-container">
+  <h1>MOVIES</h1>
+  {{#each arrMovie}}
+  <div class="movies-container-title">
+    <a href="/movies/{{this.id}}">
+      <h2>{{this.title}} </h2>
+    </a>
+    <form action="/movies/{{this.id}}/delete" method="post">
+      <button class="button-celeb" type="submit">delete</button>
+    </form>
+    <a href="/movies/{{this.id}}/edit">
+      <button class="button-celeb" type="submit">edit</button>
+    </a>
+  </div>
+  {{/each}}
+    <div class="celebs-add">
+      <a href="/movies/new"><button class="button-celeb-p">add new movie</button></a>
+      <a href="/"><button class="button-celeb-p">BACK TO HOME</button> </a>
+    </div>
 </div>

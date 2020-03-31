@@ -2,8 +2,27 @@ const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movie');
 
+router.get('/', (req, res, next) => {
+  Movie.find()
+    .then(arrMovie => {
+      res.render('movie/index', {arrMovie});
+    })
+    .catch(err => console.log(`error: ${err}`));
+});
+
 router.get('/new', (req, res, next) => {
   res.render('movie/new');
+});
+
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params
+  Movie.findById(id)
+    .then(theMovie => {
+      res.render('movie/show', {theMovie});
+    })
+    .catch(error => {
+      console.log('Error while retrieving celebrities details: ', error);
+    });
 });
 
 router.post('/new', (req, res, next) => {
@@ -12,7 +31,7 @@ router.post('/new', (req, res, next) => {
   newMovie
     .save()
     .then(() => {
-      res.redirect('/');
+      res.redirect('/movies');
     })
     .catch(error => {
       console.log(error);
@@ -20,9 +39,10 @@ router.post('/new', (req, res, next) => {
 });
 
 router.post('/:id/delete', (req, res, next) => {
-  Movie.findByIdAndRemove(req.params.id)
+  const { id } = req.params
+  Movie.findByIdAndRemove(id)
     .then(() => {
-      res.redirect('/');
+      res.redirect('/movies');
     })
     .catch(error => {
       console.log('Error in delete movie: ', error);
@@ -30,7 +50,8 @@ router.post('/:id/delete', (req, res, next) => {
 });
 
 router.get('/:id/edit', (req, res, next) => {
-  Movie.findById(req.params.id)
+  const { id } = req.params
+  Movie.findById(id)
     .then(movie => {
       res.render('movie/edit', {movie});
     })
@@ -41,7 +62,6 @@ router.get('/:id/edit', (req, res, next) => {
 
 router.post('/:id', (req, res, next) => {
   const {title, genre, plot} = req.body;
-  console.log('------>>>>', req.body, title, genre);
   Movie.updateOne({_id: req.params.id}, {title, genre, plot})
     .then(() => {
       res.redirect('/');

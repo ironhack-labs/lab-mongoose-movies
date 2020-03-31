@@ -1,13 +1,15 @@
-<h2>EDIT CELEBRITY</h2>
-<form action="/movies/{{movie.id}}" method="post">
-  <label for="">Title: </label>
-  <input type="text" name="title" value="{{movie.title}}">
+<div class="movies-container">
+  <h2>EDIT CELEBRITY</h2>
+  <form action="/movies/{{movie.id}}" method="post">
+    <label for="">Title: </label>
+    <input type="text" name="title" value="{{movie.title}}">
 
-  <label for="">Genre:</label>
-  <input type="text" name="genre" value="{{movie.genre}}">
+    <label for="">Genre:</label>
+    <input type="text" name="genre" value="{{movie.genre}}">
 
-  <label for="">Plot:</label>
-  <input type="text" name="plot" value="{{movie.plot}}">
+    <label for="">Plot:</label>
+    <input type="text" name="plot" value="{{movie.plot}}">
 
-  <button type="submit">EDIT</button>
-</form>
+    <button class="button-celeb"  type="submit">EDIT</button>
+  </form>
+</div>

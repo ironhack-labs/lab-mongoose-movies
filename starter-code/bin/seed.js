@@ -1,25 +1,22 @@
-// Iteration CELEBRITY
-// const celebrity = [
-//   {
-//     name: 'Rocky balboa',
-//     occupation: 'boxing sports',
-//     catchPhrase: 'adrian!!'
-//   },
-//   {
-//     name: 'Kleber machado',
-//     occupation: 'narrador',
-//     catchPhrase: 'hoje não, hoje não... hoje sim!!'
-//   },
-//   {
-//     name: 'Ana maria braga',
-//     occupation: 'apresentadora',
-//     catchPhrase: 'Acorda menina!!'
-//   }
-// ];
+const celebrities = [
+  {
+    name: 'Rocky balboa',
+    occupation: 'boxing sports',
+    catchPhrase: 'adrian!!'
+  },
+  {
+    name: 'Kleber machado',
+    occupation: 'narrador',
+    catchPhrase: 'hoje não, hoje não... hoje sim!!'
+  },
+  {
+    name: 'Ana maria braga',
+    occupation: 'apresentadora',
+    catchPhrase: 'Acorda menina!!'
+  }
+];
 
-// module.exports = celebrity;
-
-const movie = [
+const movies = [
   {
     title: 'piratas do caribe',
     genre: 'action',
@@ -46,4 +43,4 @@ const movie = [
   }
 ];
 
-module.exports = movie;
+module.exports = { celebrities, movies };

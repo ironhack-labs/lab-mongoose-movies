@@ -8,11 +8,10 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-// Iteration CELEBRITY
-// const Celebrity = require('./models/celebrity');
-// const celebrity = require('./bin/seed');
+const Celebrity = require('./models/celebrity');
 const Movie = require('./models/movie');
-const movie = require('./bin/seed');
+const seeds = require('./bin/seed');
+
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
@@ -21,26 +20,26 @@ mongoose
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
     );
     mongoose.connection.collections['movies'].drop(function(err) {
-      console.log('collection dropped');
+      console.log('collection movies dropped');
     });
 
-    Movie.create(movie, err => {
+    Movie.create(seeds.movies, err => {
       if (err) {
         throw new Error(err);
       }
-      console.log(`created ${movie.length}`);
+      console.log(`created ${seeds.movies.length}: movies`);
     });
     // Iteration CELEBRITY
-    // mongoose.connection.collections['celebrities'].drop(function(err) {
-    //   console.log('collection dropped');
-    // });
+    mongoose.connection.collections['celebrities'].drop(function(err) {
+      console.log('collection celebrities dropped');
+    });
 
-    // Celebrity.create(celebrity, err => {
-    //   if (err) {
-    //     throw new Error(err);
-    //   }
-    //   console.log(`created ${celebrity.length}`);
-    // });
+    Celebrity.create(seeds.celebrities, err => {
+      if (err) {
+        throw new Error(err);
+      }
+      console.log(`created ${seeds.celebrities.length}: celebrities`);
+    });
   })
   .catch(err => {
     console.error('Error connecting to mongo', err);
@@ -78,11 +77,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
-const movies = require('./routes/movies');
-// const celebrities = require('./routes/celebrities');
-
 app.use('/', index);
-app.use('/movies', movies);
-// app.use('/celebrities', celebrities);
+
 
 module.exports = app;
