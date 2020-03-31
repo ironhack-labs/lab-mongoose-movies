@@ -1,0 +1,10 @@
+<a href="/">Back</a>
+
+<h2>Movies</h2>
+<ul>
+{{#each data}}
+    <li> <a href="/movie/{{_id}}">{{title}}</a> - <a href="/movie-edit/{{_id}}">edit</a> / <a href="/movie-delete/{{_id}}">delete</a> </li>
+{{/each}}
+</ul>
+
+<a href="/movie-new">Add movie</a>

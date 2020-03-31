@@ -1,0 +1,10 @@
+<a href="/">Back</a>
+
+<h2>Celebrities</h2>
+<ul>
+{{#each data}}
+    <li> <a href="/celebrity/{{_id}}">{{name}}</a> - <a href="/celebrity-edit/{{_id}}">edit</a> / <a href="/celebrity-delete/{{_id}}">delete</a> </li>
+{{/each}}
+</ul>
+
+<a href="/celebrity-new">Add celebrity</a>
