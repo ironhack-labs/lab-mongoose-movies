@@ -64,7 +64,7 @@ router.post('/:id', (req, res, next) => {
   const {title, genre, plot} = req.body;
   Movie.updateOne({_id: req.params.id}, {title, genre, plot})
     .then(() => {
-      res.redirect('/');
+      res.redirect('/movies');
     })
     .catch(error => {
       console.log('Error in edit movies: ', error);

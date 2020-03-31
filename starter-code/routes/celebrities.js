@@ -66,7 +66,7 @@ router.post('/:id', (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body;
   Celebrity.updateOne({_id: req.params.id}, {name, occupation, catchPhrase})
     .then(celebrity => {
-      res.redirect('/');
+      res.redirect('/celebrities');
     })
     .catch(error => {
       console.log('Error in edit celebrities: ', error);
