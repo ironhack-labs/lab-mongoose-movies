@@ -8,12 +8,22 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+// const Celebrity    = require('./models/celebrity');
+// const celebrities  = require('./bin/seeds')
+
 
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
+    // mongoose.connection.collection['celebrities'].drop(error => console.log('Collection movies dropped!'));
+    // Celebrity.create(celebrities, (err) => {
+    //   if (err) {
+    //     throw (err)
+    //   }
+    //   console.log(`Created ${celebrities.length} celebrities`);
+    // });
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
