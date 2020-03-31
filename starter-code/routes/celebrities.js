@@ -14,7 +14,6 @@ router.get('/', (req, res, next) => {
     .catch(error => console.log(error))
 });
 
-
 router.get('/new', (req, res, next) => {
   res.render('celebrities/new')
 });
@@ -35,11 +34,11 @@ router.post('/', (req, res) => {
   })
   .then(response => {
     console.log(response);
-    res.redirect('/celebrities');
+    res.redirect('celebrities');
   })
   .catch(error => {
     console.log(error)
-    res.render('/celebrities/new')
+    res.render('celebrities/new')
   });
 });
 
@@ -63,7 +62,43 @@ router.get('/:id', (req, res, next) => {
 });
 
 
+router.get('/:id/edit', (req, res, next) => {
+  Celebrity
+    .findById(req.params.id)
+    .then(data => {
+      console.log(data)
+      res.render('celebrities/edit', {
+        data
+      })
+    })
+    .catch(error => console.log(error))
+});
 
+router.post('/:id', (req, res) => {
+  const {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body;
 
+  const {
+    celebId
+  } = req.query;
+
+  Book.findByIdAndUpdate(celebId, {
+      $set: {
+        name,
+        occupation,
+        catchPhrase
+      }
+    }, {
+      new: true
+    })
+    .then(response => {
+      console.log(response);
+      res.redirect(`celebrities/${celebId}`);
+    })
+    .catch(error => console.log(error));
+});
 
 module.exports = router;
