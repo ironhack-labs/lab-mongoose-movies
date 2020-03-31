@@ -65,4 +65,31 @@ router.get('/delete-celebrity/:celebrityId', (req, res, next) => {
 		});
 });
 
+router.get('/edit-celebrity/:celebrityId', (req, res, next) => {
+	const { celebrityId } = req.params;
+
+	Celebrity.findById(celebrityId)
+		.then((celebrity) => {
+			console.log(celebrity);
+			res.render('edit-celebrity', celebrity);
+		})
+		.catch((error) => {
+			console.log(error);
+			// next();
+		});
+});
+
+router.post('/edit-celebrity', (req, res, next) => {
+	const { celebrityId, name, occupation, catchPhrase } = req.body;
+
+	Celebrity.findByIdAndUpdate(celebrityId, { $set: { name, occupation, catchPhrase } }, { new: true })
+		.then((_) => {
+			res.redirect(`/show-celebrity/${celebrityId}`);
+		})
+		.catch((error) => {
+			console.log(error);
+			// next();
+		});
+});
+
 module.exports = router;
