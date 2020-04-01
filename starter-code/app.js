@@ -9,18 +9,17 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
-mongoose
-  .connect('mongodb://localhost/starter-code', {
-    useNewUrlParser: true ,
-    useUnifiedTopology: true
-  })
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+(async () => {
+  try {
+    const x = await mongoose.connect('mongodb://localhost/starter-code', {
+      useNewUrlParser: true ,
+      useUnifiedTopology: true
+    });
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
+  } catch (error) {
+    console.log(error);
+  }
+})();
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
