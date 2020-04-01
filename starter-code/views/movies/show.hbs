@@ -1,0 +1,20 @@
+<div>
+  <a href="/movies">Go back</a>
+  <h2>Movie Details</h2>
+</div>
+
+{{#with data}}
+
+<div>
+
+  <h3>{{title}}</h3>
+  <p>{{genre}}</p>
+  <p><em>"{{plot}}"</em></p>
+
+</div>
+
+<div>
+  <a href="/movies/edit/{{_id}}">Edit</a>
+</div>
+
+{{/with}}

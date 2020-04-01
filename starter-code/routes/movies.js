@@ -1,12 +1,12 @@
 const express = require('express');
 const router  = express.Router();
-const Celebrity = require('../models/Celebrity')
+const Movie = require('../models/Movie')
 
 // GET index
 router.get('/', async (req, res, next) => {
   try {
-    const data = await Celebrity.find();
-    res.render('celebrities/index', { data });
+    const data = await Movie.find();
+    res.render('movies/index', { data });
   } catch (error) {
     console.log(error);
     next();
@@ -15,15 +15,15 @@ router.get('/', async (req, res, next) => {
 
 // GET new
 router.get('/new', async (req, res, next) => {
-  res.render('celebrities/new');
+  res.render('movies/new');
 });
 
 // //POST new
 router.post('/new', async (req, res, next) => {
   try {
-    const data = await Celebrity.create(req.body);
-    console.log(`New celebrity added: ${data}`);
-    res.redirect('/celebrities');
+    const data = await Movie.create(req.body);
+    console.log(`New movie added: ${data}`);
+    res.redirect('/movies');
   } catch (error) {
     console.log(error);
     next();
@@ -34,8 +34,8 @@ router.post('/new', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const data = await Celebrity.findById(id);
-    res.render('celebrities/show', { data });
+    const data = await Movie.findById(id);
+    res.render('movies/show', { data });
   } catch (error) {
     console.log(error);
     next();
@@ -46,9 +46,9 @@ router.get('/:id', async (req, res, next) => {
 router.get('/delete/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const data = await Celebrity.findByIdAndRemove(req.params.id)
+    const data = await Movie.findByIdAndRemove(req.params.id)
     console.log(`${data.name} deleted`);
-    res.redirect('/celebrities');
+    res.redirect('/movies');
   } catch (error) {
     console.log(error);
   }  
@@ -58,8 +58,8 @@ router.get('/delete/:id', async (req, res, next) => {
 router.get('/edit/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const data = await Celebrity.findById(id);
-    res.render('celebrities/edit', { data });
+    const data = await Movie.findById(id);
+    res.render('movies/edit', { data });
   } catch (error) {
     console.log(error);
     next();
@@ -70,9 +70,9 @@ router.get('/edit/:id', async (req, res, next) => {
 router.post('/edit/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const data = await Celebrity.findByIdAndUpdate(id, req.body);
-    console.log(`Celebrity edited: ${data}`);
-    res.redirect('/celebrities')
+    const data = await Movie.findByIdAndUpdate(id, req.body);
+    console.log(`Movie edited: ${data}`);
+    res.redirect('/movies')
   } catch (error) {
     console.log(error);
     next();
