@@ -1,0 +1,12 @@
+<div>
+    <form action="./create" method="POST">
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="genre" placeholder="Genre">
+    <input type="text" name="plot" placeholder="Plot">
+    <select name="cast" multiple>
+        {{#each celebs}}
+            <option value={{this.name}}>{{this.name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Submit</button>
+</div>
