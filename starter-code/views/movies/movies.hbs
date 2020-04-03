@@ -1,6 +1,7 @@
-<div>
-    <a href="/">Index</a>
-    <a href="/movies/new">New Movie</a>
+<div class="sec">
+    <a href="/">Home</a>
+    <a href="celebrities">Celebrities</a>
+    <a href="movies/new"><button type="button">New Movie</button></a>
     {{#each movies}}
     <div>
         <a href="/movies/{{this._id}}"><h2>{{this.title}}</h2></a>

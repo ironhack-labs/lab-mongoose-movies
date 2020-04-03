@@ -1,12 +1,15 @@
-<div>
-    <a href="/">Index</a>
-    <a href="./new">New Celebrity</a>
-    <h1>Celebrities</h1>
+<div class="sec">
     <div>
-        {{#each celebs}}
-            <h2>{{name}}</h2>
-            <h3>{{occupation}}</h3>
-            <p>{{catchPhrase}}</p>
-        {{/each}}
+        <a href="/">Home</a>
+        <a href="/movies">Movies</a>
+        <a href="/celebrities/new"><button type="button">New Celebrity</button></a>
     </div>
+    <h2>CELEBRITIES</h2>
+    {{#each celebs}}
+        <div class="celeb-list">
+            <h3>{{name}}</h3>
+            <p>{{occupation}}</p>
+            <p>{{catchPhrase}}</p>
+        </div>
+    {{/each}}
 </div>
