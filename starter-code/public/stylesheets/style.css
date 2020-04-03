@@ -1,8 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  padding: 5%;
+  font: 16px "Barlow", sans-serif;
+  /* background-color: black; */
+  color: white;
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 a {
-  color: #00B7FF; }
+  text-decoration: none;
+  color: #00B7FF;
+  display: block;
+  margin: 48px 0;
+  font-size: 2em;
+
+}
+
+a:hover {
+  color: blue;
+}
+
+h1 {
+  font-size: 4em;
+  margin: 10% 0 16px 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  /* margin: auto; */
+}
+
+.home {
+  /* height: 100%; */
+}
 
 /*# sourceMappingURL=style.css.map */
