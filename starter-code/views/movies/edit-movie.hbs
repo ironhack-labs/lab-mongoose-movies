@@ -1,0 +1,12 @@
+<h3>Editing a movie</h3>
+<form action="/movies/{{id}}/edit" method="POST">
+    <input type="text" name="title" placeholder="Please type the movie´s title" value="{{title}}">
+    {{#each genre}}
+    <input type="text" name="genre" id="" placeholder="PLease add the genres of the movie" value="{{this}}">
+    {{/each}}
+    <input type="number" name="year" placeholder="Please add the year when the movie was released" value="{{year}}">
+    <input type="text" name="director" placeholder="Please add the Movie´s director name" value="{{director}}">
+    <input type="text" name="plot" placeholder="Please add a plot for the new movie" value="{{plot}}">
+    <button type="submit">Edit a movie</button>
+</form>
+
