@@ -25,6 +25,7 @@ router.get('/new', (req, res) => {
 
 router.post('/create', async (req, res) => {
     const newMovie = new Movies({...req.body });
+    console.log(req.body);
     try{
         await newMovie.save();
         res.redirect('./');
@@ -37,7 +38,6 @@ router.post('/create', async (req, res) => {
 router.get('/:_id', (req, res) => {
     Movies.findOne(req.params)
         .then(mov => {
-            console.log(mov);
             res.render('movies/movie-details', mov);
         })
         .catch(err => {
@@ -54,12 +54,25 @@ router.post('/:_id/delete', (req, res) => {
         })
 })
 
-router.get('/:id/edit', (req, res) => {
-
+router.get('/:_id/edit', async(req, res) => {
+    try {
+        const mov = await Movies.findById(req.params._id);
+        const celebs = await Celebrities.find();
+        const movCelebs = {mov, celebs};
+        res.render('movies/edit-movie', movCelebs);
+    } catch (err) {
+        throw new Error(err.message);
+    }
 })
 
-router.post('/:id', (req, res) => {
-    
+router.post('/:_id', async (req, res) => {
+    try {   
+        const {cast, title, genre, plot} = req.body;
+        await Movies.findByIdAndUpdate(req.body._id, { cast, title, genre, plot });
+        res.redirect('/movies');
+    } catch (err) {
+        throw new Error(err.message);
+    }
 })
 
 module.exports = router;

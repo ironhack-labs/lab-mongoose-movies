@@ -5,7 +5,6 @@ const Celebrities = require('../models/celebrity');
 router.get('/', (req, res) => {
     Celebrities.find()
     .then(celebs =>{
-        // console.log({ celebs })
         res.render('celebrities/celebrities', { celebs });
     })
     .catch(err => {
@@ -27,5 +26,6 @@ router.post('/create',  async (req, res) => {
         throw new Error(error);
     }
 });
+
 
 module.exports = router;

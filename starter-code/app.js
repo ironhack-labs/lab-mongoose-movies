@@ -10,6 +10,22 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
+// hbs.registerHelper('if_eq', function(a, b, opts) {
+//   if (a == b) {
+//     console.log(this)
+//       return opts.fn(this);
+//   } else {
+//     console.log(this);
+//       return opts.inverse(this);
+//   }
+// });
+
+hbs.registerHelper('if_eq_ar', (name, arr, opts) => {
+  if (arr.includes(name)) return opts.fn({ name });
+  return opts.inverse({ name });
+});
+
 mongoose
   .connect('mongodb://localhost/starter-code', {
     useNewUrlParser: true,
