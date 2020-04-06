@@ -10,8 +10,27 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
+// hbs.registerHelper('if_eq', function(a, b, opts) {
+//   if (a == b) {
+//     console.log(this)
+//       return opts.fn(this);
+//   } else {
+//     console.log(this);
+//       return opts.inverse(this);
+//   }
+// });
+
+hbs.registerHelper('if_eq_ar', (name, arr, opts) => {
+  if (arr.includes(name)) return opts.fn({ name });
+  return opts.inverse({ name });
+});
+
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/starter-code', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -45,14 +64,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'LAB MONGOOSE MOVIES';
 
 
 
 const index = require('./routes/index');
+const celebritiesRoutes = require('./routes/celebrities-routes');
+const movieRoutes = require('./routes/movies-routes');
 app.use('/', index);
-
+app.use('/celebrities', celebritiesRoutes);
+app.use('/movies', movieRoutes);
 
 module.exports = app;
+

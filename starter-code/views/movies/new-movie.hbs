@@ -1,0 +1,19 @@
+<div class="new">
+    <div>
+        <a href="/movies">Back</a>
+    </div>
+    <div>
+        <h3>NEW MOVIE</h3>
+        <form action="/movies/create" method="POST">
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="genre" placeholder="Genre">
+            <input type="text" name="plot" placeholder="Plot">
+            <select name="cast" multiple>
+                {{#each celebs}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

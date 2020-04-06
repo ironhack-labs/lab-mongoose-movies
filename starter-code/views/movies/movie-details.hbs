@@ -1,0 +1,20 @@
+<div class="sec">
+   <a href="/movies">Back</a>
+    <div>
+        <h2>{{title}}</h2>
+        <p>{{genre}}</p>
+        <p>{{plot}}</p>
+        <h4><b>CAST</b></h4>
+        {{#each cast}}
+            <p>{{this}}</p>
+        {{/each}}
+    </div>
+    <div>
+        <form action="/movies/{{_id}}/delete" method="POST">
+            <button type="submit">DELETE</button>
+        </form>
+        <form action="/movies/{{_id}}/edit" method="GET">
+            <button type="submit">EDIT</button>
+        </form>
+    </div>
+</div>

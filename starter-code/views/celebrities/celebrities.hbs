@@ -1,0 +1,15 @@
+<div class="sec">
+    <div>
+        <a href="/">Home</a>
+        <a href="/movies">Movies</a>
+        <a href="/celebrities/new"><button type="button">New Celebrity</button></a>
+        <h2>CELEBRITIES</h2>
+    </div>
+    {{#each celebs}}
+        <div class="celeb-list">
+            <h3>{{name}}</h3>
+            <p>{{occupation}}</p>
+            <p>{{catchPhrase}}</p>
+        </div>
+    {{/each}}
+</div>

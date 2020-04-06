@@ -1,0 +1,15 @@
+<div class="sec">
+    <div>
+        <a href="/">Home</a>
+        <a href="celebrities">Celebrities</a>
+        <a href="movies/new"><button type="button">New Movie</button></a>
+    </div>
+    <div>
+        {{#each movies}}
+        <div class="title-mov">
+            <h2>{{this.title}}</h2>
+            <a href="/movies/{{this._id}}">Details</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
