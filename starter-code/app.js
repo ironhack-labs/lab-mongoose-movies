@@ -9,9 +9,9 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-const dbName = "celebrities";
+
 mongoose
-  .connect(`mongodb://localhost/${dbName}`, {useNewUrlParser: true})
+  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
