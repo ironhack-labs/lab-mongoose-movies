@@ -33,13 +33,30 @@ moviesRouter.get("/:movieId", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+moviesRouter.post("/:movieId/delete", (req, res, next) => {
+  const movieId = req.params.moviesId;
+  Movie.findByIdAndRemove(movieId)
+    .then((data) => res.redirect("/movies"))
+    .catch((err) => console.log(err));
+});
 
-moviesRouter.post("/:moviesId/delete", (req, res, next) => {
-    const moviesId = req.params.moviesId;
-    Movie.findByIdAndRemove(moviesId)
-    .then( (data) => res.redirect("/movies"))
-    .catch( (err) => console.log(err))
-  });
+moviesRouter.get("/:movieId/edit", (req, res) => {
+  const movieId = req.params.movieId;
+  Movie.findById({ _id: movieId })
+    .then((movie) => res.render("movies/edit", { movie }))
+    .catch((err) => console.log(err));
+});
 
+moviesRouter.post("/:movieId", (req, res) => {
+  const movieId = req.params.movieId;
+  const { title, genre, plot } = req.body;
+  Movie.update(
+    { _id: movieId },
+    { $set: { title, genre, plot } },
+    { new: true }
+  )
+    .then(res.redirect("/movies"))
+    .catch((err) => console.log(err));
+});
 
 module.exports = moviesRouter;
