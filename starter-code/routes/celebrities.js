@@ -5,7 +5,7 @@ const Celeb = require("../models/celebrity");
 
 // show all celebrities
 
-router.get("/index", (res, req, next) => {
+router.get("/", (res, req, next) => {
 
   Celeb.find().then((celebs) => {
 
@@ -14,7 +14,7 @@ router.get("/index", (res, req, next) => {
     let obj = { allCelebs: celebs };
 
     res.render("celebrities/index", obj)
-      .catch((error) => console.log("Error while doing something", error));
+      // .catch((err) => console.log("Error while doing something", error));
   });
 });
 
