@@ -33,4 +33,13 @@ moviesRouter.get("/:movieId", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+
+moviesRouter.post("/:moviesId/delete", (req, res, next) => {
+    const moviesId = req.params.moviesId;
+    Movie.findByIdAndRemove(moviesId)
+    .then( (data) => res.redirect("/movies"))
+    .catch( (err) => console.log(err))
+  });
+
+
 module.exports = moviesRouter;
