@@ -14,30 +14,36 @@ celebsRouter.get("/", (req, res) => {
 });
 
 celebsRouter.get("/new", (req, res) => {
-    res.render("celebrities/new")
-})
+  res.render("celebrities/new");
+});
 
 celebsRouter.post("/", (req, res) => {
-    const {name, occupation, catchPhrase} = req.body
-    const newCelebrity = new Celebrity({name, occupation, catchPhrase})
-    newCelebrity
+  const { name, occupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+  newCelebrity
     .save()
-    .then( () => res.redirect("/celebrities"))
-    .catch( (err) => {
-        res.redirect("/celebrities/new")
-        console.log(err)
-    })
-})
+    .then(() => res.redirect("/celebrities"))
+    .catch((err) => {
+      res.redirect("/celebrities/new");
+      console.log(err);
+    });
+});
 
 celebsRouter.get("/:celebrityId", (req, res) => {
   const celebrityId = req.params.celebrityId;
 
   Celebrity.findById(celebrityId)
-  .then( (celebrity) => {
-      res.render("celebrities/show", {celebrity})
-  })
-  .catch( (err) => console.log(err));
+    .then((celebrity) => {
+      res.render("celebrities/show", { celebrity });
+    })
+    .catch((err) => console.log(err));
 });
 
+celebsRouter.post("/:celebrityId/delete", (req, res, next) => {
+  const celebrityId = req.params.celebrityId;
+  Celebrity.findByIdAndRemove(celebrityId)
+  .then( (data) => res.redirect("/celebrities"))
+  .catch( (err) => console.log(err))
+});
 
 module.exports = celebsRouter;
