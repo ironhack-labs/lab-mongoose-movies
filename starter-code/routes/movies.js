@@ -1,18 +1,34 @@
 const express = require("express");
 const moviesRouter = express.Router();
 
-const Movies = require("./../models/movie");
+const Movie = require("./../models/movie");
 
 moviesRouter.get("/", (req, res) => {
-  Movies.find({})
+  Movie.find({})
     .then((movies) => res.render("movies/index", { movies }))
     .catch((error) => console.log(error));
+});
+
+moviesRouter.get("/new", (req, res) => {
+  res.render("movies/new");
+});
+
+moviesRouter.post("/", (req, res) => {
+  const { title, genre, plot } = req.body;
+  const newMovie = new Movie({ title, genre, plot });
+  newMovie
+    .save()
+    .then(() => res.redirect("/movies"))
+    .catch((err) => {
+      res.redirect("/movies/new");
+      console.log(err);
+    });
 });
 
 moviesRouter.get("/:movieId", (req, res) => {
   const movieId = req.params.movieId;
 
-  Movies.findById(movieId)
+  Movie.findById(movieId)
     .then((movie) => res.render("movies/show", { movie }))
     .catch((err) => console.log(err));
 });
