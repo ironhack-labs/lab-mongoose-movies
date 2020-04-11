@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/Celebrity");
+const Movie = require("../models/movie")
 
 const celebrities = [
     {
@@ -19,28 +20,55 @@ const celebrities = [
     }
 ];
 
+const movies = [
+    {
+      title: "Olsen",
+      genre: "Shaw",
+      plot: "VORATAK"
+    },
+    {
+      title: "Hansen",
+      genre: "Cohen",
+      plot: "TALKALOT"
+    },
+    {
+      title: "Alvarez",
+      genre: "Alicia",
+      plot: "NIMON"
+    },
+    {
+      title: "Estes",
+      genre: "Jefferson",
+      plot: "CAPSCREEN"
+    },
+]
+
 const dbName = "celebrities";
+
+// const collection = "Celebrity";
+const collection = "Movie";
 
 // SEED SEQUENCE
 
-// 1. ESTABLISH CONNECTION TO MONGO
 mongoose
-    .connect(`mongodb://localhost/${dbName}`, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then( () => {
-    
-        // 2. CREATE CELEBRITIES FROM THE ARRAY
-        const promise = Celebrity.create(celebrities);
-        return promise; // Forward the pending promise to the next 'then()'
-    })
-    .then((newCelebrities) => {
-        console.log(`Created ${newCelebrities.length} new celebrities`);
+  .connect(`mongodb://localhost/${dbName}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  // .then(() => Celebrity.create(celebrities))
+  .then(() => {
+    // const collection = "Celebrity";
 
-        // 3. CLOSE THE DB CONNECTION
-        const promise = mongoose.connection.close();
-        return promise;
-    })
-    .then(() => console.log('Connection closed!') )
-    .catch( (err) => console.error('Error connecting to mongo', err));
+    const Model = collection === "Movie" ? Movie : Celebrity;
+    const data = collection === "Movie" ? movies : celebrities;
+
+    return Model.create(data);
+  })
+  .then(createdDocuments =>
+    console.log(
+      `Created ${createdDocuments.length} documents for ${collection}`
+    )
+  )
+  .then(() => mongoose.connection.close())
+  .then(() => console.log("Connection closed!"))
+  .catch(err => console.log(err));

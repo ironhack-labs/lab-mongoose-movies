@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // SCHEMA
-const celebritySchema = new Schema(
+const movieSchema = new Schema(
   {
-    name: String,
-    occupation: String,
-    catchPhrase: String
+    title: String,
+    genre: String,
+    plot: String
   },
   {
     timestamps: {
@@ -17,6 +17,6 @@ const celebritySchema = new Schema(
 );
 
 // MODEL
-const Celebrity = mongoose.model("Celebrity", celebritySchema);
+const Movie = mongoose.model("Movie", movieSchema)
 
-module.exports = Celebrity;
+module.exports = Movie;
