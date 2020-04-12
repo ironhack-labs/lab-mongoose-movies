@@ -1,7 +1,16 @@
 const mongoose = require('mongoose')
-const celebrity = require('../models/celebrity')
+const Celebrity = require('../models/celebrity')
+mongoose
+  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
 
 // Create an array of 3 objects
+
 
 const celebrities = [
     {
@@ -22,6 +31,6 @@ const celebrities = [
 ]
 // Call the Celebrity model's create method with the array as argument.
 
-celebrity.create(celebrities)
+Celebrity.create(celebrities)
 
 // In the create method's callback, display feedback. - HELP: Iteraion 1: 4 onwards
