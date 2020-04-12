@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const celebritySchema = new Schema ({
+const celebritySchema = new Schema({
 
   name: String,
   occupation: {
@@ -11,7 +11,7 @@ const celebritySchema = new Schema ({
   },
   catchPhrase: {
     type: String,
-    default: "yolo"
+    default: "yolo",
   },
 })
 
