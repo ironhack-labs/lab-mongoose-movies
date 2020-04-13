@@ -18,6 +18,8 @@ router.get("/", (req, res, next) => {
     );
 });
 
+// show one celeb
+
 router.get("/:identifier", (req, res, next) => {
   Celeb.findOne({ _id: req.params.identifier })
     .then((celeb) => {
@@ -30,19 +32,32 @@ router.get("/:identifier", (req, res, next) => {
     );
 });
 
-router.get("/new", (req, res) => {
-  res.render("stars/new-star");
+// update star
+router.get("/edit/:identifier", (req, res, next) => {
+  Celeb.findById(req.params.identifier)
+    .then((celeb) => {
+      res.render("stars/edit", {myCel: celeb});
+      console.log("found this: " + celeb)
+    })
+    .catch((error) => {
+      return error;
+    });
+});
+
+
+router.post("/:identifier", (req, res, next) => {
+  Celeb.findByIdAndUpdate(req.params.identifier, {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  })
+    .then(() => {
+      res.redirect("/stars");
+    })
+    .catch((error) => {
+      return error;
+    });
 });
 
 
 module.exports = router;
-
-// router.post("/", (req, res, next) => {
-
-//   let newCel = new Celeb({name: req.body.name, occupation: req.body.occupation, catchPhrase: req.body.catchPhrase})
-
-//   newCel.save().then(() => {
-//     res.redirect("celebrities/index")
-//   })
-
-// })

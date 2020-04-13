@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Celeb = require("../models/celebrity");
+const Movie = require("../models/movie");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -32,13 +33,44 @@ router.post("/stars", (req, res) => {
     });
 });
 
-
 // delete star
 router.post("/stars/delete/:identifier", (req, res, next) => {
-  Celeb.findByIdAndRemove(req.params.identifier).then(() => {
-    res.redirect("/stars")
-  })
-
+  Celeb.findByIdAndRemove(req.params.identifier)
+    .then(() => {
+      res.redirect("/stars");
+    })
+    .catch((error) => {
+      return error;
+    });
 });
+
+
+// new movie
+
+router.get("/add-movie", (req, res) => {
+  res.render("movies/add");
+});
+
+router.post("/movies", (req, res, next) => {
+
+  let newMov = new Movie({
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+  });
+
+  console.log(req.body)
+  newMov
+    .save()
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch((error) => {
+      res.redirect("/add-movie");
+      console.log("An error happened while saving a new movie:", error);
+    });
+});
+
+
 
 module.exports = router;
