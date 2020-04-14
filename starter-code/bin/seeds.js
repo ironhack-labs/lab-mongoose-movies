@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 
 mongoose.connect(`mongodb://localhost/movies-project`, {
   useCreateIndex: true,
@@ -9,7 +10,7 @@ mongoose.connect(`mongodb://localhost/movies-project`, {
   useUnifiedTopology: true
 });
 
-const celebArray = [
+/* const celebArray = [
     {
         name: 'Peter Pan',
         occupation: 'Pilot',
@@ -30,5 +31,30 @@ const celebArray = [
 // create entries after running seeds.js
 Celebrity.create(celebArray).then(() => {
     console.log(`Created ${celebArray.length} celebArray`);
+    mongoose.connection.close();
+  }); */
+
+
+  const movieArray = [
+    {
+        title: 'Time for cheesecake',
+        genre: 'Tutorial',
+        plot: 'Every cheesecake could be enlighted by some fruits!'
+    },
+    {
+        title: 'Me and the treadmill',
+        genre: 'Biography',
+        plot: 'Repeatition at it\'s best!'
+    },
+    {
+        title: 'Chronicles of Tempelhof',
+        genre: 'Documentation',
+        plot: '24-7 of Berlins Kiez'
+    }
+]
+
+// create entries after running seeds.js
+Movie.create(movieArray).then(() => {
+    console.log(`Created ${movieArray.length} movieArray`);
     mongoose.connection.close();
   });
