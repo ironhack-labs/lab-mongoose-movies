@@ -68,10 +68,12 @@ router.post('/new', (req, res) => {
 
 
 // UPDATE
-// GET /celebrities/edit/:identifier
-router.get('/edit/:identifier', (req, res) => {
+// GET /celebrities/:identifier/edit -> show the form
+router.get('/:identifier/edit', (req, res, next) => {
+
     Celebrity.findById(req.params.identifier).then((celebrity) => {
-        res.render('./celebrities/edit', {
+        
+        res.render('celebrities/edit', {
             myCelebrity: celebrity
         })
     })
@@ -80,7 +82,7 @@ router.get('/edit/:identifier', (req, res) => {
 
 // UPDATE
 // POST /celebrities/edit
-router.post('/edit/:identifier', (req, res) => {
+router.post('/:identifier/edit', (req, res, next) => {
 
     console.log("req.body", req.body)
 

@@ -1,0 +1,17 @@
+<h2> Edit this Movie here </h2>
+
+
+<form action="/movies/{{myMovie.id}}/edit" method="post">
+  <label for="">Title:</label>
+  <input type="text" name="title" value="{{myMovie.title}}">
+
+  <label for="">Genre:</label>
+  <input type="text" name="genre" value="{{myMovie.genre}}">
+
+  <label for="">Plot:</label>
+  <input type="text" name="plot" value="{{myMovie.plot}}">
+
+  <button type="submit"> Update </button>
+</form>
+<br>
+or <a href="/movies"> Go back and show all movies </a>
