@@ -50,6 +50,27 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 
+//GET: /celebrities/id/edit --->this allows you to modify a celebrity
+
+router.get('/:id/edit', (req, res, next) => {
+    Celebrity.findById(req.params.id).then((celebrity) => {
+        res.render('celebrities/edit',celebrity)
+    })
+})
+
+//POST: /celebrities/id/edit --->this one takes the changes and store them into the DB
+
+router.post('/:id/edit', (req, res, next) => {
+    console.log(req.params.id)
+    Celebrity.findByIdAndUpdate(req.params.id,{
+        name : req.body.name,
+        occupation : req.body.occupation,
+        catchPhrase : req.body.catchPhrase
+    }).then(() => {
+        res.redirect('/celebrities')
+    })
+})
+
 
 
 

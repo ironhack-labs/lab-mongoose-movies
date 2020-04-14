@@ -12,7 +12,7 @@ const Celebrity = require('../models/celebrity')
 
 router.get('/', (req, res, next) => {
 
-    Movie.find().populate('cast').then((movies) => {
+    Movie.find().then((movies) => {
         res.render('movies/movies', { allMovies: movies });
     }).catch(error => {
         console.log("something went wrong with catching all celebrities", error)
@@ -37,11 +37,41 @@ router.post('/new', (req, res, next) => {
     })
 })
 
-// GET : /celebrities/id  ---> this shows the details of one celebrity
+// GET : /movies/id  ---> this shows the details of one movie
 router.get('/:id', (req , res, next) => {
-    Movie.findById(req.params.id).then((movie) => {
+    Movie.findById(req.params.id).populate('cast').then((movie) => {
         console.log(movie)
         res.render("movies/movie-details", movie)
+    })
+})
+
+//POST /movies/id/delete ----> this removes a movie
+router.post('/:id/delete', (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.id).then(() => {
+        res.redirect('/movies')
+    })
+})
+
+//GET: /movies/id/edit --->this allows you to modify a celebrity
+
+router.get('/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id).then((movie) => {
+        Celebrity.find().then((celebrities) => {
+            res.render('movies/edit-movie', { allCelebrities: celebrities , movie});
+          })
+    })
+})
+
+//POST: /movies/id/edit --->this one takes the changes and store them into the DB
+
+router.post('/:id/edit', (req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id,{
+        title : req.body.title,
+        genre : req.body.genre,
+        plot : req.body.plot,
+        cast : req.body.celebrity
+    }).then(() => {
+        res.redirect('/movies')
     })
 })
 
