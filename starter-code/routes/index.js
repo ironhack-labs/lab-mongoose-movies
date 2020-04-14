@@ -44,22 +44,24 @@ router.post("/stars/delete/:identifier", (req, res, next) => {
     });
 });
 
-
 // new movie
 
 router.get("/add-movie", (req, res) => {
-  res.render("movies/add");
+  Celeb.find().then((cels) => {
+    res.render("movies/add", { allCelebs: cels });
+    console.log(cels)
+  });
 });
 
 router.post("/movies", (req, res, next) => {
-
   let newMov = new Movie({
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot,
+    cast: req.body.cast,
   });
 
-  console.log(req.body)
+  console.log(req.body);
   newMov
     .save()
     .then(() => {
@@ -70,7 +72,5 @@ router.post("/movies", (req, res, next) => {
       console.log("An error happened while saving a new movie:", error);
     });
 });
-
-
 
 module.exports = router;
