@@ -11,23 +11,27 @@ const movies = [{
 
     title:'Pretty woman',
     genre: 'drama',
-    plot: 'xxx'
+    plot: 'Plot is a literary term used to describe the events that make up a story, or the main part of a story. These events relate to each other in a pattern or a sequence.
+    '
 },
 {
 title: 'Titanic',
 genre: 'drama',
-plot: 'xxx'
+plot: 'Plot is a literary term used to describe the events that make up a story, or the main part of a story. These events relate to each other in a pattern or a sequence.
+'
 },
 {
     title: 'Parasite',
     genre: 'drama',
-    plot: 'xxx'
+    plot: 'Plot is a literary term used to describe the events that make up a story, or the main part of a story. These events relate to each other in a pattern or a sequence.
+    '
 
 } ,
 {
     title: 'Pulp Fiction',
     genre: 'drama',
-    plot: 'xxx'
+    plot: 'Plot is a literary term used to describe the events that make up a story, or the main part of a story. These events relate to each other in a pattern or a sequence.
+    '
 
 }
 ]
