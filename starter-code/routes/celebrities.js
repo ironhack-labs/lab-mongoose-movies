@@ -44,9 +44,9 @@ router.get('/:identifier/edit', (req, res, next) => {
     Celebrity.findById(req.params.identifier).then((celeb) => {
         res.render('celebrities/edit', celeb)
     })
-})
+});
 
-// POST /celebrities/:id/edit ---> show our form
+// POST /celebrities/:id/edit ---> show our form, save to use because a specified path follows :id
 router.post('/:identifier/edit', (req, res, next) => {
     Celebrity.findByIdAndUpdate(
         req.params.identifier, {
@@ -55,9 +55,14 @@ router.post('/:identifier/edit', (req, res, next) => {
             catchPhrase: req.body.catchPhrase
         }
     ).then(() => { res.redirect('/celebrities')})
-})
+});
 
-
+// GET /celebrities/:id/delete --> delete specific entry+
+router.get('/:identifier/delete', (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.identifier).then(() => {
+        res.redirect('/celebrities')
+    })
+});
 
 
 // GET /celebrities/:identifier --> Detail of
@@ -72,9 +77,6 @@ router.get('/:identifier', (req, res, next) => {
             console.log(error);
         })
 });
-
-
-
 
 
 module.exports = router;
