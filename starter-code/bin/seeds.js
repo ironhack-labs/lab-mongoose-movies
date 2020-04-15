@@ -10,7 +10,7 @@ mongoose.connect(`mongodb://localhost/movies-project`, {
   useUnifiedTopology: true
 });
 
-/* const celebArray = [
+const celebArray = [
     {
         name: 'Peter Pan',
         occupation: 'Pilot',
@@ -32,7 +32,7 @@ mongoose.connect(`mongodb://localhost/movies-project`, {
 Celebrity.create(celebArray).then(() => {
     console.log(`Created ${celebArray.length} celebArray`);
     mongoose.connection.close();
-  }); */
+  });
 
 
   const movieArray = [
