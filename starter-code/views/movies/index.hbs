@@ -1,7 +1,7 @@
 <h2>List of all movies</h2>
 <ul>
 {{#each allMovies}}
-<li> {{this.title}} <a href="/movies/{{this.id}}">Show details</a> || <a href="/movies/{{this.id}}/edit">Edit details</a> || <a href="/movies/{{this.id}}/delete">Delete this movie</a></li>
+<li> {{this.title}}, {{#each this.cast}}{{this.name}}: {{this.catchPhrase}} , {{/each}} <a href="/movies/{{this.id}}">Show details</a> || <a href="/movies/{{this.id}}/edit">Edit details</a> || <a href="/movies/{{this.id}}/delete">Delete this movie</a></li>
 {{/each}}
 </ul>
 <h3>Create your own movie</h3>

@@ -1,6 +1,9 @@
 <h2>Details for ...</h2>
 <p>
-    {{ showMovie.title }}</br>
-    {{ showMovie.genre }}</br>
-    {{ showMovie.plot }}
+    <b>Title:</b> {{ showMovie.title }}</br>
+    <b>Genre:</b> {{ showMovie.genre }}</br>
+    <b>Plot:</b> {{ showMovie.plot }}</br>
+    <b>Cast:</b> {{#each showMovie.cast}}
+    {{this.name}}: {{this.catchPhrase}}, 
+    {{/each}}
 </p>

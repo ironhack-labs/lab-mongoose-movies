@@ -4,11 +4,11 @@ const router = express.Router();
 // neccessary connection to database-model
 const Movie = require('../models/movie')
 
-// GET /celebrities --> List of
+// GET /movies --> List of
 router.get('/', (req, res, next) => {
-    Movie.find()
+    Movie.find().populate('cast')
         .then((movies) => {
-            //console.log('all our movies: ' + movies)
+            // console.log('all our movies: ' + movies)
             res.render('movies/index', {
                 allMovies: movies
             });
@@ -30,7 +30,8 @@ router.post('/new', (req, res, next) => {
     let userMovie = new Movie({
         title: req.body.title,
         genre: req.body.genre,
-        plot: req.body.plot
+        plot: req.body.plot,
+        cast: req.body.cast
     })
     userMovie.save()
         .then(() => {
@@ -38,10 +39,11 @@ router.post('/new', (req, res, next) => {
         });
 });
 
-
 // GET /movies/:id/edit ---> show our form
 router.get('/:identifier/edit', (req, res, next) => {
-    Movie.findById(req.params.identifier).then((movie) => {
+    Movie.findById(req.params.identifier)
+    .populate('cast')
+    .then((movie) => {
         res.render('movies/edit', movie)
     })
 });
@@ -52,9 +54,12 @@ router.post('/:identifier/edit', (req, res, next) => {
         req.params.identifier, {
             title: req.body.title,
             genre: req.body.genre,
-            plot: req.body.plot
+            plot: req.body.plot,
+            cast: req.body.cast
         }
-    ).then(() => { res.redirect('/movies')})
+    )
+    .populate('cast')
+    .then(() => { res.redirect('/movies')})
 });
 
 // GET /movies/:id/delete --> delete specific entry+
@@ -68,6 +73,7 @@ router.get('/:identifier/delete', (req, res, next) => {
 // GET /movies/:identifier --> Detail of
 router.get('/:identifier', (req, res, next) => {
     Movie.findById(req.params.identifier)
+    .populate('cast')
         .then((movie) => {
             res.render('movies/show', {
                 showMovie: movie
