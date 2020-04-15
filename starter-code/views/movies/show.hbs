@@ -1,0 +1,12 @@
+{{!-- /views/movies/show --}}
+
+<h2>Movie Details</h2>
+
+<b>Title: </b>{{oneMovie.title}} <br>
+<b>Genre:</b> {{oneMovie.genre}}
+<p><b>Plot:</b> <br>
+    {{oneMovie.plot}}
+</p>
+
+<a href="/movies/{{oneMovie.id}}/edit">EDIT</a><br>
+<a href="/movies"> Go back and show all movies </a>

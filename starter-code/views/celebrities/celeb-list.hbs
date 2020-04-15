@@ -1,0 +1,25 @@
+<h2> Celebrities </h2>
+
+Can't find your celebrity? <br>
+<a href="/celebrities/new"> Add a new celebrity </a>
+
+<ul>
+    {{#each allCelebrities}}
+    <li><a href="/celebrities/show/{{this.id}}"> {{this.name}}</a> 
+        <form action="/celebrities/delete/{{this.id}}" method="post"><button type="submit">DELETE</button></form>
+    </li>
+    {{/each}}
+</ul>
+
+{{!-- 
+if you want to show every detail here --}}
+{{!-- <ul>
+    {{#each allCelebrities}}
+    <li><b>Name: </b>{{this.name}} <br>
+        <b>Occupation:</b> {{this.occupation}}
+        <p><b>Catch Phrase:</b> <br>
+            {{this.catchPhrase}}
+        </p>
+    </li>
+    {{/each}}
+</ul> --}}
