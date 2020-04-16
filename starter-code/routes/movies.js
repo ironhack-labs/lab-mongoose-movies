@@ -48,14 +48,15 @@ router.post("/delete/:identifier", (req, res, next) => {
 // update movie
 
 router.get("/edit/:identifier", (req, res, next) => {
-  Movie.findById(req.params.identifier).populate("cast")
+  Movie.findById(req.params.identifier)
     .then((mov) => {
-      res.render("movies/edit", { myMov: mov });
-      console.log("found this: " + mov);
-    })
-    .catch((error) => {
-      return error;
+      Celeb.find().then((celebs) => {
+      res.render("movies/edit", { myMov: mov, allCelebs: celebs});
     });
+  });
+    // .catch((error) => {
+    //   return error;
+    // });
 });
 
 router.post("/:identifier", (req, res, next) => {
