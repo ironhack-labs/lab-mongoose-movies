@@ -1,0 +1,15 @@
+<h2> Edit celebrities here</h2>
+
+  <form action="/celebrities/edit/{{detailArray._id}}" method="post">
+  <label for="">Name:</label>
+  <input type="text" name="name" value="{{detailArray.name}}">
+
+  <label for="">Occupation:</label>
+  <input type="text" name="occupation" value="{{detailArray.occupation}}">
+
+  <label for="">Catch phrase:</label>
+  <input type="text" name="catchPhrase" value="{{detailArray.catchPhrase}}">
+
+
+  <button type="submit">EDIT</button>
+</form> 
