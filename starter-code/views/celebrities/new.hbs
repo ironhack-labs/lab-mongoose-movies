@@ -1,0 +1,14 @@
+<h2>Add a new celebrity</h2>
+<form action="/celebrities" method="POST">
+  <div class="element">
+    <label for="name">Name *</label><input type="text" name="name" id="name" value="{{base.name}}" {{#if errors.emptyName}}class="error" {{/if}}>
+  </div>
+  <div class="element">
+    <label for="occupation">Occupation *</label><input type="text" name="occupation" id="occupation" value="{{base.occupation}}" {{#if errors.emptyOccupation}}class="error" {{/if}}>
+  </div>
+  <div class="element">
+    <label for="catchPhrase">Catch phrase</label><input type="text" name="catchPhrase" id="catchPhrase" value="{{base.catchPhrase}}">
+  </div>
+  <p>{{errors.message}}</p>
+  <button>Create</button>
+</form>
