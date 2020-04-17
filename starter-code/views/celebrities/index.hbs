@@ -1,8 +1,7 @@
 <h2>Celebrities</h2>
-{{!-- ADD --}}
+
 <a href="/celebrities/new">Add new celebrity</a>
 
-{{!-- READ ALL --}}
 {{#each celebrities}}
 <p>{{this.name}}</p>
 <a href="/celebrities/{{this._id}}">See more</a>
@@ -13,5 +12,3 @@
     <button class="btn">Edit celebrity</button>
 </form>
 {{/each}}
-
-{{!-- DELETE --}}

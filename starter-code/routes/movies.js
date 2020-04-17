@@ -1,13 +1,13 @@
 const express = require("express");
 const router = new express.Router();
 const Movies = require("../models/movies");
+
 // Get all movies
-router.get("/movies/index", (req, res) => {
+router.get("/movies", (req, res) => {
   Movies.find({})
     .then((dbResult) => {
       res.render("movies/index", {
         movies: dbResult,
-        // css: ["celebrities.css"],
       });
     })
     .catch((err) => {
@@ -16,30 +16,20 @@ router.get("/movies/index", (req, res) => {
 });
 
 // Create a new movie
-
 router.get("/movies/new", (req, res) => {
-  res.render("movies/new.hbs");
+  res.render("movies/new.hbs", {
+    error: req.flash("error"),
+  });
 });
 
 router.post("/movies", (req, res) => {
   if (req.body.title === "" || req.body.genre === "" || req.body.plot === "") {
-    res.render("movies/new", {
-      error: "You have to enter all the fields...",
-    });
+    req.flash("error", "You must fill all the fields!");
+    res.redirect("/movies/new");
   } else {
     Movies.create(req.body)
       .then((dbResult) => {
-        Movies.find({})
-          .then((dbResult) => {
-            res.render("movies/index", {
-              movies: dbResult,
-              // css: ["foods.css"],
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        // res.redirect("/foods");
+        res.redirect("/movies");
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +37,7 @@ router.post("/movies", (req, res) => {
   }
 });
 
-// View movies
+// View a movie
 router.get("/movies/:id", (req, res) => {
   Movies.findById(req.params.id)
     .then((dbResult) => {
@@ -61,26 +51,23 @@ router.get("/movies/:id", (req, res) => {
 });
 
 // Delete Movies
-
 router.post("/movies/:id/delete", (req, res, next) => {
   Movies.findByIdAndRemove(req.params.id)
     .then((dbResult) => {
-      res.redirect("/movies/index");
+      res.redirect("/movies");
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-// update Movies
-
+// Update Movies
 router.get("/movies/:id/edit", (req, res) => {
   Movies.findById(req.params.id)
     .then((dbResult) => {
       res.render("movies/edit.hbs", {
         movies: dbResult,
-        error: "",
-        css: ["form.css"],
+        error: req.flash("error"),
       });
     })
     .catch((dbErr) => {
@@ -90,21 +77,12 @@ router.get("/movies/:id/edit", (req, res) => {
 
 router.post("/movies/:id", (req, res) => {
   if (req.body.title === "" || req.body.genre === "" || req.body.plot === "") {
-    Movies.findById(req.params.id)
-      .then((dbResult) => {
-        res.render("movies/edit.hbs", {
-          movies: dbResult,
-          error: "You have to enter all the fields...",
-          // css: ["form.css"],
-        });
-      })
-      .catch((dbErr) => {
-        console.log(dbErr);
-      });
+    req.flash("error", "You need to fill all the fields..");
+    res.redirect(`/movies/${req.params.id}/edit`);
   } else {
     Movies.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then((dbResult) => {
-        res.redirect("/movies/index");
+        res.redirect("/movies");
       })
       .catch((dbErr) => {
         console.log(dbErr);
