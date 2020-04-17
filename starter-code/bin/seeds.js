@@ -4,17 +4,17 @@ const Celebrity = require("../models/celebrity")
 const celebrities = [
     {
     name : "Robert de Niro",
-    occupation: "actor",
+    occupation: "Actor",
     catchPhrase: "Michael, your father loves you.",
     },
     {
     name : "Meryl Streep",
-    occupation: "actor",
+    occupation: "Actor",
     catchPhrase: "Please bore someone else with your questions...",
     },
     {
     name : "Jim Carrey",
-    occupation: "comedian",
+    occupation: "Comedian",
     catchPhrase: "I'm the top banana in a world full of monkeys.",
     }
 ];

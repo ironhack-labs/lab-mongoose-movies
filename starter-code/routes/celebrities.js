@@ -18,8 +18,9 @@ router.get('/celebrities', (req, res, next) => {
 router.get('/celebrities/:id', (req, res, next) => {
   Celebrity.findById(req.params.id)
   .then((dbResult) => {
-    res.render("/celebrities/show.hbs", {
-        show: dbResult,
+      console.log(dbResult)
+    res.render("celebrities/show.hbs", {
+        celeb: dbResult,
     });
   })
   .catch((err) => {
@@ -27,6 +28,31 @@ router.get('/celebrities/:id', (req, res, next) => {
       message: err.message,
     })
   });
+});
+
+router.get('/celebrities/create', (req, res) => {
+    res.render("celebrities/new.hbs", {
+        css: ["form.css"],
+    });
+});
+
+router.post("/celebrities", (req, res) => {
+    Celebrity.create(req.body)
+    .then((dbResult) => {
+        Celebrity.find({})
+        .then((dbResult) => {
+            res.render("celebrities/allCelebrities.hbs", {
+                celeb: dbResult,
+                css: ["celebrities.css"],
+            });
+        })
+        .catch((err) => {
+            res.render("error.hbs");
+        });
+    })
+    .catch((err) => {
+        res.render("error.hbs");
+    });
 });
 
 module.exports = router;
