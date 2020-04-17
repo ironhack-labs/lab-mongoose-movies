@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Celebrity = require("../models/Celebrity.js");
+const Movie = require("../models/Movie.js");
 
-/* GET celebrities page */
+/* GET movies page */
 router.get("/", (req, res, next) => {
-  Celebrity.find()
+  Movie.find()
     .then((dbResult) => {
-      res.render("celebrities/index", { celebrities: dbResult });
+      res.render("movies/index", { movies: dbResult });
     })
     .catch((error) => {
       res.render("error", { error: error });
@@ -14,21 +14,21 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/new", (req, res, next) => {
-  res.render("celebrities/new");
+  res.render("movies/new");
 });
 
 router.get("/edit/:id", (req, res, next) => {
-  Celebrity.findById(req.params.id).then((dbResult) => {
-    res.render("celebrities/edit", { celebrity: dbResult }).catch((error) => {
+  Movie.findById(req.params.id).then((dbResult) => {
+    res.render("movies/edit", { movie: dbResult }).catch((error) => {
       res.render("error", { error: error });
     });
   });
 });
 
 router.get("/:id", (req, res, next) => {
-  Celebrity.findById(req.params.id)
+  Movie.findById(req.params.id)
     .then((dbResult) => {
-      res.render("celebrities/show", { celebrity: dbResult });
+      res.render("movies/show", { movie: dbResult });
     })
     .catch((error) => {
       res.render("error", { error: error });
@@ -36,9 +36,9 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  Celebrity.create(req.body)
+  Movie.create(req.body)
     .then((x) => {
-      res.redirect("/celebrities");
+      res.redirect("/movies");
     })
     .catch((err) => {
       res.render("error", { error: error });
@@ -46,9 +46,9 @@ router.post("/", (req, res, next) => {
 });
 
 router.post("/delete/:id", (req, res, next) => {
-  Celebrity.findByIdAndDelete(req.params.id)
+  Movie.findByIdAndDelete(req.params.id)
     .then((dbResult) => {
-      res.redirect("/celebrities");
+      res.redirect("/movies");
     })
     .catch((error) => {
       res.render("error", { error: error });
@@ -57,15 +57,11 @@ router.post("/delete/:id", (req, res, next) => {
 
 router.post("/edit/:id", (req, res, next) => {
   console.log(req.params.id);
-  if (
-    req.body.name === "" ||
-    req.body.occupation === "" ||
-    req.body.catchphrase === ""
-  ) {
-    Celebrity.findById(req.params.id)
+  if (!req.body.title || !req.body.plot || !req.body.genre) {
+    Movie.findById(req.params.id)
       .then((dbResult) => {
-        res.render("celebrities/edit", {
-          celebrity: dbResult,
+        res.render("movies/edit", {
+          movie: dbResult,
           error: "Fill all fields",
         });
       })
@@ -73,9 +69,9 @@ router.post("/edit/:id", (req, res, next) => {
         res.render("error", { error: error });
       });
   } else {
-    Celebrity.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then((dbResult) => {
-        res.redirect("/celebrities");
+        res.redirect("/movies");
       })
       .catch((error) => {
         res.render("error", { error: error });
