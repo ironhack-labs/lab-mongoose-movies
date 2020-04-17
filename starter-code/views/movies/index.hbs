@@ -1,14 +1,22 @@
-<h2>Movies</h2>
+<div class="index">
 
-<a href="/">« Home</a>
-<a href="/movies/new">+ Add a new movie</a>
+  <h2>Movies</h2>
 
-{{#each movies}}
-<p><a href="/movies/{{this._id}}">{{this.title}}</a></p>
-<form method="post" action="/movies/delete/{{this._id}}">
-  <button>Delete</button>
-</form>
-<form method="get" action="/movies/edit/{{this._id}}">
-  <button>Edit</button>
-</form>
-{{/each}}
+  <a href="/">« Home</a>
+  <a href="/movies/new">+ Add a new movie</a>
+  <div class="movies">
+    {{#each movies}}
+    <div class="movie">
+      <p class="title"><a href="/movies/{{this._id}}">{{this.title}}</a></p>
+      <div class="buttons">
+        <form method="post" action="/movies/delete/{{this._id}}">
+          <button>Delete</button>
+        </form>
+        <form method="get" action="/movies/edit/{{this._id}}">
+          <button>Edit</button>
+        </form>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>

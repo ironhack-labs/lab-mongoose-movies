@@ -1,3 +1,66 @@
 body {
-  background: paleturquoise;
+  max-width: 700px;
+  margin: 0 auto;
+  // background: paleturquoise;
+}
+
+.movies {
+  display: flex;
+  margin: -10px;
+}
+
+.movie {
+  width: 30%;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px;
+  button {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    color: white;
+  }
+  form,
+  button {
+    cursor: pointer;
+  }
+  .buttons {
+    background: orchid;
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    > :first-child {
+      background: blue;
+    }
+    form {
+      flex-basis: 1px;
+      transition: flex-grow 0.5s, padding-left 0.5s, padding-right 0.5s;
+      flex-grow: 1;
+      justify-content: center;
+      justify-items: center;
+      padding: 10px 40px;
+      white-space: nowrap;
+      overflow: hidden;
+      min-width: 0px;
+    }
+    &:hover form {
+      flex-grow: 0;
+      padding-left: 0;
+      padding-right: 0;
+      flex-basis: 0px;
+    }
+    form:hover {
+      flex-grow: 1;
+    }
+  }
 }
