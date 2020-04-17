@@ -6,7 +6,7 @@ const Movie = require("../models/Movie.js");
 router.get("/", (req, res, next) => {
   Movie.find()
     .then((dbResult) => {
-      res.render("movies/index", { movies: dbResult });
+      res.render("movies/index", { movies: dbResult, movie: true });
     })
     .catch((error) => {
       res.render("error", { error: error });
@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/new", (req, res, next) => {
-  res.render("movies/new");
+  res.render("movies/new", { movie: true });
 });
 
 router.get("/edit/:id", (req, res, next) => {

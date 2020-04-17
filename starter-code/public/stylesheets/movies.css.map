@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "movies.css",
+	"sources": [
+		"movies.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,aAAa,GAC1B"
+}

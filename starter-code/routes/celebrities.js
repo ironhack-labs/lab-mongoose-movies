@@ -6,7 +6,10 @@ const Celebrity = require("../models/Celebrity.js");
 router.get("/", (req, res, next) => {
   Celebrity.find()
     .then((dbResult) => {
-      res.render("celebrities/index", { celebrities: dbResult });
+      res.render("celebrities/index", {
+        celebrities: dbResult,
+        celebrity: true,
+      });
     })
     .catch((error) => {
       res.render("error", { error: error });
@@ -14,7 +17,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/new", (req, res, next) => {
-  res.render("celebrities/new");
+  res.render("celebrities/new", { celebrity: true });
 });
 
 router.get("/edit/:id", (req, res, next) => {
