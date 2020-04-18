@@ -1,43 +1,29 @@
-// dark purple #27104e
-// purple #64379f
-// violet #9854cb
-// light violet #ddacf5
-// blue #75e8e7
-
 body {
   font-family: 'Oxanium', cursive;
   font-size: 16px;
-  color: #27104e;
-}
+  color: #27104e; }
 
 a {
-  color: #75e8e7;
-}
+  color: #75e8e7; }
 
 #nav-bar {
-  background-color: #9854cb;
-}
+  background-color: #9854cb; }
 
 #nav-bar a {
-  color: white;
-}
+  color: white; }
 
 #content {
-  padding: 200px 0;
-}
+  padding: 200px 0; }
 
 #each-card {
   background-color: white;
   border: solid 1px #ddacf5;
-  margin-top: 30px;
-}
+  margin-top: 30px; }
 
 .button-mine {
   background-color: #75e8e7;
   border: none;
-  color: #27104e;
-
-}
+  color: #27104e; }
 
 footer {
   background-color: #9854cb;
@@ -46,5 +32,6 @@ footer {
   padding: 20px 0;
   position: fixed;
   width: 100%;
-  bottom: 0;
-}
+  bottom: 0; }
+
+/*# sourceMappingURL=style.css.map */

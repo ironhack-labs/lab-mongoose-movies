@@ -1,0 +1,25 @@
+<h2>Welcome, welcome!</h2>
+<div class="row justify-content-center">
+
+  {{#each celebFind}}
+  <div class="col-md-4">
+
+    <div id="each-card" class="card" style="width: 18rem;">
+
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <a href="/celebrities/show/{{id}}" class="btn button-mine">Show me!</a>
+        <a href="/celebrities/{{id}}/edit" class="btn button-mine">Edit me!</a>
+
+        <form action="/celebrities/{{id}}/delete" method="post">
+          <button type="submit" class="btn button-mine">Borrar</button>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+  {{/each}}
+
+</div>
