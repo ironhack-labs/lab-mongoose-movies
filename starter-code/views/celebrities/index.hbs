@@ -1,5 +1,5 @@
 <h2>Welcome, welcome!</h2>
-<div class="row justify-content-center">
+<div class="row">
 
   {{#each celebFind}}
   <div class="col-md-4">
@@ -8,12 +8,15 @@
 
       <div class="card-body">
         <h5 class="card-title">{{name}}</h5>
-        <a href="/celebrities/show/{{id}}" class="btn button-mine">Show me!</a>
-        <a href="/celebrities/{{id}}/edit" class="btn button-mine">Edit me!</a>
 
-        <form action="/celebrities/{{id}}/delete" method="post">
-          <button type="submit" class="btn button-mine">Borrar</button>
-        </form>
+        <div id="buttons-mine">
+          <a href="/celebrities/show/{{id}}" class="btn button-mine">Show me!</a>
+          <a href="/celebrities/{{id}}/edit" class="btn outlined">Edit me!</a>
+
+          <form action="/celebrities/{{id}}/delete" method="post">
+            <button type="submit" class="btn erase">Borrar</button>
+          </form>
+        </div>
 
       </div>
 

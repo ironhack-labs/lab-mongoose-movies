@@ -1,11 +1,19 @@
 <div class="row justify-content-center">
 
-  <div class="col-md-8">
+  <div class="col-md-3">
+    <figure>
+      <img src="{{photo}}" alt="">
+    </figure>
+  </div>
+
+  <div class="col-md-9">
 
     <h2 class="card-title">{{name}}</h2>
     <small>{{occupation}}</small>
     <hr>
     <p class="card-text">{{catchPhrase}}</p>
+    <a href="/celebrities" class="btn button-mine">Volver!</a>
+    <a href="/celebrities/{{id}}/edit" class="btn outlined">Edit me!</a>
 
   </div>
 

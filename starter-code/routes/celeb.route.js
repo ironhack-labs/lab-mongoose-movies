@@ -18,10 +18,9 @@ router.get('/show/:id', (req, res, next) => {
 //Add new
 router.get('/new', (req, res, next) => res.render('celebrities/add'))
 router.post('/', (req, res, next) => {
-
   const { name, occupation, catchPhrase } = req.body
   Celeb.create({ name, occupation, catchPhrase })
-    .then(createdCeleb => res.redirect('/celebrities'))
+    .then(res.redirect('/celebrities'))
     .catch(err => console.log(err))
 })
 //Delete
@@ -45,9 +44,5 @@ router.post('/:id/edit', (req, res, next) => {
     .then(res.redirect('/celebrities'))
     .catch(err => console.log(err))
 })
-
-
-
-
 
 module.exports = router;

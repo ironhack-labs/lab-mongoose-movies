@@ -6,6 +6,11 @@ body {
 a {
   color: #75e8e7; }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
 #nav-bar {
   background-color: #9854cb; }
 
@@ -13,17 +18,38 @@ a {
   color: white; }
 
 #content {
-  padding: 200px 0; }
+  padding: 150px 0 250px; }
 
 #each-card {
   background-color: white;
   border: solid 1px #ddacf5;
   margin-top: 30px; }
 
+#each-card #buttons-mine {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
+
+#each-card form {
+  width: 100%; }
+
 .button-mine {
   background-color: #75e8e7;
-  border: none;
-  color: #27104e; }
+  border: solid 1px #27104e;
+  color: #27104e;
+  margin: 5px 0; }
+
+.outlined {
+  background-color: white;
+  border: solid 1px #27104e;
+  color: #27104e;
+  margin: 5px 0; }
+
+.erase {
+  padding-left: 0;
+  text-align: left;
+  color: #27104e;
+  text-decoration: underline; }
 
 footer {
   background-color: #9854cb;
