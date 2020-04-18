@@ -1,0 +1,33 @@
+<div class="title">
+    <div class="col">
+        <h2>Lista de Celebridades</h2>
+    </div>
+</div>
+
+<div class="celebrities-list">
+    {{#each celebrities}}
+    <ul>
+        <li><a href="/celebrities/show/{{_id}}">{{name}}</a></li>
+        <a href="/celebrities/edit?id={{_id}}"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
+        <form action="/celebrities/{{_id}}/delete" method="POST">
+            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+        </form>
+    </ul>
+    {{/each}}
+    <a href="/celebrities/new"><button type="button" class="btn btn-dark">Crear</button></a>
+    <a href="/"><button type="button" class="btn btn-info">Volver la inicio</button></a>
+</div>
+
+{{!-- {{#each celebrities}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><a href="/celebrities/show/{{_id}}">{{name}}</a></h5>
+    <a href="/celebrities/edit?id={{_id}}" class="card-link btn btn-success btn-sm">Editar</a>
+    <form action="/celebrities/{{_id}}/delete" method="POST"></form>
+    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+    </form>
+  </div>  
+</div>
+  {{/each}}
+<a href="/celebrities/new"><button type="button" class="btn btn-dark">Crear nuevo</button></a>
+<a href="/"><button type="button" class="btn btn-info">Volver a inicio</button></a> --}}

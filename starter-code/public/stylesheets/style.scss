@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1{
+  padding-top: 200px;
+  font-size: 5em;
+  text-align: center;
+}
+
+h2 {
+  padding: 30px;
+  font-size: 3em;
+}
+// --- HOME ---
+
+.celebrities-list li {
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em;
 }
