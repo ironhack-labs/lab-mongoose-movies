@@ -63,4 +63,36 @@ router.post('/:movieId/delete', (req, res, next) => {
     })
 })
 
+//EDIT
+
+router.get('/:movieId/edit', (req, res, next) => {
+  Movie.findById(req.params.movieId)
+    .then((fetchedMovie) => {
+      res.render('movies/edit', fetchedMovie)
+    })
+    .catch((err) => {
+      console.log(
+        'An error ocurred when fetching a movie entry to be edited: ',
+        err
+      )
+      next()
+    })
+})
+
+router.post('/:movieId/edit', (req, res, next) => {
+  const { title, genre, plot } = req.body
+  Movie.findByIdAndUpdate(
+    req.params.movieId,
+    { title, genre, plot },
+    { new: true }
+  )
+    .then((updatedMovie) => {
+      res.redirect(`/movies/${updatedMovie.id}`)
+    })
+    .catch((err) => {
+      console.log('An error occurred when editing a movie entry: ', err)
+      next()
+    })
+})
+
 module.exports = router
