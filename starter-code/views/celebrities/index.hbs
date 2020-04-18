@@ -1,8 +1,19 @@
 <h1>CELEBRITIES</h1>
 <h2>ahí va que chorrazo</h2>
 
+
+<a href="celebrities/new" class="btn btn-dark"> Create a new entry</a>
+
 {{#each allCelebs}}
 
-<p><a href="celebrities/{{id}}">{{name}}</a></p>
+<div class="container">
+  <div class="col">
+    <div class="row-8">
+      <p><a href="celebrities/{{id}}">{{name}}</a></p>
+    </div>
+  </div>
+</div>
+
+
 
 {{/each}}
