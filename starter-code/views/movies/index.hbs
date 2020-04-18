@@ -1,0 +1,17 @@
+<h1>Movies</h1>
+
+<a href="movies/new" class="btn btn-dark">Create a new entry</a>
+
+{{#each allMovies}}
+
+<div class="container">
+  <div class="col">
+    <div class="row-8">
+      <p><a href="movies/{{id}}">{{title}}</a></p>
+    </div>
+  </div>
+</div>
+
+
+
+{{/each}}

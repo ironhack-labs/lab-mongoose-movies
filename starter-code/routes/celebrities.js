@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
     })
     .catch((err) => {
       console.log(
-        'An error ocurred when fetching all documents from the DB: ',
+        'An error ocurred when fetching all Celebrity documents from the DB: ',
         err
       )
       next()

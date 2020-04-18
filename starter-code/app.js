@@ -53,5 +53,6 @@ const index = require('./routes/index')
 
 app.use('/', index)
 app.use('/celebrities', require('./routes/celebrities'))
+app.use('/movies', require('./routes/movies'))
 
 module.exports = app
