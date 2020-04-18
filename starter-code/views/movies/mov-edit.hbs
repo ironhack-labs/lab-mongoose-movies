@@ -1,0 +1,25 @@
+<div class="form"> 
+  <h2>Edita <em>{{title}}</em>, que la cagaste</h2>
+  
+  <form method="POST" action="/movies/{{id}}/edit">
+  
+    <div class="form-group">
+      <label for="movie-title">Title</label>
+      <input name="title" type="text" class="form-control" id="movie-title" value="{{title}}">
+    </div>
+    <div class="form-group">
+      <label for="movie-genre">Genres</label>
+      <input name="genre" type="text" class="form-control" id="movie-genre" value="{{genre}}">
+    </div>
+    <div class="form-group">
+      <label for="movie-image">Image URL</label>
+      <input name="photo" type="text" class="form-control" id="movie-image" value="{{photo}}">
+    </div>
+    <div class="form-group">
+      <label for="movie-plot">Plot</label>
+      <input name="plot" type="text" class="form-control" id="movie-plot" value="{{plot}}">
+    </div>
+  
+    <button type="submit" class="btn button-mine">Guardar Cambios</button>
+  </form>
+</div>

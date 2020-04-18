@@ -1,0 +1,33 @@
+<div class="no-form">
+  <h2>Movies!</h2>
+  <a href="/movies/new" class="btn button-mine">Añadir Movie</a>
+  
+  <div class="row">
+  
+    {{#each moviesCreated}}
+    <div class="col-md-4">
+  
+      <div id="each-card" class="card" style="width: 18rem;">
+        <img src="{{photo}}" class="card-img-top" alt="...">
+  
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+  
+          <div id="buttons-mine">
+            <a href="/movies/show/{{id}}" class="btn button-mine">Show movie!</a>
+            <a href="/movies/{{id}}/edit" class="btn outlined">Edit movie!</a>
+  
+            <form action="/movies/{{id}}/delete" method="post">
+              <button type="submit" class="btn erase">Borrar movie!</button>
+            </form>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+    {{/each}}
+  
+  </div>
+</div>

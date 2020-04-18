@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const movieSchema = new Schema({
-    name: String,
+    title: String,
+    genre: String,
+    photo: String,
+    plot: String
 })
 
 const Movie = mongoose.model('MovieBD', movieSchema)

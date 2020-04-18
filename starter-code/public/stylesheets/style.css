@@ -17,8 +17,11 @@ img {
 #nav-bar a {
   color: white; }
 
-#content {
-  padding: 150px 0 250px; }
+.form {
+  padding: 100px 0; }
+
+.no-form {
+  padding: 50px 0 150px; }
 
 #each-card {
   background-color: white;
@@ -32,6 +35,11 @@ img {
 
 #each-card form {
   width: 100%; }
+
+.card img {
+  height: 380px;
+  object-fit: cover;
+  object-position: top; }
 
 .button-mine {
   background-color: #75e8e7;

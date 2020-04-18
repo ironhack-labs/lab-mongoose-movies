@@ -1,28 +1,32 @@
-<h2>Welcome, welcome!</h2>
-<div class="row">
-
-  {{#each celebFind}}
-  <div class="col-md-4">
-
-    <div id="each-card" class="card" style="width: 18rem;">
-
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-
-        <div id="buttons-mine">
-          <a href="/celebrities/show/{{id}}" class="btn button-mine">Show me!</a>
-          <a href="/celebrities/{{id}}/edit" class="btn outlined">Edit me!</a>
-
-          <form action="/celebrities/{{id}}/delete" method="post">
-            <button type="submit" class="btn erase">Borrar</button>
-          </form>
+<div class="no-form">
+  <h2>Welcome, welcome!</h2>
+  <a href="/celebrities/new" class="btn button-mine">Añadir Celeb</a>
+  
+  <div class="row">
+  
+    {{#each celebFind}}
+    <div class="col-md-4">
+  
+      <div id="each-card" class="card" style="width: 18rem;">
+        <img src="{{photo}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+  
+          <div id="buttons-mine">
+            <a href="/celebrities/show/{{id}}" class="btn button-mine">Show me!</a>
+            <a href="/celebrities/{{id}}/edit" class="btn outlined">Edit me!</a>
+  
+            <form action="/celebrities/{{id}}/delete" method="post">
+              <button type="submit" class="btn erase">Borrar</button>
+            </form>
+          </div>
+  
         </div>
-
+  
       </div>
-
+  
     </div>
-
+    {{/each}}
+  
   </div>
-  {{/each}}
-
 </div>

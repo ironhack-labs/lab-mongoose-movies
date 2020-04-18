@@ -1,17 +1,23 @@
-<h2>Añade, añade...</h2>
-
-<form method="POST" action="/celebrities">
-  <div class="form-group">
-    <label for="celeb-name">Name</label>
-    <input name="name" type="text" class="form-control" id="celeb-name">
-  </div>
-  <div class="form-group">
-    <label for="celeb-occupation">Occupation</label>
-    <input name="occupation" type="text" class="form-control" id="celeb-occupation">
-  </div>
-  <div class="form-group">
-    <label for="celeb-occupation">Catch Phrase</label>
-    <input name="catchPhrase" type="text" class="form-control" id="celeb-occupation">
-  </div>
-  <button type="submit" class="btn button-mine">Guardar</button>
-</form>
+<div class="form">
+  <h2>Añade, añade...</h2>
+  
+  <form method="POST" action="/celebrities">
+    <div class="form-group">
+      <label for="celeb-name">Name</label>
+      <input name="name" type="text" class="form-control" id="celeb-name">
+    </div>
+    <div class="form-group">
+      <label for="celeb-occupation">Occupation</label>
+      <input name="occupation" type="text" class="form-control" id="celeb-occupation">
+    </div>
+    <div class="form-group">
+      <label for="celeb-image">Image URL</label>
+      <input name="photo" type="text" class="form-control" id="celeb-image">
+    </div>
+    <div class="form-group">
+      <label for="celeb-phrase">Catch Phrase</label>
+      <input name="catchPhrase" type="text" class="form-control" id="celeb-phrase">
+    </div>
+    <button type="submit" class="btn button-mine">Guardar</button>
+  </form>
+</div>
