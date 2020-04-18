@@ -1,0 +1,8 @@
+<h2>Edit "{{myCel.name}}"</h2>
+
+<form action="/stars/{{myCel.id}}" method="post">
+<input type="text" name="name" value="{{myCel.name}}">
+<input type="text" name="occupation" value="{{myCel.occupation}}">
+<input type="text" name="catchPhrase" placeholder="catchPhrase" value="{{myCel.catchPhrase}}">
+<button type="submit">Save changes</button>
+</form>
