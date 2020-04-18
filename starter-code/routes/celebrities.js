@@ -62,4 +62,36 @@ router.post('/:celebrityId/delete', (req, res, next) => {
     })
 })
 
+//EDIT
+
+router.get('/:celebrityId/edit', (req, res, next) => {
+  Celebrity.findById(req.params.celebrityId)
+    .then((fetchedCeleb) => {
+      res.render('celebrities/edit', fetchedCeleb)
+    })
+    .catch((err) => {
+      console.log(
+        'An error ocurred when fetching a celeb entry to be edited: ',
+        err
+      )
+      next()
+    })
+})
+
+router.post('/:celebrityId/edit', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body
+  Celebrity.findByIdAndUpdate(
+    req.params.celebrityId,
+    { name, occupation, catchPhrase },
+    { new: true }
+  )
+    .then((updatedCeleb) => {
+      res.redirect(`/celebrities/${updatedCeleb.id}`)
+    })
+    .catch((err) => {
+      console.log('An error occurred when editing a celeb entry: ', err)
+      next()
+    })
+})
+
 module.exports = router
