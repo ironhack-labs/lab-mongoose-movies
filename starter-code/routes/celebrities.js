@@ -18,14 +18,35 @@ router.get('/', (req, res, next) => {
     })
 })
 
-router.get("/:celebrityId", (req, res, next) => {
+router.get('/:celebrityId', (req, res, next) => {
   Celebrity.findById(req.params.celebrityId)
-  .then((celebrity) => {
-    res.render("celebrities/show", celebrity)
-  }).catch((err) => {
-    console.log("An error ocurred when fetching an specific celebrity by ID: ", err)
-    next()
-  });
+    .then((celebrity) => {
+      res.render('celebrities/show', celebrity)
+    })
+    .catch((err) => {
+      console.log(
+        'An error ocurred when fetching an specific celebrity by ID: ',
+        err
+      )
+      next()
+    })
+})
+
+//CREATE
+
+router.get('/new', (req, res, next) => res.render('celebrities/new'))
+
+router.post('/new', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body
+  console.log("requirement made: ", req.body)
+  Celebrity.create({ name, occupation, catchPhrase })
+    .then(() => {
+      res.redirect('/')
+    })
+    .catch((err) => {
+      console.log("An error ocurred when generating a celeb: ", err)
+      res.redirect('/new')
+    })
 })
 
 module.exports = router
