@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap");
+* {
+  font-family: 'Noto Serif JP', serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none; }
+
+body {
+  background-color: whitesmoke;
+  color: black;
+  min-height: 100vh; }
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .main h1 {
+    font-size: 100px;
+    font-weight: 600;
+    line-height: 1.5em; }
+    .main h1 a {
+      text-decoration: none;
+      color: black; }
+    .main h1 a:hover {
+      color: #0D0CBF; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,29 @@
+<div class="gallery">
+
+    <div class="center-block">
+
+        {{> backButton}}
+
+        <h2>Movies</h2>
+
+        {{#each movies}}
+        <ul>
+            <li>
+                <a href="/movies/{{this._id}}">{{this.title}}</a>
+                <form action="/movies/{{this._id}}/delete" method="POST">
+                    <button>Delete</button>
+                </form>
+                <form action="/movies/{{this._id}}/edit" method="GET">
+                    <button>Edit</button>
+                </form>
+            </li>
+        </ul>
+        {{/each}}
+
+        <a href="/movies/new">
+            <h3>Add a movie</h3>
+        </a>
+
+    </div>
+
+</div>

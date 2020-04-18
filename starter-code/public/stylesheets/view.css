@@ -1,0 +1,25 @@
+.view {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .view .center-block {
+    margin-left: 20vw;
+    width: 60vw; }
+    .view .center-block .back-button {
+      font-size: 20px;
+      color: black;
+      margin-top: 20vw; }
+    .view .center-block h2 {
+      font-size: 30px;
+      margin: 40px 0; }
+    .view .center-block h3 {
+      font-size: 100px;
+      color: black;
+      font-weight: 900; }
+    .view .center-block p {
+      margin-top: 40px;
+      font-size: 20px;
+      line-height: 2em; }
+
+/*# sourceMappingURL=view.css.map */

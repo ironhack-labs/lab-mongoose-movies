@@ -1,0 +1,40 @@
+.form {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20vw;
+
+    h2 {
+        font-size: 40px;
+        margin: 40px 0;
+    }
+
+    .field {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        label {
+            margin-right: 20px;
+            font-size: 20px;
+        }
+
+        input {
+            border: none;
+            width: 30vw;
+            height: 1.5vh;
+        }
+    }
+
+    button {
+        font-size: 30px;
+        border: none;
+        background-color: whitesmoke;
+        margin-top: 20px;
+
+        &:hover {
+            color: #100EE5;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<div class="gallery">
+
+    <div class="center-block">
+
+        {{> backButton}}
+
+        <h2>Celebrities</h2>
+
+        {{#each celebrities}}
+        <ul>
+            <li>
+                <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+                <form action="/celebrities/{{this._id}}/delete" method="POST">
+                    <button>| Delete</button>
+                </form>
+                <form action="/celebrities/{{this._id}}/edit" method="GET">
+                    <button>| Edit</button>
+                </form>
+            </li>
+        </ul>
+        {{/each}}
+
+        <a href="/celebrities/new">
+            <h3>Add a celebrity</h3>
+        </a>
+
+    </div>
+
+</div>

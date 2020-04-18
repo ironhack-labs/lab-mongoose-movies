@@ -1,0 +1,40 @@
+.gallery {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .gallery .center-block {
+    margin-left: 20vw; }
+    .gallery .center-block .back-button {
+      font-size: 20px;
+      color: black;
+      margin-top: 20vw; }
+    .gallery .center-block h2 {
+      font-size: 100px;
+      margin: 40px 0; }
+    .gallery .center-block li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 20px; }
+      .gallery .center-block li a {
+        color: black;
+        font-size: 30px; }
+        .gallery .center-block li a:hover {
+          color: #1210FF; }
+      .gallery .center-block li button {
+        font-size: 30px;
+        border: none;
+        background-color: whitesmoke; }
+      .gallery .center-block li a,
+      .gallery .center-block li button {
+        margin-right: 15px; }
+    .gallery .center-block h3 {
+      margin-top: 30px;
+      color: black;
+      font-size: 30px;
+      font-weight: 600; }
+      .gallery .center-block h3:hover {
+        color: #09087F; }
+
+/*# sourceMappingURL=gallery.css.map */

@@ -1,0 +1,29 @@
+.form {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20vw; }
+  .form h2 {
+    font-size: 40px;
+    margin: 40px 0; }
+  .form .field {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .form .field label {
+      margin-right: 20px;
+      font-size: 20px; }
+    .form .field input {
+      border: none;
+      width: 30vw;
+      height: 1.5vh; }
+  .form button {
+    font-size: 30px;
+    border: none;
+    background-color: whitesmoke;
+    margin-top: 20px; }
+    .form button:hover {
+      color: #100EE5; }
+
+/*# sourceMappingURL=form.css.map */

@@ -1,0 +1,34 @@
+.view {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .center-block {
+        margin-left: 20vw;
+        width: 60vw;
+
+        .back-button {
+            font-size: 20px;
+            color: black;
+            margin-top: 20vw;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin: 40px 0;
+        }
+
+        h3 {
+            font-size: 100px;
+            color: black;
+            font-weight: 900;
+        }
+
+        p {
+            margin-top: 40px;
+            font-size: 20px;
+            line-height: 2em;
+        }
+    }
+}
