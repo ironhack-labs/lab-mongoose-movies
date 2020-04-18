@@ -1,0 +1,17 @@
+<h2>{{title}}</h2>
+
+<a href="/movies" class="btn btn-sm btn-link">Back to movie list</a>
+
+<p>Title: {{title}}</p>
+<p>Genre: {{genre}}</p>
+<p>Plot: {{plot}}</p>
+
+<div class="d-flex">
+  <form action="/movies/{{id}}/delete" method="post">
+    <button type="submit" class="btn btn-dark">Delete this entry</button>
+  </form>
+
+  <form action="/movies/{{id}}/edit" method="get">
+    <button type="submit" class="btn btn-dark">Edit this entry</button>
+  </form>
+</div>
