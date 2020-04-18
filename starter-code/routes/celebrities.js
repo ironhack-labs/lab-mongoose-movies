@@ -38,14 +38,27 @@ router.get('/new', (req, res, next) => res.render('celebrities/new'))
 
 router.post('/new', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body
-  console.log("requirement made: ", req.body)
+  console.log('requirement made: ', req.body)
   Celebrity.create({ name, occupation, catchPhrase })
     .then(() => {
       res.redirect('/')
     })
     .catch((err) => {
-      console.log("An error ocurred when generating a celeb: ", err)
+      console.log('An error ocurred when generating a celeb: ', err)
       res.redirect('/new')
+    })
+})
+
+//DELETE
+
+router.post('/:celebrityId/delete', (req, res, next) => {
+  Celebrity.findByIdAndDelete(req.params.celebrityId)
+    .then((result) => {
+      res.redirect('/index')
+    })
+    .catch((err) => {
+      console.log('An error occurred when deleting a celeb entry: ', err)
+      next()
     })
 })
 
