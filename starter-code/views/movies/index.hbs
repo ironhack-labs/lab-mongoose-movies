@@ -1,13 +1,13 @@
 <h2>Movies list</h2>
-
-<a href="/movies/new/">Add a new movie</a>
-<section>
-  <ul>
-    {{#each movies}}
-    <li><a href="/movies/{{this._id}}">{{this.title}}</a>
+<section class="list">
+  <a href="/movies/new/" class="add">Add a new movie</a>
+  {{#each movies}}
+  <ul class="poster">
+    <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+    <li class="links">
       <form action="/movies/{{this._id}}/delete" method="POST"><button>Delete</button></form>
       <form action="/movies/{{this._id}}/edit" method="POST"><button>Edit</button></form>
     </li>
-    {{/each}}
   </ul>
+  {{/each}}
 </section>

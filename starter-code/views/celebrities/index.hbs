@@ -1,12 +1,15 @@
 <h2>Celebrities</h2>
 
-<a href="/celebrities/new/">Add a new celebrity</a>
+<section class="list">
+  <a href="/celebrities/new/" class="add">Add a new celebrity</a>
 
-<ul>
   {{#each data}}
-  <li><a href="/celebrities/{{this._id}}">{{this.name}}</a>
-    <form action="/celebrities/{{this._id}}/delete" method="POST"><button>Delete</button></form>
-    <form action="/celebrities/{{this._id}}/edit" method="POST"><button>Edit</button></form>
-  </li>
+  <ul class="poster">
+    <li><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+    <li class="links">
+      <form action="/celebrities/{{this._id}}/delete" method="POST"><button>Delete</button></form>
+      <form action="/celebrities/{{this._id}}/edit" method="POST"><button>Edit</button></form>
+    </li>
+  </ul>
   {{/each}}
-</ul>
+</section>

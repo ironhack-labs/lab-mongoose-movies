@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/Movie');
+const Celebrity = require('../models/Celebrity');
 
 router.get('/', (req, res, next) => {
 	Movie.find()
@@ -13,13 +14,28 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-	Movie.findById(req.params.id)
-		.then((result) => {
+	async function getData() {
+		try {
+			const movie = await Movie.findById(req.params.id)
+				.then()
+				.catch((e) => next());
+
+			let actors = [];
+			for (let i = 0; i < movie.actors.length; i++) {
+				let actor = await Celebrity.findById(movie.actors[i])
+					.then()
+					.catch((e) => console.log(e));
+				actors.push(actor);
+			}
 			res.render('movies/show', {
-				movie: result,
+				movie: movie,
+				actors: actors,
 			});
-		})
-		.catch((e) => next());
+		} catch (e) {
+			console.log(e);
+		}
+	}
+	getData();
 });
 
 router.get('/new', (req, res, next) => {
