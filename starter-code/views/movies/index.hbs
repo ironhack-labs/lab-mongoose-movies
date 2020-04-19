@@ -1,11 +1,10 @@
 <h2>Movies</h2>
-<hr>
+
 {{#each allMoviesArray}}
-<div>
+<div class="goCenter">
     <h4><a href="/movies/{{_id}}">{{title}}</a></h4>
     <form method="POST" action="/movies/{{_id}}/delete">
-        <button type="submit" class="btn btn-primary btn-dark">Delete</button>
+        <button type="submit" class="btn btn-primary btn-danger">Delete</button>
     </form>
 </div>
 {{/each}}
-<hr>
