@@ -18,8 +18,8 @@ router.get('/show/:id', (req, res, next) => {
 //Add new
 router.get('/new', (req, res, next) => res.render('celebrities/add'))
 router.post('/', (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body
-  Celeb.create({ name, occupation, catchPhrase })
+  const { name, occupation, catchPhrase, photo } = req.body
+  Celeb.create({ name, occupation, catchPhrase, photo })
     .then(res.redirect('/celebrities'))
     .catch(err => console.log(err))
 })
@@ -38,9 +38,9 @@ router.get('/:id/edit', (req, res, next) => {
 })
 
 router.post('/:id/edit', (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body
+  const { name, occupation, catchPhrase, photo } = req.body
 
-  Celeb.findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase }, {new: true})
+  Celeb.findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase, photo }, {new: true})
     .then(res.redirect('/celebrities'))
     .catch(err => console.log(err))
 })
