@@ -1,20 +1,23 @@
-<div class="row justify-content-center">
-
-  <div class="col-md-3">
-    <figure>
-      <img src="{{photo}}" alt="">
-    </figure>
+<div class="no-form">
+  <div class="row justify-content-center">
+  
+    <div class="col-md-3">
+      <figure>
+        <img src="{{photo}}" alt="">
+      </figure>
+    </div>
+  
+    <div class="col-md-9">
+  
+      <h2 class="card-title">{{card-title}}</h2>
+      <small>{{genre}}</small>
+      <hr>
+      <p class="card-text">{{plot}}</p>
+      <a href="/movies" class="btn button-mine">Volver!</a>
+      <a href="/movies/{{id}}/edit" class="btn outlined">Edit me!</a>
+  
+    </div>
+  
   </div>
-
-  <div class="col-md-9">
-
-    <h2 class="card-title">{{card-title}}</h2>
-    <small>{{genre}}</small>
-    <hr>
-    <p class="card-text">{{plot}}</p>
-    <a href="/movies" class="btn button-mine">Volver!</a>
-    <a href="/movies/{{id}}/edit" class="btn outlined">Edit me!</a>
-
-  </div>
-
+  
 </div>
