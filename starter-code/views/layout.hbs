@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  {{!-- Bootstrap CSS --}}
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+  {{!-- Own CSS --}}
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
 
-  {{{body}}}
+  <div class="container">
+    {{{body}}}
+  </div>
 
   <script src="/javascripts/script.js"></script>
 </body>

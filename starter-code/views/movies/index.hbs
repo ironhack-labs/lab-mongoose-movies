@@ -1,0 +1,13 @@
+<h2>Movies</h2>
+
+{{#each allMovies}}
+  <h3>
+    <a href="/movies/{{id}}">
+      {{title}}
+    </a>
+  </h3>
+  {{> deleteMovieFormPartial this}}
+  {{> editMovieFormPartial this}}
+{{/each}}
+
+<a class="btn btn-dark" href="/movies/new">Create Movie</a>
