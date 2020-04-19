@@ -8,9 +8,9 @@
     {{#each celebrities}}
     <ul>
         <li><a href="/celebrities/show/{{_id}}">{{name}}</a></li>
-        <a href="/celebrities/edit?id={{_id}}"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
+        <a href="/celebrities/edit?id={{_id}}"><button type="button" class="btn btn-outline-success btn-sm">Editar</button></a>
         <form action="/celebrities/{{_id}}/delete" method="POST">
-            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+            <button class="btn btn-outline-danger btn-sm" type="submit">Eliminar</button>
             <hr>
         </form>
     </ul>

@@ -10,14 +10,12 @@ a {
 h1 {
   padding-top: 200px;
   font-size: 8em;
-  text-align: center;
   font-weight: 800; }
 
 h2 {
   padding: 30px;
   font-size: 3em;
-  font-weight: 600;
-  margin-bottom: 20px; }
+  font-weight: 600; }
 
 .celebrities-list li {
   list-style: none;
@@ -31,5 +29,15 @@ h2 {
 
 .btn-back-list {
   margin-top: 20px; }
+
+.home-btn {
+  margin: 0 20px; }
+
+.home p {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  justify-content: center;
+  margin-left: 80px; }
 
 /*# sourceMappingURL=style.css.map */
