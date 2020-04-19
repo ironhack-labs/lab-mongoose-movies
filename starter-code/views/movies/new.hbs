@@ -1,0 +1,18 @@
+
+
+<h1>register a new celebrity</h1>
+
+<form action="/movies" method="post">
+  <label>title</label>
+  <input type="text" name="title" id="title">
+  <label>genre</label>
+  <input type="text" name="genre" id="genre">
+  <label>plot</label>
+  <input type="text" name="plot" id="plot">
+  <input type="submit" value="Add Movie">
+</form>
+
+{{#if error}}
+<p>already in DB</p>
+{{/if}}
+<a href="/movies">Go Back</a>

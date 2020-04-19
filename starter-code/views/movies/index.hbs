@@ -1,0 +1,14 @@
+<h1>These are the hottest movies</h1>
+
+{{#each movs}}
+<li>{{ title }}</li>
+<li><a href="/movies/{{_id}}">Details</a></li>
+<form action="/movies/{{_id}}/delete" method="post">
+  <input type="submit" value="delete">
+</form>
+{{/each}}
+
+
+
+<p>Wanna add a new Movie?</p>
+<a href="/movies/new">Add Movie</a>
