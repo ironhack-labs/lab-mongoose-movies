@@ -10,5 +10,24 @@
     <label for="catchPhrase">Catch phrase</label><input type="text" name="catchPhrase" id="catchPhrase" value="{{celebrity.catchPhrase}}">
   </div>
   <p>{{errors.message}}</p>
+  <div style="display: flex; justify-content: space-evenly">
+    <div style="flex: 1">
+      <h3>Play in</h3>
+      <ul id="played">
+        {{#each actorMovies}}
+        <li data-id="{{this._id}}">{{this.title}}</li>
+        {{/each}}
+      </ul>
+      <input type="hidden" name="moviesPlayed" id="moviesPlayed" value="">
+    </div>
+    <div>
+      <h3>Add</h3>
+      <ul id="others">
+        {{#each otherMovies}}
+        <li data-id="{{this._id}}">{{this.title}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
   <button>Edit</button>
 </form>

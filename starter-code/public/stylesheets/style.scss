@@ -1,12 +1,70 @@
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+$colorDark1: #272744;
+$colorDark2: #494d7e;
+$red: #a02f40;
+
 body {
-	padding: 50px;
-	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	background: radial-gradient($colorDark2, $colorDark1);
+	height: 100vh;
+	font-family: 'Raleway', sans-serif;
+	color: white;
+	font-weight: 400;
 }
 
 a {
-	color: #00b7ff;
+	color: white;
+	text-decoration: none;
 }
 
 .error {
 	border: 1px solid red;
+}
+
+nav {
+	background: $red;
+	position: absolute;
+	bottom: 0;
+	height: 5em;
+	width: 100vw;
+	display: flex;
+	justify-content: space-evenly;
+	box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+	width: 100vw;
+
+	a {
+		border-top-left-radius: 50px;
+		border-top-right-radius: 50px;
+		position: relative;
+		background: $red;
+		padding: 40px 20px 0;
+		text-align: center;
+		min-width: 250px;
+		width: 18%;
+		top: -50px;
+		transition: all 0.25s ease-in;
+		font-weight: 700;
+		line-height: 1em;
+		font-size: 1.2em;
+		text-shadow: 3px 3px 0 rgba(0, 0, 0, 1);
+	}
+
+	> a:hover {
+		margin-top: -4em;
+	}
+}
+
+section {
+	background: #c69fa5;
+	box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+	padding: 25px;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 50px;
+	border-radius: 5px;
 }

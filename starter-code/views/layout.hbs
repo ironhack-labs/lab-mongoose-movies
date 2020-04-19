@@ -7,21 +7,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="/javascripts/script.js" type="module"></script>
+  {{#each js}}
+  <script src="/javascripts/{{this}}.js" type="module"></script>
+  {{/each}}
 </head>
 
 <body>
 
   <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/celebrities">Celebrities</a></li>
-      <li><a href="/movies">Movies</a></li>
-    </ul>
+    <a href="/">Home</a>
+    <a href="/celebrities">Celebrities</a>
+    <a href="/movies">Movies</a>
   </nav>
 
   {{{body}}}
-
-  <script src="/javascripts/script.js"></script>
 </body>
 
 </html>
