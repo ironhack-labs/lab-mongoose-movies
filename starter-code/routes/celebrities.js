@@ -51,7 +51,7 @@ router.post('/edit/:id', (req, res, next) => {
     const celebrityId = req.params.id
 
     Celebrity.findByIdAndUpdate(celebrityId, req.body, { new: true })
-    .then(updateCelebrity => res.redirect(`/celebrities/show/${celebrityId._id}`))
+    .then(updateCelebrity => res.redirect('/celebrities'))
     .catch(err => console.log(`An error ocurred updating a celebrity: ${err}`))
 })
 

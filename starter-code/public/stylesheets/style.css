@@ -9,16 +9,27 @@ a {
 
 h1 {
   padding-top: 200px;
-  font-size: 5em;
-  text-align: center; }
+  font-size: 8em;
+  text-align: center;
+  font-weight: 800; }
 
 h2 {
   padding: 30px;
-  font-size: 3em; }
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 20px; }
 
 .celebrities-list li {
   list-style: none;
   text-decoration: none;
   font-size: 2em; }
+
+.movies-list li {
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em; }
+
+.btn-back-list {
+  margin-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <h1>Nueva Película</h1>
+
+        <form action="/movies/new" method="POST">
+            <div class="form-group">
+                <label for="field1">Titulo</label>
+                <input name="title" type="text" class="form-control" id="field1">
+                <small class="form-text text-muted">Introduce el título completo</small>
+            </div>
+            <div class="form-group">
+                <label for="field2">Genero</label>
+                <input name="genre" type="text" class="form-control" id="field2">
+            </div>
+            <div class="form-group">
+                <label for="field3">Trama</label>
+                <input name="plot" type="text" class="form-control" id="field3">
+            </div>
+
+            <button type="submit" class="btn btn-info btn-lg btn-block">Crear</button>
+        </form>
+    </div>
+</div>
