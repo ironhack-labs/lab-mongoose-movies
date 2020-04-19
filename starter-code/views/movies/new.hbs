@@ -1,0 +1,28 @@
+<h2>Adding a new Movie</h2>
+
+<form method="POST" action="/movies/new">
+
+  <div class="form-group">
+    <label for="titleInput">Title:</label>
+    <input name="title" type="text" class="form-control" id="titleInput" placeholder="Movie's title" required="true">
+  </div>
+
+  <div class="form-group">
+    <label for="imageField">Movie's poster</label>
+    <input name="image" type="text" class="form-control" id="imageField" placeholder="Url to the image"
+      value="https://m.media-amazon.com/images/G/01/imdb/images/nopicture/140x209/film-4001654135._CB466678728_.png">
+  </div>
+
+  <div class="form-group">
+    <label for="genreField">Genre: </label>
+    <input name="genre" type="text" class="form-control" id="genreField" required="true" placeholder="Principal genre">
+  </div>
+
+  <div class="form-group">
+    <label>Plot: </label>
+    <textarea name="plot" type="text" rows="3" class="form-control" required="true"
+      placeholder="Sumarized plot"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-dark">Create</button>
+</form>

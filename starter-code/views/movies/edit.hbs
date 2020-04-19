@@ -1,0 +1,26 @@
+<h2>Updating a Movie</h2>
+
+<form method="POST" action="/movies/{{_id}}/edit">
+
+  <div class="form-group">
+    <label for="titleInput">Title:</label>
+    <input name="title" type="text" class="form-control" id="titleInput" required="true" value="{{title}}">
+  </div>
+
+  <div class="form-group">
+    <label for="imageField">Movie's poster</label>
+    <input name="image" type="text" class="form-control" id="imageField" value="{{image}}">
+  </div>
+
+  <div class="form-group">
+    <label for="genreField">Genre: </label>
+    <input name="genre" type="text" class="form-control" id="genreField" required="true" value="{{plot}}">
+  </div>
+
+  <div class="form-group">
+    <label>Plot: </label>
+    <textarea name="plot" type="text" rows="3" class="form-control" required="true">{{plot}}</textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-dark">Update</button>
+</form>

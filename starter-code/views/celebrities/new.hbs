@@ -1,0 +1,29 @@
+<h2>Adding a new celebrity</h2>
+
+<form method="POST" action="/celebrities/new">
+
+  <div class="form-group">
+    <label for="nameInput">Name:</label>
+    <input name="name" type="text" class="form-control" id="nameInput" placeholder="Celebrity's name" required="true">
+  </div>
+
+  <div class="form-group">
+    <label for="imageField">Celebrity portrait</label>
+    <input name="image" type="text" class="form-control" id="imageField" placeholder="Url to the image"
+      value="https://m.media-amazon.com/images/G/01/imdb/images/nopicture/medium/name-2135195744._CB466677935_.png">
+  </div>
+
+  <div class="form-group">
+    <label for="occupationField">Occupation: </label>
+    <input name="occupation" type="text" class="form-control" id="occupationField" required="true"
+      placeholder="Main celebrity's occupation">
+  </div>
+
+  <div class="form-group">
+    <label for="catchPhraseField">Catch phrase: </label>
+    <input name="catchPhrase" type="text" class="form-control" id="catchPhraseField" required="true"
+      placeholder="Add one celebrity's famous catch phrase">
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-dark">Create</button>
+</form>
