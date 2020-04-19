@@ -58,4 +58,7 @@ router.post('/details/:id/edit', (req, res, next) => {
 })
 
 
+
+
+
 module.exports = router

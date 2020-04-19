@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Movies</h2>
+  <div class="row">
+    {{#each allMovies}}
+    <div class="col-md-4">
+      <h3>{{title}}</h3>
+      {{!-- <a class="detalles" href="/movies/details/{{_id}}">Detalles</a>
+      <form action="/movies/details/{{_id}}/delete" method="POST">
+        <button class="boton" type="submit">delete</button>
+      </form>
+      <form action="/movies/details/{{_id}}/edit" method="GET">
+        <button class="boton" type="submit">edit</button>
+      </form>
+    </div> --}}
+      {{/each}}
+    </div>
+    {{!-- <div class="newce">
+    <a class="link" href="/movies/new" type="button">Add new movie</a>
+  </div> --}}
+  </div>
