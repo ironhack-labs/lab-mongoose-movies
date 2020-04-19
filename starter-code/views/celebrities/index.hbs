@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="list-group">
+    <h2 class="list-group-item list-group-item-action active list-group-item-dark">
+      Celebrities:
+    </h2>
+
+    <div class="row  align-items-center">
+      {{#each allCelebrities }}
+      <div class="col-md-10">
+        <a href="/celebrities/details/{{_id}}" class="list-group-item list-group-item-action">{{name}}</a>
+      </div>
+
+      <div class="col-md-2">
+        <form action="/celebrities/{{_id}}/delete" method="POST">
+          <input name="id" type="hidden" class="form-control" id="field1">
+          <button class"delete" type="submit" class="btn btn-dark">Delete</button>
+          <a href="/celebrities/{{_id}}/edit" class="btn btn-dark">Edit</a>
+        </form>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <a id="create" href="/celebrities/new" class="btn btn-dark">Create a new celebrity</a>
+</div>
