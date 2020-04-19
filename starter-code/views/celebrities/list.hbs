@@ -1,0 +1,11 @@
+<div>
+  {{#each celebs}}
+  <p> <span style="font-weight: bold;">Name:</span><a href="/celebrities/{{_id}}"> {{name}} </a></p>
+  <form action="/celebrities/{{id}}/delete" method="post">
+    <input type="submit" value="Delete">
+  </form>
+  {{/each}}
+</div>
+<br>
+<br>
+<a href="/celebrities/add">Add a new Celeb!</a>
