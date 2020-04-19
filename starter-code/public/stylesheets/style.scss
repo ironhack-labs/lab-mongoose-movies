@@ -4,5 +4,27 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #777;
+  text-decoration: none;
 }
+a:hover{
+  text-decoration: none;
+  color:black;
+}
+
+.btn{
+  margin-bottom: 10px
+}
+
+ul{
+  list-style: none;
+}
+
+li{
+  margin: 20px;
+}
+
+.pp-btns{
+  margin-top: 20px;
+}
+

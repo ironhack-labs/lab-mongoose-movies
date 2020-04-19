@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2>Edit the Celebrity</h2>
+        <form action="/edit/{{id}}" method="POST">
+            <div class="form-group">
+                <label for="field1">Name</label>
+                <input value="{{name}}" name="name" type="text" class="form-control" id="field1">
+            </div>
+            <div class="form-group">
+                <label for="field2">Occupation</label>
+                <input value="{{occ}}" name="occ" type="text" class="form-control" id="field2">
+            </div>
+            <div class="form-group">
+                <label for="field3">Catch Phrase</label>
+                <input value="{{catchPhrase}}" name="catchPhrase" type="text" class="form-control" id="field3">
+            </div>
+            <button type="submit" class="btn btn-dark">Edit</button>
+            <a class="btn btn-md btn-dark" href="/celebrities">Back</a>
+        </form>
+    </div>
+</div>

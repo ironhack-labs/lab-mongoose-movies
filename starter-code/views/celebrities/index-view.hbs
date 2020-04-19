@@ -1,0 +1,23 @@
+
+<div class="container">
+
+    <h1> Celebrities</h1>
+
+    {{#each allTheCeleb}}
+
+        <article>
+            <a href="/celebrities/{{id}}"><h3>{{name}}</h3></a>
+        </article>
+
+        <form action="{{id}}/delete" method="POST">
+            <button type="submit" class="btn btn-dark">Delete</button>
+        </form>
+        <a class="btn btn-md btn-dark" href="/edit/{{id}}">Edit Celebrity</a>
+        <hr>
+    {{/each}}   
+<div class="pp-btns">
+    <a class="home-celeb btn btn-md btn-dark" href="/">Home</a>
+    <a class="btn btn-md btn-dark" href="/celebrities/new">Add a New Celebrity</a>
+</div>
+
+</div>
