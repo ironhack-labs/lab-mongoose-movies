@@ -1,0 +1,23 @@
+<div class="celebrities-list">
+
+<h1>Lista de peliculas</h1>
+<a href="/movies/create" class="btn btn-sm btn-primary">Crear pelicula</a>
+<hr>
+
+{{#each allMovies}}
+<article>
+    <h3>{{title}}</h3>
+    <a href="/movies/{{_id}}" class="btn btn-sm btn-dark">Ver detalles</a>
+    <a href="/movies/edit/{{_id}}" class="btn btn-sm btn-dark">Editar pelicula</a>
+
+    <form action="/movies/{{_id}}/delete" method="POST">
+    <button type="submit" class="btn btn-danger">Eliminar pelicula</button>
+</form>
+</article>
+<hr>
+
+        
+{{/each}}
+
+
+</div>
