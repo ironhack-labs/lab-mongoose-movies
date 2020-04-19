@@ -1,0 +1,26 @@
+<div class="form">
+  <h2>Editar <em>{{name}}</em></h2>
+  
+  <form method="POST" action="/celebrities/{{id}}/edit">
+    <div class="form-group">
+      <label for="celeb-name">Name</label>
+      <input name="name" type="text" class="form-control" id="celeb-name" value="{{name}}">
+    </div>
+    <div class="form-group">
+      <label for="celeb-occupation">Occupation</label>
+      <input name="occupation" type="text" class="form-control" id="celeb-occupation" value="{{occupation}}">
+    </div>
+    <div class="form-group">
+      <label for="celeb-photo">Image URL</label>
+      <input name="photo" type="text" class="form-control" id="celeb-photo" value="{{photo}}">
+    </div>
+    <div class="form-group">
+      <label for="celeb-phrase">Catch Phrase</label>
+      <input name="catchPhrase" type="text" class="form-control" id="celeb-phrase" value="{{catchPhrase}}">
+    </div>
+    <button type="submit" class="btn button-mine">Guardar Cambios</button>
+  </form>
+  <form action="/celebrities">
+    <input type="submit" class="btn outlined" value="Cancelar" />
+  </form>
+</div>
