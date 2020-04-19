@@ -1,0 +1,13 @@
+<h1>{{selectedCelebrity.name}}</h1>
+
+<h3>Occupation:</h3>
+
+{{#each selectedCelebrity.occupation}}
+<p>{{this}}</p>
+{{/each}}
+
+<h3>Phrase:</h3>
+<h4>{{selectedCelebrity.catchPhrase}}</h4>
+
+<a href="/">Return to Main Page</a><br>
+<a href="/celebrities">Return to Celebrity List</a>
