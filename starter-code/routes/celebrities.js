@@ -41,7 +41,6 @@ router.post('/new', (req, res, next) => {
 
 //Iteration #5: Deleting 
 
-// Edit documents
 router.post('/:id/delete', (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
     .then(theCelebrityDelate => res.redirect('/celebrities'))
