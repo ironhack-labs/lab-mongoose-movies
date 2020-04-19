@@ -1,0 +1,56 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.navbar {
+  padding: 15px 30px;
+  margin-bottom: 50px; }
+
+h2 {
+  margin-bottom: 40px; }
+
+header {
+  margin-bottom: 20px; }
+
+article {
+  margin-bottom: 20px; }
+
+.celebs-list li {
+  text-align: center;
+  list-style: none;
+  margin-bottom: 15px; }
+
+.celebs-list figure {
+  height: 250px; }
+
+.celebs-list img {
+  height: 100%; }
+
+.celebs-list form {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.centered {
+  text-align: center; }
+
+.movie-list li {
+  text-align: center;
+  list-style: none;
+  margin-bottom: 15px; }
+
+.movie-list figure {
+  height: 250px; }
+
+.movie-list img {
+  height: 100%; }
+
+.movie-list form {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.centered {
+  text-align: center; }
+
+/*# sourceMappingURL=style.css.map */

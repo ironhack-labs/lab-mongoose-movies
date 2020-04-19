@@ -1,0 +1,38 @@
+<header>
+  <h2>Celebrities list:</h2>
+</header>
+
+<section class="celebs-list">
+  <div class="row">
+
+    <ul class="col-12">
+      <div class="row justify-content-around">
+        {{#each celebrities}}
+        <li class="col-3 align-items-center">
+          <figure>
+            <img src="{{image}}" alt="{{name}}'s portrait">
+          </figure>
+          <a href="/celebrities/{{_id}}">{{name}}</a>
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <form method="GET" action="/celebrities/{{_id}}/edit">
+                <button type="submit" class="btn btn-outline-info btn-sm">Edit</button>
+              </form>
+            </div>
+            <div class="col-4">
+              <form method="POST" action="/celebrities/{{_id}}/delete">
+                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {{/each}}
+      </div>
+    </ul>
+
+    <div class="col centered">
+      <a href="/celebrities/new" class="btn btn-primary btn-lg btn-dark">Add new celebrity</a>
+    </div>
+
+  </div>
+</section>

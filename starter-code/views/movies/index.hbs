@@ -1,0 +1,45 @@
+<header>
+  <h2>Movies list:</h2>
+</header>
+
+<section class="movie-list">
+  <div class="row">
+
+    <ul class="col-12">
+      <div class="row justify-content-around">
+        {{#each movies}}
+        <li class="col-3 align-items-center">
+
+          <figure>
+            <img src="{{image}}" alt="{{title}}'s poster">
+          </figure>
+
+          <a href="/movies/{{_id}}">{{title}}</a>
+
+          <div class="row justify-content-center">
+
+            <div class="col-2">
+              <form method="GET" action="/movies/{{_id}}/edit">
+                <button type="submit" class="btn btn-outline-info btn-sm">Edit</button>
+              </form>
+            </div>
+
+            <div class="col-4">
+              <form method="POST" action="/movies/{{_id}}/delete">
+                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+              </form>
+            </div>
+
+          </div>
+
+        </li>
+        {{/each}}
+      </div>
+    </ul>
+
+    <div class="col centered">
+      <a href="/movies/new" class="btn btn-primary btn-lg btn-dark">Add new celebrity</a>
+    </div>
+
+  </div>
+</section>
