@@ -1,0 +1,43 @@
+body {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: #00B7FF; }
+
+h1 {
+  padding-top: 200px;
+  font-size: 8em;
+  font-weight: 800; }
+
+h2 {
+  padding: 30px;
+  font-size: 3em;
+  font-weight: 600; }
+
+.celebrities-list li {
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em; }
+
+.movies-list li {
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em; }
+
+.btn-back-list {
+  margin-top: 20px; }
+
+.home-btn {
+  margin: 0 20px; }
+
+.home p {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  justify-content: center;
+  margin-left: 80px; }
+
+/*# sourceMappingURL=style.css.map */

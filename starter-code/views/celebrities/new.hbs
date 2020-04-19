@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <h1>Nueva Celebridad</h1>
+
+        <form action="/celebrities/new" method="POST">
+            <div class="form-group">
+                <label for="field1">Nombre</label>
+                <input name="name" type="text" class="form-control" id="field1">
+                <small class="form-text text-muted">Introduce el nombre completo</small>
+            </div>
+            <div class="form-group">
+                <label for="field2">Ocupación</label>
+                <input name="occupation" type="text" class="form-control" id="field2">
+            </div>
+            <div class="form-group">
+                <label for="field3">Frase celebre</label>
+                <input name="catchPhrase" type="text" class="form-control" id="field3">
+            </div>
+
+            <button type="submit" class="btn btn-info btn-lg btn-block">Crear</button>
+        </form>
+    </div>
+</div>
