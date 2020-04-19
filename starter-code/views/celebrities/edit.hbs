@@ -1,0 +1,20 @@
+<div class="container cosa">
+    <h2>EDIT</h2>
+
+    <form action="/celebrities/details/{{celebEdit.id}}/edit" method="POST">
+        <div class="form-group">
+            <label for="field1">Name</label>
+            <input name="name" type="text" class="form-control" id="field1" value="{{celebEdit.name}}">
+        </div>
+        <div class="form-group">
+            <label for="field2">Occupation</label>
+            <input name="occupation" type="text" class="form-control" id="field2" value="{{celebEdit.occupation}}">
+        </div>
+        <div class="form-group">
+            <label for="field3">Catch Phrase</label>
+            <input name="catchPhrase" type="text" class="form-control" id="field3" value="{{celebEdit.catchPhrase}}">
+        </div>
+
+        <button type="submit">edit</button>
+    </form>
+</div>
