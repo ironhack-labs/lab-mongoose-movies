@@ -6,7 +6,8 @@
 
 body {
   background: radial-gradient(#494d7e, #272744);
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   font-family: 'Raleway', sans-serif;
   color: white;
   font-weight: 400; }
@@ -17,14 +18,14 @@ a {
 
 nav {
   background: #a02f40;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: 5em;
-  width: 100vw;
   display: flex;
   justify-content: space-evenly;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
-  width: 100vw; }
+  width: 100vw;
+  z-index: 10; }
   nav a {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;

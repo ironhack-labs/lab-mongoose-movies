@@ -16,7 +16,8 @@ $colorLight3: #c69fa5;
 
 body {
 	background: radial-gradient($colorDark2, $colorDark1);
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 	font-family: 'Raleway', sans-serif;
 	color: white;
 	font-weight: 400;
@@ -29,14 +30,14 @@ a {
 
 nav {
 	background: $red;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	height: 5em;
-	width: 100vw;
 	display: flex;
 	justify-content: space-evenly;
 	box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
 	width: 100vw;
+	z-index: 10;
 
 	a {
 		border-top-left-radius: 50px;
