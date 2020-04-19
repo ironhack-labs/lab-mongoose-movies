@@ -1,8 +1,20 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+.row-index{
+  height: 100px;
+  margin: 20px 0;
+}
+.row-index form{
+  margin:10px 0;
+}
+.row-index a{
+  margin:10px 0 0 0;
+}
+.row{
+  height: 400px;
 }
