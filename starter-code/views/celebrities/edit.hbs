@@ -1,0 +1,27 @@
+
+
+<form class="form" action="/celebrities/{{celebrity._id}}" method="POST">
+  <h2 class="title">Editing {{celebrity.name}} </h2>
+
+  <div class="form-group">
+    <label class="label" for="name">Name</label>
+    <input class="input" id="name" type="text" name="name" value="{{celebrity.name}}">
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="occupation">Occupation</label>
+    <input class="input" id="occupation" type="text" name="occupation" value="{{celebrity.occupation}}">
+  </div>
+
+
+  <div class="form-group">
+    <label class="label" for="cathPhrase">Quote</label>
+    <input class="input" id="cathPhrase" type="text" name="cathPhrase" value="{{celebrity.catchPhrase}}">
+  </div>
+
+    {{#if error}}
+    <p>{{error}}</p>
+    {{/if}}
+
+  <button class="btn">Edit it</button>
+</form>
