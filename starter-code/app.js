@@ -9,8 +9,17 @@ const mongoose = require('mongoose')
 const logger = require('morgan')
 const path = require('path')
 
+// mongoose
+//   .connect('mongodb://localhost/celebrities', { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then((x) => {
+//     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+//   })
+//   .catch((err) => {
+//     console.error('Error connecting to mongo', err)
+//   })
+
 mongoose
-  .connect('mongodb://localhost/celebrities', { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect('mongodb://localhost/movies', { useNewUrlParser: true, useUnifiedTopology: true })
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
