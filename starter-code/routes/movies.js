@@ -14,7 +14,7 @@ router.get('/movies', (req, res, next) => {
     });
 });
 
-router.get('/movies/new-movie', (req, res) => {
+router.get('/movies/new-movie', (req, res, next) => {
   res.render('movies/new-movie', {title: "Add A New Movie"});
 });
 
@@ -33,13 +33,53 @@ router.post('/movies', (req, res, next) => {
 });
 
 router.get('/movies/:id', (req, res, next) => {
-  Movie.find(req.params)
+  const movieId = req.params.id;
+  Movie.findById(movieId)
     .then(movie => {
-      res.render('movies/show', {movie});
+      res.render('movies/movie-details', { movie });
     })
     .catch(error => {
       next(error);
     });
 });
+
+router.post('/movies/:id/delete', (req, res, next) => {
+  const movieId = req.params.id;
+  Movie.findByIdAndRemove(movieId)
+    .then(movie => {
+      res.redirect('/movies');
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+router.get('/celebrities/:id/edit',(req, res, next) => {
+  const movieId = req.params.id;
+  Movie.findById(movieId)
+    .then(movie => {
+      res.render('movies/edit-movie', { movie });
+    }).catch(error => {
+      next(error)
+    });
+});
+
+router.post('/movies/:id', (req, res, next) => {
+  const updatedMovie = {
+    title: req.body.title,
+    plot: req.body.plot,
+    genre: req.body.genre
+    // cast: req.body.cast  
+  };
+  
+  const movieId = req.body.id;
+  Movie.findByIdAndUpdate(movieId)
+    .then(movie => {
+      res.redirect('/movies');
+    })
+    .catch((error) => {
+      next(error);
+    });
+})
 
 module.exports = router;
