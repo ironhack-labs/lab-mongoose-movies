@@ -1,0 +1,19 @@
+<form action="/movies" method="POST">
+
+<input type="text" name="name" placeholder="name" required>
+<input type="text" name="genre" placeholder="genre" required>
+<input type="text" name="plot" placeholder="plot" required>
+
+<button>Push me ●‿●</button>
+
+</form>
+
+
+{{!-- Displaying an error (won't appear since all my fields are required),
+      but it's nice to know how to do it --}}
+
+<p>
+{{#if error}}
+{{error}}
+{{/if}}
+</p>

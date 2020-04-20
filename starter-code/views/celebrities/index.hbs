@@ -1,0 +1,19 @@
+<div>
+    <a href="/">Go back to home page</a>
+    <h2>Celebrities' names:</h2>
+
+    <p><a href="/celebrities/new">Create a new celebrity ◔◡◉</a></p>
+
+    {{#each myCelebrities}}
+    <p><a href="/celebrities/{{this._id}}">{{this.name}}</a></p>
+    <p><a href="/celebrities/{{this._id}}/edit"><button>Edit me ( ＾◡＾)っ</button></a></p>
+
+    {{!-- delete <form> --}}
+    <form action="/celebrities/{{this._id}}/delete" method="POST">
+        <button>Delete me ¯\_(ツ)_/¯</button>
+    </form>
+    {{!-- end of delete <form> --}}
+
+    {{/each}}
+
+</div>

@@ -1,0 +1,11 @@
+<a href="/">Go back to home page</a>
+<p><a href="/movies/addNewMovie">Create a new movie ◔◡◉</a></p>
+<ol>
+{{#each allMovies}}
+<li><a href="/movies/{{this._id}}">{{this.name}}</a>
+<br>
+<a href="/movies/{{this._id}}/edit">Edit me ( ＾◡＾)っ</a>
+<br>
+<a href="/movies/{{this._id}}/delete">Delete me ¯\_(ツ)_/¯</a></li><br>
+{{/each}}
+</ol>
