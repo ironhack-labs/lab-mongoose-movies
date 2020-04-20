@@ -1,0 +1,11 @@
+<h1>Celebrities List</h1>
+
+{{#each celebrity}}
+<a href="/celebrity/{{_id}}">
+  <h2>{{name}}</h2>
+</a>
+<a href="/celebrity/delete/{{_id}}">Delete</a>
+<a href="/celebrity/edit/{{_id}}">Edit</a>
+{{/each}}
+
+<a href="/">Vuelve a Casa</a>
