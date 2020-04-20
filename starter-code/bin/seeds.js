@@ -30,7 +30,7 @@ const celebrities = [
   }
 ];
 
-Celebrity.create(celebritys, err => {
+Celebrity.create(celebrity, err => {
   if (err) {
     throw err;
   }

@@ -1,3 +1,4 @@
+/* jshint esversion: 9*/
 require('dotenv').config();
 
 const bodyParser   = require('body-parser');
@@ -52,6 +53,11 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const movies = require('./routes/movies');
+const celebrities = require('./routes/celebrities');
+
+// app.use('/', movies);
+app.use('/', celebrities);
 app.use('/', index);
 
 
