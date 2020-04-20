@@ -1,0 +1,19 @@
+<h2>Edit a celebrity</h2>
+
+<form action="/celebrities/{{myCelebrity._id}}" method="POST">
+  <ul>
+    <li>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="{{myCelebrity.name}}">
+    </li>
+    <li>
+      <label for="occupation">Occupation</label>
+      <input type="text" name="occupation" id="occupation" value="{{myCelebrity.occupation}}">
+    </li>
+    <li>
+      <label for="catchPhrase">catchPhrase</label>
+      <input type="text" name="catchPhrase" id="catchPhrase" value="{{myCelebrity.catchPhrase}}">
+    </li>
+  </ul>
+  <button>Submit</button>
+</form>
