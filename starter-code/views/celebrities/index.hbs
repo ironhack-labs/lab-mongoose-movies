@@ -1,0 +1,10 @@
+<h2>Heading</h2>
+{{#each celebrityArray}}
+<p>{{name}}</p>
+<a href="/celebrities/{{id}}">More</a>
+<a href="/celebrities/{{id}}/edit">Edit celebrity</a>
+<form action="/celebrities/{{id}}/delete" method="POST">
+  <button type="submit">Delete celebrity</button>
+</form>
+{{/each}}
+<br><br><a href="celebrities/new">Add celebrity</a>
