@@ -19,6 +19,10 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+  // Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
+  // by default, you need to set it to false.
+  mongoose.set('useFindAndModify', false);
+
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
@@ -54,5 +58,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrities = require('./routes/celebrities');
+app.use('/', celebrities);
+
+const movies = require('./routes/movies');
+app.use('/', movies);
 
 module.exports = app;
