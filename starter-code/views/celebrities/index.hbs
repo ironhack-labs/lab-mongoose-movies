@@ -1,5 +1,10 @@
 <h2>Celebrities/Index</h2>
 
 {{#each allCelebrities}}
-<p><a href="/celebrities/{{this.id}}">{{this.name}}</a></p>
+<form action="/celebrities/{{this.id}}/delete" method="post">
+
+  <p><a href="/celebrities/{{this.id}}">{{this.name}}</a></p>
+
+  <input type="submit" value="Delete">
+</form>
 {{/each}}

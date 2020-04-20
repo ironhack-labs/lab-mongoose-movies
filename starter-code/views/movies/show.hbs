@@ -1,0 +1,13 @@
+<h1>{{selectedMovie.title}}</h1>
+
+<h3>Genres:</h3>
+
+{{#each selectedMovie.genre}}
+<p>{{this}}</p>
+{{/each}}
+
+<h3>Plot:</h3>
+<h4>{{selectedMovie.plot}}</h4>
+
+<a href="/">Return to Main Page</a><br>
+<a href="/movies">Return to Movie List</a>
