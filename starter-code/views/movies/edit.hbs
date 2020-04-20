@@ -1,0 +1,17 @@
+<h2>Edit Celebrity: {{title}}</h2>
+
+<form method="POST" action="/movies/{{id}}/edit">
+  <div class="form-group">
+    <label for="titleField">Title</label>
+    <input name="title" type="text" class="form-control" id="titleField" placeholder="Enter title" value="{{title}}">
+  </div>
+  <div class="form-group">
+    <label for="genreField">Genre</label>
+    <input name="genre" type="text" class="form-control" id="genreField" placeholder="Enter genre" value="{{genre}}">
+  </div>
+  <div class="form-group">
+    <label for="plotField">Plot</label>
+    <input name="plot" type="text" class="form-control" id="plotField" placeholder="Enter Plot" value="{{plot}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Update Movie!</button>
+</form> 
