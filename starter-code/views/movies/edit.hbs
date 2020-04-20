@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+
+    <h1>¡Editar una nueva Pelicula!</h1>
+
+    <form action="/movies/details/{{editMovie.id}}/edit" method="POST">
+      <div class="form-group">
+        <label for="field1">Titulo</label>
+        <input name="title" type="text" class="form-control" id="field1" value="{{editMovie.title}}">
+      </div>
+      <div class="form-group">
+        <label for="field2">Genero</label>
+        <input name="genre" type="text" class="form-control" id="field2" value="{{editMovie.genre}}">
+      </div>
+      <div class="form-group">
+        <label for="field3">Argumento</label>
+        <input name="plot" type="text" class="form-control" id="field3" value="{{editMovie.plot}}">
+      </div>
+
+      <button type="submit" class="btn btn-dark">Editar Pelicula</button>
+    </form>
+  </div>
+</div>
