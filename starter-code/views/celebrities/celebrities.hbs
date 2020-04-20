@@ -1,0 +1,20 @@
+<h1>Celebrities List</h1>
+
+{{#each celebrity}}
+<a href="/celebrity/{{_id}}">
+  <h2>{{name}}</h2>
+</a>
+<a href="/celebrity/delete/{{_id}}">Borrar</a>
+<a href="/celebrity/edit/{{_id}}">Editar</a>
+{{/each}}
+
+<br>
+<br>
+<br>
+<br>
+
+<a href="/">
+  <button>
+    Página principal
+  </button>
+</a>

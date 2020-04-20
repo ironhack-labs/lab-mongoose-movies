@@ -1,0 +1,20 @@
+<h1>Movies List</h1>
+
+{{#each movie}}
+<a href="/movie/{{_id}}">
+  <h2>{{title}}</h2>
+</a>
+<a href="/movie/delete/{{_id}}">Borrar</a>
+<a href="/movie/edit/{{_id}}">Editar</a>
+{{/each}}
+
+<br>
+<br>
+<br>
+<br>
+
+<a href="/">
+  <button>
+    Vuelve a Casa
+  </button>
+</a>
