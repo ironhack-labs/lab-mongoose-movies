@@ -1,14 +1,21 @@
-<h1>These are the hottest celebrities</h1>
+<div id="celeb-background">
 
-{{#each celebs}}
-<li>{{ name }}</li>
-<li><a href="/celebrities/{{_id}}">Details</a></li>
-<form action="/celebrities/{{_id}}/delete" method="post">
-  <input type="submit" value="delete">
-</form>
-{{/each}}
+  <h1>These are the hottest celebrities</h1>
+
+  {{#each celebs}}
+  <p>{{ name }}</p>
+  <div>
+    <a href="/celebrities/{{_id}}">Details</a>
+    <form action="/celebrities/{{_id}}/delete" method="post">
+      <input type="submit" value="delete">
+  </div>
+  </form>
+  {{/each}}
 
 
-
-<p>Wanna add a new celebrity?</p>
-<a href="/celebrities/new">Add celebrity</a>
+  <div class="down-content">
+    <p>Wanna add a new celebrity?</p>
+    <a href="/celebrities/new">Add celebrity</a>
+    <a href="/">Home</a>
+  </div>
+</div>
