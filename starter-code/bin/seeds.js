@@ -1,31 +1,31 @@
 const mongoose = require('mongoose');
-const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 const DB_NAME = 'starter-code';
 mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-const celebrities = [{
-        name: 'Pikachu',
-        occupation: 'full time Pokémon',
-        catchPhrase: '"Pee-ka!"'
+const movies = [{
+        title: 'Test 1',
+        genre: 'drama',
+        plot: 'lorem ipsum'
     },
     {
-        name: 'Goku',
-        occupation: 'World Saver',
-        catchPhrase: '"AAAAAAAH!"'
+        title: 'Test 2',
+        genre: 'comedy',
+        plot: 'lorem ipsum'
     },
     {
-        name: 'The Bruce Dickinson',
-        occupation: 'Music Producer',
-        catchPhrase: 'Guess what? I have got a fever and the only prescription is more cowbell!'
+        title: 'Test 3',
+        genre: 'crime',
+        plot: 'lorem ipsum'
     }
 ];
-Celebrity.create(celebrities, err => {
+Movie.create(movies, err => {
     if (err) {
         throw err;
     }
-    console.log(`Created ${celebrities.length} celebrities`);
+    console.log(`Created ${movies.length} movies`);
     mongoose.connection.close();
 });
