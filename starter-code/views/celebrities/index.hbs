@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-12">
+
+      <h1>Celebrities</h1>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-4">
+      <a href="celebrities/new" class="btn btn-dark"> Create a new entry</a>
+    </div>
+    <div class="col-8">
+
+      {{#each allCelebs}}
+
+      <p><a href="celebrities/{{id}}">{{name}}</a></p>
+
+      {{/each}}
+
+    </div>
+  </div>
+</div>

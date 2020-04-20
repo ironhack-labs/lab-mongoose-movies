@@ -1,0 +1,17 @@
+<h2>{{name}}</h2>
+
+<a href="/celebrities" class="btn btn-sm btn-link">Back to celeb list</a>
+
+<p>Name: {{name}}</p>
+<p>Occupation: {{occupation}}</p>
+<p>Catchphrase: {{catchPhrase}}</p>
+
+<div class="d-flex">
+  <form action="/celebrities/{{id}}/delete" method="post">
+    <button type="submit" class="btn btn-dark">Delete this entry</button>
+  </form>
+
+  <form action="/celebrities/{{id}}/edit" method="get">
+    <button type="submit" class="btn btn-dark">Edit this entry</button>
+  </form>
+</div>
