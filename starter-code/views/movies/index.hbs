@@ -1,1 +1,14 @@
-MOVIES
+<h2>{{ title }}</h2>
+<p>
+  <span>
+    <a href="/movies/new-movie">Add a new movie</a>
+  </span>
+   / 
+  <span>
+    <a href="/">Go back</a>
+  </span>
+</p>
+<hr>
+{{#each allMovies}}
+<p>{{ this.name }}</p>
+{{/each}}
