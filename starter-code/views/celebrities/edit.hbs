@@ -1,0 +1,16 @@
+<h2Edit celebrity details></h2>
+{{#each celebrities}}
+<form class="form" action="/celebrities/{{this._id}}" method="POST">
+
+    <label class="label" for="name">Name:{{this.name}}</label>
+    <input class="input" id="name" type="text" name="name">
+
+    <label class="label" for="occupation">Occupation:{{this.occupation}}</label>
+    <input class="input" id="occupation" type="text" name="occupation">
+
+    <label class="label" for="catchphrase">Catchphrase:{{this.catchPhrase}}</label>
+    <input class="input" id="catchphrase" type="text" name="catchPhrase">
+
+    <button class="btn">EDIT</button>
+</form>
+{{/each}}

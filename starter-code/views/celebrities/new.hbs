@@ -1,20 +1,19 @@
-<form class="form" action="/celebrities" method="POST">
-    <h2 class="title">Create actor/actress !</h2>
-    <div class="form-group">
-        <label class="label" for="name">Name</label>
-        <input class="input" id="name" type="text" name="name">
-    </div>
+<h2>Add new celebrity</h2>
 
-    <div class="form-group">
-        <label class="label" for="actor">Actor</label>
-        <input class="input" id="actor" type="text" name="actor">
-    </div>
+<form action="/celebrities" method="POST">
 
+    <label class="label" for="name">Name:</label>
+    <input class="input" id="name" type="text" name="name">
 
-    <div class="form-group">
-        <label class="label" for="catchphrase">Catchphrase</label>
-        <input class="input" id="catchphrase" type="text" name="catchphrase">
-    </div>
+    <label class="label" for="occupation">Occupation:</label>
+    <input class="input" id="occupation" type="text" name="occupation">
 
-    <button class="btn">Submit</button>
+    <label class="label" for="catchphrase">Catchphrase:</label>
+    <input class="input" id="catchphrase" type="text" name="catchPhrase">
+
+    {{#if error}}
+    <p>{{error}}</p>
+    {{/if}}
+
+    <button class="btn">ADD</button>
 </form>
