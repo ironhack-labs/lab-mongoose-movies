@@ -50,12 +50,21 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
-// default value for title local
+// default value for title local on home page
 app.locals.title = "Express - Generated with IronGenerator";
 
+// following block makes sure, that every .js with separate routes gets considered when navigating
 const index = require("./routes/index"); // index.js
 app.use("/", index);
 
+const celebrities = require("./routes/celebrities"); // celebrities.js
+app.use("/", celebrities);
+
+const movies = require("./routes/movies"); // movies.js
+app.use("/", movies);
+
+//
 module.exports = app;
 
+//
 app.listen(3000, () => console.log("My project running on port 3000"));
