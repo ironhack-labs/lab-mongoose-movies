@@ -3,7 +3,7 @@
 
 const express = require("express");
 const router = express.Router();
-const Celebrity = require("../models/celebrity"); // celebrity.js
+const Celebrity = require("../models/celebrity-model"); // celebrity.js
 
 router.get("/celebrities", (request, response, next) => {
   Celebrity.find()

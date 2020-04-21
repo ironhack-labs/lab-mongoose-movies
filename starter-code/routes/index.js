@@ -7,7 +7,7 @@ router.get("/", (request, response) => {
 });
 
 // Iteration 2:
-const Celebrity = require("../models/celebrity"); // celebrity.js
+const Celebrity = require("../models/celebrity-model"); // celebrity.js
 
 router.get("/celebrities", (request, response, next) => {
   Celebrity.find()
