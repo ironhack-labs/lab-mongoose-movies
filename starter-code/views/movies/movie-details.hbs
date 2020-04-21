@@ -1,0 +1,13 @@
+<h1>{{movie.title}} details</h1>
+<a href="/movies">Back To Movie List</a>
+<hr>
+<ul>
+  <li>Title: {{ movie.title }}</li>
+  <li>Genre: {{ movie.genre }}</li>
+  <li>Plot: {{ movie.plot }}</li>
+  {{!-- Cast will be out untill the program covers the select function --}}
+  {{!-- <li>Cast: {{ movie.cast }}</li>  --}}
+</ul>
+<form action="/movies/{{movie._id}}/delete" method="post">
+  <button type="submit" class="delete-button">Remove Movie</button>
+</form>

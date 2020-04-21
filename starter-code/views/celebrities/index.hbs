@@ -1,0 +1,14 @@
+<h2>{{ title }}</h2>
+<p>
+  <span>
+    <a href="/celebrities/new-celebrity">Add a new celebrity</a>
+  </span>
+   / 
+  <span>
+    <a href="/">Go back</a>
+  </span>
+</p>
+<hr>
+{{#each allCelebrities}}
+<p>{{ this.name }}</p>
+{{/each}}
