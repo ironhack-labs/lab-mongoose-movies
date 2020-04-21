@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local on home page
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "Mongoose Movies Lab - Generated with IronGenerator";
 
 // following block makes sure, that every .js with separate routes gets considered when navigating
 const index = require("./routes/index"); // index.js

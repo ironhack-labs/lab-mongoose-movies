@@ -10,4 +10,5 @@ router.get("/", (request, response) => {
 // Iteration 7: see bin/seeds.js
 // Iteration 8-12: see movies.js
 
+// has to be included, otherwise app.use() wouldn't recognize this .js
 module.exports = router;
