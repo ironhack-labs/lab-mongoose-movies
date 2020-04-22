@@ -1,9 +1,10 @@
-<h2>{{ title }}</h2>
+<h1>{{ title }}</h1>
+<h2>Celebrities List</h2>
 <p>
   <span>
     <a href="/celebrities/new-celebrity">Add a new celebrity</a>
   </span>
-   / 
+
   <span>
     <a href="/">Go back</a>
   </span>
@@ -11,7 +12,6 @@
 <hr>
 {{#each allCelebrities}}
 <p>
-  Name:
   <a href="/celebrities/{{ this.id }}">{{ this.name }}</a>
   <a href="/celebrities/{{ this.id }}/edit" class="edit-button">EDIT</a>
 </p>

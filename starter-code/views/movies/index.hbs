@@ -1,9 +1,10 @@
-<h2>{{ title }}</h2>
+<h1>{{ title }}</h1>
+<h2>Moovies List</h2>
 <p>
   <span>
     <a href="/movies/new-movie">Add a new movie</a>
   </span>
-   / 
+
   <span>
     <a href="/">Go back</a>
   </span>
@@ -11,10 +12,7 @@
 <hr>
 {{#each allMovies}}
 <p>
-  Tilte: 
-  <a href="/movies/{{ this._id }}">
-    {{ this.title }}
-  </a>
+  <a href="/movies/{{ this._id }}">{{ this.title }}</a>
   <a href="/movies/{{ this.id }}/edit" class="edit-button">EDIT</a>
 </p>
 {{/each}}

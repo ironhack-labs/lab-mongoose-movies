@@ -10,3 +10,21 @@ li {
   background-color: grey;
   border-radius: 6px;
 }
+
+a {
+  text-decoration: none;
+}
+
+p, div {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul, li {
+  margin-left: -20px;
+}
+
+p, div, label, input, li {
+  margin-bottom: 10px;
+}

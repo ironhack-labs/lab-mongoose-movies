@@ -2,11 +2,11 @@
 <a href="/movies">Back To Movie List</a>
 <hr>
 <ul>
-  <li>Title: {{ movie.title }}</li>
-  <li>Genre: {{ movie.genre }}</li>
-  <li>Plot: {{ movie.plot }}</li>
+  <li><strong>Title:</strong> {{ movie.title }}</li>
+  <li><strong>Genre:</strong> {{ movie.genre }}</li>
+  <li><strong>Plot:</strong> {{ movie.plot }}</li>
   {{!-- Cast will be out untill the program covers the select function --}}
-  {{!-- <li>Cast: {{ movie.cast }}</li>  --}}
+  {{!-- <li><strong>Cast:</strong> {{ movie.cast }}</li> --}}
 </ul>
 <form action="/movies/{{movie._id}}/delete" method="post">
   <button type="submit" class="delete-button">Remove Movie</button>
