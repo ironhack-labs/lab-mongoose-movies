@@ -1,18 +1,24 @@
 <h2>Movie Editing: {{movie.title}}</h2>
+<a href="/movies">Back To Movie List</a>
+<hr>
 <form action="/movies/{{movie.id}}" method="post">
   <label for="title">Movie title:</label>
   <input type="text" name="{{movie.title}}" id="title">
+  <br>
 
   <label for="genre">Movie genre:</label>
   <input type="text" name="{{movie.genre}}" id="genre">
+  <br>
 
   <label for="plot">Movie plot:</label>
   <input type="text" name="{{movie.plot}}" id="plot">
+  br
 
   {{!-- To be inserted after class coverage --}}
   {{!-- 
   <label for="cast">Movie cast:</label>
   <input type="text" name="{{movie.cast}}" id="cast">
+  <br>
    --}}
 
    <button type="submit">Submit Changes</button>

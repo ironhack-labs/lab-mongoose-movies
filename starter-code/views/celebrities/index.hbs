@@ -10,5 +10,9 @@
 </p>
 <hr>
 {{#each allCelebrities}}
-<p>{{ this.name }}</p>
+<p>
+  Name:
+  <a href="/celebrities/{{ this.id }}">{{ this.name }}</a>
+  <a href="/celebrities/{{ this.id }}/edit" class="edit-button">EDIT</a>
+</p>
 {{/each}}

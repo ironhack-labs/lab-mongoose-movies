@@ -10,26 +10,69 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
   useUnifiedTopology: true
 });
 
+Movie.collection.drop();
+Celebrity.collection.drop();
+
 const celebrities = [
   {
     name: 'Clint Eastwood',
-    ocupation: 'actor, director',
+    occupation: 'actor, director',
     catchPhrase: 'Go ahead... Make my day, punk!'
   },
   {
     name: 'Arnold Schwarzenegger',
-    ocupation: 'actor',
+    occupation: 'actor',
     catchPhrase: "I'll be back!"
   },
   {
     name: 'Robert De Niro',
-    ocupation: 'actor',
+    occupation: 'actor',
     catchPhrase: "You talkin' to me?"
   },
   {
     name: 'Bruce Willis',
-    ocupation: 'actor',
+    occupation: 'actor',
     catchPhrase: "Yippee-Ki-Yay, Motherfucker!"
+  },
+  {
+    name: 'Tyne Daly',
+    occupation: 'actress',
+    catchPhrase: ""
+  },
+  {
+    name: 'Harry Guardino',
+    occupation: 'actor',
+    catchPhrase: ""
+  },
+  {
+    name: 'Linda Hamilton',
+    occupation: 'actress',
+    catchPhrase: "Ther's a storm comming..."
+  },
+  {
+    name: 'Edward Furlong',
+    occupation: 'actor',
+    catchPhrase: ""
+  },
+  {
+    name: 'Jodie Foster',
+    occupation: 'actress',
+    catchPhrase: "Normal is not something to aspire to, it's something to get away from."
+  },
+  {
+    name: 'Cybill Shepherd',
+    occupation: 'actress',
+    catchPhrase: "No man bosses me around, and no man ever will."
+  },
+  {
+    name: 'Alan Rickman',
+    occupation: 'actor',
+    catchPhrase: "This time John Wayne does not walk off into the sunset with Grace Kelly."
+  },
+  {
+    name: 'Bonnie Bedelia',
+    occupation: 'actress',
+    catchPhrase: ""
   }
 ];
 
