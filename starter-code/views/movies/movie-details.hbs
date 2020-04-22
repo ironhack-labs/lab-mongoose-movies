@@ -1,0 +1,15 @@
+<h2>Movie details</h2>
+
+<h1>{{ movie.title}}</h1>
+<h3>Genre: {{ movie.genre}}</h3>
+<h3>Plot: {{ movie.plot}}</h3>
+
+
+<form action="/movies/:id/delete" method="POST">
+  <div>
+    <label for="id"> Id of the movie to be deleted </label>
+    <input type="text" name={{ movie._id }} placeholder = {{movie._id}} id="id">
+  </div>
+
+  <button type="submit"> Delete the movie </button>
+</form>

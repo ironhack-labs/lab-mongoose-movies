@@ -1,0 +1,13 @@
+<h2>All Movies from our DB</h2>
+
+{{#each allMovies}}
+
+  <ul>
+      <li>
+        <h3>
+          <a href="/movies/{{_id}}">{{title}}</a>
+        </h3>
+      </li>
+  </ul>
+
+{{/each}}
