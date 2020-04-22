@@ -13,28 +13,36 @@ router.get('/celebrities', (req, res) => {
 
 router.get('/celebrities/:id', (req, res) => {
   const id = req.params.id;
-  Celebrity.findById(id) 
-    .then(celeb => {
-      console.log(celeb)
-      res.render('celebrities/show', celeb);  
-    })
-    .catch(error => {
-      console.error('Error ', error);
-    });
+  if (id.match(/^[0-9a-fA-F]{24}$/)) {
+    // Yes, it's a valid ObjectId, proceed with `findById` call.
+  
+    Celebrity.findById(id) 
+      .then(celeb => {
+        console.log(celeb)
+        res.render('celebrities/show', celeb);  
+      })
+      .catch(error => {
+        console.error('Error ', error);
+      });
+    }
 });
 
 
 router.get('/celebrities/new', (req, res) => res.render('celebrities/new')); 
 
-// router.post('/celebrities/new', (req,res) => {
-//   const {name, occupation, catchPhrase} = req.body;
+router.post('/celebrities/new', (req, res, next) => {
+  const {name, occupation, catchPhrase} = req.body;
 
-//   const newCeleb = new Celebrity({name, occupation, catchPhrase});
+  const newCeleb = new Celebrity({name, occupation, catchPhrase});
   
-//   newCeleb.save( ()=> {
-//     res.redirect('/celebrities');
-//   });
+  newCeleb.save()
+  .then(()=> {
+    res.redirect('/celebrities');
+  })
+  .catch((error) => {
+    next(error);
+  });
 
-// });
+});
 
 module.exports = router;
