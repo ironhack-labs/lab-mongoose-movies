@@ -1,0 +1,16 @@
+<h2>{{ name }}</></h2>
+<p>{{ genre }}</p>
+<p>{{ plot }}</p>
+
+ {{!-- <br>DEBUG _celebrities: {{ _celebrities }} <br><br>  
+ --}}
+
+Celebrities:
+<ul>
+{{#each _celebrities }}
+<li>{{ this.name }}</li>
+{{/each}}
+</ul>
+
+<br><br>
+<a href="/movies">Back to all movies</a>
