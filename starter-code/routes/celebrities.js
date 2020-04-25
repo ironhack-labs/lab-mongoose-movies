@@ -11,22 +11,6 @@ router.get('/celebrities', (req, res) => {
     });
 });
 
-router.get('/celebrities/:id', (req, res) => {
-  const id = req.params.id;
-  if (id.match(/^[0-9a-fA-F]{24}$/)) {
-    // Yes, it's a valid ObjectId, proceed with `findById` call.
-  
-    Celebrity.findById(id) 
-      .then(celeb => {
-        console.log(celeb)
-        res.render('celebrities/show', celeb);  
-      })
-      .catch(error => {
-        console.error('Error ', error);
-      });
-    }
-});
-
 
 router.get('/celebrities/new', (req, res) => res.render('celebrities/new')); 
 
@@ -43,6 +27,23 @@ router.post('/celebrities/new', (req, res, next) => {
     next(error);
   });
 
+});
+
+
+router.get('/celebrities/:id', (req, res) => {
+  const id = req.params.id;
+  //if (id.match(/^[0-9a-fA-F]{24}$/)) {
+    // Yes, it's a valid ObjectId, proceed with `findById` call.
+  
+    Celebrity.findById(id) 
+      .then(celeb => {
+        console.log(celeb)
+        res.render('celebrities/show', celeb);  
+      })
+      .catch(error => {
+        console.error('Error ', error);
+      });
+    //}
 });
 
 module.exports = router;
