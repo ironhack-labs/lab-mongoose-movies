@@ -8,10 +8,12 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const DB_NAME = 'celebrity';
+ 
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect(`mongodb://localhost/${DB_NAME}`, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -53,6 +55,24 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrities = require('./routes/celebrities-router');
+app.use('/celebrities', celebrities);
+
+// ERROR HANDLERS
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 
 module.exports = app;
