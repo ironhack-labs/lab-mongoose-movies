@@ -8,7 +8,7 @@
   <label for="plot">Plot:</label>
   <input type="text" name="plot" value="{{movie.plot}}"/>
   {{!-- <label for="cast">Cast:</label>
-  <input type="text" name="cast" value="{{movie.cast}}"/> --}}
+  <input type="text" name="cast" value="{{#each movie.cast}}{{name}}{{/each}}"/> --}}
 
   <button>SAVE</button>
 </form>

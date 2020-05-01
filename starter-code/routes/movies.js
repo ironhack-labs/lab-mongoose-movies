@@ -37,6 +37,7 @@ router.post('/movies/create', (req, res, next) => {
 
 router.get('/movies/:id', (req, res, next) => {
   Movie.findById(req.params.id)
+  //.populate('cast') 
     .then(movie => {
       res.render('movies/show', {movie});
     })
@@ -59,11 +60,11 @@ router.get('/movies/:id/edit', (req, res, next) => {
 router.post('/movies/:id', (req, res, next) => {
   const updatedMovie = {
     title: req.body.title,
-    plot: req.body.plots,
+    plot: req.body.plot,
     genre: req.body.genre,
   };
 
-  Movie.update({id: req.params.id}, updatedMovie)
+  Movie.update({_id: req.params.id}, updatedMovie)
     .then(() => {
       res.redirect('/movies');
     })
