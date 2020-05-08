@@ -6,7 +6,6 @@
     "dev": "nodemon ./server -e js,json,hbs,scss,css"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "hbs": "^4.0.1",

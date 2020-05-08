@@ -64,11 +64,20 @@ And you have to install all the dependencies:
 $ npm install
 ```
 
-To make your life easier, we added a development script to the `package.json` file. Instead of having to run `node index.js` every time you make an update, you can run the following command (that uses the package `nodemon` behind the scenes):
+To make your life easier, we've added a development script to the `package.json` file. Instead of having to run `node index.js` every time you make an update, you can run the following command (that uses the package `nodemon` behind the scenes):
 
 ```bash
 $ npm run dev
 ```
+
+Before solving the lab, you'll need to import a few pre-existing celebrity documents into your database. This process is commonly called seeding the database (seeding is the process in which you add some initial records into the database). To do so, follow these steps:
+
+1. Open MongoDB Compass and connect to MongoDB.
+2. Press "Create Database". In the field for "Database Name", insert "lab-mongoose-movies", the same name we have concatenated into the variable `MONGODB_URI` in our `.env` file. In the field "Collection Name", write `celebrities`. Click on "Create Database".
+3. Use the interface to navigate to the database you have just created. Open the collection `celebrities`.
+4. Click on "Add Data", select "Import File", and use the file picker to navigate to the lab's directory. Select the file `demo-celebrities.json`, and choose "JSON" as the input file type. Click on "Import". You can also use the `mongoimport` command line tool to achieve the same purpose.
+
+Afterwards, check the database with the MongoDB Compass to confirm that your data was saved.
 
 Now you are ready to start 🚀
 
@@ -89,15 +98,6 @@ The `Celebrity` model should have:
    - Create the celebrity schema with the properties `name`, `occupation` and `catchPhrase`.
    - Create the `Celebrity` model with the schema.
    - Export the `Celebrity` model.
-3. In `seed.js` file:
-   - Create an array of 3 objects, each with `name`, `occupation` and `catchPhrase` for our initial celebrities.
-   - Connect to the database.
-   - Call the `Celebrity` model's `create` static, passing the array as argument.
-   - When a call to `create` has succeeded, log a message to the console with feedback on the operation.
-   - Disconnect from the database.
-4. Run the seed file with `node` to seed your database.
-
-Afterward, check the database with the MongoDB Compass to confirm that your data was saved.
 
 ## Iteration #2: Listing Our Celebrities
 
