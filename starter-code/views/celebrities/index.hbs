@@ -1,0 +1,20 @@
+<div class="celebrities-container">
+  <h1>CELEBRITIES</h1>
+  {{#each arrCelebrity}}
+  <div class="celebrities-container-title">
+    <a href="/celebrities/{{this.id}}">
+      <h2>{{this.name}} </h2>
+    </a>
+      <form action="/celebrities/{{this.id}}/delete" method="post">
+        <button class="button-celeb" type="submit">delete</button>
+      </form>
+      <a href="/celebrities/{{this.id}}/edit">
+        <button class="button-celeb" type="submit">edit</button>
+      </a>
+  </div>
+  {{/each}}
+  <div class="celebs-add">
+    <a href="/celebrities/new"><button class="button-celeb-p">ADD NEW CELEBRITY</button></a>
+    <a href="/"><button class="button-celeb-p">BACK TO HOME</button> </a>
+  </div>
+</div>
