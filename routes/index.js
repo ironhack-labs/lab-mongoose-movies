@@ -1,7 +1,7 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
-/* GET home page */
+// Handle GET request for website root
 router.get('/', (req, res, next) => {
   res.render('index');
 });

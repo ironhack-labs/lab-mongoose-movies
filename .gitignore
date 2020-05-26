@@ -1,5 +1,10 @@
-# Dependency directory
+.DS_Store
+.vscode
 node_modules
+
+# Built files
+**/public/stylesheets/*.css
+*.map
 
 # Exclude Logs
 *.log*
@@ -7,6 +12,7 @@ node_modules
 # Exclude the npm package lock file,
 # as libsass binary downloads might break again in the future
 package-lock.json
+yarn.lock
 
 # Environment Variables should NEVER be published
 .env

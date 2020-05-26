@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Tom Cruise",
+    "occupation": "actor",
+    "catchPhrase": "You complete me"
+  },
+  {
+    "name": "Beyoncé",
+    "occupation": "singer",
+    "catchPhrase": "I sneezed on the beat and the beat got sicker"
+  },
+  {
+    "name": "Kim Kardashian",
+    "occupation": "unknown",
+    "catchPhrase": "There's a lot of baggage that comes with us, but it's like Louis Vuitton baggage. You always want it."
+  }
+]
