@@ -30,6 +30,11 @@ mongoose
             name: 'Muhammad Ali',
             occupation: 'Boxer',
             catchPhrase: "It's not bragging if you can back it up"
+        },
+        {
+            name: 'Tony Soprano',
+            occupation: 'Mobster',
+            catchPhrase: 'We buried him… on a hill… overlooking a river… with pine cones all around!'
         }
     ]
 

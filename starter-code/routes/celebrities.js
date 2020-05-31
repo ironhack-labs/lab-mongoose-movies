@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose')
 const Celebrity = require('../models/celebrity')
 
 
@@ -14,7 +15,6 @@ router.get('/new', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-    console.log(req.body)
     const {name, occupation, catchPhrase} = req.body
     const newCelebrity = new Celebrity({name, occupation, catchPhrase})
     let createErr = false;
@@ -32,9 +32,23 @@ router.post('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    console.log(req.params)
     Celebrity.findOne({_id: req.params.id})
     .then(celebridad => res.render('celebrities/show.hbs', {laCelebridad: celebridad}))
+    .catch(err => next(err))
+})
+
+router.post('/:id/delete', (req, res, next) => {
+    console.log(req.params)
+    Celebrity.findOneAndDelete({_id: new mongoose.mongo.ObjectID(req.params.id)})
+    .then((elem) => {
+        console.log(elem)
+        res.redirect('/celebrities')})
+    .catch(err => next(err))
+})
+
+router.get('/:id/edit', (req,res, next) => {
+    Celebrity.findOne(req.params.id)
+    .then(celebridad => res.render('celebrities/edit.hbs', celebridad))
     .catch(err => next(err))
 })
 
