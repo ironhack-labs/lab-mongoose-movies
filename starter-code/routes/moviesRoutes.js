@@ -4,6 +4,15 @@ const router = express.Router();
 const Movie = require('../models/movie');
 const Celebrity = require('../models/celebrity')
 
+router.get('/', async (req, res, next) => {
+    try {
+        const allMovies = await Movie.find({});
+        res.render('movies/movies', {movies: allMovies});
+    } catch (error) {
+        console.log('Error listing movies: ' + error);
+    }
+})
+
 router.get('/new', async (req, res, next) => {
     try {
         const allCelebrities = await Celebrity.find({});
