@@ -34,4 +34,13 @@ router.post('/create', async (req, res, next) => {
     }
 })
 
+router.get('/:movieId', async (req, res, next) => {
+    try {
+        const singleMovie = await Movie.findById(req.params.movieId).populate('cast');
+        res.render('movies/movie-details', singleMovie);
+    } catch (error) {
+        console.log('Error detailing a movie: ' + error)
+    }
+})
+
 module.exports = router;
