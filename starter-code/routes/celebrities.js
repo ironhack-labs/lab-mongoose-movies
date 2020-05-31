@@ -28,17 +28,28 @@ router.post('/', (req, res, next) => {
         catchPhrase
     });
     newCelebrity.save()
-    .then((celebrity) => {
-      res.redirect('/celebrities');
-    })
-    .catch((error) => {
-        res.redirect('/new');
-    });
+        .then((celebrity) => {
+            res.redirect('/celebrities');
+        })
+        .catch((error) => {
+            res.redirect('/new');
+        });
 });
 
 /*GET celebrities add details page*/
 router.get('/new', (req, res, next) => {
     res.render('celebrities/new');
+});
+
+/*POST delete celebrity*/
+router.post('/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+        .then((celebrity) => {
+            res.redirect('/celebrities');
+        })
+        .catch((error) => {
+            next(error);
+        });
 });
 
 /*GET celebrities details page*/
