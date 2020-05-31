@@ -22,13 +22,13 @@ const arrSeed = [
 	{
 		name: 'Bono',
 		occupation: 'Cantante',
-		cathcPhrase:
+		catchPhrase:
 			'Los únicos ideales que vale la pena tener son los que puedes aplicar a la vida diaria. Y al mundo.',
 	},
 	{
 		name: 'Mafalda',
 		occupation: 'Comic',
-		cathcPhrase: 'A veces me siento como Noé, rodeada de animales!!',
+		catchPhrase: 'A veces me siento como Noé, rodeada de animales!!',
 	},
 ];
 
