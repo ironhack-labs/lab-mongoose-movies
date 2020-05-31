@@ -37,6 +37,14 @@ router.post('/celebrities/new', (req, res, next) => {
         })
 })
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+    console.log(req.params.id)
+    Celebrity.findByIdAndRemove(req.params.id)
+        .then(() => res.redirect('/celebrities'))
+        .catch(err => console.log(`An error has occurred while trying to delete the celebrity: ${err}`))
+})
+
+
 router.get('/celebrities/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
         .then(detailsCelebrity => {
