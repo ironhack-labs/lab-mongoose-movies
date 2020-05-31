@@ -1,3 +1,17 @@
+const mongoose = require('mongoose');
+const Celebrities = require('../models/celebrity');
+
+
+mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+
+
+
+
 const celebrities = [{
     name: "Lady Gaga",
     occupation: "Singer",
@@ -9,5 +23,13 @@ const celebrities = [{
 }, {
     name: "Adam Brody",
     occupation: "Actor",
-    catchPhrase: "i'm a fake intellectual",
+    catchPhrase: "I'm a fake intellectual",
 }]
+
+
+Celebrities.create(celebrities, err => {
+    if (err) {
+        throw err;
+    }
+    console.log(`Created ${celebrities.length} `);
+});
