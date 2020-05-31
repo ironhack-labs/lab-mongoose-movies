@@ -10,10 +10,11 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+const DB_NAME = 'celebrities'
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  .connect(`mongodb://localhost/${DB_NAME}`, {useNewUrlParser: true})
+  .then(self => {
+    console.log(`Connected to Mongo! Database name: "${self.connections[0].name}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -42,17 +43,21 @@ app.use(require('node-sass-middleware')({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon2.png')));
 
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Express - Celebrities and Movies database!';
 
 
 
 const index = require('./routes/index');
+const celebrities = require('./routes/celebrities')
+const movies = require('./routes/movies')
 app.use('/', index);
+app.use('/celebrities', celebrities)
+app.use('/movies', movies)
 
 
 module.exports = app;
