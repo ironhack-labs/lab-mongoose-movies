@@ -14,6 +14,29 @@ router.get('/movies', (req, res, next) => {
         .catch(err => console.log(`An error has occurred while searching for movies: ${err}`))
 })
 
+router.get('/movies/new', (req, res, next) => {
+    res.render('movies/new')
+})
+
+router.post('/movies/new', (req, res, next) => {
+    const {
+        title,
+        genre,
+        plot
+    } = req.body;
+    const newMovie = new Movie({
+        title,
+        genre,
+        plot
+    })
+    newMovie.save()
+        .then(() => res.redirect('/movies'))
+        .catch(err => {
+            console.log(`An error has occurred while adding a new movie: ${err}`)
+            res.redirect('movies/new')
+        })
+})
+
 router.get('/movies/:id', (req, res, next) => {
     Movie.findById(req.params.id)
         .then(detailsMovies => {
