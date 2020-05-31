@@ -63,7 +63,7 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
         catchPhrase
     } = req.body
     Celebrity.update({
-            _id: req.params.id,
+            _id: req.params.id
         }, {
             $set: {
                 name,
@@ -71,9 +71,7 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
                 catchPhrase,
             },
         })
-        .then(() => {
-            res.redirect('/celebrities');
-        })
+        .then(() => res.redirect('/celebrities'))
         .catch(err => console.log(`An error has occured while trying to update the celebrity: ${err}`));
 })
 
@@ -87,7 +85,5 @@ router.get('/celebrities/:id', (req, res, next) => {
         })
         .catch(err => console.log(`An error has occurred while searching for the details: ${err}`))
 })
-
-
 
 module.exports = router;

@@ -44,6 +44,37 @@ router.post('/movies/:id/delete', (req, res, next) => {
         .catch(err => console.log(`An error has occurred while trying to delete the movie: ${err}`))
 })
 
+router.get('/movies/:id/edit', (req, res, next) => {
+    console.log(req.params.id)
+    Movie.findById(req.params.id)
+        .then(movie => {
+            res.render('movies/edit', {
+                movie: movie
+            })
+        })
+        .catch(err => console.log(`Error trying to retrive the movie: ${err}`))
+})
+
+router.post('/movies/:id/edit', (req, res, next) => {
+    console.log(req.params.id)
+    const {
+        title,
+        genre,
+        plot
+    } = req.body
+    Movie.update({
+            _id: req.params.id
+        }, {
+            $set: {
+                title,
+                genre,
+                plot,
+            }
+        })
+        .then(() => res.redirect('/movies'))
+        .catch(err => console.log(`An error has occurred while trying to update the movie: ${err}`))
+})
+
 router.get('/movies/:id', (req, res, next) => {
     Movie.findById(req.params.id)
         .then(detailsMovies => {
