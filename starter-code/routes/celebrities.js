@@ -44,6 +44,38 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
         .catch(err => console.log(`An error has occurred while trying to delete the celebrity: ${err}`))
 })
 
+router.get('/celebrities/:id/edit', (req, res, next) => {
+    console.log(req.params.id)
+    Celebrity.findById(req.params.id)
+        .then(celebrity => {
+            res.render('celebrities/edit', {
+                celebrity: celebrity
+            })
+        })
+        .catch(err => console.log(`Error trying to retrive the celebrity: ${err}`))
+})
+
+router.post('/celebrities/:id/edit', (req, res, next) => {
+    console.log(req.params.id)
+    const {
+        name,
+        occupation,
+        catchPhrase
+    } = req.body
+    Celebrity.update({
+            _id: req.params.id,
+        }, {
+            $set: {
+                name,
+                occupation,
+                catchPhrase,
+            },
+        })
+        .then(() => {
+            res.redirect('/celebrities');
+        })
+        .catch(err => console.log(`An error has occured while trying to update the celebrity: ${err}`));
+})
 
 router.get('/celebrities/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
@@ -55,5 +87,7 @@ router.get('/celebrities/:id', (req, res, next) => {
         })
         .catch(err => console.log(`An error has occurred while searching for the details: ${err}`))
 })
+
+
 
 module.exports = router;
