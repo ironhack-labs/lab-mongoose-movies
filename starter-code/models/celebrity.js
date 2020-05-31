@@ -8,6 +8,12 @@ const celebritySchema = new Schema({
         default: 'unknown'
     },
     catchPhrase: String
+},
+{
+    timestamps: {
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
+    }
 })
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema);

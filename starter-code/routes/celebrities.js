@@ -13,17 +13,22 @@ router.get('/new', (req, res, next) => {
     res.render('celebrities/new.hbs')
 })
 
-router.post('/new', (req, res, next) => {
-    const {name, occupation, catchphrase} = req.body
-    const newCelebrity = new Celebrity({name,occupation, catchphrase})
+router.post('/', (req, res, next) => {
+    console.log(req.body)
+    const {name, occupation, catchPhrase} = req.body
+    const newCelebrity = new Celebrity({name, occupation, catchPhrase})
     let createErr = false;
-    newCelebrity.save()
-    .then(celebrity => res.redirect('/celebrities'))
-    .catch(err => {
+    try {
+        newCelebrity.save()
+            .then(celebrity => res.redirect('/celebrities'))
+            .catch(err => {
+                console.log(`Hubo un error creando el documento -----> ${err}`)
+            })
+    } catch(err) {
         createErr = true;
-        console.log(`Hubo un error creando el documento -----> ${err}`)
         res.render('celebrities/new.hbs', createErr)
-    })
+    }
+    
 })
 
 router.get('/:id', (req, res, next) => {
