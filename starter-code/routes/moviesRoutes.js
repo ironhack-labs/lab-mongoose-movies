@@ -34,6 +34,15 @@ router.post('/create', async (req, res, next) => {
     }
 })
 
+router.post('/:movieId/delete', async (req, res, next) => {
+    try {
+        await Movie.findByIdAndDelete(req.params.movieId);
+        res.redirect('/movies')
+    } catch (error) {
+        console.log('Error deleting movie: ' + error);
+    }
+})
+
 router.get('/:movieId', async (req, res, next) => {
     try {
         const singleMovie = await Movie.findById(req.params.movieId).populate('cast');

@@ -10,4 +10,8 @@
     {{/each}}
 </p>
 
+<form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger">Delete movie</button>
+</form>
+
 <a href="/movies" class="btn btn-secondary">Back</a>

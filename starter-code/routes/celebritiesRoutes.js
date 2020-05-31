@@ -28,4 +28,22 @@ router.post('/create', async (req, res, next) => {
     }
 })
 
+router.post('/:celebrityId/delete', async (req, res, next) => {
+    try {
+        await Celebrity.findByIdAndDelete(req.params.celebrityId);
+        res.redirect('/celebrities')
+    } catch (error) {
+        console.log('Error deleting celebrity: ' + error);
+    }
+})
+
+router.get('/:celebrityId', async (req, res, next) => {
+    try {
+        const singleCelebrity = await Celebrity.findById(req.params.celebrityId);
+        res.render('celebrities/celebrity-details', singleCelebrity);
+    } catch (error) {
+        console.log('Error detailing a celebrity: ' + error)
+    }
+})
+
 module.exports = router;
