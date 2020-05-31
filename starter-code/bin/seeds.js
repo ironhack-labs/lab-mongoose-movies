@@ -1,5 +1,9 @@
-const mongoose = require('mongoose');
-const Celebrities = require('../models/celebrity');
+const mongoose = require("mongoose")
+const Celebrities = require("../models/celebrity")
+
+
+
+const DB_NAME = "starter-code"
 
 
 mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
@@ -27,9 +31,11 @@ const celebrities = [{
 }]
 
 
-Celebrities.create(celebrities, err => {
-    if (err) {
-        throw err;
-    }
-    console.log(`Created ${celebrities.length} `);
-});
+
+
+Celebrities.create(celebrities)
+    .then(allCelebrities => {
+        console.log(`${celebrities.length} celebrities created on Compass`)
+        mongoose.connection.close()
+    })
+    .catch(err => console.log(`error creating celebrities: ${err}`))
