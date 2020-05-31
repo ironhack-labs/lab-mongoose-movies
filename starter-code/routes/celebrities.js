@@ -46,11 +46,23 @@ router.post('/:id/delete', (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.post('/:id', (req, res, next) => {
+    const {name,occupation,catchPhrase} = req.body;
+    Celebrity.findByIdAndUpdate(req.params.id, {$set: {name,occupation,catchPhrase}}, {new: true})
+        .then(celebrity => {
+            res.redirect('/celebrities')
+        })
+        .catch(err => next(err))
+})
+
 router.get('/:id/edit', (req,res, next) => {
-    Celebrity.findOne(req.params.id)
-    .then(celebridad => res.render('celebrities/edit.hbs', celebridad))
+    Celebrity.findOne({_id: req.params.id})
+    .then(celebrity => res.render('celebrities/edit.hbs', {celebrity}))
     .catch(err => next(err))
 })
+
+
+
 
 
 

@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h2>Edit {{celebrity.name}}'s info</h2>
+    
+    <div class="container mt-3">
+        <form action="/celebrities/{{celebrity._id}}" method="POST">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" class="form-control" id="name" name="name" value="{{celebrity.name}}">
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation: </label>
+                <input type="text" class="form-control" id="occupation" name="occupation" value="{{celebrity.occupation}}">
+            </div>
+            <div class="form-group">
+                <label for="catchPhrase">Catch phrase: </label>
+                <input type="text" class="form-control" id="catchPhrase" name="catchPhrase"
+                    value="{{celebrity.catchPhrase}}">
+            </div>
+            <button type="submit" class="btn btn-warning">Edit</button>
+        </form>
+    </div>
+</div>
