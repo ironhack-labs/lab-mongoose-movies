@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
             console.log(`/celebrities => ${allCelebrities.length} displayed`)
             res.render('celebrities/index', {celebrities: allCelebrities})
         })
-        .catch(err => console.log('Error displaying the celebrities', err))
+        .catch(err => console.log('Error displaying the celebrities:', err))
     });
 
 router.get('/new', (req, res, next) => res.render('celebrities/new'))
@@ -28,14 +28,26 @@ router.post('/new', (req, res, next) => {
 router.post('/:id/delete', (req, res, next) => {
     Celebrity.findByIdAndRemove(req.params.id)
         .then(res.redirect('/celebrities'))
-        .catch(err => console.log('Error removing the celebrity', err))
+        .catch(err => console.log('Error removing the celebrity:', err))
     });
 
 router.get('/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
         .then(celebrity => res.render('celebrities/show', celebrity))
-        .catch(err => console.log('Error displyaing loading a celebrity page', err))
+        .catch(err => console.log('Error displaying loading a celebrity page:', err))
     });
 
+router.get('/:id/edit', (req, res, next) => {
+    Celebrity.findById(req.params.id)
+        .then(celebrity => res.render('celebrities/edit', celebrity))
+        .catch(err => console.log('Error editing the celebrity:', err))
+    });
+
+router.post('/:id', (req, res, next) => {
+    const {name, occupation, catchPhrase} = req.body;
+    Celebrity.update({_id: req.params.id}, {$set: {name, occupation, catchPhrase}})
+        .then(res.redirect('/celebrities'))
+        .catch(err => console.log('Error editing the celebrity:', err))
+})
   
 module.exports = router;
