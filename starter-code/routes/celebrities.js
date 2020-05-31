@@ -25,12 +25,17 @@ router.post('/new', (req, res, next) => {
         })
     });
 
+router.post('/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+        .then(res.redirect('/celebrities'))
+        .catch(err => console.log('Error removing the celebrity', err))
+    });
+
 router.get('/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
         .then(celebrity => res.render('celebrities/show', celebrity))
         .catch(err => console.log('Error displyaing loading a celebrity page', err))
     });
-
 
   
 module.exports = router;
