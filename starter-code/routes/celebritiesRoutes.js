@@ -37,6 +37,26 @@ router.post('/:celebrityId/delete', async (req, res, next) => {
     }
 })
 
+router.get('/:celebrityId/edit', async (req, res, next) => {
+    try {
+        const oneCelebrity = await Celebrity.findById(req.params.celebrityId);
+        res.render('celebrities/edit-celebrity', oneCelebrity);
+    } catch (error) {
+        console.log('Error editing celebrity: ' + error);
+    }
+})
+
+router.post('/:celebrityId', async (req, res, next) => {
+    try {
+        const {name, occupation, catchPhrase} = req.body;
+        await Celebrity.findByIdAndUpdate(req.params.celebrityId, {name, occupation, catchPhrase});
+        res.redirect('/celebrities/' + req.params.celebrityId);
+    } catch (error) {
+        console.log('Error editing celebrity: ' + error);
+    }
+
+})
+
 router.get('/:celebrityId', async (req, res, next) => {
     try {
         const singleCelebrity = await Celebrity.findById(req.params.celebrityId);

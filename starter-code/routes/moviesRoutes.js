@@ -43,6 +43,27 @@ router.post('/:movieId/delete', async (req, res, next) => {
     }
 })
 
+router.get('/:movieId/edit', async (req, res, next) => {
+    try {
+        const oneMovie = await Movie.findById(req.params.movieId);
+        const allCelebrities = await Celebrity.find({});
+        res.render('movies/edit-movie', {oneMovie, celebrities: allCelebrities});
+    } catch (error) {
+        console.log('Error editing movie: ' + error);
+    }
+})
+
+router.post('/:movieId', async (req, res, next) => {
+    try {
+        const {title, genre, plot, cast} = req.body;
+        await Movie.findByIdAndUpdate(req.params.movieId, {title, genre, plot, cast});
+        res.redirect('/movies/' + req.params.movieId);
+    } catch (error) {
+        console.log('Error editing movie: ' + error);
+    }
+
+})
+
 router.get('/:movieId', async (req, res, next) => {
     try {
         const singleMovie = await Movie.findById(req.params.movieId).populate('cast');

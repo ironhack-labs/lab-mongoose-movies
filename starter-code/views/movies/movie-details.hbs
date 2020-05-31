@@ -6,12 +6,14 @@
 <p>
     <span class="font-weight-bold">Stars: </span>
     {{#each cast}}
-        {{this.name}}
+        <u><a href="/celebrities/{{this._id}}">{{this.name}}</a></u>
     {{/each}}
 </p>
 
+
 <form action="/movies/{{_id}}/delete" method="post">
+    <a href="/movies/{{_id}}/edit" class="btn btn-success">Edit</a>
     <button type="submit" class="btn btn-danger">Delete movie</button>
 </form>
 
-<a href="/movies" class="btn btn-secondary">Back</a>
+<a href="/movies" class="btn btn-secondary mt-3">Back</a>

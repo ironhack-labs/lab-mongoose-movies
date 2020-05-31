@@ -5,7 +5,8 @@
 <p>Catch phrase: {{catchPhrase}}</p>
 
 <form action="/celebrities/{{_id}}/delete" method="post">
+    <a href="/celebrities/{{_id}}/edit" class="btn btn-success">Edit</a>
     <button type="submit" class="btn btn-danger">Delete celebrity</button>
 </form>
 
-<a href="/celebrities" class="btn btn-secondary">Back</a>
+<a href="/celebrities" class="btn btn-secondary mt-3">Back</a>

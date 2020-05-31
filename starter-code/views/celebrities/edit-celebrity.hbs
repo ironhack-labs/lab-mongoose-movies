@@ -1,0 +1,14 @@
+<h2>Edit {{name}}</h2>
+
+<form action="/celebrities/{{_id}}" method="POST">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" value="{{name}}">
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" name="occupation" class="form-control" value="{{occupation}}">
+        <label for="phrase">Catch phrase:</label>
+        <input type="text" id="phrase" name="catchPhrase" class="form-control" value="{{catchPhrase}}">
+        <button type="submit" class="btn btn-primary mt-3">Edit</button>
+        <a href="/celebrities" class="btn btn-danger mt-3">Cancel</a>
+    </div>
+</form>
