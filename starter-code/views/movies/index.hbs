@@ -2,6 +2,10 @@
 <ul>
     {{#each movies}}
     <li>{{title}} <a href="/movies/{{_id}}">See Details</a></li>
+    <form action="/movies/{{id}}/delete" method="POST">
+        <button type="submit">DELETE</button>
+    </form>
+    <br>
     {{/each}}
 </ul>
 

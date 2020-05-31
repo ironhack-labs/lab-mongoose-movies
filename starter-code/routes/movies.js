@@ -37,6 +37,13 @@ router.post('/movies/new', (req, res, next) => {
         })
 })
 
+router.post('/movies/:id/delete', (req, res, next) => {
+    console.log(req.params.id)
+    Movie.findByIdAndDelete(req.params.id)
+        .then(() => res.redirect('/movies'))
+        .catch(err => console.log(`An error has occurred while trying to delete the movie: ${err}`))
+})
+
 router.get('/movies/:id', (req, res, next) => {
     Movie.findById(req.params.id)
         .then(detailsMovies => {
