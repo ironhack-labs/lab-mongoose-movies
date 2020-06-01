@@ -36,7 +36,7 @@ router.post("/new", (req, res, next) => {
         })
 })
 
-router.post('/:id/delete', (req, res, next) => {
+router.post("/:id/delete", (req, res, next) => {
     console.log(req.params.id)
     Celebrity.findByIdAndRemove(req.params.id)
         .then(() => res.redirect("/celebrities"))
@@ -44,7 +44,36 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 
+router.get("/:id/edit", (req, res, next) => {
+    Celebrity.findById(req.params.id)
+        .then(celebrity => {
+            res.render('/celebrities/edit', {
+                celebrity: celebrity
+            })
+        })
+        .catch(err => console.log("Error edit celeb ", err))
+})
 
+
+router.post('/:id/edit', (req, res, next) => {
+    console.log(req.params.id)
+    const {
+        name,
+        occupation,
+        catchPhrase
+    } = req.body
+    Celebrity.update({
+            _id: req.params.id
+        }, {
+            $set: {
+                name,
+                occupation,
+                catchPhrase,
+            },
+        })
+        .then(() => res.redirect('/celebrities'))
+        .catch(err => console.log("Error saving celeb details edition", err));
+})
 
 router.get("/:id", (req, res, next) => {
     Celebrity.findById(req.params.id).then(infoCelebrity => {
