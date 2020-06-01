@@ -34,7 +34,20 @@ router.post('/:id/delete', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
     Movie.findById(req.params.id)
         .then(movie => res.render('movies/show', movie))
-        .catch(err => console.log('Error displaying loading a celebrity page:', err))
+        .catch(err => console.log('Error displaying loading a movie page:', err))
+    });
+
+router.get('/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .then(movie => res.render('movies/edit', movie))
+        .catch(err => console.log('Error editing the movie:', err))
+    });
+
+router.post('/:id', (req, res, next) => {
+    const {title, genre, plot} = req.body;
+    Movie.update({_id: req.params.id}, {$set: {title, genre, plot}})
+        .then(res.redirect('/movies'))
+        .catch(err => console.log('Error editing the movie:', err))
     });
 
 module.exports = router;
