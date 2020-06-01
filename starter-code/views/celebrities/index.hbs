@@ -1,4 +1,21 @@
-<h2>Celebrities index</h2>
-{{#each list }}
-<p><a href="/celebrities/{{this._id}}">{{this.name}}</a></p>
-{{/each}}
+<main>
+    <h2 class="text-center py-5">Celebrities index</h2>
+    <table class="table table-striped">
+        <tbody class="d-flex flex-column">
+            {{#each list }}
+            <tr class="d-flex justify-content-between">
+                <td>
+                    <a href="/celebrities/{{this.id}}" class="text-decoration-none font-weight-bold">
+                        {{this.name}}
+                    </a>
+                </td>
+                <td class="justify-content-end">
+                    <form action="celebrities/{{this._id}}/delete" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</main>

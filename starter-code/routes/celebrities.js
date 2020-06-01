@@ -13,6 +13,19 @@ router.get("/", (req, res, next) => {
       next();
     });
 });
+
+//DELETE Celebrity
+router.post("/:id/delete", (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch((err) => {
+      console.log("An error has ocurred while delete celebrity", err);
+      next();
+    });
+});
+
 //GET Celebrity info
 router.get("/:id", (req, res, next) => {
   Celebrity.findById(req.params.id)
@@ -24,6 +37,7 @@ router.get("/:id", (req, res, next) => {
       next();
     });
 });
+
 // ADD Celebrity ( GET & POST)
 router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
