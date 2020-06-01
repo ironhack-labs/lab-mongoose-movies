@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/celebrity");
+const Movie = require("../models/movies");
 
 mongoose
   .connect("mongodb://localhost/starter-code", {
@@ -16,22 +17,41 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-const data = [
+// const data = [
+//   {
+//     name: "Toni Sanchez",
+//     occupation: "Dev student",
+//     catchPhrase: "Cada loco con su meta",
+//   },
+//   {
+//     name: "Unknown",
+//     occupation: "Hacker",
+//     catchPhrase: "01001000 01101111 01101100 01100001",
+//   },
+//   {
+//     name: "Hasma Amigo",
+//     occupation: "none",
+//     catchPhrase: "مرحبا يا صديقي",
+//   },
+// ];
+
+const movieData = [
   {
-    name: "Toni Sanchez",
-    occupation: "Dev student",
-    catchPhrase: "Cada loco con su meta",
+    title: "Movie 1",
+    genre: "randomGenre",
+    plot: "randomPlot",
   },
   {
-    name: "Unknown",
-    occupation: "Hacker",
-    catchPhrase: "01001000 01101111 01101100 01100001",
+    title: "Movie 2",
+    genre: "randomGenre2",
+    plot: "randomPlot2",
   },
   {
-    name: "Hasma Amigo",
-    occupation: "none",
-    catchPhrase: "مرحبا يا صديقي",
+    title: "Movie 3",
+    genre: "randomGenre3",
+    plot: "randomPlot3",
   },
 ];
 
-Celebrity.create(data);
+//Celebrity.create(data);
+Movie.create(movieData);
