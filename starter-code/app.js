@@ -10,7 +10,11 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
+  .connect("mongodb://localhost/starter-code", {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -55,5 +59,6 @@ const index = require("./routes/index");
 const celebritiesList = require("./routes/celebrities");
 app.use("/", index);
 app.use("/celebrities", celebritiesList);
+app.use("celebrities/:id", celebritiesList);
 
 module.exports = app;
