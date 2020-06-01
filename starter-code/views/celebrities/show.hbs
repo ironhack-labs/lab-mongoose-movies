@@ -1,0 +1,12 @@
+<h2>Celebrity Details</h2>
+
+{{#with celebrity}} {{!// ou: {{celebrity.name}}
+
+<h3>{{name}}</h3>
+<p>{{occupation}}</p>
+<p>{{catchPhrase}}</p>
+
+<a href="/celebrities/{{_id}}/edit">Edit</a>
+
+{{/with}}
+
