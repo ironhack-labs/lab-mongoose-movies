@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const Celebrity = require("../models/celebrity")
-const DB_NAME = 'mongoose-movies';
+const DB_NAME = 'mongoose-movies'
 
 mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
     useCreateIndex: true,
