@@ -3,10 +3,6 @@ const router  = express.Router();
 
 const Celebrity = require("../models/celebrity.js");
 
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
 
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()

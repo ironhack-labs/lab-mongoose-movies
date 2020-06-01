@@ -1,0 +1,21 @@
+<h2>Celebrities</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Occupation</th>
+            <th scope="col">Catch Phrase</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each celebrities}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{occupation}}</td>
+            <td>{{catchPhrase}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
