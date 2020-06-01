@@ -1,0 +1,18 @@
+<main>
+    <h2 class="text-center py-5">Movies index</h2>
+    {{#each list }}
+    <div class="d-flex justify-content-between px-3 py-2">
+        <a href="/movies/{{this.id}}" class="text-decoration-none font-weight-bold">
+            {{this.title}}
+        </a>
+        <div class="d-flex">
+            <form action="/movies/{{this._id}}/edit" method="GET">
+                <button type="submit" class="btn btn-info px-3 mx-3">Edit</button>
+            </form>
+            <form action="/movies/{{this._id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger px-3 mx-3">Delete</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</main>
