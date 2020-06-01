@@ -25,19 +25,17 @@ router.get('/', async (req, res, next) => {
 //     })
 // })
 
-router.get('/edit', (req, res, next) => {
+// Render de detalles del libro
 
-  console.log(req.query.book_id)
-  Book.findOne({
-      _id: req.query.book_id
+router.get('/:id', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebritiesDetails => {
+      res.render('celebrities/show', {
+        celebrities: celebritiesDetails
+      })
     })
-    .then((book) => {
-      res.render("book-edit", {
-        book
-      });
-    })
-    .catch((error) => {
-      console.log("Error al editar", error);
+    .catch(error => {
+      console.log('Error al acceder a los detalles de la celebridad', error);
     })
 });
 
