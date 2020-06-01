@@ -47,7 +47,8 @@ router.get('/:movieId/edit', async (req, res, next) => {
     try {
         const oneMovie = await Movie.findById(req.params.movieId);
         const allCelebrities = await Celebrity.find({});
-        res.render('movies/edit-movie', {oneMovie, celebrities: allCelebrities});
+        const newCelebrities = allCelebrities.map(cel => ({_id: cel._id, name: cel.name, selected: oneMovie.cast.indexOf(cel._id) !== -1}))
+        res.render('movies/edit-movie', {oneMovie, celebrities: newCelebrities});
     } catch (error) {
         console.log('Error editing movie: ' + error);
     }

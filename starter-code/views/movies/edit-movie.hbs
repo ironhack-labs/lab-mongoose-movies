@@ -11,7 +11,7 @@
         <label for="cast">Cast:</label>
         <select name="cast" id="cast" class="mt-2" multiple>
             {{#each celebrities}}
-                <option value="{{_id}}">{{name}}</option>
+                <option value="{{_id}}" {{#if selected}}selected="selected"{{/if}}>{{name}}</option>
             {{/each}}
         </select><br>
         <button type="submit" class="btn btn-primary">Edit</button>
