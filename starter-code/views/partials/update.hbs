@@ -1,0 +1,11 @@
+<h2>Edit {{name}}</h2>
+<form class="form-group" action="{{path}}/{{id}}" method="POST">
+  <label for="{{nameTitle}}">{{nameTitle}}:</label>
+  <input type="text" name="{{fieldName}}" value="{{name}}">
+  <label for="{{typeTitle}}">{{typeTitle}}:</label>
+  <input type="text" name="{{fieldType}}" value="{{type}}">
+  <label for="{{aboutTitle}}">{{aboutTitle}}:</label>
+  <input type="text" name="{{fieldAbout}}" value="{{about}}">
+  <button type="submit">UPDATE</button>
+</form>
+<a class="btn btn-primary" href="{{path}}">BACK to {{tipology}}</a>

@@ -41,6 +41,24 @@ router.get('/new', (req, res, next) => {
     res.render('movies/new');
 });
 
+/*POST update movie*/
+router.post("/:id", (req, res, next) => {
+    const updateFields = {
+        title,
+        genre,
+        plot
+    } = req.body;
+    Movie.update({
+            _id: req.params.id
+        }, updateFields)
+        .then((movie) => {
+            res.redirect('/movies');
+        })
+        .catch((error) => {
+            next(error);
+        });
+});
+
 /*POST delete movie*/
 router.post('/:id/delete', (req, res, next) => {
     Movie.findByIdAndRemove(req.params.id)
@@ -51,6 +69,19 @@ router.post('/:id/delete', (req, res, next) => {
             next(error);
         });
 });
+
+/*GET movies edit details page*/
+router.get('/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .then(theMovie => {
+            res.render('movies/edit', {
+                theMovie
+            });
+        }).catch(error => {
+            next(error);
+        });
+});
+
 
 /*GET movies details page*/
 router.get('/:id', (req, res, next) => {
