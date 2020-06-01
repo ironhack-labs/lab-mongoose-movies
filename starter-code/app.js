@@ -51,9 +51,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Mongoose Movies';
 
-
+//routes
 const celebrities = require('./routes/celebrities');
 app.use('/', celebrities);
+
+const movies = require('./routes/movies');
+app.use('/', movies);
 
 const index = require('./routes/index');
 app.use('/', index);

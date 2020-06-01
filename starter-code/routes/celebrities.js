@@ -3,7 +3,6 @@ const router  = express.Router()
 
 const Celebrity = require("../models/celebrity")
 
-
 /* GET celebrities page */
     router.get('/celebrities', (req, res) => {
         Celebrity.find()
