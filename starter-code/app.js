@@ -8,12 +8,14 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const DB_NAME = "mongoose-movies" 
+
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/mongoose-movies', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${DB_NAME}"`)
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
@@ -47,12 +49,19 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Mongoose Movies';
 
+//routes
+const celebrities = require('./routes/celebrities');
+app.use('/', celebrities);
 
+const movies = require('./routes/movies');
+app.use('/', movies);
 
 const index = require('./routes/index');
 app.use('/', index);
+
+
 
 
 module.exports = app;
