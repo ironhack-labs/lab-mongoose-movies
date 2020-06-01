@@ -11,10 +11,14 @@ router.get("/", (req, res, next) => {
 })
 
 router.get("/new", (req, res, next) => {
-    res.render("celebrities/new")
+    Celebrity.find()
+        .then(allCelebrities => res.render("celebrities/new", {
+            allCelebrities
+        }))
 })
 
 router.post("/new", (req, res, next) => {
+
     const {
         name,
         occupation,
@@ -26,11 +30,19 @@ router.post("/new", (req, res, next) => {
         catchPhrase
     })
     newCelebrity.save()
-        .then(() => res.render("celebrities"))
+        .then(() => res.render("/"))
         .catch(err => {
-            res.redirect("celebrities/new")
+            res.redirect("/new")
         })
 })
+
+router.post('/:id/delete', (req, res, next) => {
+    console.log(req.params.id)
+    Celebrity.findByIdAndRemove(req.params.id)
+        .then(() => res.redirect("/celebrities"))
+        .catch(err => console.log("Error rying to delete a celeb", err))
+})
+
 
 
 
