@@ -1,8 +1,8 @@
 const express = require("express")
 const router = express.Router()
-const Celebrity = require("../models/celebrity-model")
+const Celebrity = require("../models/celebrity.js")
 
-router.get("/celebrities/index", (req, res, next) => {
+router.get("/", (req, res, next) => {
     Celebrity.find()
         .then(allCelebrities => res.render("celebrities/index", {
             allCelebrities
@@ -12,8 +12,8 @@ router.get("/celebrities/index", (req, res, next) => {
 
 
 
-router.get("/celebrities/:id", (req, res, next) => {
-    Celebrity.findById().then(infoCelebrity => {
+router.get("/:id", (req, res, next) => {
+    Celebrity.findById(req.params.id).then(infoCelebrity => {
             console.log(infoCelebrity)
             res.render('celebrities/show', {
                 celebrities: infoCelebrity

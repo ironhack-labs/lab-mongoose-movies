@@ -1,8 +1,8 @@
 <h2>Find all our celebrities here:</h2>
-{{#each celebrities}}
+{{#each allCelebrities}}
 <p>
-    {{this.name}}
-    <a href="/celebrities/{{_id}}"> I WANNA KNOW MORE ABOUT THIS CELEBRITY</a>
+    <li>{{this.name}}</li>
+    <a href="/celebrities/{{this._id}}" class="button"> I WANNA KNOW MORE ABOUT THIS CELEBRITY</a>
 
 </p>
 {{/each}}
