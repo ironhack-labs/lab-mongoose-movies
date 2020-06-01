@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const Celebrity = require("../models/celebrity");
+const Celebrities = require("../models/celebrity");
 
 // GET Celebrities List
 router.get("/", (req, res, next) => {
-  Celebrity.find()
+  Celebrities.find()
     .then((celeb) => {
       res.render("celebrities/index", { list: celeb });
     })
@@ -16,7 +16,7 @@ router.get("/", (req, res, next) => {
 
 //DELETE Celebrity
 router.post("/:id/delete", (req, res, next) => {
-  Celebrity.findByIdAndRemove(req.params.id)
+  Celebrities.findByIdAndRemove(req.params.id)
     .then(() => {
       res.redirect("/celebrities");
     })
@@ -28,7 +28,7 @@ router.post("/:id/delete", (req, res, next) => {
 
 //EDIT Celebrity
 router.get("/:id/edit", (req, res, next) => {
-  Celebrity.findById(req.params.id)
+  Celebrities.findById(req.params.id)
     .then((celeb) => res.render("celebrities/edit", celeb))
     .catch((err) => {
       console.log("An error has occurred while charge the edit route", err);
@@ -37,7 +37,7 @@ router.get("/:id/edit", (req, res, next) => {
 });
 router.post("/:id", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
-  Celebrity.update(
+  Celebrities.update(
     { _id: req.params.id },
     { $set: { name, occupation, catchPhrase } }
   )
@@ -50,7 +50,7 @@ router.post("/:id", (req, res, next) => {
 
 //GET Celebrity info
 router.get("/:id", (req, res, next) => {
-  Celebrity.findById(req.params.id)
+  Celebrities.findById(req.params.id)
     .then((celeb) => {
       res.render("celebrities/show", celeb);
     })
@@ -68,7 +68,7 @@ router.post("/new", (req, res, next) => {
   //Get data from req.body
   const { name, occupation, catchPhrase } = req.body;
   //New instance of Celebrity with data catched
-  const newCelebrity = new Celebrity({
+  const newCelebrity = new Celebrities({
     name,
     occupation,
     catchPhrase,

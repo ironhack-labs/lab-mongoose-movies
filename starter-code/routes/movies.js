@@ -26,4 +26,27 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+// ADD Movie ( GET & POST)
+router.get("/new", (req, res, next) => {
+  res.render("movies/new");
+});
+router.post("/new", (req, res, next) => {
+  //Get data from req.body
+  const { title, genre, plot } = req.body;
+  //New instance of Movie with data catched
+  const newMovie = new Movies({
+    title,
+    genre,
+    plot,
+  });
+  //Add to DB and redirect to Movies List
+  newMovie
+    .save()
+    .then(res.redirect("/movies"))
+    .catch((err) => {
+      console.log("An error has occurred while add a new movie");
+      next();
+    });
+});
+
 module.exports = router;
