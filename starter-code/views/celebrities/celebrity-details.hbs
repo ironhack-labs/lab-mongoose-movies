@@ -1,0 +1,12 @@
+<h2>Celebrity info</h2>
+
+<h4>{{name}}</h4>
+<span>{{occupation}}</span>
+<p>Catch phrase: {{catchPhrase}}</p>
+
+<form action="/celebrities/{{_id}}/delete" method="post">
+    <a href="/celebrities/{{_id}}/edit" class="btn btn-success">Edit</a>
+    <button type="submit" class="btn btn-danger">Delete celebrity</button>
+</form>
+
+<a href="/celebrities" class="btn btn-secondary mt-3">Back</a>

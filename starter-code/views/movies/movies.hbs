@@ -1,0 +1,9 @@
+<h2>List of movies</h2>
+
+<ul>
+    {{#each movies}}
+        <li><a href="/movies/{{_id}}">{{title}}</a></li>
+    {{/each}} 
+</ul>
+
+<a href="/" class="btn btn-secondary">Back</a>
