@@ -1,6 +1,6 @@
-<h2>Celebrities</h2>
-
-{{#each Celebrities}}
-{{name}}
-{{/each}}
-
+<h2>Celebrities list</h2>
+<ul>
+    {{#each celebrities}}
+    <li>{{name}} <a href="/celebrities/{{_id}}"> Show Details</a></li>
+    {{/each}}
+</ul> 

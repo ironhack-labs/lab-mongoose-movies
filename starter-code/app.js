@@ -13,7 +13,7 @@ const DB_NAME = "mongoose-movies"
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/mongoose-movies', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${DB_NAME}"`)
   })
@@ -52,12 +52,13 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Mongoose Movies';
 
 
+const celebrities = require('./routes/celebrities');
+app.use('/', celebrities);
 
 const index = require('./routes/index');
 app.use('/', index);
 
-const celebrities = require('./routes/celebrities');
-app.use('/', celebrities);
+
 
 
 module.exports = app;
