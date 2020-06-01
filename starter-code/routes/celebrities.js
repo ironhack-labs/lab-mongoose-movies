@@ -15,6 +15,15 @@ const Celebrity = require("../models/celebrity")
             console.log(error)
         });
     })
+//POST delete celebrity
+    router.post("/celebrities/:id/delete", (req, res) => {
+        Celebrity.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect("/celebrities")
+        }).catch((error) => {
+            console.log(error)
+        });
+    })
 // GET to a new celebrity page
  router.get("/celebrities/new", (req, res) => {
     res.render("celebrities/new")
