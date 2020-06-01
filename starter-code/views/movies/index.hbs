@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+<h2>Movies List</h2>
+<table class="table table-striped table-inverse table-responsive">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Title <a name="" id="" class="btn btn-primary" href="/movies/new" role="button">New Movie</a> </th>
+            <th>Genre</th>
+            <th>Plot</th>
+            <th colspan="2">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each movies}}
+            <tr>
+                <td scope="row"><a name="" id="" href="/movies/{{this._id}}" role="button">{{this.title}}</a></td>
+                <td>{{this.genre}}</td>
+                <td>{{this.plot}}</td>
+                <td>
+                    <a name="" id="" class="btn btn-secondary" href="/movies/{{this._id}}/edit" role="button">Edit</a>
+                </td>
+                <td>
+                    <form action="/movies/{{this._id}}/delete" method="post">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+</table>

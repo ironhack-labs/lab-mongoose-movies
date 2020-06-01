@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 const celebrityRoute = require('./routes/celebrities');
+const movieRoute = require('./routes/movies');
 
 mongoose
 	.connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
@@ -34,6 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/celebrities', celebrityRoute);
+app.use('/movies', movieRoute);
 
 // Express View engine setup
 
