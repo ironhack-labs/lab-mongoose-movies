@@ -26,6 +26,28 @@ router.post("/:id/delete", (req, res, next) => {
     });
 });
 
+//EDIT Celebrity
+router.get("/:id/edit", (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then((celeb) => res.render("celebrities/edit", celeb))
+    .catch((err) => {
+      console.log("An error has occurred while charge the edit route", err);
+      next();
+    });
+});
+router.post("/:id", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update(
+    { _id: req.params.id },
+    { $set: { name, occupation, catchPhrase } }
+  )
+    .then(() => res.redirect("/celebrities"))
+    .catch((err) => {
+      console.log("Error has occurred while save the new data", err);
+      next();
+    });
+});
+
 //GET Celebrity info
 router.get("/:id", (req, res, next) => {
   Celebrity.findById(req.params.id)
