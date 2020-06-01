@@ -12,5 +12,25 @@ route.get('/:id', (req, res, next) => {
 		.then((celebrity) => res.render('celebrities/show', celebrity))
 		.catch((err) => next());
 });
+route.get('/new', (req, res, next) => {
+	res.render('celebrities/new');
+});
+route.post('/', (req, res, next) => {
+	const { name, occupation, catchPhrase } = req.body;
+	Celebrity.create({ name, occupation, catchPhrase })
+		.then((cel) => res.redirect('/celebrities'))
+		.catch((err) => {
+			console.log(`Error creating a celebrity: ${err}`);
+			res.render('celebrities/new');
+		});
+});
+route.post('/:id/delete', (req, res, next) => {
+	Celebrity.findByIdAndRemove(req.params.id)
+		.then((celebrity) => res.redirect('/celebrities'))
+		.catch((err) => {
+			console.log(`Error deleting a celebrity: ${err}`);
+			next();
+		});
+});
 
 module.exports = route;
