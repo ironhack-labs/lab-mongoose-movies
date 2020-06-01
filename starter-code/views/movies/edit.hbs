@@ -1,0 +1,12 @@
+<main>
+    <h2 class="text-center py-5">Edit Movie</h2>
+    <form action="/movies/{{this._id}}" method="POST">
+        <label for="name">Title:</label>
+        <input type="text" value="{{this.title}}" name="title">
+        <label for="genre">Genre:</label>
+        <input type="text" value="{{this.genre}}" name="genre">
+        <label for="plot">Plot:</label>
+        <input type="text" value="{{this.plot}}" name="plot">
+        <input type="submit" value="Save" class="btn btn-primary">
+    </form>
+</main>
