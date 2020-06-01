@@ -1,5 +1,5 @@
-<h2>{{theCelebrity.name}}</h2>
-<h4>Occupation</h4>
-<p>{{theCelebrity.occupation}}</p>
-<h4>Catch Phrase</h4>
-<p>{{theCelebrity.catchPhrase}}</p>
+{{#with theCelebrity}}
+{{>details  name=name typeTitle="Occupation" type=occupation aboutTitle="Catch Phrase" about=catchPhrase}}
+{{/with}}
+
+<a class="btn btn-primary" href="/celebrities">Back to Celebrities</a>
