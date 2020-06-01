@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+<h2>Edit Celebrity</h2>
+<form action="/celebrities/{{this._id}}" method="post">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" name="name" id="name" aria-describedby="helpName" placeholder="Put the celebrity name" value="{{this.name}}">
+      <small id="helpName" class="form-text text-muted">Name of the celebrity</small>
+    </div>
+    <div class="form-group">
+      <label for="occupation">Occupation:</label>
+      <input type="text" class="form-control" name="occupation" id="occupation" aria-describedby="helpOccupation" placeholder="Put the celebrity occupation" value="{{this.occupation}}">
+      <small id="helpOccupation" class="form-text text-muted">Occupation of the celebrity</small>
+    </div>
+    <div class="form-group">
+      <label for="catchPhrase">Catch Phrase:</label>
+      <input type="text" class="form-control" name="catchPhrase" id="catchPhrase" aria-describedby="helpCatchPhrase" placeholder="Put the celebrity Catch Phrase" value="{{this.catchPhrase}}">
+      <small id="helpCatchPhrase" class="form-text text-muted">Catch Phrase of the celebrity</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a name="" id="" class="btn btn-primary" href="/celebrities" role="button">Cancel</a>
+</form>
