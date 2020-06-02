@@ -1,12 +1,36 @@
-<h2>Celebrity Details</h2>
+<div class="row">
+    <div class="col-12">
+        <h2 class="text-center pb-5">
+            Celebrity Details
+        </h2>
+    </div>
 
-{{#with celebrity}} {{!// ou: {{celebrity.name}}
+    {{#with celebrity}}{{!// ou: {{celebrity.name}}
+    <div class="col-12">
 
-<h3>{{name}}</h3>
-<p>{{occupation}}</p>
-<p>{{catchPhrase}}</p>
+        <h2 class="text-center pb-5">
+            {{name}}
+        </h2>
+    </div>
 
-<a href="/celebrities/{{_id}}/edit">Edit</a>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="inner-photo img-fluid" src="{{photoUrl}}" alt="">
+        </div>
+
+        <div class="col-md-6">
+            <p>
+                {{occupation}}
+            </p>
+            <p>
+                {{catchPhrase}}
+            </p>
+            <a href="/celebrities/{{_id}}/edit" class="btn btn-info">
+                Edit
+            </a>
+        </div>
+    </div>
+</div>
+
 
 {{/with}}
-

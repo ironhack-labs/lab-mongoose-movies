@@ -7,6 +7,7 @@ const Celebrity = require('../models/celebrity');
 router.get('/', (req, res, next) => {
     Celebrity.find()
     .then(allCelebrities => {
+        console.log(allCelebrities)
         res.render('celebrities/index', {celebrities: allCelebrities});
     })
     .catch(err => {
@@ -20,14 +21,14 @@ router.get('/new', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-    const {name, occupation, catchPhrase} = req.body;
-    const newCelebrity = new Celebrity({name, occupation, catchPhrase});
+    const {name, occupation, catchPhrase, photoUrl} = req.body;
+    const newCelebrity = new Celebrity({name, occupation, catchPhrase, photoUrl});
     newCelebrity.save()
     .then(celebrity => {
         res.redirect('/celebrities')
     })
     .catch(err => {
-        console.log(('Error while adding for celebrities: ', err));
+        console.log(('Error while adding a new celebrities: ', err));
         res.redirect('/celebrities/new');
     })
 });
