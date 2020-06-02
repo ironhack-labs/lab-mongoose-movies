@@ -1,0 +1,11 @@
+<h1>Celebrity's List</h1>
+
+{{#each celeb}}
+    <p>
+        <a class="btn btn-primary" href="/celebrities/{{_id}}">{{name}}</a> 
+        <a class="btn btn-success" href="celebrities/edit?celebrities_id={{_id}}" class="edit-button">Edit</a>
+        <a class="btn btn-danger" href="/delete?_id={{_id}}" class="delete-button">Remove</a>
+    </p>
+{{/each}}
+
+<a class="btn btn-success" href="/">Return to home</a>

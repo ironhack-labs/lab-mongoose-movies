@@ -1,0 +1,11 @@
+<h1>Movie's List</h1>
+
+{{#each movie}}
+    <p>
+        <a class="btn btn-primary" href="/movies/{{_id}}">{{title}}</a> 
+        <a class="btn btn-success" href="movies/edit?movie_id={{_id}}" class="edit-button">Edit</a>
+        <a class="btn btn-danger" href="/delete?_id={{_id}}" class="delete-button">Remove</a>
+    </p>
+{{/each}}
+
+<a class="btn btn-success" href="/">Return to home</a>
