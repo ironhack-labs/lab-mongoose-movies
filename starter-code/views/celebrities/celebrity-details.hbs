@@ -1,0 +1,22 @@
+{{#with thisMovie}}
+<h2>{{title}}</h2>
+
+<h4>Genre : {{genre}}</h4>
+<p>Plot : {{plot}}</p>
+<p>
+  Cast : 
+  <ul>
+    {{#each cast}}
+      <li>{{this.name}}</li>
+    {{/each}}
+  </ul>
+</p>
+
+<form action="/movies/{{_id}}/edit">
+  <button class="btn btn-secondary text-white my-2">Edit</button>
+</form>
+<form action="/movies/{{_id}}/delete">
+  <button class="btn btn-danger text-white my-2">Delete</button>
+</form>
+{{/with}} 
+
