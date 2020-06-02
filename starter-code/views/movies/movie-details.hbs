@@ -12,8 +12,11 @@
   </ul>
 </p>
 
+<form action="/movies/{{_id}}/edit">
+  <button class="btn btn-secondary text-white my-2">Edit</button>
+</form>
 <form action="/movies/{{_id}}/delete">
-  <button class="btn btn-danger text-white">Delete</button>
+  <button class="btn btn-danger text-white my-2">Delete</button>
 </form>
 {{/with}}
 
