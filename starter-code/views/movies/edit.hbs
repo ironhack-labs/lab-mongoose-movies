@@ -1,0 +1,25 @@
+<h1 class="mb-5">Edit {{title}}</h1>
+
+ <div class="row">
+    <div class="col-md-6">
+      <form action="/movies/{{_id}}/edit" method="POST">
+        <div class="form-group">
+          <label for="name">Title:</label>
+          <input type="text" name="title" class="form-control" value="{{title}}">
+        </div>
+
+        <div class="form-group">
+          <label for="genre">Genre:</label>
+          <input type="text" name="genre" class="form-control" value="{{genre}}">
+        </div>
+        <div class="form-group">
+          <label for="plot">Plot:</label>
+          <input type="text" name="plot" class="form-control" value="{{plot}}">
+        </div>
+
+
+        <input type="submit" value="Save" class="btn btn-success">
+
+      </form>
+    </div>
+  </div>

@@ -53,10 +53,11 @@ app.locals.title = 'Movies';
 
 const index = require('./routes/index');
 const celebritiesRouter = require('./routes/celebrities');
+const moviesRouter = require('./routes/movies');
 
 app.use('/', index);
 app.use('/celebrities', celebritiesRouter);
-
+app.use('/movies', moviesRouter);
 
 
 
