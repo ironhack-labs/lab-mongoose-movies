@@ -11,12 +11,12 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://127.0.0.1:27017/starter-code', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -47,12 +47,18 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Movies';
 
 
 
 const index = require('./routes/index');
+const celebritiesRouter = require('./routes/celebrities');
+const moviesRouter = require('./routes/movies');
+
 app.use('/', index);
+app.use('/celebrities', celebritiesRouter);
+app.use('/movies', moviesRouter);
+
 
 
 module.exports = app;
