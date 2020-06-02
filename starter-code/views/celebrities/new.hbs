@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <h2>
+      Add a new celebrity
+    </h2>
+    <form action="/celebrities" method="POST">
+      <div class="form-group">
+        <label for="name">
+          Name:
+        </label>
+        <input class="form-control" type="text" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="occupation">
+          Occupation:
+        </label>
+        <input class="form-control" type="text" name="occupation" />
+      </div>
+      <div class="form-group">
+        <label for="catchPhrase">
+          Phrase:
+        </label>
+        <input class="form-control" type="text" name="catchPhrase" />
+      </div>
+      <div class="form-group">
+        <label for="urlPhoto">
+          Url Photo:
+        </label>
+        <input class="form-control-file" type="file" name="urlPhoto" />
+      </div>
+      <button class="btn btn-success" type="submit">
+        Add
+      </button>
+    </form>
+  </div>
+</div>

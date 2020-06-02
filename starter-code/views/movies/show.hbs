@@ -1,0 +1,11 @@
+<h2>Movie Details</h2>
+
+{{#with movie}} {{!// ou: {{celebrity.name}}
+
+<h3>{{title}}</h3>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+
+<a href="/movies/{{_id}}/edit">Edit</a>
+
+{{/with}}
