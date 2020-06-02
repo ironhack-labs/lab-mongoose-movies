@@ -1,4 +1,5 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{#each celebrities}}
+  <h2>{{name}}</h2>
+{{/each}}
 
-<p><a href="/celebrities">Go to celebrities index</a></p>
+<button class="btn btn-primary"><a href="/celebrities/new" class="text-white my-3">Add a new celebrity</a></button>
