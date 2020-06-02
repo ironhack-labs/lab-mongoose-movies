@@ -1,0 +1,20 @@
+<h1>Add a movie</h1>
+
+<form action="/movies/new" method="POST">
+    <input type="hidden" name="_id" value="{{_id}}"/>
+    <label for="title">Title</label>
+    <br>
+    <input type="text" name="title" class="form-input" placeholder="Enter the movie's title" />
+    <br>
+    <label for="genre">Genre</label>
+    <br>
+    <input type="text" name="genre" class="form-input" placeholder="Enter the movie's genre" />
+    <br>
+    <label for="plot">Plot</label>
+    <br>
+    <input type="text" name="plot" class="form-input" placeholder="Enter the movie's plot"/>
+    <br>
+    <input type="submit" value="Add movie" class="btn btn-primary" />
+</form>
+
+<a class="btn btn-success" href="/">Return to home</a>
