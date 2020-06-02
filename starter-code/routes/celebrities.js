@@ -26,11 +26,40 @@ router.post("/new", (req, res, next) => {
   newCelebrity.save().then(celebrity => res.redirect("/celebrities")).catch(err => console.log(err));
 });
 
+router.get('/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then(celebrity => {
+    res.redirect("/celebrities");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+
+router.get('/:id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+  .then(celebrity => {
+    res.render('celebrities/edit', celebrity);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+
+router.post('/:id/edit', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update({_id: req.params.id}, { $set: {name, occupation, catchPhrase }}, {new: true})
+  .then(celebrity => {
+    res.redirect('/celebrities');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
 
 router.get('/:id', (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(celebrity => {
-        console.log(celebrity);
       res.render('celebrities/show', celebrity);
     })
     .catch(error => {
