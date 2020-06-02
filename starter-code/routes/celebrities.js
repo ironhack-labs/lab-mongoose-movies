@@ -4,7 +4,7 @@ const router  = express.Router();
 const Celebrity = require("../models/celebrity.js");
 
 
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Celebrity.find()
     .then(allCelebrities => {
         console.log(allCelebrities);
