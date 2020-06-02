@@ -7,9 +7,15 @@ const movieSchema = new Schema(
     {
         title: String,
         genre: String,
-        plot: String
+        plot: String,
 
-    }
+    },
+    {
+        timestamps: {
+          createdAt: 'createdAt',
+          updatedAt: 'updatedAt'
+        }
+      }
 );
 
 const Movie = mongoose.model('Movie', movieSchema);

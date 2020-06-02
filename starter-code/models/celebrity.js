@@ -9,8 +9,15 @@ const celebritySchema = new Schema(
         occupation: String,
         catchPhrase: String
 
-    }
+    },
+    {
+        timestamps: {
+          createdAt: 'createdAt',
+          updatedAt: 'updatedAt'
+        }
+      }
 );
+
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema);
 
