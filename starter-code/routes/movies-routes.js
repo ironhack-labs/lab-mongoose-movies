@@ -19,6 +19,16 @@ router.get('/new', (req, res, next) => {
   .catch(err => `Error while creating this movie : ${err}`)
 });
 
+router.get('/:id', (req, res, next) => {
+  Movie.findById(req.params.id)
+  .populate('cast')
+  .then(thisMovie => {
+    console.log(thisMovie)
+    res.render("movies/movie-details", {thisMovie})
+  })
+  .catch(err => `Error while accessing to this movie : ${err}`)
+});
+
 router.post('/create', (req, res, next) => {
   const { title, genre, plot, cast } = req.body
   const newMovie = new Movie({ title, genre, plot, cast })

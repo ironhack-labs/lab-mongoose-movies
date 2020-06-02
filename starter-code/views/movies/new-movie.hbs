@@ -11,9 +11,9 @@
   <input class="form-control" type="text" name="plot">
 
   <label for="">Cast:</label>
-  <select class="form-control" name="cars">
+  <select class="form-control" name="cast" multiple>
     {{#each celebrity}}
-      <option value={{this._id}} selected="selected">{{this.name}}</option>
+      <option type="checkbox" value={{this._id}}>{{this.name}}</option>
     {{/each}}
   </select>
 
