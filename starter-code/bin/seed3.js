@@ -4,11 +4,13 @@ const Movie = require('../models/movie');
 
 const DB_NAME = 'starter-code';
 
-mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
-    useCreateIndex: true,
+const mongoUrl = `mongodb://localhost/${DB_NAME}`;
+const mongoConfig = {
+ useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
+};
+mongoose.connect(mongoUrl, mongoConfig);
 
 Celebrity.collection.drop();
 Movie.collection.drop();
