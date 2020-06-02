@@ -7,10 +7,7 @@ const Celebrity = require('../models/celebrity');
 /* GET movies page */
 router.get('/', (req, res, next) => {
   Movie.find()
-  .then(allMovies => {
-    console.log(allMovies)
-    res.render("movies/index", {movies: allMovies})
-  })
+  .then(allMovies => res.render("movies/index", {movies: allMovies}))
   .catch(err => `There was an error : ${err}`)
 });
 
@@ -22,11 +19,17 @@ router.get('/new', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   Movie.findById(req.params.id)
   .populate('cast')
-  .then(thisMovie => {
-    console.log(thisMovie)
-    res.render("movies/movie-details", {thisMovie})
-  })
+  .then(thisMovie => res.render("movies/movie-details", {thisMovie}))
   .catch(err => `Error while accessing to this movie : ${err}`)
+});
+
+router.get('/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+  .then(thisMovie => {
+    console.log(`${thisMovie.title} has been deleted successfully`)
+    res.redirect("/movies")
+  })
+  .catch(err => `Error while deleting this movie : ${err}`)
 });
 
 router.post('/create', (req, res, next) => {
