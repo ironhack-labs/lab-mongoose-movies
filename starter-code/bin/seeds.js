@@ -11,7 +11,7 @@ mongoose.connect(`mongodb://localhost/${DB_TITLE}`, {
   useUnifiedTopology: true,
 });
 
-Celebrity.collection.drop();
+/*Celebrity.collection.drop();
 
 const celebs = [
   {
@@ -33,7 +33,7 @@ const celebs = [
 
 Celebrity.create(celebs)
   .then((celeb) => console.log("Celebrity database created !"))
-  .catch((err) => `An error occurred : ${err}`);
+  .catch((err) => `An error occurred : ${err}`);*/
 
 const Movies = [
   {
