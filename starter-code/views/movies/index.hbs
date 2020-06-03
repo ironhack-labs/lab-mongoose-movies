@@ -1,0 +1,17 @@
+<h2>Celeb list</h2>
+{{#each allMovies}}
+    <ul>
+        <li>{{title}} is famous {{genre}}. Plot: {{plot}} 
+            <br>
+            <a href="/movies/{{_id}}">See more</a>
+            <br>
+            <a href="movies/{{_id}}/delete"> DELETE </a>
+        </li>
+    </ul>
+{{/each}}
+
+<br>
+<a href="/movies/create-new"> Create new Movie </a>
+
+<br>
+<a href="/movies">See all movies</a>
