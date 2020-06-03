@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Celeb = require("../models/celebrity");
-const MONGODB_URI = 'mongodb://localhost:27017/celebDB';
+const MONGODB_URI = 'mongodb://localhost/starter-code';
 
 
 const celebList = [
