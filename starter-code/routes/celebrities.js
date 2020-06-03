@@ -1,0 +1,37 @@
+const express = require("express");
+const router = express.Router();
+const Celebrities = require("../models/celebrity");
+
+// GET Celebrities List
+router.get("/", (req, res, next) => {
+  Celebrity.find()
+    .then((allCelebrities) => {
+      console.log(`/celebrities => ${allCelebrities.length} displayed`);
+      res.render("celebrities/index", { celebrities: allCelebrities });
+    })
+    .catch((err) => console.log("Error displaying the celebrities", err));
+});
+
+router.get("/new", (req, res, next) => res.render("celebrities/new"));
+
+router.post("/new", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
+  newCelebrity
+    .save()
+    .then((item) => res.redirect("/celebrities"))
+    .catch((err) => {
+      console.log("Error adding a new celebrity:", err);
+      res.render("celebrities/new");
+    });
+});
+
+router.get("/:id", (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then((celebrity) => res.render("celebrities/show", celebrity))
+    .catch((err) =>
+      console.log("Error displyaing loading a celebrity page", err)
+    );
+});
+
+module.exports = router;

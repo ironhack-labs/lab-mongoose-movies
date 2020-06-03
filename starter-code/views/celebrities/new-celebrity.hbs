@@ -1,14 +1,14 @@
-<h2>Add Celebrity</h2>
-
-<form class="form-group" action="/celebrities/create" method="POST">
-  <label for="">Name:</label>
-  <input class="form-control" type="text" name="name">
-
-  <label for="">Occupation:</label>
-  <input class="form-control" type="text" name="occupation">
-
-  <label for="">Catch phrase:</label>
-  <input class="form-control" type="text" name="catchPhrase">
-
-  <button class="btn btn-primary my-3" type="submit">ADD</button>
+<h2>Add a new celebrity</h2>
+<form action="/celebrities/new" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" placeholder="Type here the full name of the celebrity" required>
+  <br>
+  <label for="occupation">Occupation:</label>
+  <input type="text" name="occupation" id="occupation" placeholder="Type here the occupation of the celebrity" required>
+  <br>
+  <label for="catchPhrase">Catch phrase:</label>
+  <input type="text" name="catchPhrase" id="catchPhrase"
+    placeholder="Type here the most known catch phrase of the celebrity, if any">
+  <br>
+  <button type="submit">Add new celebrity</button>
 </form>
