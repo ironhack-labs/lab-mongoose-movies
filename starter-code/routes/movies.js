@@ -64,4 +64,10 @@ router.post("/new", (req, res, next) => {
     });
 });
 
+router.post("/:movieId/delete", (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(res.redirect("/movies"))
+    .catch((err) => console.log("Error removing the movie:", err));
+});
+
 module.exports = router;
