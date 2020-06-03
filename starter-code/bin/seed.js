@@ -21,7 +21,6 @@ const celebList = [
     }
 ];
 
-
 mongoose
     .connect(MONGODB_URI,
     { useNewUrlParser: true ,
@@ -29,6 +28,7 @@ mongoose
     )
     .then((self) => {
         console.log(`Connected to the database: "${self.connection.name}"`);
+        //Drop db to avoid duplicates
         return self.connection.dropDatabase();
         })
         .then(() => {

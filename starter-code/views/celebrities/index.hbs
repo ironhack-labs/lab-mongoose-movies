@@ -1,0 +1,9 @@
+<h2>Celeb list</h2>
+{{#each celeb}}
+    <ul>
+        <li>{{name}} is famous {{occupation}}. Catch phrase: {{catchPhrase}} 
+            <br>
+            <a href="/starter-code/views/celebrities/?celeb_id={{__id}}">See more</a>
+        </li>
+    </ul>
+{{/each}}
