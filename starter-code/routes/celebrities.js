@@ -40,4 +40,15 @@ router.get("/:celebrityId", (req, res, next) => {
     );
 });
 
+router.get('/:celebrityId/edit-celebrity', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+      .then(celebrity => res.render('celebrities/edit', celebrity))
+      .catch(err => console.log('Error editing the celebrity:', err))
+  });
+
+router.post('/:celebrityId', (req, res, next) => {
+  const {name, occupation, catchPhrase} = req.body;
+  Celebrity.update({_id: req.params.id}, {$set: {name, occupation, catchPhrase}})
+      .then(res.redirect('/celebrities'))
+      .catch(err => console.log('Error editing the celebrity:', err))
 module.exports = router;
