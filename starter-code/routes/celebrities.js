@@ -28,7 +28,9 @@ router.get('/', async (req, res, next) => {
 // Render Delete Celebity
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
-
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/celebrities'))
+    .catch(err => console.log(`Error al borrar la celebridad ${err}`))
 })
 
 //Render New celebritie
