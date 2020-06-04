@@ -1,0 +1,17 @@
+h2>List of Movies</h2>
+<ul>
+    {{#each movies}}
+    <li>
+        <a href="/movies/{{_id}}" title="{{title}}">{{title}}</a>
+        <form action="/movies/{{_id}}/delete" method="POST">
+            <button type="submit">Delete movie</button>
+        </form>
+        <a href="/movies/{{_id}}/edit">Edit movie</a>
+    </li>
+    {{/each }}
+</ul>
+
+<a href="/">
+    Go back</a>
+<span>|</span>
+<a href="/movies/new">+ Add new movie</a></Go>
