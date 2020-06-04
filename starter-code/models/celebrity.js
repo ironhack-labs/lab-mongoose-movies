@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 //Celebrities Schema
 const celebritySchema = new Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     occupation: String,
     catchPhrase: String
 })

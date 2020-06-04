@@ -4,7 +4,13 @@
 <div class="list-group">
   {{#each celebrities}}
   <a href="/celebrities/{{_id}}" class="list-group-item list-group-item-action">{{this.name}}</a>
+  <form action="/celebrities/{{this.id}}/delete" method="POST">
+    <button type="submit">DELETE</button>
+  </form>
+  <br>
 
   {{/each}}
 
 </div>
+
+<a href="/celebrities/new">Add celebrity</a>
