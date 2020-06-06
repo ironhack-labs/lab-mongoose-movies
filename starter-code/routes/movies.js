@@ -14,6 +14,34 @@ router.get('/', (req, res, next) => {
     .catch(err => console.log(`No se imprimen las películas: ${err}`))
 })
 
+//Render New movie
+router.get('/new', (req, res, next) => {
+  res.render('movies/new')
+
+});
+
+// Post new Celebritie
+
+router.post('/new', (req, res, next) => {
+  const {
+    title,
+    genre,
+    plot
+  } = req.body;
+
+  const newMovie = new Movie({
+    title,
+    genre,
+    plot
+  })
+  newMovie.save()
+    .then(() => res.redirect('/movies'))
+    .catch(err => {
+      console.log(`Error al agregar la película: ${err}`)
+      res.redirect('movies/new')
+    })
+});
+
 // Render de detalles de la movie
 
 router.get('/:id', (req, res, next) => {
@@ -27,6 +55,11 @@ router.get('/:id', (req, res, next) => {
       console.log('Error al acceder a los detalles de la movie', error);
     })
 });
+
+
+
+
+
 
 
 module.exports = router;
