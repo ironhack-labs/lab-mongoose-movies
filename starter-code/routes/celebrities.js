@@ -25,13 +25,7 @@ router.get('/', async (req, res, next) => {
 //     })
 // })
 
-// Render Delete Celebity
 
-router.post('/celebrities/:id/delete', (req, res, next) => {
-  Celebrity.findByIdAndRemove(req.params.id)
-    .then(() => res.redirect('/celebrities'))
-    .catch(err => console.log(`Error al borrar la celebridad ${err}`))
-})
 
 //Render New celebritie
 router.get('/new', (req, res, next) => {
@@ -60,6 +54,56 @@ router.post('/new', (req, res, next) => {
     })
 });
 
+// Render Delete Celebity
+
+router.post('/delete/:id', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/celebrities'))
+    .catch((err) => {
+      console.log(`Error deleting a celebrity: ${err}`);
+      next();
+    });
+});
+
+// Edit
+
+router.get('/edit/:id', (req, res, next) => {
+
+  Celebrity.findOne({
+      _id: req.query.id
+    })
+    .then((celeb) => {
+      res.render("celebrities/edit", {
+        celebrity: celeb
+      });
+    })
+    .catch((error) => {
+      console.log("Error al editar", error);
+    })
+});
+
+// Edit post
+
+router.post('/:id', (req, res, next) => {
+
+  const {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body;
+  Celebrity.update({
+      _id: req.params.id
+    }, {
+      $set: {
+        name,
+        occupation,
+        catchPhrase
+      }
+    })
+    .then(res.redirect('/celebrities'))
+    .catch(err => console.log('Error editing the celebrity:', err))
+});
+
 
 // Render de detalles de la celebritie
 
@@ -74,6 +118,7 @@ router.get('/:id', (req, res, next) => {
       console.log('Error al acceder a los detalles de la celebridad', error);
     })
 });
+
 
 
 module.exports = router;
