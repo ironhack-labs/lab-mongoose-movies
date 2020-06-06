@@ -65,7 +65,7 @@ app.use('/celebrities', celebrities);
 
 //Middleware para rutas que empiecen por /movies
 const movies = require('./routes/movies');
-app.use('/', movies);
+app.use('/movies', movies);
 
 
 module.exports = app;

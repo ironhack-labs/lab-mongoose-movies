@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const Movie = require('../models/movie')
+const Movie = require('../models/movie.js')
 
-router.get('/movies', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Movie.find()
     .then(allMovies => {
       console.log(allMovies)
@@ -11,7 +11,20 @@ router.get('/movies', (req, res, next) => {
         movies: allMovies
       })
     })
-    .catch(err => console.log(`An error has occurred while searching for movies: ${err}`))
+    .catch(err => console.log(`No se imprimen las películas: ${err}`))
 })
 
 module.exports = router;
+
+
+// router.get('/', (req, res, next) => {
+//   Celebrity.find()
+//     .then(allCelebrities => {
+//       res.render('celebrities/index', {
+//         celebrities: allCelebrities
+//       })
+//     })
+//     .catch(error => {
+//       console.log('Error al mostrar la base de Datos: ', error);
+//     })
+// })
