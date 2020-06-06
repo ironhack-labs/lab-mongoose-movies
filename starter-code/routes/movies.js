@@ -57,22 +57,18 @@ router.get('/:id', (req, res, next) => {
 });
 
 
+// Render Delete Movie
+
+router.post('/delete/:id', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/movies'))
+    .catch((err) => {
+      console.log(`Error deleting movie: ${err}`)
+    });
+})
 
 
 
 
 
 module.exports = router;
-
-
-// router.get('/', (req, res, next) => {
-//   Celebrity.find()
-//     .then(allCelebrities => {
-//       res.render('celebrities/index', {
-//         celebrities: allCelebrities
-//       })
-//     })
-//     .catch(error => {
-//       console.log('Error al mostrar la base de Datos: ', error);
-//     })
-// })
