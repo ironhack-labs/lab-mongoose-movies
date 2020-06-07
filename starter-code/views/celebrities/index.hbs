@@ -1,0 +1,17 @@
+<h2>Celebrities list</h2>
+
+
+<div class="list-group">
+  {{#each celebrities}}
+  <a href="/celebrities/{{_id}}" class="list-group-item list-group-item-action">{{this.name}}</a>
+  <form action="/celebrities/delete/{{id}}" method="POST">
+    <button type="submit">DELETE</button>
+  </form>
+  <a href="/celebrities/edit/{{_id}}">EDIT</a>
+  <br>
+
+  {{/each}}
+
+</div>
+
+<a href="/celebrities/new">Add celebrity</a>
