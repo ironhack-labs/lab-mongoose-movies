@@ -17,7 +17,9 @@ router.get('/celebrities', (req, res) => {
 
   Celebrity
     .find()
-    .then(allcelebrities => res.render('celebrities', { allcelebrities }))
+    .then(allcelebrities => res.render('celebrities', {
+      allcelebrities
+    }))
     .catch(err => console.log("Error en la BBDD", err))
 
 })
@@ -39,40 +41,85 @@ router.get("/details/:celebrityId", (req, res) => {
 router.get('/new', (req, res) => {
 
   res.render('new-form')
-  
+
 })
 
 router.post('/new', (req, res) => {
 
-  const {name, occupation, catchPhrase} = req.body
-  
+  const {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body
+
 
   Celebrity
-  
-    .create({name,occupation,catchPhrase})
+
+    .create({
+      name,
+      occupation,
+      catchPhrase
+    })
     .then(() => res.redirect('celebrities'))
     .catch(err => console.log("Error en la BBDD", err))
-  
+
 })
 
 //DELETE CELEBRITY//
- 
+
 router.get("/delete/:celebrityId", (req, res) => {
 
   Celebrity
-    
+
     .findByIdAndRemove(req.params.celebrityId)
     .then(() => res.redirect('/celebrities'))
     .catch(err => console.log("Error en la BBDD", err))
 })
 
-//EDIT CELEBRITY//
+//EDIT CELEBRITY, NO ME SALE DE MOMENTO//
 
 
+router.get('/edit/:celebrityId', (req, res) => {
+
+
+  
+ res.render('new-edit')
+
+
+  //  Celebrity
+  //    .findById(req.query.celebrityId)
+  //    .then(theCelebrity => res.render('new-edit', theCelebrity))
+  //    .catch(err => console.log("Error en la BBDD", err))
+
+})
+
+router.post('/edit/:celebrityId', (req, res) => {
+
+  const {
+    name,
+    occupation,
+    catchPhrase
+  } = req.body
+
+
+  Celebrity
+
+    .findByIdAndUpdate(req.params.celebrityId, {
+      name,
+      occupation,
+      catchPhrase,
+
+    }, {
+      new: true
+
+    })
+
+    .then(() => res.redirect('/celebrities'))
+    .catch(err => console.log("Error en la BBDD", err))
+
+})
 
 
 
 
 module.exports = router;
-
-
