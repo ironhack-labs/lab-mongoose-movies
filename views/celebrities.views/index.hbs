@@ -1,0 +1,27 @@
+<br>
+<h2>List of celebrities</h2>
+<br>
+<ul class="list-group">
+
+    {{#each celebritiesArr}}
+        <li class="list-group-item">
+
+            <a href='/celebrities/{{this._id}}'>{{this.name}}</a>
+
+            <form action='/celebrities/{{this._id}}/delete' method='post'>
+            <br>
+                <button type="submit" class="btn btn-dark">Delete</button>
+            </form>
+            <br>
+            <a href='/celebrities/{{this._id}}/edit'><button type="button" class="btn btn-dark">Edit</button></a>
+
+        </li>
+    {{/each }}
+
+</ul>
+
+<br>
+<br>
+
+<a href='/celebrities/new'><button type="button" class="btn btn-dark">Create a new celebrity!</button></a>
+
