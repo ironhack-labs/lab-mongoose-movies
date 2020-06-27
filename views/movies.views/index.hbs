@@ -1,0 +1,28 @@
+<br>
+<h2>List of movies</h2>
+<br>
+<ul class="list-group">
+
+    {{#each moviesArr}}
+        <li class="list-group-item">
+
+            <a href='/movies/{{this._id}}'>{{this.title}}</a>
+
+            <form action='/movies/{{this._id}}/remove' method='post'>
+            <br>
+                <button type="submit" class="btn btn-dark">Delete</button>
+            </form>
+            <br> 
+            <a href='/movies/{{this._id}}/edit'><button type="button" class="btn btn-dark">Edit</button></a> 
+
+        </li>
+    {{/each }}
+
+</ul>
+
+<br>
+<br>
+
+<a href='/movies/create'><button type="button" class="btn btn-dark">Create a new movie!</button></a> 
+<a href='/'><button type="button" class="btn btn-dark">Go back!</button></a> 
+
