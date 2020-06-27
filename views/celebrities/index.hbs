@@ -1,0 +1,26 @@
+<div class="container">
+
+
+{{#each allCelebrities}}
+
+<a href="/celebrities/{{_id}}"><h1>{{name}}</h1></a>
+
+
+
+<form action="/celebrities/{{_id}}/delete" method="post">
+
+<button type="submit" class="btn btn-dark">Eliminar Celebritie</button>
+
+</form>
+
+<form action="/celebrities/{{_id}}/edit" method="get">
+
+    <button type="submit" class="btn btn-dark">Editar Celebritie</button>
+
+</form>
+
+{{/each}}
+
+<a href="/celebrities/new">Añadir una nueva Celebritie</a>
+
+</div>

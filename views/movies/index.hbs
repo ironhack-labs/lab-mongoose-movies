@@ -1,0 +1,22 @@
+<div class="container">
+    {{#each allTheMovies}}
+
+    <a href="/movies/{{_id}}"><h1>{{title}}</h1></a>
+
+
+    <form action="/movies/{{_id}}/delete" method="post">
+    
+        <button type="submit" class="btn btn-dark">Eliminar Pelicula</button>
+    
+    </form>
+    <form action="/movies/{{_id}}/edit" method="get">
+    
+        <button type="submit" class="btn btn-dark">Editar Pelicula</button>
+    
+    </form>
+
+
+    {{/each}}
+<a href="/movies/new">Añadir una nueva pelicula</a>
+
+</div>
