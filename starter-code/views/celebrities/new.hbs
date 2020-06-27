@@ -1,0 +1,25 @@
+<h2>Creación famosil</h2>
+
+<form method="post" action="/celebrities/new">
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input name="name" type="text" class="form-control" id="name" aria-describedby="name"
+            placeholder="Introduce un nombre">
+    </div>
+
+    <div class="form-group">
+        <label for="occupation">Ocupación</label>
+        <input name="occupation" type="text" class="form-control" id="occupation" aria-describedby="occupation"
+            placeholder="Introduce su ocupación">
+    </div>
+
+    <div class="form-group">
+        <label for="catchPhrase">Frasecilla</label>
+        <input name="catchPhrase" type="text" class="form-control" id="catchPhrase" aria-describedby="catchPhrase"
+            placeholder="Introduce su frasecilla característica">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+
+    <a class="btn btn-dark" href="/celebrities/index">Volver</a>
+</form>

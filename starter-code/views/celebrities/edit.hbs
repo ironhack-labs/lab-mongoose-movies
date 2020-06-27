@@ -1,0 +1,25 @@
+<h2>Edición famosil</h2>
+
+<form method="post" action="/celebrities/{{_id}}/edit">
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input name="name" type="text" value="{{name}}" class="form-control" id="name" aria-describedby="name"
+            placeholder="Introduce un nombre">
+    </div>
+
+    <div class="form-group">
+        <label for="occupation">Ocupación</label>
+        <input name="occupation" type="text" value="{{occupation}}" class="form-control" id="occupation"
+            aria-describedby="occupation" placeholder="Introduce su ocupación">
+    </div>
+
+    <div class="form-group">
+        <label for="catchPhrase">Frasecilla</label>
+        <input name="catchPhrase" type="text" value="{{catchPhrase}}" class="form-control" id="catchPhrase"
+            aria-describedby="catchPhrase" placeholder="Introduce su frasecilla característica">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Editar</button>
+
+    <a class="btn btn-dark" href="/celebrities/index">Volver</a>
+</form>

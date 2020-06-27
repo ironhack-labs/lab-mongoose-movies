@@ -1,0 +1,24 @@
+<h2>CELEBRITIES</h2>
+<a class="btn btn-dark" href="/celebrities/new">CREAR NUEVO FAMOSO</a>
+
+<hr>
+
+{{#each allCelebs}}
+<p>Nombre: {{name}}</p>
+<a href="/celebrities/{{_id}}">Ver más</a>
+{{!-- <a href="/celebrities/delete/{{_id}}">Borrar</a> --}}
+
+<form action="/celebrities/{{_id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger">Borrar</button>
+</form>
+<a class="btn btn-success" href="/celebrities/{{_id}}/edit">Editar</a>
+
+
+<hr>
+{{/each }}
+
+
+<a class="btn btn-dark" href="/">Volver a inicio</a>
+{{!-- Diferencia entre _id e id:
+_id es por defecto
+id lo podemos crear nosotros --}}
