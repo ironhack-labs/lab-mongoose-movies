@@ -8,12 +8,12 @@
 
             <a href='/movies/{{this._id}}'>{{this.title}}</a>
 
-            {{!-- <form action='/movies/{{this._id}}/delete' method='post'>
+            <form action='/movies/{{this._id}}/remove' method='post'>
             <br>
                 <button type="submit" class="btn btn-dark">Delete</button>
             </form>
-            <br>
-            <a href='/movies/{{this._id}}/edit'><button type="button" class="btn btn-dark">Edit</button></a> --}}
+            <br> 
+            <a href='/movies/{{this._id}}/edit'><button type="button" class="btn btn-dark">Edit</button></a> 
 
         </li>
     {{/each }}
@@ -23,5 +23,6 @@
 <br>
 <br>
 
-{{!-- <a href='/movies/new'><button type="button" class="btn btn-dark">Create a new movie!</button></a> --}}
+<a href='/movies/create'><button type="button" class="btn btn-dark">Create a new movie!</button></a> 
+<a href='/'><button type="button" class="btn btn-dark">Go back!</button></a> 
 
