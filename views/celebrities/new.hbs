@@ -1,0 +1,23 @@
+<section class="formulario">
+    <div class="container">
+        <h2>Create a new celebrity</h2>
+        <hr>
+        <form action="/celebrities" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="name" id="name" placeholder="Type a name">
+                <label for="occupation">Occupation</label>
+                <input class="form-control" type="text" name="occupation" id="occupation"
+                    placeholder="What does he/she do?">
+                <label for="catchPhrase">CatchPhrase</label>
+                <textarea class="form-control" name="catchPhrase" id="catchPhrase" cols="30" rows="10"
+                    placeholder="Enter a great quote!"></textarea>
+                <div>
+                    <button class="btn btn-primary btn-sm" type="submit">Create!</button>
+                    <a href="/celebrities" class="btn btn-primary btn-sm">Go back</a>
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+</section>
