@@ -1,18 +1,23 @@
 body {
   padding: 0px;
-  font: 14px sans-serif; 
-  font-family: 'Montserrat', sans-serif;
+  font: 14px Monospace;
+}
+
+
+.btn {
+  border-radius: 0px !important
+
 }
 
 nav {
-  height: 80px;
-  font-size: 1.5em; }
-
-
-.navbar-brand {
+  height: 70px;
+  font-size: 1.5em;
   font-size: 1.4em;
-
 }
+
+
+
+
 
 h1 {
   margin-top: 180px;
@@ -27,5 +32,5 @@ h1 {
 
 nav li {
   margin-right: 20px;
-  
-  }
+
+}

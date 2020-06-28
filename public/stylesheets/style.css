@@ -1,12 +1,13 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: 'Montserrat', sans-serif; }
+  padding: 0px;
+  font: 14px Monospace; }
+
+.btn {
+  border-radius: 0px !important; }
 
 nav {
-  height: 80px;
-  font-size: 1.5em; }
-
-.navbar-brand {
+  height: 70px;
+  font-size: 1.5em;
   font-size: 1.4em; }
 
 h1 {
