@@ -5,10 +5,9 @@ const movieSchema = new Schema({
     title: String,
     genre: String,
     plot: String
-},{
+}, {
     timestamps: true
-}
-)
+})
 
 const Movie = mongoose.model('Movie', movieSchema)
 

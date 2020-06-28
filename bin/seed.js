@@ -37,7 +37,7 @@ Celebrity
     .create(celebrities)
     .then(celebritiesArr => {
         console.log(`${celebritiesArr.length} actors added to ${process.env.DB} DB`)
-        
+
     })
     .catch(err => console.log('Error: ', err))
 
