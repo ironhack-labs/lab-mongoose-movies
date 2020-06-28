@@ -1,0 +1,22 @@
+<h2>Edit your movie</h2>
+<form action='/celebrities/{{_id}}' method='post'>
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name='title' value="{{title}}">
+  </div>
+
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <input type="text" class="form-control" id="genre" name='genre' value="{{genre}}">
+  </div>
+
+  <div class="form-group">
+    <label for="plot">Plot</label>
+    <input type="text" class="form-control" id="plot" name='plot' value="{{plot}}">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save changes</button>
+
+</form>
+

@@ -79,7 +79,7 @@ The `Celebrity` model should have:
 - `catchPhrase` - String (every celebrity needs a good catch phrase.  Well maybe not all of them have one in real life, but all of _our_ celebrities will have a catch phrase.  This can be pretty much anything)
 
 
-### Steps we will follow in this iteration:
+### Steps we will follow in this iteration: 
 
 1. Create the `celebrity.js` model file in the `models/` folder.
 2. In the `celebrity.js` model file:
