@@ -7,7 +7,7 @@ const celebritSchema = new Schema({
       type: String,
       enum: ["actor", "singer", "comedian", "unknown"],
     },
-    catchPhrase: { type: String },
+    catchPhrase: { type: String }
   },
   { timestamps: true }
 );
