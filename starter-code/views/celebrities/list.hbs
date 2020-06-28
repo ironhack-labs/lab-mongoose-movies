@@ -1,0 +1,15 @@
+<h1>Listado Celebrities</h1>
+<button><a href="/celebrities/crear-nuevo">Nueva Celebrity</a></button>
+{{#each allCelebrities}}
+<p>{{name}} <a href="/celebrities/{{_id}}">[ver detalles]</a></p>
+
+<button>
+    <a href="/celebrities/editar/{{_id}}">Editar</a>
+</button>
+
+<form action="/celebrities/{{_id}}/delete" method="POST">
+
+    <button type="submit">Eliminar Celebrity</button>
+</form>
+
+{{/each}}
