@@ -1,8 +1,26 @@
 body {
+  font-family: sans-serif;
+  
+}
+
+main {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+}
+
+h1 {
+  text-align: center;
+}
+
+.nameBox {
+  padding-top: 25px;
+}
+
+h3 {
+  padding-top: 50px
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: #212529;
 }

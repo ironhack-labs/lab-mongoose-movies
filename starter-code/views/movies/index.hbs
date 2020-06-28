@@ -1,0 +1,21 @@
+<main>
+
+  <h2>Movies</h2>
+
+  {{#each allMovies}}
+
+  <div class = "nameBox">
+
+    <p><a href="/movies/{{id}}">{{title}}</a></p>
+
+    <form action="/movies/{{id}}/delete" method="post">
+      <button type="submit" class="btn btn-outline-dark btn-sm">Delete</button>
+    </form>
+
+  </div>
+
+  {{/each}}
+
+  <h3><a href="/movies/new">Create a movie</a></h3>
+
+</main>  
