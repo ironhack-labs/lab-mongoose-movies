@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <h2>Create your new celebrity</h2>
+
+            <form id=form action="/celebrities/new" method="post">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <input name="occupation" type="occupation" class="form-control" id="occupation">
+                    <small class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label for="catchphrase">Catch phrase</label>
+                    <input name="catchphrase" type="catchphrase" class="form-control" id="catchphrase">
+                    <small class="form-text text-muted"></small>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Create</button>
+
+                <p class="error">{{errorMsg}}</p>
+            </form>
+        </div>
+    </div>
+</div>
