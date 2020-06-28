@@ -18,11 +18,9 @@ require('./configs/locals.config')(app)
 
 // Base URLS
 require('./routes')(app)
-
 app.use('/', require('./routes/base.routes'))
-
 app.use('/', require('./routes/celebrities'))
-
+app.use('/', require('./routes/movies'))
 app.use('/', require('./routes/index'))
 
 

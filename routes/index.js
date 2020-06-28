@@ -5,5 +5,6 @@ module.exports = app => {
 
     app.use('/celebrities', require('./celebrities.js'))
 
+    app.use('/movies', require('./movies.js'))
 
 }
