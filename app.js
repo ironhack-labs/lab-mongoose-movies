@@ -17,6 +17,6 @@ require('./configs/views.configs')(app)
 require('./configs/locals.config')(app)
 
 // Base URLS
-require('./routes')(app)
+app.use('/', require('./routes/index.routes'))
 
 module.exports = app
