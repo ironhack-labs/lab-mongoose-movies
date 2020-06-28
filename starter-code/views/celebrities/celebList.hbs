@@ -1,0 +1,16 @@
+<div class="container mt-5">
+
+  <h2 class="mb-4">Celebrities</h2>
+
+  <ul>
+    {{#each allCelebrities}}
+    <li>{{name}}</li><a href='/celebrities/details/{{_id}}'>Detalles >></a>
+    <form action="/celebrities/{{_id}}/delete" method="post">
+    <button type="submit" class="btn btn-dark mt-3">Borrar</button>
+    </form>
+    <a href="/celebrities/edit/{{_id}}" class="btn btn-dark mt-3 mb-5">Editar</a>
+   
+    {{/each}}
+  </ul>
+
+</div>
