@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+<h2 class="display-2">Celebrities</h2>
+
+
+  {{#each allCelebrities}}
+
+   <h3>{{name}}</h3>
+ 
+
+    <p><a class="btn btn-special-xs btn-dark" href="/celebrities/details/{{_id}}">Details</a></p>
+
+    <form action="/celebrities/{{_id}}/delete" method="post">
+      <button class="btn btn-special-xs btn-dark" type="submit">Delete</button>
+    </form>
+
+
+    <p></p><a class="btn btn-special-xs btn-dark" href="/celebrities/{{_id}}/edit">Edit</a></p>
+
+  {{/each}}
+  <a class="btn btn-special-xs btn-dark" href="/celebrities/new">create</a>
+
+</div>
+</div>
+</div>
