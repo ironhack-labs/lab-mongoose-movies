@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Celebrity List</h2>
+    <a href="/famosos/crear" role="button"><button type="submit" class="btn btn-success">Create New</button></a>
+    <a href="/" role="button"><button type="submit" class="btn btn-light">Go Back</button></a>
+    <hr>
+
+    {{#each allCelebrities}}
+    <ul>
+        <li><a href="/famosos/detalle/{{_id}}">{{name}}</a>
+    </ul>
+    <form action="/famosos/{{_id}}/borrar" method="post">
+        <button type="submit" class="btn btn-dark btn-sm">Delete</button>
+    </form>
+    <a href="/famosos/editar?celebId={{_id}}" role="button"><button type="submit"
+            class="btn btn-dark btn-sm">Edit</button></a>
+    <hr>
+    {{/each}}
+
+</div>
