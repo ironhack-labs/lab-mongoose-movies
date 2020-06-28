@@ -76,20 +76,16 @@ router.get("/delete/:celebrityId", (req, res) => {
     .catch(err => console.log("Error en la BBDD", err))
 })
 
-//EDIT CELEBRITY, NO ME SALE DE MOMENTO//
+//EDIT CELEBRITY//
 
 
-router.get('/edit/:celebrityId', (req, res) => {
+router.get('/edit/', (req, res) => {
 
+  Celebrity
 
-  
- res.render('new-edit')
-
-
-  //  Celebrity
-  //    .findById(req.query.celebrityId)
-  //    .then(theCelebrity => res.render('new-edit', theCelebrity))
-  //    .catch(err => console.log("Error en la BBDD", err))
+    .findById(req.query.celebrityId)
+    .then(celebrity => res.render('new-edit', celebrity))
+    .catch(err => console.log(err))
 
 })
 
