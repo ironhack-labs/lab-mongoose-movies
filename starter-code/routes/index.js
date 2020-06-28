@@ -1,9 +1,9 @@
-const express = require('express');
-const router  = express.Router();
 
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
+//Base routes
+module.exports = app => {
 
-module.exports = router;
+  // Base URLS
+  app.use('/', require('./base.routes.js'))
+  app.use('/celebrities', require('./celebrities.routes.js'))
+
+}
