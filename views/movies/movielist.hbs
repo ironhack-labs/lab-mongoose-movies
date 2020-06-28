@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Movies List</h2>
+    <a href="/peliculas/crearPeli" role="button"><button type="submit" class="btn btn-success">Create New</button></a>
+    <a href="/" role="button"><button type="submit" class="btn btn-light">Go Back</button></a>
+    <hr>
+    {{#each allMovies}}
+    <ul>
+        <li><a href="/peliculas/detallePeli/{{_id}}">{{title}}</a>
+    </ul>
+    <form action="/peliculas/{{_id}}/borrarPeli" method="post">
+        <button type="submit" class="btn btn-dark">Delete</button>
+    </form>
+    <a href="/peliculas/editarPeli?movieId={{_id}}" role="button">
+        <button type="submit" class="btn btn-dark btn-sm">Edit</button></a>
+    <hr>
+    {{/each}}
+
+</div>

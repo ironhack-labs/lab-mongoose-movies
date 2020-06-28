@@ -112,7 +112,7 @@ Here's the route we will be using:
     - Call the `Celebrity` model's `find` method to retrieve all the celebrities.
     - If there's an error, call the route's `next` function and return the error.
     - If there isn't an error, render the `celebrities/index` view.
-    - Pass the array of celebrities into the view as a variable.
+    - Pass the array of celebrities into the view as a variable.celebri
 3. Create the `celebrities/` folder inside `views/`.
 4. Create the `index.hbs` view file inside the `views/celebrities/` folder.
 5. In the `views/celebrities/index.hbs` view file:
