@@ -1,0 +1,46 @@
+<div class="container pad-50 bg-cream">
+    <div class="row pad-15">
+        <div class="col-12">
+            <a class="btn btn-outline-dark btn-sm bradius-0" href='/'> Back index</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="aling-center"><strong>All Movies</strong></h2>
+        </div>
+    </div>
+    <hr>
+    <div class="row pad-15">
+        <div class="col-12 aling-center">
+            <a class="btn btn-outline-dark btn-lg bradius-0" href='movies/new'>Add new Movie</a>
+        </div>
+    </div>
+    <hr>
+
+
+    {{#each allMovies}}
+    <div class="card pad-15 mg-50 bg-pastel-pink">
+        <div class="card-body">
+            <h5 class="card-title">Movie: <span class="strong-text uppercase">{{title}}</span></h5>
+            <div class="row pad-15">
+                <div class="col-2 border-lf-rg aling-center">
+                    <a class="btn btn-dark btn-sm bradius-0" href='movies/detail/{{_id}}'>Detail</a>
+                </div>
+                <div class="col-2 border-lf-rg aling-center">
+                    <a class="btn btn-dark btn-sm bradius-0" href='movies/edit/{{_id}}'>Edit</a>
+                </div>
+                <div class="col-2 border-lf-rg aling-center">
+                    <form action="movies/{{_id}}/delete" method="POST">
+                        <input class="btn btn-outline-dark btn-sm bradius-0" type="submit" value="Delete">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="warning">{{warningMsg}}</p>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
