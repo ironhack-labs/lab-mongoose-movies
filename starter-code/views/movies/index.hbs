@@ -1,0 +1,23 @@
+<h2>PELIS</h2>
+<a class="btn btn-dark" href="/movies/new">CREAR NUEVA PELÍCULA</a>
+
+<hr>
+
+{{#each allMovies}}
+<p>Nombre: {{title}}</p>
+<a href="/movies/{{_id}}">Ver más</a>
+{{!-- <a href="/celebrities/delete/{{_id}}">Borrar</a> --}}
+
+{{!-- <form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger">Borrar</button>
+</form> --}}
+
+<a class="btn btn-danger" href="/movies/{{_id}}/delete">Borrar</a>
+<a class="btn btn-success" href="/movies/{{_id}}/edit">Editar</a>
+
+
+<hr>
+{{/each }}
+
+
+<a class="btn btn-dark" href="/">Volver a inicio</a>
