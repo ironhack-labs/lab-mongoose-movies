@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2 class="display-2">Celebrities!</h2>
+            <ul class="list-group">
+                {{#each allCelebrities}}
+                    <li class="list-group-item d-flex"><a class="list-group-item list-group-item-action" href="/celebrities/details/{{_id}}"><h3>{{name}}</h3></a>
+                        <form action="/celebrities/{{_id}}/edit" method="GET">
+                            <button type="submit" class="btn btn-dark">Edit this Celebrity!</button>
+                        </form>
+                        <form action="/celebrities/{{_id}}/delete" method="POST">
+                            <button type="submit" class="btn btn-dark">Delete this Celebrity!</button>
+                        </form>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+
