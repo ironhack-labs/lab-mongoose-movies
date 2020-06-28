@@ -6,9 +6,9 @@
     {{#each allMovies}}
     <li>{{title}}</li><a href='/movies/detallesPeliculas/{{_id}}'>Detalles >></a>
     <form action="/movies/{{_id}}/borrar" method="post">
-    <button type="submit">Borrar</button>
+    <button type="submit" class="btn btn-dark mt-3">Borrar</button>
     </form>
-    <a href="/movies/editarPelicula/{{_id}}">Editar</a>
+    <a href="/movies/editarPelicula/{{_id}}" class="btn btn-dark mt-3 mb-5">Editar</a>
    
     {{/each}}
   </ul>
