@@ -1,0 +1,21 @@
+<div class="container">
+
+<h2>These are the celebrities</h2>
+
+
+{{#each allCelebrities}}
+<p>{{name}} 
+    <a type="button" class="btn btn-success" href="celebrities/show/{{_id}}"> See details</a>
+    <a type="button" class="btn btn-warning" href="movies/edit?movieId={{_id}}"> Edit</a>
+
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+    <button  type="button" class="btn btn-danger" type="submit">Delete Celebrity</button></p>
+
+{{/each}}
+</div>
+<br>
+
+<a type="button" class="btn btn-info" href="/celebrities/new">Add a new celebrity</a>
+<br>
+
+<a type="button" class="btn btn-info" href="/">Back Home</a>

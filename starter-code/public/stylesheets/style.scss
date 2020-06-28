@@ -1,8 +1,17 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+  }
+
+}
+
+p {
+
+  font-size: 1,5em;
 }
 
 a {
   color: #00B7FF;
+  margin-bottom: 20px;
 }
