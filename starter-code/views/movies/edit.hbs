@@ -1,0 +1,47 @@
+{{!-- <h1>Editar {{title}}</h1>
+
+<form action="/movies/edit/{{_id}}" method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input name="title" type="text" class="form-control" id="title" value="{{title}}">
+    </div>
+    <div class="form-group">
+        <label for="genre">Genre</label>
+        <input name="genre" type="text" class="form-control" id="genre" value="{{genre}}">
+    </div>
+    <div class="form-group">
+        <label for="plot">Plot</label>
+        <input name="plot" type="text" class="form-control" id="plot" value="{{plot}}">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Editar Pelicula</button>
+</form> --}}
+
+<div class="container pad-50 bg-cream">
+    <div class="row">
+        <div class="col-12">
+            <h2 class=" border-lf-rg pad-50 aling-center"><strong>Edit Movie {{title}}</strong></h2>
+        </div>
+    </div>
+
+    <form class="form" action="/movies/edit/{{_id}}" method="post">
+        <div class="pad-15-r">
+            <label for="title" class="pad-15-r ">Title</label>
+            <input name="title" type="text" class="form-control" id="title" value="{{title}}">
+        </div>
+        <div class="pad-15-r">
+            <label for="genre" class="pad-15-r ">Genre</label>
+            <input name="genre" type="text" class="form-control" id="genre" value="{{genre}}">
+        </div>
+        <br>
+        <div class="pad-15-r">
+            <label for="plot" class="pad-15-r ">Plot</label>
+            <textarea name="plot" type="text" class="form-control" id="plot" value="{{plot}} rows=" 3""></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark mg-50 aling-center">Edit Movie</button>
+    </form>
+    <a class="btn btn-dark btn-sm bradius-0" href='/movies'>Back List</a>
+
+
+</div>
