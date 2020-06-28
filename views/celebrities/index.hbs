@@ -1,8 +1,10 @@
-<h2>CELEBRITY</h2> holaaaaaa
+<h2>ALL CELEBRITIES</h2>
+
 {{#each allCelebrities}}
 
-<h3>{{name}}</h3>
+<a href="/celebrities/{{id}}">
+    <h3>{{name}}</h3>
+</a>
 
 {{/each}}
 <hr>
-<a href="/celebrities"></a>
