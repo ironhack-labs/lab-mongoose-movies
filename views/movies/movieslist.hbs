@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2 class="display-2">Movies!</h2>
+            <ul class="list-group">
+                {{#each allMovies}}
+                    <li class="list-group-item d-flex"><a class="list-group-item list-group-item-action" href="/movies/details/{{_id}}"><h3>{{title}}</h3></a>
+                        <form action="/movies/{{_id}}/edit" method="GET">
+                            <button type="submit" class="btn btn-dark">Edit this Movie!</button>
+                        </form>
+                        <form action="/movies/{{_id}}/delete" method="POST">
+                            <button type="submit" class="btn btn-dark">Delete this Movie!</button>
+                        </form>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+       
+    </div>
+   
+</div>
+
