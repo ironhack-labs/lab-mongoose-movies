@@ -11,13 +11,10 @@ const movieSchema = new Schema({
     plot: {
         type: String
     },
-    /*
-    star: [{
-    type: Schema.Types.ObjectId, ref: 'Celebrity'
-    }]
-
-    */
-
+    celebrity: [{
+        type: Schema.Types.ObjectId, ref: 'Celebrity'}],
+}, {
+    timestamps: true
 })
 
 const Movie = mongoose.model('Movie', movieSchema)

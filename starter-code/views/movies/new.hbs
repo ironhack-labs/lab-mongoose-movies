@@ -1,25 +1,37 @@
-<h2>Creación peliculeril</h2>
+<div class="container-fluid black text-right">
+    <div class="row w50  ml-auto">
+        <div class="col">
 
-<form method="post" action="/movies/new">
-    <div class="form-group">
-        <label for="title">Títulos</label>
-        <input name="title" type="text" class="form-control" id="title" aria-describedby="title"
-            placeholder="Introduce un título">
+            <div class="row d-block">
+                <h2 class="text-title">Creación peliculeril</h2>
+            </div>
+            <div class="row d-block">
+
+
+                <form method="post" action="/movies/new">
+                    <div class="form-group">
+                        <label for="title">Títulos</label>
+                        <input name="title" type="text" class="form-control" id="title" aria-describedby="title"
+                            placeholder="Introduce un título">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Género</label>
+                        <input name="genre" type="text" class="form-control" id="genre" aria-describedby="genre"
+                            placeholder="Introduce su género">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plot">Sinopsis</label>
+                        <input name="plot" type="text" class="form-control" id="plot" aria-describedby="plot"
+                            placeholder="Introduce su sinopsis">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Crear</button>
+
+                    <a class="btn btn-dark" href="/movies/index">Volver</a>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="genre">Género</label>
-        <input name="genre" type="text" class="form-control" id="genre" aria-describedby="genre"
-            placeholder="Introduce su género">
-    </div>
-
-    <div class="form-group">
-        <label for="plot">Sinopsis</label>
-        <input name="plot" type="text" class="form-control" id="plot" aria-describedby="plot"
-            placeholder="Introduce su sinopsis">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Crear</button>
-
-    <a class="btn btn-dark" href="/movies/index">Volver</a>
-</form>
+</div>

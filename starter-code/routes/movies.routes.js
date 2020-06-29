@@ -23,6 +23,7 @@ router.get('/:id', (req, res) => {
     console.log("Endpoint :id de movies OK")
     Movies
         .findById(req.params.id)
+        .populate('celebrity')
         .then(movie => res.render('movies/show', movie))
         .catch(err => console.log("Error en el id", err))
 })
@@ -40,6 +41,7 @@ router.get('/:id/delete', (req, res) => {
 router.get('/:id/edit', (req, res) => {
     Movies
         .findById(req.params.id)
+        .populate('celebrity')
         .then(movie => res.render('movies/edit', movie)
         )
         .catch(err => console.log("Error para form editar de pelis", err))
@@ -50,20 +52,22 @@ router.get('/:id/edit', (req, res) => {
 // -------------POST---------------
 // //CREAR peli con post
 router.post('/new', (req, res) => {
-    const { title, genre, plot } = req.body
-    console.log(`NUEVO PELICULÓN`, title, genre, plot)
+    const { title, genre, plot, celebrity } = req.body
+    console.log(`NUEVO PELICULÓN`, title, genre, plot, celebrity)
     Movies
-        .create({ title, genre, plot })
+        .create({ title, genre, plot, celebrity })
+        .populate('celebrity')
         .then(() => res.redirect('/movies/index'))
         .catch(err => console.log("Error en la creación de pelis", err))
 })
 
 // //EDITAR peli con post
 router.post('/:id/edit', (req, res) => {
-    const { title, genre, plot } = req.body
-    console.log(`MODIFICACIÓN DE PELI`, title, genre, plot)
+    const { title, genre, plot, celebrity } = req.body
+    console.log(`MODIFICACIÓN DE PELI`, title, genre, plot, celebrity)
     Movies
         .findByIdAndUpdate(req.params.id, { title, genre, plot })
+        .populate('celebrity')
         .then(() => res.redirect('/movies/index'))
         .catch(err => console.log("Error en la edición de pelis", err))
 })

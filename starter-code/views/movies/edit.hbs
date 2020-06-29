@@ -1,25 +1,48 @@
-<h2>Edición pelis</h2>
+<div class="container-fluid black text-right ">
+    <div class="row w50  ml-auto ">
+        <div class="col ml-auto">
 
-<form method="post" action="/movies/{{_id}}/edit">
-    <div class="form-group">
-        <label for="title">Título</label>
-        <input name="title" type="text" value="{{title}}" class="form-control" id="title" aria-describedby="name"
-            placeholder="Introduce un título">
+            <div class="row d-block  ">
+                <h2 class="text-title">Edición peliculeril</h2>
+            </div>
+            <div class="row d-block  ">
+
+                <form method="post" action="/movies/{{_id}}/edit">
+                    <div class="form-group">
+                        <label for="title">Título</label>
+                        <input name="title" type="text" value="{{title}}" class="form-control" id="title"
+                            aria-describedby="name" placeholder="Introduce un título">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="celebrity">Estrellas</label>
+
+                        <select class="form-control" name="celebrity" id="celebrity">
+                            {{#each celebrity}}
+                            <option>{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <a href="/celebrities/new">Crear nueva estrella...</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Género</label>
+                        <input name="genre" type="text" value="{{genre}}" class="form-control" id="genre"
+                            aria-describedby="genre" placeholder="Introduce su género">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plot">Sinopsis</label>
+                        <textarea name="plot" type="text" class="form-control" rows="4" id="plot"
+                            aria-describedby="plot" placeholder="Introduce su sinopsis">{{plot}}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Editar</button>
+
+                    <a class="btn btn-dark" href="/movies/index">Volver</a>
+                </form>
+
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="genre">Género</label>
-        <input name="genre" type="text" value="{{genre}}" class="form-control" id="genre" aria-describedby="genre"
-            placeholder="Introduce su género">
-    </div>
-
-    <div class="form-group">
-        <label for="plot">Sinopsis</label>
-        <input name="plot" type="text" value="{{plot}}" class="form-control" id="plot" aria-describedby="plot"
-            placeholder="Introduce su sinopsis">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Editar</button>
-
-    <a class="btn btn-dark" href="/movies/index">Volver</a>
-</form>
+</div>

@@ -1,23 +1,35 @@
-<h2>PELIS</h2>
-<a class="btn btn-dark" href="/movies/new">CREAR NUEVA PELÍCULA</a>
+<div class="container-fluid black text-right">
+    <div class="row w50 ml-auto">
+        <div class="col ml-auto ">
 
-<hr>
+            <div class="row">
+                <h2 class="text-title ml-auto">Movies</h2>
+            </div>
+            <div class="row">
+                <a class="btn btn-dark btn-lg ml-auto" href="/movies/new">CREAR NUEVA PELÍCULA</a>
+            </div>
 
-{{#each allMovies}}
-<p>Nombre: {{title}}</p>
-<a href="/movies/{{_id}}">Ver más</a>
-{{!-- <a href="/celebrities/delete/{{_id}}">Borrar</a> --}}
+            <div class="row">
+                <div class="col ml-auto">
+                    {{#each allMovies}}
 
-{{!-- <form action="/movies/{{_id}}/delete" method="post">
-    <button type="submit" class="btn btn-danger">Borrar</button>
-</form> --}}
+                    <div class="col star-div">
+                        <h3 class="text-title"> {{title}}</h3>
+                        <div class="botones d-flex justify-content-between">
 
-<a class="btn btn-danger" href="/movies/{{_id}}/delete">Borrar</a>
-<a class="btn btn-success" href="/movies/{{_id}}/edit">Editar</a>
+                            <a class=" btn-lg btn-dark" href="/movies/{{_id}}">Ver más</a>
+                            <a class="btn btn-lg btn-dark btn-danger" href="/movies/{{_id}}/delete">Borrar</a>
+                            <a class="btn btn-lg btn-dark btn-success" href="/movies/{{_id}}/edit">Editar</a>
 
+                        </div>
+                    </div>
+                    {{/each }}
+                </div>
+            </div>
+        </div>
+    </div>
 
-<hr>
-{{/each }}
-
-
-<a class="btn btn-dark" href="/">Volver a inicio</a>
+    <div class="row ">
+        <a class="btn btn-dark btn-lg ml-auto " href="/">Volver a inicio</a>
+    </div>
+</div>

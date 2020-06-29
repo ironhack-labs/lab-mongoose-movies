@@ -1,6 +1,8 @@
 <p>Película: {{title}}</p>
-
+{{#each celebrity}}
+<p>Estrella: {{name}}</p>
+{{/each}}
 <p>Género: {{genre}}</p>
-<P>Sinopsis: {{plot}} </P>
+<P>Sinopsis: {{plot}}</p>
 
 <a class="btn btn-dark" href="/movies/index">Volver</a>

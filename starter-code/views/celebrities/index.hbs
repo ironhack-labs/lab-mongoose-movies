@@ -1,24 +1,45 @@
-<h2>CELEBRITIES</h2>
-<a class="btn btn-dark" href="/celebrities/new">CREAR NUEVO FAMOSO</a>
+<div class="container-fluid white">
+    <div class="row w50">
+        <div class="col mr-auto">
 
-<hr>
+            <div class="row">
+                <h2 class="text-title">Stars</h2>
+            </div>
+            <div class="row">
+                <a class="btn btn-light" href="/celebrities/new">CREAR NUEVO FAMOSO</a>
+            </div>
 
-{{#each allCelebs}}
-<p>Nombre: {{name}}</p>
-<a href="/celebrities/{{_id}}">Ver más</a>
-{{!-- <a href="/celebrities/delete/{{_id}}">Borrar</a> --}}
+            <div class="row">
+                <div class="col mr-auto">
+                    {{#each allCelebs}}
+                    <div class="col star-div">
+                        <h3 class="text-title"> {{name}}</h3>
+                        <div class="botones d-flex justify-content-between">
+                            <a class=" btn-light btn btn-lg" href="/celebrities/{{_id}}">Ver más</a>
+                            {{!-- <a href="/celebrities/delete/{{_id}}">Borrar</a> --}}
+                            <form action="/celebrities/{{_id}}/delete" method="post">
+                                <button type="submit" class="btn btn-lg btn-light">Borrar</button>
+                            </form>
+                            <a class="btn btn-light btn-lg" href="/celebrities/{{_id}}/edit">Editar</a>
+                        </div>
+                    </div>
+                    {{/each }}
+                </div>
+            </div>
+        </div>
+    </div>
 
-<form action="/celebrities/{{_id}}/delete" method="post">
-    <button type="submit" class="btn btn-danger">Borrar</button>
-</form>
-<a class="btn btn-success" href="/celebrities/{{_id}}/edit">Editar</a>
+    <div class="row">
+        <a class="btn btn-light " href="/">Volver a inicio</a>
+    </div>
+</div>
 
 
-<hr>
-{{/each }}
 
 
-<a class="btn btn-dark" href="/">Volver a inicio</a>
+
+
+
 {{!-- Diferencia entre _id e id:
 _id es por defecto
 id lo podemos crear nosotros --}}
