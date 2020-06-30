@@ -1,0 +1,21 @@
+
+    <h2>Editar Celebridad</h2>
+
+    <form action="/celebridades/editar/{{_id}}" method="post">
+
+        <label for="name">Nombre</label>
+        <input name="name" value="{{name}}" id="name" type="text">
+
+        <label for="occupation">Ocupación</label>
+        <input name="occupation" value="{{occupation}}" id="occupation" type="text">
+
+        <label for="catchPhrase">Frase</label>
+        <input name="catchPhrase" value="{{catchPhrase}}" id="cathPhrase" type="text">
+
+        <button type="submit" class="btn btnEdit btn-dark btn-sm">Editar Artista</button>
+
+    </form>
+
+    <a class="btn btn-dark non-radius btn-sm" href="/celebridades/listado">Volver</a>
+
+
