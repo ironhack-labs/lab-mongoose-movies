@@ -1,0 +1,20 @@
+
+    <h2>Nueva Pelicula</h2>
+
+    <form action="/peliculas/crear" method="post">
+
+        <label for="title">Titulo</label>
+        <input name="title" value="{{titleMovie}}" type="text">
+
+        <label for="genre">Genero</label>
+        <input name="genre" value="{{genre}}" type="text">
+
+        <label for="plot">Trama</label>
+        <input name="plot" value="{{plot}}" type="text">
+
+        <button type="submit" class="btn btnEdit btn-dark btn-sm">Crear Pelicula</button>
+
+    </form>
+
+    <a class="btn btn-dark non-radius btn-sm" href="/peliculas/listado">Volver</a>
+

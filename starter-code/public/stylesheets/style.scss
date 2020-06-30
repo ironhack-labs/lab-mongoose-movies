@@ -1,8 +1,23 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.btn{
+
+  margin-bottom: 25px;
+}
+
+h1, h2 {
+  margin-top: 50px;
+}
+
+.btnEdit{
+ margin-top: 20px;
+}
+
+p{
+  font-size: large;
+  font-weight: bold;
+  color: #3C3971
 }

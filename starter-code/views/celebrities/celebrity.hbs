@@ -1,0 +1,17 @@
+<h2>Listado de Celebridades</h2>
+
+{{#each allCelebrities}}
+<p>{{name}}</p>
+
+<a class="btn btn-special-xs btn-dark" href="/celebridades/detalle/{{_id}}">Detalles</a>
+
+<form action="/celebridades/{{_id}}/editar" method="GET">
+    <button type="submit" class="btn btn-special-xs btn-dark ">Editar Artista</button>
+</form>
+
+<form action="/celebridades/{{_id}}/eliminar" method="POST">
+    <button type="submit"  class="btn btn-special-xs btn-dark">Eliminar Artista</button>
+</form>
+
+
+{{/each}}

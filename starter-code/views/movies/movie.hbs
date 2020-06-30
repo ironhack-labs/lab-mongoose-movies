@@ -1,0 +1,18 @@
+<h2>Listado de Peliculas</h2>
+
+{{#each allMovies}}
+
+<p>{{title}}</p>
+
+<a class="btn btn-special-xs btn-dark" href="/peliculas/detalle/{{_id}}">Detalles</a>
+
+<form action="/peliculas/{{_id}}/editar" method="GET">
+    <button type="submit" class="btn btn-special-xs btn-dark">Editar Pelicula</button>
+</form>
+
+<form action="/peliculas/{{_id}}/eliminar" method="POST">
+    <button type="submit" class="btn btn-special-xs btn-dark ">Eliminar Pelicula</button>
+</form>
+
+
+{{/each}}
