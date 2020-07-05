@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const Celebrity = require('../models/Celebrities.model.js');
-const Movie = require('../models/Movies.model.js');
+const mongoose = require('mongoose')
+const Celebrity = require('../models/Celebrities.model.js')
+const Movie = require('../models/Movies.model.js')
 
 mongoose
   .connect('mongodb://localhost/lab-mongoose-movies', {
@@ -11,7 +11,7 @@ mongoose
   .then(x =>
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   )
-  .catch(err => console.error('Error connecting to mongo', err));
+  .catch(err => console.error('Error connecting to mongo', err))
   
 const celebrities = [
     {

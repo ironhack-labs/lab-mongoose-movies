@@ -1,0 +1,9 @@
+<a href="/">Go back</a>
+<h2>CELEBRITIES:</h2>
+<div class="list">
+    {{#each celebrities}}
+        <div class="card">
+            <a href="/celebrities/{{this.id}}">{{this.name}}</a>
+        </div>
+    {{/each}}
+</div>
