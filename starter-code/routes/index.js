@@ -19,5 +19,22 @@ router.get('/celebrities/:id', (req, res, next) => {
   .catch(error => console.log("Couldn't find the celebrity page", error))
 })
 
+router.get('/addCelebrity', (req, res, next) => {
+  res.render('celebrities/new')
+});
+
+router.post('/addCelebrity', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({name, occupation, catchPhrase})
+  .then(newCelebrity => {
+    res.redirect('/celebrities')
+    console.log(`${newCelebrity.name} inserted in database`)
+  })
+  .catch(error => {
+    res.redirect('/addCelebrity')
+    console.log('Error when adding new celebrity', error)
+  })
+})
+
 
 module.exports = router;
