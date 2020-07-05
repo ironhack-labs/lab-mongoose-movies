@@ -1,8 +1,54 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+}
 
-/*# sourceMappingURL=style.css.map */
+a:hover {
+  color: #0273a0;
+}
+
+button {
+  background-color: #00B7FF;
+  font-size: 14px;
+  border: 0px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #0273a0;
+}
+
+.index {
+ background-image: url('../images/cinema.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ height: calc(100vh - 150px);
+ color: black;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 17%;
+  background-color: rgb(151, 245, 214);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.card-info {
+  background-color: rgb(151, 245, 214);;
+}
