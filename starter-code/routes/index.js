@@ -70,5 +70,10 @@ router.get('/movies', (req, res, next) => {
   .catch(error => console.log('Error found', error))
 });
 
+router.get('/movies/:id', (req, res, next) => {
+  Movie.findById(req.params.id)
+  .then(movie => res.render('movies/show', { movie }))
+  .catch(error => console.log("Couldn't find the movie page", error))
+})
 
 module.exports = router;
