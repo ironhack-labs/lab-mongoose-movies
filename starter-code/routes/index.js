@@ -36,5 +36,14 @@ router.post('/addCelebrity', (req, res, next) => {
   })
 })
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then(removedCelebrity => console.log(`Celebrity removed`))
+  .catch(error => {
+    console.log('An error has ocurred when trying to remove celebrity', error)
+    res.redirect('/celebrities')
+  })
+})
+
 
 module.exports = router;
