@@ -93,4 +93,13 @@ router.post('/addMovie', (req, res, next) => {
   })
 })
 
+router.post('/movies/:id/delete', (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+  .then(removedMovie => console.log(`Movie removed`))
+  .catch(error => {
+    console.log('An error has ocurred when trying to remove movie', error)
+    res.redirect('/movies')
+  })
+})
+
 module.exports = router;
