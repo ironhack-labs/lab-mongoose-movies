@@ -75,7 +75,7 @@ Celebrity.deleteMany({})
     .catch((er) => console.log(er))
 
 Movie.deleteMany({})
-    then(() => Movie.insertMany(movies))
+    .then(() => Movie.insertMany(movies))
     .then(() => {
         console.log('Movies added!')
         mongoose.connection.close()
