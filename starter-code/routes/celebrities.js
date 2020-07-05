@@ -36,6 +36,33 @@ router.get('/celebrities/:id', (req, res, next) => {
   .catch((e)=> console.log(e))
 })
 
+/* POST Delete celebrities */
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  
+  Celebrity.findByIdAndRemove(req.params.id)
+  .then(()=> console.log('Celebrity deeted'))
+  .then(() => res.redirect('/celebrities'))
+  
+  .catch((e)=> console.log(e))
+  
+})
+
+/* GET Edit celebrities page */
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+  .then((celebrityFromDb)=> res.render('celebrities/edit', {celebrityFromDb}))
+  .catch((e)=> console.log(e))
+})
+
+
+/* POST celebrities page */
+router.post('/celebrities/:id', (req, res, next) => {
+  Celebrity.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => res.redirect('/celebrities'))
+  
+  .catch((e)=> console.log(e))
+})
+
 
 
 module.exports = router;
