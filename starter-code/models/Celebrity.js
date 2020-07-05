@@ -5,10 +5,7 @@ const celebritiesSchema = new Schema({
 
   name: String, 
 
-  occupation: {
-    type: String,
-    enum: ['actor', 'comedian', 'singer', 'unknown']
-  }, 
+  occupation: String,
 
   catchPhrase: String,
 

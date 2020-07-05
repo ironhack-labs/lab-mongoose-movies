@@ -6,17 +6,17 @@ const Celebrity = require('../models/Celebrity');
 const celebrities = [
     {
       name: 'Michael Fassbender',
-      occupation: 'actor',
+      occupation: 'Actor',
       catchPhrase: 'Big things have small beginnings',
     },
     {
       name: 'Tom Hanks',
-      occupation: 'actor',
+      occupation: 'Actor',
       catchPhrase: `If it wasn't hard, everyone would do it. It's the hard that makes it great`,
     },
     {
       name: 'Ricky Gervais',
-      occupation: 'comedian',
+      occupation: 'Comedian',
       catchPhrase: 'Be happy. It really annoys negative people',
     }
   ];

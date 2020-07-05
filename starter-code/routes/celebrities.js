@@ -2,10 +2,6 @@ const express = require('express');
 const Celebrity = require('../models/Celebrity');
 const router  = express.Router();
 
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
 
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find({})
@@ -14,10 +10,11 @@ router.get('/celebrities', (req, res, next) => {
 });
 
 router.get('/celebrities/:id', (req, res, next) => {
-  Celebrity.findById(req.params.id)
-  .then(celebrity => res.render('celebrities/show', { celebrity }))
-  .catch(error => console.log("Couldn't find the celebrity page", error))
+    Celebrity.findById(req.params.id)
+    .then(celebrity => res.render('celebrities/show', { celebrity }))
+    .catch(error => console.log("Couldn't find the celebrity page", error))
 })
+
 
 
 module.exports = router;

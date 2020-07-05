@@ -1,5 +1,17 @@
 <h2>Celebrities</h2>
 
 {{#each celebritiesFromDB}}
-    <p>{{this.name}}</p>
+
+    <div class="card text-center" style="width: 18rem;">
+
+        <div class="card-body">
+
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">Bla bla bla</p>
+            <a href="/celebrities/{{this._id}}" class="btn btn-primary">Celebrity detail</a>
+
+        </div>
+
+    </div>
+
 {{/each}}
