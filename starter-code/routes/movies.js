@@ -8,10 +8,24 @@ router.get('/movies', (req, res, next) => {
         .catch(e => console.log(e))   
 })
 
-router.get('/movies/:id', (req, res) => {
+router.get('/movies/:id', (req, res, next) => {
     Movie.findById(req.params.id)
         .then(movie => res.render('movies/show', { movie: movie }))
         .catch(err => console.log('Error retrieving the movie', err))
 })
+
+router.get('/newmovie', (req, res, next) => {
+    res.render('movies/new')
+})
+
+router.post('/newmovie',(req,res) => {
+    const { title, genre, plot} = req.body
+    Movie
+        .create({ title, genre, plot})
+        .then(() => res.redirect('/movies'))
+        .catch(e => console.log(e))
+  
+})
+
 
 module.exports = router 

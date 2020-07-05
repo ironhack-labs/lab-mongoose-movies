@@ -14,4 +14,17 @@ router.get('/celebrities/:id', (req, res) => {
         .catch(err => console.log('Error retrieving the movie', err))
 })
 
+router.get('/newceleb', (req, res) => {
+    res.render('./celebrities/new')
+})
+
+router.post('/newceleb',(req,res) => {
+    const { name, occupation, catchPhrase } = req.body
+    Celebrity
+        .create({ name, occupation, catchPhrase })
+        .then(() => res.redirect('/celebrities'))
+        .catch(e => console.log(e))
+  
+})
+
 module.exports = router 
