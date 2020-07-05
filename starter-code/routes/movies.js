@@ -2,20 +2,20 @@ const express = require('express')
 const router = express.Router()
 const Movie = require('../models/Movies.model.js')
 
-router.get('/movies', (req, res, next) => {
+router.get('/movies', (req, res) => {
     Movie.find({})
         .then(movies => res.render('movies/index', { movies }))
         .catch(e => console.log(e))   
 })
 
-router.get('/movies/:id', (req, res, next) => {
+router.get('/movies/:id', (req, res) => {
     Movie.findById(req.params.id)
         .populate('cast')
         .then(movie => res.render('movies/show', { movie: movie }))
         .catch(err => console.log('Error retrieving the movie', err))
 })
 
-router.get('/newmovie', (req, res, next) => {
+router.get('/newmovie', (req, res) => {
     res.render('movies/new')
 })
 
