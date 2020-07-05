@@ -1,0 +1,22 @@
+<h2>Movies</h2>
+
+<a href="/addCelebrity">Add a new movie!</a>
+{{#each moviesFromDB}}
+
+    <div class="card text-center" style="width: 18rem;">
+
+        <div class="card-body">
+
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">Bla bla bla</p>
+            <a href="/movies/{{this._id}}" class="btn btn-primary">Movie detail</a>
+            <a href="/movies/{{this._id}}/edit" class="btn btn-primary">Edit</a>
+            <form action="movies/{{this._id}}/delete" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+
+        </div>
+
+    </div>
+
+{{/each}}

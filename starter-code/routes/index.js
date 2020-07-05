@@ -1,5 +1,6 @@
 const express = require('express');
 const Celebrity = require('../models/Celebrity');
+const Movie = require('../models/Movie');
 const router  = express.Router();
 
 /* GET home page */
@@ -61,6 +62,13 @@ router.post('/celebrities/:id', (req, res, nex) => {
   .catch(error => console.log('An error has ocurred when updating celebrity', error))
 })
 
+// MOVIES
+
+router.get('/movies', (req, res, next) => {
+  Movie.find({})
+  .then(moviesFromDB => res.render('movies/index', { moviesFromDB }))
+  .catch(error => console.log('Error found', error))
+});
 
 
 module.exports = router;
