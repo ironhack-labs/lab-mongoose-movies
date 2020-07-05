@@ -76,4 +76,21 @@ router.get('/movies/:id', (req, res, next) => {
   .catch(error => console.log("Couldn't find the movie page", error))
 })
 
+router.get('/addMovie', (req, res, next) => {
+  res.render('movies/new')
+});
+
+router.post('/addMovie', (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  Movie.create({title, genre, plot})
+  .then(newMovie => {
+    res.redirect('/movies')
+    console.log(`${newMovie.title} inserted in database`)
+  })
+  .catch(error => {
+    res.redirect('/addMovie')
+    console.log('Error when adding new movie', error)
+  })
+})
+
 module.exports = router;
