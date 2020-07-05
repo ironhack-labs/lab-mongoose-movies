@@ -22,6 +22,7 @@ app.use((err, req, res, next) => {
 });
 
 let server = http.createServer(app);
+server.close()
 
 server.on('error', error => {
   if (error.syscall !== 'listen') { throw error }
@@ -41,6 +42,6 @@ server.on('error', error => {
   }
 });
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.PORT || 3500, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
 });
