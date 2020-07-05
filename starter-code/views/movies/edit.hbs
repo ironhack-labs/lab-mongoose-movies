@@ -1,0 +1,8 @@
+<h2>Update the movie</h2>
+
+<form action='/movies/{{id}}/edit' method = 'post'>
+    <input type='text' name='title' placeholder='name' value='{{title}}'>
+    <input type='text' name='genre' placeholder='genre' value='{{genre}}'>
+    <input type='text' name='plot' placeholder='plot'  value='{{plot}}'>
+    <button type='submit'>Update Movie</button>
+</form>
