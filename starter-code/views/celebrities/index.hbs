@@ -3,7 +3,10 @@
 <div class="list">
     {{#each celebrities}}
         <div class="card">
-            <a href="/celebrities/{{this.id}}">{{this.name}}</a>
+            <a href="/celebrities/{{_id}}">{{name}}</a>
+            <form action="/celebrities/{{_id}}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
         </div>
     {{/each}}
 </div>

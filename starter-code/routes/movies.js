@@ -4,7 +4,7 @@ const Movie = require('../models/Movies.model.js')
 
 router.get('/movies', (req, res, next) => {
     Movie.find({})
-        .then(movies => res.render('movies/index', { movies: movies }))
+        .then(movies => res.render('movies/index', { movies }))
         .catch(e => console.log(e))   
 })
 
@@ -25,6 +25,12 @@ router.post('/newmovie',(req,res) => {
         .then(() => res.redirect('/movies'))
         .catch(e => console.log(e))
   
+})
+
+router.post('/movies/:id/delete',(req,res) => {
+    Movie.findByIdAndRemove(req.params.id)
+        .then(() => res.redirect('/movies'))
+        .catch(e => console.log(e))
 })
 
 
