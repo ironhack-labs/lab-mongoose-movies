@@ -10,6 +10,7 @@ router.get('/movies', (req, res, next) => {
 
 router.get('/movies/:id', (req, res, next) => {
     Movie.findById(req.params.id)
+        .populate('cast')
         .then(movie => res.render('movies/show', { movie: movie }))
         .catch(err => console.log('Error retrieving the movie', err))
 })

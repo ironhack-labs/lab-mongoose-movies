@@ -18,26 +18,31 @@ const celebrities = [
     name: 'Jim Carrey',
     occupation: 'Actor',
     catchPhrase: 'Buenos días, y por si no nos vemos luego, buenos dias buenas tardes y buenas noches',
+    film: 'The Thruman Show'
     },
     {
     name: 'Tom Hanks',
     occupation: 'Actor',
     catchPhrase: 'Tal vez no sea muy listo pero si se lo que es el amor',
+    film: 'Forrest Gump'
     },
     {
     name: 'Meryl Streep',
     occupation: 'Actress',
     catchPhrase: 'Cuando los dioses quieren castigarnos atienden nuestras plegarias',
+    film: 'Outof Africa'
     },
     {
     name: 'Jaime Fox',
     occupation: 'Actor',
     catchPhrase: 'Yo sólo le he disparado, las balas y la caída le han matado',
+    film: 'Django'
     },
     {
     name: 'Emma Stone',
     occupation: 'Actress',
     catchPhrase: 'Soy la Annie saludable ahora, y la gente saludable lee libros. Y viaje, y se ejercita. Y cuida sus mentes',
+    film: 'Maniac'
     }
 ]
 
@@ -48,7 +53,7 @@ const movies = [
     plot: 'The film stars Jim Carrey as Truman Burbank who grew up living an ordinary life that unbeknown to him, takes place on a large set populated by actors for a television show about him, until he discovers the truth and decides to escape.',
     },
     {
-    title: 'Forrest gump',
+    title: 'Forrest Gump',
     genre: 'Comedy',
     plot: 'Forrest Gump is a simple man with a low I.Q. but good intentions. He is running through childhood with his best and only friend Jenny. His mama teaches him the ways of life and leaves him to choose his destiny.',
     },
