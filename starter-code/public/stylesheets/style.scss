@@ -1,8 +1,86 @@
+$blueish: rgb(34, 132, 165);
+
+@mixin buttonStyles($direction) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $direction;
+  width: 10rem;
+  margin: 1rem 0 1rem 0 !important;
+  padding: 10px;
+  background-color: $blueish;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+
 body {
-  padding: 50px;
+  padding: 0 0 0 2rem;
+  margin: 0;
+  box-sizing: border-box;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+button,
 a {
-  color: #00B7FF;
+  @include buttonStyles(row);
+  &:hover {
+    background-color: white;
+    color: $blueish;
+    border: 1px solid $blueish;
+  }
+}
+
+input {
+  display: block;
+  width: 20rem;
+}
+
+.main-page-btns-container {
+  display: flex;
+  width: 100%;
+  a {
+    margin-right: 1rem !important;
+  }
+}
+
+.celebrities-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  .card {
+    margin: 2rem 2rem 0 0;
+    padding: 1rem;
+    border: 1px solid $blueish;
+    border-radius: 5px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  form {
+    button {
+      width: 100%;
+    }
+  }
+
+}
+
+.movies-list-wrapper {
+  @extend .celebrities-list-wrapper
+}
+
+.profile-page {
+  margin: 2rem 2rem 2rem 0;
+  padding: 20px;
+  background-color: rgb(220, 246, 255);
+  border: 1px solid $blueish;
+  border-radius: 5px;
+  font-style: italic;
 }

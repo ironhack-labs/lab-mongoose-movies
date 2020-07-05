@@ -1,0 +1,19 @@
+<a href="/celebrities/new">Create new celebrities</a>
+<h2>List of celebrities</h2>
+<div class="celebrities-list-wrapper">
+  {{#each this as |celebrity|}}
+    {{#if id}}
+      <div class="card">
+        <h3>{{celebrity.name}}</h3>
+        <a href="/celebrities/{{celebrity.id}}">View details</a>
+        <form action="/celebrities/{{celebrity.id}}/edit">
+          <button class="btn-form" type="submit">Edit celebrity</button>
+        </form> 
+        <form class="btn-form" action="/celebrities/{{celebrity.id}}/delete">
+          <button type="submit">Delete celebrity</button>
+        </form>
+      </div>
+      <br>
+    {{/if}}
+  {{/each}}
+</div>
