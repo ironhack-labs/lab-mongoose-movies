@@ -44,3 +44,10 @@ server.on('error', error => {
 server.listen(process.env.PORT, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
 });
+
+process.on('SIGINT', () => {
+  mongoose.connection.close(()=> {
+    console.log('Mongoose default connection closed.');
+    process.exit(0);
+  })
+})

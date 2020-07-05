@@ -1,0 +1,11 @@
+<div class="profile-page">
+  <h2>Check {{name}} out&excl;</h2>
+  <p>{{name}} is a professional {{occupation}}</p>
+  <p>{{name}}'s catchphrase is: {{catchphrase}}</p>
+  <p>{{name}} played in the following movies:</p>
+  <ul>
+    {{#each movies}}
+      <li>{{this.title}}</li>
+    {{/each}}
+  </ul>
+</div>

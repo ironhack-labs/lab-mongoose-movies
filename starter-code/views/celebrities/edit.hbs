@@ -1,0 +1,8 @@
+<h2>Edit {{name}}</h2>
+<form action="/celebrities/{{id}}" method="POST">
+  <input type="text" name="name" value="{{name}}" placeholder="Name">
+  <input type="text" name="occupation" value="{{occupation}}" placeholder="Occupation">
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}" placeholder="Catchphrase">
+  <input type="text" name="movies" value="{{movies}}" placeholder="List movies seperated by comma">
+  <button type="submit">Update</button>
+</form>
