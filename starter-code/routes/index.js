@@ -45,5 +45,22 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
   })
 })
 
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  Celebrity.findById(req.params.id)
+  .then(celebrity => res.render('celebrities/edit', { celebrity }))
+  .catch(error => console.log("Couldn't find the editing page", error))
+})
+
+router.post('/celebrities/:id', (req, res, nex) => {
+  // const { name, occupation, catchPhrase } = req.body;
+  Celebrity.findByIdAndUpdate(req.params.id, req.body)
+  .then(celebrity => {
+    console.log(`${celebrity.name} updated`)
+    res.redirect('/celebrities')
+  })
+  .catch(error => console.log('An error has ocurred when updating celebrity', error))
+})
+
+
 
 module.exports = router;
