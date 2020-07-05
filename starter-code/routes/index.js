@@ -102,4 +102,20 @@ router.post('/movies/:id/delete', (req, res, next) => {
   })
 })
 
+router.get('/movies/:id/edit', (req, res, next) => {
+  Movie.findById(req.params.id)
+  .then(movie => res.render('movies/edit', { movie }))
+  .catch(error => console.log("Couldn't find the editing page", error))
+})
+
+router.post('/movies/:id', (req, res, nex) => {
+  // const { name, occupation, catchPhrase } = req.body;
+  Movie.findByIdAndUpdate(req.params.id, req.body)
+  .then(movie => {
+    console.log(`${movie.name} updated`)
+    res.redirect('/movies')
+  })
+  .catch(error => console.log('An error has ocurred when updating movie', error))
+})
+
 module.exports = router;
