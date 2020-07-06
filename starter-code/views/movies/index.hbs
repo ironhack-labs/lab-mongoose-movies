@@ -1,0 +1,22 @@
+<!--Iterration 8 -->
+<div class="container">
+    <h2>Movies</h2>
+    <div class="row mt-5">
+        {{#each moviesAll}}
+            <div class="card mr-4 text-center bg-dark mt-5" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-uppercase text-warning">{{this.title}}</h5>
+                    <a href="/movies/{{this._id}}" class="card-link btn btn-info mb-4 mt-4">See details</a>
+                    <form action="/movies/{{this._id}}/delete" method="post">
+                        <button class="card-link btn btn-info float-right" type="submit">Delete movie</button>
+                    </form>
+                    <a href="/movies/{{this._id}}/edit" class="card-link btn btn-info">Edit</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+      <div class="float-right">
+        <a class="btn btn-success mt-5" href="/movies/new">Add new celebrity</a>
+        <a class="btn btn-success mt-5" href="/">Back</a>
+    </div>
+</div>
