@@ -1,0 +1,39 @@
+	{{!-- <div class="form">
+    <h2>Edit Movie</h2>
+    <form action="/movies/{{movie._id}}/edit" method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" value="{{movie.title}}">
+        <label>Genre:</label>
+        <input type="text" name="genre" value="{{movie.genre}}">
+        <label>Plot:</label>
+        <input type="text" name="plot" value="{{movie.plot}}">        
+        <button type="submit">Edit</button>
+    </form>
+</div> --}}
+
+<h2>Edit a Movie named : {{title}}</h2>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center py-5">Update a Movie</h2>
+        <form action="/movies/{{movie._id}}/edit" method="POST">
+          <div class="form-group">
+            <label for="title-input">Title:</label>
+            <input type="text" class="form-control" name="title" value="{{movie.title}}">
+            <small id="emailHelp" class="form-text text-muted">Put the new name of the Movie</small>
+          </div>
+          <div class="form-group">
+            <label for="genre-input">Genre:</label>
+            <input type="text" class="form-control" name="genre" value="{{movie.genre}}">
+          </div>
+          <div class="form-group">
+            <label for="catchPhrase-input">Plot:</label>
+            <input type="text" class="form-control" name="plot" value="{{movie.plot}}">
+          </div>
+          
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+    </div>
+  </div>
+
+</div>

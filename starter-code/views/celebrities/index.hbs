@@ -1,0 +1,26 @@
+<h2 class="text-center py-5">List of celebrities</h2>
+<div class="container">
+    <div class="row m-auto">
+        {{#each celebrities as |celeb|}}
+        <div class="col-4">
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <a href='/celebrities/{{celeb._id}}'><h5 class="card-title">{{celeb.name}}</h5></a>
+                        <form action='/celebrities/{{celeb._id}}/delete' method='post'>
+                            <button type="submit" class="btn btn-danger">Delete this Celebrity</button>
+                        </form>
+                    <a href="/celebrities/{{celeb.id}}/edit" class="btn btn-primary my-3">Edit this Celebrity</a>
+                </div>
+            </div>
+        </div>
+        {{/each }}
+    </div>
+</div>
+<div class="text-center">
+    <a href='/newceleb'>
+        <button type="button" class="btn btn-success my-5">Create a new celebrity!</button>
+    </a>
+    <a href="/">
+        <button class="btn btn-warning">go to Home</button>
+    </a>
+</div>
