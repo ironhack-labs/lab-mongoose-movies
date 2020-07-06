@@ -1,8 +1,13 @@
+<div class="bar">
+    <h2>Celebrity details</h2>
+</div>
 
-<h2>Celebrity details</h2>
-
-<h3>{{celebrity.name}}</h3>
-<h4>Occupation</h4>
-<p>{{celebrity.occupation}}</p>
-<h4>Catch Phrase</h4>
-<p>{{celebrity.catchPhrase}}</p>
+<div class="col-lg-6 celebrity-container">
+    <div class="celebrity-info-container">
+        <h3 class="card-title">{{this.name}}</h3>
+        <h4>Occupation</h4>
+        <p>{{celebrity.occupation}}</p>
+        <h4>Catch Phrase</h4>
+        <p class="catch-phrase">{{celebrity.catchPhrase}}</p>
+    </div>
+</div>

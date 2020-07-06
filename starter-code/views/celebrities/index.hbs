@@ -1,23 +1,30 @@
-<h2>Celebrities</h2>
+<div class="bar">
+    <h2>Celebrities</h2>
 
-<a href="/addCelebrity">Add a new celebrity!</a>
+    <a href="/addCelebrity">Add a new celebrity!</a>
+</div>
 
-{{#each celebritiesFromDB}}
+<div class="container">
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="row">
 
-        <div class="card-body">
+        {{#each celebritiesFromDB}}
 
-            <h5 class="card-title">{{this.name}}</h5>
-            <p class="card-text">Bla bla bla</p>
-            <a href="/celebrities/{{this._id}}" class="btn btn-primary">Celebrity detail</a>
-            <a href="/celebrities/{{this._id}}/edit" class="btn btn-primary">Edit</a>
-            <form action="celebrities/{{this._id}}/delete" method="POST">
-                <button type="submit">Delete</button>
-            </form>
+            <div class="col-lg-4 celebrities-container">
+                <div class="celebrities-info-container">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <a href="/celebrities/{{this._id}}" class="btn btn-primary">Celebrity <br> detail</a>
+                    <a href="/celebrities/{{this._id}}/edit" class="btn btn-primary padding-edit">Edit</a>
+                    <form action="celebrities/{{this._id}}/delete" method="POST">
+                        <button class="delete-btn" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
 
-        </div>
+        {{/each}}
 
     </div>
 
-{{/each}}
+</div>
+
+

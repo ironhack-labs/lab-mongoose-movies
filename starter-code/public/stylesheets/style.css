@@ -1,8 +1,215 @@
+/*# sourceMappingURL=style.css.map */
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 900% 900%;
+	animation: gradient 15s ease infinite;
+}
 
-a {
-  color: #00B7FF; }
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* -----HOME----- */
 
-/*# sourceMappingURL=style.css.map */
+#home {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-container {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  border: 2px solid #eee;
+  background-color: #eee;
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 0 rgb(40, 39, 39);
+  padding-top: 10px;
+  margin-left: 35rem;
+  margin-top: 10rem;
+}
+
+.home-container:hover {
+  background-color: rgb(160, 255, 245);
+  border: 2px solid rgb(147, 233, 225);
+}
+
+.home-container a {
+  color: #094f68;
+  font-weight: bolder;
+  text-decoration: none !important;
+}
+
+/* -----CELEBRITIES LIST----- */
+
+.bar {
+  width: 104%;
+  background-color: #0a4d65a8;
+  border-radius: 20px;
+  padding: 30px 100px;
+  margin: -40px 0 20px -30px;
+}
+
+.bar h2 {
+  color: rgb(169, 229, 255);
+}
+
+.bar a {
+  color: rgb(86, 158, 189);
+  text-decoration: none !important;
+}
+
+.bar a:hover {
+  color: rgb(16, 64, 84);
+}
+
+.celebrities-container {
+  padding: 10px 40px;
+}
+
+.celebrities-info-container {
+  background-color: #eee;
+  border-radius: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  padding: 20px;
+  color: #000000;
+  font-weight: bolder;
+}
+
+.celebrities-info-container h5 {
+  color: #063141;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 30px;
+}
+
+.celebrities-info-container a {
+  margin: 20px 10px;
+}
+
+.padding-edit {
+  padding: 19px 20px !important;
+}
+
+.delete-btn {
+  color: #eee;
+  background-color: rgb(210, 85, 85);
+  border-radius: 20px;
+  border: 2px solid rgb(177, 65, 65);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 0 rgb(40, 39, 39);
+  padding: 5px 10px;
+}
+
+/* -----CELEBRITY DETAIL----- */
+
+.celebrity-container {
+  padding: 10px 40px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.celebrity-info-container {
+  background-color: #eee;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  padding: 20px;
+  color: #000000;
+}
+
+.catch-phrase {
+  font-style: italic;
+}
+
+
+/* -----CELEBRITY EDIT----- */
+
+.edit-container {
+  padding: 10px 40px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.edit-info-container {
+  background-color: #eee;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  padding: 30px;
+  color: #000000;
+}
+
+.edit-form input {
+  border-radius: 20px;
+  padding: 5px;
+  margin: 20px;
+}
+
+.edit-form button {
+  border-radius: 20px;
+  border: 2px solid rgb(76, 199, 142);
+  background-color: rgb(83, 223, 158);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 0 rgb(40, 39, 39);
+  font-weight: bold;
+  padding: 10px;
+}
+
+.edit-form button:hover {
+  border: 2px solid rgb(89, 232, 165);
+  background-color: rgb(128, 255, 195);
+}
+
+
+/* -----MOVIES LIST----- */
+
+.padding-movie-edit {
+  padding: 7px 20px !important;
+}
+
+/* -----ADD CELEBRITY----- */
+
+.add-container {
+  padding: 10px 40px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.add-info-container {
+  background-color: #eee;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  padding: 30px;
+  color: #000000;
+}
+
+.add-form input {
+  border-radius: 20px;
+  padding: 5px;
+  margin: 15px;
+}
+
+.add-form button {
+  border-radius: 20px;
+  border: 2px solid rgb(76, 199, 142);
+  background-color: rgb(83, 223, 158);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 0 rgb(40, 39, 39);
+  font-weight: bold;
+  padding: 10px;
+}
+
+.add-form button:hover {
+  border: 2px solid rgb(89, 232, 165);
+  background-color: rgb(128, 255, 195);
+}
