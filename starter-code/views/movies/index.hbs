@@ -1,0 +1,21 @@
+<h2 class="text-center py-5">List of Ironhack Movies!</h2>
+<div class="container">
+    <div class="row m-auto">
+        {{#each movies}}
+        <div class="col-4">
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <a href="/movies/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+                        <form action="/movies/{{_id}}/delete" method='post'>
+                            <button type="submit" class="btn btn-danger">Delete this Movie</button>
+                        </form>
+                    <a href="/movies/{{_id}}/edit/" class="btn btn-primary my-3">Edit this Movie</a>
+                </div>
+            </div>
+        </div>
+        {{/each }}
+    </div>
+</div>
+<div class="text-center">
+    <a href='/newmovie'><button type="button" class="btn btn-success my-5">Create a new Movie!</button></a>
+</div>

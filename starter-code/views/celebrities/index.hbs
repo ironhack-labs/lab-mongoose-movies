@@ -3,7 +3,7 @@
     <div class="row m-auto">
         {{#each celebrities as |celeb|}}
         <div class="col-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card m-3" style="width: 18rem;">
                 <div class="card-body">
                     <a href='/celebrities/{{celeb._id}}'><h5 class="card-title">{{celeb.name}}</h5></a>
                         <form action='/celebrities/{{celeb._id}}/delete' method='post'>
