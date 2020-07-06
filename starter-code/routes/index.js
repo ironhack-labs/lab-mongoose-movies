@@ -39,11 +39,11 @@ router.post('/addCelebrity', (req, res, next) => {
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
-  .then(removedCelebrity => console.log(`Celebrity removed`))
-  .catch(error => {
-    console.log('An error has ocurred when trying to remove celebrity', error)
+  .then(removedCelebrity => {
+    console.log(`Celebrity removed`)
     res.redirect('/celebrities')
   })
+  .catch(error => console.log('An error has ocurred when trying to remove celebrity', error))
 })
 
 router.get('/celebrities/:id/edit', (req, res, next) => {
@@ -95,11 +95,11 @@ router.post('/addMovie', (req, res, next) => {
 
 router.post('/movies/:id/delete', (req, res, next) => {
   Movie.findByIdAndRemove(req.params.id)
-  .then(removedMovie => console.log(`Movie removed`))
-  .catch(error => {
-    console.log('An error has ocurred when trying to remove movie', error)
+  .then(removedMovie => {
+    console.log(`Movie removed`)
     res.redirect('/movies')
   })
+  .catch(error => console.log('An error has ocurred when trying to remove movie', error))
 })
 
 router.get('/movies/:id/edit', (req, res, next) => {
