@@ -5,18 +5,21 @@ const Celebrity = require('../models/Celebrity.model')
 
 const celebrities = [
     {
+        id: 'keanureeves',
         name: 'Keanu Reeves',
         occupation: 'Actor',
         catchPhrase: 'El dinero no significa nada para mí. He ganado mucho dinero, pero quiero disfutar la vida y no estresarme aumentando una cuenta bancaria',
         image: 'https://m.media-amazon.com/images/M/MV5BNjUxNDcwMTg4Ml5BMl5BanBnXkFtZTcwMjU4NDYyOA@@._V1_SY1000_CR0,0,771,1000_AL_.jpg'
     },
     {
+        id: 'robertdowneyjr',
         name: 'Robert Downey Jr.',
         occupation: 'Actor',
         catchPhrase: 'Ya no bebo. ...',
         image: 'https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_SY1000_CR0,0,664,1000_AL_.jpg'
     },
     {
+        id: 'robertredford',
         name: 'Robert Redford',
         occupation: 'Actor',
         catchPhrase: 'Para construir un mundo mejor, en ocasiones hay que destruir el antiguo, y eso crea enemigos.',

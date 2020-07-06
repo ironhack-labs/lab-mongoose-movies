@@ -12,4 +12,16 @@ router.get('/celebrities', (req, res, next) => {
         .catch((error) => console.log(error))
 })
 
+router.get('/celebrities/:id', (req, res, next) => {
+    const id = req.params.id
+    // res.render('celebrities/details')
+    console.log(id)
+    Celebrity.findOne({ id: id })
+        .then((celebrity) => {
+            console.log(celebrity)
+            res.render('celebrities/details', { cel: celebrity })
+        })
+        .catch((error) => console.log(error))
+})
+
 module.exports = router;
