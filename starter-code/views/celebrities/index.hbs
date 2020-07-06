@@ -1,0 +1,23 @@
+<h2>Celebrities</h2>
+
+<a href="/addCelebrity">Add a new celebrity!</a>
+
+{{#each celebritiesMongo}}
+
+    <div class="card text-center" style="width: 18rem;">
+
+        <div class="card-body">
+
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">Bla bla bla</p>
+            <a href="/celebrities/{{this._id}}" class="btn btn-primary">Celebrity detail</a>
+            <a href="/celebrities/{{this._id}}/edit" class="btn btn-primary">Edit</a>
+            <form action="celebrities/{{this._id}}/delete" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+
+        </div>
+
+    </div>
+
+{{/each}}
