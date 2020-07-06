@@ -2,7 +2,7 @@
 // Mongoose connect BBDD
 const mongoose = require('mongoose');
 
-const Movie = require('../models/Celebrity.model')
+// const Celebrity = require('../models/Celebrity.model')
 
 mongoose
   .connect('mongodb://localhost/start-code', {
@@ -14,8 +14,6 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   )
   .catch(err => console.error('Error connecting to mongo', err));
-
-
 
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', () => {

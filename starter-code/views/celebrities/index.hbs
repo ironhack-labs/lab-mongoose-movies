@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Celebrities</h1>
+    <div class="row">
+        {{#each celebritiesFromDB as |cel|}}
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{cel.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{cel.name}}</h5>
+                    <p>{{cel.occupation}}</p>
+                    <p class="card-text">{{cel.catchPhrase}}</p>
+                    <a href="#" class="btn btn-primary">View Detail</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
