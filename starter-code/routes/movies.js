@@ -13,6 +13,7 @@ router.get('/movies', (req, res) => {
 router.get('/movies/:id', (req, res) => {
     Movies
         .findById(req.params.id)
+        .populate('moviesOf')
         .then(movie => res.render('movies/show', { movie }))
         .catch(err => console.log('Error', err))
 })

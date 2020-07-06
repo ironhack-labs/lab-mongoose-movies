@@ -6,6 +6,12 @@ const MovieSchema = new Schema({
     plot: String
 })
 
+MovieSchema.virtual('moviesOf', {
+	ref: 'Celebrities',
+	foreignField: 'moviesOf',
+	localField: 'title'
+});
+
 const Movies = mongoose.model('Movies', MovieSchema)
 
 module.exports = Movies
