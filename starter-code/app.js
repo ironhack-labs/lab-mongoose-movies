@@ -42,7 +42,7 @@ hbs.registerPartials(path.join(__dirname, '/views/partials/'))
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Iron Hack Movies';
 
 
 

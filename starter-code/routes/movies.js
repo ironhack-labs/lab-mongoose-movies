@@ -53,26 +53,26 @@ router.get('/movies/:id/delete', (req, res, next) => {
         .catch(error => console.log(error))
 })
 
-/* GET Editing Celebrity 
+/* GET Editing Movie */
 
-router.get('/celebrities/:id/edit', (req, res, next) => {
+router.get('/movies/:id/edit', (req, res, next) => {
     const id = req.params.id
     console.log(id)
 
-    Celebrity.find({ id: id })
-        .then((celebrityDB) => {
-            res.render('celebrities/edit', { cel: celebrityDB })
+    Movie.find({ id: id })
+        .then((moviesDB) => {
+            res.render('movies/edit', { mov: moviesDB })
         })
         .catch(error => console.log(error))
 })
 
-router.post('/celebrities/:id/edit', (req, res, next) => {
+router.post('/movies/:id/edit', (req, res, next) => {
     const id = req.params.id
     const body = req.body
 
-    Celebrity.findOneAndUpdate({ id: id }, body)
-        .then((celebrityDB) => res.redirect('/celebrities'))
+    Movie.findOneAndUpdate({ id: id }, body)
+        .then((movieDB) => res.redirect('/movies'))
         .catch(error => console.log(error))
 })
-*/
+
 module.exports = router;
