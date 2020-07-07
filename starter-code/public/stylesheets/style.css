@@ -14,4 +14,7 @@ a {
 .card {
   margin-top: 50px; }
 
+.btn:hover {
+  text-decoration: none; }
+
 /*# sourceMappingURL=style.css.map */

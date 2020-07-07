@@ -7,8 +7,22 @@
             <div class="card-body">
                 <h5 class="card-title">{{cel.name}}</h5>
                 <p>{{cel.occupation}}</p>
-                <p class="card-text">{{cel.catchPhrase}}</p>
-                <a href="/celebrities/{{cel.id}}/details" class="btn btn-primary">View Detail</a>
+                <div class="row">
+                    <div class="col-12">
+                        <a class="text-decoration-none" href="/celebrities/{{cel.id}}/details">
+                            <button class="btn btn-primary btn-block mb-1">View Detail</button></a>
+                    </div>
+                    <div class="col-12">
+                        <a class="text-decoration-none" class="mb-2" href="/celebrities/{{cel.id}}/edit">
+                            <button class="btn btn-primary btn-block mb-1">Edit</button></a>
+                    </div>
+                    <div class="col-12">
+                        <a class="text-decoration-none" class="" href="/celebrities/{{cel.id}}/delete">
+                            <button class="btn btn-danger btn-block mb-1">Delete</button>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
