@@ -1,0 +1,20 @@
+<h2>DISPLAY ALL CELEBRITIES</h2>
+
+<ul>
+    {{#each celebrities}}
+    <li>
+        <h3>{{this.name}}</h3>
+        <a href="celebrities/{{this.id}}">See more</a>
+        <a class="fa fa-times" href="/celebrities/delete/{{this._id}}">X</a>
+        <a class="fa fa-times" href="/celebrities/edit/{{this._id}}">EDIT</a>
+
+
+    </li>
+
+    {{/each}}
+
+   
+</ul>
+
+ <h4>You do not see your favorite celebrity? </h4>
+    <a href="new">ADD IT NOW</a>

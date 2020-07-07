@@ -1,0 +1,17 @@
+<h2>EDIT</h2>
+
+<form method="post" action="/celebrities/edit/{{cel._id}}" class="form">
+
+    <h2 class="name">EDIT a celebrity</h2>
+
+    <label for="name" id="name" class="label"> Name </label> <br>
+    <input id="name" type="text" name="name" class="input" value="{{cel.name}}"> <br>
+
+    <label for="occupation" id="occupation" class="label">Occupation</label> <br>
+    <input id="occupation" type="text" name="occupation" class="input" value={{cel.occupation}}> <br>
+
+    <label for="catchPhrase" id="catchPhrase" class="label">Catch Phrase</label> <br>
+    <input id="catchPhrase" type="text" name="catchPhrase" class="input" value={{cel.catchPhrase}}> <br>
+
+    <button class="btn">EDIT</button>
+</form>

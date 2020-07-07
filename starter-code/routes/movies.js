@@ -11,12 +11,12 @@ router.get("/movies", (req, res, next) => {
     .catch(next);
 });
 
-router.get("/movie/:id", async (req, res) => {
+router.get("/movie/:id", async (req, res,next) => {
   try {
     const movie = await movieModel.findById(req.params.id);
     res.render("movies/show.hbs", { movie });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 });
 
