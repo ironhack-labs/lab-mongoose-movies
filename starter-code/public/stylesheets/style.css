@@ -9,6 +9,9 @@ a {
 .bg-light {
   background-color: #f8f9facc !important; }
 
+.bg-dark {
+  background-color: #343a40cc !important; }
+
 .cel-photo {
   width: 12rem;
   border-radius: 10px; }

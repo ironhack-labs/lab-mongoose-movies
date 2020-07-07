@@ -1,4 +1,4 @@
-<h1>Edit Celebrity</h1>
+<h1 class="text-white">Edit Celebrity</h1>
 
 {{#each cel}}
 <div class="row">
@@ -6,7 +6,7 @@
         <img class="mov-photo mt-3" src="{{this.image}}" alt="{{this.name}}">
     </div>
     <div class="col-6">
-        <div class="container-form">
+        <div class="container-form mt-3">
             <h3 class="mt-3 mb-3">Edit celebrity</h3>
             <form action="/celebrities/{{this.id}}/edit" method="POST">
                 <div class="form-group">
