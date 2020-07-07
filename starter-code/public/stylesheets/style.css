@@ -1,0 +1,20 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.cel-photo {
+  width: 12rem; }
+
+.container {
+  padding: 50px 0;
+  min-height: calc(100vh - 99px); }
+
+.card {
+  margin-top: 50px; }
+
+.btn:hover {
+  text-decoration: none; }
+
+/*# sourceMappingURL=style.css.map */

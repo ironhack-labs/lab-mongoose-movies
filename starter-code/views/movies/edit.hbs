@@ -1,0 +1,42 @@
+<h1>Edit Movie</h1>
+
+{{#each mov}}
+<div class="row">
+    <div class="col-4">
+        <img class="cel-photo mt-3" src="{{this.plot}}" alt="{{this.title}}">
+    </div>
+    <div class="col-6">
+        <h3 class="mt-3 mb-3">Edit movie</h3>
+        <form action="/movies/{{this.id}}/edit" method="POST">
+            <div class="form-group">
+                <label for="occupation">Movie Title</label>
+                <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp"
+                    value="{{this.title}}">
+            </div>
+            <div class="form-group">
+                <label for="occupation">Genre</label>
+                <input type="text" class="form-control" name="genre" id="genre" value="{{this.genre}}">
+            </div>
+            <div class="form-group">
+                <label for="image">Plot</label>
+                <input type="text" class="form-control" name="plot" id="plot" value="{{this.plot}}">
+                <small id="imageHelp" class="form-text text-muted">Insert complete plot URL</small>
+            </div>
+            <div class="form-group">
+                <label for="image">Movie ID</label>
+                <input type="text" class="form-control" name="id" id="id" value="{{this.id}}">
+                <small id="imageHelp" class="form-text text-muted">No Space and lowercase</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control" name="description" id="description"
+                    rows="3">{{this.description}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Update</button>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>
+{{/each}}
+
+<script src="../../javascripts/movieId.js"></script>
