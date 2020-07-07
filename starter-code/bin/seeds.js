@@ -1,7 +1,7 @@
 /* require("dotenv").config(); */
 require("./../app");
 
-const celebrityModel = require("./../models/Celebrity");
+/* const celebrityModel = require("./../models/Celebrity");
 
 const celebrities = [
   {
@@ -23,5 +23,30 @@ const celebrities = [
 ];
 
 celebrityModel.insertMany(celebrities)
+.then(dbRes => console.log(dbRes))
+.catch(dbErr => console.log(dbErr)); */
+
+const movieModel = require("./../models/Movie");
+
+const movies = [
+  {
+    title: "Wonderful day",
+    genre: "comic",
+    plot: "A bbablablablabla",
+  },
+  {
+    title: "Succes story",
+    genre: "singer",
+    plot: "Have a wonderful voice and kill it in the game",
+  },
+  {
+    title: "murder in town",
+    genre: "drama",
+    plot: "A model killed by her ex-boyfriend",
+  },
+ 
+];
+
+movieModel.insertMany(movies)
 .then(dbRes => console.log(dbRes))
 .catch(dbErr => console.log(dbErr));

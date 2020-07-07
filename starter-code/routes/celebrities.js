@@ -30,9 +30,21 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/:id/delete', (req, res, next) => {
     celebrityModel
-    .findByIdAndRemove(req.param.id)
-    .then(() => res.redirect('/'))
+    .findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/celebrities'))
     .catch(next);
 });
+
+router.get("/:id/edit", async (req, res,next) => {
+   celebrityModel.findById(req.params.id)
+   .then(celebrityToUpdate => res.render("celebrities/edit", celebrityToUpdate))
+   .catch(next)
+});
+
+router.post("/:id/edit", (req, res,next) => {
+   celebrityModel.findByIdAndUpdate(req.params.id, req.body)
+   .then(()=>res.redirect("/celebrities"))
+   .catch(next)
+}); 
 
 module.exports = router;
