@@ -1,0 +1,30 @@
+.nav {
+  font-size: 0.85rem;
+}
+
+#nav-main {
+  padding: 2px 0 6px;
+}
+
+#nav-admin {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid whitesmoke;
+  padding: 6px 0 2px;
+}
+
+#nav-admin .block {
+  padding: 0 10px;
+  border-left: 1px solid whitesmoke;
+}
+
+#nav-admin .block:last-of-type {
+  border-right: 1px solid whitesmoke;
+}
+
+@media (max-width: 540px) {
+  #nav-admin .block {
+    padding: 0 5px;
+  }
+}

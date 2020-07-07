@@ -1,0 +1,10 @@
+#dashboard-intro {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#dashboard-intro .avatar {
+  height: 50px;
+  width: 50px;
+}

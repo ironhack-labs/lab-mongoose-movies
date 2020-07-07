@@ -1,0 +1,15 @@
+<h2>Celebrities list <a href="/"><i class="fas fa-home"></i></a></h2>
+<a href="/celebrities/new">Add</a>
+<ul>
+    {{#each celebrities}}
+    <li>
+        <a href="/celebrities/{{this.id}}">{{this.name}}</a>
+        <a href="/celebrities/delete/{{this.id}}">
+            <i class="fas fa-trash-alt"></i>
+        </a>
+        <a href="/celebrities/edit/{{this.id}}">
+            <i class="fas fa-user-edit"></i>
+        </a>
+    </li>
+    {{/each}}
+</ul>

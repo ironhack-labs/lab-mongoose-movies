@@ -1,0 +1,33 @@
+#search_bar {
+  padding-top: 20px;
+}
+
+#search_bar .input {
+  height: 38px;
+}
+
+#search_bar .btn {
+  margin-left: 10px;
+}
+
+#search_results {
+  background: #2f464fcc;
+  padding: 10px;
+}
+
+#search_results:empty {
+  display: none;
+}
+
+#search_results {
+  background: #2f464fcc;
+  padding: 10px;
+}
+
+#search_results .result:nth-child(odd) {
+  color: whitesmoke;
+}
+
+#search_results .result:nth-child(even) {
+  color: #cbff00;
+}

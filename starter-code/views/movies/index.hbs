@@ -1,0 +1,15 @@
+<h2>Movies list <a href="/"><i class="fas fa-home"></i></a></h2>
+<a href="/movies/new">Add</a>
+<ul>
+    {{#each movies}}
+    <li>
+        <a href="/movies/{{this.id}}">{{this.title}}</a>
+        <a href="/movies/delete/{{this.id}}">
+            <i class="fas fa-trash-alt"></i>
+        </a>
+        <a href="/movies/edit/{{this.id}}">
+            <i class="fas fa-user-edit"></i>
+        </a>
+    </li>
+    {{/each}}
+</ul>

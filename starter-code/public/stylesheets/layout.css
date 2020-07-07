@@ -1,0 +1,24 @@
+#header-main {
+  justify-content: space-between;
+  background: black;
+  color: whitesmoke;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.page {
+  padding: 40px 20px 60px;
+}
+
+.page .link:not(:hover) {
+  color: dodgerblue;
+}
+
+.page > .msg {
+  max-width: 300px;
+  margin: auto;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

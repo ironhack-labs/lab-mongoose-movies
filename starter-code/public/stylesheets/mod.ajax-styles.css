@@ -1,0 +1,39 @@
+#table-styles {
+  width: 100%;
+}
+
+#table-styles .row {
+  display: table-row;
+}
+
+#table-styles .row.is-active {
+  background: #607d8b8a;
+}
+
+#form-create-style {
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 3px;
+  max-width: 550px;
+  justify-content: space-between;
+}
+
+#form-create-style .input {
+  min-width: 120px;
+  max-width: 220px;
+}
+
+#form-create-style .btn {
+  min-width: 80px;
+}
+
+#form-create-style .btn,
+#form-create-style .input {
+  margin: 0 10px 0 0;
+  height: 20px;
+}
+
+
+
+

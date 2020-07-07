@@ -1,0 +1,11 @@
+.table .cover {
+  height: 48px;
+  width: 48px;
+}
+
+.table,
+.table td,
+.table th {
+  border: 1px solid;
+  border-collapse: collapse;
+}
