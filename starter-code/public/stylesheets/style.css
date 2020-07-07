@@ -1,0 +1,153 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('/images/famous-celebrity-interview-vector-illustration-famous-celebrity-interview-vector-illustration-young-movie-star-reporter-176492152.jpg');
+  background-size: 1100px;
+}
+
+
+a {
+  color: #00B7FF;
+}
+
+.title {
+  font-size: 40px;
+}
+
+.movie-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 10px;
+  border-style: none;
+  color: white;
+  background-color: #00B7FF;
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.btn3 {
+  border-radius: 10px;
+  border-style: none;
+  color: white;
+  background-color: #00B7FF;
+  width: 140px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.btn a {
+  color: white;
+  text-decoration: none;
+}
+
+
+.item {
+  width: 350px;
+  height: 420px;
+  border-radius: 10px;
+  background-color: white;
+  margin : 10px;
+  padding: 10px;
+}
+
+.item2 {
+  width: 350px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  margin : 10px;
+  padding: 10px;
+}
+
+.label {
+  font-size: 15px;
+}
+
+.input {
+  width: 120px;
+  height: 20px;
+}
+.input:last-of-type {
+  width: 300px;
+  height: 20px;
+  margin-top: 20px;
+}
+
+.delete-edit {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.btn2 {
+  border-radius: 10px;
+  border-style: none;
+  color: white;
+  background-color: black;
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  margin-left: 570px;
+  margin-top: 40px;
+}
+
+.btn4 {
+  border-radius: 10px;
+  border-style: none;
+  color: white;
+  background-color: black;
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.btn2:hover {
+  background-color: rgb(80, 78, 78);
+}
+.btn2 a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  background-color: white;
+  margin: 10px;
+  height: 60px;
+  
+}
+
+.celeb-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home-page {
+  width: 600px;
+  height: 500px;
+  background-image: url('/images/famous-celebrity-interview-vector-illustration-famous-celebrity-interview-vector-illustration-young-movie-star-reporter-176492152.jpg');
+}
+
+.form-div {
+  border-radius: 10px;
+  width: 900px;
+  background-color: white;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+
+}

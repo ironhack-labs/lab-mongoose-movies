@@ -1,0 +1,18 @@
+<h2>Create a celebrity</h2>
+
+<h1 class="title">Celebrity's form</h1>
+<div class="form-div">
+
+<form method="post" action="/celebrities/edit/{{celebrity._id}}" class="form">
+    <label class="label" for="name" class="label">Name</label>
+    <input class="input" type="text" id="name" name="name" value="{{celebrity.name}}"></input>
+
+    <label class="label" for="occupation" class="label">Occupation</label>
+    <input class="input" type="occupation" id="occupation" name="occupation" value="{{celebrity.occupation}}" ></input>
+
+    <label class="label" for="catchPhrase" class="label">Catch Phrase</label>
+    <input class="input" type="text" id="catchPhrase" name="catchPhrase" value="{{celebrity.catchPhrase}}"></input>
+</div>
+
+    <button class="btn">Update !</button>
+</form>

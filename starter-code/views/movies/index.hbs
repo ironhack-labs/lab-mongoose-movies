@@ -1,0 +1,31 @@
+<h2 class="title">All the Movies</h2>
+<br>
+<section class="movie-section">
+{{#each movies}}
+<div class="item">
+<h3>{{this.title}}</h3> 
+<b>Genre</b> : {{this.genre}}
+<br>
+<br>
+<b>Plot</b> : <br><p class="plot">{{this.plot}}</p>
+</ul>
+<a href="/movies/{{this.id}}">Show more infos</a>
+<br>
+<br>
+<div class="delete-edit">
+<form method="post" action="/movies/{{this._id}}/delete" class="form">
+<button class="btn">Delete</button>
+</form>
+<br>
+<a href="/movies/{{this._id}}/edit"><button class="btn">Edit</button></a>
+</form>
+<br>
+</div>
+</div>
+{{/each}}
+<br>
+<br>
+</section>
+<a href="/movies/new"><button class="btn2">Add a movie</a></button>
+
+

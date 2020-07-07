@@ -1,0 +1,17 @@
+<h2>All celebrities' names</h2>
+
+<section class="celeb-section">
+{{#each celebrities}}
+<div class="item2">
+<h3>Name : <a href="/celebrities/{{this._id}}">{{this.name}}</a></ul></h3>
+<br>
+<a href="/celebrities/delete/{{this._id}}"><button class="btn">Delete</button></a>
+<br>
+<br>
+<a href="/celebrities/edit/{{this._id}}"><button class="btn">Edit</button></a>
+</div>
+{{/each}}
+</section>
+
+<br>
+<a href="/celebrities/new"><button class="btn2">Add celebrity</button></a>
