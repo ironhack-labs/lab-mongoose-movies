@@ -42,13 +42,13 @@ router.post('/movies/new', (req, res, next) => {
         .catch(error => console.log(error))
 })
 
-/* GET Delete Celebrity 
+/* GET Delete Movie */
 
-router.get('/celebrities/:id/delete', (req, res, next) => {
+router.get('/movies/:id/delete', (req, res, next) => {
     const id = req.params.id
-    Celebrity.deleteOne({ id: id })
+    Movie.deleteOne({ id: id })
         .then(() => {
-            res.redirect('/celebrities')
+            res.redirect('/movies')
         })
         .catch(error => console.log(error))
 })
