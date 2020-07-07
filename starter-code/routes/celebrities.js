@@ -8,6 +8,12 @@ router.get('/', (req, res, next) => {
         .catch(next)
 });
 
+router.get('/:id', (req, res, next) => {
+    celebrityModel.findById(req.params.id)
+        .then((oneCelebrity) => res.render('celebrities/show', oneCelebrity ))
+        .catch(next)
+});
+
 
 
 module.exports = router;
