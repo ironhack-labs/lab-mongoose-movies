@@ -25,19 +25,19 @@ router.get('/movies/:id/details', (req, res, next) => {
         .catch((error) => next(error)) // Pasar error a la siguiente peticion 
 })
 
-/* GET New Celebrity 
-router.get('/celebrities/new', (req, res, next) => {
-    res.render('celebrities/new')
+/* GET New Movie */
+router.get('/movies/new', (req, res, next) => {
+    res.render('movies/new')
 })
 
-/* POST New Celebrity 
+/* POST New Movie */
 
-router.post('/celebrities/new', (req, res, next) => {
+router.post('/movies/new', (req, res, next) => {
 
     const body = req.body
-    Celebrity.create(body)
+    Movie.create(body)
         .then(() => {
-            res.redirect('/celebrities')
+            res.redirect('/movies')
         })
         .catch(error => console.log(error))
 })
