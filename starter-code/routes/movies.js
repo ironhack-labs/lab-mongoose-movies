@@ -12,15 +12,15 @@ router.get('/movies', (req, res, next) => {
         .catch((error) => next(error))
 })
 
-/* GET celebrity Detail 
-router.get('/celebrities/:id/details', (req, res, next) => {
+/* GET movies Detail */
+router.get('/movies/:id/details', (req, res, next) => {
     const id = req.params.id
     // res.render('celebrities/details')
     console.log(id)
-    Celebrity.findOne({ id: id })
-        .then((celebrity) => {
-            console.log(celebrity)
-            res.render('celebrities/details', { cel: celebrity })
+    Movie.findOne({ id: id })
+        .then((movie) => {
+            console.log(movie)
+            res.render('movies/details', { mov: movie })
         })
         .catch((error) => next(error)) // Pasar error a la siguiente peticion 
 })
