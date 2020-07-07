@@ -1,19 +1,39 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #000000 url('https://static.abc.es/media/MM/2019/03/15/elonmusk1-kC0H--1440x900@abc.jpg') no-repeat;
+  background-size: cover;
+
 }
 
 a {
   color: #00B7FF;
 }
 
+.bg-light {
+  background-color: #f8f9facc !important;
+}
+
 .cel-photo {
   width: 12rem;
+  border-radius: 10px;
+}
+
+.mov-photo {
+  width: 20rem;
+  border-radius: 10px;
 }
 
 .container {
   padding: 50px 0;
-  min-height: calc(100vh - 99px);
+  min-height: calc(100vh - 98px);
 
+}
+
+.container-form {
+  background-color: #ffffffdd;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  padding: 20px;
 }
 
 .card {

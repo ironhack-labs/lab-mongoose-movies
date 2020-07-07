@@ -3,35 +3,38 @@
 <div class="row">
     <div class="col-4"></div>
     <div class="col-6">
-        <h3 class="mt-3 mb-3">Add new movie</h3>
-        <form action="/movies/new" method="POST">
-            <div class="form-group">
-                <label for="occupation">Movie Title</label>
-                <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp"
-                    placeholder="Enter title">
-                <small id="nameHelp" class="form-text text-muted">Insert the movie title</small>
-            </div>
-            <div class="form-group">
-                <label for="occupation">Genre</label>
-                <input type="text" class="form-control" name="genre" id="genre" placeholder="Enter genre">
-            </div>
-            <div class="form-group">
-                <label for="image">Plot</label>
-                <input type="text" class="form-control" name="plot" id="plot" placeholder="Enter plot URL">
-                <small id="imageHelp" class="form-text text-muted">Insert complete plot URL</small>
-            </div>
-            <div class="form-group">
-                <label for="image">Movie ID</label>
-                <input type="text" class="form-control" name="id" id="id" placeholder="Enter ID">
-                <small id="imageHelp" class="form-text text-muted">No Space and lowercase</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Description</label>
-                <textarea class="form-control" name="description" id="description" rows="3"
-                    placeholder="Enter Description"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Create</button>
-        </form>
+        <div class="container-form">
+            <h3 class="mt-3 mb-3">Add new movie</h3>
+            <form action="/movies/new" method="POST">
+                <div class="form-group">
+                    <label for="occupation">Movie Title</label>
+                    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp"
+                        placeholder="Enter title">
+                    <small id="nameHelp" class="form-text text-muted">Insert the movie title</small>
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Genre</label>
+                    <input type="text" class="form-control" name="genre" id="genre" placeholder="Enter genre">
+                </div>
+                <div class="form-group">
+                    <label for="image">Plot</label>
+                    <input type="text" class="form-control" name="plot" id="plot" placeholder="Enter plot URL">
+                    <small id="imageHelp" class="form-text text-muted">Insert complete plot URL</small>
+                </div>
+                <div class="form-group">
+                    <label for="image">Movie ID</label>
+                    <input type="text" class="form-control" name="id" id="id" placeholder="Enter ID">
+                    <small id="imageHelp" class="form-text text-muted">No Space and lowercase</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Description</label>
+                    <textarea class="form-control" name="description" id="description" rows="3"
+                        placeholder="Enter Description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Create</button>
+            </form>
+        </div>
+
     </div>
     <div class="col-4"></div>
 </div>
