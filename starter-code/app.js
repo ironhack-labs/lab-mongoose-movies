@@ -52,13 +52,9 @@ app.use('/', index);
 const celebrities = require('./routes/celebrities')
 app.use('/', celebrities)
 
-/* Create ID */
+const movies = require('./routes/movies')
+app.use('/', movies)
 
-function trimId() {
-  const name = document.getElementById('name').value
-  const id = document.getElementById('id')
-  id.value = name.trim().toLowerCase()
-}
 
 
 module.exports = app;

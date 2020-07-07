@@ -1,0 +1,30 @@
+<h1>Movies</h1>
+<div class="row">
+    {{#each mov}}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{this.plot}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p>{{this.genre}}</p>
+                <div class="row">
+                    <div class="col-12">
+                        <a class="text-decoration-none" href="/movies/{{this.id}}/details">
+                            <button class="btn btn-primary btn-block mb-1">View Detail</button></a>
+                    </div>
+                    <div class="col-12">
+                        <a class="text-decoration-none" class="mb-2" href="/movies/{{this.id}}/edit">
+                            <button class="btn btn-primary btn-block mb-1">Edit</button></a>
+                    </div>
+                    <div class="col-12">
+                        <a class="text-decoration-none" class="" href="/movies/{{this.id}}/delete">
+                            <button class="btn btn-danger btn-block mb-1">Delete</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
