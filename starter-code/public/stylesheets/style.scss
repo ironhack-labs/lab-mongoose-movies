@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +8,14 @@ a {
 
 .cel-photo {
   width: 12rem;
+}
+
+.container {
+  padding: 50px 0;
+  min-height: calc(100vh - 99px);
+
+}
+
+.card {
+  margin-top: 50px;
 }

@@ -10,14 +10,8 @@ const logger = require('morgan');
 const path = require('path');
 
 
-mongoose
-  .connect('mongodb://localhost/start-code', { useNewUrlParser: true })
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+
+require('./configs/db.config')
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -43,6 +37,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+hbs.registerPartials(path.join(__dirname, '/views/partials/'))
 
 
 
@@ -58,12 +53,5 @@ const celebrities = require('./routes/celebrities')
 app.use('/', celebrities)
 
 
-module.exports = app;
 
-// If the Node process ends, close the Mongoose connection
-process.on('SIGINT', () => {
-  mongoose.connection.close(() => {
-    console.log('Mongoose default connection disconnected through app termination');
-    process.exit(0);
-  });
-});
+module.exports = app;
