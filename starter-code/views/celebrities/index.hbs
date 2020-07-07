@@ -1,0 +1,12 @@
+<h2>Celebrities</h2>
+<a href="/celebrities/new">Add new celebrity</a>
+<ul>
+{{#each celebrity}}
+<li>
+<a href="/celebrities/{{this._id}}">{{this.name}}</a>
+<a href="/celebrities/delete/{{this._id}}">Delete</a>
+<a href="/celebrities/update/{{this._id}}">Update</a>
+</li>
+{{/each}}
+</ul>
+

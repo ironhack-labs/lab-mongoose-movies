@@ -1,0 +1,15 @@
+<form id="form-create-celebrity" method="post" action="/celebrities/update/{{celebriti._id}}" class="form">
+    <h1 class="title">Create Celebrity</h1>
+
+    <label for="name">name</label>
+    <input class="input" id="name" name="name" type="text" required value="{{celebriti.name}}">
+
+    <label for="occupation">occupation</label>
+    <input class="input" id="occupation" name="occupation" type="text" value="{{celebriti.occupation}}">
+
+    <label for="catchPhrase">catchPhrase</label>
+    <input class="input" id="catchPhrase" name="catchPhrase" type="text" value="{{celebriti.catchPhrase}}">
+
+
+    <button class="btn">Edit !</button>
+</form>
