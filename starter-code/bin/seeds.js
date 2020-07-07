@@ -30,7 +30,7 @@ const celebrities = [
     name: 'Meryl Streep',
     occupation: 'Actress',
     catchPhrase: 'Cuando los dioses quieren castigarnos atienden nuestras plegarias',
-    film: 'Outof Africa'
+    film: 'Out of Africa'
     },
     {
     name: 'Jaime Fox',

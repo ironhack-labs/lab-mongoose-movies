@@ -11,7 +11,7 @@ moviesSchema.virtual('cast', {
 	ref: 'Celebrity',
 	foreignField: 'film',
 	localField: 'title'
-});
+})
 
 const Movie = mongoose.model('Movie', moviesSchema)
 
