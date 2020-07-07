@@ -1,0 +1,15 @@
+<form id="form-create-movie" method="post" action="/movies/update/{{movi._id}}" class="form">
+    <h1 class="title">Update Movie</h1>
+
+    <label for="title">Title</label>
+    <input class="input" id="title" name="title" type="text" required value="{{movi.title}}">
+
+    <label for="genre">genre</label>
+    <input class="input" id="genre" name="genre" type="text" value="{{movi.genre}}">
+
+    <label for="plot">plot</label>
+    <input class="input" id="plot" name="plot" type="text" value="{{movi.plot}}">
+
+
+    <button class="btn">Edit !</button>
+</form>
