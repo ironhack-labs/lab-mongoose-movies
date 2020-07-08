@@ -1,0 +1,18 @@
+<a href="/" class="btn btn-warning m-2">Go back</a>
+<h2>MOVIES:</h2>
+<div class="container">
+    <div class="row">
+        {{#each movies}}
+            <div class="col-2 m-2">
+                <div class="card">
+                    <a href="/movies/{{_id}}"><h4>{{title}}</h4></a>
+                    <form action="/movies/{{_id}}/delete" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a href="/movies/{{_id}}/edit/" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<a href="/newmovie" class="btn btn-success m-2">New Movie</a>

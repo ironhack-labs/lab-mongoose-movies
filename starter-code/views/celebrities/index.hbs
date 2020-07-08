@@ -1,0 +1,18 @@
+<a href="/" class="btn btn-warning m-2">Go back</a>
+<h2>CELEBRITIES:</h2>
+<div class="container">
+    <div class="row">
+        {{#each celebrities}}
+            <div class="col-2 m-2">
+                <div class="card">
+                    <a href="/celebrities/{{_id}}"><h4>{{name}}</h4></a>
+                    <form action="/celebrities/{{_id}}/delete" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a href="/celebrities/{{_id}}/edit" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>   
+</div>
+<a href="/newceleb" class="btn btn-success m-2">New Celebrity</a>
