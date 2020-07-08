@@ -1,0 +1,11 @@
+<h2>Edit Movie</h2>
+<div class="container">
+  <div class="item unique">
+    <form action="/movies/{{movieFromDb.id}}" method="post">
+<input type="text"  name="title" id="title-input" placeholder="Title" value="{{movieFromDb.title}}">
+<input type="text"  name="genre" id="genre-input" placeholder="Genre" value="{{movieFromDb.genre}}">
+<textarea type="text-area"  name="plot" rows="10" placeholder="Plot">{{movieFromDb.plot}}</textarea>
+<button type="submit">Update</button>
+</form>
+  </div>
+</div>

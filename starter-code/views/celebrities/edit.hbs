@@ -1,0 +1,12 @@
+<h2>Edit Celebrity</h2>
+<div class="container">
+  <div class="item unique">
+      <form action="/celebrities/{{celebrityFromDb.id}}" method="post">
+<input type="text"  name="name" id="name-input" placeholder="Name" value="{{celebrityFromDb.name}}">
+<input type="text"  name="occupation" id="name-input" placeholder="occupation" value="{{celebrityFromDb.occupation}}">
+<input type="text"  name="catchPhrase" id="name-input" placeholder="Catch Phrase" value="{{celebrityFromDb.catchPhrase}}">
+<button type="submit">Update</button>
+</form>
+  </div>
+
+</div>

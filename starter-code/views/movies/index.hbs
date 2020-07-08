@@ -1,0 +1,16 @@
+
+<h2>Al Movies</h2>
+<a class="add-new" href="movies/new">Add New</a>
+<div class="container">
+{{#each moviesFromDb as |movie|}}
+<div class="item">
+<a href="/movies/{{movie.id}}">
+  <h2>{{movie.title}}</h2>
+  </a>
+  <form action="/movie/{{movie.id}}/delete" method="post">
+  
+  <button class="delete" type="submit">Delete</button></form>
+  </div>
+{{/each}}
+
+</div>
