@@ -1,0 +1,20 @@
+<h2>Browse movies</h2>
+<a href="/movies/new" class="a_navigation">+ Add Movie</a>
+
+
+<div id="display_many">
+{{#each movies}}
+
+<div class="movie container_column">
+        <a href="/movies/{{_id}}" class="a_movie"> {{title}} </a>
+        <div class="container_row">
+        <form action="/movies/{{_id}}/edit" method="GET" >
+        <button type="submit">Edit</button></form>
+        <form action="/movies/{{_id}}/delete" method="POST" >
+        <button type="submit">Delete</button></form>
+        </div>
+
+</div>
+
+{{/each}}
+</div>

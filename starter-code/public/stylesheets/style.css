@@ -1,0 +1,172 @@
+body {
+  /*padding: 50px;
+  */
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+h2 {
+  margin-bottom: 5px;
+}
+
+#display_many {
+  box-sizing: border-box;
+  margin: 3vh 2vw 1vh 2vw ;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+  padding-left: 0;
+}
+
+.container_row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container_column {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: baseline;
+}
+
+nav {
+  box-sizing: border-box;
+  padding: 2vh 2vw;
+  background: black;
+  color: aliceblue;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+#celebs {
+  background: lightgoldenrodyellow;
+  border: 2px solid lemonchiffon;
+  width: 20vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 1vh;
+  cursor: pointer;
+  margin: 5vh 5vw 5vh 20vw;
+}
+
+#celebs a {
+  color: #71c8eb;
+}
+
+#movies {
+  background: #71c8eb;
+  border: 1px solid gainsboro;
+  width: 20vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 1vh;
+  cursor: pointer;
+  margin: 5vh 20vw 5vh 5vw;
+}
+
+#movies a {
+  color : lightgoldenrodyellow;
+}
+
+.celebrity {
+  background: lightgoldenrodyellow;
+  border: 2px solid lemonchiffon;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.celebrity a {
+  color: darkblue;
+}
+
+.form_button {
+  background: honeydew;
+  border: lavender 2px solid;
+  height: 2vh;
+  width: 3vw;
+  cursor: pointer;
+
+}
+
+form {
+  margin-top: 5vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: baseline;
+  position: relative;
+}
+
+form button {
+  cursor: pointer;
+}
+
+label {
+  margin: 1vh 1vw;
+}
+
+input {
+  margin: 1vh 1vw;
+  position: absolute;
+  width: 20vw;
+  left: 20vw;
+  border: 2px solid lightblue;
+}
+
+.btn_add {
+  margin-top: 5vh;
+  position: relative;
+  top: 5vh;
+  left: 21vw;
+  background: #00b7ff;
+  border: 2px solid lightblue;
+  width: 20vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+textarea {
+  margin: 1vh 1vw;
+  position: absolute;
+  width: 30vw;
+  left: 20vw;
+  border: 2px solid lightblue;
+}
+
+.movie {
+  background: #71c8eb;
+  border: 1px solid gainsboro;
+  border-radius: 25px;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.movie a {
+  color: whitesmoke;
+
+}
+

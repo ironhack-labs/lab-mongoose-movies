@@ -1,0 +1,23 @@
+<h2> Add a new movie </h2>
+
+<form action="/movies/new" method="post">
+    <div class="container_row">
+        <label for="title" class="label">Title : </label>
+        <input type="text" class="input" id="title" name="title" value="IronSky 2">
+    </div>
+    <div class="container_row">
+        <label for="genre" class="label">Genre : </label>
+        <input type="text" class="input" id="genre" name="genre" value="Action">
+    </div>
+    <div class="container_row">
+        <label for="plot" class="label">Plot : </label>
+        <textarea class="input" id="plot" name="plot"
+            rows="5"
+            cols="55">A follow-up to the film Iron Sky (2012) in which Nazis plan to take over the world after lying dormant in a secret military base on the moon.</textarea>
+    </div>
+
+
+    <button type="submit" class="btn_add"> add new movie</button>
+
+
+</form>

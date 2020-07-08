@@ -1,0 +1,20 @@
+<h2>All celebrities</h2>
+<a href="/celebrities/new" class="a_navigation">+ Add celebrity</a>
+
+
+<div id="display_many">
+        {{#each celebrities}}
+
+        <div class="celebrity container_column">
+                <a href="/celebrities/{{_id}}" class="a_celebrity"> {{name}} </a>
+                <div class="container_row">
+                        <form action="/celebrities/{{_id}}/edit" method="get" class="form_btn">
+                                <button type="submit">Edit</button></form>
+                        <form action="/celebrities/{{_id}}/delete" method="POST" class="form_btn">
+                                <button type="submit">Delete</button></form>
+                </div>
+
+        </div>
+
+        {{/each}}
+</div>
