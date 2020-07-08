@@ -1,0 +1,31 @@
+{{>helpnav}}
+<div class="container-fluid show">
+    <div class="row">
+        <div class="col-4" id="info-loaded">
+            <h2>ADD A NEW MOVIE</h2>
+            <form action="/movies/new" method="POST">
+                <div class="row justify-content-between">
+                    <div class="form-group col-12">
+                        <label for="imageLabel">Image</label>
+                        <input type="text" name="image" class="form-control" id="imageLabel">
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="nameLabel">Name</label>
+                        <input type="text" name="name" class="form-control" id="nameLabel">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="genreLabel">Genre</label>
+                        <input type="text" name="genre" class="form-control" id="genreLabel">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="plotLabel">Plot</label>
+                        <input type="text" name="plot" class="form-control" id="plotLabel">
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-dark">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{{>helpnav}}
+<div class="container-fluid show">
+    <div class="row">
+        <div class="col-4" id="info-loaded">
+            <h2>EDIT MOVIE</h2>
+            <form action="/movies/{{id}}/edit" method="POST">
+                <div class="row">
+                    <div class="form-group col-12">
+                        <label for="imageLabel">Image</label>
+                        <input type="text" name="image" class="form-control" id="imageLabel" value="{{image}}">
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="titlesLabel">Title</label>
+                        <input type="text" name="title" class="form-control" id="titleLabel" value="{{name}}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="genreLabel">Genre</label>
+                        <input type="text" name="genre" class="form-control" id="genreLabel" value="{{genre}}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="plotLabel">Plot</label>
+                        <input type="text" name="plot" class="form-control" id="plotLabel" value="{{plot}}">
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-dark">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

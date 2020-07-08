@@ -1,0 +1,33 @@
+{{>helpnav}}
+<div class="container-fluid show">
+    <div class="row">
+        <div class="col-6" id="info-loaded">
+            <h2>EDIT CELEBRITY</h2>
+            <form action="/celebrities/{{id}}/edit" method="POST">
+                <div class="row justify-content-between">
+                    <div class="form-group col-12">
+                        <label for="imageLabel">Image</label>
+                        <input type="text" name="image" class="form-control" id="imageLabel" value="{{image}}">
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="nameLabel">Name</label>
+                        <input type="text" name="name" class="form-control" id="nameLabel" value="{{name}}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="occupationLabel">Occupation</label>
+                        <input type="text" name="occupation" class="form-control" id="occupationLabel"
+                            value="{{occupation}}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="catchPhraseLabel">Catch Phrase</label>
+                        <input type="text" name="catchPhrase" class="form-control" id="catchPhraseLabel"
+                            value="{{catchPhrase}}">
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-dark">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
