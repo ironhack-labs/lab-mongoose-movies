@@ -1,9 +1,26 @@
 {{>helpnav}}
-<h2>Lastest celebrities</h2>
-{{#each celebrities as |celebrity|}}
-<p>{{celebrity.name}}</p>
-{{/each}}
-<h2>Lastest movies</h2>
-{{#each movies as |movie|}}
-<p>{{movie.name}}</p>
-{{/each}}
+<div class="container-fluid show">
+  <div class="row">
+    <div class="col-6 feed">
+      <h2>Lastest celebrities</h2>
+      {{#each celebrities as |celebrity|}}
+      <a href="/celebrities/{{celebrity._id}}">
+        <div class="image"
+          style="background: url({{celebrity.image}}) no-repeat center center / cover;">
+        </div>
+        <p>{{celebrity.name}}</p>
+      </a>
+      {{/each}}
+    </div>
+    <div class="col-6 feed">
+      <h2>Lastest movies</h2>
+      {{#each movies as |movie|}}
+      <a href="/movies/{{movie._id}}">
+        <div class="image"
+          style="background: url({{movie.image}}) no-repeat center center / cover;"></div>
+        <p>{{movie.name}}</p>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</div>

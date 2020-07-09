@@ -172,17 +172,24 @@ nav {
   padding: 4rem; }
   .show .card {
     border: 0.1rem solid #e6e6e6;
-    border-radius: 0 4rem 4rem 4rem; }
+    border-radius: 0 4rem 0rem 4rem; }
+    .show .card .card-footer {
+      border-radius: 0 0 0 4rem;
+      padding: 0.5rem 1rem 0.5rem 0; }
   .show .image {
     border-radius: 0 4rem 4rem 4rem;
     height: 32rem;
     width: 100%; }
   .show .block-info {
-    padding: 3rem; }
+    padding: 2rem 2rem 1rem 2rem; }
+    .show .block-info.single .name {
+      color: #b91111;
+      font-size: 2rem; }
     .show .block-info .name {
       font-weight: 600;
-      font-size: 2rem;
-      color: #b91111; }
+      font-size: 1.4rem; }
+      .show .block-info .name a {
+        color: #b91111; }
     .show .block-info .occupation {
       font-size: 1.4rem;
       font-weight: 600;
@@ -204,14 +211,41 @@ nav {
         border: solid 0.1rem #b91111;
         margin-right: 1.6rem; }
     .show .block-info i {
-      color: #333;
-      font-size: 2.4rem;
-      margin-right: 1rem;
-      margin-top: 2rem; }
+      color: #e6e6e6;
+      font-size: 1.6rem;
+      margin-right: 1rem; }
+      .show .block-info i:hover {
+        color: #b91111; }
     .show .block-info form button {
       background: none;
       border: 0; }
-      .show .block-info form button i {
-        color: #b91111; }
+  .show .feed {
+    margin-top: 6rem; }
+    .show .feed a {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 2rem 0;
+      color: #b91111;
+      font-weight: 600; }
+      .show .feed a:hover {
+        text-decoration: none; }
+        .show .feed a:hover .image {
+          opacity: 0.5;
+          transition: opacity 200ms; }
+      .show .feed a .image {
+        width: 6rem;
+        height: 6rem;
+        position: relative;
+        margin-right: 2rem; }
+        .show .feed a .image:before {
+          content: '';
+          width: 6.6rem;
+          height: 6.6rem;
+          border: solid 0.2rem #b91111;
+          position: absolute;
+          border-radius: 0 4rem 4rem 4rem;
+          top: -0.4rem;
+          left: -0.4rem; }
 
 /*# sourceMappingURL=style.css.map */

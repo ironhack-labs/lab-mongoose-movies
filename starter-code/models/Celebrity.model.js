@@ -1,23 +1,26 @@
 const mongoose = require('mongoose')
 require('./Movie.model')
 
-const celebritySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+const celebritySchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true
+    },
+    occupation: {
+      type: String,
+      required: true
+    },
+    catchPhrase: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String
+    }
   },
-  occupation: {
-    type: String,
-    required: true
-  },
-  catchPhrase: {
-    type: String,
-    required: true
-  },
-  image: {
-    type: String
-  }
-})
+  { timestamps: { createdAt: 'created_at' } }
+)
 
 celebritySchema.virtual('movies', {
   ref: 'Movie',

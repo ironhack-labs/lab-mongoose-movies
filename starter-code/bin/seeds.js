@@ -34,12 +34,26 @@ const celebrities = [
       'Being unemployed is not good for any actor, no matter how successful you are. You always remember what it feels like to go to the unemployment office, what it feels like to be fired from all those restaurants.',
     image:
       'https://m.media-amazon.com/images/M/MV5BMTQ0NTA1NTg3Ml5BMl5BanBnXkFtZTcwNzkxNzgxNw@@._V1_SY1000_CR0,0,724,1000_AL_.jpg'
+  },
+  {
+    name: 'Amy Adams',
+    occupation: 'Actress',
+    catchPhrase:
+      "I have worked with some of the meanest people in the world. You can't do anything to intimidate me.",
+    image:
+      'https://m.media-amazon.com/images/M/MV5BMTg2NTk2MTgxMV5BMl5BanBnXkFtZTgwNjcxMjAzMTI@._V1_SY1000_CR0,0,654,1000_AL_.jpg'
+  },
+  {
+    name: 'Julia Roberts',
+    occupation: 'Actress',
+    catchPhrase: "I'm just an ordinary person who has an extraordinary job.",
+    image:
+      'https://m.media-amazon.com/images/M/MV5BMjA3NTY0ODYwOV5BMl5BanBnXkFtZTcwMDI4MjUzMw@@._V1_SY1000_CR0,0,663,1000_AL_.jpg'
   }
 ]
 
 const movies = [
   {
-    celebrity: Celebrity._id,
     name: 'Doubt',
     genre: 'Drama',
     plot:
@@ -49,7 +63,6 @@ const movies = [
     stars: ['Meryl Streep', 'Philip Seymour Hoffman', 'Amy Adams']
   },
   {
-    celebrity: Celebrity._id,
     name: 'The Devil Wears Prada',
     genre: 'Comedy',
     plot:
@@ -59,14 +72,45 @@ const movies = [
     stars: ['Anne Hathaway', 'Meryl Streep', 'Adrian Grenier']
   },
   {
-    celebrity: Celebrity._id,
     name: 'Memento',
     genre: 'Thriller ',
     plot:
       "A man with short-term memory loss attempts to track down his wife's murderer.",
     image:
       'https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,681,1000_AL_.jpg',
-    stars: ['Guy Pearce', 'Carrie-Anne Moss', 'Joe Pantoliano']
+    stars: [
+      'Guy Pearce',
+      'Carrie-Anne Moss',
+      'Joe Pantoliano',
+      'Christopher Nolan'
+    ]
+  },
+  {
+    name: 'Greyhound',
+    genre: 'Action',
+    plot:
+      'Early in World War II, an inexperienced U.S. Navy captain must lead an Allied convoy being stalked by Nazi U-boat wolfpacks.',
+    image:
+      'https://m.media-amazon.com/images/M/MV5BZTFkZjYxNWItZmE2MC00MGE4LWIxYTgtZmIzOWM1YmI2YWEzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SY1000_CR0,0,668,1000_AL_.jpg',
+    stars: ['Tom Hanks', 'Stephen Graham', 'Elisabeth Shue']
+  },
+  {
+    name: "Charlie Wilson's War",
+    genre: 'Biography',
+    plot:
+      'Early in World War II, an inexperienced U.S. Navy captain must lead an Allied convoy being stalked by Nazi U-boat wolfpacks.',
+    image:
+      'https://m.media-amazon.com/images/M/MV5BMTgwMDgwMDc4MF5BMl5BanBnXkFtZTYwOTU3MDM4._V1_.jpg',
+    stars: ['Tom Hanks', 'Julia Roberts', 'Philip Seymour Hoffman', 'Amy Adams']
+  },
+  {
+    name: 'August: Osage County',
+    genre: 'Drama',
+    plot:
+      'A look at the lives of the strong-willed women of the Weston family, whose paths have diverged until a family crisis brings them back to the Oklahoma house they grew up in, and to the dysfunctional woman who raised them.',
+    image:
+      'https://m.media-amazon.com/images/M/MV5BNzQ5ODE4NTcxNV5BMl5BanBnXkFtZTgwNjkyNDQ0MDE@._V1_SY1000_CR0,0,674,1000_AL_.jpg',
+    stars: ['Meryl Streep', 'Dermot Mulroney', 'Julia Roberts']
   }
 ]
 
