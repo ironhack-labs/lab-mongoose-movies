@@ -16,6 +16,9 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
+require('./configs/db.config');
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
