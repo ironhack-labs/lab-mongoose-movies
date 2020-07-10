@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
+/*font-family: 'Montserrat Subrayada', sans-serif;
+font-family: 'Open Sans', sans-serif;*/
+html {
+  font-size: 10px; }
+
+body {
+  font: 1.4rem 'Open Sans', sans-serif;
+  line-height: 2; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: 'Montserrat Subrayada', sans-serif; }
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-left: 3rem;
+  margin-top: 3rem; }
+  h1 a {
+    color: #b91111; }
+    h1 a:hover {
+      color: #b91111;
+      text-decoration: none; }
+
+.logo h2 {
+  color: #fff;
+  margin-bottom: 3rem;
+  font-size: 4rem; }
+
+nav {
+  border-bottom: 0.1rem solid #fff;
+  background-color: #b91111; }
+  nav .navbar-brand {
+    line-height: 1;
+    font-size: 2rem;
+    color: #fff; }
+  nav .nav-link {
+    color: #fff;
+    margin-right: 5rem;
+    padding: 0;
+    margin-top: 2rem; }
+    nav .nav-link:hover {
+      text-decoration: line-through; }
+
+#profile {
+  background: #fff;
+  height: 100vh; }
+  #profile .profile-pic {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background: url(../images/foto.jpg) no-repeat center center/cover;
+    position: relative;
+    margin: 6rem auto 1rem auto; }
+    #profile .profile-pic::before {
+      content: '';
+      position: absolute;
+      width: 9rem;
+      height: 9rem;
+      border-radius: 50%;
+      border: solid 0.2rem #b91111;
+      top: -0.5rem;
+      left: -0.5rem; }
+  #profile .bold {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center; }
+  #profile .light {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center; }
+  #profile .feed {
+    background: #e6e6e6;
+    padding: 1rem 0 !important;
+    margin-top: 3rem;
+    border-radius: 3rem 3rem 3rem 0;
+    position: relative; }
+    #profile .feed .bold {
+      font-size: 1rem; }
+    #profile .feed:before {
+      content: '';
+      position: absolute;
+      background: transparent;
+      width: 6rem;
+      height: 6rem;
+      bottom: -6rem;
+      left: 0px;
+      border-radius: 3rem 0px 0px 0;
+      box-shadow: 0 -3rem 0 #e6e6e6; }
+  #profile .sub-nav {
+    padding: 4rem; }
+    #profile .sub-nav .sub-nav-item {
+      font-size: 1.8rem;
+      margin: 2rem 0;
+      display: block;
+      color: rgba(51, 51, 51, 0.7); }
+      #profile .sub-nav .sub-nav-item i {
+        margin-right: 1rem; }
+      #profile .sub-nav .sub-nav-item.active {
+        color: #b91111; }
+    #profile .sub-nav a:hover {
+      color: #b91111;
+      text-decoration: none; }
+
+#help-nav {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: space-between; }
+  #help-nav label {
+    position: relative; }
+    #help-nav label i {
+      position: absolute;
+      top: 1.3rem;
+      left: 2rem; }
+  #help-nav input {
+    border: solid 0.1rem #e6e6e6;
+    padding: 0.5rem 1rem;
+    padding-left: 5rem;
+    border-radius: 5rem; }
+    #help-nav input:focus {
+      outline: none; }
+  #help-nav .create {
+    border: solid 0.1rem #b91111;
+    background: #b91111;
+    color: #fff;
+    border-radius: 5rem;
+    padding: 1rem 3rem;
+    margin: 0 1rem; }
+    #help-nav .create:hover {
+      text-decoration: none;
+      background: #fff;
+      transition: all 200ms;
+      color: #b91111;
+      border-color: #b91111; }
+  #help-nav .other-items i {
+    font-size: 2rem;
+    color: #e6e6e6;
+    margin: 0 2rem; }
+
+.edit,
+.delete {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  right: 0;
+  border: 0;
+  padding: 1rem;
+  z-index: 5; }
+
+.edit {
+  top: 2rem;
+  background: #b91111 url(../images/edit.svg) no-repeat center center/contain;
+  background-size: 3rem 3rem; }
+
+.delete {
+  top: 7rem;
+  background: #b91111 url(../images/delete.svg) no-repeat center center/contain !important;
+  padding: 1rem !important; }
+
+.image {
+  width: 40rem;
+  height: 40rem;
+  border: 0.1rem solid #fff; }
+
+.show {
+  padding: 4rem; }
+  .show .card {
+    border: 0.1rem solid #e6e6e6;
+    border-radius: 0 4rem 0rem 4rem; }
+    .show .card .card-footer {
+      border-radius: 0 0 0 4rem;
+      padding: 0.5rem 1rem 0.5rem 0; }
+  .show .image {
+    border-radius: 0 4rem 4rem 4rem;
+    height: 32rem;
+    width: 100%; }
+  .show .block-info {
+    padding: 2rem 2rem 1rem 2rem; }
+    .show .block-info.single .name {
+      color: #b91111;
+      font-size: 2rem; }
+    .show .block-info .name {
+      font-weight: 600;
+      font-size: 1.4rem; }
+      .show .block-info .name a {
+        color: #b91111; }
+    .show .block-info .occupation {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333; }
+    .show .block-info .phrase {
+      width: 100%; }
+    .show .block-info .title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-top: 2rem; }
+    .show .block-info .movie-info {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center; }
+      .show .block-info .movie-info .movie {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 5rem;
+        border: solid 0.1rem #b91111;
+        margin-right: 1.6rem; }
+    .show .block-info i {
+      color: #e6e6e6;
+      font-size: 1.6rem;
+      margin-right: 1rem; }
+      .show .block-info i:hover {
+        color: #b91111; }
+    .show .block-info form button {
+      background: none;
+      border: 0; }
+  .show .feed {
+    margin-top: 6rem; }
+    .show .feed a {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 2rem 0;
+      color: #b91111;
+      font-weight: 600; }
+      .show .feed a:hover {
+        text-decoration: none; }
+        .show .feed a:hover .image {
+          opacity: 0.5;
+          transition: opacity 200ms; }
+      .show .feed a .image {
+        width: 6rem;
+        height: 6rem;
+        position: relative;
+        margin-right: 2rem; }
+        .show .feed a .image:before {
+          content: '';
+          width: 6.6rem;
+          height: 6.6rem;
+          border: solid 0.2rem #b91111;
+          position: absolute;
+          border-radius: 0 4rem 4rem 4rem;
+          top: -0.4rem;
+          left: -0.4rem; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,21 @@
+{{>helpnav}}
+<div class="container-fluid show">
+    <div class="row">
+        <div class="col-3 card p-0">
+            <div class="card-header image" style="background: url({{image}}) no-repeat center center /cover;"></div>
+            <div class="block-info single">
+                <div class="name">{{name}} <span class="occupation"> | {{genre}}</span></div>
+                <div class="phrase">{{plot}}</div>
+                <hr>
+                <div class="title">Stars</div>
+                <div class="row">
+                    {{#each stars as |star|}}
+                    <div class="col-12 d-flex">
+                        <p>{{star}}</p>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

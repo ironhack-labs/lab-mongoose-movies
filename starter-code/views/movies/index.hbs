@@ -1,0 +1,31 @@
+{{>helpnav}}
+<div class="container-fluid show">
+    <div class="row">
+        <div class="col-12">
+            <h2>Movies</h2>
+            <div class="row">
+                {{#each moviesFromDB as |movie|}}
+                <div class="col-2">
+                    <div class="col-12 card p-0">
+                        <div class="card-header image"
+                            style="background: url({{movie.image}}) no-repeat center center /cover;">
+                        </div>
+                        <div class="card-body block-info">
+                            <div class="row">
+                                <div class="col-12 name"><a href="/movies/{{movie._id}}">{{movie.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-end block-info">
+                            <a href="/movies/{{movie._id}}/edit"><i class="fas fa-edit"></i></a>
+                            <form action="movies/{{movie._id}}/delete" method="POST">
+                                <button type="submit"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
