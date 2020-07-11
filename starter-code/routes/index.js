@@ -102,7 +102,6 @@ router.get('/movies/:id/edit', (req, res, next) => {
 })
 
 router.post('/movies/:id', (req, res, nex) => {
-  // const { name, occupation, catchPhrase } = req.body;
   Movie.findByIdAndUpdate(req.params.id, req.body)
   .then(movie => {
     console.log(`${movie.name} updated`)

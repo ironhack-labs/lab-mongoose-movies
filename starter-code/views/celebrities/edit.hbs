@@ -2,10 +2,10 @@
     <h2>Edit celebrity</h2>
 </div>
 
-<div class="col-lg-8 edit-container">
+<div class="col-lg-8">
 
-        <div class="edit-info-container">
-            <form class="edit-form" action="/celebrities/{{celebrity._id}}" method="POST">
+        <div>
+            <form  action="/celebrities/{{celebrity._id}}" method="POST">
 
                 <input type="text" name="name" value="{{celebrity.name}}">
                 <input type="text" name="occupation" value="{{celebrity.occupation}}">

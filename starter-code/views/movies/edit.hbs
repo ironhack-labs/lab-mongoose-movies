@@ -2,11 +2,11 @@
     <h2>Edit movie</h2>
 </div>
 
-<div class="col-lg-8 edit-container">
+<div class="col-lg-8">
 
-        <div class="edit-info-container">
+        <div>
 
-            <form class="edit-form" action="/movies/{{movie._id}}" method="POST">
+            <form  action="/movies/{{movie._id}}" method="POST">
 
                 <input type="text" name="title" value="{{movie.title}}">
                 <input type="text" name="genre" value="{{movie.genre}}">

@@ -10,11 +10,11 @@
 
         {{#each moviesMongo}}
 
-            <div class="col-lg-4 celebrities-container">
-                <div class="celebrities-info-container">
+            <div class="col-lg-4">
+                <div >
                     <h5 class="card-title">{{this.title}}</h5>
                     <a href="/movies/{{this._id}}" class="btn btn-primary">Movie detail</a>
-                    <a href="/movies/{{this._id}}/edit" class="btn btn-primary padding-movie-edit">Edit</a>
+                    <a href="/movies/{{this._id}}/edit" class="btn btn-primary">Edit</a>
                     <form action="movies/{{this._id}}/delete" method="POST">
                         <button class="delete-btn" type="submit">Delete</button>
                     </form>
