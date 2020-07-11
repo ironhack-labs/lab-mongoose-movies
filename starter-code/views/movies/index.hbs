@@ -1,0 +1,20 @@
+<h2>Movies</h2>
+
+{{#each this}}
+  {{#if _id}}
+    <h4>{{title}}</h4>
+    <form action="/movies/{{_id}}">
+      <button>View details!</button>
+    </form>
+    <form action="/movies/{{_id}}/delete" method="POST">
+      <button type="submit">Remove movie</button>
+    </form>
+    <form action="/movies/{{_id}}/edit">
+      <button>Update movie</button>
+    </form>
+  {{/if}}
+{{/each}}
+
+<form action="/movies/new">
+  <button>Add a new movie!</button>
+</form>
