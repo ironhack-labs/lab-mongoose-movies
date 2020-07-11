@@ -1,0 +1,16 @@
+
+
+<h2>Update the movie</h2>
+
+<div class="card-body card create">
+
+    <form action="/movies/edit/{{this._id}}" method="POST">
+
+        <input type="text" name="name" value="{{this.name}}">
+        <input type="text" name="genre" value="{{this.genre}}">
+        <input type="text" name="plot" value="{{this.plot}}">
+        <button type="submit" class="card-link btn btn-success">Edit</button>
+
+    </form>
+
+</div>

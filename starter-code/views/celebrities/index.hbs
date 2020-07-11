@@ -1,0 +1,32 @@
+<h2>CELEBRITIES</h2>
+
+
+{{#each allCelebs}}
+
+
+<div class="row">
+
+  <div class="col-sm-6">
+
+    <div class="card list">
+
+      <div class="card-body">
+        <a href="/celebrities/show/{{this._id}}" class="card-title">{{this.name}}<a />
+      </div>
+      <form action="/celebrities/edit/{{this._id}}" method="GET">
+        <button class="card-link btn btn-success" type="submit">edit Ceb</button>
+      </form>
+      <form action="/celebrities/delete/{{this._id}}" method="POST">
+        <button class="card-link btn btn-success" type="submit">Delete Ceb</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+{{/each}}
+<form action="/celebrities/new" method="GET">
+  <button class="card-link btn btn-success" type="submit">Create New Ceb</button>
+</form>

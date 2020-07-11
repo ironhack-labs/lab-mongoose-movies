@@ -1,0 +1,27 @@
+<h2>MOVIES</h2>
+
+{{#each allMovs}}
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card list">
+      <div class="card-body">
+        <a href="/movies/show/{{this._id}}" class="card-title">{{this.name}}<a />
+      </div>
+      <form action="/movies/edit/{{this._id}}" method="GET">
+        <button class="card-link btn btn-success" type="submit">edit Mov</button>
+      </form>
+      <form action="/movies/delete/{{this._id}}" method="POST">
+        <button class="card-link btn btn-success" type="submit">Delete Mov</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+{{/each}}
+<form action="/movies/new" method="GET">
+  <button class="card-link btn btn-success" type="submit">Create New Mov</button>
+</form>
