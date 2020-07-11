@@ -1,0 +1,20 @@
+<h2>Celebrities</h2>
+
+{{#each this}}
+  {{#if _id}}
+    <h4>{{name}}</h4>
+    <form action="/celebrities/{{_id}}">
+      <button>View details!</button>
+    </form>
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+      <button type="submit">Remove celebrity</button>
+    </form>
+    <form action="/celebrities/{{_id}}/edit">
+      <button type="submit">Update celebrity</button>
+    </form>
+  {{/if}}
+{{/each}}
+
+<form action="/celebrities/new">
+  <button>Add a new celebrity!</button>
+</form>
