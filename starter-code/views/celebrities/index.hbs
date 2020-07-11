@@ -1,7 +1,16 @@
-<div class="row d-flex justify-content-center align-items-center h-100">
-  <ul class="list-group" id="celeb-list">
-    {{#each celebs as |celebrity|}}
-    <li class="list-group-item">{{celebrity.name}}</li>
-    {{/each}}
-  </ul>
+<div class="row d-flex flex-column justify-content-center align-items-center h-100" id="celebs-list-wrapper">
+  <div class="wrapper">
+    <h2>Celebrities</h2>
+    <ul class="list-group" id="celeb-list">
+      {{#each celebs as |celebrity|}}
+      <li>
+        <a href="/celebrity/details-{{celebrity.id}}" class="btn btn-outline-secondary ">{{celebrity.name}}</a>
+        <span>
+          <a href="/celebrity/edit-{{celebrity.id}}" class="btn btn-outline-warning">Edit</a>
+          <a href="/celebrity/delete-{{celebrity.id}}" class="btn btn-outline-danger">Delete</a>
+        </span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 </div>
