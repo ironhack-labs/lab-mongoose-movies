@@ -1,0 +1,14 @@
+<a href="/">Go back</a>
+<h2>CELEBRITIES:</h2>
+<div class="list">
+	{{#each celebrities}}
+	<div class="card">
+		<a href="/movies/{{_id}}">{{title}}</a>
+		<form action="/movies/{{_id}}/delete" method="post">
+			<button type="submit">Delete</button>
+		</form>
+	</div>
+	{{/each}}
+</div>
+</div>
+<a href="/newceleb">New Celebrity</a>
