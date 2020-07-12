@@ -1,8 +1,86 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 a {
-  color: #00B7FF; }
+    color: #00B7FF;
+}
 
-/*# sourceMappingURL=style.css.map */
+body,
+html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("https://europa.eu/youth/sites/default/files/article/noticia_educar_en_valores.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#options {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: space-evenly;
+}
+
+div.new-celeb {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+div.new-ceb form {
+    margin: 100px;
+    padding: 100px;
+}
+
+#each-ceb {
+    padding-bottom: 10px;
+}
+
+a#ceb-title {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+}
+
+div.container {
+    padding-bottom: 50px;
+}
+
+#mongoose-movies {
+    background: rgba(255, 250, 250, 0.3);
+    margin: 50px;
+    padding: 10px 10px;
+}
+
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 100px;
+    line-height: 160px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+}
+
+
+/* https://i.pinimg.com/originals/3d/ff/c9/3dffc9c1322689b6140b9dcfa51ef281.jpg */

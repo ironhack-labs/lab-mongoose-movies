@@ -1,32 +1,30 @@
-<h2>CELEBRITIES</h2>
+<h2>Celebrities</h2>
+<div class="container">
+  <div class="row">
 
+    {{#each allCelebs}}
 
-{{#each allCelebs}}
-
-
-<div class="row">
-
-  <div class="col-sm-6">
-
-    <div class="card list">
-
-      <div class="card-body">
-        <a href="/celebrities/show/{{this._id}}" class="card-title">{{this.name}}<a />
+    <div class="col-sm-4 py-2">
+      <div class="card h-100 border-primary card text-center">
+        <div class="card-body">
+          <a href="/celebrities/show/{{this._id}}" id="ceb-title">{{this.name}}</a>
+          <div id="options">
+            <form action="/celebrities/edit/{{this._id}}" method="GET">
+              <button class="btn btn-primary btn-lg" type="submit">Edit</button>
+            </form>
+            <form action="/celebrities/delete/{{this._id}}" method="POST">
+              <button class="btn btn-primary btn-lg" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <form action="/celebrities/edit/{{this._id}}" method="GET">
-        <button class="card-link btn btn-success" type="submit">edit Ceb</button>
-      </form>
-      <form action="/celebrities/delete/{{this._id}}" method="POST">
-        <button class="card-link btn btn-success" type="submit">Delete Ceb</button>
-      </form>
-
     </div>
 
+    {{/each}}
   </div>
-
 </div>
-
-{{/each}}
-<form action="/celebrities/new" method="GET">
-  <button class="card-link btn btn-success" type="submit">Create New Ceb</button>
-</form>
+<div class="text-center" id="new-ceb">
+  <form action="/celebrities/new" method="GET">
+    <button class="card-link btn btn-danger btn-lg" type="submit">Create New Celebrity</button>
+  </form>
+</div>
