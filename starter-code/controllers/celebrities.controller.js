@@ -2,7 +2,7 @@ const Celebrity = require('../models/Celebrity.model');
 
 module.exports.list = (req, res, next) => {
   Celebrity.find({})
-    .then(celebs => res.render('celebrities/index', {celebs}))
+    .then(celebs => res.render('celebrities/list', {celebs}))
     .catch(e => console.error(e));
 };
 

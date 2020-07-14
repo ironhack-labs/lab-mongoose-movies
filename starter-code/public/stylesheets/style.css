@@ -49,10 +49,10 @@ a {
   margin-bottom: 1rem;
 }
 
-#celeb-details li {
+.details li {
   margin: 0.8rem 0 ;
 }
 
-.celebrity-form input {
+.new-form input {
   margin: 1rem;
 }
