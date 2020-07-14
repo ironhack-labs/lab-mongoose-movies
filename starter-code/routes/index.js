@@ -15,6 +15,6 @@ router.post('/celebrity/new', celebController.doCreate);
 router.get('/celebrity/delete-:id', celebController.delete);
 
 router.get('/celebrity/edit-:id', celebController.renderEdit);
-router.post('/celebrity/edit', celebController.doEdit);
+router.post('/celebrity/edit-:id', celebController.doEdit);
 
 module.exports = router;

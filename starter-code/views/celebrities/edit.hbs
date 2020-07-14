@@ -1,1 +1,7 @@
-  {{> celebrityForm this}}
+<div class="row  d-flex flex-column justify-content-center align-items-center h-100">
+  <div class="wrapper">
+    <form action="/celebrity/edit-{{this._id}}" method="POST" class="celebrity-form">
+      {{> celebrityForm this}}
+    </form>
+  </div>
+</div>

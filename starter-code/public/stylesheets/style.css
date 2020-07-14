@@ -53,6 +53,6 @@ a {
   margin: 0.8rem 0 ;
 }
 
-#new-celebrity input {
+.celebrity-form input {
   margin: 1rem;
 }

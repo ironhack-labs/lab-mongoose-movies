@@ -36,7 +36,7 @@ module.exports.renderEdit = (req, res, next) => {
 };
 
 module.exports.doEdit = (req, res, next) => {
-  Celebrity(findByIdAndUpdate(res.body.id, res.body))
-    .then(() => res.redirect('celebrity/list'))
-    .catch(() => res.redirect('/celebrity/edit-' + res.body.id));
+  Celebrity.findByIdAndUpdate({_id :req.params.id}, req.body)
+    .then(() => res.redirect('/celebrity/list'))
+    .catch(() => res.redirect('/celebrity/edit-' + req.params._id));
 };
