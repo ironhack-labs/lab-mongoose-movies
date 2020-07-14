@@ -1,0 +1,16 @@
+<div class="row d-flex flex-column justify-content-center align-items-center h-100" id="celebs-list-wrapper">
+  <div class="wrapper">
+    <h2>Movies</h2>
+    <ul class="list-group" id="celeb-list">
+      {{#each movies as |movie|}}
+      <li>
+        <a href="/movie/details-{{movie.id}}" class="btn btn-outline-secondary ">{{movie.name}}</a>
+        <span>
+          <a href="/movie/edit-{{movie.id}}" class="btn btn-outline-warning">Edit</a>
+          <a href="/movie/delete-{{movie.id}}" class="btn btn-outline-danger">Delete</a>
+        </span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
