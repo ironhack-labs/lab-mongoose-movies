@@ -1,0 +1,21 @@
+<h2>Ironhack Celebrities</h2>
+<div class="row">
+    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+        {{#each celebritiesData as |celebrity|}}
+        <div class="card-header">{{celebrity.name}}</div>
+        <div class="card-body">
+            <div class="card-body">
+                <a href="/celebrities/{{celebrity._id}}" class="card-link">See details</a>
+                <a href="/celebrities/{{celebrity._id}}/edit" class="card-link">Edit</a>
+                <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+                    <button class="btn btn-secondary" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="row">
+    <a class="btn btn-success mt-5" href="/celebrities/new">New Celebrity</a>
+</div>
