@@ -1,0 +1,30 @@
+<h2>Celebrities</h2>
+<div class="container">
+  <div class="row">
+
+    {{#each allCelebs}}
+
+    <div class="col-sm-4 py-2">
+      <div class="card h-100 border-primary card text-center">
+        <div class="card-body">
+          <a href="/celebrities/show/{{this._id}}" id="ceb-title">{{this.name}}</a>
+          <div id="options">
+            <form action="/celebrities/edit/{{this._id}}" method="GET">
+              <button class="btn btn-primary btn-lg" type="submit">Edit</button>
+            </form>
+            <form action="/celebrities/delete/{{this._id}}" method="POST">
+              <button class="btn btn-primary btn-lg" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{/each}}
+  </div>
+</div>
+<div class="text-center" id="new-ceb">
+  <form action="/celebrities/new" method="GET">
+    <button class="card-link btn btn-danger btn-lg" type="submit">Create New Celebrity</button>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<h2>Movies</h2>
+<div class="container">
+  <div class="row">
+
+    {{#each allMovs}}
+
+    <div class="col-sm-4 py-2">
+      <div class="card h-100 border-primary card text-center">
+        <div class="card-body">
+          <a href="/movies/show/{{this._id}}" id="ceb-title">{{this.name}}<a />
+            <div id="options">
+              <form action="/movies/edit/{{this._id}}" method="GET">
+                <button class="btn btn-primary btn-lg" type="submit">Edit</button>
+              </form>
+              <form action="/movies/delete/{{this._id}}" method="POST">
+                <button class="btn btn-primary btn-lg" type="submit">Delete</button>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    {{/each}}
+  </div>
+</div>
+<div class="text-center" id="new-ceb">
+  <form action="/movies/new" method="GET">
+    <button class="card-link btn btn-danger btn-lg" type="submit">Create New Movie</button>
+  </form>
