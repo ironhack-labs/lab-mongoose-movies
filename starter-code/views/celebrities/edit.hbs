@@ -1,0 +1,16 @@
+<!-- IT-6-BONUS: Edit form -->
+
+<h2>Editing "{{thisCeleb.name}}" information:</h2>
+
+<form method="POST" action="/celebrities/{{thisCeleb._id}}">
+    <label for="">Name:</label>
+    <input type="text" name="name" id="name" value="{{thisCeleb.name}}">
+    <br>
+    <label for="">Occupation:</label>
+    <input type="text" name="occupation" id="occupation" value="{{thisCeleb.occupation}}">
+    <br>
+    <label for="">Catch phrase:</label>
+    <input type="text" name="catchPhrase" id="catchPhrase" value="{{thisCeleb.catchPhrase}}">
+    <br>
+    <button type="submit">Save changes</button>
+</form>

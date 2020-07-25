@@ -3,8 +3,13 @@
     {{#each celebrities}}
     <!--IT 2 <p>{{this.name}}</p> -->
     <li>
-        <!--IT 3-->
+        <!--IT 3 -->
         <a href="/celebrities/{{_id}}">{{this.name}}</a>
+        <br>
+        <!-- IT-6 -->
+        <a href="/celebrities/{{_id}}/edit">Edit this celebrity</a>
+        <br>
+        <!-- IT-5 -->
         <form action="/celebrities/{{_id}}/delete" method="POST">
             <button type="submit">Delete this celebrity</button>
         </form>
