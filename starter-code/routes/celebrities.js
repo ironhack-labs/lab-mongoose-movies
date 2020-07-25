@@ -24,6 +24,7 @@ router.get('/new', (req, res, next) => {
     res.render('celebrities/new')
 });
 
+//IT 4
 //POST celebrities
 router.post('/new', (req, res, next) => {
     //Cojo la info del form con req.body y la guardo en 3 constantes.
@@ -50,6 +51,7 @@ router.post('/new', (req, res, next) => {
         })
 });
 
+
 //IT 3
 //GET celebrities/:id  para ver info específica
 router.get('/:id', (req, res, next) => {
@@ -66,5 +68,12 @@ router.get('/:id', (req, res, next) => {
         })
 });
 
+//IT 5
+//POST delete a celebrity
+router.post('/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndRemove(req.params.id)
+        .then(res.redirect('/celebrities'))
+        .catch((err) => console.log('Error while deleting a celebrity', err))
+});
 
 module.exports = router;
