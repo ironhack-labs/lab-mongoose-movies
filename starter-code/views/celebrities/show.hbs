@@ -1,0 +1,19 @@
+<div class="container details-layout">
+    <div class="header">
+        <a href="/celebrities"><</a>
+        <h1>Celebrity Details</h1>
+    </div>
+    <div class="celebrities card-list">
+        <div class="card card--celebrity">
+            <h3 class="card_name">{{celebrity.name}}</h1>
+            <p class="card_occupation">{{celebrity.occupation}}</p>
+            <quote class="card_quote">{{celebrity.catchPhrase}}</quote>
+            <div class="card_buttons">
+                <form action="/celebrities/{{celebrity._id}}/delete" method="post">
+                    <button type="submit" class="btn btn-md btn-primary btn-outline">Delete</button>
+                </form>
+                <a href="/celebrities/{{celebrity._id}}/edit" class="btn btn-md btn-secondary btn-outline">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
