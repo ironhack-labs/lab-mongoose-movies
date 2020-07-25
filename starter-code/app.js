@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/movies-project', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -19,6 +19,8 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+
+//var indexRouter = require('./routes/celebrities');
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
@@ -38,7 +40,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
+//app.set('routes', path.join(__dirname, 'routes'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
