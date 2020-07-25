@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 
-const dbName = "lab-mongoose-movies";
+const dbName = "lab-mongoose-movies"; //Este nombre debe ser el mismo que en app.js linea 14 o no conectará a la DB
 const mongoUrl = `mongodb://localhost/${dbName}`;
 const mongoConfig = {
     useNewUrlParser: true
