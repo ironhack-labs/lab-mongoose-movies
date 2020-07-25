@@ -1,0 +1,19 @@
+<div class="container details-layout">
+    <div class="header">
+        <a href="/movies"><</a>
+        <h1>Detail Movie</h1>
+    </div>
+    <div class="movies card-list">
+        <div class="card card--celebrity">
+            <h3 class="card_name">{{movie.title}}</h1>
+            <p class="card_occupation">{{movie.genre}}</p>
+            <p class="card_quote">{{movie.plot}}</p>
+            <div class="card_buttons">
+                <form action="/movies/{{movie._id}}/delete" method="post">
+                    <button type="submit" class="btn btn-md btn-primary btn-outline">Delete</button>
+                </form>
+                <a href="/movies/{{movie._id}}/edit" class="btn btn-md btn-secondary btn-outline">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>

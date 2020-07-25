@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="celebrities card-list">
+        {{#each movie}}
+        <div class="card card--movie">
+            <h3 class="card_name">{{title}}</h1>
+            <div class="card_buttons">
+                <form action="/movies/{{_id}}/delete" method="post">
+                    <button type="submit" class="btn btn-md btn-primary btn-outline">Delete</button>
+                </form>
+                <a type="submit" href="/movies/{{_id}}/edit" class="btn btn-md btn-secondary btn-outline">Edit</a>
+                <a class="btn btn-md btn-primary" href="/movies/{{_id}}">View Details</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

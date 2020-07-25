@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="header">
+        <a href="/movies"><</a>
+        <h1>Add a new movie</h1>
+    </div>
+    <form action="/movies/new" method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholer="Write a Title">
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" id="genre" name="genre" placeholer="Write an genre">
+        </div>
+        <div class="form-group">
+            <label for="plot">Plot</label>
+            <textarea type="textarea" id="plot" name="plot"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Add Movie</button>
+    </form>
+</div>
