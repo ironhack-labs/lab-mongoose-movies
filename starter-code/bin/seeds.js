@@ -1,3 +1,4 @@
+//IT 1
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 
@@ -6,7 +7,6 @@ const mongoUrl = `mongodb://localhost/${dbName}`;
 const mongoConfig = {
     useNewUrlParser: true
 };
-
 mongoose.connect(mongoUrl, mongoConfig);
 
 const celebritiesList = [{

@@ -1,4 +1,10 @@
 <h2>All celebrities</h2>
-{{#each celebrities}}
-<p>{{this.name}}</p>
-{{/each}}
+<ul>
+    {{#each celebrities}}
+    <!--IT 2 <p>{{this.name}}</p> -->
+    <li>
+        <!--IT 3-->
+        <a href="/celebrities/{{_id}}">{{this.name}}</a>
+    </li>
+    {{/each}}
+</ul>
