@@ -1,0 +1,16 @@
+<!-- IT-12-BONUS: Edit form -->
+
+<h2>Editing "{{thisMovie.title}}" information:</h2>
+
+<form method="POST" action="/movies/{{thisMovie._id}}">
+    <label for="">Title:</label>
+    <input type="text" name="title" id="title" value="{{thisMovie.title}}">
+    <br>
+    <label for="">Genre:</label>
+    <input type="text" name="genre" id="genre" value="{{thisMovie.genre}}">
+    <br>
+    <label for="">Plot:</label>
+    <input type="text" name="plot" id="plot" value="{{thisMovie.plot}}">
+    <br>
+    <button type="submit">Save changes</button>
+</form>

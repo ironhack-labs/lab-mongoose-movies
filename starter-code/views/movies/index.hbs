@@ -5,6 +5,11 @@
     <li>
         <!--IT 8-->
         <a href="/movies/{{_id}}">{{this.title}}</a>
+        <br>
+        <!--IT 12-->
+        <a href="/movies/{{_id}}/edit">Edit this movie</a>
+        <br>
+        <!--IT 11-->
         <form action="/movies/{{_id}}/delete" method="POST">
             <button type="submit">Delete this movie</button>
         </form>

@@ -72,4 +72,38 @@ router.post('/:id/delete', (req, res, next) => {
         .catch((err) => console.log('Error while deleting a movie', err))
 });
 
+//IT 12 - edit a movie
+//GET route to show a form to edit
+router.get('/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .then(thisMovieDB => {
+            res.render('movies/edit', {
+                thisMovie: thisMovieDB
+            })
+        })
+        .catch((err) => {
+            console.log('Error while getting edit.hbs', err)
+            next(err)
+        })
+});
+
+//POST route to send the data from the form and save it to the database
+router.post('/:id', (req, res, next) => {
+    const movieId = req.params.id
+    const body = req.body
+    const updatedMovie = {
+        title: body.title,
+        genre: body.genre,
+        plot: body.plot
+    }
+    Movie.findByIdAndUpdate(movieId, updatedMovie)
+        .then(() => {
+            res.redirect('/movies')
+        })
+        .catch((err) => {
+            console.log('Error while updating a movie from IT 12', err)
+            next(err)
+        })
+})
+
 module.exports = router;
