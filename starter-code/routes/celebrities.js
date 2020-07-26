@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Celebrity = require("../models/Celebrity");
+const { route } = require(".");
 
 /* GET celebrities page */
 router.get("/", (req, res, next) => {
@@ -61,7 +62,40 @@ router.post("/:id/delete", (req, res, next) => {
       res.redirect("/celebrities");
     })
     .catch((err) => {
+      next();
       console.log("An error occurs while deleting a celeb", err);
+    });
+});
+
+/* GET edit celeb*/
+
+router.get("/:id/edit", (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findOne({ _id: celebId })
+    .then((celeb) => {
+      res.render("celebrities/edit", celeb);
+    })
+    .catch((err) => {
+      next();
+      console.log("Error while getting the page for editing a celeb", err);
+    });
+});
+
+/* POST edit celeb */
+
+router.post("/:id", (req, res, next) => {
+  const celebId = req.params.id;
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update(
+    { _id: celebId },
+    { $set: { name, occupation, catchPhrase } },
+    { new: true }
+  )
+    .then((celebUpd) => {
+      res.redirect("/celebrities");
+    })
+    .catch((err) => {
+      console.log("Error occurs while editing a celeb", err);
       next();
     });
 });
