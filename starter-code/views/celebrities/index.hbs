@@ -1,0 +1,12 @@
+{{!-- views/celebrities.hbs --}}
+
+<h2>CELEBRITIES</h2>
+
+{{#each celebrities}}
+<a href="celebrities/{{_id}}">{{this.name}}</a>
+<a href="celebrities/show" class="redirectbutton">Celebrity</a>
+<a href="celebrities/new" class="redirectbtn">Create a new one</a>
+<form action="/celebrities/{{this._id}}/delete" method="post">
+<button type="submit">Delete</button>
+</form>
+{{/each}}
