@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const Celebrity = require("../models/Celebrity");
-const { route } = require(".");
 
 /* GET celebrities page */
 router.get("/", (req, res, next) => {
