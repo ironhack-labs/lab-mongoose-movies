@@ -15,7 +15,26 @@ router.get('/celebrities', async (req, res, next) => {
     }
 });
 
+router.get('/celebrities/:celebId', (req, res, next) => {
+    let celebId = req.params.celebId
+    Celebrity.findOne({'_id': celebId})
+    .populate('celeb')
+    .then(celeb => {
+      if (!celeb) {
+          return res.status(404).render('not-found');
+      }
+      res.render("celebrities/show", { celeb: celeb })
+    })
+    .catch(next)
+})
 
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new')
+})
+
+router.post('/celebrities', (req, res, next) => {
+    
+})
 
 
 module.exports = router;
