@@ -1,9 +1,9 @@
-//IT 2
+//IT 7
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movie');
 
-//IT 2
+//IT 8
 router.get('/', (req, res, next) => {
     Movie.find()
         .then(allMoviesFromDB => {
