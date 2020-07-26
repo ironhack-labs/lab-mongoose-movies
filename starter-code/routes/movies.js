@@ -91,14 +91,12 @@ router.post("/:id", (req, res, next) => {
     { new: true }
   )
     .then((movieUpd) => {
-      res.redirect("/movie");
+      res.redirect("/movies");
     })
     .catch((err) => {
       console.log("Error occurs while editing a movie", err);
       next();
     });
 });
-
-
 
 module.exports = router;
