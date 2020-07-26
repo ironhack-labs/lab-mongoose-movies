@@ -1,0 +1,36 @@
+{{!-- views/books.hbs --}}
+
+<h2>Celebrities Page</h2>
+
+{{#each celebrities}}
+<p>
+
+ <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+</p>
+
+
+
+<p>
+
+<a href="/celebrities/{{this.id}}/edit">Edit</a>
+ 
+
+</p>
+
+<form action="/celebrities/{{this._id}}/delete" method="post">
+  <button type="submit">Delete</button>
+</form>
+
+
+{{/each}}
+<p>
+
+<a href="/celebrities/new">Create a new celebrity</a>
+
+
+</p>
+
+<p>
+ <a href="../">Return</a>
+</p>
+
