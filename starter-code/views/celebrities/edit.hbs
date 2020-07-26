@@ -1,0 +1,10 @@
+<h2> Celebrity edition</h2>
+<form action="/book/edit?celebrity_id={{celebrity._id}}" method="post">
+<label for="">name</label>
+<input type="text" name="name" value="{{celebrity.name}}"/>
+<label for="">occupation</label>
+<input type="text" name="occupation" value="{{celebrity.occupation}}"/>
+<label for="">catchPhrase</label>
+<input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}"/>
+<button type="submit">EDIT</button>
+</form>
