@@ -3,7 +3,7 @@
 
 <a href="/celebrities/{{this._id}}">
     <p> {{this.name}}
-        <a href="/celebrities/edit" class="edit-button">EDIT</a>
+        <a href="/celebrities/{{this._id}}/edit" class="edit-button">EDIT</a>
 
         <form action="/celebrities/{{this._id}}/delete" method="post">
             <button type="submit" class="delete-button">Delete</button>
