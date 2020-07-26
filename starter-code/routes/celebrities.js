@@ -1,20 +1,69 @@
-const mongoose = require('mongoose');
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
-const Celebrity = require('../models/Celebrity');
-
-
+const Celebrity = require("../models/Celebrity");
 
 /* GET celebrities page */
-router.get('/celebrities', (req, res, next) => {
+router.get("/", (req, res, next) => {
   Celebrity.find()
-    .then((celeb) => {
-      if(!celeb) {
-        return 
-      }
-      res.render('/celebrities/index', celeb)
+    .then((celebDB) => {
+      // console.log("hola hola", celeb);
+      res.render("celebrities/index", { celeb: celebDB });
     })
-    .catch(next);   
-    
-})
+    .catch((err) => {
+      console.log("Error while searching index of celebrities", err);
+      next();
+    });
+});
+
+/* GET celebrities id */
+
+router.get("/:id", (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findById({ _id: celebId })
+    .then((celeb) => {
+      res.render("celebrities/show", { celebIndiv: celeb });
+    })
+    .catch((err) => {
+      console.log("Error while searching a individual celebrity", err);
+      next();
+    });
+});
+
+/* GET new celeb page */
+router.get("/new", (req, res, next) => {
+  res.render("celebrities/new");
+});
+
+/* POST new celeb page */
+
+router.post("/", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const newCeleb = new Celebrity({ name, occupation, catchPhrase });
+
+  newCeleb
+    .save()
+    .then((celeb) => {
+      res.redirect("/celebrities");
+    })
+    .catch((err) => {
+      res.render("celebrities/new");
+      console.log(`There was an error while creating a new celeb`, err);
+    });
+});
+
+/* POST delete celeb */
+
+router.post("/:id/delete", (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findByIdAndRemove({ _id: celebId })
+    .then((celeb) => {
+      res.redirect("/celebrities");
+    })
+    .catch((err) => {
+      console.log("An error occurs while deleting a celeb", err);
+      next();
+    });
+});
+
+module.exports = router;
