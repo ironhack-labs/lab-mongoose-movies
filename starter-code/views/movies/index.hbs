@@ -1,9 +1,10 @@
 <h2>All movies</h2>
 <ul>
     {{#each movies}}
-    <!--IT 2-->
+    <!--IT 2 <p>{{this.title}}</p> -->
     <li>
-        <p>{{this.title}}</p>
+        <!--IT 3-->
+        <a href="/movies/{{_id}}">{{this.title}}</a>
     </li>
     {{/each}}
 </ul>

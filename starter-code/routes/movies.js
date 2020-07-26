@@ -18,4 +18,19 @@ router.get('/', (req, res, next) => {
         })
 });
 
+//IT 9 - more info
+router.get('/:id', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .then(thisMovieDB => {
+            console.log(`${thisMovieDB}, movies.js`)
+            res.render('movies/show.hbs', {
+                thisMovie: thisMovieDB
+            })
+        })
+        .catch((err) => {
+            console.log('Error while displaying info about the movie', err)
+            next(err)
+        })
+})
+
 module.exports = router;
