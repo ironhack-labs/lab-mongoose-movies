@@ -1,0 +1,9 @@
+{{!-- viewa/celebrities.hbs --}}
+
+<h2>The Best Celebrities</h2>
+{{#each celebrities}}
+  <p>
+    <!-- ponemos un link en cada nombre para acceder a ficha detallada -->
+    <a href="celebrity/{{this._id}}">{{this.name}}</a>
+  </p>
+{{/each}}
