@@ -1,0 +1,39 @@
+{{!-- <h2>Edit the celebrity...</h2>
+
+<form action="/celebrities/{{celebrity._id}}/edit" method="post">
+
+ <label for="name">Name</label>
+    <input type="text" name="name" placeholder="Do something" value="{{this.celebrity.name}}">
+
+    <label for="">Occupation</label>
+    <input type="text" name="occupation" placeholder="Do something" value="{{this.celebrity.occupation}}">
+
+    <label for="">Catchphrase</label>
+    <input type="text" name="catchPhrase" placeholder="Do something" value="{{this.celebrity.catchPhrase}}">
+
+    <button type="submit">Edit complete</button>
+</form> --}}
+
+
+<div class="container">
+    <div class="header">
+        <a href="/celebrities"></a>
+        <h1>Edit Celebrity</h1>
+    </div>
+    <form action="/celebrities/{{this.celebrity._id}}/edit" method="POST">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholer="Write a name" value="{{celebrity.name}}">
+        </div>
+        <div class="form-group">
+            <label for="occupation">Occupation</label>
+            <input type="text" id="occupation" name="occupation" placeholer="Write an occupation" value="{{celebrity.occupation}}">
+        </div>
+        <div class="form-group">
+            <label for="catchPhrase">Catch Phrase</label>
+            <textarea type="textarea" id="catchPhrase" name="catchPhrase">{{celebrity.catchPhrase}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+    </form>
+</div>
+ 

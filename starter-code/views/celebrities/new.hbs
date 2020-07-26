@@ -1,0 +1,36 @@
+{{!-- <h2>Add a new celebrity</h2>
+<form action="/celebrities/new" method="post">
+    <label for="">Name</label>
+    <input type="text" name="name">
+
+    <label for="">Occupation</label>
+    <input type="text" name="occupation" id="">
+
+    <label for="">Catchphrase</label>
+    <textarea type="textarea" name="catchPhrase" id=""></textarea>
+
+    <button type="submit">ADD</button>
+</form>
+ --}}
+
+<div class="container">
+    <div class="header">
+        <a href="/celebrities"></a>
+        <h1>Add a new Celebrity</h1>
+    </div>
+    <form action="/celebrities/new" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Write a name">
+        </div>
+        <div class="form-group">
+            <label for="occupation">Occupation</label>
+            <input type="text" id="occupation" name="occupation" placeholder="Write an occupation" >
+        </div>
+        <div class="form-group">
+            <label for="catchPhrase">Catch Phrase</label>
+            <textarea type="textarea" id="catchPhrase" name="catchPhrase" placeholder="Write the catch phrase"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">ADD</button>
+    </form>
+</div>
