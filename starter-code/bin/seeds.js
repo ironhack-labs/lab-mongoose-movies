@@ -10,7 +10,7 @@ const mongoConfig = {
 };
 mongoose.connect(mongoUrl, mongoConfig);
 
-/*const celebritiesList = [{
+const celebritiesList = [{
         name: "Veneno",
         occupation: "Prostitute",
         catchPhrase: "Chupa y mama que se derrama"
@@ -32,8 +32,6 @@ Celebrity.create(celebritiesList)
     .catch((err) => console.log(`Error ocurred while creating the celebs in MongoDB: ${err}`));
 
 //node bin/seeds.js para añadirlo a la DB
-
-*/
 
 const moviesList = [{
         title: "Hannah Montana",
