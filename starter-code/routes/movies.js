@@ -45,7 +45,7 @@ router.post('/new', (req, res, next) => {
             console.log('Error while creating a new movie', err)
             res.render('movies/new')
         })
-})
+});
 
 //IT 9 - more info
 router.get('/:id', (req, res, next) => {
@@ -57,9 +57,19 @@ router.get('/:id', (req, res, next) => {
             })
         })
         .catch((err) => {
-            console.log('Error while displaying info about the movie', err)
-            next(err)
+            console.log('Error while displaying info about the movie', err);
+            next(err);
         })
-})
+});
+
+//IT 11 - delete a movie
+
+router.post('/:id/delete', (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+        .then(thisMovieDB => {
+            res.redirect('/movies')
+        })
+        .catch((err) => console.log('Error while deleting a movie', err))
+});
 
 module.exports = router;
