@@ -1,67 +1,55 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
 
 /*# sourceMappingURL=style.css.map */
 .container {
   text-align: center;
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .card {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap; }
 
 .celebrities-box {
   box-shadow: 0px 10px 5px 0px rgba(35, 36, 97, 0.55);
   min-width: 10rem;
   max-width: 32rem;
   padding: 3rem;
-  margin-bottom: 1rem;
-}
+  margin-bottom: 1rem; }
 
 .control {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
+  align-items: center; }
 
 .btn {
   border: none;
   background-color: rgba(255, 20, 4, 0.603);
   padding: 1rem;
-  color: #fff;
-}
+  color: #fff; }
 
 .control a {
   text-decoration: none;
   background-color: rgba(25, 255, 4, 0.603);
   padding: 1rem 1.2rem;
-  color: black;
-}
+  color: black; }
 
 .links {
-  margin-top: 2rem;
-}
+  margin-top: 2rem; }
 
 .links a {
-  padding: 1rem 2rem;
-}
+  padding: 1rem 2rem; }
 
 .celebrities-form-box {
   width: 90%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 .form {
   display: flex;
@@ -69,45 +57,39 @@ a {
   align-items: center;
   flex-wrap: wrap;
   width: 80%;
-  margin: auto;
-}
+  margin: auto; }
 
 .form-group {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 1rem;
-}
+  margin-bottom: 1rem; }
 
 .form-input {
   width: 100%;
   padding: 1rem 2rem;
   border: none;
-  background-color: rgba(135, 135, 241, 0.384);
-}
+  background-color: rgba(135, 135, 241, 0.384); }
 
 .form-input:focus {
   outline: none;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.658);
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.658); }
 
 input[value] {
   border: none;
   background-color: rgba(135, 135, 241, 0.384);
-  padding: 1rem 2rem;
-}
+  padding: 1rem 2rem; }
 
 input[value]:focus {
   outline: none;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.658);
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.658); }
 
 label {
   align-self: flex-start;
-  padding-bottom: 1rem;
-}
+  padding-bottom: 1rem; }
 
 .btn-add {
   padding: 1rem 2rem;
-  margin-top: 1rem;
-}
+  margin-top: 1rem; }
+
+/*# sourceMappingURL=style.css.map */

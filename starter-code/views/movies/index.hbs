@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="celebrities-title">
+        <h2>Movies</h2>
+    </div>
+
+    <div class="card">
+        {{#each allMoviesFromDB}}
+        <div class="celebrities-box">
+
+            <a href="/movie/{{_id}}">
+                <p>{{title}}</p>
+            </a>
+
+            <div class="control">
+                <form class="form" action="movies/{{_id}}/delete" method="post">
+                    <button class="btn" type="submit">Delete</button>
+                </form>
+                <a href="/movies/{{_id}}/edit">Edit</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="links">
+        <a href="/">Home</a>
+        <a href="movies/new">Add Movie</a>
+    </div>
+</div>
