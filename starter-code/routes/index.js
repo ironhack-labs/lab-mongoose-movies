@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-
+/*
 router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
         .then( celebrity => {
@@ -164,6 +164,6 @@ router.post('/movies/:id/edit', (req, res, next) => {
   .catch( (err) => {
     next(err)
   })
-});
+});*/
 
 module.exports = router;

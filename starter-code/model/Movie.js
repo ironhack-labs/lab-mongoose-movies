@@ -9,7 +9,8 @@ const movieSchema = new Schema({
         type: String
     },
     plot: {
-        type: String
+        type: String,
+        required: true
     } 
 })
 
