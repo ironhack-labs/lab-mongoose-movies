@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/celebrity");
 
-const dbtitle = "celebrity";
-mongoose.connect(`mongodb://localhost/${dbtitle}`, {
+const dbname = "celebrity";
+mongoose.connect(`mongodb://localhost/${dbname}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
