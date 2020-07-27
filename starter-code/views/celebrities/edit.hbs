@@ -1,0 +1,9 @@
+<h2>Play whith me!!</h2>
+{{#each celebEdit}}
+<form action="celebrities/{{this._id}}" method="POST">
+    <input type="text" name="celName" value="{{this.name}}">
+    <input type="text" name="celbOccupation" value="{{this.occupation}}">
+    <input type="text" name="celbPhrase" value="{{this.catchPhrase}}">
+    <button type="submit">Send</button>
+</form>
+{{/each}}
