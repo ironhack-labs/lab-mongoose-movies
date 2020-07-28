@@ -1,0 +1,17 @@
+<div>
+  <h2>Celebrities</h2>
+  <!--resultado del find-->
+    {{#each celebrity}}
+    <div>
+        <p>{{this.name}}</p>
+        <a href="/celebrities/{{_id}}">details</a>  
+    </div>
+    {{/each}}
+
+</div>
+<div class="links">
+        <a href="/">Home</a>
+        <a href="/new">Add Celebrity</a>
+</div>
+   
+   
