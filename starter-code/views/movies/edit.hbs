@@ -1,0 +1,23 @@
+<h2>Edit data</h2>
+
+<form method='POST' action:'/movies/:id/edit'>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text" id="basic-addon1"for="title">Title</label>
+        </div>
+        <input name= 'title'type="text" class="form-control" id="title" value='{{movie.title}}'>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text" id="basic-addon1"for="plot">Plot</label>
+        </div>
+        <input name= 'plot'type="text" class="form-control" id="plot" value='{{movie.plot}}'>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="genre">Genre</label>
+        </div>
+        <input name='genre' type="text" class="form-control" id="genre" value='{{movie.genre}}'>
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form> 

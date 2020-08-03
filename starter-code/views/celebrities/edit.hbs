@@ -1,0 +1,23 @@
+<h2>Edit data</h2>
+
+<form method='POST' action:'/celebrities/:id/edit'>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text" id="basic-addon1"for="name">Name</label>
+        </div>
+        <input name= 'name'type="text" class="form-control" id="name" value='{{celebrity.name}}'>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text" id="basic-addon1"for="occupation">Occupation</label>
+        </div>
+        <input name= 'occupation'type="text" class="form-control" id="occupation" value='{{celebrity.occupation}}'>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="catchPhrase">Catchphrase</label>
+        </div>
+        <input name='catchPhrase' type="text" class="form-control" id="catchPhrase" value='{{celebrity.catchPhrase}}'>
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form> 
