@@ -1,0 +1,16 @@
+<div>Edit</div>
+<form method="POST" action="/movies/{{movie._id}}/edit">
+  <div class="form-group">
+    <label for="celebrityName">Title</label>
+    <input name="title" type="text" class="form-control" id="celebrityName" value="{{movie.title}}">
+  </div>
+  <div class="form-group">
+    <label for="celebrityOccupation">Genre</label>
+    <input name="genre" type="text" class="form-control" id="celebrityOccupation" value="{{movie.genre}}">
+  </div>
+  <div class="form-group">
+    <label for="celebrityCatchPhrase">Plot</label>
+    <input name="plot" type="text" class="form-control" id="celebrityCatchPhrase" value="{{movie.plot}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
