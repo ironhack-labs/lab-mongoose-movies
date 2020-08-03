@@ -1,0 +1,18 @@
+<h2> Change your own celeb</h2>
+
+
+<form method="POST" action="/celebrities/{{result._id}}/edit" >
+  <div class="form-group">
+    <label for="celebName">Name</label>
+    <input name="name" type="text" class="form-control" id="celebName" aria-describedby="emailHelp" value="{{result.name}}">
+  </div>
+  <div class="form-group">
+    <label for="celebOccupation">Occupation</label>
+    <input name="occupation" type="text" class="form-control" id="celebOccupation" value="{{result.occupation}}">
+  </div>
+    <div class="form-group">
+    <label for="celebPhrase">Catch Phrase</label>
+    <input name="catchPhrase" type="text" class="form-control" id="celebPhrase" value="{{result.catchPhrase}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

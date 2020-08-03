@@ -1,0 +1,22 @@
+<h2> Build your own movie</h2>
+
+
+<form method="POST" action="/movies" >
+  <div class="form-group">
+    <label for="movieTitle">Title</label>
+    <input name="title" type="text" class="form-control" id="movieTitle" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="movieGenre">Genre</label>
+    <input name="genre" type="text" class="form-control" id="movieGenre">
+  </div>
+    <div class="form-group">
+    <label for="moviePlot">Plot</label>
+    <input name="plot" type="text" class="form-control" id="moviePlot">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+{{#if failedAdd}}
+    <p>Failed building your movie</p>
+{{/if }}

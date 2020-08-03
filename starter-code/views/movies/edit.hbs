@@ -1,0 +1,18 @@
+<h2> Change your own movie</h2>
+
+
+<form method="POST" action="/movies/{{result._id}}/edit" >
+  <div class="form-group">
+    <label for="movieTitle">Title</label>
+    <input name="title" type="text" class="form-control" id="movieTitle" aria-describedby="emailHelp" value="{{result.title}}">
+  </div>
+  <div class="form-group">
+    <label for="movieGenre">Genre</label>
+    <input name="genre" type="text" class="form-control" id="movieGenre" value="{{result.genre}}">
+  </div>
+    <div class="form-group">
+    <label for="moviePlot">Plot</label>
+    <input name="plot" type="text" class="form-control" id="moviePlot" value="{{result.plot}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

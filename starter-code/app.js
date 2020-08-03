@@ -50,9 +50,19 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrities = require('./routes/celebrities.routes');
+app.use('/', celebrities);
+
+const movies = require('./routes/movies.routes');
+app.use('/', movies);
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).render('error.hbs')
+})
 
 
 module.exports = app;

@@ -1,0 +1,22 @@
+<h2> Build your own celeb</h2>
+
+
+<form method="POST" action="/celebrities" >
+  <div class="form-group">
+    <label for="celebName">Name</label>
+    <input name="name" type="text" class="form-control" id="celebName" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="celebOccupation">Occupation</label>
+    <input name="occupation" type="text" class="form-control" id="celebOccupation">
+  </div>
+    <div class="form-group">
+    <label for="celebPhrase">Catch Phrase</label>
+    <input name="catchPhrase" type="text" class="form-control" id="celebPhrase">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+{{#if failedAdd}}
+    <p>Failed changing your celeb</p>
+{{/if }}
