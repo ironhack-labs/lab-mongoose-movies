@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+
+{{#each theCelebrity}}
+<p>
+    <a href="/celebrities/{{_id}}">{{this.name}}</a>
+</p>
+
+<form method="POST" action="/views/{{this._id}}/news"><button type="submit" class="btn btn-primary">AddCelebrity</button></form>
+
+
+{{/each}}
