@@ -16,7 +16,7 @@ router.get('/celebrities', (req, res) => {  //el primer fallo de crear el archiv
         })
   
       
-router.get('/celebrities/:id', (req, res) => {
+router.get('/celebrities/:id', (req, res, next) => {
     Celebrity.findById(req.params.id)
         .then(celebrity => res.render('celebrities/show.hbs', {celebrity}))
         .catch(error => console.log("Oppsss, an error happened", error))
@@ -25,45 +25,47 @@ router.get('/celebrities/:id', (req, res) => {
 
     //create new celebrity
 
-router.get('/views/celebrities/news', (req, res, next) => {
-        // Iteration: Add a new celebrity
-        // ... your code here
-        res.render('../views/celebrities/news.hbs')
-      });
+router.get('/celebrities/news', (req, res) =>{
+      res.render('celebrities/news.hbs')
+    })
 
-router.get('/drones/:id/edit', (req, res, next) => {
-        // Iteration #4: Update the drone
-        // ... your code here
-        console.log(req.params.id)
-        Celebrity.findById(req.params.id)
-            .then((drone) => {
-                console.log(drone)
-                res.render ('../views/celebrities/news.hbs')
-            })
-      });      
-      
-router.post('/celebrities/:id/edit', (req, res, next) => {
-        // Iteration: Add a new celebrity
-        // ... your code here
-    let {name, occupation, catchPhrase} = req.body
+router.post('/celebrities/news', (req, res, next) => {
+      let {name, occupation, catchPhrase} = req.body
     console.log(req.body)
     Celebrity.create(req.body)
           .then(() => {
             res.render('../views/celebrities/news.hbs', {successCelebrity: true})
           })
             .catch(error => console.log("Oppsss, an error happened", error))
-      });
+      });    
 
+      //edit
+router.get('/celebrities/:id/edit', (req, res, next) => {
+      Celebrity.findById(req.params.id)
+        .then((celebrity)=> res.render('celebrities/edit.hbs', {celebrity}))
+        .catch(() => {
+          console.log('Error is:', err)
+      })
+    });
 
+      
+router.post('/celebrities/:id', (req, res, nex) => {
+      // const { name, occupation, catchPhrase } = req.body;
+      Celebrity.findByIdAndUpdate(req.params.id, req.body)
+      .then(celebrity => {
+        console.log('celebrity updated')
+        res.redirect('/celebrities')
+      })
+      .catch(error => console.log('An error has ocurred', error))
+    })
+
+//delete
 router.post('/celebrities/:id/delete', (req, res) => {
-  Celebrity.findByIdAndDelete(req.params.celebrities)
+  Celebrity.findByIdAndDelete(req.params.id)
         .then((result) => {
         res.redirect('/index')
   })
 
-}
-
-  
+})
         
-  
-  module.exports = router;
+module.exports = router;
