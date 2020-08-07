@@ -1,11 +1,15 @@
 <h2>Celebrities</h2>
 
 <div>
+  <a href="/celebrities/new">Create</a>
+  <br>
   {{#each celebrities}}
     <div>
       <h5>Name: {{this.name}}</h5>
       <p>Occupation: {{this.occupation}}</p>
       <p>Catch phrase: {{this.catchPhrase}}</p>
+      <a href="/celebrities/details/{{this._id}}"><button>See info</button></a>
+      <form action="/celebrities/{{this._id}}/delete" method="post"><button>Delete</button></form>
     </div>
     <hr>
   {{/each}}
