@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
+const Movie = require('../models/movie');
 
 const celebrities = [
   {
@@ -24,6 +25,24 @@ const celebrities = [
   },
 ];
 
+const movies = [
+  {
+    title: 'Mission: Impossible',
+    genre: 'Action',
+    plot: 'An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.'
+  },
+  {
+    title: 'Dreamgirls',
+    genre: 'Drama',
+    plot: 'A trio of black female soul singers cross over to the pop charts in the early 1960s, facing their own personal struggles along the way.'
+  },
+  {
+    title: 'The Last Samurai',
+    genre: 'Action',
+    plot: 'An American military advisor embraces the Samurai culture he was hired to destroy after he is captured in battle.'
+  }
+]
+
 mongoose
   .connect('mongodb://localhost/mongoose-movies-dev', {
     useCreateIndex: true,
@@ -35,11 +54,17 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
     
     Celebrity.collection.drop(); //cleans the database
+    Movie.collection.drop();
 
     Celebrity.create(celebrities)
-        .then(celebritiesFromDB => {
-            console.log({ celebritiesFromDB });
-        }).catch(err => console.log(`error seeding the DB: ${err}`))
+      .then(celebritiesFromDB => {
+        console.log({ celebritiesFromDB });
+      }).catch(err => console.log(`error seeding celebs the DB: ${err}`))
+
+    Movie.create(movies)
+      .then(moviesFromDB => {
+        console.log({ moviesFromDB });
+      }).catch(err => console.log(`error seeding movies the DB: ${err}`))
 
     setTimeout(() => {
         mongoose.disconnect();
