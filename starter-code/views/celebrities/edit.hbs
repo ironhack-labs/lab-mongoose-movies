@@ -1,0 +1,16 @@
+<p><a href="/">Home</a> | <a href="/celebrities">All celebs</a> | <a href="/celebrities/new">Add new celeb</a></p>
+<h2>Edit here the details of {{name}}</h2>
+<form action="/celebrities/{{_id}}/edit" method="post">
+
+  <label for="name-input">Name:</label>
+  <input type="text" name="name" id="name-input" value="{{name}}"/>
+
+  <label for="occupation-input">Occupation:</label>
+  <input type="text" name="occupation" id="occupation-input" value="{{occupation}}"/>
+
+  <label for="catchPhrase-input">Catch Phrase:</label>
+  <input type="text" name="catchPhrase" id="catchPhrase-input" value="{{catchPhrase}}"/>
+
+  <button type="submit">Update</button>
+
+</form>

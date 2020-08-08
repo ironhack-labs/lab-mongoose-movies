@@ -1,0 +1,22 @@
+<p><a href="/">Home</a> | <a href="/movies">All movies</a> | <a href="/movies/new">Add new movie</a></p>
+<h2>Edit here the details of {{title}}</h2>
+<form action="/movies/{{_id}}/edit" method="post">
+
+  <label for="title-input">Title:</label>
+  <input type="text" name="title" id="title-input" value="{{title}}"/>
+
+  <label for="director-input">Director:</label>
+  <input type="text" name="director" id="director-input" value="{{director}}"/>
+
+  <label for="year">Year:</label>
+  <input type="number" name="year" id="cyear-input" value="{{year}}"/>
+
+  <label for="stars-input">Stars:</label>
+  <input type="text" name="stars" id="stars-input" value="{{stars}}"/>
+
+  <label for="description-input">Sinopsis:</label>
+  <input type="text" name="description" id="description" value="{{description}}"/>
+
+  <button type="submit">Update</button>
+
+</form>
