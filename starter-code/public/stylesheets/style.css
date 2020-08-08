@@ -1,0 +1,28 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.add-btn {
+  width: 40%;
+  height: 50px;
+  padding-top: 15px;
+  color: cadetblue;
+  border-radius: 25px;
+  border: none;
+  font-size: 1em;
+  font-weight: 600;
+  /* background-color: azure; */
+  margin-top: 10px;
+}
+
+.del-btn {
+  border: none;
+  background: none;
+}
+
+/*# sourceMappingURL=style.css.map */
