@@ -11,15 +11,15 @@ router.get("/", (req,res,next)=>{
 	.catch(err => console.log(`Error retrieving celebrities: ${err}`))
 })
 
-router.get("/create", (req, res, next) => {
-	res.render("celebrities/createCelebrity");
+router.get("/new", (req, res, next) => {
+	res.render("celebrities/new");
 });
 
-router.post("/create", (req, res, next) => {
+router.post("/new", (req, res, next) => {
 	// console.log({ body: req.body });
 	Celebrity.create(req.body)
 		.then((createdCelebrity) => {
-			res.render("celebrities/celebrityDetails", { celebrity: createdCelebrity });
+			res.render("celebrities/show", { celebrity: createdCelebrity });
 		})
 		.catch((err) => console.log(`Error creating celebrity: ${err}`));
 });
