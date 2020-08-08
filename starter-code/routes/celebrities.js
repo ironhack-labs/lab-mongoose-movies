@@ -42,9 +42,9 @@ router.post("/update/:id", (req, res, next) => {
         .catch((err) => console.log(`Error updating celebrity: ${err}`));
 });
 
-router.post("/delete/:id", (req, res, next) => {
+router.post("/:id/delete", (req, res, next) => {
     Celebrity.findByIdAndDelete(req.params.id)
-	.then(() => res.redirect('/celebrities/browse'))
+	.then(() => res.redirect('/celebrities'))
     .catch(error => console.log(`Error while deleting a celebrity: ${error}`));
 });
 
