@@ -17,8 +17,6 @@ mongoose
     await console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
     );
-    let data = await Celebrity.insertMany(celebs);
-    console.log(data);
   })
 
   .catch(err => {
@@ -54,9 +52,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "a new module";
 
 const index = require("./routes/index");
+const index2 = require("./routes/celebrities");
 app.use("/", index);
+app.use("/celebrities", index2);
 
 module.exports = app;
