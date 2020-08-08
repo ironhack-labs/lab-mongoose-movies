@@ -1,0 +1,24 @@
+<h2>Create new celebrity</h2>
+
+<form action="/celebrities/new" method="POST">
+
+    <label for="name-input"> Name </label>
+    <input type="text" name="name" id="name-input">
+    <br>
+
+    <label for="occupation-input"> Occupation </label>
+    <input type="text" name="occupation" id="occupation-input">
+    <br>
+
+    <label for="catchPhrase-input"> Catch Phrase </label>
+    <input type="text" name="catchPhrase" id="catchPhrase-input">
+    <br>
+
+    <button type="submit"> Add </button>
+</form>
+
+<div>
+    {{#if message}}
+    <p><b>{{message}}</b></p>
+    {{/if}}
+</div>
