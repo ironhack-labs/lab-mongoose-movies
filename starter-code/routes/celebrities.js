@@ -12,14 +12,14 @@ router.get("/", (req,res,next)=>{
 })
 
 router.get("/create", (req, res, next) => {
-	res.render("celebrity-views/createCelebrity");
+	res.render("celebrities/createCelebrity");
 });
 
 router.post("/create", (req, res, next) => {
 	// console.log({ body: req.body });
 	Celebrity.create(req.body)
 		.then((createdCelebrity) => {
-			res.render("celebrity-views/celebrityDetails", { celebrity: createdCelebrity });
+			res.render("celebrities/celebrityDetails", { celebrity: createdCelebrity });
 		})
 		.catch((err) => console.log(`Error creating celebrity: ${err}`));
 });
@@ -28,7 +28,7 @@ router.get("/update/:id", (req, res, next) => {
 		const { id } = req.params;
 		Celebrity.findById(id)
 		  .then(celebrityToEdit => {
-			res.render("celebrity-views/editCelebrity", celebrityToEdit);
+			res.render("celebrities/editCelebrity", celebrityToEdit);
 		  })
 		  .catch(error => console.log(`Error while getting a single celebrity for edit: ${error}`));
 	  });
@@ -51,7 +51,7 @@ router.post("/delete/:id", (req, res, next) => {
 router.get('/:id', (req, res, next)=>{
 	Celebrity.findById(req.params.id)
 	.then(celebrityFromDB => {
-		res.render("celebrity-views/celebrityDetails", {celebrity : celebrityFromDB})
+		res.render("celebrities/show", {celebrity : celebrityFromDB})
 	})
 	.catch(err => console.log(`Error retrieving celebrity details: ${err}`))
 	
