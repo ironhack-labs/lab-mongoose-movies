@@ -24,16 +24,16 @@ router.post("/new", (req, res, next) => {
 		.catch((err) => console.log(`Error creating celebrity: ${err}`));
 });
 
-router.get("/update/:id", (req, res, next) => {
+router.get("/edit/:id", (req, res, next) => {
 		const { id } = req.params;
 		Celebrity.findById(id)
 		  .then(celebrityToEdit => {
-			res.render("celebrities/editCelebrity", celebrityToEdit);
+			res.render("celebrities/edit", celebrityToEdit);
 		  })
 		  .catch(error => console.log(`Error while getting a single celebrity for edit: ${error}`));
 	  });
 
-router.post("/update/:id", (req, res, next) => {
+router.post("/edit/:id", (req, res, next) => {
     Celebrity.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((updatedCelebrity) => {
 			console.log({ updatedCelebrity });
