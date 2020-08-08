@@ -1,0 +1,36 @@
+const express = require('express');
+
+//require celebrities model 
+const router = express.Router();
+const CelebrityModel = require('../models/celebrity');
+const celebrity = require('../models/celebrity');
+
+
+//display celebrities and list on localhost:3000/celebrities
+router.get('/celebrities', (req,res, next) => {
+    CelebrityModel.find()
+    .then(allTheCelebritiesFromDB => {
+        console.log(allTheCelebritiesFromDB)
+        res.render('celebrities/index',{celebrities: allTheCelebritiesFromDB})
+    })
+    .catch(err=> {
+        console.log(`Err While getting the Celebrities from the DB: ${err}`)
+      })
+})
+
+
+//display celebrity details on /celebrities/:id
+router.get('/celebrities/:id', (req,res,next) => {
+    const { id } = req.params;
+    console.log(id)
+    CelebrityModel.findById(id)
+    .then(allCelebrityDetails => {
+        console.log(allCelebrityDetails)
+        res.render('celebrities/show', {celebrityDetails: allCelebrityDetails})
+    })
+    .catch(err=> {
+        console.log(`Err While getting the Celebrity Details from the DB: ${err}`)
+    })
+})
+
+module.exports = router;
