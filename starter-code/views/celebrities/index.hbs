@@ -1,6 +1,15 @@
 <h2>All Football Celebs</h2>
 
-<h2>Celebritites</h2>
-{{#each celebs}}
-    <div>Name: {{name}}</div>
-{{/each}}
+<ul>
+  {{#each celebs}}
+    <li>Name: {{name}}</li>
+    <a href='/celebrities/{{_id}}'>See Details</a>
+    <form action='/celebrities/{{id}}/delete' method="post">
+      <button>Delete</button>
+    </form>
+  {{/each}}
+</ul>
+
+<a href='/'>Homepage</a>
+<a href='/celebrities'>List of Football Celeb</a>
+<a href='/celebrities/new'>Create a new Football Celeb</a>

@@ -9,17 +9,17 @@ require('../configs/db.config');
 const footballCelebs = [
   {
     name: 'Messi',
-    occupation: 'Football Player',
+    occupation: 'Attacker',
     catchPhrase: 'The best decisions aren’t made with your mind, but with your instinct.'
   },
   {
-    name: 'Van Dijk',
-    occupation: 'Football Player',
+    name: 'Virgil van Dijk',
+    occupation: 'Defender',
     catchPhrase: 'There are always things we can still learn to perfect.'
   },
   {
     name: 'Cristiano Ronaldo',
-    occupation: 'Football Player',
+    occupation: 'Attacker',
     catchPhrase: 'Sou melhor que Messi'
   }
 ];
