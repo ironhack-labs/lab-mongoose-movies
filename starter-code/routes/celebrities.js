@@ -50,5 +50,12 @@ router.post('/new', (req, res, next) => {
       `Error while creating a new celebrity: ${error}`);
   });
 
+  router.post('/celebrities/:id/delete', (req, res, next) => {
+    const { id } = req.params;
+  
+    CelebrityModel.findByIdAndDelete(id)
+    .then(() => res.redirect('/celebrities'))
+    .catch(error => console.log(`Error while deleting a Celebrity: ${error}`));
+  });
 
 module.exports = router;
