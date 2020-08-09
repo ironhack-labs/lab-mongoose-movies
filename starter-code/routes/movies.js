@@ -52,7 +52,7 @@ router.post('/newMovie', (req, res, next) => {
   router.post('/movies/:id/delete', (req, res, next) => {
     const { id } = req.params;
   
-    MovieModel.findByIdAndDelete(id)
+    MovieModel.findByIdAndRemove(id)
     .then(() => res.redirect('/movies'))
     .catch(error => console.log(`Error while deleting a Movie: ${error}`));
   });

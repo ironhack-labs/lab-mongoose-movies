@@ -3,7 +3,7 @@ const express = require('express');
 //require celebrities model 
 const router = express.Router();
 const CelebrityModel = require('../models/celebrity');
-const celebrity = require('../models/celebrity');
+
 
 
 //display celebrities and list on localhost:3000/celebrities
@@ -53,7 +53,7 @@ router.post('/new', (req, res, next) => {
   router.post('/celebrities/:id/delete', (req, res, next) => {
     const { id } = req.params;
   
-    CelebrityModel.findByIdAndDelete(id)
+    CelebrityModel.findByIdAndRemove(id)
     .then(() => res.redirect('/celebrities'))
     .catch(error => console.log(`Error while deleting a Celebrity: ${error}`));
   });
