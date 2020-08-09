@@ -33,4 +33,22 @@ router.get('/celebrities/:id', (req,res,next) => {
     })
 })
 
+
+//new celebrity form
+router.get('/new', (req,res) =>{
+    res.render('celebrities/new')
+})
+
+router.post('/new', (req, res, next) => {
+    const { name, occupation, catchPhrase} = req.body;
+  
+    CelebrityModel.create({name, occupation, catchPhrase})
+    .then(() => 
+    res.redirect('/celebrities'))
+    .catch(error => 
+      res.redirect('/new') 
+      `Error while creating a new celebrity: ${error}`);
+  });
+
+
 module.exports = router;
