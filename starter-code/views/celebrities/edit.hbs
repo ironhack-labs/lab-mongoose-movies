@@ -2,15 +2,15 @@
 
 <form action="/celebrities/{{_id}}/edit" method="POST">
   <label for="name-input">Name</label>
-  <input type="text" name="name" id="name-input" value="name">
+  <input type="text" name="name" id="name-input" value="{{name}}">
   <br>
 
   <label for="occupation-input">Occupation</label>
-  <input type="text" name="occupation" id="occupation-input" value="occupation"></input>
+  <input type="text" name="occupation" id="occupation-input" value="{{occupation}}">
   <br>
 
   <label for="phrase-input">phrase</label>
-  <textarea type="text" name="catchPhrase" id="phrase-input" value="catchPhrase"></textarea>
+  <textarea type="text" name="catchPhrase" id="phrase-input" value="catchPhrase">{{catchPhrase}}</textarea>
   <br>
 
   <button type="submit">Save Changes</button>
