@@ -1,0 +1,22 @@
+<h2> Edit the Movies Information</h2>
+<div class="container">
+    <div class="form-border">
+        <div id="form-inner">
+            <form action="/movies/{{_id}}/edit" method="post">
+
+                <div class="form-item">
+                    <label for="title"> Movie TItle:</label>
+                    <input type="text" id="title" name="title" value="{{title}}" />
+                </div>
+                <div class="form-item">
+                    <label for="genre"> Movie Genre:</label>
+                    <input type="text" id="genre" name="genre" value="{{genre}}" />
+                </div>
+                <div class="form-item">
+                    <label for="plot"> Plot:</label>
+                    <input type="text" id="plot" name="plot" value="{{plot}}" />
+                </div>
+                <button type="submit"> Edit Movie Information </button>
+        </div>
+    </div>
+    </form>
