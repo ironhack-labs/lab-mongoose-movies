@@ -4,7 +4,7 @@
   {{#each celebs}}
     <li>Name: {{name}}</li>
     <a href='/celebrities/{{_id}}'>See Details</a>
-    <form action='/celebrities/{{id}}/delete' method="post">
+    <form action='/celebrities/{{_id}}/delete' method="post">
       <button>Delete</button>
     </form>
   {{/each}}

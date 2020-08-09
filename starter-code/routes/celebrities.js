@@ -4,7 +4,7 @@ const router = express.Router();
 const Celebrity = require('../models/Celebrity.model');
 
 
-// Iteration 2
+// Iteration 2: Get all Celebs
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebsFromDB => {
@@ -17,7 +17,8 @@ router.get('/celebrities', (req, res, next) => {
     });
 });
 
-// Iteration 3
+
+// Iteration 3: Show Celeb Details
 router.get('/celebrities/:id', (req, res, next) => {
   const { id } = req.params;
   Celebrity.findById(id)
@@ -32,7 +33,7 @@ router.get('/celebrities/:id', (req, res, next) => {
 });
 
 
-// Iteration 4
+// Iteration 4: Create a new Celeb
 router.get('/celebrities/new', (req, res) => res.render('./celebrities/new'));
 
 router.post('/celebrities/new', (req, res) => {
@@ -47,34 +48,53 @@ router.post('/celebrities/new', (req, res) => {
         return;
       }
     })
-    .catch(err => console.log(`Error while creating a new celebrity: ${err}`));
+    .catch((err) => {
+      console.log(`Error while creating a new celebrity: ${err}`);
+      next();
+    });
 });
 
 
-// router.get("/new", (req, res, next) => res.render("celebrities/new"));
-
-// router.post("/new", (req, res, next) => {
-//   const { name, occupation, catchPhrase } = req.body;
-//   Celebrity.findOne({ name }) //do not create one if already exist
-//     .then((celebDocFromDB) => {
-//       if (!celebDocFromDB) {
-//         Celebrity.create({ name, occupation, catchPhrase }).then(() =>
-//           res.redirect("/celebrities")
-//         );
-//       } else {
-//         res.render("celebrities/new", {
-//           message:
-//             "It seems you are already have a celebrity with the same name",
-//         });
-//         return;
-//       }
-//     })
-//     .catch((err) =>
-//       console.log(`Error while creating a new celebrity: ${err}`)
-//     );
-// });
+// Iteration 5: Delete a Celeb
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  Celebrity.findByIdAndDelete(id)
+    .then(() => res.redirect('/celebrities'))
+    .catch((err) => {
+      console.log(`Error while deleting a celebrity: ${err}`);
+      next();
+    });
+});
 
 
+// Iteration 6: Edit a Celeb
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  Celebrity.findById(id)
+    .then(celebToEdit => {
+      res.render('./celebrities/edit', celebToEdit);
+    })
+    .catch((err) => {
+      console.log(`Error while editing a celebrity: ${err}`);
+      next();
+    });
+});
+
+router.post('/celebrities/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  const { name, occupation, catchPhrase } = req.body;
+
+  Celebrity.findByIdAndUpdate(
+    id,
+    { name, occupation, catchPhrase },
+    { new: true }
+  )
+  .then(() => res.redirect('/celebrities'))
+  .catch((err) => {
+    console.log(`Error while editing a celebrity: ${err}`);
+    next();
+  });
+});
 
 
 
