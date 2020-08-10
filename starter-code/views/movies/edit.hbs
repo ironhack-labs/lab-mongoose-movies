@@ -1,0 +1,17 @@
+<h2>Edit movies</h2>
+
+<form action="/movies/{{this._id}}" method="POST">
+    <label for="title-input"> Name </label>
+    <input type="text" name="title" id="title-input" value="{{this.title}}"> </input>
+    <br>
+
+    <label for="genre-input"> Occupation </label>
+    <input type="text" name="genre" id="genre-input" value="{{this.genre}}"> </input>
+    <br>
+
+    <label for="plot-input"> Catch Phrase: </label>
+    <textarea type="text" name="plot" id="catchphrase-input"> {{this.plot}} </textarea>
+    <br>
+
+    <button type="submit"> Save changes </button>
+</form>
