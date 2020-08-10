@@ -1,0 +1,18 @@
+<p><a href="/">Home</a> | <a href="/movies">All movies</a> | <a href="/movies/new">Add new movie</a></p>
+<div class="headings-movie-index">
+    <h2>List of movies</h2>
+</div>
+
+<div>
+    {{#each movies}}
+    <div>
+      <h4> 🎬Title: {{title}}</h4>
+      <p>See details <a href="/movies/{{_id}}">here</a></p>
+      <p>Edit this movies's details <a href="/movies/{{_id}}/edit">here</a></p>
+      <form action="/movies/{{_id}}/delete" method="post">
+        <button type="submit">Delete this movie from the list 🚮</button>
+      </form> 
+    </div>
+    <hr>
+  {{/each}}
+</div>

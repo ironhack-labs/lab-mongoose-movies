@@ -1,13 +1,17 @@
-<h2>Celebrities</h2>
-
+<p><a href="/">Home</a> | <a href="/celebrities">All celebs</a> | <a href="/celebrities/new">Add new celeb</a></p>
+<div class="headings-celeb-index">
+    <h2>List of celebrities</h2>
+</div>
 <div>
-  {{#each celebrities}}
+    {{#each celebrities}}
     <div>
-      <h5>Name: {{this.name}}</h5>
-      <p>Occupation: {{this.occupation}}</p>
-      <p>Catch phrase: {{this.catchPhrase}}</p>
+      <h4> ✨Name: {{name}}</h4>
+      <p>See details <a href="/celebrities/{{_id}}">here</a></p>
+      <p>Edit this celeb's details <a href="/celebrities/{{_id}}/edit">here</a></p>
+      <form action="/celebrities/{{_id}}/delete" method="post">
+        <button type="submit">Delete this celeb from the list 🚮</button>
+      </form> 
     </div>
     <hr>
   {{/each}}
-</div> 
-
+</div>

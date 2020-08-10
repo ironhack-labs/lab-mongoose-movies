@@ -20,5 +20,12 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "main": "app.js",
+  "bin": {
+    "starter-code": "seeds.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
