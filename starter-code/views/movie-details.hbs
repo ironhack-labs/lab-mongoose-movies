@@ -1,0 +1,14 @@
+ 
+
+<a href="/movies">Back</a>
+
+<h2>Movie Details</h2>
+
+{{#with data}}
+
+<h3>{{title}}</h3>
+<p>{{genre}}</p>
+<p> <em>{{plot}}</em> </p>
+
+<a href="/movie-edit/{{_id}}">edit</a>
+{{/with}}
