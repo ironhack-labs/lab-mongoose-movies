@@ -1,0 +1,15 @@
+3 lines (8 sloc)  206 Bytes
+ 
+
+<a href="/celebrities">Back</a>
+
+<h2>Celebrity Details</h2>
+
+{{#with data}}
+
+<h3>{{name}}</h3>
+<p>{{occupation}}</p>
+<p> <em>{{catchPhrase}}</em> </p>
+
+<a href="/celebrity-edit/{{_id}}">edit</a>
+{{/with}}
