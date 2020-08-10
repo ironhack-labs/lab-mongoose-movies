@@ -17,18 +17,6 @@ router.get("/celebrities", (req, res, next) => {
     );
 });
 
-router.get("/celebrities/:id", (req, res, next) => {
-  const { id } = req.params;
-
-  Celebrity.findById(id)
-    .then((celebrityToShow) => {
-      res.render("celebrities/show.hbs", { singleceb: celebrityToShow });
-    })
-    .catch((error) =>
-      console.log(`Error while getting a single celebrity for edit: ${error}`)
-    );
-});
-
 // Iteration #4: Adding New Celebrities
 
 router.get("/celebrities/new", (req, res) => res.render("celebrities/new"));
@@ -51,17 +39,57 @@ router.post("/celebrities/new", (req, res) => {
     .catch((error) => `Error while creating a new book: ${error}`);
 });
 
-// Delete Celebrities
+// Iteration #5: Deleting Celebrities
 
 router.post("/celebrities/:id/delete", (req, res, next) => {
   const { id } = req.params;
 
-  Movie.findByIdAndRemove(id)
+  Celebrity.findByIdAndRemove(id)
     .then(res.redirect("/celebrities"))
     .catch((err) => {
       next;
       console.log("Error deleting celebrity from DB: ", err);
     });
+});
+
+// Iteration #6 (Bonus): Editing Celebrities
+
+router.post('/celebrities/:id', (req, res, next) => {
+  const { id } = req.params;
+  const { name, occupation, catchPhrase } = req.body;
+
+  Celebrity.findByIdAndUpdate(id, {name, occupation, catchPhrase}, {new: true})
+    .then(res.redirect('/celebrities'))
+    .catch(err => {
+      next;
+      console.log('Error updating celeb: ', err)
+    })
+})
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+
+  Celebrity.findById(id)
+    .then(celebToEdit  => {
+      res.render('celebrities/edit', celebToEdit);
+    })
+    .catch(err => {
+      next;
+      console.log('Error retrieving celeb: ', err)
+    })
+})
+
+
+router.get("/celebrities/:id", (req, res, next) => {
+  const { id } = req.params;
+
+  Celebrity.findById(id)
+    .then((celebrityToShow) => {
+      res.render("celebrities/show.hbs", { singleceb: celebrityToShow });
+    })
+    .catch((error) =>
+      console.log(`Error while getting a single celebrity for edit: ${error}`)
+    );
 });
 
 module.exports = router;
