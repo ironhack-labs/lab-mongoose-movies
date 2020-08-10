@@ -1,0 +1,22 @@
+<h2> List of all movies </h2>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th> View Movie </th>
+        <th> Edit </th>
+        <th> Delete </th>
+    </tr>
+
+    {{#each mvovies}}
+    <tr scope="row">
+        <td><a href="/movies/{{this._id}}"> {{this.title}} </a></td>
+        <td> <a href="/edit-movies/{{this._id}}"> Edit </a></td>
+        <td>
+            <form method="post" action="/movies/{{this._id}}/delete">
+                <button class="fa fa-trash del-btn " type="submit"> Delete </button>
+            </form>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+<a class="mx-40 text-center btn btn-primary add-btn" href="/new-movie">Add a new Movie </a>
