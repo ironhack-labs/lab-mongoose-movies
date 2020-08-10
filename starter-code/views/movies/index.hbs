@@ -1,0 +1,19 @@
+<h2>All Movies</h2>
+
+<div class="row row-cols-1 row-cols-md-3">
+  {{#each movies}}
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">{{title}}</h3>
+      </div>
+      <div class="card-body">
+        <h6><a href='/movies/{{_id}}' class="btn btn-primary">Movie Details</a></h6>
+        <form action='/movies/{{_id}}/delete' method="post">
+          <button type="submit" class="btn btn-danger">Delete Movie</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
