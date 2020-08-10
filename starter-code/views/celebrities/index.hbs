@@ -1,15 +1,19 @@
 <h2>All Football Celebs</h2>
 
-<ul>
+<div class="row row-cols-1 row-cols-md-3">
   {{#each celebs}}
-    <li>Name: {{name}}</li>
-    <a href='/celebrities/{{_id}}'>See Details</a>
-    <form action='/celebrities/{{_id}}/delete' method="post">
-      <button>Delete</button>
-    </form>
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">{{name}}</h3>
+      </div>
+      <div class="card-body">
+        <h6><a href='/celebrities/{{_id}}' class="btn btn-primary">Celebrity Details</a></h6>
+        <form action='/celebrities/{{_id}}/delete' method="post">
+          <button type="submit" class="btn btn-danger">Delete Celebrity</button>
+        </form>
+      </div>
+    </div>
+  </div>
   {{/each}}
-</ul>
-
-<a href='/'>Homepage</a>
-<a href='/celebrities'>List of Football Celeb</a>
-<a href='/celebrities/new'>Create a new Football Celeb</a>
+</div>

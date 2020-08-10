@@ -1,17 +1,19 @@
 <h2>Edit a Movie</h2>
 
 <form action="/movies/{{_id}}/edit" method="POST">
-  <label for="title-input">Title</label>
-  <input type="text" name="title" id="title-input" value="{{title}}">
-  <br>
-
-  <label for="genre-input">Genre</label>
-  <input type="text" name="genre" id="genre-input" value="{{genre}}">
-  <br>
-
-  <label for="plot-input">Plot</label>
-  <textarea type="text" name="plot" id="plot-input" value="plot">{{plot}}</textarea>
-  <br>
-
-  <button type="submit">Save Changes</button>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="title-input">Title</label>
+      <input type="text" class="form-control" name="title" id="title-input" value="{{title}}">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="genre-input">Genre</label>
+    <input type="text" class="form-control" name="genre" id="genre-input" value="{{genre}}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="plot-input">phrase</label>
+    <textarea type="text" class="form-control" name="plot" id="plot-input" value="plot">{{plot}}</textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Save Changes</button>
 </form>
