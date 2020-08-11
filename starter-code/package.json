@@ -19,6 +19,13 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
-  }
+    "nodemon": "^2.0.4"
+  },
+  "main": "app.js",
+  "bin": {
+    "starter-code": "seeds.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
