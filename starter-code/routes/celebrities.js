@@ -34,7 +34,7 @@ router.get('/celebrities/:id', (req,res,next) => {
 })
 
 
-//new celebrity form
+//New Celebrity Form
 router.get('/new', (req,res) =>{
     res.render('celebrities/new')
 })
@@ -50,12 +50,45 @@ router.post('/new', (req, res, next) => {
       `Error while creating a new celebrity: ${error}`);
   });
 
+
+  //Delete Celebrity
   router.post('/celebrities/:id/delete', (req, res, next) => {
     const { id } = req.params;
   
     CelebrityModel.findByIdAndRemove(id)
     .then(() => res.redirect('/celebrities'))
     .catch(error => console.log(`Error while deleting a Celebrity: ${error}`));
+  });
+
+
+
+  //Edit Celebrity
+  router.get('/celebrities/:id/edit', (req, res, next) => {
+    const { id } = req.params;
+   CelebrityModel.findById(id)
+      .then(celebrityToEdit => {
+        res.render('celebrities/edit-celebrity.hbs', celebrityToEdit)    
+      })
+      .catch(error =>
+        console.log(`Error while getting a single Celebrity for edit: ${error}`)
+      );});
+  
+
+
+  router.post('/celebrities/:id/edit', (req, res, next) => {
+
+    const { id } = req.params;
+    const { name, occupation, catchPhrase} = req.body;
+  
+    CelebrityModel.findByIdAndUpdate(
+      id,
+      { name, occupation, catchPhrase},
+      {new: true}
+    )
+      .then((updatedCelebrity) => res.redirect(`/celebrities/${updatedCelebrity._id}`))
+      .catch(error => 
+        res.redirect('/celebrities/:id/edit') 
+        `Error while editing a celebrity: ${error}`);
   });
 
 module.exports = router;

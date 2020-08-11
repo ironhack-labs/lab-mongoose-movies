@@ -1,14 +1,20 @@
 <a href="/">Home</a>
+<br>
 <a href="/newMovie">New Movie</a>
 
 
 <hr>
 
 {{#each movies}}
-    <a href="/movies/{{_id}}"> {{title}} </a>
+<section >
+    <h2><a href="/movies/{{_id}}"> {{title}} </a></h2>
     <br>
    <form action="/movies/{{_id}}/delete" method="post">
-        <button type="submit">Delete Movie</button>
+        <button class="btn btn-danger" type="submit">Delete Movie</button>
     </form>
+    <br>
+   <a class = "btn btn-primary" href="/movies/{{_id}}/edit"> Edit Movie </a>
+<hr>
+</section>
 {{/each}}
 

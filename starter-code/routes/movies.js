@@ -57,4 +57,33 @@ router.post('/newMovie', (req, res, next) => {
     .catch(error => console.log(`Error while deleting a Movie: ${error}`));
   });
 
+
+//edit Movie
+router.get('/movies/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+ MovieModel.findById(id)
+    .then(movieToEdit => {
+      res.render('movies/edit-movie.hbs', movieToEdit)    
+    })
+    .catch(error =>
+      console.log(`Error while getting a single Movie for edit: ${error}`)
+    );});
+
+
+
+router.post('/movies/:id/edit', (req, res, next) => {
+
+  const { id } = req.params;
+  const { title, genre, plot} = req.body;
+
+  MovieModel.findByIdAndUpdate(
+    id,
+    { title, genre, plot},
+    {new: true}
+  )
+    .then((updatedMovie) => res.redirect(`/movies/${updatedMovie._id}`))
+    .catch(error => 
+      res.redirect('/movies/:id/edit') 
+      `Error while editing a movie: ${error}`);
+});
 module.exports = router;
