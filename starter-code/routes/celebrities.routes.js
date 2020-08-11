@@ -46,19 +46,24 @@ router.get('/celebrities',(req,res)=> {
 });
 
 router.get('/celebrities/:celebritiesId',(req,res) => {
-    const { celebritiesId } = req.params;
+    const { Id } = req.params;
 
-    Celebrity.findById(celebritiesId)
+    Celebrity.findById(Id)
+        .then(foundCeleb => {
+          res.render('celebrities/show', foundCeleb)
         })
-    .then(foundCelebrity => res.render('celebrities/show', {foundCelebrity}))
-    .catch(err => console.log(`Err while getting a single post from the  DB: ${err}`));
+        .catch(err => {
+          next;
+          console.log('Error loading celebrity from DB: ', err)
+        })
+    })
 
     router.post('/celebrities/new', (req, res, next) => {
         const {name, occupation, catchphrase} = req.body;
-        const celeb = {name: name, occupation: occupation, catchPhrase: catchphrase}
-        const newCeleb = new Celebrity(celeb)
+        const celebrities = {name: name, occupation: occupation, catchPhrase: catchphrase}
+        const newCelebrity = new Celebrity(celeb)
       
-        newCeleb.save()
+        newCelebrity.save()
           .then(res.redirect('/celebrities'))
           .catch(err => res.redirect('/celebrities/new'))
       });
