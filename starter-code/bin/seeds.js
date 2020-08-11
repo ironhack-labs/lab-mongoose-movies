@@ -4,21 +4,21 @@ const { config } = require('dotenv');
 require ("../config/config.db.js")
 
 const celebrities = [{
-    name: 'Jennifer Aniston',
+    name: 'Reese Witherspoon',
     occupation: 'actress',
-    catchPhrase: 'Don’t make plans, make options.'
+    catchPhrase: 'Stick with the nice boys... bad boys do not bring you coffee in bed, I will tell you that for free.'
   },{
-    name: 'David Schwimmer',
-    occupation: 'actor',
-    catchPhrase: 'We were on a break!'
+    name: 'Shailene Woodley',
+    occupation: 'actress',
+    catchPhrase: 'Champagne is never a mistake'
   },{
-    name: 'Matt LeBlanc',
-    occupation: 'actor',
-    catchPhrase: 'How you doin’?'
+    name: 'Meryl Streep',
+    occupation: 'actress',
+    catchPhrase: 'You’re very short. I don’t mean it in a negative way. I find little people to be untrustworthy. My apologies,'
   },{
-    name: 'Ben Stiller',
-    occupation: 'actor',
-    catchPhrase: 'Have you ever wondered if there was more to life other than being really, really, ridiculously good looking?'
+    name: 'Laura Dern',
+    occupation: 'actress',
+    catchPhrase: 'Maybe you should have shown a woman a little respect.'
   }
 ];
 
