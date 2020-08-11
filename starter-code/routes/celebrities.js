@@ -4,14 +4,6 @@ const Celebrity = require('../models/celebrity');
 
 const router = express.Router();
 
-router.post('/celebrities/:id/delete', (req, res) => {
-    const { id } = req.params;
-   
-    Celebrity.findByIdAndDelete(id)
-        .then(() => res.redirect('/celebrities'))
-       .catch(error => console.log(`Error while deleting a celebrity: ${error}`));
-   });
-
 router.get('/celebrities/:id/edit', (req, res, next) => {
     const { id } = req.params;
     Celebrity.findById(id)
@@ -25,16 +17,22 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
   router.post('/celebrities/:id/edit', (req, res) => {
     const { id } = req.params;
     const { name, occupation, catchPhrase } = req.body;
-  
     Celebrity.findByIdAndUpdate(
       id, 
       { name, occupation, catchPhrase },
       { new: true }
     )
-    .then(updatedCelebrity => res.redirect(`/celebrities`))
+    .then(updatedCelebrity => res.redirect('/celebrities'))
     .catch(error =>
       console.log(`Error while updating a single celebrity: ${error}`))
   });
+
+  router.post('/celebrities/:id/delete', (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findByIdAndRemove(id)
+        .then(res.redirect('/celebrities'))
+        .catch(error => console.log(`Error while deleting a celebrity: ${error}`));
+   });
   
 router.get('/celebrities/create', (req, res, next) => {
     res.render('celebrities/new');
@@ -67,8 +65,4 @@ router.get('/celebrities/:id', (req, res, next) => {
     .catch(error =>
       console.log(`Error while getting a single celebrity: ${error}`));
   });
-
-   
-
-
 module.exports = router;
