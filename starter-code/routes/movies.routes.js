@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
  
  //Iteration #7: The Movie Model
- const Movie = require('../models/movie')
+ const Movie = require('../models/Movie.model')
 
  //Iteration #8: Listing Our Movies
  router.get('/movies', (req, res) => {
