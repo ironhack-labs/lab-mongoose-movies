@@ -1,3 +1,4 @@
+//Iteration 1: The Celebrity Model
 const mongoose = require('mongoose');
 const celebritySchema = new mongoose.Schema(
 	{

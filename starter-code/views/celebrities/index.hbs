@@ -1,10 +1,14 @@
+<!--Iteration #2: Listing Our Celebrities-->
 <h2>List of celebrities</h2>
 <div>
-  {{#each}}
-    {{#if id}}
+  {{#each celebrities}}
       <div>
         <h3>{{this.name}}</h3>
+        <a href="/celebrities/show{{_id}}"></a>">View celebrities</a>
       </div>
-    {{/if}}
   {{/each}}
 </div>
+<!--Iteration #4: Adding New Celebrities-->
+<a type="button" href="/celebrities/new">Add a new celebrity</a>
+
+<a type="button" href="/">Back Home</a>
