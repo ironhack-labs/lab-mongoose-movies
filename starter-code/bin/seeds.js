@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const celebrities = [{
         name: "Robert Downey Jr",
         occupation: "Iron Man",

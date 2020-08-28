@@ -1,4 +1,7 @@
 <h2>Add new Celebrity</h2>
+{{#if error}}
+<p>{{error}}</p>
+{{/if}}
 <form action="/celebrities/new" method="post">
     <label for="name">Name:</label>
     <input required name="name" type="text">
