@@ -1,2 +1,59 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="row">
+    <div class="col-md-6"><h2>Celebrities</h2></div>
+    <div class="col-md-6"><a class="btn btn-primary btn-block" href="/celebrities/new">Add Celebrities</a></div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <table class="table table-striped table-dark table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Detail</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each allCelebrities}}
+                <tr>
+                    <th>{{name}}</th>
+                    <td><a class="btn btn-primary btn-block" href="/celebrities/update/{{_id}}">Celebrity Update</a></td>
+                    <td><a class="btn btn-primary btn-block" href="/celebrities/{{_id}}">Celebrity Details</a></td>
+                    <td><a class="btn btn-danger btn-block" href="/celebrities/delete/{{_id}}">Celebrity Delete</a></td>
+                </tr>            
+                {{/each }}
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-6"><h2>Movies</h2></div>
+    <div class="col-md-6"><a class="btn btn-primary btn-block" href="/movies/add">Add Movie</a></div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <table class="table table-striped table-dark table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Detail</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each allMovies}}
+                <tr>
+                    <th>{{title}}</th>                    
+                    <td><a class="btn btn-primary btn-block" href="/movies/edit/{{_id}}">Movie Update</a></td>
+                    <td><a class="btn btn-primary btn-block" href="/movies/detail/{{_id}}">Movie Details</a></td>
+                    <td><a class="btn btn-danger btn-block" href="/movies/delete/{{_id}}">Movie Delete</a></td>
+                </tr>            
+                {{/each }}
+            </tbody>
+        </table>
+    </div>
+</div>

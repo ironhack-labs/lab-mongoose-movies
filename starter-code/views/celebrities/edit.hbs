@@ -1,0 +1,18 @@
+<h2>Update Celebrity</h2>
+<br>
+<form action="/celebrities/update/{{_id}}" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input required class="form-control"value="{{name}}" name="name" type="text">
+        </div>
+        <div class="form-group">
+            <label for="occupation">Occupation:</label>
+            <input required class="form-control" value="{{occupation}}" name="occupation" type="text">        
+        </div>
+        <div class="form-group">
+            <label for="catchPhrase">CatchPhrase:</label>
+            <input required class="form-control" value="{{catchPhrase}}" name="catchPhrase" type="text">        
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Update</button>&nbsp;&nbsp;<a class="btn btn-info" href="/">Return to Index</a>
+</form>
