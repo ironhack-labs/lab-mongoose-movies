@@ -1,13 +1,14 @@
+<a href="/">Go back</a>
 <h2>Celebrities</h2>
-<ul>
+<div>
     {{#each allCelebs}}
-    <li>{{name}}</li>
+    <h3>{{name}}</h3>
     <a href="/celebrities/{{_id}}">Celebrity details</a>
-    <form action="/celebtities/update/{{_id}}" method="post">
-        <button type="submit">Update</button>
+    <form action="/celebrities/edit/{{_id}}" method="get">
+        <button type="submit">Edit</button>
     </form>
-    <form action="/celebtities/delete/{{_id}}" method="post">
+    <form action="/celebrities/delete/{{_id}}" method="post">
         <button type="submit">Delete</button>
     </form>
     {{/each }}
-</ul>
+</div>

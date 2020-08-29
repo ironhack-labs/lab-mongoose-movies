@@ -1,5 +1,6 @@
-<h2>Update Celebrity</h2>
-<form action="/celebrities/update/{{_id}}" method="post">
+<a href="/celebrities">Go back</a>
+<h2>Edit {{name}}</h2>
+<form action="/celebrities/{{_id}}" method="post">
     <label for="name">Name:</label>
     <input required value="{{name}}" name="name" type="text">
     <label for="occupation">Occupation:</label>

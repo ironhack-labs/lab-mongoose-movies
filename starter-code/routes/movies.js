@@ -1,28 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const Movie = require("../models/Movie")
 const {
-    listMovies
-} = require('../controllers/movies')
+    listMovies,
+    movieDetails,
+    formMovie,
+    createMovie,
+    deleteMovie,
+    updateForm,
+    updateMovie
+} = require('../controllers/movies');
+const {
+    route
+} = require('./celebrities');
 
-
+// View all the movies
 router.get("/movies", listMovies)
 
-// router.get("movies/:movieID", movieDetails)
+// View one movie details
+router.get("/movies/:movieID", movieDetails)
 
-// //ITERACION 4
-// router.get("/movies/new", (req, res) => res.render( /*aca teneos que regresar el form para crear una ceebridad?*/ ))
+// View form to create new movie
+router.get("/movies/new", formMovie)
 
+// Create new movie in DB
+router.post("/movies", createMovie)
 
+// Delete movie from DB
+router.post("/movies/delete/:movieID", deleteMovie)
 
-// router.post("/movies", createMovie)
+// View for editing movies
+router.get("/movies/edit/:movieID", updateForm)
 
-// //ITERACION 5
-// router.post("/movies/:delete", async(req, res, next) => {
-
-// })
+// Edit movie
+router.post("/movies/:movieID", updateMovie)
 
 
 module.exports = router
-
-//GRACIAS DANI =)

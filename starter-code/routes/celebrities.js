@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Celebrity = require('../models/Celebrity')
 
 const {
     callCelebrities,
-    celebritesDetails,
+    celebritiesDetails,
     createCelebrity,
     updateCelebrity,
     deleteCelebrity,
@@ -15,19 +14,19 @@ const {
 
 router.get("/celebrities", callCelebrities)
 
-router.get("celebrities/:celebrityID", celebritesDetails)
+router.get("/celebrities/:celebrityID", celebritiesDetails)
 
-//ITERACION 4
+//Create new celebrity
 router.get("/celebrities/new", formCelebrity)
 
-router.post("/celebrities/new", createCelebrity)
+router.post("/celebrities", createCelebrity)
 
-//update
-router.get("/celebrities/update/:celebrityID", formUpdateCeleb);
+// Update celebrity
+router.get("/celebrities/edit/:celebrityID", formUpdateCeleb);
 
-router.post("/celebrities/update/:celebrityID", updateCelebrity)
+router.post("/celebrities/:celebrityID", updateCelebrity)
 
-//Delete
+// Delete celebrity
 router.post("/celebrities/delete/:celebrityID", deleteCelebrity)
 
 
