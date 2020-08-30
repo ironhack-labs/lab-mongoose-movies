@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+  main,
+  section{
+    padding: 50px;
+  }
+
+  nav a{
+    color: white
+  }
+
+/*# sourceMappingURL=style.css.map */

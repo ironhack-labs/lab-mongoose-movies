@@ -1,0 +1,14 @@
+<section>
+    <h2>Celebridades</h2>
+    <br>
+    <div class="card" style="width: 18rem;">
+        {{#each allCelebs}}
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <a href="/celebrities/{{_id}}" class="card-link">Conoce más</a>
+                <a href="/celebrities/update/{{_id}}" class="card-link">Actualiza los datos</a>
+                <a href="/celebrities/delete/{{_id}}" class="card-link">Elimina la celebridad</a>
+            </div>
+        {{/each }}
+    </div>
+</section>

@@ -1,0 +1,22 @@
+<section>
+    <h2>Añade una nueva celebridad</h2>
+        {{#if error}}
+        <p>{{error}}</p>
+        {{/if}}
+        <form action="/celebrities/new" method="post">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" required name="name">
+            </div>
+            <div class="form-group">
+                <label for="occupation">Ocupación</label>
+                <input type="text" class="form-control" required name="occupation">
+            </div>
+            <div>
+                <label for="catchPhrase">Frase</label>
+                <input type="text" class="form-control" required name="catchPhrase">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit!</button>
+        </form>
+</section>

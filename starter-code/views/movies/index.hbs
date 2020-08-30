@@ -1,0 +1,14 @@
+<section>
+    <h2>Películas</h2>
+    <br>
+    <div class="card" style="width: 18rem;">
+        {{#each allMovies}}
+            <div class="card-body">
+                <h5 class="card-title">{{ title }}</h5>
+                <a href="/movies/{{_id}}" class="card-link">Conoce más</a>
+                <a href="/movies/update/{{_id}}" class="card-link">Actualiza los datos</a>
+                <a href="/movies/delete/{{_id}}" class="card-link">Elimina la película</a>
+            </div>
+        {{/each }}
+    </div>
+</section>

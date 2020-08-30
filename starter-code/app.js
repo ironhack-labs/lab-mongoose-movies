@@ -7,11 +7,17 @@ const favicon      = require('serve-favicon');
 const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
-const path         = require('path');
+const path = require('path');
 
+const app = express();
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/starter-code', {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -22,7 +28,6 @@ mongoose
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
-const app = express();
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -51,8 +56,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+app.use("/", require("./routes/index.routes"))
+app.use("/celebrities", require("./routes/celebrities.routes"))
+app.use("/movies", require("./routes/movies.routes"))
 
-
-module.exports = app;
+module.exports = app; 

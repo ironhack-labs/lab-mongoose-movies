@@ -1,0 +1,19 @@
+<section>
+    <h2>Actualiza la película</h2>
+        <form action="/movies/update/{{_id}}" method="post">
+            <div class="form-group">
+                <label for="title">Título</label>
+                <input type="text" class="form-control" required value="{{ title }}" name="title">
+            </div>
+            <div class="form-group">
+                <label for="genre">Género</label>
+                <input type="text" class="form-control" required value="{{ genre }}" name="genre">
+            </div>
+            <div>
+                <label for="plot">Resumen</label>
+                <input type="text" class="form-control" required value="{{ plot }}" name="plot">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit!</button>
+        </form>
+</section>
