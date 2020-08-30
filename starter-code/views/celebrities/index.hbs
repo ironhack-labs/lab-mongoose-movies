@@ -1,0 +1,22 @@
+
+<h2>About celebrities!!</h2>
+{{#each allcelebs}}
+<h3>{{this.name}}</h3>
+<a href="/celebrities/show/{{this._id}}">Show Detail</a>
+{{/each}}
+
+<hr>
+<p style="color:goldenrod">Add Celebrities!!</p>
+<a href="/celebrities/new">Add new one!</a>
+
+<hr>
+<p style="color:darkred">Remove...</p>
+<form action="/celebrities/index" method="post">
+    <label for="name">Name:</label>
+    <input required name="name" type="text">
+    <label for="occupation">Occupation:</label>
+    <input required name="occupation" type="text">
+    <label for="catchPhrase">catchPhrase:</label>
+    <input required name="catchPhrase" type="text">
+    <button type="submit">Remove</button>
+</form>
