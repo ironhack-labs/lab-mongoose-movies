@@ -41,8 +41,27 @@ router.post('/', (req, res, next) => {
         next(err)
     })
 })
-
+router.get('/view/:id/delete', (req, res, next) => {
+    Movie.findByIdAndDelete({_id: req.params.id})
+        .then(() => {
+            res.redirect('/movies')
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+router.get('/view/:id/edit', (req, res, next) => {
+    res.render('movies/edit')
+})
+router.post('/view/:id', (req, res, next) => {
+    Movie.findByIdAndUpdate({_id: req.params.id}, {$set: {title, genre, plot}}, {new : true})
+        .then(() => {
+            res.redirect('/movies')
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
 
 
 module.exports = router
-
