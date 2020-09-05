@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+/* const mongoose = require('mongoose')
 const Celebrity = require('../models/Celebrity')
 
 const celebrityInfo = [
@@ -27,6 +27,41 @@ mongoose
 })
 .then(celebrityInfo => {
     console.log(celebrityInfo)
+    mongoose.disconnect()
+})
+.catch(err => {
+    console.log('db mongoose connect err', err)
+}) */
+
+const mongoose = require('mongoose')
+const Movie = require('../models/Movie.model')
+
+const movieInfo = [
+    {
+        title: 'Brave Tomatos',
+        genre: 'Horror',
+        plot: "Intriguing"
+    }, 
+    {
+        title: "Sad Carrot",
+        genre: "Drama",
+        plot: "Sad story about a lonely Carrot"
+    }, 
+    {
+        title: "Happy Potato",
+        genre: "Comedy",
+        plot: "It will make you smile"
+    }
+]
+
+mongoose
+.connect('mongodb://localhost/lab-mongoose-movies', {userNewParser: true})
+.then(x => {
+    console.log(`Connected to DB! Name is: "${x.connections[0].name}"`)
+    return Movie.insertMany(movieInfo)
+})
+.then(movieInfo => {
+    console.log(movieInfo)
     mongoose.disconnect()
 })
 .catch(err => {
