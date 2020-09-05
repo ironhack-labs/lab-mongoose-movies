@@ -35,7 +35,7 @@ router.post("/", (req, res, next) => {
       res.redirect("/celebrities");
     })
     .catch(() => {
-      res.render("celebrities/new");
+      res.render("new");
     });
 });
 router.get('/view/:id/delete', (req, res, next) => {
@@ -46,6 +46,31 @@ router.get('/view/:id/delete', (req, res, next) => {
         .catch(err => {
             next(err)
         })
+})
+router.get('/view/:id/edit', (req, res, next) => {
+    console.log('51')
+    Celebrity.findById({_id: req.params.id})
+        .then(data => {
+            console.log(data)
+            res.render('celebrities/edit', data)
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+router.post('/view/:id', (req, res, next) => {
+    console.log('62')
+    const {name, occupation, catchPhrase} = req.body
+    console.log(req.body)
+    
+    Celebrity.findByIdAndUpdate({_id: req.params.id}, {$set: {name, occupation, catchPhrase}}, {new : true})
+        .then(() => { 
+            res.redirect('/celebrities')
+        })
+        .catch(err => {
+            next(err)
+        })
+
 })
 
 module.exports = router;
