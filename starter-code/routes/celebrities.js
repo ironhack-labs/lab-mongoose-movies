@@ -38,5 +38,14 @@ router.post("/", (req, res, next) => {
       res.render("celebrities/new");
     });
 });
+router.get('/view/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndDelete({_id:req.params.id})
+        .then(() => {
+            res.redirect('/celebrities')
+        })
+        .catch(err => {
+            next(err)
+        })
+})
 
 module.exports = router;
