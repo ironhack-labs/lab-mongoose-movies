@@ -12,7 +12,19 @@ router.get('/', (req, res, next) => {
             next(err)
         })
 })
+router.get('/view/:id', (req, res, next) => {
+    console.log("16")
+    Movie.findById(req.params.id)
+        .then(data => {
+            console.log(data)
+            res.render('movies/show', data)
+        })
+        .catch(err => {
+            next(err)
+        })
+})
 
 
 
 module.exports = router
+
