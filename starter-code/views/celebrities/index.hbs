@@ -1,0 +1,12 @@
+<h2>Celebrities</h2>
+{{#each data}}
+    <p>{{name}}</p>
+    <a href="celebrities/view/{{_id}}">Details</a>
+  
+    <a href='celebrities/view/{{_id}}/delete'  type='submit'>Delete</a>
+    
+{{/each}}
+<br>
+<a href="celebrities/new">Add a new celebrity</a>
+
+<a href="/">Home</a> 
