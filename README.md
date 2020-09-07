@@ -92,7 +92,7 @@ The `Celebrity` model should have:
     - Call the `Celebrity` model's `create` method with the array as argument.
     - In the `create` method's callback, display feedback.
 5. Run the seed file with `node` to seed your database.
-6. Check the database with the `mongo` command to confirm that your data was saved.
+6. Check the database with Compass to confirm that your data was saved.
 
 
 ## Iteration #2: Listing Our Celebrities
