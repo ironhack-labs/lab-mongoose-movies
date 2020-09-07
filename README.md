@@ -173,7 +173,7 @@ Now that we have a list of celebrities, as well as a personalized details page f
     - Create an object with keys for `name`, `occupation`, and `catchPhrase`.
     - Values for those keys should come from the form (`req.body` is the object full of the values from the form)
     - Create an instance of the `Celebrity` model with the object you made in the previous step
-    - Call the `save` method to save the new celebrity to the database
+    - Call the `create` method to save the new celebrity to the database
     - If there is an error, render the `celebrities/new` view so the user can try again.
     - If there is no error, redirect to the page with the list of celebrities
 7. In the `views/celebrities/index.hbs` view file:
