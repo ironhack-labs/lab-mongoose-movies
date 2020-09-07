@@ -14,4 +14,39 @@ router.get('/', (req, res, next) => {
       })
   });
 
+router.get('/movie/:id',(req, res, next) => {
+    const {id} = req.params
+    Movie.findById(id)
+    .then( one => {
+        res.render('movies/movie', one)
+    })
+    .catch(err => {
+        next(err)
+      })
+});
+
+router.get('/add',(req, res, next) => {
+    res.render('movies/add')
+})
+
+router.post('/add', (req, res, next) => {
+    const {title,genre,plot} = req.body
+    Movie
+    .create ({title,genre,plot})
+    .then(() => res.redirect('/movies'))
+    .catch(err => {
+        next(err)
+      })
+})
+
+router.post('/:id/delete',(req, res, next) => {
+    const {id} = req.params
+    Movie
+    .findByIdAndRemove(id)
+    .then(() => res.redirect('/movies'))
+    .catch(err => {
+        next(err)
+        })
+})
+
 module.exports = router;
