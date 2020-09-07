@@ -1,0 +1,9 @@
+<h2>Our favorite Movies!</h2>
+{{#each movieDocs}}
+<p><a href="/movies/movie/{{id}}">{{title}}</a></p>
+
+{{/each}}
+
+<form action="movies/new">
+  <input type="submit" value="Add new movie">
+</form>

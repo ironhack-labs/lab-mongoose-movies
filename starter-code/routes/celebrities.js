@@ -33,7 +33,7 @@ router.post('/new', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body
 
   Celebrity.create({ name, occupation, catchPhrase})
-  .then(bookAdded => {
+  .then(celebrityAdded => {
     res.redirect('/celebrities')
   })
   .catch(err => {
