@@ -1,6 +1,7 @@
 <h2>List of Movies</h2>
  {{#each movieList}}
 <p><a href='/movies/movie/{{id}}'>{{title}}</a></p>
+<a href="/movies/edit/{{id}}">EDIT</a></p>
 <form action='/movies/{{id}}/delete' method='post'>
 <button type='submit'>Delete</button>
 </form>

@@ -49,4 +49,29 @@ router.post('/:id/delete',(req, res, next) => {
         })
 })
 
+
+router.get('/edit/:id', (req, res, next) => {
+    const {id} = req.params
+    Movie.findById(id)
+      .then(mov => {
+        res.render('movies/edit-movies', mov)
+      })
+      .catch(err => {
+        next(err)
+      })
+  })
+  
+  router.post('/edit/:id', (req, res, next) => {
+    const {title,genre,plot} = req.body
+    Movie.findByIdAndUpdate({_id: req.params.id}, {$set: {title,genre,plot}},{new:true})
+      .then(result => {
+        console.log(result)
+       res.redirect('/movies')
+  
+      })
+      .catch(err => {
+        next(err)
+      })
+  })
+
 module.exports = router;
