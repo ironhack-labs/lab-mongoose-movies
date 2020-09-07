@@ -1,11 +1,23 @@
 <h2>Our favorite Celebrities!</h2>
+<form action="celebrities/new" >
+  <input type="submit" value="Add new celebrity">
+</form>
+
 {{#each celebrityDocs}}
-<p><a href="/celebrities/celebrity/{{id}}">{{name}}</a></p>
-<form action="/celebrities/{{id}}/delete" method="post">
+<br>
+<p><a href="/celebrities/celebrity/{{_id}}">{{name}}</a></p>
+
+<form action="celebrities/{{_id}}/edit" method="GET">
+  <button>Edit celebrity</button>
+</form>
+<br>
+
+<form action="/celebrities/{{_id}}/delete" method="post">
   <button type="submit">Delete celebrity</button>
 </form>
 {{/each}}
 
-<form action="celebrities/new" >
-  <input type="submit" value="Add new celebrity">
-</form>
+<br>
+<br>
+
+<a href="/">[BACK TO HOME]</a>

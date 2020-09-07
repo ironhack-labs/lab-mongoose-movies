@@ -1,9 +1,23 @@
 <h2>Our favorite Movies!</h2>
-{{#each movieDocs}}
-<p><a href="/movies/movie/{{id}}">{{title}}</a></p>
-
-{{/each}}
-
 <form action="movies/new">
   <input type="submit" value="Add new movie">
 </form>
+<br>
+{{#each movieDocs}}
+<br>
+<p><a href="/movies/movie/{{_id}}">{{title}}</a></p>
+
+<form action="movies/{{_id}}/edit" method="GET">
+  <button>Edit movie</button>
+</form>
+<br>
+<form action="/movies/{{_id}}/delete" method="post">
+  <button type="submit">Delete movie</button>
+</form>
+
+{{/each}}
+
+<br>
+<br>
+
+<a href="/">[BACK TO HOME]</a>

@@ -29,7 +29,7 @@ router.get('/new', (req, res, next) => {
   res.render('celebrities/new')
 })
 
-router.post('/new', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body
 
   Celebrity.create({ name, occupation, catchPhrase})
@@ -42,6 +42,8 @@ router.post('/new', (req, res, next) => {
 })
 
 router.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params
+  console.log(id)
   Celebrity.findByIdAndRemove({_id: req.params.id})
   .then(result => {
     res.redirect('/celebrities')
@@ -49,6 +51,33 @@ router.post('/:id/delete', (req, res, next) => {
   .catch(err => {
     next(err)
   })
+})
+
+
+router.get('/:id/edit', (req, res, next) => {
+  const { id } = req.params
+  console.log(id)
+
+  Celebrity.findById(id)
+  .then(result => {
+    res.render('celebrities/edit', result)
+  })
+  .catch(err => {
+    next(err)
+  })
+})
+
+router.post('/:id', (req,res, next) => {
+  const { id } = req.params
+  const { name, occupation, catchPhrase } = req.body
+
+  Celebrity.findByIdAndUpdate(id, {$set: {name, occupation, catchPhrase }}, { new: true })
+    .then(updatedCelebrity => {
+      res.redirect('/celebrities')
+    })
+    .catch(err => {
+      next(err)
+    })
 })
 
 module.exports = router
