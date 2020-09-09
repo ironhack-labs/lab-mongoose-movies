@@ -1,0 +1,13 @@
+<h2>Hello there! 👋</h2>
+<p>Find out more about:
+<p>
+  {{#each celebritiesList}}
+<p>
+  <a href="/celebrities/{{_id}}">{{ name }}</a>
+</p>
+{{/each}}
+<br>
+<br>
+<a href="/">Go back</a>
+<a> | </a>
+<a href="/celebrities/new">Add a new one</a>
