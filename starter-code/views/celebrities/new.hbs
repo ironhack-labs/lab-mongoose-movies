@@ -1,0 +1,24 @@
+<h2>A Star Is Born ⭐️</h2>
+<form action="/celebrities/new" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name">
+
+  {{!-- <select name="name">
+    {{#each celebrities}}
+    <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select> --}}
+
+  <label for="occupation">Occupation:</label>
+  <input type="text" name="occupation" id="occupation">
+
+  <label for="catchPhrase">Catch Phrase:</label>
+  <input type="text" name="catchPhrase" id="catchPhrase">
+
+  <button type="submit">ADD</button>
+  <br>
+  <br>
+  <a href="/">Go back</a>
+  <a> | </a>
+  <a href="/celebrities/new">Add a new one</a>
+</form>
