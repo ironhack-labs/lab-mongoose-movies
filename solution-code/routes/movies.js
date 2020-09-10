@@ -90,12 +90,12 @@ router.get('/:id/edit', (req, res, next) => {
 });
 
 router.post('/:id', (req, res, next) => {
-  Movie.update({ _id: req.params.id }, { $set : {
+  Movie.update({ _id: req.params.id }, {
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot,
     cast: req.body.cast
-  }})
+  })
     .then(movie => res.redirect('/movies'))
     .catch(err => next(err))
   ;
