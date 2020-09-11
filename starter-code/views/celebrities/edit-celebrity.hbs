@@ -1,0 +1,30 @@
+<a href="/celebrities">Back</a>
+<form action="/celebrities/{{celebrity._id}}" method="post">
+  <div>
+    <label for="name">Celebrity Name</label>
+    <input type="text" name="name" id="name" placeholder="Input celebrity name" value="{{celebrity.name}}">
+  </div>
+
+  <div>
+    <label for="occupation">Celebrity Occupation</label>
+    <select name="occupation" id="occupation">
+      <option value="{{celebrity.occupation}}">{{celebrity.occupation}}</option>
+      <option value="actor">Actor</option>
+      <option value="singer">Singer</option>
+      <option value="comedian">Comedian</option>
+      <option value="unknown">Unknown</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="catchPhrase">Catch Phrase</label>
+    <input type="text" name="catchPhrase" id="catchPhrase" placeholder="Input celebrity catch phrase"
+      value="{{celebrity.catchPhrase}}">
+  </div>
+
+  {{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+  {{/if}}
+
+  <button type="submit">Edit</button>
+</form>
