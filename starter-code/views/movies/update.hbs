@@ -1,0 +1,13 @@
+<h1>modifica la pelicula : {{title}}</h1>
+
+<form action="/movies/update/{{_id}}" method="post">
+
+<p>Nuevo nombre de la pelicula </p><input type="text" name="title" id=""><br>
+<p>actualiza el genero</p><input type="text" name="genre" id=""><br>
+<p>nuevo comentario</p><input type="text" name="plot" id=""><br><br><br>
+<button type="submit">update!!</button>
+
+
+</form>
+<br><br>
+<a href="/movies">Vuelve atras!</a>
