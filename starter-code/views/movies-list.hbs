@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>MOVIES</h1>
+    
+    <ul class="list-group list-group-flush">
+      {{#each movie}}
+      <li class="list-group-item col-6">
+        <p><strong>{{title}}</strong>
+        <div class=" justify-content-end">
+          <a type="button" class="btn btn-secondary btn-sm" href="/details/{{_id}}">Detalles</a>
+          <a type="button" class="btn btn-secondary btn-sm justify-content-end" href="/edit-movie?id={{_id}}">Editar</a> 
+          <a type="button" class="btn btn-danger btn-sm justify-content-end" href="/delete-movie/{{_id}}">Borrar</a>
+        </div>
+        </p>
+      </li>      
+      {{/each}}
+    </ul>  
+</div>
