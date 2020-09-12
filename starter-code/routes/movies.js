@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const Movie = require('../models/Movie')
-const { route } = require('.')
+const checkLogin = require('../middleware/checkLogin')
 
-router.get('/', (req, res, next) => {
+router.get('/', checkLogin, (req, res, next) => {
     Movie.find()
         .then(movies => {
             console.log({movies})
@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
         })
 })
 
-router.get('/show/:id', (req, res, next) => {
+router.get('/show/:id', checkLogin, (req, res, next) => {
     const { id } = req.params
     Movie.findById(id)
         .then(movie => {
@@ -26,11 +26,11 @@ router.get('/show/:id', (req, res, next) => {
         })
 })
 
-router.get('/new', (req, res, next) => {
+router.get('/new', checkLogin, (req, res, next) => {
     res.render('movies/new')
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', checkLogin, (req, res, next) => {
     console.log(req.body)
     const {title, genre, plot} = req.body
 
@@ -50,7 +50,7 @@ router.post('/', (req, res, next) => {
         })
 })
 
-router.get('/show/:id/delete', (req, res, next) => {
+router.get('/show/:id/delete', checkLogin, (req, res, next) => {
     const { id } = req.params
     Movie.findByIdAndRemove(id)
         .then(result =>{
@@ -61,7 +61,7 @@ router.get('/show/:id/delete', (req, res, next) => {
         })
 })
 
-router.get('/show/:id/edit', (req, res, next) => {
+router.get('/show/:id/edit', checkLogin, (req, res, next) => {
     const { id } = req.params
     Movie.findById(id)
         .then(movie => {
@@ -72,7 +72,7 @@ router.get('/show/:id/edit', (req, res, next) => {
         })
 })
 
-router.post('/show/:id/edit', (req, res, next) => {
+router.post('/show/:id/edit', checkLogin, (req, res, next) => {
     const {title, genre, plot} = req.body
     Movie.findByIdAndUpdate({_id: req.params.id}, {$set: {title, genre, plot}}, {new: true})
         .then(movie => {

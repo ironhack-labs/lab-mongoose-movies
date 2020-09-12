@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const Celebrity = require('../models/Celebrity')
+const checkLogin = require('../middleware/checkLogin')
 
-router.get('/', (req, res, next) => {
+router.get('/', checkLogin, (req, res, next) => {
     Celebrity.find()
         .then(celebrities => {
             console.log({celebrities})
@@ -13,7 +14,7 @@ router.get('/', (req, res, next) => {
         })
 })
 
-router.get('/show/:id', (req, res, next) => {
+router.get('/show/:id', checkLogin, (req, res, next) => {
     const { id } = req.params
     Celebrity.findById(id)
         .then(celebrity => {
@@ -25,11 +26,11 @@ router.get('/show/:id', (req, res, next) => {
         })
 })
 
-router.get('/new', (req, res, next) => {
+router.get('/new', checkLogin, (req, res, next) => {
     res.render('celebrities/new')
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', checkLogin, (req, res, next) => {
     console.log(req.body)
     const {name, occupation, catchPhrase} = req.body
 
@@ -49,7 +50,7 @@ router.post('/', (req, res, next) => {
         })
 })
 
-router.get('/show/:id/delete', (req, res, next) => {
+router.get('/show/:id/delete', checkLogin, (req, res, next) => {
    const { id } = req.params
     Celebrity.findByIdAndRemove(id)
         .then(result => {
@@ -60,7 +61,7 @@ router.get('/show/:id/delete', (req, res, next) => {
         })
 })
 
-router.get('/show/:id/edit', (req, res, next) => {
+router.get('/show/:id/edit', checkLogin, (req, res, next) => {
    const { id } = req.params
     Celebrity.findById(id)
         .then(celebrity => {
@@ -71,7 +72,7 @@ router.get('/show/:id/edit', (req, res, next) => {
         })
 })
 
-router.post('/show/:id/edit', (req, res, next) => {
+router.post('/show/:id/edit', checkLogin, (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body
     Celebrity.findByIdAndUpdate({_id: req.params.id}, {$set: {name, occupation, catchPhrase}}, {new: true})
         .then(celebrity => {
