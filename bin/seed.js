@@ -9,6 +9,7 @@ mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true, useUn
 Celebrity.collection.drop()
 Movie.collection.drop()
 
+// Seed the Celebrities collection
 const celebrities = [
     {
         name: "Lois McMaster Bujold",
@@ -32,7 +33,7 @@ Celebrity.create(celebrities)
     .catch(err => console.log(`Ups, an error: ${err}`))
 
 
-
+// Seed the Movies collection
 const movies = [
     {
         title: "Kung Fu Panda 2",
@@ -55,7 +56,5 @@ const movies = [
 Movie.create(movies)
     .then(allMovies => console.log(`A total of ${allMovies.length} has added to ${dbName}`))
     .catch(err => console.log(`Ups, an error: ${err}`))
-    // A revisar, porque me ha salido un error raro
-    // .then(() => mongoose.connection.close(() => {
-    //     console.log('Mongoose default connection disconnected through app termination');
-    // }))
+    
+//  mongoose.connection.close(() => console.log('Mongoose default connection disconnected through app termination'))
