@@ -1,0 +1,70 @@
+.container {
+  padding: 100px 0; }
+
+ul {
+  padding: 0;
+  list-style: inside; }
+
+.btn-red {
+  background-color: tomato;
+  color: white; }
+
+.navbar {
+  background-color: lavender;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px; }
+
+.index-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://www.oscars.org/sites/oscars/files/styles/hero_image_phone/public/osc-banner_statuette.jpg?itok=7JAY8gYm");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.bg-blur {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px); }
+
+.welcome {
+  background-color: white;
+  min-width: 400px;
+  min-height: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+
+.welcome .bottom {
+  border-top: solid 1px rgba(100, 100, 100, 0.2); }
+
+.items-list h2 {
+  margin-bottom: 30px;
+  text-align: center; }
+
+.items-list li {
+  padding: 10px 0; }
+
+.items-list a {
+  color: black; }
+
+.items-list .btn {
+  color: white;
+  margin-left: 10px; }
+
+.items-list .btn-primary {
+  display: block;
+  margin: 0 auto;
+  width: 200px; }
+
+.btn-red:hover {
+  background-color: #e24c31;
+  color: white; }
+
+.items-list .btn-primary {
+  display: block;
+  margin: 0 auto;
+  width: 200px; }
+
+.detailed-view ul {
+  margin: 40px 0; }
+
+/*# sourceMappingURL=style.css.map */

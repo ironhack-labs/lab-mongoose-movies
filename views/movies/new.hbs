@@ -1,0 +1,34 @@
+<section class="create-item container">
+
+    <h2>Create</h2>
+
+    <form action="/movies/new" method='post'>
+
+        <div class="form-group">
+
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Genre</label>
+            <input type="text" class="form-control" name="genre" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Plot</label>
+            <input type="text" class="form-control" name="plot" required>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+
+        <a href="/movies" class="btn btn-red">Cancel</a>
+
+    </form>
+
+</section>

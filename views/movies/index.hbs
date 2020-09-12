@@ -1,0 +1,42 @@
+<section class="items-list container">
+
+    <h2>Movies</h2>
+
+    <ul>
+
+        {{#each movies}}
+
+        <li class='row justify-content-center align-items-baseline'>
+
+            <div class="col-6 col-lg-3">
+
+                <a href="/movies/{{this.id}}">{{this.title}}</a>
+
+            </div>
+
+
+
+            <div class="col-6 col-lg-3 d-flex justify-content-end">
+
+                <a href="movies/edit/{{this.id}}" class="btn btn-dark">Edit</a>
+
+                <form action="/movies/delete" method="POST">
+
+                    <input name="id" type="hidden" value={{this.id}}>
+
+                    <button type="submit" class="btn btn-red">Delete</button>
+
+                </form>
+
+            </div>
+
+        </li>
+
+
+        {{/each}}
+
+    </ul>
+
+    <a href="/movies/new" class="btn btn-primary">Create new movie</a>
+
+</section>
