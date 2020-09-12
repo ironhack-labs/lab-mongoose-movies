@@ -8,6 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session = require('express-session')
+const Mongostore = require('connect-mongo')(session)
 
 
 mongoose
@@ -26,6 +28,14 @@ const app = express();
 
 // Middleware Setup
 app.use(logger('dev'));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  store: new Mongostore({
+    mongooseConnection: mongoose.connection
+  }),
+    resave: true,
+    saveUninitialized: true
+}))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -54,5 +64,13 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrities = require('./routes/celebrities');
+app.use('/celebrities', celebrities);
+
+const movies = require('./routes/movies');
+app.use('/movies', movies);
+
+const auth = require('./routes/auth');
+app.use('/auth', auth);
 
 module.exports = app;

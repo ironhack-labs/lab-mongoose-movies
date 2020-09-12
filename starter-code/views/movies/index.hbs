@@ -1,0 +1,10 @@
+<h2>Movies</h2>
+
+{{#each movies}}
+<p>{{title}}</a>
+    <a href="/movies/show/{{_id}}">Read more</a>
+    <button><a href="/movies/show/{{_id}}/delete">DELETE</a></button>
+    <button><a href="/movies/show/{{_id}}/edit">EDIT</a></button>
+    {{/each}}
+
+    <a href="/movies/new">Add a new movie</a>
