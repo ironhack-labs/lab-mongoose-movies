@@ -8,6 +8,9 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const bcrypt       = require('bcrypt')
+
+
 
 
 mongoose
@@ -50,6 +53,9 @@ app.locals.title = 'Celebrities + Movies';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const auth = require('./routes/auth');
+app.use('/auth', auth)
 
 const celebrities = require('./routes/celebrities');
 app.use('/celebrities',celebrities)
