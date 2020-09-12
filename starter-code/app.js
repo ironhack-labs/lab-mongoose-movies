@@ -24,6 +24,9 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+// require database configuration
+require('./configs/session.config')(app)
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -59,6 +62,9 @@ app.use('/celebrities', celebrities)
 
 const movies = require('./routes/movies')
 app.use('/movies', movies)
+
+const auth = require('./routes/auth')
+app.use('/auth', auth)
 
 
 module.exports = app;
