@@ -1,5 +1,20 @@
-body {
-  padding: 50px;
-  font-family: sans-serif; }
+h1, h2, h3 {
+  font-size: 3.5em;
+  margin-top: 15px;
+  margin-bottom: 75px; }
+
+nav {
+  margin-bottom: 75px; }
+
+.celebrities .card {
+  margin-bottom: 75px; }
+
+.celebrities img {
+  object-fit: cover;
+  height: 200px; }
+
+.celebrity img {
+  object-fit: cover;
+  height: 200px; }
 
 /*# sourceMappingURL=style.css.map */

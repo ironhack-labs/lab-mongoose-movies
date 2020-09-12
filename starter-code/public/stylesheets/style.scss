@@ -1,4 +1,28 @@
-body {
-  padding: 50px;
-  font-family: sans-serif;
+// General styles
+
+h1, h2, h3 {
+    font-size: 3.5em;
+    margin-top: 15px;
+    margin-bottom: 75px;
+}
+
+nav {
+    margin-bottom: 75px;
+}
+
+// Celebrities page
+
+.celebrities .card {
+    margin-bottom: 75px;
+}
+
+.celebrities img {
+    object-fit: cover;
+    height: 200px;
+}
+
+// Celebrity page
+.celebrity img {
+    object-fit: cover;
+    height: 200px;
 }
