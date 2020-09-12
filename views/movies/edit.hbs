@@ -1,0 +1,23 @@
+<h2>Edit the information about {{name}}</h2>
+
+
+<form class="form-group form-edit" action="/movies/{{id}}/new" method="POST">
+
+    <div class='form-group row form-row'>
+        <label class="col-1 ">Title: </label>
+        <input class="col-2 form-control" type='text' name="title" value="{{title}}">
+    </div>
+
+    <div class='form-group row form-row'>
+        <label class="col-1 ">Genre: </label>
+        <input class="col-2 form-control" type='text' name="genre" value="{{genre}}">
+    </div>
+
+    <div class='form-group row form-row'>
+        <label class="col-1">Plot: </label>
+        <textarea class="col-10 form-control" type='text' name="plot">{{plot}}</textarea>
+    </div>
+
+    <button class="btn btn-add" type='submit' class='btn btn-info'>Edit</button>
+
+</form>

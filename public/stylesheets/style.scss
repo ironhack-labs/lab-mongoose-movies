@@ -1,0 +1,74 @@
+/* General styles*/
+body {
+  background-color:#edfbfd;
+  color: #03045E;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 1.2em;
+}
+
+.row {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  padding: 10px 50px;
+  font-family: 'Rubik', sans-serif;;
+}
+h2 {
+  font-size: 2em;
+}
+
+p {
+  padding: 10px 50px;
+  color: #023E8A;
+}
+
+/* Navbar style */
+.navbar {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+
+
+/* Cards styles */
+.card {
+  margin: 10px;
+  background-color:  #CAF0F8;
+}
+
+/* Forms styles */
+.form-edit {
+  padding: 10px 50px;
+  margin-bottom: 20px;
+ 
+}
+
+.form-row {
+  margin-bottom: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+
+/* Components: buttons */
+.btn {
+margin: 10px auto;
+}
+
+.btn-add {
+  margin-top: 20px;
+  text-align: center;
+  box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	background:linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+	background-color:#63b8ee;
+	border-radius:6px;
+	border:1px solid #3866a3;
+	color:#14396a;
+	font-size:1.2em;
+	font-weight:bold;
+	padding:6px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #7cacde;
+}

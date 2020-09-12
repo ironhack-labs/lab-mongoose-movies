@@ -1,0 +1,23 @@
+<h2>Welcome to the celebrities page</h2>
+
+<div class="row justify-content-around">
+
+    {{#each allCelebrities}}
+    
+        <div class="card text-center col-md-6 col-lg-3">
+
+            <div class="card-body">
+                <h5 class="card-title"><a href="/celebrities/{{id}}">{{name}}</a></h5>
+                <a href="/celebrities/{{id}}/edit" class="btn btn-info btn-edit">Edit celebrity</a>
+                <form action="celebrities/{{id}}/delete" method="post"><button type='submit' class='btn btn-danger'>Delete celebrity</button></form>
+            </div>
+            
+        </div>
+    {{/each}}
+
+</div>
+
+
+<div class="d-flex justify-content-center">
+    <a class="btn btn-add" href="/celebrities/new">Create a new celebrity</a>
+</div>
