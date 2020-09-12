@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 
 })
 
-router.get('/:id', (req, res) => {
+// Celebrity details
+router.get('/detail/:id', (req, res) => {
 
     const id = req.params.id
 
@@ -22,6 +23,30 @@ router.get('/:id', (req, res) => {
 
 })
 
+// Create celebrity
+router.get('/create', (req, res) => res.render('create-celebrity-form'))
+router.post('/create', (req, res) => {
+
+    const { name, occupation, catchPhrase } = req.body
+    
+    console.log(req.body)
+
+    Celebrity.create({ name, occupation, catchPhrase })
+        .then(() => res.redirect('/celebrities'))
+        .catch(err => console.log('Ha habido un error creando a la celebridad', err))
+    
+})
+
+// Delete celebrity
+router.get('/delete/:id', (req, res) => {
+  
+    const id = req.params.id
+
+    Celebrity.findByIdAndDelete(id)
+        .then(() =>  res.redirect('/celebrities'))
+        .catch(err => console.log('Ha ocurrido un error eliminado a la celebridad', err))
+
+})
 
 
 module.exports = router

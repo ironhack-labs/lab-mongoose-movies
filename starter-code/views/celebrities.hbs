@@ -1,5 +1,7 @@
 <div class="containter celebrities">
         
+    <a href="/celebrities/create" class="btn btn-sm btn-outline-dark">Create new celebrity</a>
+    
     <h1>Celebrities</h2>
 
     <div class="row">
@@ -11,7 +13,7 @@
                     <img src="{{image}}" class="card-img-top" alt="{{name}}">
                     <div class="card-body">
                         <h5 class="card-title">{{name}}</h5>
-                        <a href="/celebrities/{{id}}" class="btn btn-sm btn-outline-dark">See more</a>
+                        <a href="/celebrities/detail/{{id}}" class="btn btn-sm btn-outline-dark">See more</a>
                     </div>
                 </div>
             </div>
@@ -21,3 +23,12 @@
     </div>
 
 </div>
+
+{{#if deleteMessage}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{/if}}
