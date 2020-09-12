@@ -1,0 +1,36 @@
+<section class="edit-item container">
+
+    <h2>Edit</h2>
+
+    <form action="/movies/edit/{{this.id}}" method='post'>
+
+        <div class="form-group">
+
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" value="{{this.title}}" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Genre</label>
+            <input type="text" class="form-control" name="genre" value="{{this.genre}}" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Plot</label>
+            <input type="text" class="form-control" name="plot" value="{{this.plot}}" required>
+
+        </div>
+
+        <input name="id" type="hidden" value={{this.id}}>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+
+        <a href="/movies" class="btn btn-red">Cancel</a>
+
+    </form>
+
+</section>

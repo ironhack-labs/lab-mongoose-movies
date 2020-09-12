@@ -1,0 +1,36 @@
+<section class="edit-item container">
+
+    <h2>Edit</h2>
+
+    <form action="/celebrities/edit/{{this.id}}" method='post'>
+
+        <div class="form-group">
+
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" value="{{this.name}}" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Occupation</label>
+            <input type="text" class="form-control" name="occupation" value="{{this.occupation}}" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Catch phrase</label>
+            <input type="text" class="form-control" name="catchPhrase" value="{{this.catchPhrase}}" required>
+
+        </div>
+
+        <input name="id" type="hidden" value={{this.id}}>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+
+        <a href="/celebrities" class="btn btn-red">Cancel</a>
+
+    </form>
+
+</section>
