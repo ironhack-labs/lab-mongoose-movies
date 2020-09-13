@@ -1,0 +1,31 @@
+<section class="formulario">
+    <div class="container">
+        <h2>{{name}}: Edition</h2>
+        <hr>
+        <form action="/celebrities/ {{id}}" method="post">
+        
+        </div class="formulario-group">
+            <label for="name">Name</label>
+            <input type="text" class="formulario-control" name="name" id="name" placeholder="Type a name" 
+            value="{{name}}">
+        </div>
+        
+        <div class="formulario-group">
+            <label for="occupation">Occupation</label>
+            <imput type="text" class="formulario-control" name="occupation" id="occupation"  placeholder="what do your celebrities do?"
+            value="{{occupation}}">
+        </div>
+
+        <div class="formulario-group">
+            <label for="CatchPhrase">CatchPhrase</label>
+            <imput type="text" class="formulario-control" name="CatchPhrase" id="CatchPhrase" placeholder="Enter a great quote!"
+            value="{{CatchPhrase}}">
+
+            <div>
+                <button class="btn btn-primary btn-sm" type="submit">Finish edition!</button>
+                <a href="/celebrities" class="btn btn-primary btn-sm">Go back</a>
+            </div>
+        </div>
+    </form>
+    </div> 
+</section>

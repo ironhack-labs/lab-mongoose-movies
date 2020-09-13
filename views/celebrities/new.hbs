@@ -1,0 +1,27 @@
+<section class="formulario">
+    <div class="container">
+        <h2>Create a new celebrity</h2>
+        <hr>
+        <form action="/celebrities/create" method="post">
+              <div class="formulario-group">
+                <label for="name">Name:</label>
+                <input type="text" class="fromulario-control" name="name" id="name" placeholder="Type a name"> 
+                </div>
+
+        <div class="formulario-group">
+               <label for="occupation">Occupation:</label>
+               <input type="text" class="fromulario-control" name="name" id="occupation" placeholder="What does they?">
+        </div>
+       
+       <div class="formulario-group">
+            <label for="catchPhrase">catchPhrase:</label>
+            <input type="text" class="fromulario-control" name="catchPhrase" id="catchPhrase" placeholder="Enter a great frase!">
+        </div>
+        
+        <div>
+            <button type="submit" class="btn btn-primary btn-sm">Create Celebrity!</button>
+            <a href="/celebrities" class="btn btn-primary btn-sm">Go back!</a>
+        </div>
+        </form>
+    </div>
+</section>

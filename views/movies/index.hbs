@@ -1,0 +1,25 @@
+<section class="info-list">
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex flex-column aling-items-center">
+                <h2>Movies list</h2>
+                <ul>
+                    {{#each allMovies}}
+                    <div class="list-container">
+                        <li>{{title}}</li>
+                        <div class="buttons-m">
+                            <a class="btn btn-primary btn-sm" href="/movies/{{id}}">See datils</a>
+                            <form action="/movies/{{id}}/delate" method="post">
+                                <button class="btn btn-primary btn-sm" type="sumit">Delete</button>
+                            </form>
+                            <a class="btn btn-primary btn-sm" href="/movies/{{id}}/edit">Edit</a>
+                        </div>
+                    </div>
+                    {{/each}}
+                </ul>
+            </div>
+            <a href="/movies/new" class="btn btn-primary btn-lg">Create a new Movie</a>
+            <a href="/" class="btn btn-primary btn-lg">Go back</a>
+        </div>
+    </div>
+<section>
