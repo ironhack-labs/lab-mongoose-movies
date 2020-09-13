@@ -1,12 +1,10 @@
-<section>
+<section class='details'>
     <div>
 
         <h2>{{titleHome}}</h2>
         <hr>
 
-        <h3>Celebrity details</h3>
-
-        <div class='card mb-3' style='max-width: 540px;'>
+        <div id='card' class='card mb-3'>
 
             <div class='row no-gutters'>
 
@@ -14,16 +12,17 @@
                     <img src='{{photo}}' class='card-img' alt='{{name}}'>
                 </div>
 
-                <div class='col-md-8'>
+                <div class='col-md-6 text'>
 
-                    <div class='card-body'>
-                        <h5 class='card-title'>{{name}}</h5>
-                        <p class='card-text'><small class='text-muted'>{{occupation}}</small></p>
-                        <p class='card-text'>"{{catchPhrase}}"</p>
+                    <div class='card-body' style='width: 600px;'>
+                        <h3 class='card-title'>{{name}}</h3>
+                        <h5 class='card-text text-muted'>{{occupation}}</h5>
+                        <p class='card-text'>'{{catchPhrase}}'</p>
 
-                        <div class="row">
-                             <a class='btn btn-sm btn-dark' href='/celebrities/edit?celebrity_id={{id}}'>Edit</a>
-                            <a class="btn btn-dark" href="/movies/list">Go back</a>
+                        <div class='row btn-center'>
+                            <a class='btn btn-dark' href='/celebrities/edit?celebrity_id={{id}}'>Edit</a>
+                            <a class='btn btn-dark' href='/celebrities/list'>List</a>
+                            <a class='btn btn-dark' href='/'>Home</a>
                         </div>
                        
                     </div>
