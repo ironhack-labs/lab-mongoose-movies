@@ -1,0 +1,10 @@
+<h1>Las celebridades {{name}}</h1>
+
+<ul>
+    {{#each celebrities}}
+    <li>
+        <p>{{name}} | <a href="/celebrities/{{_id}}"> ver detalles</a> | <a href="/celebrities/delete{{_id}}">Eliminar
+                </a< /p>
+    </li>
+    {{/each}}
+</ul>
