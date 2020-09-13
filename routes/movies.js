@@ -54,7 +54,7 @@ router.get('/edit/:movie_id', (req, res) => {
     .catch(err => console.log('ERROR:', err))
 })
 
-router.post('/new/:movie_id', (req, res) => {
+router.post('/edit/:movie_id', (req, res) => {
 
     const movie_id = req.params.movie_id
 

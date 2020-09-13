@@ -55,7 +55,7 @@ router.get('/edit/:celebs_id', (req, res) => {
     .catch(err => console.log('ERROR:', err))
 })
 
-router.post('/new/:celebs_id', (req, res) => {
+router.post('/edit/:celebs_id', (req, res) => {
 
     const celebs_id = req.params.celebs_id
 
