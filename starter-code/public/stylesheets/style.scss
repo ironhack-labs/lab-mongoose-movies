@@ -1,8 +1,19 @@
+* {
+  line-height: 3em;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+button {
+  font-size: 0.9em;
+  width: 100px;
+  border-radius: 15px;
 }

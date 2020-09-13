@@ -1,0 +1,20 @@
+<h2>Edit details of a movie</h2>
+
+<form action="/movies/{{id}}" method="post">
+
+    <label>Title</label>
+    <input type="text" name="title" value="{{title}}">
+
+    <label>Genre</label>
+    <input type="text" name="genre" value="{{genre}}">
+
+    <label>Plot</label>
+    <input type="text" name="plot" value="{{plot}}">
+
+    <button type="submit">Edit</button>
+
+</form>
+
+<hr>
+
+<a href="/movies">Go back to the list of movies</a>
