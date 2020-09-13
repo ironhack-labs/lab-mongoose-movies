@@ -1,0 +1,51 @@
+<div class="container celebrity">
+    <h2 class="list">Listado de celebrities</h2>
+
+
+  
+    
+        
+        {{#each celebrities}}
+            
+                
+                   
+                        <h3>{{name}}</h3> 
+                        <div class="row">
+
+                            <div class="col-3 details">
+                                <a class="btn btn-dark"href="/celebrities/show/{{_id}}">Ver detalles</a>
+
+                            </div>
+                            <div class="col-3 details">
+
+                                <a class="btn btn-dark" href="/celebrities/edit/{{_id}}/">Editar</a>
+                            </div>
+                   
+                            <div class="col-3 details">
+                                <form action="/celebrities/{{_id}}/delete" method="post">
+                                <button class="btn btn-dark" type="submit">Eliminar</button>
+                                </form>
+
+                            </div>
+            
+        
+                        </div>
+                    
+                 
+            <hr>
+                   
+                    
+                    
+                
+                 
+             
+        {{/each}}   
+        
+  
+
+    </div>
+
+
+
+<a class="btn btn-light create " href="/celebrities/new">Crear celebrity</a>
+</div>
