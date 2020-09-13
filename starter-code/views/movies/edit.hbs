@@ -1,0 +1,26 @@
+<h1>EDIT MOVIE</h1>
+
+
+<form class="card form" action="/movies/edit/{{id}}" method="POST">
+
+    <label for="title">Movie title</label><br>
+    <input type="text" name="title" placeholder="{{title}}" value="{{title}}"><br><br>
+
+    <label for="genre">Genre:</label><br>
+    <input type="text" name="genre" placeholder="{{genre}}" value="{{genre}}"><br><br>
+
+    <label for="plot">Pot:</label><br>
+    <input type="text" name="plot" placeholder="{{plot}}" value="{{plot}}"><br><br>
+
+
+    {{#if errorMessage}}
+    <p style="color: red; font-weight: bold; "> {{errorMessage}} </p>
+    {{/if}}
+
+    <input name="id" type="hidden" value={{id}}>
+
+    <a class="btn btn-primary" href="/movies/index">Back to Index</a>
+
+    <button type="submit" class="btn btn-success">Confirm Changes</button>
+
+</form>

@@ -1,0 +1,26 @@
+<h1>CREATE NEW MOVIE</h1>
+
+
+<form class="card form" action="/movies/new" method="POST">
+
+    <label for="title">Movie Title:</label><br>
+    <input type="text" name="title" placeholder="Introduce un título" value="{{title}}"><br><br>
+
+    <label for="genre">Género:</label><br>
+    <input type="text" name="genre" placeholder="Introduce una género" value="{{genre}}"><br><br>
+
+    <label for="plot">Plot:</label><br>
+    <input type="text" name="plot" placeholder="Introduce su plot" value="{{plot}}"><br><br>
+
+
+    {{#if errorMessage}}
+    <p style="color: red; font-weight: bold; "> {{errorMessage}} </p>
+    {{/if}}
+
+
+    <a class="btn btn-primary" href="/movies/index">Back to Index</a>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+
+
+</form>

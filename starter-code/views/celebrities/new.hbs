@@ -1,0 +1,26 @@
+<h1>CREATE NEW CELEBRITY</h1>
+
+
+<form class="card form" action="/celebrities/new" method="POST">
+
+    <label for="username">Celebrity Name:</label><br>
+    <input type="text" name="name" placeholder="Introduce un nombre" value="{{name}}"><br><br>
+
+    <label for="occupation">Occupation:</label><br>
+    <input type="text" name="occupation" placeholder="Introduce una ocupación" value="{{occupation}}"><br><br>
+
+    <label for="catchPhrase">CatchPhrase:</label><br>
+    <input type="text" name="catchPhrase" placeholder="Introduce su catch Phrase" value="{{catchPhrase}}"><br><br>
+
+
+    {{#if errorMessage}}
+    <p style="color: red; font-weight: bold; "> {{errorMessage}} </p>
+    {{/if}}
+
+
+    <a class="btn btn-primary" href="/celebrities/index">Back to Index</a>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+
+
+</form>
