@@ -22,8 +22,12 @@ router.post('/new',(req,res)=>{
     
 
     const { name, ocupation, catchPhrase } = req.body
-    
-    Celebrity.create({ name, ocupation, catchPhrase })
+    const nameL=name.toLowerCase()
+    console.log("----------------",nameL)
+    console.log("----------------",req.body)
+    req.body.nameLower=nameL
+
+    Celebrity.create({ name, nameL, ocupation, catchPhrase })
         .then(() => res.redirect('/celebrities'))
         .catch(err => console.log("ERRORR", err))
 

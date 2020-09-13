@@ -4,7 +4,11 @@ const celebritySchema =new mongoose.Schema({
 
     name:{
         type:String,
-        required:true
+        required:true,
+        trim:true
+    },
+    nameLower:{
+        type:String,
     },
     ocupation:{
         type:String

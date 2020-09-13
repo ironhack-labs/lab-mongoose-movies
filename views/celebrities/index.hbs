@@ -1,4 +1,4 @@
-<h2>El listado de los famosillos</h2>
+<h2>Celebrities</h2>
 
 
 
@@ -20,9 +20,9 @@
        {{#each celebrities}}
     <tr>
      
-      <td><a href="/celebrities/{{_id}}" class="nombre">{{name}}</a></td>
-      <td><a href="/celebrities/{{_id}}/edit">Editar</a></td>
-      <td><a href="/celebrities/{{_id}}/delete" class="borrar">Borrar</a></td>
+      <td class="td1"><a href="/celebrities/{{_id}}" class="nombre">{{name}}</a></td>
+      <td class="td2"><a href="/celebrities/{{_id}}/edit">Edit</a></td>
+      <td class="td3"><a href="/celebrities/{{_id}}/delete" class="borrar">Delete</a></td>
       
     </tr>
     {{/each}}
