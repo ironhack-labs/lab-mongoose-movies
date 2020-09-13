@@ -20,4 +20,11 @@ nav {
 .celebrity > div.row > div.col-md {
   margin-bottom: 50px; }
 
+.movie-detail img {
+  object-fit: cover;
+  height: 300px; }
+
+.movie-detail > div.row > div.col-md {
+  margin-bottom: 50px; }
+
 /*# sourceMappingURL=style.css.map */

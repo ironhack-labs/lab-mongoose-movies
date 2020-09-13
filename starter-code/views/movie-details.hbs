@@ -1,10 +1,10 @@
-<div class="containter celebrity">
+<div class="containter movie-detail">
     
     <div class="row">
     
         <div class="col-md">
     
-            <a href="/celebrities" class="btn btn-sm btn-outline-dark">
+            <a href="/movies" class="btn btn-sm btn-outline-dark">
     
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
@@ -25,15 +25,15 @@
         
         <div class="card mb-3" style="max-width: 625px;">
             <div class="row no-gutters">
-                <div class="col-md-4 d-flex align-items-center">
-                    <img src="{{image}}" class="card-img" alt="{{name}}">
+                <div class="col-md-4">
+                    <img src="{{image}}" class="card-img" alt="{{title}}">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
 
-                        <h5 class="card-title">{{name}}</h5>
-                        <p class="card-text">{{catchPhrase}}</p>
-                        <p class="card-text"><small class="text-muted">{{occupation}}</small></p>
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{plot}}</p>
+                        <p class="card-text"><small class="text-muted">{{genre}}</small></p>
                         <a href="/celebrities/edit?celebrity_id={{id}}" class="btn btn-sm btn-outline-dark">Edit</a>
                         <a href="/celebrities/delete/{{id}}" class="btn btn-sm btn-danger">Delete</a>
                     </div>

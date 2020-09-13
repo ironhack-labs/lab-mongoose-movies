@@ -10,7 +10,7 @@ nav {
     margin-bottom: 75px;
 }
 
-// Celebrities page
+// List page
 
 .card-list .card {
     margin-bottom: 75px;
@@ -21,12 +21,26 @@ nav {
     height: 300px;
 }
 
-// Celebrity page
+// ---------------------------- Celebrities ----------------------------
+// Detail page
+
 .celebrity img {
     object-fit: cover;
     height: 200px;
 }
 
 .celebrity > div.row > div.col-md {
+    margin-bottom: 50px;
+}
+
+// ---------------------------- Movies ----------------------------
+// Detail page
+
+.movie-detail img {
+    object-fit: cover;
+    height: 300px;
+}
+
+.movie-detail > div.row > div.col-md {
     margin-bottom: 50px;
 }
