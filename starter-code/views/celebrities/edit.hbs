@@ -1,0 +1,26 @@
+<h1>EDIT CELEBRITY</h1>
+
+
+<form class="card form" action="/celebrities/edit/{{id}}" method="POST">
+
+    <label for="username">Celebrity Name:</label><br>
+    <input type="text" name="name" placeholder="{{name}}" value="{{name}}"><br><br>
+
+    <label for="occupation">Occupation:</label><br>
+    <input type="text" name="occupation" placeholder="{{occupation}}" value="{{occupation}}"><br><br>
+
+    <label for="catchPhrase">CatchPhrase:</label><br>
+    <input type="text" name="catchPhrase" placeholder="{{catchPhrase}}" value="{{catchPhrase}}"><br><br>
+
+
+    {{#if errorMessage}}
+    <p style="color: red; font-weight: bold; "> {{errorMessage}} </p>
+    {{/if}}
+
+    <input name="id" type="hidden" value={{id}}>
+
+    <a class="btn btn-primary" href="/celebrities/index">Back to Index</a>
+
+    <button type="submit" class="btn btn-success">Confirm Changes</button>
+
+</form>

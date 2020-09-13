@@ -1,0 +1,27 @@
+<h1>CELEBRITIES INDEX </h1>
+
+<div class="row justify-content-around">
+
+{{#each data}}
+
+<div class="card text-center  border-primary col-md-3">
+
+        <h2><a href="/celebrities/show/{{_id}}">{{name}}</a></h2>
+        <div class="row justify-content-around">
+            <h4><a class="btn btn-danger" href="/celebrities/delete/{{_id}}">Delete</a></h4>
+            <h4><a class="btn btn-primary " href="/celebrities/show/{{_id}}">Show Details</a></h4>
+        </div>
+
+    </div>
+
+    
+{{/each}}
+
+</div>
+
+<h5><a class="btn btn-success createbtn"  href="/celebrities/new">Create new Celebrity</a></h5>
+
+
+{{#if errorMessage}}
+    <p style="color: red; font-weight: bold; "> {{errorMessage}} </p>
+{{/if}}

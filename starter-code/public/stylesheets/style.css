@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 900;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h5 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.card {
+  margin: auto;
+}
+
+.form {
+  margin: auto;
+  width: 25rem;
+  padding: 50px 50px;
+}
+
+.form a {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-top: 20px;
+}
