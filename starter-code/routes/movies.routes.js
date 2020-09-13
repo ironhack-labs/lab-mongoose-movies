@@ -23,6 +23,18 @@ router.get('/detail/:id', (req, res) => {
 
 })
 
+// Create movie
+router.get('/create', (req, res) => res.render('movie-create-form'))
+router.post('/create', (req, res) => {
+
+    const { title, genre, plot } = req.body
+
+    Movie.create({ title, genre, plot })
+        .then(() => res.redirect('/movies'))
+        .catch(err => console.log('Ha ocurrido un error creando a la celebridad', err))
+
+})
+
 
 
 module.exports = router

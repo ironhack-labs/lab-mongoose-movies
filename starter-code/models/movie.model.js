@@ -19,7 +19,7 @@ const movieSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true,
-        default: 'https://media.comicbook.com/files/img/default-movie.png'
+        default: 'https://lh6.googleusercontent.com/proxy/hIgFSMyx4VsuoQh8h-ZfI3IiK9uFSLZ7pG67H_1RwEBDEPiWX-odcJ0PkWriAPeqwKyC6n-12UTrNmQF2ul9DAjwKMljG3zSCCTDoTVDPexFHV9l_JD5WMbmpnUJqWLqYA=s0-d'
     }
 }, {
     timestamps: true
