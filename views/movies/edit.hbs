@@ -1,0 +1,24 @@
+<main class="container">
+    <h3>Update a new movie</h3>
+
+    <form action="/movies/edited" method="POST">
+        <div class="form-group row">
+            <label for="title" class="col-md-2">Title</label>
+            <input name="title" type="text" class="form-control col-md-8" id="title" value="{{title}}" >
+        </div>
+        <div class="form-group row">
+            <label for="genre" class="col-md-2">Genre</label>
+            <input name="genre" type="text" class="form-control col-md-8" id="genre" value="{{genre}}">
+        </div>
+        <div class="form-group row">
+            <label for="plot" class="col-md-2">Plot</label>
+            <input name="plot" type="text" class="form-control col-md-8" id="plot" value="{{plot}}">
+            <input type="hidden" name="_id" value="{{id}}">
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-secondary  offset-md-2">Update</button>
+        </div>
+    </form>
+
+
+</main>
