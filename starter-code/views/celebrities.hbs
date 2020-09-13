@@ -8,7 +8,7 @@
 
         {{#each celebrities}}
 
-            <div class="col-sm col-md col-lg">
+            <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 18rem;">
                     <img src="{{image}}" class="card-img-top" alt="{{name}}">
                     <div class="card-body">
@@ -23,12 +23,3 @@
     </div>
 
 </div>
-
-{{#if deleteMessage}}
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-{{/if}}

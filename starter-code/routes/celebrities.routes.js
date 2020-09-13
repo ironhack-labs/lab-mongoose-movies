@@ -33,7 +33,32 @@ router.post('/create', (req, res) => {
 
     Celebrity.create({ name, occupation, catchPhrase })
         .then(() => res.redirect('/celebrities'))
-        .catch(err => console.log('Ha habido un error creando a la celebridad', err))
+        .catch(err => console.log('Ha ocurrido un error creando a la celebridad', err))
+    
+})
+
+
+// Update celebrity render
+router.get('/edit', (req, res) => {
+
+    const id = req.query.celebrity_id
+
+    Celebrity.findById(id)
+        .then(celebrityDetails => res.render('update-celebrity-form', celebrityDetails))
+        .catch(err => console.log('Ha ocurrido un error encontrando los detalles de la celebridad', err))
+    
+})
+
+// Update celebrity process
+router.post('/edit/:celebrity_id', (req, res) => {
+
+    const id = req.params.celebrity_id
+
+    const { name, occupation, catchPhrase } = req.body
+
+    Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase })
+        .then(() => res.redirect(`/celebrities/detail/${id}`))
+        .catch(err => console.log('Ha ocurrido un error actualizando a la celebridad', err))
     
 })
 
