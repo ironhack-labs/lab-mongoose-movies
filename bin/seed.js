@@ -5,35 +5,35 @@ const Movie = require('../models/Movie.model')
 const dbName = 'celebDB'
 mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true, useUnifiedTopology: true })
 
-// const celebrities = [
-//     {
-//         name : 'Christian Bale',
-//         occupation : 'actor',
-//         catchphrase : "I'm Batman"
-//     },
+const celebrities = [
+    {
+        name : 'Christian Bale',
+        occupation : 'actor',
+        catchphrase : "I'm Batman"
+    },
 
-//     {
-//         name : 'FKA Twigs',
-//         occupation : 'singer',
-//         catchphrase : 'Que me quiten lo bailao' 
-//     },
+    {
+        name : 'FKA Twigs',
+        occupation : 'singer',
+        catchphrase : 'Que me quiten lo bailao' 
+    },
 
-//     {
-//         name : 'Angelina Jolie',
-//         occupation : 'actor',
-//         catchphrase : 'Hack the Planet!'
-//     },
+    {
+        name : 'Angelina Jolie',
+        occupation : 'actor',
+        catchphrase : 'Hack the Planet!'
+    },
 
-//     {
-//         name : 'Froilan de Todos los Santos',
-//         occupation : 'oxigen waste',
-//         catchphrase : 'Voy un poco Lindsay Lohan'
-//     }
-// ]
+    {
+        name : 'Froilan de Todos los Santos',
+        occupation : 'oxigen waste',
+        catchphrase : 'Voy un poco Lindsay Lohan'
+    }
+]
 
-// Celebrity.create(celebrities)
-//     .then(allCelebsCreated => console.log('Celebrities added', allCelebsCreated))
-//     .catch(err => console.log('ERROR: ', err))
+Celebrity.create(celebrities)
+    .then(allCelebsCreated => console.log('Celebrities added', allCelebsCreated))
+    .catch(err => console.log('ERROR: ', err))
 
 const movies = [
     {
