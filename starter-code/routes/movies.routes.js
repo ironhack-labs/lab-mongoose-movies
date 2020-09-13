@@ -35,6 +35,18 @@ router.post('/create', (req, res) => {
 
 })
 
+// Delete movie
+router.get('/delete/:id', (req, res) => {
+
+    const id = req.params.id
+
+    Movie.findByIdAndDelete(id)
+        .then(() => res.redirect('/movies'))
+        .catch(err => console.log('Ha ocurrido un error eliminado a la celebridad', err))
+
+})
+
+
 
 
 module.exports = router
