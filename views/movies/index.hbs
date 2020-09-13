@@ -1,0 +1,37 @@
+<div class="container ">
+
+<h2 class="list">Listado de películas</h2>
+
+    
+    {{#each movies}}
+    
+        <h3>{{title}}</h3>
+        <div class="row">
+
+            <div class="col-3 details">
+
+                <a class="btn btn-dark" href="/movies/show/{{_id}}">Ver detalles</a>
+            </div>
+
+            <div class="col-3 details">
+
+                <a class="btn btn-dark" href="/movies/edit/{{_id}}">Editar</a>
+            </div>
+
+            <div class="col-3 details">
+                <form action="/movies/{{_id}}/delete" method="post">
+                <button class="btn btn-dark" type="submit">Eliminar</button>
+                </form>  
+
+            </div>
+        </div>
+        
+        <hr>
+          
+        
+    {{/each}}   
+
+<a  class="btn btn-light" href="/movies/new">Crear película</a>
+</div> 
+
+
