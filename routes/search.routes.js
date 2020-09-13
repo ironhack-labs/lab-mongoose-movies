@@ -11,7 +11,7 @@ router.get('/', function(req, res){
 
     const nombre= req.query.q
    
-    Celebrity.find({name:{$regex:nombre}})
+    Celebrity.find({$or:[{name:{$regex:nombre}},{nameLower:{$regex:nombre}}]})
     .then(names=>res.render("search",{names}))
     .catch(err=>console.log('Error: ', err))
     

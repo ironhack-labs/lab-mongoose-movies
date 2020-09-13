@@ -21,15 +21,13 @@ router.get('/new',(req,res)=>res.render('./celebrities/new'))
 router.post('/new',(req,res)=>{
     
 
-    const { name, ocupation, catchPhrase } = req.body
-    const nameL=name.toLowerCase()
-    console.log("----------------",nameL)
-    console.log("----------------",req.body)
-    req.body.nameLower=nameL
-
-    Celebrity.create({ name, nameL, ocupation, catchPhrase })
+    const nameL=req.body.name.toLowerCase()
+    const { name, nameLow, ocupation, catchPhrase } = req.body
+       
+    Celebrity.create({ name, nameLower:nameL, ocupation, catchPhrase })
         .then(() => res.redirect('/celebrities'))
-        .catch(err => console.log("ERRORR", err))
+        .catch(err => console.log("ERROR", err))
+    
 
 })
 
@@ -55,7 +53,7 @@ router.get('/:_id',(req,res)=>{
 })
 
 
-//editar celebritis
+//editar celebrities
 
 
 router.get('/:id/edit', (req,res)=>{ 

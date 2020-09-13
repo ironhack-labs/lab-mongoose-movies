@@ -23,8 +23,8 @@ const movies=[
   },
   {
     title:"El robobo de la Jojoya",
-    genre:"humor",
-    plot:"Martes y trece investigan el robo de una joya, una película a la altura de star Wars",
+    genre:"Comedia",
+    plot:"Martes y trece investigan el robo de una joya, una película a la altura de Star Wars",
   },
 ]
 

@@ -19,7 +19,7 @@ const celebrities = [
     name: "Belén Esteban",
     nameLower:"belen esteban",
     ocupation: "Princesa del pueblo",
-    catchPhrase: "Por mi hija MA TO",
+    catchPhrase: "«Ambiciones era como ‘Falcon Crest’… No estaba JR, pero había la misma mala leche. Y en vez de lujo y glamour, allí no había más que polvo en verano y barro en invierno».",
   },
   {
     name: "Germantastico",
