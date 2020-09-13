@@ -1,0 +1,30 @@
+<h2>El listado de los famosillos</h2>
+
+
+
+{{!-- <ul>
+-<a href="/celebrities/{{_id}}">{{name}}</a>---<a href="/celebrities/{{_id}}/edit">--Editar</a>
+</ul> --}}
+
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+       {{#each celebrities}}
+    <tr>
+     
+      <td><a href="/celebrities/{{_id}}" class="nombre">{{name}}</a></td>
+      <td><a href="/celebrities/{{_id}}/edit">Editar</a></td>
+      <td><a href="/celebrities/{{_id}}/delete" class="borrar">Borrar</a></td>
+      
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

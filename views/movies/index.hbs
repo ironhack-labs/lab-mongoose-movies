@@ -1,0 +1,21 @@
+<table class="table table-sm">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+       {{#each movies}}
+    <tr>
+     
+      <td><a href="/movies/{{_id}}" class="nombre">{{title}}</a></td>
+      <td><a href="/movies/{{_id}}/edit">Editar</a></td>
+      <td><a href="/movies/{{_id}}/delete" class="borrar">Borrar</a></td>
+      
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
