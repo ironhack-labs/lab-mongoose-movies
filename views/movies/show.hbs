@@ -1,0 +1,24 @@
+<main class="container">
+<h3>All you need to know about {{title}}</h3>
+
+<div class="card" style="width: 24rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+    <p class="card-text">{{plot}}</p>
+    
+    <div class="row" role="group" aria-label="Basic example">
+      
+      <form action="../movies/delete/{{id}}" method="post" class="col">
+        <button  class="btn bg-secondary">Delete</button>
+      </form>
+      <form action="../movies/edit/{{id}}" method="get" class="col">
+        <button  class="btn bg-secondary"> Edit </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+</main>

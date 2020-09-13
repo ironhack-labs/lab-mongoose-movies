@@ -8,7 +8,7 @@
         </div>
         <div class="form-group row">
             <label for="occupation" class="col-md-2">Occupation</label>
-            <input name="occupation" type="text" class="form-control col-md-8" id="occupation" value="{{occupation}}">
+            <input name="occupation" type="list" list="occupations" class="form-control col-md-8" id="occupation" value="{{occupation}}">
         </div>
         <div class="form-group row">
             <label for="catchphrase" class="col-md-2">Famous Quote</label>
@@ -19,5 +19,12 @@
         </div>
     </form>
 
+    <datalist id="occupations">
+        <option value="actor">
+        <option value="singer">
+        <option value="comedian">
+        <option value="unknown">
+        <option value="oxigen waste">
+    </datalist>
 
 </main>

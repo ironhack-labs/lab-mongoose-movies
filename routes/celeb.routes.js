@@ -21,14 +21,14 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) =>{
     const {name, occupation, catchphrase} = req.body
     Celebrity.create({name, occupation, catchphrase})
-             .then(celebCreated => res.redirect('celebrities'))
+             .then(celebCreated => res.redirect('/celebrities'))
              .catch(err => console.log('ERROR:', err))
 
 })
 
 router.post('/:id/delete', (req,res) => {
     Celebrity.findByIdAndRemove(req.params.id)
-             .then( del => res.redirect('celebrities'))
+             .then( del => res.redirect('/celebrities'))
              .catch(err => console.log('ERROR: ', err))
 
 })
@@ -48,9 +48,10 @@ router.get('/:id', (req,res) => {
 })
 
 router.post('/:id', (req, res) => {
+    const id = req.params.id
     const {name, occupation, catchphrase} = req.body
-    Celebrity.findByIdAndUpdate(req.params.id,{name, occupation, catchphrase})
-             .then(celeb => res.redirect('celebrities'))
+    Celebrity.findByIdAndUpdate(id, {name, occupation, catchphrase})
+             .then(() => res.redirect('/celebrities'))
              .catch(err => {
                  console.log('ERROR: ', err)
                 })
