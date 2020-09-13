@@ -1,0 +1,17 @@
+<div>
+    <h2>Las criaturas de {{title}}</h2>
+
+    <ul>
+        {{#each celebrities}}
+        <li>
+            <p>{{name}}
+                <a href="/celebrities/{{_id}}">ver detalles</a>
+                <form action="/celebrities/{{_id}}/delete" method="post">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </p>
+        </li>
+        {{/each}}
+        <a href="/new-celebrity">Crear</a>
+    </ul>
+</div>
