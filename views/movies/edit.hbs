@@ -1,0 +1,17 @@
+<form action="/movies/edit/{{id}}" method="POST">
+    <div class="form-row justify-content-center pt-3">
+        <div class="form-group col-7 m-2">
+            <label for="title">Title:</label>
+            <input name="title" type="text" class="form-control text-secondary" value="{{title}}">
+        </div>
+        <div class="form-group col-7 m-2">
+            <label for="genre">Genre:</label>
+            <input name="genre" type="text" class="form-control text-secondary" value="{{genre}}">
+        </div>
+        <div class="form-group col-7 m-2">
+            <label for="plot">Plot:</label>
+            <input name="plot" type="text" class="form-control text-secondary" value="{{plot}}">
+        </div>
+        <button class="btn btn-outline-primary col-7 mt-3" type="submit">Save</button>
+    </div>
+</form>
