@@ -1,18 +1,18 @@
 <div class="containter card-list">
         
-    <a href="/celebrities/create" class="btn btn-sm btn-outline-dark">Add new celebrity</a>
+    <a href="/movies/create" class="btn btn-sm btn-outline-dark">Add new movie</a>
     
-    <h1>Celebrities</h2>
+    <h1>Movies</h2>
 
     <div class="row">
 
-        {{#each celebrities}}
+        {{#each movies}}
 
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 18rem;">
                     <img src="{{image}}" class="card-img-top" alt="{{name}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{name}}</h5>
+                        <h5 class="card-title">{{title}}</h5>
                         <a href="/celebrities/detail/{{id}}" class="btn btn-sm btn-outline-dark">See more</a>
                     </div>
                 </div>

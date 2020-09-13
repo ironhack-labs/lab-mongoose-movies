@@ -6,10 +6,10 @@ h1, h2, h3 {
 nav {
   margin-bottom: 75px; }
 
-.celebrities .card {
+.card-list .card {
   margin-bottom: 75px; }
 
-.celebrities img {
+.card-list img {
   object-fit: cover;
   height: 300px; }
 
