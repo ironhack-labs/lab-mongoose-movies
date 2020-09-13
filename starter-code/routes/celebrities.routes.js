@@ -50,26 +50,26 @@ router.post('/:celebrity_id/delete', (req, res) => {
 
 })
 
-// // Edit a celebrity detail
-// router.get('/edit', (req, res) => {
+// Edit a celebrity detail
+router.get('/edit', (req, res) => {
 
-//     const idToUpdate = req.query.celebrity_id
+    const celebrity_id = req.query.celebrity_id
 
-//     Celebrity.findById(idToUpdate)
-//         .then(celebToUpadate => res.render('/celebrities/edit', celebToUpadate))
-//         .catch(err => console.log('ERROR', err))
-// })
+    Celebrity.findById(celebrity_id)
+        .then(celebToUpadate => res.render('celebrities/edit', celebToUpadate))
+        .catch(err => console.log('ERROR', err))
+})
 
-// router.post('/edit/:celebrity_id', (req, res) => {
+router.post('/edit/:celebrity_id', (req, res) => {
 
-//     const idToUpdate = req.params.celebrity_id
-//     const { name, occupation, catchPhrase, photo } = req.body
+    const celebrity_id = req.params.celebrity_id
+    const { name, occupation, catchPhrase, photo } = req.body
 
-//     Celebrity.findByIdAndUpdate(idToUpdate, { name, occupation, catchPhrase, photo })
-//         .then(() => res.redirect('/celebrities/list'))
-//         .catch(err => console.log('ERROR', err))
+    Celebrity.findByIdAndUpdate(celebrity_id, { name, occupation, catchPhrase, photo })
+        .then(() => res.redirect('/celebrities/list'))
+        .catch(err => console.log('ERROR', err))
 
-// })
+})
 
 
 module.exports = router

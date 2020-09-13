@@ -1,0 +1,27 @@
+<section>
+
+    <h2>{{titleHome}}</h2>
+        <hr>
+
+        <h3>Movie details</h3>
+
+    <div class="card border-light mb-3" style="max-width: 50rem;">
+
+        <div class="card-header">
+            <h3>{{title}}</h3>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">{{genre}}</h5>
+            <p class="card-text">{{plot}}</p>
+        </div>
+
+        <div class="card-footer">
+            <div class="row">
+                <a class='btn btn-sm btn-dark' href='/movies/edit?movie_id={{id}}'>Edit</a>
+                <a class="btn btn-dark" href="/movies/list">Go back</a>
+            </div>
+        </div>
+
+    </div>
+</section>

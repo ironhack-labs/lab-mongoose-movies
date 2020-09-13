@@ -1,21 +1,25 @@
 <section>
-    <div class="container">
+    <div class='container'>
 
         <h2>Movies Index</h2>
 
         <ul>
             {{#each movies}}
             <li>
-                <a href='/movies/movie/{{id}}'>{{title}}</a>
-                <a href="/movies/edit?movie_id={{id}}">Edit</a>
-                <form action='/movies/{{id}}/delete' method="POST">
-                    <button class="btn btn-sm btn-dark" type="submit">Delete</button>
-                </form>
+                
+                <a href='/movies/details/{{id}}'>{{title}}</a>
+
+                <div class="row">
+                    <form action='/movies/{{id}}/delete' method='POST'>
+                        <button class='btn btn-sm btn-dark' type='submit'>Delete</button>
+                    </form>
+                </div>
+                
             </li>
             {{/each}}
         </ul>
 
-        <a class="btn btn-dark" href="/movies/new">Add movie</a>
+        <a class='btn btn-dark' href='/movies/new'>Add movie</a>
 
     </div>
 </section>

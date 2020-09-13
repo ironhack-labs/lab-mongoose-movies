@@ -16,12 +16,12 @@ router.get('/list', (req, res) => {
 })
 
 // Movie details
-router.get('/movie/:movie_id', (req, res) => {
+router.get('/details/:movie_id', (req, res) => {
 
     const id = req.params.movie_id
 
     Movie.findById(id)
-        .then(movieDetails => res.render('movies/movie', movieDetails))
+        .then(movieDetails => res.render('movies/details', movieDetails))
         .catch(err => console.log('ERROR', err))
 })
 
@@ -52,20 +52,21 @@ router.post('/:movie_id/delete', (req, res) => {
 router.get('/edit', (req, res) => {
 
     const movie_id = req.query.movie_id
+    console.log(movie_id)
 
     Movie.findById(movie_id)
-        .then(movieToUpadate => res.render('/movies/edit', movieToUpadate))
+        .then(movieToUpadate => res.render('movies/edit', movieToUpadate))
         .catch(err => console.log('ERROR', err))
 })
 
-router.post('/edit/:movie_id', (req, res) => {
+router.post('/edit/:movie_id/', (req, res) => {
 
     const movie_id = req.params.movie_id
     const { title, genre, plot } = req.body
 
     Movie.findByIdAndUpdate(movie_id, { title, genre, plot })
-        .then(() => res.redirect('/movies/list'))
-        .catch(err => console.log('ERROR', err))
+        .then(() => res.redirect('/movies/list'))  // Me aprecía mejor redireccionar nuevamente al detalle de la película para comprobar los cambios,
+        .catch(err => console.log('ERROR', err))   // he buscado y se podría hacer con res.redirect('back) pero es necesario estar usando session.
 
 })
 

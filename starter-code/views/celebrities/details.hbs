@@ -1,20 +1,37 @@
 <section>
     <div>
-        <h2>All the details</h2>
+
+        <h2>{{titleHome}}</h2>
+        <hr>
+
+        <h3>Celebrity details</h3>
 
         <div class='card mb-3' style='max-width: 540px;'>
+
             <div class='row no-gutters'>
+
                 <div class='col-md-4'>
                     <img src='{{photo}}' class='card-img' alt='{{name}}'>
                 </div>
+
                 <div class='col-md-8'>
+
                     <div class='card-body'>
                         <h5 class='card-title'>{{name}}</h5>
                         <p class='card-text'><small class='text-muted'>{{occupation}}</small></p>
                         <p class='card-text'>"{{catchPhrase}}"</p>
+
+                        <div class="row">
+                             <a class='btn btn-sm btn-dark' href='/celebrities/edit?celebrity_id={{id}}'>Edit</a>
+                            <a class="btn btn-dark" href="/movies/list">Go back</a>
+                        </div>
+                       
                     </div>
+
                 </div>
+
             </div>
+
         </div>
         
     </div>

@@ -6,16 +6,20 @@
         <ul>
             {{#each celebrities}}
             <li>
+
                 <a href='/celebrities/details/{{id}}'>{{name}}</a>
-                {{!-- <a href="/celebrities/edit?celebrity_id={{id}}">Edit</a> --}}
-                <form action='/celebrities/{{id}}/delete' method="POST">
-                    <button class="btn btn-sm btn-dark" type="submit">Delete</button>
-                </form>
+                
+                <div class="row">
+                    <form action='/celebrities/{{id}}/delete' method='POST'>
+                        <button class='btn btn-sm btn-dark' type='submit'>Delete</button>
+                    </form>
+                </div>
+                
             </li>
             {{/each}}
         </ul>
 
-        <a class="btn btn-dark" href="/celebrities/new">Add celebrity</a>
+        <a class='btn btn-dark' href='/celebrities/new'>Add celebrity</a>
 
     </div>
 </section>
