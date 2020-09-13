@@ -1,0 +1,30 @@
+<section class="formulario">
+    <div class="container">
+        <h2>{{name}}: Edition</h2>
+        <hr>
+        <form action="/movies/{{id}}" method="post">
+            <div class="formulario-group">
+                <label for="title">Title</label>
+                <input type="text" class="fromulario-control" name="title" id="title" placeholder="Type a title"
+                 value="{{title}}">
+            </div>
+
+            <div class="formulario-group">
+                <label for="Genre">Genre</label>
+                <input type="text" class="fromulario-control" name="genre" id="genre" placeholder="Type a genre"
+                value="{{genre}}">  
+            </div>
+
+            <div class="formulario-group">
+                <label for="plot">Plot</label>
+                <input type="text" class="fromulario-control" name="plot" id="plot" placeholder="Type a plot" 
+                    value="{{plot}}">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-sm">¡Finish edition!</button>
+                <a href="/movies" class="btn btn-primary btn-sm">¡Go back!</a>
+            </div>
+        </form>
+    </div>
+</section>
