@@ -1,0 +1,19 @@
+<div>
+    <h2>Las criaturas de {{title}}</h2>
+
+    <ul>
+        {{#each movies}}
+        <li>
+            <p>{{title}}
+            <p>{{genre}}
+            <p>{{plot}}
+                <a href="/movies/{{_id}}">ver detalles</a>
+            <form action="/movies/{{_id}}/delete" method="post">
+                <button type="submit">Eliminar</button>
+            </form>
+            </p>
+        </li>
+        {{/each}}
+        <a href="/newMovies">Crear</a>
+    </ul>
+</div>
