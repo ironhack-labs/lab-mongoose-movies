@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+            <h2>Edit Movie  </h2>
+            
+            
+            <form action="/movies/{{_id}}" method="post">
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input name="title" type="text" class="form-control" value="{{this.title}}">
+                </div>
+
+                <div class="form-group">
+                    <label>Genre</label>
+                    <input name="genre" type="text" class="form-control" value="{{this.genre}}">
+                </div>
+
+                <div class="form-group">
+                    <label>Plot</label>
+                    <input name="plot" type="text" class="form-control" value="{{this.plot}}">
+                </div>
+
+                
+                <button type="submit" class="btn btn-dark">Editar película</button>
+            </form>
+        </div>
+    </div>
+</div>

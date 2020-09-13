@@ -1,0 +1,28 @@
+
+
+
+
+<h2>Celebrities</h2>
+
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+       {{#each celebrities}}
+    <tr>
+     
+      <td class="td1"><a href="/celebrities/{{_id}}" class="nombre">{{name}}</a></td>
+      <td class="td2"><a href="/celebrities/{{_id}}/edit">Edit</a></td>
+      <td class="td3"><a href="/celebrities/{{_id}}/delete" class="borrar">Delete</a></td>
+      
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

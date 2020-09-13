@@ -1,0 +1,48 @@
+body {
+  padding: 15px;
+  font-family: sans-serif;
+}
+
+
+.navbar{
+  margin-bottom: 5%;
+}
+
+.nombre{
+  color:black;
+}
+
+
+tr:hover {
+  background-color: rgb(219, 191, 191);
+  text-decoration: none;
+}
+
+tr >td > a:hover {
+  text-decoration: none;
+  }
+
+.borrar:hover{
+  color:red
+}
+.nombre:hover{
+  color:white;
+}
+
+.td1{
+  width: 70%;
+}
+.td2 .td3{
+  width: 20%;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+
