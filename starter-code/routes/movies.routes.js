@@ -35,6 +35,30 @@ router.post('/create', (req, res) => {
 
 })
 
+// Update celebrity render
+router.get('/edit', (req, res) => {
+
+    const id = req.query.celebrity_id
+
+    Movie.findById(id)
+        .then(celebrityDetails => res.render('movie-update-form', celebrityDetails))
+        .catch(err => console.log('Ha ocurrido un error encontrando los detalles de la celebridad', err))
+
+})
+
+// Update celebrity process
+router.post('/edit/:movie_id', (req, res) => {
+
+    const id = req.params.movie_id
+
+    const { title, genre, plot } = req.body
+
+    Movie.findByIdAndUpdate(id, { title, genre, plot })
+        .then(() => res.redirect(`/movies/detail/${id}`))
+        .catch(err => console.log('Ha ocurrido un error actualizando a la celebridad', err))
+
+})
+
 // Delete movie
 router.get('/delete/:id', (req, res) => {
 
@@ -45,8 +69,6 @@ router.get('/delete/:id', (req, res) => {
         .catch(err => console.log('Ha ocurrido un error eliminado a la celebridad', err))
 
 })
-
-
 
 
 module.exports = router
