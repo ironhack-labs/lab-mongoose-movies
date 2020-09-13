@@ -1,0 +1,39 @@
+<section>
+    <div class='container'>
+
+        <div class='row justify-content-center'>
+
+            <div class='col-md-6'>
+
+                <h2>Edit {{title}}</h2>
+
+                <form action='/movies/edit/{{movieToUpadate}}' method='POST'>
+
+                    <div class='form-group'>
+                        <label>Title</label>
+                        <input type='text' name='title' value='{{title}}' class='form-control'>
+                    </div>
+
+                    <div class='form-group'>
+                        <label>Genre</label>
+                        <input type='text' name='genre' value='{{genre}}' class='form-control'>
+                    </div>
+
+                    <div class='form-group'>
+                        <label>Plot</label>
+                        <input type='text' name='plot' value='{{plot}}' class='form-control'>
+                    </div>
+
+                    <button type='submit' class='btn btn-dark'>Save</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+

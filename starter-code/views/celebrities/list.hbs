@@ -1,0 +1,21 @@
+<section>
+    <div class='container'>
+
+        <h2>Celebrity Index</h2>
+
+        <ul>
+            {{#each celebrities}}
+            <li>
+                <a href='/celebrities/details/{{id}}'>{{name}}</a>
+                {{!-- <a href="/celebrities/edit?celebrity_id={{id}}">Edit</a> --}}
+                <form action='/celebrities/{{id}}/delete' method="POST">
+                    <button class="btn btn-sm btn-dark" type="submit">Delete</button>
+                </form>
+            </li>
+            {{/each}}
+        </ul>
+
+        <a class="btn btn-dark" href="/celebrities/new">Add celebrity</a>
+
+    </div>
+</section>
