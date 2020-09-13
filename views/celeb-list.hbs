@@ -1,0 +1,34 @@
+<h1>Tus famosas</h1>
+<div class="container">
+    <div class="row"></div>
+    {{#each celebrities}}
+
+    <div class="card col-sm-6 col-md-3 col-lg-3" style="width: 18rem;">
+        <div class="card-header">
+            <p>Se llama {{this.name}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Su oficio es {{this.occupation}}</li>
+            <li class="list-group-item">Suele decir "{{this.catchPhrase}}"</li>
+
+        </ul>
+        <a class="btn btn-success" href="/famosas/editar?celeb_id={{_id}}">
+            Editar
+        </a>
+        <br>
+
+        <a class="btn btn-danger" href="/famosas/borrar/{{id}}">
+            Borrar
+        </a>
+    </div>
+
+
+
+    {{/each}}
+
+
+</div>
+<a class="btn btn-dark" href="/">
+    Volver
+</a>
+</div>

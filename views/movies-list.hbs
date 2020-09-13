@@ -1,0 +1,26 @@
+<h1>Cada movie</h1>
+
+{{#each movies}}
+<div class="index-info container">
+    <h2>
+        {{title}}
+    </h2>
+
+    <a href="/pelis/detalles/{{_id}}">Detalles</a>
+
+    <a class="btn btn-success" href="/pelis/editar?movie_id={{id}}">
+        Editar
+    </a>
+
+    <br>
+
+    <a class="btn btn-danger" href="/pelis/borrar/{{_id}}">
+        Borrar
+    </a>
+
+</div>
+{{/each}}
+
+<a class="btn btn-dark" href="/">
+    Volver
+</a>

@@ -1,0 +1,50 @@
+<h1>{{webTitle}}</h1>
+
+
+
+{{#each celebrities}}
+<div class="index-info container">
+    <h2>
+        {{name}}
+
+    </h2>
+
+    <a href="/famosas/detalles/{{_id}}">Detalles</a>
+
+
+    <a class="btn btn-success" href="/famosas/editar?celeb_id={{_id}}">
+        Editar
+    </a>
+
+    <br>
+
+
+    <a class="btn btn-danger" href="/famosas/borrar/{{id}}">
+        Borrar
+    </a>
+
+</div>
+{{/each}}
+
+<br>
+
+
+
+
+<a href="/famosas/listado"><button class="btn btn-outline-info btn-rounded waves-effect">Cotillear a todas</button></a>
+<a href="/famosas/nueva"><button class="btn btn-outline-warning btn-rounded waves-effect">Crear una
+        nueva</button></a>
+
+<br><br>
+
+<div>
+    <a class="btn btn-dark" href="/pelis/listado">
+        Listado de pelis
+    </a>
+
+
+
+    <a class="btn btn-dark" href="/pelis/nueva">
+        Crear nueva peli
+    </a>
+</div>
