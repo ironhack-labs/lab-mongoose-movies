@@ -37,14 +37,13 @@ router.post('/create', (req, res) => {
     
 })
 
-
 // Update celebrity render
 router.get('/edit', (req, res) => {
 
     const id = req.query.celebrity_id
 
     Celebrity.findById(id)
-        .then(celebrityDetails => res.render('update-celebrity-form', celebrityDetails))
+        .then(celebrityDetails => res.render('celebrity-update-form', celebrityDetails))
         .catch(err => console.log('Ha ocurrido un error encontrando los detalles de la celebridad', err))
     
 })
