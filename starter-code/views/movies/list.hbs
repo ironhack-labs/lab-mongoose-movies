@@ -1,0 +1,38 @@
+<section class='index'>
+    <div class='container'>
+
+        <h3>Movies Index</h3>
+        <hr>
+        <p>Click on title to see the movie details!</p>
+
+        <div class='row'>
+
+            {{#each movies}}
+            
+            <div class='col-6'>
+                <ul>
+                    <li>
+                        <a class='list-points' href='/movies/details/{{id}}'>{{title}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class='col-6'>
+                <form action='/movies/{{id}}/delete' method='POST'>
+                    <button type='submit'class='btn-dark'>Delete</button>
+                </form>
+            </div>
+
+            {{/each}}
+
+        </div>
+
+        <hr>
+
+        <div class='row'>
+            <a class='btn btn-dark' href='/movies/new'>Add movie</a>
+            <a class='btn btn-dark' href='/'>Home</a>
+        </div>
+
+    </div>
+</section>

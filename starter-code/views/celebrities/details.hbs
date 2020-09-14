@@ -1,0 +1,37 @@
+<section class='details'>
+    <div>
+
+        <h2>{{titleHome}}</h2>
+        <hr>
+
+        <div id='card' class='card mb-3'>
+
+            <div class='row no-gutters'>
+
+                <div class='col-md-4'>
+                    <img src='{{photo}}' class='card-img' alt='{{name}}'>
+                </div>
+
+                <div class='col-md-6 text'>
+
+                    <div class='card-body' style='width: 600px;'>
+                        <h3 class='card-title'>{{name}}</h3>
+                        <h5 class='card-text text-muted'>{{occupation}}</h5>
+                        <p class='card-text'>'{{catchPhrase}}'</p>
+
+                        <div class='row btn-center'>
+                            <a class='btn btn-dark' href='/celebrities/edit?celebrity_id={{id}}'>Edit</a>
+                            <a class='btn btn-dark' href='/celebrities/list'>List</a>
+                            <a class='btn btn-dark' href='/'>Home</a>
+                        </div>
+                       
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+</section>

@@ -1,0 +1,38 @@
+<section class='index'>
+    <div class='container'>
+
+        <h3>Celebrity Index</h3>
+        <hr>
+        <p>Click on celebrity to see details!</p>
+
+        <div class='row'>
+
+            {{#each celebrities}}
+
+            <div class='col-6'>
+                <ul>
+                    <li>
+                        <a class='list-points' href='/celebrities/details/{{id}}'>{{name}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class='col-6'>
+                <form action='/celebrities/{{id}}/delete' method='POST'>
+                    <button type='submit' class='btn-dark'>Delete</button>
+                </form>
+            </div>
+
+            {{/each}}
+
+        </div>
+
+        <hr>
+
+        <div class='row'>
+            <a class='btn btn-dark' href='/celebrities/new'>Add celebrity</a>
+            <a class='btn btn-dark' href='/'>Home</a>
+        </div>
+        
+    </div>
+</section>
