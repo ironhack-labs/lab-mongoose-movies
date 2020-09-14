@@ -1,0 +1,13 @@
+<h2>Edit the information about {{title}}</h2>
+
+<form  action="/movies/{{id}}/new" method="POST">
+    <label>Title: </label>
+    <input type='text' name="title" value="{{title}}">
+    <label>Genre: </label>
+    <input type='text' name="genre" value="{{genre}}">
+    <label> Plot: </label>
+    <textarea class="col-9 form-control" type='text' name="plot" >{{plot}}</textarea>
+    <button class="btn btn-warning" type='submit' class='btn btn-info'>Edit</button>
+</form>
+
+<a class="btn btn-primary" href="/movies" role="button">Go back</a>
