@@ -98,6 +98,11 @@ checkLogin,
     res.render('users/user-profile')
 })
 
+router.post('/logout', (req, res, next) => {
+    req.session.destroy()
+    res.redirect('/')
+})
+
 
 module.exports = router
 

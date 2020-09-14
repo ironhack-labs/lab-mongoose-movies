@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
   Movie.find()
   .then(movieDocs => {
     // console.log(movieDocs)
-    res.render('movies/index', {movieDocs})
+    res.render('movies/index', {movieDocs, userInSession: req.session.currentUser})
   })
   .catch(err => {
     next(err)

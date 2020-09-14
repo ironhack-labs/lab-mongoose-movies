@@ -1,12 +1,15 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity')
+const User = require('../models/User')
 
 router.get('/', (req, res, next) => {
   Celebrity.find()
   .then(celebrityDocs => {
-    console.log(celebrityDocs)
-    res.render('celebrities/index', {celebrityDocs})
+    // console.log(celebrityDocs)
+    // console.log(req.session.currentUser )
+    res.render('celebrities/index', {celebrityDocs, userInSession: req.session.currentUser})
+   
   })
   .catch(err => {
     next(err)
