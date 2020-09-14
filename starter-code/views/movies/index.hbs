@@ -1,0 +1,19 @@
+
+<main class="container">
+    <h2>This is the list of Movies!</h2>
+    <div class="row index-buttons">
+        <div class="col-12">
+        {{#each movies}}
+            <h4>{{title}}</h4> 
+                    <a class="btn btn-sm btn-info" href="/movies/{{_id}}">see details!</a>
+                    <a href="/movies/edit/{{_id}}" class="btn btn-sm btn-warning">edit</a>
+                    <form action ="/movies/delete/{{_id}}" method="POST">
+                        <button type="submit" class="btn btn-sm btn-danger button-delete">delete</button>
+                    </form>
+                <hr>
+        {{/each}}
+        </div>
+    </div>
+<p><a class="btn btn-sm btn-dark" href="/movies/index">Back</a></p>
+</main>
+
