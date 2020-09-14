@@ -1,0 +1,11 @@
+<h2>Name of all celebrities</h2>
+
+{{#each allCelebrities}}
+<h3>{{this.name}}</h3>
+<a class="btn btn-primary" href="/celebrities/{{_id}}" role="button">Details</a>
+<a class="btn btn-danger" href="/celebrities/{{_id}}/delete" role="button">Delete</a>
+
+<a class="btn btn-primary" href="/celebrities/{{_id}}/edit" role="button">Edit</a>
+
+{{/each}}
+<a href="/celebrities/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create new celebrity</a>

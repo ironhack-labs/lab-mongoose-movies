@@ -1,0 +1,17 @@
+<h2>Edit the information about {{name}}</h2>
+
+<form  action="/celebrities/{{id}}/new" method="POST">
+    <label>Name: </label>
+    <input type='text' name="name" value="{{name}}">
+    <br>
+    <label>Ocupation: </label>
+    <input type='text' name="ocupation" value="{{ocupation}}">
+    <br>
+    <label>Phrase: </label>
+    <textarea class="col-9 form-control" type='text' name="catchPhrase" >{{catchPhrase}}</textarea>
+    <button class="btn btn-warning" type='submit' class='btn btn-info'>Edit</button>
+
+
+</form>
+
+<a style="margin: 15px;" class="btn btn-primary" href="/celebrities" role="button">Go back</a>

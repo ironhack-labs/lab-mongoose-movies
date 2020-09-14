@@ -1,0 +1,9 @@
+<h2>Name of all movies</h2>
+
+{{#each allMovies}}
+<h3>{{this.title}}</h3>
+<a class="btn btn-primary" href="/movies/{{_id}}" role="button">Details</a>
+<a class="btn btn-danger" href="/movies/{{_id}}/delete" role="button">Delete</a>
+<a class="btn btn-primary" href="/movies/{{_id}}/edit" role="button">Edit</a>
+{{/each}}
+<a href="/movies/new" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create new movie</a>
