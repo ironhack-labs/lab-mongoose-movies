@@ -65,8 +65,8 @@ router.post('/edit/:movie_id/', (req, res) => {
     const { title, genre, plot } = req.body
 
     Movie.findByIdAndUpdate(movie_id, { title, genre, plot })
-        .then(() => res.redirect('/movies/list'))  // Me aprecía mejor redireccionar nuevamente al detalle de la película para comprobar los cambios,
-        .catch(err => console.log('ERROR', err))   // he buscado y se podría hacer con res.redirect('back) pero es necesario estar usando session.
+        .then(() => res.redirect(`/movies/details/${movie_id}`))   
+        .catch(err => console.log('ERROR', err))   
 
 })
 

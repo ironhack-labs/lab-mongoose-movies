@@ -66,10 +66,9 @@ router.post('/edit/:celebrity_id', (req, res) => {
     const { name, occupation, catchPhrase, photo } = req.body
 
     Celebrity.findByIdAndUpdate(celebrity_id, { name, occupation, catchPhrase, photo })
-        .then(() => res.redirect('/celebrities/list'))
+        .then(() => res.redirect(`/celebrities/details/${celebrity_id}`)) 
         .catch(err => console.log('ERROR', err))
 
 })
-
 
 module.exports = router
