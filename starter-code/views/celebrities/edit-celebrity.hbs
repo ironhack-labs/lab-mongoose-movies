@@ -1,0 +1,25 @@
+<form action="/celebrities/{{celebrity._id}}" method="post">
+    <div>
+        <label for="name">Celebrity Name</label>
+        <input type="text" name="name" id="name" placeholder="Digite o nome da celebridade" value="{{celebrity.name}}">
+    </div>
+    <div>
+        <label for="occupation">Celebrity Occupation</label>
+        <select name="occupation" id="occupation">
+            <option value="actor">Actor</option>
+            <option value="singer">Singer</option>
+            <option value="comedian">Comedian</option>
+            <option value="unknown">Unknown</option>
+        </select>
+    </div>
+    <div>
+        <label for="catchPhrase">Catch Phrase</label>
+        <input type="text" name="catchPhrase" id="catchPhrase" placeholder="Digite a frase de efeito da celebridade" value="{{celebrity.catchPhrase}}">
+    </div>
+
+    {{#if errorMessage}}
+        <p>{{errorMessage}}</p>
+    {{/if}}
+
+    <button type="submit">Edit</button>
+</form>
