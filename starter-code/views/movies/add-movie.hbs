@@ -1,0 +1,24 @@
+<h2>Adding a movie</h2>
+<a href="/movies">Back</a>
+<form action="/movies" method="post">
+  <div>
+    <label for="title">Movie Title</label>
+    <input type="text" name="title" id="title" placeholder="Input movie title">
+  </div>
+
+  <div>
+    <label for="genre">Movie Genre</label>
+    <input type="text" name="genre" id="genre" placeholder="Input movie genre">
+  </div>
+
+  <div>
+    <label for="plot">Plot</label>
+    <input type="text" name="plot" id="plot" placeholder="Input movie plot">
+  </div>
+
+  {{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+  {{/if}}
+
+  <button type="submit">Create</button>
+</form>
