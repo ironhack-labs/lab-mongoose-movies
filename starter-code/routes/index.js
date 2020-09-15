@@ -54,6 +54,7 @@ router.post('/celebrities', async (req, res, next) => {
 
     await res.redirect('/celebrities');
   } catch (error) {
+    res.render('celebrities/add-celebrity');
     return next(error);
   }
 });

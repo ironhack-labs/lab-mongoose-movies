@@ -9,7 +9,6 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
-
 mongoose
   .connect('mongodb://localhost/lab-movies-ironhack', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
@@ -38,21 +37,18 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
 const index = require('./routes/index');
-app.use('/', index);
+const indexM = require('./routes/indexM');
 
+app.use('/', index);
+app.use('/', indexM);
 
 module.exports = app;
