@@ -3,6 +3,19 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+  padding: 5px;
+}
+
+.list {
+  width: 600px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2px 0;
+  padding: 0 5px;
+}
+
 
 /*# sourceMappingURL=style.css.map */
