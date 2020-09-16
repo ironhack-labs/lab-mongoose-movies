@@ -26,7 +26,10 @@ mongoose
     ];
 
     Celebrities.insertMany(firstCelebrities)
-      .then((result) => console.log("Database seeded", result))
+      .then((result) => {
+        console.log("Database seeded", result);
+        mongoose.connection.close();
+      })
       .catch((err) => console.error(err));
   })
   .catch((err) => {
