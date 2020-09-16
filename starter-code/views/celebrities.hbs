@@ -1,0 +1,16 @@
+<div>
+  <h2>Celebrities List</h2>
+  <ul>
+    {{#each celebrities}}
+      <li><a href="/celebrities/{{this._id}}">{{this.name}}</a></li>
+    {{/each}}
+  </ul>
+
+  <div>
+    <a href="/create-celebrity">Add</a>
+  </div>
+
+  <div>
+    <a href="/">Back</a>
+  </div>
+</div>

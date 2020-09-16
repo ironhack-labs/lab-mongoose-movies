@@ -1,0 +1,13 @@
+<div>
+  <h2>{{this.title}}</h2>
+  <p>Genre:: {{this.genre}}</p>
+  <p>Plot: {{this.plot}}</p>
+  <div>
+    <a href="/edit-movie/{{this._id}}">Edit</a>  
+    <a href="/delete-movie/{{this._id}}" class="text-danger">Delete</a>
+  </div>
+
+  <div>
+    <a href="/movies">Back</a>
+  </div>
+</div>
