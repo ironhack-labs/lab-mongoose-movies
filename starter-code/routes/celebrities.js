@@ -3,10 +3,10 @@ const { get } = require("mongoose");
 const { render } = require("../app");
 const Celebrities = require("../models/celebrity");
 
-const routerCelebrities = express.Router();
+const router = express.Router();
 
 // Celebrities List - cRud
-routerCelebrities.get("/celebrities", (req, res) => {
+router.get("/", (req, res) => {
   Celebrities.find()
     .then(celebrities => {
       res.render("celebrities/index", { celebrities });
@@ -16,11 +16,11 @@ routerCelebrities.get("/celebrities", (req, res) => {
 });
 
 // Add celebrity - Crud
-routerCelebrities.get("/celebrities/new", (req, res) => {
+router.get("/new", (req, res) => {
   res.render("celebrities/new");
 });
 
-routerCelebrities.post("/celebrities", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newCeleb = await new Celebrities({
       name: req.body.name,
@@ -37,7 +37,7 @@ routerCelebrities.post("/celebrities", async (req, res) => {
 });
 
 // Edit celebrity - crUd
-routerCelebrities.get("/celebrities/:id/edit", async (req, res) => {
+router.get("/:id/edit", async (req, res) => {
   try {
     const celebrity = await Celebrities.findById(req.params.id);
     console.log("Editing a celebrity");
@@ -47,7 +47,7 @@ routerCelebrities.get("/celebrities/:id/edit", async (req, res) => {
   };
 });
 
-routerCelebrities.post("/celebrities/:id", async (req, res) => {
+router.post("/:id", async (req, res) => {
   try {
     const { name, occupation, catchPhrase } = req.body;
     await Celebrities.findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase });
@@ -59,7 +59,7 @@ routerCelebrities.post("/celebrities/:id", async (req, res) => {
 });
 
 // Celebrity Details - cRud
-routerCelebrities.get("/celebrities/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const celebrity = await Celebrities.findById(req.params.id);
     res.render("celebrities/show", { celebrity });
@@ -70,7 +70,7 @@ routerCelebrities.get("/celebrities/:id", async (req, res) => {
 });
 
 // Delete celebrity - cruD
-routerCelebrities.post("/celebrities/:id/delete", async (req, res) => {
+router.post("/:id/delete", async (req, res) => {
   try {
     await Celebrities.findByIdAndDelete(req.params.id);
     console.log("Deleting a celebrity");
@@ -80,4 +80,4 @@ routerCelebrities.post("/celebrities/:id/delete", async (req, res) => {
   };
 });
 
-module.exports = routerCelebrities;
+module.exports = router;
