@@ -20,10 +20,19 @@ router.post("/", (req, res) => {
   console.log(req.body);
   Celebrity.create(req.body)
     .then((result) => {
-      console.log(result);
       res.redirect("/celebrities");
     })
     .catch((error) => console.error(error));
+});
+
+router.get("/:id/delete", async (req, res) => {
+  try {
+    const result = await Celebrity.findByIdAndRemove({ _id: req.params.id });
+    console.log(result);
+    res.redirect("/celebrities");
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 router.get("/:id", async (req, res) => {
