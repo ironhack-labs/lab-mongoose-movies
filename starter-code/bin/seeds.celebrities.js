@@ -4,19 +4,19 @@ const mongoose = require("mongoose");
 
 const celebrities = [
   {
-    name: "JCVD",
-    occupation: "Philosoph",
-    catchPhrase: "J'adore l'eau, dans 20/30 ans il n'y en aura plus",
+    name: "Russell Crowe",
+    occupation: "Actor",
+    catchPhrase: "What we do in life echoes in eternity.",
   },
   {
-    name: "Mark Twain",
-    occupation: "Writer",
-    catchPhrase: "They didn't know it was impossible so they did it",
+    name: "Ryan Reynolds",
+    occupation: "Actor",
+    catchPhrase: "Now, I'm about to do to you what Limp Bizkit did to music in the late '90s.",
   },
   {
-    name: "Tupac",
-    occupation: "Singer",
-    catchPhrase: "You gotta be able to smile through all this bullshit",
+    name: "Peter Jackson",
+    occupation: "Director",
+    catchPhrase: "The most honest form of filmmaking is to make a film for yourself.",
   }
 ];
 

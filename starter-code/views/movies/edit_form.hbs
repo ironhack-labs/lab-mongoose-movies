@@ -10,6 +10,17 @@
     <label for="plot">Plot</label>
     <input type="text" name="plot" id="plot" value="{{movie.plot}}">
 
+    <label for="celebrity">Celebrity</label>
+    <select name="celebrity" id="celebrity">
+        {{#each celebrityDocuments}}
+        {{#isSameId  this._id ../movie.celebrity }}
+        <option value="{{this._id}}" selected>{{this.name}}</option>
+        {{else}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/isSameId}}
+        {{/each}}
+    </select>
+
     <button class="btn">Edit Movie</button>
 
 </form>
