@@ -1,9 +1,9 @@
 require("dotenv").config();
 const Movies = require("../models/movie");
-const Celebrities = require("../models/celebrity");
+// const Celebrities = require("../models/celebrity");
 const mongoose = require("mongoose");
 
-const movie = [
+const movies = [
   {
     title: "The Shawshank Redemption",
     genre: "Drama",
@@ -28,7 +28,7 @@ mongoose
   })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-    Movies.create(labels)
+    Movies.create(movies)
     .then((dbResult) => {
       console.log(dbResult);
     })
