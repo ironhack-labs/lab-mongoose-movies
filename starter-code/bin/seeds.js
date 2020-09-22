@@ -8,6 +8,11 @@ const celebrities = [
     occupation: "Actor",
     catchPhrase: "Hello world",
   },
+  {
+    name: "Rafael Nadal",
+    occupation: "Tennisman",
+    catchPhrase: "Vamos",
+  }
 ];
 
 mongoose
