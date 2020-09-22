@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const celebritySchema = new Schema({
   name: String,
-  isBand: Boolean,
-  description: String,
+  occupation: String,
+  catchPhrase: String,
 });
 
-const Celebrity = mongoose.model("Celebrity", celebritySchema);
+const celebrityModel = mongoose.model("Celebrity", celebritySchema);
 
-module.exports = Celebrity;
+module.exports = celebrityModel;
