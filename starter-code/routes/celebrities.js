@@ -26,4 +26,25 @@ router.get("/celebrities/show/:id", (req, res, next) => {
 });
 
 
+router.get("/celebrities/new", (req, res, next) => {
+  res.render("celebrities/new.hbs");
+});
+
+router.post(
+  "/celebrities/new",
+  async (req, res, next) => {
+
+    const newCelebrity = req.body;
+
+    try {
+      const dbResult = await Celebrity.create(newCelebrity);
+      res.redirect("/celebrities/index");
+    } catch (error) {
+      next(error); // Sends us to the error handler middleware in app.js if an error occurs
+    }
+    //
+  }
+);
+
+
 module.exports = router;
