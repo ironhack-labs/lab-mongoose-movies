@@ -22,4 +22,9 @@ router.get("/:id", async (req, res, next) => {
   res.render("movies/chosenMovie", { selectedMovie: dbResult });
 });
 
+router.get("/:id/delete", async (req, res, next) => {
+  const dbResult = await Movie.findByIdAndRemove(req.params.id);
+  res.redirect("/movies");
+});
+
 module.exports = router;
