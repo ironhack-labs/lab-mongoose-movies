@@ -14,3 +14,11 @@ router.get('/movies', (req, res, next) => {
   
   module.exports = router;
   
+
+  router.get("/movies/:id", async (req, res) => {
+    moviesModel.findById(req.params.id)
+    .then((dbRes) => {
+        res.render("movies/show", { movies: dbRes });
+      })
+      .catch(next);
+});
