@@ -2,6 +2,22 @@ const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/celebrity");
 
+
+//Create
+router.get("/new", (req, res) => {
+  res.render("celebrities/new.hbs");
+});
+
+router.post("/new", async (req, res, next) => {
+  try {
+    const newCelebrity = req.body;
+    const createdCelebrity = await Celebrity.create(newCelebrity);
+    res.redirect("/celebrities");
+  } catch (error) {
+    next(error);
+  }
+});
+
 // Get them all
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so "/albums" here
 router.get("/", async (req, res, next) => {
@@ -23,31 +39,7 @@ router.get("/:id", (req, res, next) => {
     .catch(next);
 });
 
-// Display the edit form with the albums fields filled
-// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/edit here
-router.get("/:id/edit", (req, res) => {});
 
-// Listen to the post of the edit form
-// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/edit here
-router.post("/:id/edit", (req, res) => {});
-
-// Get the create form
-// prefixed with /albums in app.js (app.use("/albums", albumsRouter))  /albums/create
-router.get("/new", (req, res) => {
-  res.render("celebrities/new.hbs");
-});
-
-// Listen to the post of the create form
-// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/create here
-router.post("/new", async (req, res, next) => {
-  try {
-    const newCelebrity = req.body;
-    const createdCelebrity = await Celebrity.create(newCelebrity);
-    res.redirect("/celebrities");
-  } catch (error) {
-    next(error);
-  }
-});
 
 //Delete part
 router.post("/:id/delete", async (req, res, next) => {
@@ -60,8 +52,23 @@ router.post("/:id/delete", async (req, res, next) => {
   }
 });
 
-// Listen to the delete
-// // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/delete here
-router.get("/:id/delete", (req, res) => {});
+router.get("/:id/edit", async (req, res, next) => {
+    try {
+        const editingCelebrity = await Celebrity.findById(req.params.id);
+        res.render("celebrities/edit.hbs", {editingCelebrity});
+    } catch (error) {
+        next(error)
+    }
+  });
+  
+
+router.post("/:id/edit", async (req, res, next) => {
+    try {
+      const editedCelebrity = await Celebrity.findByIdAndUpdate(req.params.id, req.body);
+      res.redirect("/celebrities");
+    } catch (error) {
+      next(error);
+    }
+  });
 
 module.exports = router;
