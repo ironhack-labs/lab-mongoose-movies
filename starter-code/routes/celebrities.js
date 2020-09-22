@@ -13,4 +13,13 @@ router.get("/celebrities", async (req, res) => {
   }
 });
 
+router.get("/celebrities/:id", async (req, res) => {
+  celebritiesModel
+    .findById(req.params.id)
+    .then((dbRes) => {
+      res.render("celebrities/show", { celebrities: dbRes });
+    })
+    .catch(next);
+});
+
 module.exports = router;
