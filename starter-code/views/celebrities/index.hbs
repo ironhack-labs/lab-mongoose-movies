@@ -1,0 +1,25 @@
+<div id="celebritiesPage">
+    <h2>Celebrities!</h2>
+
+    <div class="container">
+
+        {{#each celebrity}}
+        <div class="celebrities">
+            <div>
+                <a href="/celebrities/{{this._id}}">Name: {{this.name}}</a>
+            </div>
+
+            <form action="/celebrities/{{this._id}}/delete" method="post">
+                <button>Delete</button>
+            </form>
+        </div>
+        {{/each}}
+
+
+    </div>
+
+    <div class="footer">
+        <div><a href="/celebrities/new">Add New Celebrity</a></div>
+        <div><a href="/">Home page</a></div>
+    </div>
+</div>
