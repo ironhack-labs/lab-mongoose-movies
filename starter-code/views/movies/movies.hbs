@@ -1,10 +1,22 @@
-{{#each movies}}
-<p>movie : {{this.title}}</p>
-<a href="/movies/{{this._id}}/details">Go to details</a>
-<form action="/movies/{{this._id}}/delete" method="post">
-  <button type="submit">Delete</button>
-</form>
-{{/each}}
+<div class="moviePage">
 
-<div><a href="/movies/new-movie">Add a movie</a></div>
-<div><a href="/">Home page</a></div>
+  <div class="container">
+    {{#each movies}}
+    <div class="eachMovie">
+      <p>movie : {{this.title}}</p>
+      <div><a href="/movies/{{this._id}}/details">Go to details</a></div>
+      <form action="/movies/{{this._id}}/delete" method="post">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+
+    {{/each}}
+  </div>
+
+
+  <div class="footer">
+    <div><a href="/movies/new-movie">Add a movie</a></div>
+    <div><a href="/">Home page</a></div>
+  </div>
+
+</div>

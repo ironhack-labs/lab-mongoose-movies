@@ -1,0 +1,61 @@
+#celebritiesPage {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/images/redcarpet.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+h2 {
+  color: white;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* height: 80vh; */
+}
+
+
+a {
+  text-decoration: none;
+}
+.celebrities a {
+  display: block;
+  text-decoration: none;
+}
+.celebrities a,
+form {
+  margin: 20px;
+}
+.celebrities {
+  border-radius: 10%;
+  margin: 10%;
+  width: 20%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+}
+
+.footer {
+  margin-top: -10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer div {
+  width: 20%;
+  height: 7vh;
+  border-radius: 10px;
+  background-color: rgb(136, 90, 37);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer div a {
+  display: block;
+  color: rgb(53, 22, 28);
+}

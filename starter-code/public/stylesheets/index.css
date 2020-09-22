@@ -1,0 +1,32 @@
+.main-page {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/images/images.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-page h1, div {
+  margin: 1%;
+}
+
+.main-page div a {
+  display: block;
+  text-decoration: none;
+}
+
+.main-page div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  width: 15%;
+  height: 7vh;
+  border-radius: 10px;
+  text-transform: capitalize;
+}

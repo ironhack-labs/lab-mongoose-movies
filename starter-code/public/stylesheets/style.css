@@ -1,5 +1,9 @@
+@import url("./index.css");
+@import url("./celebrities.css");
+@import url("./movies.css");
+
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
