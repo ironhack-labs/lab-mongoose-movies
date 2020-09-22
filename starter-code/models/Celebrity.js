@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const CelebritySchema = new mongoose.Schema({
   name: String,
   occupation: String,
-  catchPhrase: String,
+  catchphrase: String,
 });
 
 const CelebrityModel = mongoose.model("celebrities", CelebritySchema);
