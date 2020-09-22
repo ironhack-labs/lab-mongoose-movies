@@ -1,4 +1,15 @@
 <h2>Edit a celebrities</h2>
-<form>
-    
+<form action="/celebrities/:id" method="POST">
+    <h2>Edit celbrities</h2>
+
+    <label for="name">Name</label>
+    <input class="input" type="text" id="name" name="name">
+
+    <label for="occupation">Occupation</label>
+    <input class="input" type="text" id="occupation" name="occupation">
+
+    <label for="catchPhrase">CatchPhrase</label>
+    <input class="input" type="text" id="catchPhrase" name="catchPhrase">
+
+    <button>Submit</button>
 </form>
