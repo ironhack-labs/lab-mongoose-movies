@@ -1,7 +1,18 @@
 <h2>Celebrities index</h2>
 
 {{#each celebrity}}
+
 <h3>{{this.name}}</h3>
+
 <a href="celebrities/{{this._id}}"> Show details</a>
+
+<form method="post" action="/celebrities/{{this._id}}/delete">
+
+<button> Delete</button>
+
+</form>
+
 {{/each}}
+
 <a href="/">Home</a>
+<a href="/celebrities/new">Create</a>

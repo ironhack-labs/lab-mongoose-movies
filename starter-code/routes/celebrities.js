@@ -14,6 +14,30 @@ router.get("/", (req, res, next) => {
     });
 });
 
+router.get("/new", (req, res) => {
+  res.render("celebrities/new");
+});
+
+router.post("/createCeleb", (req, res, next) => {
+  celebrityModel.create(req.body)
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch((dbErr) => {
+      next(err);
+    });
+});
+
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    await celebrityModel.findByIdAndRemove(req.params.id);
+    res.redirect("/celebrities");
+  } catch (dbErr) {
+    next(dbErr);
+  }
+});
+
+
 router.get("/:id", (req, res, next) => {
   celebrityModel.findById(req.params.id)
     .then((dbResult) => {
@@ -21,8 +45,5 @@ router.get("/:id", (req, res, next) => {
     })
     .catch(next);
 });
-
-
-
 
 module.exports = router;
