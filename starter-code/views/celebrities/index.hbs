@@ -1,0 +1,31 @@
+<h2>Our favorite Celebrities!</h2>
+<form action="celebrities/new" >
+  <input type="submit" value="Add new celebrity">
+</form>
+
+{{#each celebrityDocs}}
+<br>
+<p><a href="/celebrities/celebrity/{{_id}}">{{name}}</a></p>
+
+<form action="celebrities/{{_id}}/edit" method="GET">
+  <button>Edit celebrity</button>
+</form>
+<br>
+
+<form action="/celebrities/{{_id}}/delete" method="post">
+  <button type="submit">Delete celebrity</button>
+</form>
+{{/each}}
+
+<br>
+<br>
+
+{{#if userInSession}}
+    <a href="/auth/user-profile">[BACK TO USER PROFILE]</a>
+{{else}}
+    <a href="/">[BACK TO HOME]</a>
+{{/if}}
+
+
+
+
