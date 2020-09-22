@@ -11,6 +11,32 @@ router.get("/movies", (req, res, next) => {
     .catch((error) => {
       next(error);
     });
+  });
+  
+
+router.get("/movies/new", (req, res,) => {
+    res.render("movies/new");
+  });
+
+router.post("/movies/new", async (req, res,) => {
+   
+    try { 
+      const newMovie = req.body;
+      const dbResult = await moviesModel.create(newMovie);
+      res.redirect("/movies");
+    } catch (error) {
+      next(error);
+    }
+  });
+
+
+  router.get("/movies/:id", async (req, res) => {
+    moviesModel.findById(req.params.id)
+    .then((dbRes) => {
+        res.render("movies/show", { movies: dbRes });
+      })
+      .catch(next);
 });
+
 
 module.exports = router;
