@@ -12,6 +12,20 @@ router.get("/", (req, res, next) => {
     });
 });
 
+//create a celebrity
+router.get("/new", (req, res) => {
+  res.render("celebrities/new.hbs");
+});
+
+router.post("/new", async (req, res) => {
+  try {
+    await Celebrities.create(req.body);
+    res.redirect("/celebrities");
+  } catch (err) {
+    res.render("celebrities/new.hbs");
+  }
+});
+
 router.get("/:id", async (req, res, next) => {
   try {
     const celebrity = await Celebrities.findById(req.params.id);
@@ -21,20 +35,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-//create a celebrity
-router.get("/new", (req, res) => {
-  res.render("celebrities/new");
-});
-
-router.post("/", async (req, res) => {
-  try {
-    await Celebrities.create(req.body);
-    res.redirect("celebrities/celebrities");
-  } catch (err) {
-    res.render("celebrities/new");
-  }
-});
-
+//delete celebrities
 router.post("/:id/delete", async (req, res, next) => {
   try {
     await Celebrities.findByIdAndRemove(req.params.id);
@@ -46,13 +47,20 @@ router.post("/:id/delete", async (req, res, next) => {
 
 router.get("/:id/edit", async (req, res, next) => {
   try {
-    await Celebrities.findOne(req.params.id);
-    res.render("/celebrities/edit");
+    const celeb = await Celebrities.findById(req.params.id);
+    res.render("celebrities/edit.hbs", { celeb });
   } catch (err) {
     next(err);
   }
 });
 
-router.post("/:id", async (req, res, next) => {});
+router.post("/:id/edit", async (req, res, next) => {
+  try {
+    await Celebrities.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect("/celebrities");
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;

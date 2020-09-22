@@ -21,7 +21,7 @@ try {
   const createdMovie= await Movie.create(newMovie);
   res.redirect("/movies");
 } catch (error) {
-  next(error);
+  res.render("movies/new");
 }
 });
 
