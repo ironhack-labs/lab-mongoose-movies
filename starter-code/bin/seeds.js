@@ -1,5 +1,6 @@
 require("dotenv").config();
 const Celebrity = require("../models/Celebrity");
+const Movie = require("../models/Movies");
 const mongoose = require("mongoose");
 
 const celebrities = [
@@ -8,10 +9,22 @@ const celebrities = [
     occupation: "Actor",
     catchPhrase: "Hello world",
   },
-  {
-    name: "Rafael Nadal",
+    {
+      name: "Rafael Nadal",
     occupation: "Tennisman",
     catchPhrase: "Vamos",
+    }
+];
+
+const movies = [
+  {
+    title: "Matrix",
+    genre: "Action",
+    plot: "Fancy guys with black glasses doing amazing moves",
+  }, {
+    title: "Camping",
+    genre: "Comedy",
+    plot: "Patrick Chirac goes to les Flots Bleus"
   }
 ];
 
@@ -21,7 +34,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then((self) => {
-    Celebrity.create(celebrities)
+    Celebrity.create(movies)
       .then((dbResult) => {
         console.log(dbResult);
       })
