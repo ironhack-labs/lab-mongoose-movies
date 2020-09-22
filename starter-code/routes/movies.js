@@ -26,6 +26,24 @@ router.post("/movies", async function (req, res, next) {
   }
 });
 
+router.get("/movies/edit/:id", async function (req, res, next) {
+  try {
+    movieToEdit = await Movie.findById(req.params.id);
+    res.render("movies/edit", { movieToEdit });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/movies/edit/:id", async function (req, res, next) {
+  try {
+    await Movie.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect("/movies/index")
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/movies/:id", async function (req, res, next) {
   try {
     const movieDocument = await Movie.findById(req.params.id);
@@ -36,13 +54,13 @@ router.get("/movies/:id", async function (req, res, next) {
 });
 
 router.get("/movies/delete/:id", async function (req, res, next) {
-    try {
-      console.log(req.params.id);
-      await Movie.findByIdAndDelete(req.params.id);
-      res.redirect("/movies/index");
-    } catch (err) {
-      next(err);
-    }
-  });
+  try {
+    console.log(req.params.id);
+    await Movie.findByIdAndDelete(req.params.id);
+    res.redirect("/movies/index");
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
