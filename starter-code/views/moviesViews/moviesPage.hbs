@@ -3,8 +3,9 @@
     {{#each movies}}
     <li>
         <h1>{{this.title}}</h1>
-        <h2>{{this.genre}}</h2>
-        <p>{{this.plot}}</p>
+        <a href="/movies/{{this._id}}">Show details</a>
     </li>
     {{/each}}
 </ul>
+
+<a href="/">Home</a>
