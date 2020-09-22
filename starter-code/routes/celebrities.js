@@ -37,6 +37,26 @@ router.post("/:id/delete", async (req, res, next) => {
   }
 });
 
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const dbResult = await celebrityModel.findById(req.params.id);
+    res.render("celebrities/edit", { celebrity: dbResult });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/celebEdit/:id", async (req, res, next) => {
+  try {
+    console.log("toto");
+    const modifiedCeleb = req.body;
+    await celebrityModel.findByIdAndUpdate(req.params.id, modifiedCeleb);
+    res.redirect("/celebrities");
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 router.get("/:id", (req, res, next) => {
   celebrityModel.findById(req.params.id)
