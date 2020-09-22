@@ -12,6 +12,20 @@ router.get("/movies/index", async function (req, res, next) {
   }
 });
 
+router.get("/movies/new", function (req, res, next) {
+  res.render("movies/new");
+});
+
+router.post("/movies", async function (req, res, next) {
+  try {
+    const newMovie = req.body;
+    await Movie.create(newMovie);
+    res.redirect("/movies/index")
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/movies/:id", async function (req, res, next) {
   try {
     const movieDocument = await Movie.findById(req.params.id);
@@ -20,13 +34,5 @@ router.get("/movies/:id", async function (req, res, next) {
     next(err);
   }
 });
-
-router.get("/movies/new", async function (req, res, next) {
-    
-})
-
-router.post("/movies", async function (req, res, next) {
-    
-})
 
 module.exports = router;
