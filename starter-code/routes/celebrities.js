@@ -24,7 +24,19 @@ router.get('/new', async(req, res, next) => {
     }
 });
 
-router.get('/details/:id', async(req, res, next) => {
+router.post('/addNew', async(req, res, next) => {
+    try {
+     const newCeleb = await Celebrity.create(req.body);
+     console.log(newCeleb);
+     res.redirect("/celebrities");
+    }
+    catch (error) {
+        res.redirect("/celebrities/new");
+        next(error);
+    }
+ })
+
+router.get('/:id', async(req, res, next) => {
     try {
         const chosenCeleb = await Celebrity.findById(req.params.id);
         console.log(chosenCeleb);
@@ -35,17 +47,18 @@ router.get('/details/:id', async(req, res, next) => {
     }
 });
 
-router.post('/addNew', async(req, res, next) => {
-   try {
-    const newCeleb = await Celebrity.create(req.body);
-    console.log(newCeleb);
-    res.redirect("/celebrities");
-   }
-   catch (error) {
-       res.redirect("/celebrities/new");
-       next(error);
-   }
+router.post('/:id/delete', async(req, res, next) => {
+    try {
+        const deletedCeleb = await Celebrity.findByIdAndRemove(req.params.id);
+        console.log(deletedCeleb);
+        res.redirect("/celebrities");
+    }
+    catch(error) {
+        next(error);
+    }
 })
+
+
 
 
 
