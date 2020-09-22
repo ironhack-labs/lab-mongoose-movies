@@ -1,9 +1,8 @@
 <h2>Show Page</h2>
 
-{{#each celebrity}}
-    <h3>{{this.name}}</h3>
-    <p>{{this.occupation}}</p>
-    <p>{{this.catchphrase}}</p>
-{{/each}}
+    <h3>{{celebrity.name}}</h3>
+    <p>{{celebrity.occupation}}</p>
+    <p>{{celebrity.catchphrase}}</p>
+    <a href="/celebrities/{{celebrity.id}}/edit">Edit</a>
 
 <a href="/celebrities">Go Back</a>

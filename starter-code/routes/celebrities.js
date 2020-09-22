@@ -56,10 +56,28 @@ router.post('/:id/delete', async(req, res, next) => {
     catch(error) {
         next(error);
     }
+});
+
+router.get('/:id/edit', async(req, res, next) => {
+    try{
+    const editCeleb = await Celebrity.findById(req.params.id);
+    console.log(editCeleb);
+    res.render("celebrities/edit", {celebrity : editCeleb});
+    }
+    catch(error) {
+        next(error);
+    }
+});
+
+router.post('/:id/edit', async(req, res, next) => {
+    try {
+        const updatedCeleb = await Celebrity.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect("/celebrities");
+    }
+    catch(error) {
+        next(error);
+    }
 })
-
-
-
 
 
 module.exports = router;
