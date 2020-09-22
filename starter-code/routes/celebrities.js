@@ -7,7 +7,7 @@ const Celebrity = require("../models/celebrity");
 router.get("/", async (req, res, next) => {
     try {
         const allCelebrities = await Celebrity.find()
-        res.render("celebrities.hbs", { celebrities: allCelebrities });
+        res.render("celebrities/index.hbs", { celebrities: allCelebrities });
     } catch (error) {
         next(error)
     }
@@ -15,7 +15,13 @@ router.get("/", async (req, res, next) => {
 
 // Get one
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/page/:id here
-router.get("/page/:id", (req, res) => {});
+router.get("/:id", (req, res, next) => {
+    Celebrity.findById(req.params.id)
+      .then((dbRes) => {
+        res.render("celebrities/show.hbs", { celebrity: dbRes });
+      })
+      .catch(next);
+  });
 
 // Get the create form
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter))  /albums/create
