@@ -11,30 +11,52 @@ router.get("/movies", async (req, res, next) => {
   }
 });
 
+
+router.get("/movie/create", (req, res, next) => {
+  res.render("movie/createMovie")
+})
+
+router.post("/movie/create", async (req, res, next) => {
+  try {
+    await MovieModel.create(req.body);
+    console.log(req.body)
+    res.redirect("/movies")
+  } catch(err) {
+    next(err)
+  }
+})
+
 router.get("/movie/:id", async (req, res, next) => {
   const dbres = await MovieModel.findById(req.params.id);
   res.render("movie/detailMovie", { movie: dbres })
 })
 
-router.get("/movie/create", (req, res, next) => {
-  res.render()
+router.get("/movie/delete/:id", async (req, res, next) => {
+  try {await MovieModel.findByIdAndRemove(req.params.id)
+  res.redirect("/movies")
+  } catch(err) {
+    next(err)
+  }
 })
 
-router.post("/movie/create", (req, res, next) => {
 
+router.get("/movie/edit/:id", async (req, res, next) => {
+  try {
+    const dbres = await MovieModel.findById(req.params.id)
+    res.render("movie/editMovie", { movie: dbres })
+  } catch(err) {
+    next(err)
+  }
 })
 
-
-router.get("/movie/edit/:id", (req, res, next) => {
-
+router.post("/movie/edit/:id", async (req, res, next) => {
+  try {
+    const dbres = await MovieModel.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect("/movies")
+  } catch(err) {
+    next(err)
+  }
 })
 
-router.post("/movie/edit/:id", (req, res, next) => {
-
-})
-
-router.get("/movie/delete/:id", (req, res, next) => {
-
-})
 
 module.exports = router;
