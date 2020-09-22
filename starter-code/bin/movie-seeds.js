@@ -1,9 +1,9 @@
 require("dotenv").config();
-require("./../config/mongodb");
+require("../config/mongodb");
 
-const UserModel = require("./../models/movie-model");
+const MovieModel = require("../models/movie-model");
 
-const movie = [{
+const movies = [{
   title: "Cloud Atlas",
   genre: "Sci-fi",
   plot: "timeline interaction",
@@ -29,6 +29,6 @@ const movie = [{
   plot: "prologue of the first movie",
 }];
 
-MovieModel.insertMany(users)
+MovieModel.insertMany(movies)
   .then((dbRes) => console.log(dbRes))
   .catch((dbErr) => console.log(dbErr));
