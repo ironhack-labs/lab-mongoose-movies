@@ -40,10 +40,6 @@ app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
-// app.use("/", require("./routes/moviesRoute"));
-const movieRouter = require("./routes/moviesRoute");
-app.use("/moviesViews", movieRouter);
-
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
