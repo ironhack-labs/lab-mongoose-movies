@@ -31,6 +31,13 @@ router.get("/movie/:id", async (req, res, next) => {
   res.render("movie/detailMovie", { movie: dbres })
 })
 
+router.get("/movie/delete/:id", async (req, res, next) => {
+  try {await MovieModel.findByIdAndRemove(req.params.id)
+  res.redirect("/movies")
+  } catch(err) {
+    next(err)
+  }
+})
 
 
 router.get("/movie/edit/:id", (req, res, next) => {
@@ -41,8 +48,5 @@ router.post("/movie/edit/:id", (req, res, next) => {
 
 })
 
-router.get("/movie/delete/:id", (req, res, next) => {
-
-})
 
 module.exports = router;
