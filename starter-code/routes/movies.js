@@ -38,4 +38,13 @@ router.post("/new-movie", async (req, res, next) => {
   }
 });
 
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    const movieToDelete = await MovieModel.findByIdAndRemove(req.params.id);
+    res.redirect("/movies");
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
