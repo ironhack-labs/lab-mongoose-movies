@@ -12,7 +12,7 @@ router.get('/', async function (req, res, next) {
 	}
 })
 
-router.get('/:id', async function (req, res, next) {
+router.get('/:id', async function(req, res, next) {
 	try {
 		const celebrity = await CelebrityModel.findById(req.params.id)
 		res.render('celebrities/show', { celebrity })
@@ -40,11 +40,31 @@ router.post('/', async function(req, res, next){
 
 router.post('/:id/delete', async function(req, res, next){
 	try {
-		const celebrity = await CelebrityModel.findByIdAndRemove(req.params.id)
+		await CelebrityModel.findByIdAndRemove(req.params.id)
 		res.redirect('/celebrities')
 	} catch (error) {
 		next()
 		console.error(error)
 	}
 })
+
+router.get('/:id/edit', async function(req, res, next) {
+	try {
+		const celebrity = await CelebrityModel.findById(req.params.id)
+		res.render('celebrities/edit', { celebrity })
+	} catch (error) {
+		next()
+		console.error(error)
+	}
+})
+
+router.post('/:id', async function(req, res, next) {
+	try {
+		await CelebrityModel.findByIdAndUpdate(req.params.id, req.body)
+		res.redirect('/celebrities')
+	} catch (error) {
+		console.error(error)
+	}
+})
+
 module.exports = router
