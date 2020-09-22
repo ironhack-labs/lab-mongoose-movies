@@ -14,4 +14,16 @@ router.get('/', async(req, res, next) => {
     }
 });
 
+router.get('/:id', async(req, res, next) => {
+    try {
+        console.log(req.params.id)
+        const chosenCeleb = await Celebrity.findById(req.params.id);
+        console.log(chosenCeleb);
+        res.render("celebrities/show", {celebrity: chosenCeleb}); 
+    }
+    catch(error) {
+        next(error);
+    }
+})
+
 module.exports = router;
