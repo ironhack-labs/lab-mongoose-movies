@@ -1,0 +1,12 @@
+<h1>Movies</h1>
+
+<ul id="movie-list">
+    {{#each movies}}
+    <li class="item">
+        <p class="title">{{this.title}}</p>
+        <p class="genre">{{this.genre}}</p>
+        <p class="plot">{{this.plot}}</p>
+        <a href="/movie/{{this._id}}/">See more</a>
+    </li>
+    {{/each}}
+</ul>
