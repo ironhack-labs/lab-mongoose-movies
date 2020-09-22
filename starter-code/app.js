@@ -48,4 +48,5 @@ app.use("/celebrities", celebs);
 const movies = require("./routes/movies");
 app.use("/movies", movies);
 
+
 module.exports = app;
