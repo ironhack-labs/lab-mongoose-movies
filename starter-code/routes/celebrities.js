@@ -46,5 +46,36 @@ router.post(
   }
 );
 
+router.get("/celebrities/:id/delete", (req, res, next) => {
+
+  const celebrityId = req.params.id;
+  Celebrity.findByIdAndDelete(celebrityId)
+    .then((dbResult) => {
+      res.redirect("/celebrities/index"); 
+    })
+    .catch((error) => {
+      next(error); // Sends us to the error handler middleware in app.js if an error occurs
+    });
+});
+
+router.get("/celebrities/:id/edit", async (req, res, next) => {
+  try {
+      const celebrityId = req.params.id;
+      const dbResult = await Celebrity.findById(celebrityId);
+    res.render("celebrities/edit.hbs", { celebrity: dbResult });
+  } catch (error) {
+    next(error); // Sends us to the error handler middleware in app.js if an error occurs
+  }
+});
+
+router.post("/celebrities/:id/edit", async (req, res, next) => {
+  try {
+    const celebrityId = req.params.id;
+    const updatedCelebrity = await Celebrity.findByIdAndUpdate(celebrityId, req.body);
+    res.redirect("/celebrities/index");
+  } catch (error) {
+    next(error); // Sends us to the error handler middleware in app.js if an error occurs
+  }
+});
 
 module.exports = router;
