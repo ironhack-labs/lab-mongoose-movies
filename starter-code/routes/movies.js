@@ -20,7 +20,7 @@ router.post("/movies", async function (req, res, next) {
   try {
     const newMovie = req.body;
     await Movie.create(newMovie);
-    res.redirect("/movies/index")
+    res.redirect("/movies/index");
   } catch (err) {
     next(err);
   }
@@ -34,5 +34,15 @@ router.get("/movies/:id", async function (req, res, next) {
     next(err);
   }
 });
+
+router.get("/movies/delete/:id", async function (req, res, next) {
+    try {
+      console.log(req.params.id);
+      await Movie.findByIdAndDelete(req.params.id);
+      res.redirect("/movies/index");
+    } catch (err) {
+      next(err);
+    }
+  });
 
 module.exports = router;
