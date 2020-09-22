@@ -1,0 +1,14 @@
+<h1>HELLO</h1>
+
+{{#each movies}}
+<ul>
+    <li>{{this.title}}</li>
+    <li>{{this.genre}}</li>
+    <li>{{this.plot}}</li>
+    <a href="/movies/{{this.id}}">See More</a>
+    <a href="/movies/{{this.id}}/delete">Delete</a>
+</ul>
+{{/each}}
+
+<a href="/movies/add-new-movie">ADD NEW MOVIE</a>
+<a href="/movies/add-new-movie">EDIT MOVIE</a>
