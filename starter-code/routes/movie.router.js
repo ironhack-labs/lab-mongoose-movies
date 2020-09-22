@@ -11,18 +11,26 @@ router.get("/movies", async (req, res, next) => {
   }
 });
 
+
+router.get("/movie/create", (req, res, next) => {
+  res.render("movie/createMovie")
+})
+
+router.post("/movie/create", async (req, res, next) => {
+  try {
+    await MovieModel.create(req.body);
+    console.log(req.body)
+    res.redirect("/movies")
+  } catch(err) {
+    next(err)
+  }
+})
+
 router.get("/movie/:id", async (req, res, next) => {
   const dbres = await MovieModel.findById(req.params.id);
   res.render("movie/detailMovie", { movie: dbres })
 })
 
-router.get("/movie/create", (req, res, next) => {
-  res.render()
-})
-
-router.post("/movie/create", (req, res, next) => {
-
-})
 
 
 router.get("/movie/edit/:id", (req, res, next) => {
