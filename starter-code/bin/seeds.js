@@ -1,18 +1,18 @@
 const celebrities = [
   {
-    name: "Leo",
-    occupation: "",
-    catchPhrase: "",
+    name: "James Cameron",
+    occupation: "Realisator",
+    catchPhrase: "Action !",
   },
   {
-    name: "Leo",
-    occupation: "",
-    catchPhrase: "",
+    name: "Quentin Tarantino",
+    occupation: "Producer",
+    catchPhrase: "Blood everywhere !",
   },
   {
-    name: "Leo",
-    occupation: "",
-    catchPhrase: "",
+    name: "Michael Bay",
+    occupation: "Realisator",
+    catchPhrase: "BOUM !",
   },
 ];
 require("dotenv").config();
