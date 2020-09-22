@@ -22,4 +22,20 @@ router.get('/:id', async function (req, res, next) {
 	}
 })
 
+router.get('/new', (req, res, next) => {
+  res.render('celebrities/new');
+});
+
+router.post('/', async function(req, res, next){
+	try {
+		console.log('before')
+		const celebrity = await CelebrityModel.create(req.body)
+		res.redirect('celebrities')
+		console.log('after')
+	} catch (error) {
+		next()
+		console.error(error)
+	}
+})
+
 module.exports = router
