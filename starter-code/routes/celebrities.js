@@ -30,7 +30,7 @@ router.post('/', async function(req, res, next){
 	try {
 		console.log('before')
 		const celebrity = await CelebrityModel.create(req.body)
-		res.redirect('celebrities')
+		res.redirect('/celebrities')
 		console.log('after')
 	} catch (error) {
 		next()
@@ -38,4 +38,13 @@ router.post('/', async function(req, res, next){
 	}
 })
 
+router.post('/:id/delete', async function(req, res, next){
+	try {
+		const celebrity = await CelebrityModel.findByIdAndRemove(req.params.id)
+		res.redirect('/celebrities')
+	} catch (error) {
+		next()
+		console.error(error)
+	}
+})
 module.exports = router

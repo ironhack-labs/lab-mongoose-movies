@@ -3,9 +3,13 @@
 <ul>
 	{{#each celebrities}}
 	<li>
+		<p>{{this.name}}</p>
 		<a href="/celebrities/{{this._id}}">
-				{{this.name}}
+				See deteils >>
 		</a>
+		<form method="POST" action="/celebrities/{{this._id}}/delete">
+			<button>X</button>
+		</form>
 	</li>
 	{{/each}}	
 </ul>
