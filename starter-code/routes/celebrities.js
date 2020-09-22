@@ -13,6 +13,17 @@ router.get("/celebrities/index", (req, res, next) => {
 });
 
 
+router.get("/celebrities/show/:id", (req, res, next) => {
+  
+  const celebrityID = req.params.id;
+  Celebrity.findById(celebrityID)
+    .then((dbResult) => {
+      res.render("celebrities/show",  { celebrities: dbResult,}); 
+    })
+    .catch((error) => {
+      next(error); 
+    });
+});
 
 
 module.exports = router;
