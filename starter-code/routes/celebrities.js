@@ -13,26 +13,16 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+
+
 // Get one
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/page/:id here
 router.get("/:id", (req, res, next) => {
     Celebrity.findById(req.params.id)
-      .then((dbRes) => {
+    .then((dbRes) => {
         res.render("celebrities/show.hbs", { celebrity: dbRes });
-      })
-      .catch(next);
-  });
-
-// Get the create form
-// prefixed with /albums in app.js (app.use("/albums", albumsRouter))  /albums/create
-router.get("/create", async (req, res, next) => {
-
-});
-
-// Listen to the post of the create form
-// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/create here
-router.post("/create", async (req, res, next) => {
-
+    })
+    .catch(next);
 });
 
 // Display the edit form with the albums fields filled
@@ -42,6 +32,24 @@ router.get("/:id/edit", (req, res) => {});
 // Listen to the post of the edit form
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/edit here
 router.post("/:id/edit", (req, res) => {});
+
+// Get the create form
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter))  /albums/create
+router.get("/new", (req, res) => {
+    res.render("celebrities/new.hbs");
+});
+
+// Listen to the post of the create form
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/create here
+router.post("/new", async (req, res, next) => {
+    try {
+        const newCelebrity = req.body;
+        const createdCelebrity = await Celebrity.create(newCelebrity);
+        res.redirect("/celebrities");
+    } catch (error) {
+        next(error);
+    }
+});
 
 // Listen to the delete
 // // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/delete here
