@@ -40,12 +40,22 @@ router.get("/movie/delete/:id", async (req, res, next) => {
 })
 
 
-router.get("/movie/edit/:id", (req, res, next) => {
-
+router.get("/movie/edit/:id", async (req, res, next) => {
+  try {
+    const dbres = await MovieModel.findById(req.params.id)
+    res.render("movie/editMovie", { movie: dbres })
+  } catch(err) {
+    next(err)
+  }
 })
 
-router.post("/movie/edit/:id", (req, res, next) => {
-
+router.post("/movie/edit/:id", async (req, res, next) => {
+  try {
+    const dbres = await MovieModel.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect("/movies")
+  } catch(err) {
+    next(err)
+  }
 })
 
 
