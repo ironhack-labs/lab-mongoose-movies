@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const CelebrityModel = require("../models/Celebrity.model")
 
+
 router.get("/celebrities", async (req, res, next) => {
   try {
     const dbres = await CelebrityModel.find();
@@ -10,6 +11,17 @@ router.get("/celebrities", async (req, res, next) => {
     next(err)
   }
 });
+
+router.get("/celebrities/:id", async (req, res, next) => {
+    try{
+    const dbres = await CelebrityModel.findById(req.params.id);
+    res.render("celebrities/show", { celebrities: dbres })
+    }
+    catch(err) {
+        next(err)
+      }
+ 
+  });
 
 
 router.get("/celebrities/create", (req, res, next) => {

@@ -1,12 +1,17 @@
-<h2>Celebrities</h2>
+<h1>Celebrities</h1>
 
 
 <div class="celebritiesAll">
 {{#each celebrities}}
 
-<div class="CelebritiesName">
-  <h2>{{this.name}}</h2>
-</div>
+    <div >
+
+            <div class="card-body">
+                <h3 class="card-title"><a href="/celebrities/{{_id}}">{{this.name}}</a></h3>
+                
+            </div>
+
+        </div>
 
 {{/each}}
 </div>
