@@ -4,6 +4,7 @@
 <a href="/celebrities/{{this.id}}">
     <p>{{this.name}}</p>
 </a>
+<form action="/celebrities/{{this._id}}/delete" method="post"><button>Delete</button></form>
 {{/each}}
 
 <a href="/celebrities/new">Add new celebrities</a>
