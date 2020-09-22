@@ -2,6 +2,7 @@
 
 {{#each celebrity}}
 {{this.name}}
-{{!-- {{this.occupation}}
-{{this.catchPhrase}} --}}
+<a href="/celebrities/{{this._id}}">Show Celebrity</a>
 {{/each}}
+
+<a href="/celebrities/news">Add a new celebrity</a>
