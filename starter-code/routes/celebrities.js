@@ -14,9 +14,18 @@ router.get('/', async(req, res, next) => {
     }
 });
 
-router.get('/:id', async(req, res, next) => {
+router.get('/new', async(req, res, next) => {
     try {
-        console.log(req.params.id)
+        //res.render("celebrities/new");
+        res.render("celebrities/new");
+    }
+    catch (error) {
+        next(error);
+    }
+});
+
+router.get('/details/:id', async(req, res, next) => {
+    try {
         const chosenCeleb = await Celebrity.findById(req.params.id);
         console.log(chosenCeleb);
         res.render("celebrities/show", {celebrity: chosenCeleb}); 
@@ -24,6 +33,20 @@ router.get('/:id', async(req, res, next) => {
     catch(error) {
         next(error);
     }
+});
+
+router.post('/addNew', async(req, res, next) => {
+   try {
+    const newCeleb = await Celebrity.create(req.body);
+    console.log(newCeleb);
+    res.redirect("/celebrities");
+   }
+   catch (error) {
+       res.redirect("/celebrities/new");
+       next(error);
+   }
 })
+
+
 
 module.exports = router;
