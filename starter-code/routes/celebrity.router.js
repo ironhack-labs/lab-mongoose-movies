@@ -53,7 +53,7 @@ router.get("/celebrities/:id", async (req, res, next) => {
 
   // iteration 6
 
-  router.post("/celebrities/:id/edit", async (req, res, next) => {
+  router.post("/celebrities/edit/:id", async (req, res, next) => {
     try {
       const updateCelebritie = await CelebrityModel.findByIdAndUpdate(req.params.id, req.body );
       res.redirect("/celebrities")
