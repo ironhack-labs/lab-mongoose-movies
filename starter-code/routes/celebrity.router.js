@@ -12,11 +12,13 @@ router.get("/celebrities", async (req, res, next) => {
   }
 });
 
-router.get("/celebrities/new", (req, res, next) => {
+// iteration 4
+
+router.get("/celebrities/create", (req, res, next) => {
     res.render("celebrities/newCelebrities")
   })
   
-  router.post("/celebrities/new", async (req, res, next) => {
+  router.post("/celebrities/create", async (req, res, next) => {
     try {
       await CelebrityModel.create(req.body);
       console.log(req.body)
@@ -25,6 +27,18 @@ router.get("/celebrities/new", (req, res, next) => {
       next(err)
     }
   })
+
+// iteration 5
+
+router.get("/celebrities/delete/:id", async (req, res, next) => {
+  try {await CelebrityModel.findByIdAndRemove(req.params.id)
+  res.redirect("/celebrities")
+  } catch(err) {
+    next(err)
+  }
+})
+
+// iteration 3
 
 router.get("/celebrities/:id", async (req, res, next) => {
     try{
@@ -37,26 +51,21 @@ router.get("/celebrities/:id", async (req, res, next) => {
  
   });
 
+  // iteration 6
 
-router.get("/celebrities/create", (req, res, next) => {
+  router.post("/celebrities/:id/edit", async (req, res, next) => {
+    try {
+      const updateCelebritie = await CelebrityModel.findByIdAndUpdate(req.params.id, req.body );
+      res.redirect("/celebrities")
+    } catch(err) {
+      next(err)
+    }
+  })
 
-})
-
-router.post("/celebrities/create", (req, res, next) => {
-
-})
 
 
-router.get("/celebrities/edit/:id", (req, res, next) => {
 
-})
 
-router.post("/celebrities/edit/:id", (req, res, next) => {
 
-})
-
-router.get("/celebrities/delete/:id", (req, res, next) => {
-
-})
 
 module.exports = router;
