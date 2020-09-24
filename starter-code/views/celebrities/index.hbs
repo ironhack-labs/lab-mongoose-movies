@@ -1,0 +1,19 @@
+<h1>Celebrities</h1>
+
+<a href="/celebrities/create">Create new celebrities</a>
+<div class="celebritiesAll">
+{{#each celebrities}}
+
+    <div >
+
+            <div>
+                <h3 ><a href="/celebrities/{{_id}}">{{this.name}}</a></h3>
+                  <a href="celebrities/{{this._id}}">See More</a> 
+                  <a href="celebrities/edit/{{this._id}}">Edit</a>
+                  <a href="celebrities/delete/{{this.id}}">Delete</a>
+            </div>
+
+        </div>
+
+{{/each}}
+</div>
