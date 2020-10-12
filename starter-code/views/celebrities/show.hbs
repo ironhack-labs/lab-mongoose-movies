@@ -1,0 +1,15 @@
+<div class="card text-white bg-dark mb-3">
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{celeb.catchPhrase}}</p>
+      <footer class="blockquote-footer">{{celeb.name}}, {{celeb.occupation}}</footer>
+    </blockquote>
+    <form method="POST" action="/celebrities/{{celeb._id}}/delete">
+      <button type="submit" class="btn btn-outline-danger">Delete</button>
+    </form>
+    <a href="/celebrities/{{celeb._id}}/edit">
+      <button type="submit" class="btn btn-outline-primary">Edit</button>
+    </a>
+  </div>
+</div>
+</div>

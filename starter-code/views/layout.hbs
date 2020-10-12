@@ -4,13 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
+  <title>Iron Celebrities</title>
+  <!-- Bootstrap CSS. -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Custom CSS. -->
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
+  <!-- Navbar. -->
+  <head>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/celebrities/index">Celebrities</a>
+      <a class="nav-link" href="/celebrities/new">Create a new</a>
+      {{!-- <a class="nav-link" href="/Posts">Posts</a>
+      <a class="nav-link" href="/List">List</a> --}}
+    </nav>
+
+  </head>
 
   {{{body}}}
-
-  <script src="/javascripts/script.js"></script>
 </body>
 </html>

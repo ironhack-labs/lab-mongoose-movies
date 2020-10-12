@@ -1,0 +1,17 @@
+<form method="POST" action="/celebrities/{{celeb._id}}/edit">
+    <h2>Edit {{celeb.name}}</h2>
+    <div class="form-group">
+        <label for="drone-form">Name</label>
+        <input name="name" type="text" class="form-control" id="name" value={{celeb.name}}>
+        <small id="name" class="form-text text-muted">Arthur</small>
+    </div>
+    <div class="form-group">
+        <label for="propellers">Catchphrase</label>
+        <input name="catchPhrase" type="text" class="form-control" id="catchphrase" value={{celeb.catchPhrase}}>
+    </div>
+    <div class="form-group">
+        <label for="maxSpeed">Occupation</label>
+        <input name="occupation" type="text" class="form-control" id="occupation" value={{celeb.occupation}}>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Edit</button>
+</form>
