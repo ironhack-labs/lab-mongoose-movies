@@ -1,6 +1,8 @@
-const mongoose = require('mongoose')
+// Importing Mongoose.
+const mongoose = require("mongoose");
 
-let MovieSchema = new mongoose.Schema({
+// Creating schema.
+const MovieSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -12,9 +14,10 @@ let MovieSchema = new mongoose.Schema({
   plot: {
     type: String,
     required: true,
-  }
-})
+  },
+});
+// Creating model.
+const MovieModel = mongoose.model("movie", MovieSchema);
 
-let MovieModel = mongoose.model('movie', MovieSchema)
-
-module.exports = MovieModel
+// Exporting module.
+module.exports = MovieModel;

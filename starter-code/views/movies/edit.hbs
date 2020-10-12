@@ -1,0 +1,17 @@
+<form method="POST" action="/movies/{{movie._id}}/edit">
+    <h2>Edit {{movie.title}}</h2>
+    <div class="form-group">
+        <label for="drone-form">Title</label>
+        <input name="title" type="text" class="form-control" id="title" value="{{movie.title}}">
+        <small id="title" class="form-text text-muted">Boy and Girl 5</small>
+    </div>
+    <div class="form-group">
+        <label for="propellers">Genre</label>
+        <input name="genre" type="text" class="form-control" id="genre" value="{{movie.genre}}">
+    </div>
+    <div class="form-group">
+        <label for="maxSpeed">Plot</label>
+        <input name="plot" type="text" class="form-control" id="plot" value="{{movie.plot}}">
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
+</form>

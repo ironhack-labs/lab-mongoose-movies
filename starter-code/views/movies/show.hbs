@@ -1,0 +1,16 @@
+<div class="card text-white bg-dark mb-3">
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{movie.title}}</p>
+            <footer class="blockquote-footer">{{movie.plot}}, {{movie.genre}}</footer>
+        </blockquote>
+
+        <form method="POST" action="/movies/{{movie._id}}/delete">
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+        </form>
+
+        <a href="/movies/{{movie._id}}/edit">
+            <button type="submit" class="btn btn-outline-primary">Edit</button>
+        </a>
+    </div>
+</div>
