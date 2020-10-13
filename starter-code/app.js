@@ -8,16 +8,10 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+require('./config/db.config')
 
+const CelebrityModel = require('./models/celebrity.model')
 
-mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -53,6 +47,18 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+
+const celebrity = require('./routes/celebrity.routes');
+app.use('/celebrity', celebrity);
+
+const movies = require('./routes/movies.routes');
+app.use('/movies', movies);
+
+// const celebrities = require('./routes/celebrity.routes');
+// app.use('/celebrities', celebrities);
+
+
 
 
 module.exports = app;

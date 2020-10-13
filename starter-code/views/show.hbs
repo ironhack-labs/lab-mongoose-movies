@@ -1,0 +1,14 @@
+<h1>welcome to the details page</h1>
+{{#each celeb}}
+
+<h1>{{this.name}}</h1>
+<p>{{this.occupation}}</p>
+<p>{{this.catchPhrase}}</p>
+
+  {{/each }}
+
+<div>
+      <a href="/celebrity/remove/{{celeb._id}}/delete">
+      <button type="submit"></button>  Delete celeb</a>
+</div>
+    

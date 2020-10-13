@@ -1,0 +1,14 @@
+<h1>welcome to the movie details page</h1>
+{{#each movies}}
+
+<h1>{{this.title}}</h1>
+<p>{{this.genre}}</p>
+<p>{{this.plot}}</p>
+
+  {{/each }}
+
+ <div>
+      <a href="/movies/remove/{{movies._id}}/delete">
+      <button type="submit"></button>  Delete movie</a>
+</div> 
+    
