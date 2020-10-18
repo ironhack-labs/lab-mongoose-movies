@@ -1,48 +1,87 @@
 const express = require("express");
+const { get } = require("mongoose");
+const { render } = require("../app");
+const Celebrities = require("../models/celebrity");
+
 const router = express.Router();
 
-const Celebrity = require("../models/celebrity");
-
-// Index celebrities
+// Celebrities List - cRud
 router.get("/", (req, res) => {
-  Celebrity.find()
-    .then((allCelebrities) =>
-      res.render("celebrities/index", { allCelebrities })
-    )
-    .catch((err) => console.log(`An error has ocurred: ${err}`));
+  Celebrities.find()
+    .then((celebrities) => {
+      res.render("celebrities/index", { celebrities });
+      console.log("Rendering celebrities");
+    })
+    .catch((err) => console.error("Celebreties ERROR:", err));
 });
 
-// Celebrity details
-router.get("/detail/:id", (req, res) => {
-  const id = req.params.id;
-
-  Celebrity.findById(id)
-    .then((celebrityDetails) =>
-      res.render("celebrity-details", celebrityDetails)
-    )
-    .catch((err) => console.log(`An error has ocurred: ${err}`));
+// Add celebrity - Crud
+router.get("/new", (req, res) => {
+  res.render("celebrities/new");
 });
 
-// Add new celebrity
-router.get("/new", (req, res) => res.render("celebrities/new"));
-
-router.post("/new", (req, res) => {
-  const { name, ocupation, catchPhrase } = req.body;
-
-  Celebrity.create({ name, ocupation, catchPhrase })
-    .then(() => res.redirect("/celebrities"))
-    .catch((err) => console.log(`An error has ocurred: ${err}`));
+router.post("/", async (req, res) => {
+  try {
+    const newCeleb = await new Celebrities({
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase,
+    });
+    await newCeleb.save();
+    console.log("Adding a celebrity");
+    res.redirect("/celebrities");
+  } catch (err) {
+    res.render("celebrities/new");
+    console.error("Adding celebrity ERROR:", err);
+  }
 });
 
-//router. post() refers to POST requests and router. get() referes to GET request.
-//The difference is that a GET request, is requesting data from a specified source
-//and a POST request submits data to a specified resource to be processed.
-
-// Delete a celebrity
-router.post("/:celebrity_id/delete", (req, res) => {
-  const celebrityId = req.params.celebrity_id;
-
-  Celebrity.findByIdAndDelete(celebrityId)
-    .then(() => res.redirect("/celebrities"))
-    .catch((err) => console.log(`An error has ocurred: ${err}`));
+// Edit celebrity - crUd
+router.get("/:id/edit", async (req, res) => {
+  try {
+    const celebrity = await Celebrities.findById(req.params.id);
+    console.log("Editing a celebrity");
+    res.render("celebrities/edit", { celebrity });
+  } catch (err) {
+    console.error("Edit get ERROR:", err);
+  }
 });
+
+router.post("/:id", async (req, res) => {
+  try {
+    const { name, occupation, catchPhrase } = req.body;
+    await Celebrities.findByIdAndUpdate(req.params.id, {
+      name,
+      occupation,
+      catchPhrase,
+    });
+    console.log("Updated celebrity");
+    res.redirect("/celebrities");
+  } catch (err) {
+    console.error("Edit post ERROR:", err);
+  }
+});
+
+// Celebrity Details - cRud
+router.get("/:id", async (req, res) => {
+  try {
+    const celebrity = await Celebrities.findById(req.params.id);
+    res.render("celebrities/show", { celebrity });
+    console.log("Rendering a celebrity");
+  } catch (err) {
+    console.error("Celebrity details ERROR:", err);
+  }
+});
+
+// Delete celebrity - cruD
+router.post("/:id/delete", async (req, res) => {
+  try {
+    await Celebrities.findByIdAndDelete(req.params.id);
+    console.log("Deleting a celebrity");
+    res.redirect("/celebrities");
+  } catch (err) {
+    console.error("Delete ERROR:", err);
+  }
+});
+
+module.exports = router;
