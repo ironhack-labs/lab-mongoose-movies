@@ -44,7 +44,7 @@ router.get('/:id/edit', async (req, res, next) => {
 router.post('/:id', async (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body;
   Celebrity.updateOne(
-  { _id: req.query.celebrity_id },
+  { _id: req.params.id },
   { $set: { name, occupation, catchPhrase } }
 )
   .then((book) => {
