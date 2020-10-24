@@ -3,8 +3,11 @@
     {{#each respuesta}}
     <h3><a href="celebrities/{{this._id}}" >{{this.name}}</a></h3>
     <a href="/celebrities/{{this._id}}">Details page</a>
+    <form action="/celebrities/{{this._id}}/delete" method="POST">
+        <button type="submit">DELETE</button>
+    </form>
     {{/each}}
     <br>
     <a href="/celebrities/new">Add your own artist!!</a>
     <br>
-    <a href="/">Vuelve a home</a>
+    <a href="/">Return home</a>
