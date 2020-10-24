@@ -1,0 +1,13 @@
+<h2>Celebrities Page</h2> 
+{{#each respuesta}} 
+<a href="celebrities/{{this._id}}"><h2>{{this.name}}</h2> </a>
+<form action="celebrities/{{this._id}}/delete" method="POST">
+<button type="submit">DELETE</button>
+</form>
+
+{{/each}} 
+<br>
+<a href="/celebrities/new">Add your own artist!!</a>
+<br>
+<a href="/">Vuelve a home</a>
+
