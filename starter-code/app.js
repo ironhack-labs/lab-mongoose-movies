@@ -24,6 +24,9 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+const index = require('./routes/index');
+const celebrities = require('./routes/celebrities');
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -50,9 +53,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
-const index = require('./routes/index');
 app.use('/', index);
+app.use('/celebrities', celebrities);
+
 
 
 module.exports = app;
+
+//Hacer la llamada desde el servidor
+app.listen(3000, () => console.log('Celebrities project is on 3000 '));
