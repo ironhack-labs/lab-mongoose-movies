@@ -3,7 +3,7 @@
 <h1>Celebrities Page</h1>
 
 {{#each respuesta}}
-    <p>{{this.name}}</p>
-    {{!-- <p>{{this.occupation}}</p>
-    <p>{{this.catchPhrase}}</p> --}}
+    <h1><a href="celebrities/{{this._id}}">{{this.name}}</a></h1>
+    <a href="/celebrities/{{this._id}}">Details page</a>
 {{/each}}
+    <a href="/celebrities">Vuelve a las celebrities</a>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const celebrity = require('../models/celebrity');
 
-mongoose.connect(`mongodb://localhost/starter-code`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb://localhost/ActoresLabExpress`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const Celebrityes = [
     {
