@@ -1,10 +1,10 @@
 
-//ITERATION 2
+
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/celebrity.js'); //importamos celebrity de la colección
 
-//ITERATION 3
+//ITERATION 2
 
 router.get('/', (req, res, next) => {
     Celebrity.find()
@@ -18,9 +18,30 @@ router.get('/', (req, res, next) => {
       })
   });
 
+
+
+//ITERATION 4
+
+router.get('/add', (req, res, next) => {
+    res.render('celebrities/new');
+});
+
+
+router.post('/add', (req, res, next) => {
+    const {name, occupation, catchPhrase} = req.body; 
+    const newCelebrity = new Celebrity({name, occupation, catchPhrase}) 
+    newCelebrity.save()
+    .then((celebrity) => {
+        res.redirect('/');
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+});
+
 //ITERATION 3
 
-  router.get('/:celebrityId', (req, res, next) =>  {
+router.get('/:celebrityId', (req, res, next) =>  {
     Celebrity.findById(req.params.celebrityId)
     .then(theCelebrity => {
       res.render('celebrities/show', { celebrity: theCelebrity });
@@ -31,8 +52,20 @@ router.get('/', (req, res, next) => {
     })
 });
 
-//ITERATION 4
+//ITERATION 5
+router.get("/:celebrityId/delete", (req, res, next) => {
+    res.render("/");
+  });
 
+router.post('/:celebrityId/delete', (req, res, next) =>  {
+    Celebrity.findByIdAndRemove({_id: req.params.celebrityId})
+    .then((celebrity) => {
+        res.redirect('/celebrities');
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+});
 
 
 
