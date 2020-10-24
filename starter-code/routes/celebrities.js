@@ -8,21 +8,28 @@ router.get('/', async (req, res, next) => {
     try{
       let respuesta = await celebs.find()
       console.log(respuesta)
-        res.render('celebrities/index', {respuesta });
+        res.render('celebrities/index', {respuesta});
     }catch(err){
         console.log('Error while getting the celebrities from the DB: ', err);
     }
   });
 
-//   router.get('/:Id', (req, res, next) => {
-//     celebs.findById(req.params.bookId)
-//       .then(respuesta2 => {
-//         res.render('celebrities/show', {respuesta2 } );
-//       })
-//       .catch(error => {
-//         console.log('Error while retrieving celebrity details: ', error);
-//       })
-//   });
+  router.get('/new', (req, res, next) => {
+    res.render("celebrities/new");
+  });
+
+  router.post('/new', (req, res, next) => {
+    const { name, occupation, catchPhrase} = req.body;
+    let celebs = new celebs({name, occupation, catchPhrase})
+    celebs.save(item)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  });
+
 
   router.get('/:Id', async (req, res, next) => {
     try{
