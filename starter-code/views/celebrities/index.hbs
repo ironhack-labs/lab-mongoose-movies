@@ -1,0 +1,14 @@
+<h2>Celebrities random</h2>
+
+{{#each celebrity}} 
+<div>
+
+<a href="/celebrities/{{id}}"> <p>{{name}}</p></a>
+<form action= "/celebrities/{{id}}/delete" method="post">  
+<button type="submit">DELETE</button>
+</form>
+
+</div>
+{{/each}}
+
+<a href="/celebrities/new"><h2>Add a new celebrity to your collection</h2></a>
