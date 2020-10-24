@@ -1,24 +1,23 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/celebrity');
 
-const dbName = 'movies';
 mongoose.connect(`mongodb://localhost/starter-code`, { useNewUrlParser: true, useUnifiedTopology: true } );
 
 const celebrities = [
     {
-        name: "Bad Bunny",
-        occupation: "Singer",
-        catchPhrase: "Bad bunny baby ba ba ba"
+        name: "Brad pitt",
+        occupation: "Actor",
+        catchPhrase: "American actor and producer"
     },
     {
-        name: "Anuel",
-        occupation: "Singer",
-        catchPhrase: "Real hasta la muerte, BEBESITA"
+        name: "Tom Cruise",
+        occupation: "Actor",
+        catchPhrase: "American actor and producer"
     },
     {
-        name: "Ozuna",
-        occupation: "Singer",
-        catchPhrase: "El negrito de ojos claros"
+        name: "Matthew McConaughey",
+        occupation: "Actor",
+        catchPhrase: "American actor and producer"
     }
 ]
 

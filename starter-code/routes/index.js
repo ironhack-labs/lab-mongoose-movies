@@ -32,16 +32,6 @@ router.post('/new', (req, res, next) => {
 });
 
 
-// router.post("/homeCelebrities/:celebritiesId", (req, res, next) => {
-//   Celebrity.findByIdAndRemove({_id: req.query.celebrities_id})
-//   .then((celebrity)=>{
-//     res.redirect('/homeCelebrities');
-//   })
-//   .catch((error) =>{
-//     console.log(error);
-//   });
-// });
-
 router.get("/homeCelebrities/edit", (req, res, next) => {
   Celebrity.findOne({ _id: req.query.celebrities_id})
   .then((celebrity) => {
@@ -54,8 +44,20 @@ router.get("/homeCelebrities/edit", (req, res, next) => {
 
 router.post("/homeCelebrities/edit", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
+  Celebrity.updateOne({ _id: req.query.celebrities_id }, { $set: { name, occupation, catchPhrase } }, { new: true })
+  .then((celebrity)=>{
+    
+    res.redirect('/homeCelebrities');
+  })
+  .catch((error) =>{
+    console.log(req.query, 'uhsciudcneojejopjef')
+    console.log(error);
+  });
+});
 
-  Celebrity.update({ _id: req.query.celebrities_id }, { $set: { name, occupation, catchPhrase } }, { new: true })
+router.post("/homeCelebrities/:celebritiesId", (req, res, next) => {
+
+  Celebrity.findByIdAndRemove({_id: req.params.celebritiesId})
   .then((celebrity)=>{
     res.redirect('/homeCelebrities');
   })
