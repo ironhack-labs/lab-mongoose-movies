@@ -1,4 +1,3 @@
-//Listing Our Celebrities
 var express = require("express");
 var router = express.Router();
 
@@ -110,6 +109,7 @@ router.post("/:id", (req, res, next) => {
   );
 });
 
+//## Iteration #8: Listing Our Movies
 
 
 //Iteration #3: The Celebrity Details Page
