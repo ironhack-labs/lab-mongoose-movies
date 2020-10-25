@@ -24,6 +24,7 @@ const Movie = require('../models/movie.js');
   
     newMovie.save()
     .then((movie) => res.redirect('/movies'))
+    //.catch((error) => alert('Introduce todos los campos'));
     .catch((error) => res.render('movies/newMovie'));
   });
   
