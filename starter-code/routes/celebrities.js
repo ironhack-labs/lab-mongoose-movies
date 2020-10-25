@@ -109,8 +109,6 @@ router.post("/:id", (req, res, next) => {
   );
 });
 
-//## Iteration #8: Listing Our Movies
-
 
 //Iteration #3: The Celebrity Details Page
 router.get("/:id", (req, res, next) => {
