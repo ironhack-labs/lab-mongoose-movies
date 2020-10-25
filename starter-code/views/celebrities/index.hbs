@@ -1,0 +1,29 @@
+{{!-- iteracion 2 --}}
+
+<div class="container celebrity">
+    <h2>Celebrity List</h2>
+
+    {{#each celebrities}}
+
+    <h3>{{name}}</h3>
+    <div>
+
+        <div>
+            <ahref="/celebrities/show/{{_id}}">See details</a>
+
+        </div>
+        <div>
+            <a  href="/celebrities/edit/{{_id}}/">Edit</a>
+        </div>
+        <div>
+            <form action="/celebrities/{{_id}}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+
+        </div>
+    </div>
+    <hr>
+    {{/each}}
+</div>
+<a href="/celebrities/new">Create celebrity</a>
+</div>
