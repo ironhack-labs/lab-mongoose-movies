@@ -1,0 +1,14 @@
+<h2>Edit a Celebrity in our database</h2>
+
+<form action="/movies/edit?movie_id={{editMovie._id}}" method="post">
+    <label for="">Title:</label>
+    <input type="text" name="title" value="{{editMovie.title}}"><br>
+
+    <label for="">Genre:</label>
+    <input type="text" name="genre"value="{{editMovie.genre}}"><br>
+
+    <label for="">Plot:</label>
+    <input type="text" name="plot"value="{{editMovie.plot}}"><br>
+
+    <button type="submit">Edit</button>
+</form>
