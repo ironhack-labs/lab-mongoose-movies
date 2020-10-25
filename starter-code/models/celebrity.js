@@ -3,7 +3,10 @@ const Schema   = mongoose.Schema;
 
 const celebritySchema = new Schema({
   name: String,
-  occupation: Array,
+  occupation: {
+    type:String,
+    default:'unknown'
+  },
   catchPhrase: String,
 });
 
