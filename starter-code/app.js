@@ -57,5 +57,7 @@ app.use('/', index);
 const celebrites = require('./routes/celebrities'); // Importar fitxer celebrities
 app.use('/celebrities', celebrites); // Indico la ruta per obrir el fitxer celebrities
 
+const movies = require('./routes/movies'); // Importar fitxer movies
+app.use('/movies', movies); // Indico la ruta per obrir el fitxer movies
 
 module.exports = app;
