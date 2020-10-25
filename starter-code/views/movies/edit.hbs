@@ -1,0 +1,8 @@
+<!-- movies/edit.hbs -->
+<h2> Edit Movie</h2>
+<form action="/movies/{{movie.id}}/edit" method="post">
+    <input type="text" name="title" value="{{movie.title}}"><br>
+    <input type="text" name="genre" value="{{movie.genre}}"><br>
+    <input type="text" name="plot" value="{{movie.plot}}"><br>
+    <button type="submit">Save Changes</button>
+</form>
