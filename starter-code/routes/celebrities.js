@@ -7,7 +7,7 @@ router.get('/', async (req, res, next) => {
     try{
       let respuesta = await Celebrity.find()
       console.log(respuesta)
-        res.render('celebrities/index', {respuesta});
+      res.render('celebrities/index', {respuesta});
     }catch(err){
         console.log('Error while getting the celebrities from the DB: ', err);
     }
@@ -39,6 +39,25 @@ router.get('/', async (req, res, next) => {
     }) 
   });
 
+  router.get('/:id/edit', (req, res, next) => {
+    Celebrity.findById(req.params.id)
+    .then( () => {
+      res.render('celebrities/edit', {celebrity})  
+    }) 
+    .catch(error =>{
+      next()
+    })
+  }); 
+  router.post('/:id', (req, res, next) => {
+    const {name, occupation, catchPhrase} = req.body;
+    Celebrity.update(req.query.id, {name, occupation, catchPhrase})
+    .then( () => {
+      res.redirect('/celebrities')  
+    }) 
+    .catch(error =>{
+      next()
+    })
+  });
 
   router.get('/:id', async (req, res, next) => {
     try{
@@ -49,7 +68,7 @@ router.get('/', async (req, res, next) => {
         console.log('Error while getting the celebrities from the DB: ', err);
     }
   }); 
-
+  
 
 
   module.exports = router;
