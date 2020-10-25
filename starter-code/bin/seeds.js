@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/celebrity");
 
-const dbName = "celebrities";
+const dbName = "starter-code";
 mongoose.connect(`mongodb://localhost/${dbName}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -25,14 +25,8 @@ const celebrities = [
   },
 ];
 
-const createCelebrities = celebrities.map((celeb) => {
-  const newCelebrity = new Celebrity(celeb);
-  return newCelebrity
-    .save()
-    .then((celeb) => {
-      return celeb.name;
-    })
-    .catch((error) => {
-      throw new Error(`Impossible to add the celebrity. ${error}`);
-    });
+Celebrity.create(celebrities, (err) => {
+  if (err) { throw(err) }
+  console.log(`Created ${celebrities.length} celebrities`)
+  mongoose.connection.close();
 });
