@@ -4,6 +4,9 @@
 <div>
 
 <a href="/celebrities/{{id}}"> <p>{{name}}</p></a>
+<form action= "/celebrities/{{id}}/edit" >  
+<button type="submit">EDIT</button>
+</form>
 <form action= "/celebrities/{{id}}/delete" method="post">  
 <button type="submit">DELETE</button>
 </form>
@@ -12,3 +15,5 @@
 {{/each}}
 
 <a href="/celebrities/new"><h2>Add a new celebrity to your collection</h2></a>
+
+<a href="/">Go back to the menu</a>

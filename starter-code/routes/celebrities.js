@@ -31,6 +31,26 @@ router.get('/', async (req, res, next) => {
     }
   });
 
+  router.get('/:id/edit', async (req, res, next) => {
+    try{
+        let celebrity = await Celebrity.findById(req.params.id)
+        res.render("celebrities/edit", {celebrity})
+    } catch(err){
+        console.log('Error while getting the celebrities from the DB: ', err);
+    }
+  });
+
+
+  router.post('/:_id', async (req, res, next) => {
+    try{
+        const { name, occupation, catchPhrase } = req.body
+  await Celebrity.update({ _id: req.query._id }, { $set: { name, occupation, catchPhrase} }, { new: true })
+  await res.redirect("/celebrities")
+
+    } catch(err){
+        console.log('Error while getting the celebrities from the DB: ', err);
+    }
+  });
 
   router.get('/:id', async (req, res, next) => {
     try{
@@ -41,6 +61,8 @@ router.get('/', async (req, res, next) => {
     }
   });
 
+
+
   router.post('/:id/delete', async (req, res, next) => {
     try{
       let celebrity = await Celebrity.findByIdAndRemove(req.params.id)
@@ -50,5 +72,7 @@ router.get('/', async (req, res, next) => {
         console.log('Error while getting the celebrities from the DB: ', err);
     }
   });
+
+
 
 module.exports = router;

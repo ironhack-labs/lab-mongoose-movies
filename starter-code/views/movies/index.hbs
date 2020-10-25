@@ -1,0 +1,20 @@
+
+<h2>Fake movies Page</h2>
+
+{{#each movie}} 
+<div>
+
+<a href="/movies/{{id}}"> <p>{{title}}</p></a>
+<form action= "/movies/{{id}}/edit" >  
+<button type="submit">EDIT</button>
+</form>
+<form action= "/movies/{{id}}/delete" method="post">  
+<button type="submit">DELETE</button>
+</form>
+
+</div>
+{{/each}}
+
+<a href="/movies/new"><h2>Add a new movie to your collection</h2></a>
+
+<a href="/">Go back to the menu</a>
