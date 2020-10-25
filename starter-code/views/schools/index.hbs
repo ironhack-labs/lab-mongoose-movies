@@ -1,0 +1,9 @@
+<h2>Hogwats Houses</h2>
+<div>
+    {{#each school}}
+    <p><a href="/schools/{{this.id}}">{{this.house}}</a></p>
+    <form action="/schools/{{this.id}}/delete" method="post">
+        <button type="submit">Delete House</button>
+    </form>
+    {{/each}}
+</div>

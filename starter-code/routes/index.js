@@ -1,8 +1,9 @@
 const express = require("express");
-const Celebrity = require("../models/celebrity.js");
 const router = express.Router();
 
 const celebrityModel = require("../models/celebrity");
+
+const schoolModel = require("../models/school");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -89,6 +90,93 @@ router.get("/celebrities/:id", (req, res, next) => {
     .then((celebrity) => {
       // console.log('something', celebrity)
       res.render("celebrities/show", { celebrity: celebrity });
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+      next();
+    });
+});
+
+router.get("/schools", (req, res, next) => {
+  schoolModel
+    .find()
+    .then((school) => {
+      // console.log('something', school)
+      res.render("schools/index", { school: school });
+    })
+    .catch((error) => {
+      console.log("Error while getting the schools from the DB: ", error);
+      next();
+    });
+});
+
+router.get("/schools/new", (req, res, next) => {
+  res.render("schools/new");
+});
+
+router.post("/schools/new", (req, res, next) => {
+  const { house, colour, animal } = req.body;
+
+  const newSchool = new schoolModel({ house, colour, animal });
+
+  newSchool
+    .save()
+    .then((school) => {
+      res.redirect("/schools");
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+      res.render("schools/new");
+    });
+});
+
+router.post("/schools/:id/delete", (req, res, next) => {
+  schoolModel
+    .findByIdAndRemove(req.params.id)
+    .then( (school) => {
+      res.redirect("/schools");
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+      next();
+    });
+});
+
+router.get("/schools/:id/edit", (req, res, next) => {
+  schoolModel
+    .findById(req.params.id)
+    .then((school) => {
+      res.render("schools/edit", { school: school });
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+      next();
+    });
+});
+
+router.post("/schools/:id", (req, res, next) => {
+  const { house, colour, animal } = req.body;
+
+  schoolModel
+    .update(
+      { _id: req.params.id },
+      { $set: { house, colour, animal } },
+      { new: true }
+    )
+    .then((school) => {
+      res.redirect("/schools");
+    })
+    .catch((error) => {
+      console.log("Error while editing one school ", error);
+    });
+});
+
+router.get("/schools/:id", (req, res, next) => {
+  schoolModel
+    .findById(req.params.id)
+    .then((school) => {
+      // console.log('something', school)
+      res.render("schools/show", { school: school });
     })
     .catch((error) => {
       console.log("Error: ", error);
