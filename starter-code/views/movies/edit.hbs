@@ -1,0 +1,16 @@
+<div>
+    
+    <h2> {{film.title}}</h2>
+    <form action="/movies/{{film._id}}" method="post">
+        <label for="">Title:</label>
+        <input type="text" name="title" placeholder="{{film.title}}">
+
+        <label for="">Genre:</label>
+        <input type="text" name="genre" placeholder="{{film.genre}}">
+
+        <label for="">Plot:</label>
+        <input type="text" name="plot" placeholder="{{film.plot}}">
+        
+        <button type="submit">EDIT</button>
+    </form>
+</div>
