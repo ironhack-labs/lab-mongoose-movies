@@ -74,6 +74,44 @@ router.post("/:id/delete", (req, res, next) => {
   );
 });
 
+//## Iteration #6 (Bonus): Editing Celebrities
+//GET: mostrar el formulario con los campos completados
+router.get("/:id/edit", (req, res, next) => {
+
+  let celebrityId = req.params.id;
+  console.log(celebrityId)
+  Celebrity.findById(celebrityId).then(
+    function(data) {
+      
+      res.render("celebrities/edit", {data})
+    },
+    function (error) {
+      next(error);
+      console.log("Error while getting the books from the DB: ", error);
+    }
+  )
+})
+//POST actualizar la información
+router.post("/:id", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  let celebrityId = req.params.id;
+  Celebrity.update(
+    { _id: celebrityId },
+    { $set: { name, occupation, catchPhrase } },
+    { new: true }
+  ).then(
+    function (data) {
+      res.redirect("/celebrities");
+    },
+    function (err) {
+      next(error);
+      console.log("Something went wrong!", err);
+    }
+  );
+});
+
+
+
 //Iteration #3: The Celebrity Details Page
 router.get("/:id", (req, res, next) => {
   // traemos el id a través de params, y lo metemos en una variable
