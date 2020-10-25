@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/movies-project', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -54,5 +54,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrites = require('./routes/celebrities'); // Importar fitxer celebrities
+app.use('/celebrities', celebrites); // Indico la ruta per obrir el fitxer celebrities
+
+const movies = require('./routes/movies'); // Importar fitxer movies
+app.use('/movies', movies); // Indico la ruta per obrir el fitxer movies
 
 module.exports = app;
