@@ -6,3 +6,32 @@ body {
 a {
   color: #00B7FF;
 }
+
+.movies-container{
+  display: flex;
+}
+.p-container{
+  margin-top: -11px;
+  margin-right: 5px;
+}
+.a-container{
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.delete-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px;
+}
+
+.edit-button{
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px;
+}

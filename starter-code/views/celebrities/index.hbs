@@ -1,0 +1,20 @@
+<h2>CELEBRITIES</h2>
+
+{{#each celebrities}}
+<div class="movies-container">
+    <div class="p-container">
+        <p><strong>Name:</strong> </p>
+    </div>
+    <div class="a-container">
+        <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+        <a href="/celebrities/edit?celebrities_id={{this._id}}"><button type="submit" class="edit-button">EDIT</button></a>
+    </div> 
+    <div class="form-container">
+        <form action="/celebrities/{{this._id}}" method="post">
+            <button type="submit" class="delete-button">DELETE</button>
+        </form>
+    </div>
+</div>  
+{{/each}}
+<a href="/celebrities/add">Add celebrity</a><br>
+<a href="/">Return</a>
