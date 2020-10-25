@@ -20,8 +20,9 @@ router.get('/', async (req, res, next) => {
 
   router.post('/new', (req, res, next) => {
     const { name, occupation, catchPhrase} = req.body;
-    let celebs = new celebs({name, occupation, catchPhrase})
-    celebs.save(item)
+    let newceleb = new celebs({name, occupation, catchPhrase})
+    console.log('CELEBS VATRIABLE, VALOR:', newceleb)
+    newceleb.save()
     .then(() => {
       res.redirect('/');
     })
