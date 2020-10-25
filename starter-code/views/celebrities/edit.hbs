@@ -1,0 +1,8 @@
+<!-- celebrities/edit.hbs -->
+<h2> Edit Celebrity</h2>
+<form action="/celebrities/{{celebrity.id}}/edit" method="post">
+    <input type="text" name="name" value="{{celebrity.name}}"><br>
+    <input type="text" name="occupation" value="{{celebrity.occupation}}"><br>
+    <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}"><br>
+    <button type="submit">Save Changes</button>
+</form>

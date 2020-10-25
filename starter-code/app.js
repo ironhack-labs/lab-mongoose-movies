@@ -8,10 +8,11 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const colors = require('colors');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/movies-project', {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -51,8 +52,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const indexRouter = require('./routes/index');
+const celebritiesRouter = require('./routes/celebrities');
+app.use('/', indexRouter);
+app.use('/celebrities', celebritiesRouter);
 
 
 module.exports = app;
