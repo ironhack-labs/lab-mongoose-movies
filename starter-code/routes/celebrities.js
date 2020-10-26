@@ -31,17 +31,11 @@ router.get('/', async (req, res, next) => {
     })
   });
 
-  router.get('/:id/delete', (req, res, next) => {
-    let respuestadel = celebs.find()
-    res.render('celebrities', {respuestadel});
-  });
-
-  router.post('/:id/delete', (req, res, next) =>{
+  router.post('/:id/delete', async (req, res, next) =>{
     try{
-      let celebrityId = req.params.Id
-      celebrityId.findByIdandRemove()
+      let celebrityId = await celebs.findByIdAndRemove({_id: req.params.id})
       console.log('CONSOLE LOG DE ELIMINAAAAAAA' ,{celebrityId} )
-      res.render('celebrities');
+      res.redirect('celebrities/index');
     }catch(err){
         console.log('Error removing celebrities from the DB: ', err);
     }

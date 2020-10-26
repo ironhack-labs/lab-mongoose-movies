@@ -5,8 +5,8 @@
 {{#each respuesta}}
     <h2><a href="celebrities/{{this._id}}">{{this.name}}</a></h2>
     <button><a href="/celebrities/{{this._id}}">Details page</a></button>
-        <form action="celebrities/{{this._id}}/delete" method="post">
-            <button type="submit"><a href="celebrities/{{this._id}}/delete">DELETE</a></button>
+        <form action="/celebrities/{{this._id}}/delete" method="post">
+            <button type="submit">DELETE</button>
         </form>    
 {{/each}}
     <br>
