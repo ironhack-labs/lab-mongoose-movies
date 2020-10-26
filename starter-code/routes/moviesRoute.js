@@ -32,7 +32,7 @@ router.post("/movies/:id/delete", async (req, res, next) => {
 router.get("/movies/:id", async (req, res, next) => {
   try {
     const dbResult = await Movie.findById(req.params.id);
-    res.render("moviesViews/moviedetails", { movie: dbResult });
+    res.render("moviesViews/moviesdetails", { movie: dbResult });
   } catch (error) {
     next(error);
   }
