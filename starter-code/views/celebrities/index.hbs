@@ -3,9 +3,13 @@
 <h1>Celebrities Page</h1>
 
 {{#each respuesta}}
-    <h1><a href="celebrities/{{this._id}}">{{this.name}}</a></h1>
-    <a href="/celebrities/{{this._id}}">Details page</a>
+    <h2><a href="celebrities/{{this._id}}">{{this.name}}</a></h2>
+    <button><a href="/celebrities/{{this._id}}">Details page</a></button>
+        <form action="celebrities/{{this._id}}/delete" method="post">
+            <button type="submit"><a href="celebrities/{{this._id}}/delete">DELETE</a></button>
+        </form>    
 {{/each}}
+    <br>
     <a href="/celebrities/new">Add your own artist!!</a>
     <br>
     <a href="/">Vuelve a home</a>

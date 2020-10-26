@@ -7,7 +7,6 @@ const router  = express.Router();
 router.get('/', async (req, res, next) => {
     try{
       let respuesta = await celebs.find()
-      console.log(respuesta)
         res.render('celebrities/index', {respuesta});
     }catch(err){
         console.log('Error while getting the celebrities from the DB: ', err);
@@ -24,13 +23,29 @@ router.get('/', async (req, res, next) => {
     console.log('CELEBS VATRIABLE, VALOR:', newceleb)
     newceleb.save()
     .then(() => {
-      res.redirect('/');
+      res.redirect('/celebrities');
     })
     .catch((error) => {
-      console.log(error);
+      console.log('EL ERROR ES:', error);
+      res.redirect('/celebrities/new');
     })
   });
 
+  router.get('/:id/delete', (req, res, next) => {
+    let respuestadel = celebs.find()
+    res.render('celebrities', {respuestadel});
+  });
+
+  router.post('/:id/delete', (req, res, next) =>{
+    try{
+      let celebrityId = req.params.Id
+      celebrityId.findByIdandRemove()
+      console.log('CONSOLE LOG DE ELIMINAAAAAAA' ,{celebrityId} )
+      res.render('celebrities');
+    }catch(err){
+        console.log('Error removing celebrities from the DB: ', err);
+    }
+  })
 
   router.get('/:Id', async (req, res, next) => {
     try{
