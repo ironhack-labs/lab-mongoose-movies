@@ -9,7 +9,7 @@ const schoolModel = require("../models/school");
 router.get("/", (req, res, next) => {
   res.render("index");
 });
-
+/*
 router.get("/celebrities", (req, res, next) => {
   celebrityModel
     .find()
@@ -183,5 +183,5 @@ router.get("/schools/:id", (req, res, next) => {
       next();
     });
 });
-
+*/
 module.exports = router;

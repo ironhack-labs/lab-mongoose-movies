@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const celebrityModel = require("../models/celebrity");
-/*
-router.get("/celebrities", (req, res, next) => {
+
+router.get("/", (req, res, next) => {
   celebrityModel
     .find()
     .then((celebrity) => {
@@ -16,11 +16,11 @@ router.get("/celebrities", (req, res, next) => {
     });
 });
 
-router.get("/celebrities/new", (req, res, next) => {
+router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
 });
 
-router.post("/celebrities/new", (req, res, next) => {
+router.post("/new", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
 
   const newCelebrity = new celebrityModel({ name, occupation, catchPhrase });
@@ -32,11 +32,11 @@ router.post("/celebrities/new", (req, res, next) => {
     })
     .catch((error) => {
       console.log("Error: ", error);
-      res.render("celebrities/new");
+      res.render("/new");
     });
 });
 
-router.get("/celebrities/:id/edit", (req, res, next) => {
+router.get("/:id/edit", (req, res, next) => {
   celebrityModel
     .findById(req.params.id)
     .then((celebrity) => {
@@ -48,7 +48,7 @@ router.get("/celebrities/:id/edit", (req, res, next) => {
     });
 });
 
-router.post("/celebrities/:id", (req, res, next) => {
+router.post("/:id", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
 
   celebrityModel
@@ -65,7 +65,7 @@ router.post("/celebrities/:id", (req, res, next) => {
     });
 });
 
-router.post("/celebrities/:id/delete", (req, res, next) => {
+router.post("/:id/delete", (req, res, next) => {
   celebrityModel
     .findByIdAndRemove(req.params.id)
     .then((celebrity) => {
@@ -77,7 +77,7 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
     });
 });
 
-router.get("/celebrities/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   celebrityModel
     .findById(req.params.id)
     .then((celebrity) => {
@@ -91,4 +91,3 @@ router.get("/celebrities/:id", (req, res, next) => {
 });
 
 module.exports = router;
-*/

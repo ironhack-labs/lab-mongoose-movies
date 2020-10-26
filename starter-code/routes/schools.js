@@ -3,7 +3,7 @@ const router = express.Router();
 
 const schoolModel = require("../models/school");
 
-router.get("/schools", (req, res, next) => {
+router.get("/", (req, res, next) => {
   schoolModel
     .find()
     .then((school) => {
@@ -16,11 +16,11 @@ router.get("/schools", (req, res, next) => {
     });
 });
 
-router.get("/schools/new", (req, res, next) => {
+router.get("/new", (req, res, next) => {
   res.render("schools/new");
 });
 
-router.post("/schools/new", (req, res, next) => {
+router.post("/new", (req, res, next) => {
   const { house, colour, animal } = req.body;
 
   const newSchool = new schoolModel({ house, colour, animal });
@@ -36,7 +36,7 @@ router.post("/schools/new", (req, res, next) => {
     });
 });
 
-router.post("/schools/:id/delete", (req, res, next) => {
+router.post("/:id/delete", (req, res, next) => {
   schoolModel
     .findByIdAndRemove(req.params.id)
     .then((school) => {
@@ -48,7 +48,7 @@ router.post("/schools/:id/delete", (req, res, next) => {
     });
 });
 
-router.get("/schools/:id/edit", (req, res, next) => {
+router.get("/:id/edit", (req, res, next) => {
   schoolModel
     .findById(req.params.id)
     .then((school) => {
@@ -60,7 +60,7 @@ router.get("/schools/:id/edit", (req, res, next) => {
     });
 });
 
-router.post("/schools/:id", (req, res, next) => {
+router.post("/:id", (req, res, next) => {
   const { house, colour, animal } = req.body;
 
   schoolModel
@@ -77,7 +77,7 @@ router.post("/schools/:id", (req, res, next) => {
     });
 });
 
-router.get("/schools/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   schoolModel
     .findById(req.params.id)
     .then((school) => {
