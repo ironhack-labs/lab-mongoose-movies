@@ -1,0 +1,10 @@
+{{!-- views/celebrities/index.hbs --}}
+
+<h2>Celebrities</h2>
+
+{{#each allCelebrities}}
+    <h4><a href='/celebrities/{{_id}}'>{{name}}</a></h4>
+    <form action="/celebrities/{{_id}}/delete" method="POST"><button>Delete</button></form><br>
+{{/each}}
+
+<p><a id='add-link' href="/celebrities/new"> Add a celebrity to our data base</a> OR <a href='/'>Return to the main</a></p>
