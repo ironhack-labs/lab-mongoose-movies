@@ -1,7 +1,8 @@
-<h2>Edit celebrity</h2>
-<form action='/celebrities/{{celebrity._id}}' method='post'>
-    <p>Name: </p><input type='text' name='name' value={{celebrity.name}}>
-    <p>Occupation: </p><input type='text' name='occupation' value={{celebrity.occupation}}>
-    <p>CatchPhrase: </p><input type='text' name='catchPhrase' value={{celebrity.catchPhrase}}>
-    <button type='submit'>Edit</button>
+<!-- celebrities/edit.hbs -->
+<h2> Edit Celebrity</h2>
+<form action="/celebrities/{{celebrity.id}}/edit" method="post">
+    <input type="text" name="name" value="{{celebrity.name}}"><br>
+    <input type="text" name="occupation" value="{{celebrity.occupation}}"><br>
+    <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}"><br>
+    <button type="submit">Save Changes</button>
 </form>
