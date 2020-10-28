@@ -1,0 +1,19 @@
+<h2>MOVIES</h2>
+<form action="/movies/new">
+    <button type="submit">+ Add New</button>
+</form>
+{{#each movies}}
+<p>{{this.title}}</p>
+<form action="/movies/{{this.id}}">
+    <button type="submit">Show Details</button>
+</form>
+
+<form action="/movies/{{this.id}}/edit">
+    <button type="submit">Edit</button>
+</form>
+
+<form action="/movies/{{this.id}}/delete" method="post">
+    <button type="submit">Remove</button>
+</form>
+
+{{/each}}
