@@ -1,0 +1,16 @@
+{{!-- views/celebrities/index.hbs --}}
+
+<h1>Celebrities Page</h1>
+
+{{#each respuesta}}
+    <h2><a href="celebrities/{{this._id}}">{{this.name}}</a></h2>
+    <button><a href="/celebrities/{{this._id}}">Details page</a></button>
+        <form action="/celebrities/{{this._id}}/delete" method="post">
+            <button type="submit">DELETE</button>
+        </form>    
+{{/each}}
+    <br>
+    <a href="/celebrities/new">Add your own artist!!</a>
+    <br>
+    <a href="/">Vuelve a home</a>
+    
