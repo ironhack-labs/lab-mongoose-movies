@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 
-const Celebrity = require('../models/Celebrity.model')
+const Celebrity = require('../model/Celebrity.js')
 
 const celebrities = [
   {
