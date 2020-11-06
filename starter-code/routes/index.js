@@ -31,7 +31,7 @@ router.get("/celebrities", async (req, res) => {
 router.get("/celebrities/:celebrityId", async (req, res) => {
   const { celebrityId } = req.params
   const celebrity = await Celebrity.findById(celebrityId)
-  res.render("celebrity/detail", celebrity)
+  res.render("celebrity/show", celebrity)
 })
 
 
