@@ -9,6 +9,10 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+// //ADDED
+// const Celebrity = require('../models/celebrity')
+// const data = require('../bin/seeds')
+// //
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
@@ -52,6 +56,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const Celebrity = require('./models/celebrity');
 app.use('/', index);
 
 
