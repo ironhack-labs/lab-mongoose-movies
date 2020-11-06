@@ -3,18 +3,19 @@ const { route } = require('.');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity.model');
 
-router.get('/celebrities', async (req, res, next) => {
-  const celebrities = await Celebrity.find();
-  if (!celebrities) {
-    throw Error('No celebrities found.');
-  } else {
-    res.render('celebrities/index', { celebrities });
-  }
-  next();
+router.get('/celebrities', (req, res, next) => {
+  Celebrity.find()
+    .then((celebrities) => res.render('celebrities/index', { celebrities }))
+    .catch(() => { throw Error('No celebrities found.'); });
+});
+
+router.get('/celebrities/new', (req, res) => {
+  res.render('celebrities/new');
 });
 
 router.get('/celebrities/:id', async (req, res) => {
-  const celebrity = await Celebrity.findById(req.params._id);
+  console.log('_id', req.params.id);
+  const celebrity = await Celebrity.findById({ _id: req.params.id });
   if (!celebrity) {
     throw Error('No celebrity found.');
   } else {
@@ -22,19 +23,11 @@ router.get('/celebrities/:id', async (req, res) => {
   }
 });
 
-router.get('/celebrities/new', (req, res) => {
-  res.render('celebrities/new');
-});
-
-router.post('/celebrities', async (req, res) => {
+router.post('/celebrities', (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
-  const newCelebrity = new Celebrity({ name, occupation, catchPhrase });
-  /* 
-    un await para esperar y directamente
-    se manda un método create con los datos nuevos.
-    Igual que el seed pero solo que en este momento será con esta data.
-  */
-
+  Celebrity.create({ name, occupation, catchPhrase })
+    .then((celebrity) => res.redirect('celebrities')) // URL
+    .catch(() => res.render('/celebrities/new')); // .hbs para mostrar
 });
 
 module.exports = router;

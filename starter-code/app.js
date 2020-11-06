@@ -11,7 +11,10 @@ const path = require('path');
 const Celebrity = require('./models/Celebrity.model');
 
 mongoose
-  .connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
+  .connect('mongodb://localhost/lab-movies-celebrity', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(self => {
     console.log(`Connected to Mongo! Database name: "${self.connections[0].name}"`);
     return self.connection.dropDatabase();
