@@ -54,6 +54,11 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+
+// Call the Celebrity model's create method with the array as argument.
+
+
 // preguntar  cómo configurar .env
 app.listen(3000, () => {
   console.log("listening on: http://localhost:3000")

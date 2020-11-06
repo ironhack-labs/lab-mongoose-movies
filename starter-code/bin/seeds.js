@@ -1,6 +1,19 @@
 const express = require('express');
 const app = express();
 
+const mongoose     = require('mongoose');
+
+mongoose
+  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .then(x => {
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
+//falta cerrar conexxión
+
 
 const Celebrity = require('../model/Celebrity.js')
 
@@ -26,14 +39,3 @@ const celebrities = [
 
 
 Celebrity.insertMany(celebrities);
-
-app.get("/celebrity/create", (req, res) => {
-  res.render("celebrity/create")
-})
-//Recibir la informacion para crear un celebry
-app.post("/celebrity/create", async (req, res) => {
-  const { name, ocupation, catchPhrase } = req.body
-  await Celebrity.create({ name, ocupation, catchPhrase })
-  res.redirect("/")
-})
-// Call the Celebrity model's create method with the array as argument.
