@@ -1,1 +1,18 @@
-<h1>find Celeb</h1>
+<!-- <h1>find Celeb</h1>
+{{#each celebrities.stars}}
+  <li>{{this}}</li>
+{{/each}}
+</ul>
+<p>{{movie.description}}</p>
+{{#each movie.showtimes}}
+    <li class="list-group-item">{{this}}</li>
+
+{{/each}} -->
+
+<h2>Celebrities</h2>
+<hr>
+<ul>
+  {{#each celebrities}}
+  <li><a href="/celebrity/{{_id}}">{{name}}</a>
+  {{/each}}
+</ul>
