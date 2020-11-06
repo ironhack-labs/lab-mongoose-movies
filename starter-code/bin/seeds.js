@@ -17,7 +17,7 @@ mongoose
 
 const Celebrity = require('../model/Celebrity.js')
 
-const celebrities = [
+var celebrities = [
   {
     name: 'brad pitt',
     ocupation: 'actor',
@@ -38,4 +38,4 @@ const celebrities = [
 ];
 
 
-Celebrity.insertMany(celebrities);
+module.exports = celebrities;

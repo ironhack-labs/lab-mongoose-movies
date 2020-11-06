@@ -8,13 +8,15 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const Celebrity = require('./model/Celebrity.js')
+const celebrities = require('./bin/seeds.js')
 
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-
+    Celebrity.insertMany(celebrities);
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
