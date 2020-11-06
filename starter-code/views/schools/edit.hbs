@@ -1,0 +1,14 @@
+<h2>Edit {{school.name}}</h2>
+
+<form action="/schools/{{school.id}}" method="post">
+    <label for="house">House</label>
+    <input type="text" name="house" value="{{school.house}}">
+
+    <label for="colour">House colours</label>
+    <input type="text" name="colour" value="{{school.colour}}">
+
+    <label for="animal">House animal</label>
+    <input type="text" name="animal" value="{{school.animal}}">
+
+    <button type="submit">Submit</button>
+</form>
