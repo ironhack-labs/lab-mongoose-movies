@@ -21,4 +21,18 @@ router.get("/celebrities", async (req, res) => {
   res.render("celebrity/index", { celebrities })
 })
 
+
+// router.get("/celebrities/:artistId", async (req, res) => {
+//   console.log("ssssss");
+//   // const celebrities = await Celebrity.find()
+//   // res.render("celebrity/index", { celebrities })
+// })
+
+router.get("/celebrities/:celebrityId", async (req, res) => {
+  const { celebrityId } = req.params
+  const celebrity = await Celebrity.findById(celebrityId)
+  res.render("celebrity/detail", celebrity)
+})
+
+
 module.exports = router;
