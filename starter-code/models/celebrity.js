@@ -9,7 +9,7 @@ const celebritySchema = new Schema({
     occupation: {
         type: String
     },
-    catachPhrase: {
+    catchPhrase: {
         type: String
     }
 });
