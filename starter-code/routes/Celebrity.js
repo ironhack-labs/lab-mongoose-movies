@@ -1,5 +1,4 @@
 const express = require('express');
-const { route } = require('.');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity.model');
 
@@ -13,13 +12,32 @@ router.get('/celebrities/new', (req, res) => {
   res.render('celebrities/new');
 });
 
+router.get('/celebrities/:id/edit', (req, res) => {
+  Celebrity.findById({ _id: req.params.id })
+    .then((celebrity) => res.render('celebrities/edit', celebrity))
+    .catch(() => { throw Error('Try again.'); });
+});
+
+router.post('/celebrities/:id/delete', (req, res) => {
+  Celebrity.findByIdAndDelete({ _id: req.params.id })
+    .then(() => res.redirect('/celebrities'))
+    .catch(() => { throw Error('Cannot be deleted.'); });
+});
+
+router.post('/celebrities/:id', (req, res) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity
+    .update({ _id: req.params.id }, { name, occupation, catchPhrase })
+    .then(() => { res.redirect('/celebrities'); next(); })
+    .catch(() => res.render('celebrities/edit', { error: 'Cannot update the celebrity.' }));
+});
+
 router.get('/celebrities/:id', async (req, res) => {
-  console.log('_id', req.params.id);
   const celebrity = await Celebrity.findById({ _id: req.params.id });
   if (!celebrity) {
     throw Error('No celebrity found.');
   } else {
-    res.render('celebrities/show', celebrity);
+    return res.render('celebrities/show', celebrity);
   }
 });
 

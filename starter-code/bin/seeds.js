@@ -16,4 +16,22 @@ const initialCelebrities = [
   }
 ];
 
-module.exports = initialCelebrities;
+const initialMovies = [
+  {
+    title: 'Misión Imposible: Protocolo Fantasma',
+    genre: 'action',
+    plot: 'mucha bala',
+  },
+  {
+    title: 'Son Como Niños',
+    genre: 'comedia',
+    plot: 'adam sandler',
+  },
+  {
+    title: 'VAYNER Media',
+    genre: 'Money',
+    plot: 'megalomaniaco',
+  },
+];
+
+module.exports = { initialCelebrities, initialMovies };

@@ -1,0 +1,11 @@
+<h2>Edit Movie</h2>
+<p style='color: crimson'>{{error}}</p>
+<form action="/movies/{{_id}}" method="post">
+  <label for="title">Title:</label><br>
+  <input type="text" name="title" id="title" value="{{title}}"> <br>
+  <label for="genre">Genre:</label><br>
+  <input type="text" name="genre" id="genre" value="{{genre}}"> </input> <br>
+  <label for="plot">Plot:</label><br>
+  <textarea name="plot" id="plot" cols="30" rows="10">{{plot}}</textarea>
+  <button>Submit</button>
+</form>
