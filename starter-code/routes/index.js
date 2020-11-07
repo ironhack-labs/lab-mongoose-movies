@@ -6,8 +6,8 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-router.get("/celebrity/create", (req, res) => {
-  res.render("celebrity/create")
+router.get("/celebrity/new", (req, res) => {
+  res.render("celebrity/new")
 })
 //Recibir la informacion para crear un celebry
 router.post("/celebrity/create", async (req, res) => {
