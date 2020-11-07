@@ -2,6 +2,12 @@
 <hr>
 <ul>
   {{#each celebrities}}
-  <a href="/celebrities/{{_id}}">{{name}}</a>
+    <a href="/celebrities/{{_id}}">{{name}}</a>
+    <!-- As part of the loop, add a <form> tag that makes a POST request to celebrities/:id/delete where the :id is replaced by the actual id of each celebrity.
+ -->
+    <form action="celebrity/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
+
   {{/each}}
 </ul>
