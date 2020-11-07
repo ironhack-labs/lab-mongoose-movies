@@ -8,4 +8,12 @@ const router  = express.Router();
     res.render('movies/index', {movie})
   });
 
+  router.get('/movies/:id', async (req, res, next) => {
+    const {id} = req.params
+    const movie= await Movie.findById(id)
+   // next(catch(err => console.error('There was an error', err)));
+    res.render('movies/show', movie)
+  });
+  
+
   module.exports = router;

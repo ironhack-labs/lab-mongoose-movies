@@ -9,7 +9,7 @@ const movieSchema = new Schema({
     genre: {
         type: String
     },
-    Plot: {
+    plot: {
         type: String
     }
 });

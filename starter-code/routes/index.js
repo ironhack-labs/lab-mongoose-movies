@@ -6,6 +6,8 @@ const Celebrity = require('../models/celebrity');
 router.get('/', (req, res, next) => {
   res.render('index');
 });
+
+
 /*router.get('/celebrities', async (req, res, next) => {
   const celebrity= await Celebrity.find()
   //next.catch(err => console.error('There was an error', err));
