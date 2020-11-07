@@ -42,11 +42,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
+const indexMovies= require('./routes/movies')
 const index = require('./routes/index');
 const indexCelebrities = require('./routes/celebrities');
+
 app.use('/', index);
 app.use('/', indexCelebrities);
-
+app.use('/', indexMovies)
 
 module.exports = app;
