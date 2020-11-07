@@ -21,7 +21,7 @@ mongoose
   .then(self => {
     console.log(`Connected to Mongo! Database name: "${self.connection.name}"`)
     // console.log(`Throw DB "${self.connection.name}"`);
-    // Before adding any documents to the database, let's delete all previous entries
+    console.log("--------Before adding any documents to the database, let's delete all previous entries");
     return self.connection.dropDatabase();
   })
   .then(x => {

@@ -30,11 +30,11 @@ router.get("/celebrities", async (req, res) => {
 })
 
 
-// router.get("/celebrities/:artistId", async (req, res) => {
-//   console.log("ssssss");
-//   // const celebrities = await Celebrity.find()
-//   // res.render("celebrity/index", { celebrities })
-// })
+router.post("/celebrities/:celebrityId/delete", async (req, res) => {
+  console.log("ssssss");
+  // const celebrities = await Celebrity.find()
+  // res.render("celebrity/index", { celebrities })
+})
 
 router.get("/celebrities/:celebrityId", async (req, res) => {
   const { celebrityId } = req.params
