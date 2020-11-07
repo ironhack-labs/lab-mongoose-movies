@@ -22,18 +22,26 @@ router.get('/celebrities/:id', async (req, res, next) => {
     res.render('celebrities/show', celeb)
   });
 
-  router.get('/celebrities/new', async (req, res, next) => {
+  router.get('/celebrities/new', (req, res, next) => {
     
    // next(catch(err => console.error('There was an error', err)));
-    res.render('/celebrities/show')
+    res.render('celebrities/new')
   });
 
-  router.post('/celebrities', async (req, res, next) => {
+  router.post('/celebrities/new', async (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body
-    const insertCeleb = await Celebrity.create({name, occupation, catchPhrase})
-    insertCeleb.save()
+    /*const insertCeleb=*/ await Celebrity.create({name, occupation, catchPhrase})
+    //insertCeleb.save()
    // next(catch(err => console.error('There was an error', err)));
     res.redirect('/celebrities')
   });
+
+  //Edit pending
+
+  router.post("/celebrities/:celebrityId/delete", async (req, res) => {
+    const { celebrityId } = req.params
+    await Celebrity.findByIdAndRemove(celebrityId)
+    res.redirect("/celebrities")
+  })
 
 module.exports = router;
