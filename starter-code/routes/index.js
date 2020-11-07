@@ -11,6 +11,7 @@ router.get("/celebrity/new", (req, res) => {
 })
 //Recibir la informacion para crear un celebry
 router.post("/celebrity/create", async (req, res) => {
+  console.log(req.body);
   const { name, ocupation, catchPhrase } = req.body
   await Celebrity.create({ name, ocupation, catchPhrase })
   res.redirect("/")
