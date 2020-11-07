@@ -13,14 +13,19 @@ const celebrities = require('./bin/seeds.js')
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code',
-  {
+  .connect('mongodb://localhost/starter-code', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 
   })
+  .then(self => {
+    console.log(`Connected to Mongo! Database name: "${self.connection.name}"`)
+    // console.log(`Throw DB "${self.connection.name}"`);
+    // Before adding any documents to the database, let's delete all previous entries
+    return self.connection.dropDatabase();
+  })
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+
     Celebrity.insertMany(celebrities);
   })
   .catch(err => {
