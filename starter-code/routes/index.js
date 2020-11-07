@@ -30,10 +30,22 @@ router.get("/celebrities", async (req, res) => {
 })
 
 
-router.post("/celebrities/:celebrityId/delete", async (req, res) => {
-  console.log("ssssss");
-  // const celebrities = await Celebrity.find()
-  // res.render("celebrity/index", { celebrities })
+router.post("/celebrity/:celebrityId/delete", async (req, res) => {
+  const { celebrityId } = req.params
+  // console.log(celebrityId);
+  const celebrityToDelete = await Celebrity.findOne({
+      _id : celebrityId
+    })
+    Celebrity.findByIdAndRemove(celebrityId).then(
+     function (data) {
+       res.redirect("/celebrities");
+     },
+     function (error) {
+       next(error);
+       console.log("Error while getting the books from the DB: ", error);
+     }
+   );
+
 })
 
 router.get("/celebrities/:celebrityId", async (req, res) => {
