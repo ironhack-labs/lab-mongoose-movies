@@ -14,6 +14,12 @@ const router  = express.Router();
    // next(catch(err => console.error('There was an error', err)));
     res.render('movies/show', movie)
   });
+
+  router.post("/movies/:movieId/delete", async (req, res) => {
+    const { movieId } = req.params
+    await Movie.findByIdAndRemove(movieId)
+    res.redirect("/movies")
+  })
   
 
   module.exports = router;
