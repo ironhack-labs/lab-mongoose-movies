@@ -20,7 +20,7 @@ router.post("/celebrity/create", async (req, res) => {
   } else {
 
     await Celebrity.create({ name, ocupation, catchPhrase })
-    res.redirect("/")
+    res.redirect("/celebrities")
   }
 })
 
