@@ -19,12 +19,11 @@ mongoose
 })
 .then(x =>{
   console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  return self.connection.dropDatabase();
+  // return self.connection.dropDatabase();
 })
 .then(() => {
   Celebrity.create(info)
   console.log('celebrities were created')
-  console.log(info)
 })
 .catch(error => console.log(error));
 
@@ -59,9 +58,10 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
+const celebrities = require('./routes/celebrities');
 const index = require('./routes/index');
 app.use('/', index);
+app.use('/celbrities', celebrities);
 
 
 module.exports = app;
