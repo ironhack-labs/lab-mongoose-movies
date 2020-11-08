@@ -9,9 +9,10 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
 const info= require ('./bin/seeds')
 const Celebrity = require('./models/celebrity');
+const Movie = require('./models/movie');
+
 mongoose
 .connect('mongodb://localhost/starter-code', {
   useNewUrlParser: true,
@@ -19,13 +20,23 @@ mongoose
 })
 .then(x =>{
   console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  // return self.connection.dropDatabase();
+  // self.connection.dropDatabase();
+  
 })
+// create a list of celebrities
+// .then(() => {
+//   Celebrity.insertMany(info)
+//   .then(console.log('celebrities were created'))
+//   .catch(err => console.log(err))
+// })
 .then(() => {
-  Celebrity.create(info)
-  console.log('celebrities were created')
+  Movie.insertMany(info)
+  .then(console.log('movies were created'))
+  .catch(err => console.log(err))
 })
 .catch(error => console.log(error));
+
+
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -59,9 +70,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 const index = require('./routes/index');
 app.use('/', index);
-app.use('/celbrities', celebrities);
-
+app.use('/', celebrities);
+app.use('/', movies);
 
 module.exports = app;

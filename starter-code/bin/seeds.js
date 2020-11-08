@@ -1,24 +1,43 @@
 const mongoose = require('mongoose')
- 
-const Celebrity = require("../models/celebrity");
 
-const celebrities = [
+// const celebrities = [
+//     {
+//       name: "Tom Cruise",
+//       occupation: "Actor" ,
+//       catchPhrase: "scientology",
+//     },
+//     {
+//         name: "Homero Simpson",
+//         occupation: "Actor" ,
+//         catchPhrase: "D'oh!",
+//     },
+//     {
+//         name: "Kim Kardashian",
+//         occupation: "Unkown" ,
+//         catchPhrase: "none",
+//     },
+
+// ];
+
+// module.exports = celebrities;
+
+const movies = [
     {
-      name: "Tom Cruise",
-      occupation: "Actor" ,
-      catchPhrase: "scientology"
+      title: "Harry Potter",
+      genre: "Fantasy" ,
+      plot: "Wizards",
     },
     {
-        name: "Homero Simpson",
-        occupation: "Actor" ,
-        catchPhrase: "D'oh!"
+        title: "Mission imposible",
+        genre: "Fiction" ,
+        plot: "scientology",
     },
     {
-        name: "Kim Kardashian",
-        occupation: "Unkown" ,
-        catchPhrase: "Unkown"
+        title: "IT",
+        genre: "thriller" ,
+        plot: "scary clown",
     },
 
 ];
 
-module.exports = celebrities; 
+module.exports = movies
