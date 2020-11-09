@@ -1,7 +1,7 @@
 /*NOTE: La unica manera que hice que esto funcione fue navegando a starter-code/bin/ en la consola y 
 corriendo "node seeds.js". Como se deberia de hacer?
 
-//ITERATION 1 (NO BORRAR!!)
+// //ITERATION 1 (NO BORRAR!)
 
 // const celebrities = [
 //     {
@@ -38,7 +38,7 @@ corriendo "node seeds.js". Como se deberia de hacer?
 //     console.error('Error connecting to mongo', err)
 //   });
 
-//ITERATION 2 (NO BORRAR!!)
+// /?ITERATION 7 (NO BORRAR!)
 
 // const movies = [
 //     {
@@ -57,8 +57,6 @@ corriendo "node seeds.js". Como se deberia de hacer?
 //         plot: "Vestibulum ut consequat eros, vitae pellentesque urna. Pellentesque efficitur augue sit amet ligula euismod, ultricies."
 //     }
 // ]
-
-// // //ITERATION 7 (NO BORRAR!!)
 
 // const mongoose = require('mongoose');
 // const Movie = require('../models/movie')
