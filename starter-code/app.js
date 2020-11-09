@@ -9,10 +9,6 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-// //ADDED
-// const Celebrity = require('../models/celebrity')
-// const data = require('../bin/seeds')
-// //
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
@@ -51,12 +47,13 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Lab Mongoose Movies';
 
 
 
 const index = require('./routes/index');
 const Celebrity = require('./models/celebrity');
+const Movie = require('./models/movie')
 app.use('/', index);
 
 

@@ -1,0 +1,8 @@
+<h2>Movies</h2>
+<ul>
+    {{#each movies}}
+    <li><a href="/movies/{{_id}}">{{title}}</a> <a href="/movies/{{id}}/delete"><button>✖</button></a></li>
+    {{/each}}
+</ul>
+<a href="/"><button>Home</button></a>
+<a href="/movies/new"><button>New</button></a>

@@ -1,0 +1,17 @@
+<h2>New Artist</h2>
+<form action="/celebrities/new" method="post">
+{{!--         ^Esto tiene que concordar con la pagina del router.post --}}
+    <label for="name">Name:
+        <input type="text" name="name" id="name">
+    </label>
+    <br>
+    <label for="occupation">Occupation:
+        <input type="text" name="occupation" id="occupation">
+    </label>
+    <br>
+    <label for="catchPhrase">Catchphrase:
+        <input type="text" name="catchPhrase" id="catchPhrase">
+    </label>
+    <br>
+    <button type="submit">Create</button>
+</form>

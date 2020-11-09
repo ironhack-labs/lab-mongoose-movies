@@ -1,6 +1,9 @@
 <h2>Celebrities</h2>
 <ul>
     {{#each celebrities}}
-    <li>{{name}}</li>
+    <li><a href="/celebrities/{{_id}}">{{name}}</a> <a href="/celebrities/{{id}}/delete"><button>✖</button></a></li>
     {{/each}}
 </ul>
+<a href="/"><button>Home</button></a>
+<a href="/celebrities/new"><button>New</button></a>
+
