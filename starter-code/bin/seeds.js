@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const app = require('../app');
-const Celebrity = require("../models/Celebrity.model")
+const Movie = require("../models/Movies.model")
 
 const DB_NAME = "starter-code";
 
@@ -10,23 +10,23 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
     useUnifiedTopology: true,
 });
 
-const celbrities = [{
-    name: "Frederik",
-    occupation: 'Actor',
-    catchPhrase: 'You know you want to be me'
+const movies = [{
+    title: "Lord of the Rings",
+    genre: 'Fantasy',
+    plot: 'Frodo has to bring the ring back'
 }, {
-    name: "Kimberly Awesome",
-    occupation: 'Singer',
-    catchPhrase: 'Life is Music'
+    title: "Harry Potter",
+    genre: 'Wizard',
+    plot: 'Harry needs to kill Voldemort'
 }, {
-    name: "Rich Hariette",
-    occupation: 'Reality-TV',
-    catchPhrase: 'Money makes me happy'
+    title: "Mean Girls",
+    genre: 'Comedy',
+    plot: 'Regina George needs to be stopped'
 }];
 
-Celebrity.create(celbrities)
-    .then((celebritiesDB) => {
-        console.log(`${celebritiesDB.length} have been created`);
+Movie.create(movies)
+    .then((moviesDB) => {
+        console.log(`${moviesDB.length} have been created`);
         mongoose.connection.close()
     })
     .catch((err) =>

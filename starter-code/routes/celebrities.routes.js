@@ -88,9 +88,8 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
         id
     } = req.params;
     Celebrity.findByIdAndDelete(id)
-        .then(() => res.render('celebrities/index'))
+        .then(() => res.redirect('/celebrities'))
         .catch((error) => console.log(`There was an error, while trying to delete celeb: ${error}`));
 });
-
 
 module.exports = router;
