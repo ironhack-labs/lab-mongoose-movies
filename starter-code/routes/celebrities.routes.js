@@ -38,6 +38,7 @@ router.post("/celebrities", (req, res) => {
         .then(() => res.redirect("/celebrities"))
         .catch(() => {
             res.render("celebrities/new");
+    
         });
 });
 
