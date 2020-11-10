@@ -15,18 +15,21 @@ router.get('/celebrities/new', (req, res, next) => {
     res.render('celebrities/new')
 });
 
-router.post('/celebrities/new', (req, res, next) => {
+router.post('/celebrities/new', (req, res) => {
     const {
         name,
         occupation,
         catchPhrase
     } = req.body;
 
-    Celebrity.create({
-            name,
-            occupation,
-            catchPhrase
-        })
+    const newCeleb = new Celebrity({
+        name,
+        occupation,
+        catchPhrase
+    })
+
+    newCeleb
+        .save()
         .then(() => res.redirect('/celebrities'))
         .catch((error) => {
             console.log(`Something went wrong when creating a new celeb, try again ${error}`),

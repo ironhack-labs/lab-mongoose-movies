@@ -15,18 +15,21 @@ router.get('/movies/new', (req, res, next) => {
     res.render('movies/new')
 });
 
-router.post('/movies/new', (req, res, next) => {
+router.post('/movies/new', (req, res) => {
     const {
-        name,
+        title,
         genre,
         plot
     } = req.body;
 
-    Movie.create({
-            name,
-            genre,
-            plot
-        })
+    const newMovie = new Movie({
+        title,
+        genre,
+        plot
+    })
+
+    newMovie
+        .save()
         .then(() => res.redirect('/movies'))
         .catch((error) => {
             console.log(`Something went wrong when creating a new movie, try again ${error}`),
@@ -64,13 +67,13 @@ router.post('/movies/:id/edit', (req, res, next) => {
     } = req.params;
 
     const {
-        name,
+        title,
         genre,
         plot
     } = req.body;
 
     Movie.findByIdAndUpdate(id, {
-            name,
+            title,
             genre,
             plot
         }, {
