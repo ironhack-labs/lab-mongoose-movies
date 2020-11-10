@@ -3,9 +3,9 @@ const { Schema, model } = mongoose;
  
 const celebrityModel = new Schema(
   {
-    name: String, enum : ['Tom Cruise','Beyonce', 'Daffy Duck'],
-    ococcupation: String, enum : ['actor','singer', 'comedian','unknown'],
-    catchPhrase: String
+    name: {type: String, required: true},
+    occupation: {type: String, required: true},
+    catchPhrase: {type: String, required: true},
   },
 
 );
