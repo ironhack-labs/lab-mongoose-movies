@@ -8,9 +8,31 @@ router.get('/celebrities', (req, res, next) => {
         .then((dbCelebs) => res.render('celebrities/index', {
             dbCelebs
         }))
-        .catch((error) => console.log(`There was an error: ${error}`))
-})
+        .catch((error) => console.log(`There was an error: ${error}`));
+});
 
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new')
+});
+
+router.post('/celebrities/new', (req, res, next) => {
+    const {
+        name,
+        occupation,
+        catchPhrase
+    } = req.body;
+    Celebrity.create({
+            name,
+            occupation,
+            catchPhrase
+        })
+        .save()
+        .then(() => res.redirect('celebrities/index'))
+        .catch((error) => {
+            console.log(`Something went wrong when creating a new celeb, try again ${error}`),
+                res.redirect('celebrities/new')
+        })
+})
 
 router.get('/celebrities/:id', (req, res, next) => {
     const {
@@ -18,10 +40,11 @@ router.get('/celebrities/:id', (req, res, next) => {
     } = req.params
     Celebrity.findById(id)
         .then((oneCeleb) => {
-            console.log(oneCeleb),
-                res.render('celebrities/show', oneCeleb)
+            res.render('celebrities/show', oneCeleb)
         })
-        .catch((error) => console.log(`There was an error, while trying to find celeb: ${error}`))
-})
+        .catch((error) => console.log(`There was an error, while trying to find celeb: ${error}`));
+});
+
+
 
 module.exports = router;
