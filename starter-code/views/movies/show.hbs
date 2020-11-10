@@ -4,6 +4,11 @@
   <p>Title: {{this.title}}</p>
   <p>Genre: {{this.genre}}</p>
   <p>Plot: {{this.plot}}</p>
+  <p>Celebrities:
+    {{#each celebrities}}
+    <span>{{this.name}}</span>
+    {{/each}}
+  </p>
 </div>
 
 <a href="/movies">Back</a>

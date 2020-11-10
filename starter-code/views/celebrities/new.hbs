@@ -5,6 +5,12 @@
   Name: <input type="text" name="name"> <br>
   Occupation: <input type="text" name="occupation"> <br>
   Quote: <input type="text" name="catchPhrase"> <br>
+  Movie: <select name="movie">
+    {{#each allTheMovies}} 
+    <option value="{{this._id}}">{{this.title}}</option> <!-- chosen value will become a value of the select element-->
+    {{/each}} 
+  </select>
+  <br>
 
   <button class="save-button" type="submit">Save</button>
 </form>

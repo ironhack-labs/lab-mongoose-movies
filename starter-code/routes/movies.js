@@ -1,56 +1,80 @@
 const express = require('express');
 
-const Movie = require('../models/Movie.model')
+const Movie = require('../models/Movie.model');
+const Celebrity = require('../models/Celebrity.model');
 
 const router = express.Router();
 
 
-// route /movies
+// GET /movies
 router.get('/', (req, res, next) => {
 
-  Movie.find(null, null, {sort: {title: 1}}).then((moviesFromDB) => {
-    console.log(moviesFromDB)
+  Movie.find(null, null, { sort: { title: 1 } }).then((moviesFromDB) => {
+    console.log(moviesFromDB);
     res.render('movies/index', { allTheMovies: moviesFromDB })
   })
 });
 
 
-// show form to user
 // GET /movies/new
-// tricky case: remember to keep it above the code rendering /:id route! in other case browser will try to render "new" as an id and it will cause an error
+// show form to the user
+// tricky case: keep it above the code rendering /:id route! in other case browser will try to render "new" as an id and it will cause an error
 router.get('/new', (req, res, next) => {
-  res.render('movies/new')
+
+  // give the possibility to add a celebrity while creating new movie
+  Celebrity.find().then((celebritiesFromDB) => {
+    res.render('movies/new', { allTheCelebrities: celebritiesFromDB });
+  });
+
 });
 
 
-// route /movies/:id
+// GET /movies/:id
 router.get('/:id', (req, response, next) => {
 
-  Movie.findById(req.params.id).then((movie) => {
-      response.render('movies/show', movie) // 
-  })
+  Movie.findById(req.params.id)
+    .populate('celebrities')
+    .then((movie) => {
+      response.render('movies/show', movie);
+    });
 
 });
 
 
-// pick up data from submitted form
 // POST /movies/new
+// pick up data from submitted form
 // name: req.body.name = ModelPropertyName.req.body.formInputFieldName
 router.post('/new', (req, res, next) => {
 
   console.log(req.body);
-  Movie.create({ name: req.body.title, genre: req.body.genre, plot: req.body.plot }).then(() => {
-    res.redirect('/movies')
-  })
+  Movie.create({ title: req.body.title, genre: req.body.genre, plot: req.body.plot, celebrities: [req.body.celebrity] })
+    .then(dbMovie => {
+      return Celebrity.findByIdAndUpdate(req.body.celebrity, { $push: { movies: dbMovie._id } });
+    })
+    .then(() => {
+      res.redirect('/movies')
+    });
 });
 
 
 // POST /movies/id/delete
 router.post('/:id/delete', (req, res, next) => {
 
-  Movie.findByIdAndDelete(req.params.id).then(() => {
-    res.redirect('/movies')
-  })
+
+  Movie.findByIdAndDelete(req.params.id) // builds a query to get and delete a document
+    .exec() // executes the query and returns a promise for the document
+    .then(dbMovie => { // takes deleted movie object
+      const removeMovieId = celebrityId => Celebrity.findByIdAndUpdate(celebrityId, { $pull: { movies: dbMovie._id } }).exec();
+      // findByIdAndUpdate() method builds another query to get and update a document (pull out the movie id from celebrity document)
+      return Promise.all(dbMovie.celebrities.map(removeMovieId));
+
+      // return Promise.all(dbMovie.celebrities.map(celebrityId => Celebrity.findByIdAndUpdate(celebrityId, { $pull: { movies: dbMovie._id } }).exec()));
+      // dbMovie.celebrities.map() > use .map() on a movie object, get the celebrities array (in that object)
+
+    }).then(() => {
+      res.redirect('/movies');
+    });
+
 });
 
 

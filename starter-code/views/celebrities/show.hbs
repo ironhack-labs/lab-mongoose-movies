@@ -4,6 +4,11 @@
   <p>Name: {{this.name}}</p>
   <p>Occupation: {{this.occupation}}</p>
   <p>Quote: {{this.catchPhrase}}</p>
+  <p>Movies:
+    {{#each movies}}
+    <span>{{this.title}}</span>
+    {{/each}}
+  </p>
 </div>
 
 <a href="/celebrities">Back</a>
