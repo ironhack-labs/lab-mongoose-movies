@@ -31,13 +31,13 @@ router.post('/celebrities/new', (req, res, next) => {
         .catch((error) => {
             console.log(`Something went wrong when creating a new celeb, try again ${error}`),
                 res.redirect('celebrities/new')
-        })
-})
+        });
+});
 
 router.get('/celebrities/:id', (req, res, next) => {
     const {
         id
-    } = req.params
+    } = req.params;
     Celebrity.findById(id)
         .then((oneCeleb) => {
             res.render('celebrities/show', oneCeleb)
@@ -45,6 +45,14 @@ router.get('/celebrities/:id', (req, res, next) => {
         .catch((error) => console.log(`There was an error, while trying to find celeb: ${error}`));
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+    const {
+        id
+    } = req.params;
+    Celebrity.findByIdAndDelete(id)
+        .then(() => res.redirect('celebrities/index'))
+        .catch((error) => console.log(`There was an error, while trying to delete celeb: ${error}`));
+});
 
 
 module.exports = router;
