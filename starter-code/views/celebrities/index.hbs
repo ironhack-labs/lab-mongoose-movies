@@ -4,4 +4,7 @@
 {{#each celebritiesFindDB}}
 <p><b>Name</b></p>{{name}}
 <a href="/celebrities/{{_id}}">See More</a>
+<form action="/celebrities/{{_id}}/delete" method="post">
+<button>Delete</button>
+</form>
 {{/each}}
