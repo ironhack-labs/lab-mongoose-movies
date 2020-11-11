@@ -29,12 +29,29 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
   .catch((err) => next(err))    
   });
 
+router.get("celebrities/:id/edit", (req,res,next) => {
+const { id } = req.params;
+Celebrity.findById(id)
+.then((celebFromDb) => res.render("./celebrites/edit"))
+.catch((err) => next(err))
+});
+
+router.post("celebrities/:id/edit", (req,res,next) => {
+  const { id } = req.params;
+  const {name, occupation, catchPhrase} = req.body
+  Celebrity.findByIdAndUpdate(id, {name, occupation, catchPhrase})
+  .then((celebFromDb) => res.redirect("/celebrities"))
+  .catch((err) => next(err))
+  });
+
 router.get('/celebrities/:id', (req, res, next) => {
     const { id } = req.params;
     Celebrity.findById(id)
     .then ((celebFromDb) => res.render("./celebrities/show", celebFromDb))
     .catch((err) => next(err))    
   });
+
+
 
 
 
