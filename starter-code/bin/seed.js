@@ -12,17 +12,17 @@ const celebrities = [
     {
         name: "Rose",
         occupation: "Singer",
-        catchPhrase: "Catch me if you can" 
+        catchphrase: "Catch me if you can" 
     },
     {
         name: "Oliva",
         occupation: "Dancer",
-        catchPhrase: "Dance Dance Dance" 
+        catchphrase: "Dance Dance Dance" 
     },
     {
         name: "James",
         occupation: "Writer",
-        catchPhrase: "Hakuna matata" 
+        catchphrase: "Hakuna matata" 
     }
 ]
 
