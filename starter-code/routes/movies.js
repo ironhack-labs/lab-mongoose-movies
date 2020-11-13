@@ -1,15 +1,15 @@
 const express   = require('express');
 const router    = express.Router();
 const mongoose  = require('mongoose')
-const Celebrity = require('../models/Celebrity.model')
+const Movie = require('../models/Movie.model')
 const chalk = require('chalk')
 
 
 
 router.get('/', (req, res, next) => {
-  Celebrity.find()
-  .then(celebrities => {
-    res.render('celebrities/index', {celebrities})
+  Movie.find()
+  .then(movies => {
+    res.render('movies/index', {movies})
   })
   .catch(err => {
     next(err)
@@ -17,22 +17,22 @@ router.get('/', (req, res, next) => {
   })
 })
 router.post('/', (req, res, next) => {
-    Celebrity.create(req.body)
+    Movie.create(req.body)
     .then(result => {
         console.log(result)
-        res.redirect('/celebrities')
+        res.redirect('/movies')
     })
 })
 
 router.get('/new', (req,res, next) => {
-  res.render('celebrities/new')
+  res.render('movies/new')
 })
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id
-  Celebrity.findById(id)
-  .then(celebrity => {
-    res.render('celebrities/show', celebrity)
+  Movie.findById(id)
+  .then(movie => {
+    res.render('movies/show', movie)
   })
   .catch(err => {
     console.error(err)
@@ -43,10 +43,10 @@ router.get('/:id', (req, res, next) => {
 router.post('/:id', (req, res, next) => {
     const id = req.params.id
     console.log(req.body)
-    Celebrity.findByIdAndUpdate(id, req.body)
+    Movie.findByIdAndUpdate(id, req.body)
     .then(result => {
         console.log(result)
-        res.redirect('/celebrities')
+        res.redirect('/movies')
     })
     .catch(err => {
         console.error(err)
@@ -56,10 +56,10 @@ router.post('/:id', (req, res, next) => {
 
 router.post('/:id/delete', (req, res, next) => {
     const id = req.params.id
-    Celebrity.findByIdAndRemove(id)
+    Movie.findByIdAndRemove(id)
     .then(result => {
         console.log(result)
-        res.redirect('/celebrities')
+        res.redirect('/movies')
     })
     .catch(err => {
         console.error(err)
@@ -68,10 +68,11 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 router.get('/:id/edit', (req, res, next) => {
+    console.log(chalk.red.inverse.bold('editando'))
     const id = req.params.id
-    Celebrity.findById(id)
-    .then(celebrity => {
-        res.render('celebrities/edit', celebrity)
+    Movie.findById(id)
+    .then(movie => {
+        res.render('movies/edit', movie)
     })
     .catch(err => {
         console.error(err)
