@@ -1,11 +1,16 @@
-<h2> Add a new movie to your collection! </h2>
+<h2>Add new movie</h2>
 
 <form action="/movies/new" method="post">
 
   Title: <input type="text" name="title"> <br>
   Genre: <input type="text" name="genre"> <br>
   Plot: <input type="text" name="plot"> <br>
+  Celebrity: <select name="celebrity">
+    {{#each allTheCelebrities}} 
+    <option value="{{this._id}}">{{this.name}}</option> <!-- chosen value will become a value of the select element-->
+    {{/each}} 
+  </select>
+  <br>
 
   <button class="save-button" type="submit">Save</button>
-  
-</form> 
+</form>
