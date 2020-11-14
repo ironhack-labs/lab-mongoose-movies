@@ -5,4 +5,7 @@ module.exports = app => {
 
     // Celebrities
     app.use('/celebrities', require('./celebrities.routes.js'))
+
+    // Movies
+    app.use('/movies', require('./movies.routes.js'))
 }

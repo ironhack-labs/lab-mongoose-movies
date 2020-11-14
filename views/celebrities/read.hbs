@@ -3,15 +3,16 @@
     <h2>{{name}}</h2>
 
     <ul>
-      <li>{{occupation}}</li>
-      <li>{{catchPhrase}}</li>
+      <li><strong>Occupation:</strong> {{occupation}}</li>
+      <li><strong>CatchPhrase:</strong> {{catchPhrase}}</li>
     </ul>
 
-    <a class="btn btn-outline-secondary d-block" href="/celebrities">Go back</a>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <a class="btn btn-outline-warning" href="/celebrities/{{_id}}/edit">Edit celebrity</a>
+      <a class="btn btn-outline-danger d-block" href="/celebrities/{{_id}}/delete">Remove {{name}}</a>
+      <a class="btn btn-outline-secondary d-block" href="/celebrities">Go back</a>
+    </div>
 
-    {{#if errorMsg}}
-      <div class="btn btn-danger d-block">{{errorMsg}}</div>
-    {{/if}}
 
   </div>
 </div>

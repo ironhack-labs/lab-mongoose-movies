@@ -27,7 +27,6 @@ router.get('/create-celebrity', (req, res, next) => res.render('celebrities/crea
 
 // Celebrity Form - POST –– CREATE
 router.post('/create-celebrity', (req, res, next) => {
-
   Celebrity
     .create({ name, occupation, catchPhrase } = req.body)
     .then(() => res.redirect('/celebrities'))
