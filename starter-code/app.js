@@ -24,6 +24,28 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
+// require session – added by me
+const session = require('express-session');
+
+// require mongostore – added by me
+const MongoStore = require('connect-mongo')(session);
+
+// added by me too
+app.use(
+    session({
+      secret: 'doesnt-matter',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { maxAge: 60000 * 60 }, // 1 hour
+      store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
+      })
+    })
+  );
+
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());

@@ -21,10 +21,15 @@ router.get('/', (req, res, next) => {
 // tricky case: keep it above the code rendering /:id route! in other case browser will try to render "new" as an id and it will cause an error
 router.get('/new', (req, res, next) => {
 
-  // give the possibility to add a movie while creating new celebrity
-  Movie.find().then((moviesFromDB) => {
-    res.render('celebrities/new', { allTheMovies: moviesFromDB });
-  });
+  // only loggeg in users can see the form
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    // give the possibility to add a movie while creating new celebrity
+    Movie.find().then((moviesFromDB) => {
+      res.render('celebrities/new', { allTheMovies: moviesFromDB });
+    });
+  }
 });
 
 
@@ -46,18 +51,23 @@ router.get('/:id', (req, response, next) => {
 router.post('/new', (req, res, next) => {
 
   console.log(req.body);
-  Celebrity.create({ name: req.body.name, occupation: req.body.occupation, catchPhrase: req.body.catchPhrase, movies: [req.body.movie] })
-    // in the line above we are adding one movie ID to an array of movie's IDs to celebrity object
-    // movies: [req.body.movie]
-    // movies > property name (which is an array) in Celebrity model
-    // movie > name of the select field in the form celebrities/new
-    .then(dbCelebrity => {
-      return Movie.findByIdAndUpdate(req.body.movie, { $push: { celebrities: dbCelebrity._id } })
-      // in the line above we are updating movie object (adding celebrity's ID to an array of elebrities)
-    })
-    .then(() => {
-      res.redirect('/celebrities');
-    });
+  // only loggeg in users can create a new celebrity
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    Celebrity.create({ name: req.body.name, occupation: req.body.occupation, catchPhrase: req.body.catchPhrase, movies: [req.body.movie] })
+      // in the line above we are adding one movie ID to an array of movie's IDs to celebrity object
+      // movies: [req.body.movie]
+      // movies > property name (which is an array) in Celebrity model
+      // movie > name of the select field in the form celebrities/new
+      .then(dbCelebrity => {
+        return Movie.findByIdAndUpdate(req.body.movie, { $push: { celebrities: dbCelebrity._id } })
+        // in the line above we are updating movie object (adding celebrity's ID to an array of elebrities)
+      })
+      .then(() => {
+        res.redirect('/celebrities');
+      });
+  }
 });
 
 
@@ -78,7 +88,6 @@ router.post('/:id/delete', (req, res, next) => {
     });
 
 });
-
 
 
 // GET celebrities/id/edit
