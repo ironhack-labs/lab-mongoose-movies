@@ -1,0 +1,31 @@
+<section class="container">
+
+    <h2>BEST CELEBRITIES EVER</h2>
+
+    <div class="row">
+
+        {{#each allCelebs}}
+
+        <div class="col-md-4">
+
+
+        <a href="/celebrities/{{this.id}}"><h2>{{this.name}}</h2></a>
+        
+        <form action="/celebrities/{{this.id}}/delete" method="POST">
+        
+        <button type="submit" class="btn btn-dark">Delete</button>
+        
+        </form>
+            
+
+        </div>
+
+        {{/each}}
+
+    </div>
+<br>
+    <div>
+        <a href="/celebrities/new" class="btn btn-warning">Create your own celebrity</a>
+    </div>
+
+</section>
