@@ -3,11 +3,20 @@
 
 {{#each celebrity}}
    <ul>
-       <li><a href="/celebrities/{{id}}">{{name}}</a></li>
+       <li>
+           <a href="/celebrities/{{id}}">{{name}}</a>
+           <br>
+           <form action="/celebrities/{{id}}/delete" method="POST">
+                <button class="btn btn-danger">Delete celebrity</button>
+            </form> 
+        </li>
    </ul>
 
 {{/each}}
 
-<button class="button is-primary"></button><a href="/celebrities/new">Add new celebrity</a></button>
+<br>
 
+<div>
+    <a class="btn btn-primary" href="/celebrities/new" role="button">Add new celebrity</a>
+</div>
 

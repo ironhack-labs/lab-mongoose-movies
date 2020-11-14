@@ -24,13 +24,16 @@ router.get('/new', (req, res, next)=>{
 });
   
 router.post('/', (req, res, next)=>{
-  const newCelebrity = {...req.body.name, ...req.body.ocupation, ...req.body.catchPhrase}
-  Celebrity.create(newCelebrity)
+  const {name, ocupation, catchPhrase} = req.body
+  Celebrity.create({name: name, ocupation: ocupation, catchPhrase: catchPhrase})
       .then((result)=>{
-          console.log(result);
-          res.render('./celebrities', result);
-          })
-      .catch((err)=>console.log(err));
+        console.log(result);
+        res.redirect('/celebrities');
+      })
+      .catch((err)=> {
+        console.log(err)
+        res.render('error');
+      })
 });
 
 
@@ -49,9 +52,17 @@ router.get('/:id', (req, res, next) =>{
 })
 
 
-
-
-
+router.post('/:id/delete', (req, res, next) =>{
+  const id = req.params.id
+  Celebrity.findByIdAndRemove(id)
+  .then(()=>{
+    res.redirect('/celebrities');
+  })
+  .catch((err)=> {
+      console.log(err)
+      res.render('error')
+  })
+})
 
 
 
