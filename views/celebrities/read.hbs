@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <h2>{{name}}</h2>
+
+    <ul>
+      <li>{{occupation}}</li>
+      <li>{{catchPhrase}}</li>
+    </ul>
+
+    <a class="btn btn-outline-secondary d-block" href="/celebrities">Go back</a>
+
+    {{#if errorMsg}}
+      <div class="btn btn-danger d-block">{{errorMsg}}</div>
+    {{/if}}
+
+  </div>
+</div>
