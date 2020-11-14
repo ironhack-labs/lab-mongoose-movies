@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 module.exports = app => {
 
     // Base URLS

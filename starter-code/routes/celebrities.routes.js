@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const express = require('express')
 const Celebrity = require('../models/celebrity.model')
 const router = express.Router()
