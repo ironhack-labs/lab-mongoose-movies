@@ -1,8 +1,30 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
+  font-weight: 100;
 }
 
-a {
-  color: #00B7FF;
+main {
+  padding-top: 50px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 100;
+}
+
+.btn {
+  margin: 10px 0;
+}
+
+.columns {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.columns h3 {
+  color: black;
+}
+
+.occupation {
+  text-transform: uppercase;
+  font-weight: 600;
 }

@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+  font-weight: 100; }
+
+main {
+  padding-top: 50px; }
+
+h1, h2, h3, h4 {
+  font-weight: 100; }
+
+.btn {
+  margin: 10px 0; }
+
+.columns {
+  text-align: center;
+  margin: 30px 0; }
+
+.columns h3 {
+  color: black; }
+
+.occupation {
+  text-transform: uppercase;
+  font-weight: 600; }
+
+/*# sourceMappingURL=style.css.map */
