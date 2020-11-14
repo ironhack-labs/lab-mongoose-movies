@@ -1,0 +1,37 @@
+<section class="container">
+
+  <h2>Celebrities</h2>
+  <hr><br>
+
+  <article class="row">
+    
+    {{#each allCelebs}}
+
+      <div class="col-4 columns">
+
+        <a href="/celebrities/{{this.id}}"><h3>{{this.name}}</h3></a>
+
+        <form method="POST" action="/celebrities/{{this.id}}/delete">
+
+          <button type="submit" class="btn btn-info">Delete</button>
+
+        </form>
+        
+      </div>
+
+    {{/each}}
+
+  </article>
+
+
+  <article class="row justify-content-center">
+
+    <div class="col-4 columns">
+      
+      <a href="/celebrities/new" class="btn btn-info">Create new celebrity</a>
+
+    </div>
+
+  </article>
+
+</section>
