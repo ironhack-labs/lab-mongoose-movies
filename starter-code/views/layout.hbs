@@ -5,12 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+<nav class="navbar is-light">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <div class="tags has-addons">
+        <span class="tag is-dark is-medium">Mongoose Movies</span>
+        <span class="tag is-success is-medium"></span>
+      </div>
+    </a>
+    <div class="navbar-burger burger" data-target="navMenuColorlight-example">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navMenuColorlight-example" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/celebrities">
+        Celebrities
+      </a>
+      <a class="navbar-item" href="/movies">
+        Movies
+      </a>      
+    </div>
+  </div>
+</nav>
 <body>
-
-  {{{body}}}
-
+  <section class="section">
+    <div class="container">
+      {{{body}}}
+    </div>
+  </section>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>
