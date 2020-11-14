@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
 const Celebrity = require('../models/celebrity')
 
-const dbName = 'celebrityDB'
-mongoose.connect(`mongodb://localhost/${dbName}`)
+mongoose.connect(`mongodb://localhost/starter-code`)
 
 const celebrity = [
     {
