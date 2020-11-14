@@ -73,12 +73,19 @@ router.post('/:id/delete', (req, res, next) => {
     })
 })
 
+router.get('/:id/edit', (req, res, next) => {
 
+    const celebrityID = req.params.id
+    Celebrity.findById(celebrityID)
 
-
-
-
-
+    .then(celebrity => {
+        res.render('celebrities/edit', celebrity)
+    })
+    .catch((error)=>{
+        console.log(error)
+        res.send(error)
+    })
+})
 
 
 module.exports = router;
