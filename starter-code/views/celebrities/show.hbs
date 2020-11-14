@@ -1,0 +1,11 @@
+<h2>Details about {{this.name}}</h2>
+
+<p>Name: {{this.name}}</p>
+<p>Profession: {{this.occupation}}</p>
+<p>Catch Phrase: {{this.catchPhrase}}</p>
+
+<p>Movies:
+    {{#each movies}}
+    <span>{{this.title}}</span>
+    {{/each}}
+  </p>
