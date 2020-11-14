@@ -1,0 +1,20 @@
+<div class="container">
+<h2>ESTAS SON NUESTRAS CELEBRITIES</h2>
+
+  <ul>
+    
+    {{#each allCelebrities}}
+    <li>{{name}}<small> 
+      [<a href="/celebrities/show/{{_id}}">Conoce a nuestra estrella</a> ]
+      [<a href="/celebrities/delete?celebrities_id={{_id}}">Eliminar Ficha</a> ]</li>
+      [<a href="/celebrities/edit/{{_id}}">Editar</a> ]</small></li>
+    {{/each}}
+
+  </ul>
+
+<a href="/celebrities/new">Crea una ficha para tu Celebrity favorita</a>
+
+
+
+</div>
+
