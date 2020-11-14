@@ -14,6 +14,18 @@ router.get('/', (req, res, next) => {
     })
 })
 
+router.post('/', (req, res, next) => {
+    Celebrity.create(req.body)
+    .then(result => {
+        console.log(result)
+        res.redirect('/celebrities')
+    })
+})
+
+router.get('/new', (req,res, next) => {
+    res.render('celebrities/new')
+  })
+
 router.get('/:id', (req, res, next) => {
     const celebrityID = req.params.id
 
@@ -26,6 +38,23 @@ router.get('/:id', (req, res, next) => {
         res.send(error)
     })
 })
+
+router.post('/:id', (req, res, next) => {
+
+    const celebrityID = req.params.id
+    Celebrity.findByIdAndUpdate(celebrityID, req.body)
+
+    .then(result => {
+        res.redirect('/celebrities')
+    })
+    .catch(err => {
+        console.error(err)
+        next(err)
+    })
+})
+
+
+
 
 
 
