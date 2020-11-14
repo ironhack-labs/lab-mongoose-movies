@@ -6,8 +6,8 @@ const celebritiesSchema = new Schema({
   occupation: {
     type: String,
     default: "unknown"
-  },
-  catchPhrase: String,
+              },
+  catchPhrase: String
   
 });
 
