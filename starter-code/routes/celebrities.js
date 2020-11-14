@@ -20,6 +20,10 @@ router.post('/', (req, res, next) => {
         console.log(result)
         res.redirect('/celebrities')
     })
+    .catch((error)=>{
+        console.log(error)
+        res.send(error)
+    })
 })
 
 router.get('/new', (req,res, next) => {
@@ -45,11 +49,27 @@ router.post('/:id', (req, res, next) => {
     Celebrity.findByIdAndUpdate(celebrityID, req.body)
 
     .then(result => {
+        console.log(result)
         res.redirect('/celebrities')
     })
-    .catch(err => {
-        console.error(err)
-        next(err)
+    .catch((error)=>{
+        console.log(error)
+        res.send(error)
+    })
+})
+
+router.post('/:id/delete', (req, res, next) => {
+
+    const celebrityID = req.params.id
+    Celebrity.findByIdAndRemove(celebrityID)
+
+    .then(result => {
+        console.log(result)
+        res.redirect('/celebrities')
+    })
+    .catch((error)=>{
+        console.log(error)
+        res.send(error)
     })
 })
 
