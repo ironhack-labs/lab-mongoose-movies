@@ -1,0 +1,22 @@
+<section class="content">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      
+      <h2>{{name}}</h2>
+
+      <hr>
+
+      <ul>
+        <li><strong>Occupation:</strong> {{occupation}}</li>
+        <li><strong>CatchPhrase:</strong> {{catchPhrase}}</li>
+      </ul>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <a class="btn edit-btn" href="/celebrities/{{_id}}/edit">Edit celebrity</a>
+        <a class="btn remove-btn" href="/celebrities/{{_id}}/delete">Remove {{name}}</a>
+        <a class="btn return-btn" href="/celebrities">Go back</a>
+      </div>
+
+    </div>
+  </div>
+</section>
