@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Editar ficha de {{title}}</h1>
+
+  <form method="POST" action="/movies/edit-movies?movies_id={{_id}}">
+
+    <div class="form-group">
+      <label>Título</label>
+      <input type="text" class="form-control" name="title" value="{{title}}">
+    </div>
+    <div class="form-group">
+      <label>Género</label>
+      <input type="text" class="form-control" name="genre" value={{genre}}>
+    </div>
+    <div class="form-group">
+      <label>Argumento</label>
+      <input type="text" class="form-control" name="plot" value={{plot}}>
+    </div>
+
+    <button type="submit" class="btn btn-dark">Modificar la ficha de {{title}}</button>
+  </form>
+</div>

@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 })
 
 
-//FICHA STAR
+//DETAILS STAR
 
 
 router.get('/show/:celebrities_id', (req, res) => {
