@@ -1,24 +1,23 @@
 const express   = require('express');
 const router    = express.Router();
 const mongoose  = require('mongoose')
-const Celebrity = require('../models/celebrity.js');
+const Movie     = require('../models/movie.js')
 
 router.get('/', (req, res, next) => {
-    Celebrity.find({}, {name: 1})
-    .then((celebrity)=>{
-        res.render('celebrities/index', {celebrity})
-    })
-    .catch((error)=>{
-        console.log(error)
-        res.send(error)
+  Movie.find()
+  .then(movies => {
+    res.render('movies/index', {movies})
+  })
+  .catch((error)=>{
+    console.log(error)
+    res.send(error)
     })
 })
-
 router.post('/', (req, res, next) => {
-    Celebrity.create(req.body)
+    Movie.create(req.body)
     .then(result => {
         console.log(result)
-        res.redirect('/celebrities')
+        res.redirect('/movies')
     })
     .catch((error)=>{
         console.log(error)
@@ -27,17 +26,17 @@ router.post('/', (req, res, next) => {
 })
 
 router.get('/new', (req,res, next) => {
-    res.render('celebrities/new')
-  })
+  res.render('movies/new')
+})
 
 router.get('/:id', (req, res, next) => {
-    const celebrityID = req.params.id
+  const celebrityID = req.params.id
 
-    Celebrity.findById(celebrityID)
-    .then((celebrity)=>{
-        res.render('celebrities/show', celebrity)
-    })
-    .catch((error)=>{
+  Movie.findById(celebrityID)
+  .then(movie => {
+    res.render('movies/show', movie)
+  })
+  .catch((error)=>{
         console.log(error)
         res.send(error)
     })
@@ -46,11 +45,11 @@ router.get('/:id', (req, res, next) => {
 router.post('/:id', (req, res, next) => {
 
     const celebrityID = req.params.id
-    Celebrity.findByIdAndUpdate(celebrityID, req.body)
-
+    Movie.findByIdAndUpdate(celebrityID, req.body)
+    
     .then(result => {
         console.log(result)
-        res.redirect('/celebrities')
+        res.redirect('/movies')
     })
     .catch((error)=>{
         console.log(error)
@@ -59,13 +58,13 @@ router.post('/:id', (req, res, next) => {
 })
 
 router.post('/:id/delete', (req, res, next) => {
-
+    
     const celebrityID = req.params.id
-    Celebrity.findByIdAndRemove(celebrityID)
+    Movie.findByIdAndRemove(celebrityID)
 
     .then(result => {
         console.log(result)
-        res.redirect('/celebrities')
+        res.redirect('/movies')
     })
     .catch((error)=>{
         console.log(error)
@@ -74,12 +73,12 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 router.get('/:id/edit', (req, res, next) => {
-
+   
     const celebrityID = req.params.id
-    Celebrity.findById(celebrityID)
+    Movie.findById(celebrityID)
 
-    .then(celebrity => {
-        res.render('celebrities/edit', celebrity)
+    .then(movie => {
+        res.render('movies/edit', movie)
     })
     .catch((error)=>{
         console.log(error)
@@ -88,4 +87,4 @@ router.get('/:id/edit', (req, res, next) => {
 })
 
 
-module.exports = router;
+module.exports = router; 
