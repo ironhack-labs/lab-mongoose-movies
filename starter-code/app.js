@@ -8,6 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const chalk         = require('chalk');
+
 
 
 mongoose
@@ -56,3 +58,8 @@ app.use('/', index);
 
 
 module.exports = app;
+
+
+app.listen(process.env.PORT, ()=>{
+  console.log(chalk.green.inverse.bold(`Conectado al puerto ${process.env.PORT}`));
+});
