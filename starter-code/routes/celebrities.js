@@ -19,10 +19,14 @@ router.get('/', (req, res, next) => {
     
   })
 
+
+// RENDER NEW CELIBRITY FORM
 router.get('/new', (req, res, next)=>{
   res.render('./celebrities/new');
 });
-  
+
+
+//CREATE NEW CELEBRITY  
 router.post('/', (req, res, next)=>{
   const {name, ocupation, catchPhrase} = req.body
   Celebrity.create({name: name, ocupation: ocupation, catchPhrase: catchPhrase})
@@ -37,7 +41,7 @@ router.post('/', (req, res, next)=>{
 });
 
 
-
+// GET CELEBRITIES INFO
 router.get('/:id', (req, res, next) =>{
     const id = req.params.id
     Celebrity.findById(id)
@@ -52,6 +56,7 @@ router.get('/:id', (req, res, next) =>{
 })
 
 
+// DELETE CELEBRITY
 router.post('/:id/delete', (req, res, next) =>{
   const id = req.params.id
   Celebrity.findByIdAndRemove(id)
@@ -65,6 +70,7 @@ router.post('/:id/delete', (req, res, next) =>{
 })
 
 
+// RENDER EDIT CELIBRITY FORM
 router.get('/:id/edit', (req, res, next)=>{
   const id = req.params.id
   Celebrity.findById(id)
@@ -79,6 +85,7 @@ router.get('/:id/edit', (req, res, next)=>{
 })
 
 
+//EDIT CELEBRITY  
 router.post('/:id/edit', (req, res, next)=>{
   const id = req.params.id
   const editedCelebrity = req.body
