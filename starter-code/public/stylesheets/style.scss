@@ -7,8 +7,24 @@ main {
   padding-top: 50px;
 }
 
-h1, h2, h3, h4 {
+h1, h2 {
   font-weight: 100;
+  color: rgb(146, 101, 3);
+}
+
+h3, h4 {
+  font-weight: 100;
+}
+
+.navbar {
+  background-color: rgb(146, 101, 3);
+}
+
+.footer {
+  background-color: #17a2b8;
+  padding-top: 15px;
+  padding-bottom: 0;
+  color: white;
 }
 
 .btn {
@@ -24,7 +40,12 @@ h1, h2, h3, h4 {
   color: black;
 }
 
-.occupation {
+h6 {
   text-transform: uppercase;
   font-weight: 600;
+}
+
+a:hover {
+  color: rgb(146, 101, 3);
+
 }

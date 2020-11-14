@@ -4,7 +4,10 @@ const Schema = mongoose.Schema
 
 const celebSch = new Schema({
   name: String,
-  occupation: String,
+  occupation: {
+    type: String,
+    default: 'unknown'
+  },
   catchphrase: String
 }, { timestamps: true })
 

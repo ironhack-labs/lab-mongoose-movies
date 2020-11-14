@@ -1,0 +1,39 @@
+<section class="container">
+
+  <h2>Movies</h2>
+  <hr><br>
+
+  <article class="row">
+
+    {{#each allMovies}}
+
+    <div class="col-4 columns">
+
+      <a href="/movies/{{this.id}}">
+        <h3>{{this.title}}</h3>
+      </a>
+
+      <form method="POST" action="/movies/{{this.id}}/delete">
+
+        <button type="submit" class="btn btn-info">Delete</button>
+
+      </form>
+
+    </div>
+
+    {{/each}}
+
+  </article>
+
+
+  <article class="row justify-content-center">
+
+    <div class="col-4 columns">
+
+      <a href="/movies/new" class="btn btn-info">Create new movie</a>
+
+    </div>
+
+  </article>
+
+</section>
