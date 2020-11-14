@@ -17,7 +17,7 @@ mongoose
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
+    useFindAndModify: true,
   })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
@@ -61,10 +61,16 @@ app.locals.title = 'Mongoose Movies';
 
 const index = require('./routes/index');
 app.use('/', index);
+
 const next = require('./routes/next');
 app.use('/next', next);
+
 const celebrities = require('./routes/celebrities');
 app.use('/celebrities', celebrities);
+
+const movies = require('./routes/movies');
+app.use('/movies', movies);
+
 
 
 
