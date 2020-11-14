@@ -1,12 +1,17 @@
-<h2>Edit this celebrity info</h2>
 
-<form action="/celebrities/{{id}}" method="POST">
-<input type="text" id="name" name="name" value="{{name}}">
-<br>
-<input type="text" id="occupation" name="occupation" value="{{occupation}}">
-<br>
-<textarea name="catchPhrase" id="catchPhrase" cols="30" rows="10">{{catchPhrase}}</textarea>
-<br>
-<button type="submit">Edit!</button>
-</form>
-
+<div class="columns is-mobile">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <h2 class="title is-3">Edit this celebrity info</h2>
+    <form action="/celebrities/{{id}}" method="POST">
+      <input class="input is-danger" type="text" id="name" name="name" value="{{name}}">
+      <br>
+      <br>
+      <input class="input is-danger" type="text" id="occupation" name="occupation" value="{{occupation}}">
+      <br>
+      <br>
+      <textarea class="textarea is-danger" name="catchPhrase" id="catchPhrase" cols="30" rows="10">{{catchPhrase}}</textarea>
+      <br>
+      <button class="button is-danger" type="submit">Edit!</button>
+    </form>
+  </div>
+</div>

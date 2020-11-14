@@ -35,17 +35,7 @@ router.get('/details/:id', (req, res, next) => {
 // Adding New movies
 router.get('/new', (req, res, next) => {
     
-    const newMovie = req.body
-    
-    Movie
-    .create(newMovie)
-    .then(newMovForm => {
-        res.render('movies/new', newMovForm)
-    })
-    .catch((error)=>{
-        console.log(error)
-        res.send(error)
-    })
+    res.render('movies/new') 
 })
 
 router.post('/', (req, res, next) => {

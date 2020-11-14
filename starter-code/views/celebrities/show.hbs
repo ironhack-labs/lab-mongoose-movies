@@ -1,8 +1,29 @@
-<h2>Celebrity info:</h2>
-<h2>Name: {{name}}</h2>
-<h3>Occupation: {{occupation}}</h3>
-<h3>Catch phrase: {{catchPhrase}}</h3>
-<br>
-<p>There is an error? <a href="/celebrities/details/{{id}}/edit">Edit this info</a></p>
-
-
+<div class="columns is-mobile">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <h2 class="title is-3">Celebrity info:</h2>
+    
+    <div class="box">
+    <article class="media">
+        <div class="media-left">
+        <figure class="image is-128x128">
+            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+        </figure>
+        </div>
+        <div class="media-content">
+        <div class="content">
+            <p>
+            <strong>{{name}}</strong> <small>@name</small>
+            <br>
+            <br>
+            <strong>{{occupation}}</strong> <small>@occupation</small>
+            <br>
+            <br>
+            <strong>{{catchPhrase}}</strong> <small>@catch phrase</small>
+            </p>
+            <a class="button is-danger is-small" href="/celebrities/details/{{id}}/edit">Edit this info</a>
+        </div>
+        </div>
+    </article>
+    </div>
+  </div>
+</div>

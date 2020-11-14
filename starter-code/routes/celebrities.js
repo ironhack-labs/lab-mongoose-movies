@@ -36,18 +36,9 @@ router.get('/details/:id', (req, res, next) => {
 //Iteration #4: Adding New Celebrities
 router.get('/new', (req, res, next) => {
     
-    const newCelebrity = req.body
-    
-    Celebrity
-    .create(newCelebrity)
-    .then(newCebForm => {
-        res.render('celebrities/new', newCebForm)
-    })
-    .catch((error)=>{
-        console.log(error)
-        res.send(error)
-    })
+    res.render('celebrities/new') 
 })
+    
 
 router.post('/', (req, res, next) => {
 

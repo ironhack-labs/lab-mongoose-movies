@@ -1,12 +1,19 @@
-<h2>Edit this celebrity info</h2>
 
-<form action="/movies/{{id}}" method="POST">
-<input type="text" id="title" name="title" value="{{title}}">
-<br>
-<input type="text" id="genre" name="genre" value="{{genre}}">
-<br>
-<textarea name="plot" id="plot" cols="30" rows="10">{{plot}}</textarea>
-<br>
-<button type="submit">Edit!</button>
-</form>
+<div class="columns is-mobile">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <h2 class="title is-3">Edit this movie info</h2>
+    <form action="/movies/{{id}}" method="POST">
+        <input class="input is-info" type="text" id="title" name="title" value="{{title}}">
+        <br>
+        <br>
+        <input class="input is-info" type="text" id="genre" name="genre" value="{{genre}}">
+        <br>
+        <br>
+        <textarea class="textarea is-info" name="plot" id="plot" cols="30" rows="10">{{plot}}</textarea>
+        <br>
+        <button class="button is-info" type="submit">Edit!</button>
+    </form>
+  </div>
+</div>
+
 

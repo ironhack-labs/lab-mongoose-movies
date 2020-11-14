@@ -1,11 +1,33 @@
-<h2>Our celebrities list:</h2>
-{{#each celebrity}}
-<ul>
-    <li><a href="/celebrities/details/{{id}}" class="link-more">{{name}}</a></li>
-</ul>
-<form action="/celebrities/{{id}}/delete" method="POST">
-<button type="submit">Delete!</button>
-</form>
-{{/each}}
-<br>
-<a href="/celebrities/new">Add new celebrity to the list!</a>
+<div class="columns is-mobile">
+    <div class="column is-half is-offset-one-quarter">
+        <h2 class="title is-3">Our celebrities list:</h2>
+        {{#each celebrity}}
+        <div class="box">
+        <article class="media">
+            <div class="media-left">
+            <figure class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+            </figure>
+            </div>
+            <div class="media-content">
+            <div class="content">
+                <p>
+                <strong><a href="/celebrities/details/{{id}}" class="link-more">{{name}}</a></strong> <small>@{{occupation}}</small>
+                </p>
+                <form action="/celebrities/{{id}}/delete" method="POST">
+                <button class="button is-danger is-outlined is-small" type="submit">
+                    <span>Delete</span>
+                    <span class="icon is-small">
+                    <i class="fas fa-times"></i>
+                    </span>
+                </button>
+                </form>
+            </div>
+            </div>
+        </article>
+        </div>
+        {{/each}}
+        <br>
+        <a class="button is-danger" href="/celebrities/new">Add new celebrity to the list!</a>
+    </div>
+</div>

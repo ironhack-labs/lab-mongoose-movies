@@ -9,7 +9,6 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
 mongoose
   //.connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
   .connect(`mongodb://localhost/${process.env.DATABASE}`, {useNewUrlParser: true})
