@@ -1,18 +1,22 @@
-<div class="row justify-content-center">
-  <div class="col-md-5">
-    <h2>{{title}}</h2>
+<section class="content">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-    <ul>
-      <li><strong>Genre:</strong> {{genre}}</li>
-      <li><strong>Plot:</strong> {{plot}}</li>
-    </ul>
+      <h2>{{title}}</h2>
 
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <a class="btn btn-outline-warning" href="/movies/{{_id}}/edit">Edit movie</a>
-      <a class="btn btn-outline-danger d-block" href="/movies/{{_id}}/delete">Remove {{title}}</a>
-      <a class="btn btn-outline-secondary d-block" href="/movies">Go back</a>
+      <hr>
+
+      <ul>
+        <li><strong>Genre:</strong> {{genre}}</li>
+        <li><strong>Plot:</strong> {{plot}}</li>
+      </ul>
+
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <a class="btn edit-btn" href="/movies/{{_id}}/edit">Edit movie</a>
+        <a class="btn remove-btn" href="/movies/{{_id}}/delete">Remove {{title}}</a>
+        <a class="btn return-btn" href="/movies">Go back</a>
+      </div>
+
     </div>
-
-
   </div>
-</div>
+</section>

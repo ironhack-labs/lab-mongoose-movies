@@ -1,18 +1,28 @@
-<div class="row justify-content-center">
-  <div class="col-md-5">
-    <h2>Celebrities List</h2>
-    <ul>
-      {{#each all}}
-      <li>
-        {{name}}
-        <small>
-          [<a href="/celebrities/details/{{_id}}">Details</a>]
-          [<a href="/celebrities/{{_id}}/edit">Edit</a>]
-          [<a href="/celebrities/{{_id}}/delete">Remove</a>]
-        </small>
-      </li>
-      {{/each}}
-    </ul>
-    <a class="btn btn-outline-warning d-block" href="/celebrities/create-celebrity">Add Celebrity</a>
+<section class="content">
+  <div class="row justify-content-center">
+
+    <div class="col-md-5">
+
+      <h2>Celebrities List</h2>
+
+      <hr>
+
+      <ul>
+        {{#each all}}
+        <li>
+          {{name}}
+          <small>
+            [<a href="/celebrities/details/{{_id}}">Details</a>]
+            [<a href="/celebrities/{{_id}}/edit">Edit</a>]
+            [<a href="/celebrities/{{_id}}/delete">Remove</a>]
+          </small>
+        </li>
+        {{/each}}
+      </ul>
+
+      <a class="btn btn-info d-block" href="/celebrities/create-celebrity">Add Celebrity</a>
+    
+    </div>
   </div>
-</div>
+</section>
+
