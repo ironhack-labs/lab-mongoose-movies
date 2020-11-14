@@ -10,3 +10,6 @@ package-lock.json
 
 # Environment Variables should NEVER be published
 .env
+
+# .DS_Store
+.DS_Store
