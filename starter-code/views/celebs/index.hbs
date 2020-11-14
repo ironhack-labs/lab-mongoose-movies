@@ -1,19 +1,19 @@
 <section class="container">
 
-    <h2>BEST CELEBRITIES EVER</h2>
+    <h1 class="bests">BEST CELEBRITIES EVER</h1>
 
     <div class="row">
 
         {{#each allCelebs}}
 
-        <div class="col-md-4">
+        <div class="col-md-4 nolist">
 
 
-        <a href="/celebrities/{{this.id}}"><h2>{{this.name}}</h2></a>
+        <a href="/celebrities/{{this.id}}"><h2 class="nolist">{{this.name}}</h2></a>
         
         <form action="/celebrities/{{this.id}}/delete" method="POST">
         
-        <button type="submit" class="btn btn-dark">Delete</button>
+        <button type="submit" class="btn btn-lg btn-dark">Delete</button>
         
         </form>
             
@@ -25,7 +25,7 @@
     </div>
 <br>
     <div>
-        <a href="/celebrities/new" class="btn btn-warning">Create your own celebrity</a>
+        <a href="/celebrities/new" class="btn btn-lg btn-warning">Create your own celebrity</a>
     </div>
 
 </section>

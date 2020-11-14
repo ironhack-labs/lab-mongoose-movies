@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h2>CREATE YOUR OWN MOVIE</h2>
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-5">
+
+                <h1>Add a new movie</h1>
+
+                <form method="POST" action="/movies">
+
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="title">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Genre</label>
+                        <input type="text" class="form-control" name="genre">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Plot</label>
+                        <input type="text" class="form-control" name="plot">
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-block">Add NOW!</button>
+
+                    {{#if errorMsg}}
+                    <div style="background: red; color: white; text-align: center; padding: 10px; margin-top:10px">
+                        {{errorMsg}}</div>
+                    {{/if}}
+
+                </form>
+            </div>
+        </div>
+
+
+
+</div>
