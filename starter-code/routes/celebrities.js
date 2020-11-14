@@ -19,6 +19,21 @@ router.get('/', (req, res, next) => {
     
   })
 
+router.get('/new', (req, res, next)=>{
+  res.render('./celebrities/new');
+});
+  
+router.post('/', (req, res, next)=>{
+  const newCelebrity = {...req.body.name, ...req.body.ocupation, ...req.body.catchPhrase}
+  Celebrity.create(newCelebrity)
+      .then((result)=>{
+          console.log(result);
+          res.render('./celebrities', result);
+          })
+      .catch((err)=>console.log(err));
+});
+
+
 
 router.get('/:id', (req, res, next) =>{
     const id = req.params.id
@@ -32,6 +47,7 @@ router.get('/:id', (req, res, next) =>{
       res.render('error')
   })
 })
+
 
 
 

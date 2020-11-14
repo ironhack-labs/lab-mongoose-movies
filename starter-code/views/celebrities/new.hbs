@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+<h2>Add new celebrity:</h2>
+
+
+<form action="/celebrities" method="POST">
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" value="{{name}}">
+
+  <br >
+
+  <label for="ocupation">Ocupation: </label>
+  <input type="text" name="ocupation" id="ocupation" value="{{ocupation}}">
+
+  <br >
+
+  <label for="catchPhrase">Famous quote: </label>
+  <input type="text" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}">
+
+  <br >
+
+  <button class="button is-primary" style="margin: 10px;">Submit</button>
+
+</form>
+
+
