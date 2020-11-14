@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2>Movies Web Page</h2>
+
+    <br>
+
+    <ul>
+        {{#each allMovies}}
+        <h3>
+            <a href="/movies/show/{{_id}}">{{this.title}}</a>
+            [<small><a href="/movies/edit-movie?id={{_id}}">edit movie</a></small>]
+            [<small> <a href="/movies/delete-movie?id={{_id}}">delete movie</a> </small>]
+
+            {{/each}}
+
+            <br>
+
+            <a href="/movies/new-movie" class="btn btn-dark">Create new movie</a>
+
+    </ul>
+
+</div>
