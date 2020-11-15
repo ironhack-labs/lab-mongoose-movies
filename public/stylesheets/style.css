@@ -1,0 +1,33 @@
+body {
+  padding: 50px;
+  font-family: sans-serif;
+  background: #d9a7c7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fffcdc, #d9a7c7);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #393740; }
+
+h1, h2, h3 {
+  margin: 20px 0px 40px;
+  font-size: 100;
+  font-weight: bold;
+  text-align: center; }
+
+.presentation a {
+  margin: 150px 170px; }
+
+.list button {
+  margin-left: 5px; }
+
+.list a {
+  margin-top: 15px; }
+
+.delete {
+  padding-top: 12px; }
+
+.list p {
+  margin-top: 35px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,31 @@
+<div class="list">
+    <div class="container">
+        <h2>{{celebsTitle}}</h2>
+        <div class="row">
+            {{#each allCelebrities}}
+            <div class="col-md-4">
+                <p>I am <a href="/celebrities/{{id}}">{{name}}</a></p>
+                <div class="row justifying-content-between">
+                    <div class="col-md-6 d-flex">
+                        <form class="delete" method="POST" action="/celebrities/{{id}}/delete">
+                            <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                        </form>
+                        <form method="GET" action="/celebrities/{{id}}/edit">
+                            <button type="submit" class="btn btn-warning btn-sm">Edit celebrity</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+            {{/each}}
+        </div>
+        <div class="row d-flex justifying-content-around">
+            <div class="col-md-6">
+                <a href="/celebrities/new" class="btn btn-warning btn-lg">Join a new celeb to our club!</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/movies" class="btn btn-warning btn-lg">Check the movies</a>
+            </div>
+        </div>
+    </div>
+</div>
