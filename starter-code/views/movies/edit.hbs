@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-7">
+
+      <h2>MOVIE EDIT</h2>
+
+      <form action="/movies/edit?movie_id={{_id}}" method="POST">
+
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" name="title" value="{{title}}">
+        </div>
+        <div class="form-group">
+          <label>Genre</label>
+          <input type="text" class="form-control" name="genre" value="{{genre}}">
+        </div>
+        <div class=" form-group">
+          <label>Plot</label>
+          <input type="text" class="form-control" name="plot" value="{{plot}}">
+        </div>
+        <button type="submit" class="btn btn-dark">Save</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
