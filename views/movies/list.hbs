@@ -1,0 +1,32 @@
+<h2>Movies</h2>
+<div class="list-btn">
+    <a href="/movies/new" class="btn btn-dark">Add new movie</a>
+
+
+
+</div>
+
+<div class="container">
+    <div class="row">
+        {{#each allMovies}}
+        <div class="col-4 list-box" style="text-align: center">
+            <div class=" card bg-grey" style="width: 18rem; ">
+                <div class="card-body" style="text-align: center">
+                    <h5 class="card-title names">{{title}}</h5>
+                    <a class="btn btn-dark" href="movies/details/{{id}}">Details</a>
+                    <a class="btn btn-dark" href="movies/edit/{{id}}">Edit</a>
+                    <a class="btn btn-dark" href="movies/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+
+    <div class="row">
+        <div class="col-4">
+
+            <a href="/" class="btn btn-dark">Go back</a>
+        </div>
+    </div>
+</div>
