@@ -4,25 +4,25 @@
 
         <div class="col-md-7">
 
-            <h1><span>Edit</span> {{name}}</h1>
+            <h1><span>Edit</span> {{title}}</h1>
 
-            <form method="POST" action="/celebrities/edit/{{id}}">
+            <form method="POST" action="/movies/edit/{{id}}">
 
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" name="name" value="{{name}}">
+                    <input type="text" class="form-control" name="title" value="{{title}}">
                 </div>
                 <div class="form-group">
                     <label>Occupation</label>
-                    <input type="text" class="form-control" name="occupation" value="{{occupation}}">
+                    <input type="text" class="form-control" name="genre" value="{{genre}}">
                 </div>
                 <div class="form-group">
                     <label>Catch Phrase</label>
-                    <input type="text" class="form-control" name="catchPhrase" value="{{catchPhrase}}">
+                    <input type="text" class="form-control" name="plot" value="{{plot}}">
                 </div>
 
                 <button type="submit" class="btn btn-dark">Edit</button>
-                <a href="/celebrities" class="btn btn-dark">Cancel</a>
+                <a href="/movies" class="btn btn-dark">Cancel</a>
             </form>
         </div>
     </div>

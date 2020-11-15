@@ -1,15 +1,32 @@
-<h1>Celebrities</h1>
-<ul>
-    {{#each allCelebrities}}
-    <li>{{name}}
-        <a href="celebrities/details/{{id}}">Details</a>
-        <a href="celebrities/edit/{{id}}">Edit</a>
-        <a href="celebrities/delete/{{id}}">Delete</a>
-    </li>
-    {{/each}}
+<h2>Celebrities</h2>
+<div class="list-btn">
+    <a href="/celebrities/new" class="btn btn-dark">Add new celebrity</a>
 
-</ul>
 
-<a href="/celebrities/new" class="btn btn-dark">Add new celebrity</a>
 
-<a href="/" class="btn btn-dark">Go back</a>
+</div>
+<div class="container">
+    <div class="row">
+        {{#each allCelebrities}}
+        <div class="col-4 list-box" style="text-align: center">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body bg-grey bg-grey" style="text-align: center">
+                    <h5 class="card-title names">{{name}}</h5>
+                    <a class="btn btn-dark" href="celebrities/details/{{id}}">Details</a>
+                    <a class="btn btn-dark" href="celebrities/edit/{{id}}">Edit</a>
+                    <a class="btn btn-dark" href="celebrities/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-4">
+
+            <a href="/" class="btn btn-dark">Go back</a>
+        </div>
+    </div>
+</div>
