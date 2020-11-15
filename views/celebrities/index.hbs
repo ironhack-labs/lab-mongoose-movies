@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-5">
+
+            <h2>{{title}}</h2>
+
+            <br>
+
+            <a href="celebrities/new" class="btn btn-dark d-flex justify-content-center">Crear</a>
+
+            <br>
+
+            {{#each allCelebrity}}
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{this.name}}</h2>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Frase más famosa</h5>
+                    <p class="card-text">{{this.catchPhrase}}</p>
+                    <a href="celebrities/show/{{this.id}}"
+                        class="btn btn-dark d-flex justify-content-center">Detalles</a>
+                    <br>
+                    <a href="/celebrities/{{this.id}}/edit"
+                        class="btn btn-dark d-flex justify-content-center">Editar</a>
+                    <br>
+                    <form method="POST" action="/celebrities/{{this.id}}/delete">
+                        <button type="submit" class="btn btn-dark d-flex justify-content-center">Eliminar</button>
+                    </form>
+
+                </div>
+            </div>
+
+
+
+            {{/each}}
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
