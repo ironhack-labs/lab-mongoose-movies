@@ -1,0 +1,18 @@
+<div clas="container">
+    <h2>Movies</h2>
+
+    <ul>
+        {{#each allMoviesCreated}}
+        <li><a href="/movies/details/{{_id}}" class="list">{{this.title}}</a>
+            <small>
+                [<a href="/movies/delete-movie?movie_id={{_id}}">Delete</a>]
+                [<a href="/movies/edit-movie?movie_id={{_id}}">Edit</a>]
+            </small></li>
+        {{/each}}
+    </ul>
+
+    <button type="button" class="btn btn-secondary">
+        <a href="/movies/new">Add Movie</a>
+    </button>
+
+</div>

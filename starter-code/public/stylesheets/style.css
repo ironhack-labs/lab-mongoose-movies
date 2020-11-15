@@ -1,0 +1,31 @@
+body {
+  padding: 50px;
+  font-family: sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 20px 0 20px; }
+
+ul {
+  list-style-type: none; }
+
+button a {
+  color: white; }
+
+button {
+  margin-top: 20px; }
+
+.list {
+  font-size: 25px;
+  color: black;
+  line-height: 50px;
+  word-spacing: 5px;
+  letter-spacing: 3px; }
+
+.form {
+  margin-top: 20px; }
+
+/*# sourceMappingURL=style.css.map */
