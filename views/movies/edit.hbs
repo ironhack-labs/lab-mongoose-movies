@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <h2 class="mb-5">Edit Movie </h2>
+
+            <form class="mb-5" method="POST" action="/movies/edit/{{_id}}">
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title" value="{{title}}">
+                </div>
+                <div class=" form-group">
+                    <label>Genre</label>
+                    <input type="text" class="form-control" name="genre" value="{{genre}}">
+                </div>
+                <div class=" form-group">
+                    <label>Plot</label>
+                    <textarea name="plot" class="form-control" rows="3">{{this.plot}}</textarea>
+                </div>
+
+                <button type=" submit" class="btn btn-dark btn-block mt-5 ">Edit Movie</button>
+            </form>
+            <a class="mt-5 btn btn-outline-secondary" href="/movies">Go back</a>
+        </div>
+    </div>
+
+
+
+</div>
