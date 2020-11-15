@@ -1,8 +1,37 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 20px 0 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button a {
+  color: white;
+
+}
+
+button {
+  margin-top: 20px;
+}
+
+.list {
+  font-size: 25px;
+  color: black;
+  line-height: 50px;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+}
+
+.form {
+  margin-top: 20px;
 }
