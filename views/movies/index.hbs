@@ -1,0 +1,31 @@
+<div class="list">
+    <div class="container">
+        <h2>{{moviesTitle}}</h2>
+        <div class="row">
+            {{#each allMovies}}
+            <div class="col-md-4">
+                <p>This movie is <a href="/movies/{{id}}">{{title}}</a></p>
+                <div class="row justifying-content-between">
+                    <div class="col-md-6 d-flex">
+                        <form method="POST" action="/movies/{{id}}/delete">
+                            <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                        </form>
+                        <form method="GET" action="/movies/{{id}}/edit">
+                            <button type="submit" class="btn btn-warning btn-sm">Edit movie</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+            </div>
+            {{/each}}
+        </div>
+        <div class="row d-flex justifying-content-around">
+            <div class="col-md-6">
+                <a href="/movies/new" class="btn btn-warning btn-lg">Join a new film to our film collection!</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/celebrities" class="btn btn-warning btn-lg">Check the celebrities</a>
+            </div>
+        </div>
+    </div>
+</div>

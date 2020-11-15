@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>{{celebsTitle}}</h2>
+    <h3>Edit your Celebrity!</h3>
+    <form method="POST" action="/celebrities/{{id}}/edit">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" value="{{name}}">
+        </div>
+        <div class="form-group">
+            <label>Occupation</label>
+            <input type="text" class="form-control" name="occupation" value="{{occupation}}">
+        </div>
+        <div class="form-group">
+            <label>Catch phrase</label>
+            <input type="text" class="form-control" name="catchPhrase" value="{{catchPhrase}}">
+        </div>
+        <button type="submit" class="btn btn-warning btn-md">Let's edit the celebrity!</button>
+
+    </form>
+</div>
