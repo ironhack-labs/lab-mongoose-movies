@@ -1,0 +1,39 @@
+
+h1, h2, h3 {
+    font-size: 3.5em;
+    margin-top: 15px;
+    margin-bottom: 75px;
+}
+
+nav {
+    margin-bottom: 75px;
+}
+
+
+.card-list .card {
+    margin-bottom: 75px;
+}
+
+.card-list img {
+    object-fit: cover;
+    height: 300px;
+}
+
+
+.celebrity img {
+    object-fit: cover;
+    height: 200px;
+}
+
+.celebrity > div.row > div.col-md {
+    margin-bottom: 50px;
+}
+
+.movie-detail img {
+    object-fit: cover;
+    height: 300px;
+}
+
+.movie-detail > div.row > div.col-md {
+    margin-bottom: 50px;
+}

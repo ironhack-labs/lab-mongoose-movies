@@ -1,0 +1,64 @@
+<div class="containter movie-detail">
+
+    <div class="row">
+
+        <div class="col-md">
+
+            <a href="/movies/detail/{{id}}" class="btn btn-sm btn-outline-dark">
+
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg>
+
+                <span>Back</span>
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="card mb-3" style="max-width: 625px;">
+            <div class="row no-gutters">
+
+                <div class="col-md-4">
+                    <img src="{{image}}" class="card-img" alt="{{name}}">
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="card-body">
+
+                        <form action="/movies/edit/{{id}}" method="post">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="{{title}}" name="title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea type="text" class="form-control" name="plot" required
+                                    rows="10">{{plot}}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="{{genre}}" name="genre"
+                                    placeholder="Action, Drama..." required>
+                            </div>
+
+                            <button type="submit" class="btn btn-sm btn-outline-dark">Save</button>
+                            <a href="/movies/detail/{{id}}" class="btn btn-sm btn-danger">Cancel</a>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
