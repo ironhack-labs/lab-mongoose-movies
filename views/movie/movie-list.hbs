@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Listado de peliculas</h2>
+
+    <ul>
+        {{#each allMovies}}
+        <li>{{title}} <small>
+                [<a href="/movies/detalle/{{_id}}">ver detalles</a>]
+                [<a href="/movies/delete?movie_id={{_id}}">eliminar</a>]
+                [<a href="/movies/edit-movie?movie_id={{_id}}">editar</a>]
+
+            </small></li>
+        {{/each}}
+    </ul>
+</div>
