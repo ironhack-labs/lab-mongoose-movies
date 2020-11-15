@@ -1,9 +1,11 @@
-const express = require('express');
-const router  = express.Router();
+/*jshint esversion: 6 */
 
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
+module.exports = app => {
 
-module.exports = router;
+    // Base URLS
+    app.use('/', require('./base.routes.js'))
+
+    app.use('/celebrities', require('./celebrities.routes.js'))
+
+    app.use('/movies', require('./movies.routes.js'))
+}

@@ -1,0 +1,31 @@
+<section class="container">
+
+    <h2 class="bests">BEST MOVIES EVER</h2>
+
+    <div class="row">
+
+        {{#each allMovies}}
+
+        <div class="col-md-4">
+
+
+        <a href="/movies/{{this.id}}"><h2 class="nolist">{{this.title}}</h2></a>
+        
+        <form action="/movies/{{this.id}}/delete" method="POST">
+        
+        <button type="submit" class="btn btn-lg btn-dark">Delete</button>
+        
+        </form>
+            
+
+        </div>
+
+        {{/each}}
+
+    </div>
+<br>
+    <div>
+        <a href="/movies/new" class="btn btn-lg btn-warning mgnbtn">Create your own movies</a>
+    </div>
+
+</section>

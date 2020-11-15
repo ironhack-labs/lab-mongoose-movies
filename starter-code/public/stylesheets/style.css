@@ -1,0 +1,69 @@
+body {
+  font-family: sans-serif;
+  background-color: bisque; }
+
+.hero {
+  margin-top: 150px;
+  text-align: center; }
+
+.hero h1 {
+  font-weight: 900;
+  font-size: 3em; }
+
+.hero p {
+  font-size: 1.5em; }
+
+.navbar {
+  padding: 20px 50px; }
+
+.navbar a {
+  color: black;
+  font-weight: 900;
+  margin-left: 40px; }
+
+.navbar li {
+  font-size: 1.2em; }
+
+.siteTitle {
+  font-size: 1.5em; }
+
+.fixed-bottom {
+  padding: 20px 0px 20px 40px; }
+
+.btn {
+  font-weight: 800; }
+
+.fixed-bottom a {
+  font-weight: 900;
+  color: black;
+  margin-left: 50px; }
+
+.bests {
+  margin-top: 150px;
+  margin-bottom: 50px;
+  font-weight: 900; }
+
+.details {
+  text-align: left;
+  margin-top: 150px; }
+
+.details h2 {
+  font-weight: 900;
+  font-size: 3em; }
+
+.details li {
+  font-size: 2em;
+  list-style: none; }
+
+.nolist {
+  list-style: none;
+  color: black;
+  margin-bottom: 50px; }
+
+.mgnbtn {
+  margin-top: 50px; }
+
+.new {
+  margin-top: 150px; }
+
+/*# sourceMappingURL=style.css.map */

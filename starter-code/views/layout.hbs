@@ -1,16 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
+
+  <title>{{siteTitle}}</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
+
 </head>
+
 <body>
+
+    <nav class='navbar navbar-expand-md navbar-light bg-danger'>
+    <a class='navbar-brand siteTitle' href='/'>{{siteTitle}}</a>
+    <ul class='navbar-nav ml-auto'>
+    <li class='nav-item'>
+    <a class='nav-link' href='/'>Home</a>
+    </li>
+    <li class='nav-item'>
+    <a class='nav-link' href='/celebrities'>Celebrities</a>
+    </li>
+    <li class='nav-item'>
+    <a class='nav-link' href='/movies'>Movies</a>
+    </li>
+    <li class='nav-item'>
+    <a class='nav-link' href='/celebrities/new'>Create NEW celebrity!</a>
+    </li>
+    <li class='nav-item'>
+    <a class='nav-link' href='/movies/new'>Create NEW movie!</a>
+    </li>
+    </ul>
+    </nav> 
+
+    <main>
 
   {{{body}}}
 
+    </main>
+
+
+  <nav class="fixed-bottom bg-danger">
+
+    <a href="https://www.linkedin.com/in/hector-carraminana/">Develop by Héctor Carramiñana ;)</a>
+
+  </nav>
+
+
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>
