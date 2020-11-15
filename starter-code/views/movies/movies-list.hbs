@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Cartelera</h2>
+
+    <ul>
+        {{#each allMovies}}
+        <li>{{title}}<small>
+                [<a href="/movies/show-details/{{_id}}"> Detalles </a>]
+                [<a href="/movies/Eliminar-movies?movie_id={{_id}}"> Eliminar </a>]
+                [<a href="/movies/Editar-movies?movie_id={{_id}}"> Editar </a>]
+            </small></li>
+        {{/each}}
+    </ul>
+
+    <a href="movies/new-movie" class="btn btn-dark btn-sm">Crea nueva Película</a>
+    <a href="/" class="btn btn-dark btn-sm">Inicio</a>
+
+</div>

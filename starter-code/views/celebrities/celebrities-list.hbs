@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Alfombra Roja</h2>
+
+    <ul>
+        {{#each allCelebrities}}
+        <li>{{name}}<small> 
+            [<a href="/celebrities/show/{{_id}}"> Detalles </a>] 
+            [<a href="/celebrities/Eliminar-celebrities?celebrity_id={{_id}}"> Eliminar </a>]
+            [<a href="/celebrities/Editar-celebrities?celebrity_id={{_id}}"> Editar </a>]
+            </small></li>
+        {{/each}}
+    </ul>
+
+    <a href="celebrities/new" class="btn btn-dark btn-sm">Crea nuevo Artista</a>
+    <a href="/" class="btn btn-dark btn-sm">Inicio</a>
+
+</div>
