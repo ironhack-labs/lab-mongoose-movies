@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Estas son las películas disponibles</h2>
+<hr>
+  {{#each allMovies}}
+  <a href="/movies/show/{{_id}}">
+    <h3 class="titles-movies">{{title}}</h3>
+  </a>
+  [<a href="/movies/delete?movies_id={{_id}}">Eliminar Película</a> ]
+  [<a href="/movies/edit-movies/{{_id}}">Editar película</a> ]</small></li>
+  <hr>
+  {{/each}}
+
+  <a href="/movies/new-movies{{_id}}" class="btn btn-info">Crear nueva película</a>
+
+  <a href="/" class="btn btn-info">Volver a la página principal</a>
+
+
+</div>

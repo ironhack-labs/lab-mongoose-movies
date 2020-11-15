@@ -1,27 +1,22 @@
 body {
   font-family: sans-serif;
-  background-color: whitesmoke
-}
+  background-color: whitesmoke; }
 
-.main{
+.main {
   background-image: url("../images/palomitas-cine.jpg");
   background-size: cover;
   padding: 200px 400px;
   width: 100%;
-  height: 950px;
-}
+  height: 950px; }
 
+.main h1 {
+  margin-left: 150px;
+  padding-bottom: 60px;
+  color: black;
+  font-weight: bolder;
+  font-family: 'Lobster'; }
 
-.main h1{  
-   margin-left: 150px;
-   padding-bottom: 60px;
-   color:black;
-   font-weight: bolder;
-   font-family: 'Lobster';
- }
-
-
-.btn-1{
+.btn-1 {
   justify-content: space-between;
   display: inline;
   padding: 40px 20px;
@@ -32,11 +27,9 @@ body {
   border-radius: 50% 0 50% 0;
   text-transform: uppercase;
   font-weight: 700;
-  box-shadow: 2px 2px 5px #999;
+  box-shadow: 2px 2px 5px #999; }
 
-}
-
-.btn-2{
+.btn-2 {
   justify-content: space-between;
   padding: 40px 20px;
   border-radius: 0 50% 0 50%;
@@ -46,50 +39,38 @@ body {
   color: white;
   font-size: larger;
   text-transform: uppercase;
-    font-weight: 700;
-    box-shadow: 5px 2px 2px #999;
-}
+  font-weight: 700;
+  box-shadow: 5px 2px 2px #999; }
 
-.btn{
+.btn {
   margin: 10px 0;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-h2{
+h2 {
   margin: 70px 0 40px;
   text-decoration: underline;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
-.delete{
-  margin: 70px 0 40px;
+.delete {
+  margin: 70px 0 40px; }
 
-}
+.btn-info {
+  margin: 20px 0; }
 
-
-
-.btn-info{
-  margin: 20px 0;
-}
-
-.titles-movies{
+.titles-movies {
   color: black;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
-.title-details{
-  margin: 70px 0 40px;
+.title-details {
+  margin: 70px 0 40px; }
 
-}
-
-.card{
+.card {
   margin: 20px;
   background-color: #eaf5f8;
-  box-shadow: 2px 2px 5px #999;
-  
-}
+  box-shadow: 2px 2px 5px #999; }
 
-.card-title{
+.card-title {
   font-size: 1.8em;
-  font-weight: bold;
-}
+  font-weight: bold; }
+
+/*# sourceMappingURL=style.css.map */
