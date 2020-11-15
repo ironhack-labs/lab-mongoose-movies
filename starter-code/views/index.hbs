@@ -1,2 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="main-content">
+<h1>{{siteTitle}}</h1>
+    <p>Tu app de cotilleo y cine más fiable.</p>
+    <div>
+        <a class="btn btn-info"  href="/celebrities">Consultar celebrities</a>
+        <a class="btn btn-outline-info" href="/movies">Consultar películas</a>
+    </div>
+    {{#if successMsg}}
+    <div style="background: rgba(122, 233, 122, .8); color: white; text-align: center; padding: 10px; margin-top:10px">
+        {{successMsg}}
+    </div>
+    {{/if}}
+</div>

@@ -1,8 +1,49 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
+  background-color: #c3ccdb;
 }
 
-a {
-  color: #00B7FF;
+.main-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+.content{
+  margin: 50px;
+}
+
+.main-btns{
+  display: flex;
+  margin-bottom: 50px;
+}
+.restricted{
+display: flex;
+border: 2px solid  rgba(235, 6, 6, .3);
+border-radius: 10px;
+}
+
+.btn{
+  margin: 10px;
+}
+
+h2{
+  margin-bottom: 30px;
+}
+.create-new{
+  display: flex;
+  justify-content: center;
+}
+.details{
+  background-color:  rgba(53, 133, 151, .5);
+  padding: 20px;
+  border: 1px solid #8d9196;
+  border-radius: 10px;
+}
+.genre li{
+  list-style: none;
+}
+
+.container{
+  margin-top: 50px;
 }

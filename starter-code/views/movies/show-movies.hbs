@@ -1,0 +1,21 @@
+<div class="main-content">
+
+    <div class="content details">
+
+        <h2 class="display-5 ">Aquí tienes los detalles de '{{title}}'</h2>
+        <p><strong>Título: </strong><i>{{title}}</i></p>
+        <p><strong>Género: </strong></p>
+
+        <ul class="genre">
+
+            {{#each genre}}
+            <li>{{this}}</li>
+            {{/each}}
+
+        </ul>
+
+        <p><strong>Argumento: </strong>{{plot}}</p>
+
+    </div>
+
+</div>

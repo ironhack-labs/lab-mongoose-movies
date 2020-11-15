@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <h2>Iniciar sesión</h2>
+
+            <form method="POST" action="/login">
+
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="correo@electrónico.com" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="contraseña" minlength="8" required>
+                    <small class="form-text text-muted">Al menos 8 caracteres.</small>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Iniciar sesión</button>
+
+                {{#if errorMsg}}
+                <div style="background: rgba(164, 165, 168, .8); color: white; text-align: center; padding: 10px; margin-top:10px">
+                    {{errorMsg}}</div>
+                {{/if}}
+            </form>
+            <p>¿Todavía no tienes una cuenta? <a href="/signup">¡Créate una!</a></p>
+        </div>
+    </div>
+
+
+</div>
