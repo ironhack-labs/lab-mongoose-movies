@@ -1,0 +1,32 @@
+<div class="container">
+
+    <h2 class="mb-5">Movies List</h2>
+
+    <div class="row">
+
+        {{#each allMovies}}
+        <div class="col-md-4 mb-5 ">
+            <div class="card ">
+                <div class="card-body ">
+                    <h3 class=" card-header card-title mb-5">{{title}}</h3>
+                    <div class="d-flex">
+                        <a class=" mr-2 btn btn-info" href="/movies/show/{{_id}}">View more</a>
+                        <form method="GET" action="/movies/edit/{{_id}}">
+                            <button class=" mr-2 btn btn-dark" type="submit">Edit</button>
+                        </form>
+                        <form method="POST" action="/movies/delete/{{_id}}">
+                            <button class="btn btn-danger" type="submit">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="row">
+        <a class="btn btn-success" href="/movies/new">Add Movie</a>
+    </div>
+    <div class="row">
+        <a class="mt-3 btn btn-outline-secondary" href="/">Go back to Index</a>
+    </div>
+</div>

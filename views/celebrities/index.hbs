@@ -1,0 +1,33 @@
+<div class="container">
+
+    <h2 class="mb-5">Celebrities List</h2>
+
+    <div class="row">
+
+        {{#each allCelebrities}}
+        <div class="col-md-4 mb-5 ">
+            <div class="card ">
+                <div class="card-body ">
+                    <h3 class=" card-header card-title mb-5">{{name}}</h3>
+                    <div class="d-flex">
+                        <a class=" mr-2 btn btn-info" href="/celebrities/show/{{_id}}">View more</a>
+                        <form method="GET" action="/celebrities/edit/{{_id}}">
+                            <button class=" mr-2 btn btn-dark" type="submit">Edit</button>
+                        </form>
+                        <form method="POST" action="/celebrities/delete/{{_id}}">
+                            <button class="btn btn-danger" type="submit">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="row">
+        <a class="btn btn-success" href="/celebrities/new">Add Celebrity</a>
+    </div>
+    <div class="row">
+        <a class="mt-3 btn btn-outline-secondary" href="/">Go back to Index </a>
+    </div>
+
+</div>
