@@ -1,0 +1,33 @@
+<div class="content">
+
+    <h2 class="display-5">Consulta nuestras celebrities</h2>
+
+    {{#each response}}
+
+    <p><strong>Nombre:</strong> {{name}}</p>
+
+    <div class="main-btns">
+
+        <div>
+            <a class="btn btn-info" href="celebrities/details/{{id}}">Ver detalle</a>
+        </div>
+
+        <div class="restricted">
+            <a class="btn btn-outline-info" href="celebrities/edit?celeb_id={{id}}">Editar</a>
+            <form method="POST" action="celebrities/details/{{id}}/delete">
+                <button type="submit" class="btn btn-light">Borrar</button>
+            </form>
+
+    </div>
+
+
+</div>
+<hr>
+
+{{/each}}
+
+<div class="create-new">
+    <a class="btn btn-info" href="celebrities/new">Crear nueva celebrity</a>
+</div>
+
+</div>

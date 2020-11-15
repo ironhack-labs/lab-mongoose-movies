@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <h2>Añade una nueva peli</h2>
+
+            <form method="POST" action="/movies">
+
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" class="form-control" name="title">
+                </div>
+                <div class="form-group">
+                    <label>Género</label>
+                    <input type="text" class="form-control" name="genre">
+                    <small class="form-text text-muted">Separa los géneros por comas. Ej.: drama, comedia, acción...</small>
+                </div>
+                <div class="form-group">
+                    <label>Argumento</label>
+                    <input type="text" class="form-control" name="plot">
+                    <small class="form-text text-muted">Pequeña descripción.</small>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Crear nueva película</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
