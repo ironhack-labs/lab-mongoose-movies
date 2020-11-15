@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Edit your Movies</h2>
+  <form method="POST" action="/movies/{{id}}/edit">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" value="{{title}}" class="form-control" name="title">
+    </div>
+    <div class="form-group">
+      <label>Genre</label>
+      <input type="text" value="{{genre}}" class="form-control" name="genre">
+    </div>
+    <div class="form-group">
+      <label>Plot</label>
+      <input type="text" value="{{plot}}" class="form-control" name="plot">
+    </div>
+    <button type="submit" class="btn btn-dark">Edit Movie</button>
+  </form>
+
+</div>

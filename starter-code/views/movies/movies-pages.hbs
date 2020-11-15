@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+    <h1>All our Movies<h1>
+  </div>
+  <ul>
+    {{#each allMovies}}
+
+    <div class="col-12">
+      <li>{{title}}
+    </div>
+    <div class="col-6">
+      <a class="btn btn-dark" href="/movies/details/{{_id}}">Movies Details</a>
+      <br>
+      </li>
+
+      <form method="POST" action="/movies/{{_id}}/delete">
+
+        <button type="submit" class="btn btn-dark">Delete Movie</button>
+    </div>
+    </form>
+    <br>
+    <div class="col-6">
+      <a href="/movies/{{_id}}/edit" class="btn btn-dark">Edit Movie</a>
+    </div>
+    {{/each}}
+  </ul>
+  <div class="col-3">
+    <a href="/movies/crear-movie" class="btn btn-dark">Create new Movie</a>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
