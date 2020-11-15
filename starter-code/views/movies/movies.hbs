@@ -1,19 +1,18 @@
 <div class="container">
-  <h2>ESTAS SON LAS PELÍCULAS DISPONIBLES</h2>
+  <h2>Estas son las películas disponibles</h2>
+<hr>
+  {{#each allMovies}}
+  <a href="/movies/show/{{_id}}">
+    <h3 class="titles-movies">{{title}}</h3>
+  </a>
+  [<a href="/movies/delete?movies_id={{_id}}">Eliminar Película</a> ]
+  [<a href="/movies/edit-movies/{{_id}}">Editar película</a> ]</small></li>
+  <hr>
+  {{/each}}
 
-  <ul>
+  <a href="/movies/new-movies{{_id}}" class="btn btn-info">Crear nueva película</a>
 
-    {{#each allMovies}}
-    <a href="/movies/show/{{_id}}"><li>{{title}}</li></a>[<a href="/movies/delete?movies_id={{_id}}">Eliminar Película</a> ]</li>
-    [<a href="/movies/edit-movies/{{_id}}">Editar película</a> ]</small></li> 
-    {{/each}}
-
-  </ul>
-
-<a href="/movies/new-movies">Crea una nueva película</a>
-<br>
-<a href="/">Volver a la página principal</a>
-
+  <a href="/" class="btn btn-info">Volver a la página principal</a>
 
 
 </div>

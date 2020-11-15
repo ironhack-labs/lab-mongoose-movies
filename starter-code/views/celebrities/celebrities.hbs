@@ -1,23 +1,21 @@
+
 <div class="container">
-<h2>ESTAS SON NUESTRAS CELEBRITIES</h2>
+<h2>Estas son nuestras celebrities</h2>
 
-  <ul>
+ 
     
-    {{#each allCelebrities}}
-    <li>{{name}}<small> 
-      [<a href="/celebrities/show/{{_id}}">Conoce a nuestra estrella</a> ]
-      [<a href="/celebrities/delete?celebrities_id={{_id}}">Eliminar Ficha</a> ]</li>
-      [<a href="/celebrities/edit/{{_id}}">Editar</a> ]</small></li>
+    {{#each allCelebrities}} 
+    <div class="col-md-6">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <a href="celebrities/show/{{_id}}" class="btn btn-primary">Conoce a nuestra estrella</a>
+          <a href="/celebrities/edit/{{_id}}" class="btn btn-warning">Editar</a>
+          <a href="/celebrities/delete?celebrities_id={{_id}}" class="btn btn-danger">Eliminar Ficha</a>
+        </div>
+      </div>
+    </div>
     {{/each}}
-
-  </ul>
-
-<a href="/celebrities/new">Crea una nueva ficha</a>
-<br>
-<a href="/">Volver a la página principal</a>
-
-
-
-
-</div>
-
+    
+<a href="/celebrities/new" class="btn btn-info">Crea una nueva ficha</a>
+<a href="/" class="btn btn-info">Volver a la página principal</a>
