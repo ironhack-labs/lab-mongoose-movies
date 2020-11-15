@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Celebrities List</h2>
+  <p>To see more information about any celebrity click on their name</p>
+  <hr>
+  <ul>
+    
+    {{#each celebrity}}
+    <li><a href="celebrities/{{id}}">{{name}}</a></li>
+    {{/each}}
+  
+  </ul>
+
+  <hr>
+
+  {{!-- <a href="/celebrities/new" class="btn btn-dark btn-sm">Add a celebrity</a> --}}
+
+</div>
+
