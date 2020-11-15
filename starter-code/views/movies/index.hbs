@@ -1,0 +1,29 @@
+<h2><strong>Movies</strong></h2>
+
+<div class="btn btn-dark btn-sm bottomMargin">
+  <a class="newBtn" href="/movies/new">Create a new movie</a>
+</div>
+
+<div class="container">
+
+  {{#each allMovies}}
+  <div class="row bottomMarginDoc">
+    <ul>
+      <li>
+        <a href="/movies/details/{{_id}}">{{this.title}}</a>
+
+        <div class="row">
+          <form action="/movies/edit/{{_id}}" method="GET">
+            <button type="submit" class="btn btn-dark btn-sm">Edit</button>
+          </form>
+          <form action="/movies/delete?movie_id={{_id}}" method="POST">
+            <button type="submit" class="btn btn-dark btn-sm">Delete</button>
+          </form>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+  {{/each}}
+
+</div>

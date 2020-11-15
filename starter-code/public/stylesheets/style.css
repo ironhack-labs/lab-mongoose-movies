@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font-family: sans-serif; }
+
+.indexBtn,
+.newBtn {
+  text-decoration: none;
+  color: white; }
+
+.bottomMargin {
+  margin-bottom: 60px; }
+
+.bottomMarginDoc {
+  margin-bottom: 30px; }
+
+/*# sourceMappingURL=style.css.map */
