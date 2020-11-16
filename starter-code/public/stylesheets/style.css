@@ -2,52 +2,43 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  font-weight: 100;  
-}
+  font-weight: 100; }
 
 h1, h2 {
   text-align: center;
-  padding: 80px;  
-  font-weight: 100;
-}
+  padding: 80px;
+  font-weight: 100; }
 
 form {
-  text-align: center;
-}
+  text-align: center; }
 
 img {
   width: 100%;
-  opacity: 0.9;
-}
+  opacity: 0.9; }
 
 .celebrities-movies {
-  text-align: center;  
-
-}
+  text-align: center; }
 
 .celebrities-movies a {
   color: black;
-  font-weight: 100;  
+  font-weight: 100;
   text-transform: uppercase;
-  font-size: 18px;
-}
+  font-size: 18px; }
 
 .create-celebrity-movie {
   text-align: center;
-  color: black;  
-  padding: 20px;  
-  margin-top: 30px;
-}
+  color: black;
+  padding: 20px;
+  margin-top: 30px; }
 
 .create-celebrity-movie a {
   border-top: 1px solid black;
-  border-bottom: 1px solid black;  
-}
+  border-bottom: 1px solid black; }
 
 .btn-celebrities-movies {
-  margin: 10px;
-}
+  margin: 10px; }
 
 .btn-celebrities-d-movies {
-  margin-bottom: 20px;;
-}
+  margin-bottom: 20px; }
+
+/*# sourceMappingURL=style.css.map */
