@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<br>
+<h4>Genre</h4>
+<h5>{{genre}}</h5>
+ 
+<h4>Plot</h4>
+{{plot}}
+<br>
+<br>
+
+<form action="/movies/{{id}}/delete" method="POST">
+    <button type="submit" class="btn btn-danger btna">Delete movie</button>
+</form>
+
+
+<a href="/movies/{{id}}/edit" class="btn btn-warning btna">Edit movies</a>
+
+<a href="/movies" class="btn btn-dark btnadd">Return to movies</a>
