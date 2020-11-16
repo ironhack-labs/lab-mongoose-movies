@@ -47,5 +47,8 @@ const initialMovies = [
     // .catch(err=> console.log(`Error while seeding "initialCelebrities"`))
 
     Movie.create(initialMovies)
-        .then(()=>console.log(`Success seeding "initialMovies"`))
+        .then(()=>{
+            console.log(`Success seeding "initialMovies"`)
+            mongoose.connection.close()
+        })
         .catch(() => console.log(`Error while seeding "initialMovies"`))
