@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-7">
+
+      <h2>Update {{title}}</h2>
+
+
+      <form class="form-group row" method="POST" action="movies/movieId={{id}}/edit/">
+
+        {{!-- <label>Name</label>
+        <input type="text" class="input-group" name="name" value="{{name}}">
+        <label>Occupation</label>
+        <input type="text" class="input-group" name="occupation" value="{{occupation}}">
+        <label>Catch Phrase</label>
+        <input type="text" class="input-group" name="catchPhrase" value="{{catchPhrase}}"> --}}
+
+
+        <div class="form-group">
+          <label><strong>Title:</strong></label>
+          <input type="text" class="form-control" name="title" value="{{title}}">
+        </div>
+
+        <div class="form-group">
+          <label><strong>Genre:</strong></label>
+          <input type="text" class="form-control" name="genre" value="{{genre}}">
+        </div>
+
+        <div class="form-group">
+          <label><strong>Plot:</strong></label>
+          <input type="text" class="form-control" name="plot" value="{{plot}}">
+        </div>
+
+        <button type="submit" class="btn-block btn-dark">Save Movie</button>
+      </form>
+
+      {{#if errMsg}}<div class="btn btn-danger btn-block">{{errMsg}}</div>{{/if}}
+      {{#if succMsg}}
+      <div class="btn-block"
+        style="background: rgb(0, 69, 0); color: white; text-align: center; padding: 20px; margin-top:10px">
+        {{succMsg}}
+      </div>
+      {{/if}}
+
+
+      <a href="/movies/"><button type="button" class="btn-dark btn-block">Back</button></a>
+
+    </div>
+
+
+  </div>
+
+</div>

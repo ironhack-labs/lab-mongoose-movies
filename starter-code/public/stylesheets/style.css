@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.heading {
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 40px;
+}
+
+.left-line {
+  padding-left: 40px;
+}
+
+/*# sourceMappingURL=style.css.map */

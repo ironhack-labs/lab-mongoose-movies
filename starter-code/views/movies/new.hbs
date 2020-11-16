@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+
+
+      <h2><strong>Add new movie</strong></h2>
+
+
+      <form class="form-group" method="POST" action="/movies/new">
+        <input type="text" class="input-group" placeholder="Title" name="title">
+        <input type="text" class="input-group" placeholder="Genre" name="genre">
+        <input type="text" class="input-group" placeholder="Plot" name="plot">
+
+        <button type="submit" class="btn-block btn-dark">Add new movie</button>
+      </form>
+
+      {{#if errorMsg}}<div class="btn btn-danger btn-block">{{errorMsg}}</div>{{/if}}
+      {{#if successMsg}}
+      <div class="btn btn-block"
+        style="background: rgb(0, 69, 0); color: white; text-align: center; padding: 5px; margin-top:10px">
+        {{successMsg}}
+      </div>
+      {{/if}}
+
+
+      <a href="/movies/"><button type="button" class="form-group btn-dark btn">Back</button></a>
+
+    </div>
+  </div>
+</div>
