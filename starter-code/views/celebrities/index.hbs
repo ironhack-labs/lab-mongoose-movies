@@ -1,0 +1,19 @@
+<div class="smallcontainer">
+  
+  <h2>Our Stars!</h2>
+
+  <ul>
+    {{#each allCelebrities}}
+
+    <li>{{name}}
+      <a href="/celebrities/show/{{celebrity_id}}">Know more!</a>
+      <a href="celebrities/edit/{{celebrity_id}}">Edit</a>
+      <a href="celebrities/delete/{{celebrity_id}}">Delete</a>
+      </li>
+
+    {{/each}}
+  </ul>
+
+  <a href="/celebrities/new" class="btn btn-dark">Add your favourite star!</a>
+
+</div>

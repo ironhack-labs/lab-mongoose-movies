@@ -1,0 +1,20 @@
+<div class="smallcontainer">
+
+  <h2>Wonderful movies!</h2>
+
+  <ul>
+    {{#each allMovies}}
+
+    <li>
+      {{name}}
+      <a href="/movies/show/{{movie_id}}">Know more!</a>
+      <a href="movies/edit/{{movie_id}}">Edit</a>
+      <a href="movies/delete/{{movie_id}}">Delete</a>
+    </li>
+
+    {{/each}}
+  </ul>
+
+  <a href="/movies/new" class="btn btn-dark">Add your favourite movie!</a>
+
+</div>
