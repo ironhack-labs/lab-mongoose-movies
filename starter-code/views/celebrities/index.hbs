@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Celebrities List<br><a class="btn btn-outline-dark btn-sm" href="/celebrities-new" role="button">Add Celebrity</a></h2>
+
+
+    <div class="row">
+        {{#each allCelebrities}}
+        <div class="col-4">
+            <ul>
+
+                <img src="{{image}}" alt="{{name}}">
+                <li>{{name}} <small>
+                        [<a href="/celebrities/{{id}}">View details</a>]
+                        <div>
+                            <button class="btn btn-dark btn-sm"><a href="/celebrities/{{id}}/edit"
+                                    style="color:whitesmoke;text-decoration-line: none;">Edit</a></button>
+                            <button class="btn btn-dark btn-sm"><a href="/celebrities/{{id}}/delete"
+                                    style="color:whitesmoke;text-decoration-line: none;">Delete</a></button>
+                        </div>
+                    </small></li>
+                <hr>
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+
+
+
+</div>
