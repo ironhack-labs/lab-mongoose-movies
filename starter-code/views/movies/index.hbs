@@ -1,0 +1,32 @@
+<div class="container">
+
+  <h2><strong>All Movies</strong></h2>
+
+  <ul class="list-group">
+    {{#each allMovies}}
+    <li class="list-group-item">
+      <h4>{{title}}</h4>
+
+      <div class="row justify-content-start left-line">
+
+        <a href="/movies/show/{{id}}"><button class="btn btn-dark btn-md btn-block">See details</button></a>
+        <a href="/movies/{{id}}/edit">
+          <form method="POST" action="/movies/{{id}}/edit"><button type="submit"
+              class="btn btn-secondary btn-md btn-block">Edit</button></form>
+        </a>
+        <a href="/movies/{{id}}/delete">
+          <form method="POST" action="/movies/{{id}}/delete"><button type="submit"
+              class="btn btn-outline-danger btn-md btn-block">Delete</button></form>
+        </a>
+
+      </div>
+
+    </li>
+
+    {{/each}}
+
+
+    <a href="/movies/new"><button type="submit" class="btn-block btn-dark">Add new movie</button></a>
+
+  </ul>
+</div>

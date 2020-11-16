@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+
+
+      <h2><strong>Add new celebrity</strong></h2>
+
+
+      <form class="form-group" method="POST" action="/celebrities/new">
+        <input type="text" class="input-group" placeholder="Name" name="name">
+        <input type="text" class="input-group" placeholder="Occupation" name="occupation">
+        <input type="text" class="input-group" placeholder="Catch Phrase" name="catchPhrase">
+
+        <button type="submit" class="btn-block btn-dark">Add new celebrity</button>
+      </form>
+
+      {{#if errMsg}}<div class="btn btn-danger btn-block">{{errMsg}}</div>{{/if}}
+      {{#if succMsg}}
+      <div class="btn btn-block"
+        style="background: rgb(0, 69, 0); color: white; text-align: center; padding: 5px; margin-top:10px">
+        {{succMsg}}
+      </div>
+      {{/if}}
+
+
+      <a href="/celebrities/"><button type="button" class="form-group btn-dark btn">Back</button></a>
+
+    </div>
+  </div>
+</div>
