@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Celebrities</h2>
+    <div class="row">
+        
+        <div class="col-12">
+            <article>
+                {{#each allCelebrities}}
+                <h4><a href="/celebrities/show/{{id}}">{{this.name}}</a></h4>
+                <ul>
+                    <li>Occupation: {{this.occupation}}</li>
+                    <li>Famous catchphrase: "{{this.catchPhrase}}"</li>
+                    <a href="/celebrities/delete-celebrity?celebrities_id={{_id}}" class="btn btn-dark">Delete celebrity</a>
+                    <a href="/celebrities/edit?celebrities_id={{_id}}" class="btn btn-dark">Edit celebrity</a>
+                </ul>
+                {{/each}}
+                <a href="/celebrities/new" class="btn btn-dark">Add celebrity</a>
+            </article>
+        </div>
+    </div>
+    <a href="/">Go back</a>
+</div>
