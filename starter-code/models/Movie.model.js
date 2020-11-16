@@ -6,7 +6,8 @@ const movieSchema = new Schema(
     title: String,
     genre: String,
     plot: String,
-    celebrities: [{ type: Schema.Types.ObjectId, ref: 'Celebrity' }]
+    celebrities: [{ type: Schema.Types.ObjectId, ref: 'Celebrity' }],
+    createdBy: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   {
     timestamps: true
