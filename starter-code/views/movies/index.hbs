@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Movies List<br><a class="btn btn-outline-dark btn-sm" href="/movies-new" role="button">Add Movie</a></h2>
+
+
+    <div class="row">
+        {{#each allMovies}}
+        <div class="col-4">
+            <ul>
+
+                <img src="{{image}}" alt="{{title}}">
+                <li>{{title}} <small>
+                        [<a href="/movies/{{id}}">View details</a>]
+                        <div>
+                            <button class="btn btn-dark btn-sm"><a href="/movies/{{id}}/edit"
+                                    style="color:whitesmoke;text-decoration-line: none;">Edit</a></button>
+                            <button class="btn btn-dark btn-sm"><a href="/movies/{{id}}/delete"
+                                    style="color:whitesmoke;text-decoration-line: none;">Delete</a></button>
+                        </div>
+                    </small></li>
+                <hr>
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+
+
+
+</div>
