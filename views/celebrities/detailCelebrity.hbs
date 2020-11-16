@@ -1,0 +1,27 @@
+
+
+<h1>{{name}}</h1>
+ <h4>Ocupation</h4><ul>
+   
+{{#each ocupation}}
+
+<li>
+{{this}}
+</li>
+{{/each}}
+
+</ul>
+<h4>Quote</h4>
+{{catchPhrase}}
+<br>
+<br>
+
+<form action="/celebrities/{{id}}/delete" method="POST">
+<button type= "submit" class= "btn btn-danger btna">Delete celebrity</button>
+</form>
+
+
+
+<a href="/celebrities/{{id}}/edit"class="btn btn-warning btna">Edit celebrity</a>
+<br>
+<a href="/celebrities" class="btn btn-dark btnadd">Return to celebs</a>

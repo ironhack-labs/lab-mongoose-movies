@@ -1,0 +1,9 @@
+<h1 class="titlelist">Movies </h1>
+{{#each movies}}
+
+<a href="movies/{{id}}" class=list>{{title}}</a>
+
+<br>
+{{/each}}
+
+<a href="/movies/new" class="btn btn-dark btnadd">Add a new movie</a>
