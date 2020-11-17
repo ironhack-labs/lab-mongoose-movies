@@ -43,11 +43,11 @@ router.get("/:celebrityID", (req, res) => {
     });
 });
 
-router.post("/celebrityID/delete", (req, res) => {
+router.post("/:celebrityID/delete", (req, res) => {
   const { celebrityID } = req.params;
-  Celebrity.findByIdAndRemove(celebrityID).then(
-    console.log("The celebrity was obliterated!")
-  );
+  Celebrity.findByIdAndRemove(celebrityID).then((obliteratedCeleb) => {
+    res.redirect("/celebrities");
+  });
 });
 
 module.exports = router;
