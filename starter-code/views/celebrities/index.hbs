@@ -1,0 +1,11 @@
+<h2>We are sent by the evil</h2>
+
+<a href="/celebrities/new">Add a Celeb</a>
+
+{{#each celebrities}}
+<p>{{name}}</p>
+<a href="/celebrities/{{_id}}">More about me</a>
+<form action="/celebrities/{{_id}}/delete" method="POST">
+    <button type="submit">Delete this Celeb</button>
+</form>
+{{/each}}
