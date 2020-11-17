@@ -24,6 +24,28 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+
+// require session – added by me
+const session = require('express-session');
+
+// require mongostore – added by me
+const MongoStore = require('connect-mongo')(session);
+
+// added by me too
+app.use(
+    session({
+      secret: 'doesnt-matter',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { maxAge: 60000 * 60 }, // 1 hour
+      store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
+      })
+    })
+  );
+
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -45,6 +67,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
+// register the partials – added by me
+hbs.registerPartials(__dirname + "/views/partials");
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
@@ -53,6 +77,18 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+
+// Iteration 2
+const celebrities = require('./routes/celebrities');
+app.use('/celebrities', celebrities); // pay attention to this line! 
+
+
+// Iteration 7
+const movies = require('./routes/movies');
+app.use('/movies', movies); // pay attention to this line! 
+
+
 
 
 module.exports = app;

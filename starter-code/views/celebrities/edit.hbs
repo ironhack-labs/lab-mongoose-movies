@@ -1,0 +1,10 @@
+<h2>Edit informations</h2>
+
+<form action="/celebrities/{{this._id}}/edit" method="post">
+
+  Name: <input type="text" name="name" value="{{this.name}}"> <br>
+  Occupation: <input type="text" name="occupation" value="{{this.occupation}}"> <br>
+  Quote: <input type="text" name="catchPhrase" value="{{this.catchPhrase}}"> <br>
+
+  <button class="save-button" type="submit">Save</button>
+</form>
