@@ -1,0 +1,11 @@
+<h2>Books</h2>
+
+<a href="/books/new">Add a new book</a>
+
+{{#each books}}
+<h3>{{title}}</h3>
+<a href="/books/{{_id}}">Learn More</a>
+<form action="/books/{{_id}}/delete" method="POST">
+  <button type="submit">Delete</button>
+</form>
+{{/each}}
