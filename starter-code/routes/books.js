@@ -19,8 +19,9 @@ router.get('/books/new', (req, res, next) => {
 
 /* POST new book */
 router.post('/books', (req, res, next) => {
-  const { title, genre, plot } = req.body;
+  const { title, genre, plot, author } = req.body;
   Book.create({
+    author,
     title,
     genre,
     plot
@@ -60,9 +61,10 @@ router.get('/books/:id/edit', (req, res, next) => {
 /* POST update book */
 router.post('/books/:id', (req, res, next) => {
   const id = req.params.id; 
-  const { title, genre, plot } = req.body;
+  const { title, genre, plot, author } = req.body;
   Book
     .findByIdAndUpdate(id, {
+      author,
       title,
       genre,
       plot

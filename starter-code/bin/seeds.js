@@ -50,7 +50,7 @@ mongoose
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
-  .then( async () => {
+  .then(() => {
     // INSERTING CELEBRITIES
     // return Celebrity.insertMany(dataCeleb);
 
@@ -84,3 +84,21 @@ mongoose
   .then(data => console.log(`Data added to database: ${data}`))
   .catch(err => console.error('Error connecting to mongo', err)); 
 
+
+// TRYING TO WRITE IT WITH ASYNC / AWAIT
+
+// async function updateBooksInCelebs() {
+//   try {
+//     const allBooks = await Book.find();
+//     allBooks.forEach(book => {
+//       const celeb = await Celebrity.findOne({ name: book.author }); 
+//       const updatedCeleb = await Celebrity.findByIdAndUpdate(
+//         celeb._id,
+//         { $push: { books: book._id } },
+//         { new: true }
+//       )
+//     })
+//   } catch (error) {
+//     console.log('error updating books array in celebrities'); 
+//   }
+// }
