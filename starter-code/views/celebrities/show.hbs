@@ -2,6 +2,11 @@
 
 <h3>{{celebrity.name}}</h3>
 <h4>Occupation: {{celebrity.occupation}}</h4>
+<p>Books:
+  {{#each celebrity.books}}
+  <a href="/books/{{this._id}}">{{this.title}}</a>
+  {{/each}}
+</p>
 <p>Catch Phrase: "{{celebrity.catchPhrase}}"</p>
 
 <a href="/celebrities/{{celebrity._id}}/edit">Edit</a>

@@ -22,16 +22,19 @@ const dataCeleb = [
 
 const dataBooks = [
   {
+    author: 'Jane Austen',
     title: 'Pride and Prejudice',
     genre: 'Romance',
     plot: 'The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.'
   },
   {
+    author: 'Maya Angelou',
     title: 'I Know Why the Caged Bird Sings',
     genre: 'Autobiography',
     plot: 'The book describes the early years of American writer and poet Maya Angelou. The first in a seven-volume series, it is a coming-of-age story that illustrates how strength of character and a love of literature can help overcome racism and trauma.'
   },
   {
+    author: 'Virginia Woolf',
     title: "A Room of One's Own",
     genre: 'Essay',
     plot: 'An important feminist text, the essay argues for both a literal and figurative space for women writers within a literary tradition dominated by men.'
@@ -47,9 +50,37 @@ mongoose
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
-  .then(() => {
+  .then( async () => {
+    // INSERTING CELEBRITIES
     // return Celebrity.insertMany(dataCeleb);
-    return Book.insertMany(dataBooks); 
+
+    // INSERTING BOOKS
+    // return Book.insertMany(dataBooks); 
+    
+    // INSERTING BOOKS INSIDE THE CELEBRITY BOOKS ARRAY
+    Book.find()
+      .then(books => {
+        books.forEach(book => {
+          Celebrity.findOne({ name: book.author })
+            .then(celeb => {
+              console.log('celeb name', celeb.name)
+              console.log('celeb id', celeb._id)
+              console.log('book', book);
+
+              Celebrity.findByIdAndUpdate(
+                celeb._id,
+                { $push: { books: book._id } },
+                { new: true }
+              )
+              .then(updatedCeleb => {
+                console.log(updatedCeleb);
+              })
+            })
+            .catch(err => console.log('Error retrieving celeb', err));
+        })
+      })
+      .catch(err => console.log('Error retrieving books', err));
   })
   .then(data => console.log(`Data added to database: ${data}`))
   .catch(err => console.error('Error connecting to mongo', err)); 
+

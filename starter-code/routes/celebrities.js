@@ -40,7 +40,9 @@ router.get('/celebrities/:id', (req, res, next) => {
   const id = req.params.id;
   Celebrity
     .findById(id)
+    .populate('books')
     .then(celebrity => {
+      console.log(celebrity)
       res.render('celebrities/show', { celebrity });
     })
     .catch(err => console.error('Error getting one celebrity by ID', err));
