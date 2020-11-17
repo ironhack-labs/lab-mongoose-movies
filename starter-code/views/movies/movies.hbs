@@ -1,0 +1,11 @@
+<h2>IronHack Movies</h2>
+{{#each movie}}
+<h3>{{title}}</h3>
+<a href="/movies/{{_id}}">See More Datails</a>
+<a href="/movies/{{_id}}/edit">Edit</a>
+<form action="/movies/{{_id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+</form>
+{{/each}}
+<br>
+<a href="/">Go Back</a>

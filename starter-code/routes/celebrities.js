@@ -5,7 +5,7 @@ const router  = express.Router();
 
 router.get('/', (req,res, next)=>{Celebrity.find()
 .then((celebrities) => res.render('celebs/celebrities', {celeb:celebrities}))
-.catch(err => res.render('celebs/index'))
+.catch(err => res.render('index'))
 });
 
 router.get('/new', (req, res, next) => {
@@ -22,7 +22,7 @@ router.post('/new', (req, res) => {
 
 router.get('/:id', (req,res, next)=>{Celebrity.findById(req.params.id)
   .then((celeb) => res.render('celebs/show', celeb))
-  .catch(err => res.render('/celebs/index'))
+  .catch(err => res.render('index'))
   });
 
   router.post('/:id/delete', (req, res, next) => {
