@@ -1,4 +1,11 @@
 <h2>Here are your celebrities</h2>
-{{#each celebrities}}
-<a href="/celebrities/{{_id}}">{{name}}</a>
-{{/each}}
+<div>
+    {{#each celebrities}}
+    <a href="/celebrities/{{_id}}">{{name}}</a>
+    <form action="/celebrities/{{_id}}/delete" method="POST"></form>
+    <button>OBLITERATE THIS PERSON</button>
+    </br>
+    {{/each}}
+</div>
+</br>
+<a href="/celebrities/new">Add your own celebrity!</a>

@@ -1,6 +1,6 @@
 // To insert in "bin/seeds.js"
 const mongoose = require("mongoose");
-const Movie = require("../models/Celebrity.model");
+const Celebrity = require("../models/Celebrity.model");
 
 const DB_NAME = "starter-code";
 

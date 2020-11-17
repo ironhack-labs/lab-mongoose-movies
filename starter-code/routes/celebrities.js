@@ -2,27 +2,52 @@ const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/Celebrity.model");
 
-router.get("/celebrities", (req, res) => {
+router.get("/", (req, res) => {
   Celebrity.find().then((celebritiesFound) => {
     console.log("Here are your celebrities: ", celebritiesFound);
     res.render("celebrities/index", { celebrities: celebritiesFound });
   });
 });
 
-router.get("/celebrities/:celebrityID", (req, res, next) => {
-  const { celebrityID } = req.params;
-  Celebrity.findById(celebrityID)
-    .then((celebrityFoundViaID) => {
-      console.log("Here is what you were looking for:", celebrityFoundViaID);
-      res.render("show", { celebrityFoundViaID });
+router.get("/new", (req, res) => {
+  console.log("Visiting the page with the form to add a celeb");
+  res.render("celebrities/new");
+});
+
+router.post("/new-celebrity", (req, res) => {
+  const { name, occupation, catchPhrase } = req.body;
+
+  Celebrity.create({
+    name,
+    occupation,
+    catchPhrase,
+  })
+    .then((createdCeleb) => {
+      console.log("Here is the celeb you created: ", createdCeleb);
+      res.redirect(`/celebrities/${createdCeleb._id}`);
     })
     .catch((err) => {
       console.log("There was an error: ", err);
     });
 });
 
-router.get("/celebrities/new", (req, res) => {
-  res.render("celebrities/new");
+router.get("/:celebrityID", (req, res) => {
+  const { celebrityID } = req.params;
+  Celebrity.findById(celebrityID)
+    .then((celebrityFoundViaID) => {
+      console.log("Here is what you were looking for:", celebrityFoundViaID);
+      res.render("celebrities/show", { celebrityFoundViaID });
+    })
+    .catch((err) => {
+      console.log("There was an error: ", err);
+    });
+});
+
+router.post("/celebrityID/delete", (req, res) => {
+  const { celebrityID } = req.params;
+  Celebrity.findByIdAndRemove(celebrityID).then(
+    console.log("The celebrity was obliterated!")
+  );
 });
 
 module.exports = router;
