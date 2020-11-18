@@ -31,6 +31,17 @@ router.post("/new-celebrity", (req, res) => {
     });
 });
 
+router.get("/:id/edit", (req, res) => {
+  const { celebrityID } = req.params;
+  Celebrity.findById(celebrityID)
+    .then((celebrityToEdit) => {
+      res.render("celebrities/edit", { celebrityToEdit });
+    })
+    .catch((err) => {
+      console.log("There was an error: ", err);
+    });
+});
+
 router.get("/:celebrityID", (req, res) => {
   const { celebrityID } = req.params;
   Celebrity.findById(celebrityID)
@@ -43,10 +54,25 @@ router.get("/:celebrityID", (req, res) => {
     });
 });
 
+router.post("/:celebrityID", (req, res) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.update({
+    name: name,
+    occupation: occupation,
+    catchPhrase: catchPhrase,
+  }).then(() => {
+    res.redirect("/celebrities").catch((err) => {
+      console.log("There was an error: ", err);
+    });
+  });
+});
+
 router.post("/:celebrityID/delete", (req, res) => {
   const { celebrityID } = req.params;
   Celebrity.findByIdAndRemove(celebrityID).then((obliteratedCeleb) => {
-    res.redirect("/celebrities");
+    res.redirect("/celebrities").catch((err) => {
+      console.log("There was an error: ", err);
+    });
   });
 });
 

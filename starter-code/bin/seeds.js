@@ -13,7 +13,7 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
 const celebrities = [
   {
     name: "Stone Cold Steve Austin",
-    occupation: "Professional Wrestiler",
+    occupation: "Professional Wrestler",
     catchPhrase: "And that's the bottom line because Stone Cold said so!",
   },
   {
