@@ -8,7 +8,22 @@ router.get('/celebrities', (req, res, next) => {
         res.render('celebrities/index', {celebritiesFromDB});
        
     })
-    .catch((error) => console.log(`An error occurred: ${error}`));
+    .catch((error) => console.log(`Could not find the celebrities due to an error: ${error}`));
+});
+
+router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new');
+});
+
+router.post('/celebrities/new', (req, res, next) => {
+    Celebrity.create(req.body)
+    .then((celebrityFromDB) => {
+        res.redirect('/celebrities');
+    })
+    .catch((error) => {
+        res.redirect('/celebrities/new');
+        console.log(`Could not add the celebrity due to an error: ${error}`);
+    });
 });
 
 router.get('/celebrities/:id', (req, res, next) => {
@@ -16,8 +31,7 @@ router.get('/celebrities/:id', (req, res, next) => {
     .then((celebrityFromDB) => {
         res.render('celebrities/show', {celebrityFromDB});
     })
-    .catch((error) => console.log(`An error occurred: ${error}`));
+    .catch((error) => console.log(`Could not find the celebrity due to an error: ${error}`));
 });
-
 
 module.exports = router;
