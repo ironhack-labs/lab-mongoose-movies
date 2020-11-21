@@ -6,3 +6,12 @@ a {
   color: #00B7FF; }
 
 /*# sourceMappingURL=style.css.map */
+
+input, textarea {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-bottom: 20px;
+}

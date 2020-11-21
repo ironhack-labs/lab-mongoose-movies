@@ -1,6 +1,12 @@
+<div>
 <h2>Celebrities index</h2>
 
 {{#each celebrities}}
     <h5>{{this.name}}</h5>
     <a href="/celebrities/{{this.id}}">See more</a>
 {{/each}}    
+</div>
+
+<div>
+<a href="/celebrities/new">Create new celebrity</a>
+</div>
