@@ -34,4 +34,14 @@ router.get('/celebrities/:id', (req, res, next) => {
     .catch((error) => console.log(`Could not find the celebrity due to an error: ${error}`));
 });
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndDelete(req.params.id)
+    .then(() => {
+        res.redirect('/celebrities');
+    })
+    .catch((error) => {
+        console.log(`Could not delete the celebrity due to an error: ${error}`);
+    });
+});
+
 module.exports = router;
