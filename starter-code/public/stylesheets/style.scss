@@ -5,4 +5,17 @@ body {
 
 a {
   color: #00B7FF;
+  margin-bottom: 10px;
+}
+
+label, input, a,textarea{
+  display: block;
+}
+
+label{
+  margin-bottom: 20px;
+}
+
+button{
+  margin-bottom: 10px;
 }
