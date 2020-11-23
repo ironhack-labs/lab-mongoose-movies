@@ -2,9 +2,7 @@
 <h2>Movies index</h2>
 
 {{#each movies}}
-    <h4>Title: {{this.title}}</h4>
-    <h6>Genre: {{this.genre}}</h6>
-    <p>Plot: {{this.plot}}</p>
+    <h5>{{this.title}}</h5>
         <a href="/movies/{{this.id}}">See more</a>
         <a href="/movies/{{this.id}}/edit">Edit</a>  
             <form action="/movies/{{this._id}}/delete" method="POST">
