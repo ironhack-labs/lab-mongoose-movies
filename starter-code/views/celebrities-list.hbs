@@ -1,0 +1,18 @@
+<h1 style="font-size: 36px; color: red">Checkout the Celebrities-List</h1>
+<button>
+<a href="/celebrities/new">Create your own celebrities</a>
+</button>
+<br>
+<br>
+{{#each celeList}}
+  <h1><a href="/celebrities/{{this.id}}">{{this.name}}</a></h1>
+  <button>
+    <a href="/celebrities/{{this.id}}/edit">Edit</a> 
+  </button> 
+  <form action="/celebrities/{{this.id}}/delete" method="POST">
+  <button>Delete</button></form>
+
+
+  <br>
+  <hr>
+{{/each}}
