@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose")
 let Celeb = require("../models/Celebrity.js")
 
