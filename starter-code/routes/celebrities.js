@@ -51,7 +51,18 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
          return err;
      });
 });
+router.get('/celebrities/:id/edit', (req, res, next) => {
+    const celebrityId = req.params.id;
 
+    Celebrity.findById(celebrityId)
+        .then(celebrity => {
+            res.render('celebrities/edit', celebrity);
+        })
+        .catch(err => {
+            console.log("error while editing celebrities");
+            return err;
+        });
+});
 
 
 
