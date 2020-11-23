@@ -1,0 +1,14 @@
+
+<h2>Movies index</h2>
+
+{{#each movies}}
+    <h5>{{this.title}}</h5>
+        <a href="/movies/{{this.id}}">See more</a>
+        <a href="/movies/{{this.id}}/edit">Edit</a>  
+            <form action="/movies/{{this._id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+            </form>
+{{/each}}    
+
+
+<a href="/movies/new">Create new movie</a>
