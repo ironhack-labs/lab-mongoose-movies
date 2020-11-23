@@ -48,4 +48,25 @@ router.post('/movies/:id/delete', (req, res, next) => {
     .catch(err => { console.log(`Error: ${err}`)});
 });
 
+//Route to get details movie
+router.get('/movies/:id/edit', (req, res, next) => {
+    const {id} = req.params;
+    Movie.findById(id)
+    .then(movieToEdit => {
+        res.render('movies/edit', movieToEdit);
+    })
+    .catch(err => { console.log(`Error: ${err}`)});
+});
+
+//Route to update movie details
+router.post('/movies/:id/edit', (req, res, next) => {
+    const {id} = req.params;
+    const {title, genre, plot} = req.body;
+    Movie.findByIdAndUpdate(id, {title, genre, plot})
+    .then(() => {
+        res.redirect('/movies')
+    })
+    .catch(err => { console.log(`Error: ${err}`)})
+});
+
 module.exports = router;
