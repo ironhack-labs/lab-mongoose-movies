@@ -1,0 +1,21 @@
+<h2 class="editHeader">Edit the movie:</h2>
+<h2>{{title}}</h2>
+
+<section class="celebSectionDetails">
+
+<form action="/movies/{{_id}}/movie-edit" method="post">
+
+  <label for="title"><p>Title:</p></label>
+  <input type="text" name="title" id="title-input" value="{{title}}" />
+
+  <label for="genre-input"><p>Genre:</p></label>
+  <input type="text" name="genre" id="genre-input" value="{{genre}}" />
+
+  <label for="plot-input"><p>Plot:</p></label>
+  <input type="text" name="plot" id="plot-input" value="{{plot}}" />
+
+  <button type="submit" class="submitButton">Save changes</button>
+
+</form>
+
+</section>

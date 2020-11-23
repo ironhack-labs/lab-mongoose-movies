@@ -1,0 +1,22 @@
+<section class="celebritiesContainer">
+
+<h2 class="heading">Movies</h2>
+
+    {{#each movies}}
+
+<section class="celebSection">
+
+    {{this.title}}
+    <button><a href="/movies/{{ this._id }}">Show details</a></button>
+
+    <form action="/movies/{{ this._id }}/delete" method="POST">
+        <button type="submit">Delete Movie</button>
+    </form>
+
+    <button><a href="/movies/{{ this._id }}/movie-edit">Edit Movie</a></button>
+</section>
+    {{/each}}
+    <br>
+    <button class="actionButton"><a href="/movies/new">Add a Movie</a></button>
+
+</section>
