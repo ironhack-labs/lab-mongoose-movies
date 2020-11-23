@@ -1,0 +1,18 @@
+<h1 style="font-size: 36px">Checkout the Movies-List</h1>
+<button>
+<a href="/movies/new">Create your own movie</a>
+</button>
+<br>
+<br>
+{{#each movieList}}
+  <h1><a href="/movies/{{this.id}}">{{this.title}}</a></h1>
+  <button>
+    <a href="/movies/{{this.id}}/edit">Edit</a> 
+  </button> 
+  <form action="/movies/{{this.id}}/delete" method="POST">
+  <button>Delete</button></form>
+
+
+  <br>
+  <hr>
+{{/each}}
