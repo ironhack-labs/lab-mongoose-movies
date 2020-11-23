@@ -38,4 +38,14 @@ router.post('/movies/new', (req, res, next) => {
     .catch(err => { console.log(`Error: ${err}`)});
 });
 
+//Route to delete movies
+router.post('/movies/:id/delete', (req, res, next) => {
+    const {id} = req.params;
+    Movie.findByIdAndDelete(id)
+    .then(() => {
+        res.redirect('/movies')
+    })
+    .catch(err => { console.log(`Error: ${err}`)});
+});
+
 module.exports = router;
