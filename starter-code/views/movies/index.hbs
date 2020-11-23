@@ -1,9 +1,12 @@
-<h2>Movies</h2>
+<section class="celebritiesContainer">
 
-<ul>
+<h2 class="heading">Movies</h2>
 
     {{#each movies}}
-    <li>{{this.title}}</li>
+
+<section class="celebSection">
+
+    {{this.title}}
     <button><a href="/movies/{{ this._id }}">Show details</a></button>
 
     <form action="/movies/{{ this._id }}/delete" method="POST">
@@ -11,9 +14,9 @@
     </form>
 
     <button><a href="/movies/{{ this._id }}/movie-edit">Edit Movie</a></button>
-
+</section>
     {{/each}}
     <br>
-    <button><a href="/movies/new">Add a Movie</a></button>
+    <button class="actionButton"><a href="/movies/new">Add a Movie</a></button>
 
-</ul>
+</section>

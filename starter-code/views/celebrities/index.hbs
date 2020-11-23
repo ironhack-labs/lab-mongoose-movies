@@ -1,20 +1,25 @@
-<h2>Celebrities</h2>
-<ul>
+<section class="celebritiesContainer">
+
+<h2 class="heading">Celebrities</h2>
+
     {{#each celebrities}}
-    <li>{{this.name}}</li>
-    <button><a href="/celebrities/{{ this._id }}">Show details</a></button>
 
-    <form action="/celebrities/{{ this._id }}/delete" method="POST">
+    <section class="celebSection">
+        <h3>{{this.name}}</h3>
+        <button><a href="/celebrities/{{ this._id }}">Show details</a></button>
 
-        <button type="submit">Delete Celebrity</button>
+        <form action="/celebrities/{{ this._id }}/delete" method="POST">
+
+            <button type="submit">Delete Celebrity</button>
     
-    </form>
+        </form>
 
     
         <button><a href="/celebrities/{{ this._id }}/celebrity-edit">Edit Celebrity</a></button>
     
-
+    </section>
     {{/each}}
     <br>
-    <button><a href="/celebrities/new">Add a Celebrity</a></button>
-</ul>
+    <button class="actionButton"><a href="/celebrities/new">Add a Celebrity</a></button>
+
+</section>
