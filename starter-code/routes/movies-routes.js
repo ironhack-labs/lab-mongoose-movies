@@ -13,6 +13,20 @@ router.get('/movies', (req, res, next) => {
         .catch((error) => next(error));
 });
 
+
+
+router.get('/movies/new', (req, res, next) => {
+    res.render('movies/new');
+});
+
+router.post('/movies/new', (req, res, next) => {
+    Movie.create(req.body)
+    .then((movieFromDB) => {
+        res.redirect('/movies');
+    })
+    .catch((error) => next(error));
+});
+
 router.get('/movies/:id', (req, res, next) => {
     Movie.findById(req.params.id)
     .then((movieFromDB) => {
