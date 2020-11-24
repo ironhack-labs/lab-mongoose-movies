@@ -1,0 +1,20 @@
+<h2>Edit: {{name}}</h2>
+
+<form action="/celebrities/{{id}}/edit" method="POST">
+    <label>
+        Name
+        <input type="text" name="name" value="{{name}}">
+    </label>
+
+    <label>
+        Occupation
+        <input type="text" name="occupation" value="{{occupation}}">
+    </label>
+
+    <label>
+        Catchphrase
+        <textarea type="text" name="catchPhrase" cols="30" rows="4">{{catchPhrase}}</textarea>
+    </label>
+
+    <button type="submit">Edit Celebrity</button>
+</form>
