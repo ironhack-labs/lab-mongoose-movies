@@ -39,4 +39,18 @@ router.post('/movies/:id/delete', (req, res, next) => {
     .catch((error) => next(error));
 });
 
+router.get('/movies/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+    .then((movieFromDB) => {
+        res.render('movies/edit', movieFromDB);
+    })
+    .catch((error) => next(error));
+});
+
+router.post('/movies/:id/edit', (req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(() => res.redirect('/movies'))
+    .catch((error) => next(error));
+});
+
 module.exports = router;
