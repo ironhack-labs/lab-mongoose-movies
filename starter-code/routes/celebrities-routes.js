@@ -10,7 +10,7 @@ router.get('/celebrities', (req, res, next) => {
             });
 
         })
-        .catch((error) => console.log(`Could not find the celebrities due to an error: ${error}`));
+        .catch((error) => next(error));
 });
 
 router.get('/celebrities/new', (req, res, next) => {
@@ -35,7 +35,7 @@ router.get('/celebrities/:id', (req, res, next) => {
                 celebrityFromDB
             });
         })
-        .catch((error) => console.log(`Could not find the celebrity due to an error: ${error}`));
+        .catch((error) => next(error));
 });
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
@@ -43,9 +43,7 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
         .then(() => {
             res.redirect('/celebrities');
         })
-        .catch((error) => {
-            console.log(`Could not delete the celebrity due to an error: ${error}`);
-        });
+        .catch((error) => next(error));
 });
 
 router.get('/celebrities/:id/edit', (req, res, next) => {
@@ -53,7 +51,7 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
         .then((celebrityFromDB) => {
             res.render('celebrities/edit', celebrityFromDB);
         })
-        .catch((error) => console.log(`Could not find the celebrity due to an error: ${error}`));
+        .catch((error) => next(error));
 });
 
 router.post('/celebrities/:id/edit', (req, res, next) => {
@@ -63,7 +61,7 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
         .then(() => {
             res.redirect('/celebrities');
         })
-        .catch((error) => console.log(`The celebrity could not be updated due to an error: ${error}`));
+        .catch((error) => next(error));
 });
 
 module.exports = router;
