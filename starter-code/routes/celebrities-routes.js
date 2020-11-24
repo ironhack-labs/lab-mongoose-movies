@@ -8,7 +8,6 @@ router.get('/celebrities', (req, res, next) => {
             res.render('celebrities/index', {
                 celebritiesFromDB
             });
-
         })
         .catch((error) => next(error));
 });
