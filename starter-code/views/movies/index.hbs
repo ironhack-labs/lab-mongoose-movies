@@ -1,0 +1,15 @@
+<h2>Movies</h2>
+
+<div class="grid-container">
+    {{#each moviesFromDB}}
+    <div class="grid-item">
+        <h3>{{this.title}}</h3>
+        <a href="/movies/{{this.id}}">Read more</a>
+        <form action="/movies/{{this.id}}/delete" method="POST">
+            <button>Delete this movie</button>
+        </form>
+    </div>
+    {{/each}}
+</div>
+<hr>
+<a href="/movies/new">DIY Movie</a>
