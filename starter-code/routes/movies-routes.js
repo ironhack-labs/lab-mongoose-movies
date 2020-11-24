@@ -13,8 +13,6 @@ router.get('/movies', (req, res, next) => {
         .catch((error) => next(error));
 });
 
-
-
 router.get('/movies/new', (req, res, next) => {
     res.render('movies/new');
 });
@@ -32,6 +30,12 @@ router.get('/movies/:id', (req, res, next) => {
     .then((movieFromDB) => {
         res.render('movies/show', {movieFromDB});
     })
+    .catch((error) => next(error));
+});
+
+router.post('/movies/:id/delete', (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect('/movies'))
     .catch((error) => next(error));
 });
 
