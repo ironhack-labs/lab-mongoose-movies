@@ -1,5 +1,4 @@
 const express = require('express');
-const celebrity = require('../models/Celebrity.js');
 const router  = express.Router();
 
 const Celebrity = require('../models/Celebrity.js');
