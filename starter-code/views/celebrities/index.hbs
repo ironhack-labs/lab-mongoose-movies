@@ -1,5 +1,7 @@
 <h1>List of Celebrities</h1>
 
+<a href="/celebrities/new.hbs"><h2>Add a celebrity</h2></a>
+
 {{#each celebs}}
-<p>{{name}}</p>
+  <a href="/celebrities/{{_id}}"><p>{{name}}</p></a>
 {{/each}}
