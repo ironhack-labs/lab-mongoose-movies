@@ -1,0 +1,17 @@
+<h2>Edit Celebrety</h2>
+
+{{#if celeb}}
+<form action="/celebrities/edit" method="POST">
+  <label for="name">Nombre:</label>
+  <input type="text" name="name" value="{{celeb.name}}" placeholder="{{celeb.name}}">
+  <br>
+  <label for="occupation">Ocupación</label>
+  <input type="text" name="occupation" value="{{celeb.occupation}}">
+  <br>
+  <label for="catchPhrase">Frase más famosa</label>
+  <input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}">
+  <button type="submit">Create</button>
+</form>
+{{/if}}
+
+<a href="/celebrities">Celebrities</a>

@@ -9,35 +9,54 @@ const router = express.Router();
 //MODELS
 const Celebrity = require('../models/Celebrity');
 
+//ROUTES
+
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then((celebs) => {
-      console.log(celebs);
       res.render('celebrities/index', {celebs});
     })
     .catch((err) => {
       console.log('There was an error' , err);
     })
-})
-
-router.get('/celebrities/:id', (req, res, next) => {
-  const celebId = req.params.id;
-  Celebrity.findOne({_id: celebId})
-    .then((celeb) => {
-      console.log(celeb)
-      res.render('celebrities/show', {celeb});
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-})
+});
 
 router.get('/celebrities/new', (req, res, next) => {
   res.render('celebrities/new');
 });
 
 router.post('/celebrities/new', (req, res, next) => {
+  const celeb = req.body;
+  Celebrity.create(celeb)
+    .then(() => {
+      res.redirect('/celebrities');
+    })
+})
 
+router.get('/celebrities/:id', (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findOne({_id: celebId})
+  .then((celeb) => {
+    res.render('celebrities/show', {celeb});
+  })
+  .catch((err) => {
+    console.log(err);
+  })
 });
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+  const celebId = req.params.id;
+  Celebrity.findByIdAndRemove(celebId)
+    .then(() => {
+      res.redirect('../');
+    })
+})
+router.get('/celebrities/:id/edit', (req, res, next) => {
+  const celeb = req.params;
+  Celebrity.findById(celeb.id)
+    .then((celeb) => {
+      res.render(`celebrities/edit`, {celeb});
+    })
+})
 
 module.exports = router;
