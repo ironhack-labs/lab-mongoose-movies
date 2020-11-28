@@ -1,0 +1,13 @@
+<h2>Celebrity details</h2>
+{{#if celeb}}
+    <p>Nombre: {{celeb.name}}</p>
+    <p>Ocupación: {{celeb.occupation}}</p>
+    <p>Frase más famosa: {{celeb.catchPhrase}}</p>
+    <form action="/celebrities/{{celeb._id}}/edit">
+        <button type="submit">Edit</button>
+    </form>
+    <form action="/celebrities/{{celeb._id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+{{/if}}
+<a href="/celebrities"><h2>Celebrities</h2></a>
