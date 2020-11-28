@@ -63,8 +63,8 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
   const celeb = req.params;
   const editedCeleb = req.body;
   Celebrity.findByIdAndUpdate(celeb.id, editedCeleb)
-    .then((celeb) => {
-      res.redirect(`../celebrities/${celeb}`);
+    .then(() => {
+      res.redirect(`../${celeb.id}`);
     })
-})
+});
 module.exports = router;
