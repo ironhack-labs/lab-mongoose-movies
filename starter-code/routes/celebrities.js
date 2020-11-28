@@ -3,6 +3,10 @@ const router    = express.Router();
 const mongoose  = require('mongoose')
 const Celebrity = require('../models/celebrity.js');
 
+////////////
+// ROUTES //
+////////////
+
 router.get('/', (req, res, next) => {
     Celebrity.find({}, {name: 1})
     .then((celebrity)=>{

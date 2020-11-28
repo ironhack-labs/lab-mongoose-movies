@@ -3,6 +3,10 @@ const router    = express.Router();
 const mongoose  = require('mongoose')
 const Movie     = require('../models/movie.js')
 
+////////////
+// ROUTES //
+////////////
+
 router.get('/', (req, res, next) => {
   Movie.find()
   .then(movies => {
