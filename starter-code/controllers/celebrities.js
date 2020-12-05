@@ -49,5 +49,29 @@ const deleteCeleb = async (req, res) =>{
     }
 }
 
+const editCeleb = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const celebEddited = await Celebrity.findById(id);
+        res.render("celebrities/edit", celebEddited)
+    } catch (err) {
+        console.error(e)
+    }
+}
 
-module.exports = { getCelebs, getCeleb, newCeleb, addCeleb, deleteCeleb }
+const saveCeleb = async (req, res) => {
+    try {
+        const {id} = req.params
+        const { name, occupation, catchPhrase } = req.body;
+        const saveCeleb = await Celebrity.findByIdAndUpdate(id,{ name, occupation, catchPhrase }, {
+      new: true,
+    })
+        const celebs = await Celebrity.find()
+        res.render("celebrities/index", { celebs })
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+
+module.exports = { getCelebs, getCeleb, newCeleb, addCeleb, deleteCeleb, editCeleb, saveCeleb }
