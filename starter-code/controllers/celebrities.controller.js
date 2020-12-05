@@ -22,7 +22,19 @@ const getCelebrity = async (req, res) => {
   }
 };
 
+const createCelebrity = async (req, res) => {
+  try {
+    await Celebrity.create(req.body);
+    const celebrities = await Celebrity.find();
+    res.render("celebrities/index", { celebrities });
+  } catch (err) {
+    next();
+    return err;
+  }
+};
+
 module.exports = {
   getCelebrities,
   getCelebrity,
+  createCelebrity,
 };
