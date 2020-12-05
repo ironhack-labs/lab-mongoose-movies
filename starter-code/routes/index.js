@@ -5,6 +5,7 @@ const {
   getCelebrities,
   getCelebrity,
   createCelebrity,
+  deleteCelebrity,
 } = require("../controllers/celebrities.controller");
 
 /* GET home page */
@@ -18,6 +19,7 @@ router
   })
   .get("/celebrities/:CelebrityId", getCelebrity)
 
-  .post("/celebrities", createCelebrity);
+  .post("/celebrities", createCelebrity)
+  .post("/celebrities/:CelebrityId/delete", deleteCelebrity);
 
 module.exports = router;

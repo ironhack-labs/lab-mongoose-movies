@@ -33,8 +33,21 @@ const createCelebrity = async (req, res) => {
   }
 };
 
+const deleteCelebrity = async (req, res) => {
+  try {
+    const { CelebrityId} = req.params;
+    console.log(CelebrityId);
+    const removedCelebrity = await Celebrity.findByIdAndRemove(CelebrityId);
+    console.log("removed celebrity", removedCelebrity);
+    res.redirect("/celebrities");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   getCelebrities,
   getCelebrity,
   createCelebrity,
+  deleteCelebrity
 };
