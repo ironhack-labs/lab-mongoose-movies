@@ -10,6 +10,19 @@ const getCelebrities = async (req, res) => {
   }
 };
 
+const getCelebrity = async (req, res) => {
+  try {
+    const { CelebrityId } = req.params;
+    const celebrity = await Celebrity.findById(CelebrityId);
+    console.log(celebrity)
+    res.render("celebrities/show", { celebrity });
+  } catch (err) {
+    next();
+    return err;
+  }
+};
+
 module.exports = {
   getCelebrities,
+  getCelebrity,
 };
