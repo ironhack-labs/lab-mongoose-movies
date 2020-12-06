@@ -8,10 +8,10 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
+const celebRoutes = require('./routes/celebrities')
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URL, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -50,9 +50,11 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
+// RUTAS
 
 const index = require('./routes/index');
+const { celebDetails, newCelebView } = require('./controllers/celebs.controllers');
 app.use('/', index);
-
+app.use('/celebrities', celebRoutes)
 
 module.exports = app;
