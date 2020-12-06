@@ -1,0 +1,17 @@
+<h1>DISPLAY ALL MOVIES</h1>
+<p>
+{{#each movies}}
+  {{title}}
+  {{genre}}
+  {{plot}}
+  <a href="/movies/{{_id}}">View details</a>
+  <form action="/movies/{{_id}}/delete" method="POST">
+    <input type="text" name="{{_id}}" hidden>
+    <button type="submit">Delete</button>
+  </form>
+{{/each}}
+</p>
+
+<div>
+  <a href="/movies/new-movie">Create Movie</a>
+</div>

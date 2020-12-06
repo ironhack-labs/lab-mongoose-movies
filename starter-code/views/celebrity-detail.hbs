@@ -1,0 +1,32 @@
+<h1>Celebrity Detail</h1>
+<div>
+    {{name}}
+    {{ocuppation}}
+    {{catchPhrase}}
+</div>
+<div>
+    <form action="/celebrities/{{_id}}/update" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="occupation">Occupation</label>
+        <input type="text" id="occupation" name="occupation">
+        <label for="catchPhrase">Catch Phrase</label>
+        <input type="text" id="catchPhrase" name="catchPhrase">
+        <button type="submit">Update Celebrity</button>
+    </form>
+</div>
+
+<div>
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+        <input type="text" name="{{_id}}" hidden>
+        <button>Delete artist</button>
+    </form>
+</div>
+
+<div>
+    <a href="/celebrities/new">Create new celebrity</a>
+</div>
+
+<div>
+    <a href="/celebrities">Back to Celebrities list</a>
+</div>

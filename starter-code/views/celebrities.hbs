@@ -1,0 +1,14 @@
+<h1>display all celebrities</h1>
+<div>
+  <p>
+  {{#each celebrities}}
+    <p>{{name}}</p>
+    <p>{{ocuppation}}</p>
+    <p>{{catchPhrase}}</p>
+    <p><a href="/celebrities/{{_id}}">View Celebrity Details</a></p>
+  {{/each}}
+  </p>
+</div>
+<div>
+  <a href="/celebrities/new">Create new celebrity</a>
+</div>
