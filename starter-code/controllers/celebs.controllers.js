@@ -1,9 +1,8 @@
 const Celebrity = require('../models/Celebrity');
-const Celebrities = require('../models/Celebrity')
 
 const getCelebs = async (req, res) => {
     try {
-        const celebrities = await Celebrities.find();
+        const celebrities = await Celebrity.find();
         console.log('show me celebrities!!!! ', celebrities)
         res.render('celebrities', {celebrities}) 
     } catch (err) {
@@ -14,7 +13,7 @@ const getCelebs = async (req, res) => {
 const celebDetails = async (req, res) => {
     try {
         const {id} = req.params
-        const details = await Celebrities.findById(id);
+        const details = await Celebrity.findById(id);
         console.log('show me now details!!!! ', details)
         res.render('celebrityDetail', details)
     } catch (err) {
@@ -24,7 +23,7 @@ const celebDetails = async (req, res) => {
 
 const newCelebView = async (req, res) => {
     try {
-        res.render('new')
+        res.render('newCeleb')
     } catch (err) {
         console.log('There is an error !!!!!',err)
     }
@@ -33,10 +32,9 @@ const newCelebView = async (req, res) => {
 const createCeleb = async (req, res) => {
     // BUG: cuando hago refresh de la página /celebrities luego de haber creado la new celebrity, me crea el mismo objeto las veces que hago refresh
     try {
-        await Celebrities.create(req.body)
+        await Celebrity.create(req.body)
         console.log('This is the req.body !!!',req.body)
-        const celebrities = await Celebrities.find()
-        res.render('celebrities', {celebrities})
+        res.redirect('/celebrities')
     } catch (err) {
         console.log(err)
     }
@@ -46,9 +44,8 @@ const deleteCeleb = async (req, res) => {
     try {
         const { id } = req.params
         console.log(id)
-        await Celebrities.findByIdAndRemove(id)
-        const celebrities = await Celebrities.find()
-        res.render('celebrities', {celebrities})
+        await Celebrity.findByIdAndRemove(id)
+        res.redirect('/celebrities')
     } catch (err) {
         console.log('There is an error!',err)
     }
@@ -57,10 +54,10 @@ const deleteCeleb = async (req, res) => {
 const editCelebView = async (req, res) => {
     try {
         const { id } = req.params
-        const celeb = await Celebrities.findById(id)
+        const celeb = await Celebrity.findById(id)
         console.log(celeb)
         console.log('el ID es:',id)
-        res.render('edit', celeb)
+        res.render('editCeleb', celeb)
     } catch (err) {
         console.log('Errror in editCeleb !!!', err)
     }
@@ -72,10 +69,9 @@ const updateCeleb = async (req, res) => {
         const newCeleb = req.body // recogemos la información en body porque el formulario tiene método POST
         console.log('el ID desde updateCeleb es:', id)
         console.log('celebrity a cambiar:', newCeleb)
-        const updateCelebrity = await Celebrities.findByIdAndUpdate(id, newCeleb)
+        const updateCelebrity = await Celebrity.findByIdAndUpdate(id, newCeleb)
         console.log('celebrity update: ',updateCelebrity)
-        const celebrities = await Celebrities.find()
-        res.render('celebrities', {celebrities})
+        res.redirect('/celebrities')
     } catch (err) {
         console.log('There is an error in updateCeleb !!!!', err)
     }

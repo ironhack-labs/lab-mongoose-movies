@@ -9,6 +9,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const celebRoutes = require('./routes/celebrities')
+const moviesRoutes = require('./routes/movies')
 
 mongoose
   .connect(process.env.MONGODB_URL, {useNewUrlParser: true})
@@ -55,6 +56,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 const { celebDetails, newCelebView } = require('./controllers/celebs.controllers');
 app.use('/', index);
-app.use('/celebrities', celebRoutes)
+app.use('/celebrities', celebRoutes);
+app.use('/movies', moviesRoutes);
 
 module.exports = app;
