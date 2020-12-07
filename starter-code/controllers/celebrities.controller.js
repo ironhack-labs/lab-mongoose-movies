@@ -51,6 +51,7 @@ const updateCelebrity = async (req, res) => {
     const updatedCelebrity = await Celebrity.findByIdAndUpdate(CelebrityId, req.body, {
       new: true,
     });
+    console.log("updated celebrity", updatedCelebrity);
     res.redirect(`/celebrities/${CelebrityId}`);
   } catch (err) {
     console.error(err);
