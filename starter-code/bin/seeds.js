@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/celebrity.js");
-require("dotenv").config()
+const dotenv = require('dotenv').config()
 
 const dbOptions = {
     useCreateIndex: true,

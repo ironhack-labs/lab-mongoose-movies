@@ -1,8 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 
-const{getCelebs, showCeleb
- }=require("../controllers/celebrities")
+const{getCelebs, showCeleb}=require("../controllers/celebrities")
 
 router
 .get("/",getCelebs)
