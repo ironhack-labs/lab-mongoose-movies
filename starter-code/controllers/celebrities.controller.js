@@ -45,9 +45,22 @@ const deleteCelebrity = async (req, res) => {
   }
 };
 
+const updateCelebrity = async (req, res) => {
+  try {
+    const { CelebrityId } = req.params;
+    const updatedCelebrity = await Celebrity.findByIdAndUpdate(CelebrityId, req.body, {
+      new: true,
+    });
+    res.redirect(`/celebrities/${CelebrityId}`);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   getCelebrities,
   getCelebrity,
   createCelebrity,
-  deleteCelebrity
+  deleteCelebrity,
+  updateCelebrity
 };

@@ -6,6 +6,7 @@ const {
   getCelebrity,
   createCelebrity,
   deleteCelebrity,
+  updateCelebrity
 } = require("../controllers/celebrities.controller");
 
 /* GET home page */
@@ -20,6 +21,7 @@ router
   .get("/celebrities/:CelebrityId", getCelebrity)
 
   .post("/celebrities", createCelebrity)
-  .post("/celebrities/:CelebrityId/delete", deleteCelebrity);
+  .post("/celebrities/:CelebrityId/delete", deleteCelebrity)
+  .post("/celebrities/:CelebrityId/update", updateCelebrity);
 
 module.exports = router;
