@@ -1,8 +1,89 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  h1{
+    padding: 20px 0;
+  }
+  h2{
+    background-color: #5391a8c2;
+    padding: 20px 5px;
+    text-align: center;
+    color: #ffffff;
+  }
+  button{
+    color: #ffffff;
+    background-color: #5391a8;
+    border:0;
+    width: 100px;
+    padding: 5px 0;
+    margin: 10px 0;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+
+  }
+  form label{
+    padding: 10px 0;
+    color: #5391a8;
+  }
+  form input{
+    height: 20px;
+  }
+  .formulario{
+    padding: 5% 10%;
+  }
+  .index{
+    margin: auto;
+    padding: 20px 0;
+    a{
+      text-decoration: none;
+      border: 1px solid #00B7FF;
+      padding: 20px 40px;
+      margin: 0 20px;
+      display: inline-block;
+    }
+  }
+  .enlaces a{
+    background-color: #ffffff;
+    border: 1px solid #00B7FF;
+    text-align: center;
+    padding: 10px;
+    width: 70px;
+    display: block;
+  }
+  .principal{
+    padding: 5% 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    .contenido{
+      border: 1px solid  #62808bc5;
+      padding: 20px;
+      margin: 5%;
+      text-align: center;
+      a{
+        display: block;
+        padding: 10px 0;
+        color:  #62808b;
+      }
+
+    }
+  }
+  .info{
+    padding: 5% 10%;
+    p {
+      padding: 10px 0;
+    }
+    h5{
+      color: #494949;
+    }
+  }
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }

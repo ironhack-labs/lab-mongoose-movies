@@ -1,8 +1,71 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  body h1 {
+    padding: 20px 0; }
+  body h2 {
+    background-color: #5391a8c2;
+    padding: 20px 5px;
+    text-align: center;
+    color: #ffffff; }
+  body button {
+    color: #ffffff;
+    background-color: #5391a8;
+    border: 0;
+    width: 100px;
+    padding: 5px 0;
+    margin: 10px 0; }
+  body form {
+    display: flex;
+    flex-direction: column; }
+  body form label {
+    padding: 10px 0;
+    color: #5391a8; }
+  body form input {
+    height: 20px; }
+  body .formulario {
+    padding: 5% 10%; }
+  body .index {
+    margin: auto;
+    padding: 20px 0; }
+    body .index a {
+      text-decoration: none;
+      border: 1px solid #00B7FF;
+      padding: 20px 40px;
+      margin: 0 20px;
+      display: inline-block; }
+  body .enlaces a {
+    background-color: #ffffff;
+    border: 1px solid #00B7FF;
+    text-align: center;
+    padding: 10px;
+    width: 70px;
+    display: block; }
+  body .principal {
+    padding: 5% 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center; }
+    body .principal .contenido {
+      border: 1px solid  #62808bc5;
+      padding: 20px;
+      margin: 5%;
+      text-align: center; }
+      body .principal .contenido a {
+        display: block;
+        padding: 10px 0;
+        color: #62808b; }
+  body .info {
+    padding: 5% 10%; }
+    body .info p {
+      padding: 10px 0; }
+    body .info h5 {
+      color: #494949; }
 
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+  text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */
