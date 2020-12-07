@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const Celebrities = require("../models/Celebrity");
+const Celebrities = require("../models/celebrity");
 
 const getActors = async (req, res) => {
   try {

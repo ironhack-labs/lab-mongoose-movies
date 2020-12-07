@@ -55,6 +55,8 @@ const index = require('./routes/index');
 app.use('/', index);
 const celebInit = require('./routes/celebrities');
 app.use('/', celebInit);
+const moviesInit = require('./routes/movie');
+app.use('/', moviesInit);
 
 
 module.exports = app;
