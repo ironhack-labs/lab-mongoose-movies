@@ -40,7 +40,7 @@ const deleteOne = async (req, res) => {
     const { actorId } = req.params;
     const removedOne = await Celebrities.findByIdAndRemove(actorId);
     console.log("removed famous", removedOne);
-    res.redirect("celebrities/index.hbs");
+    res.redirect("/celebrities");
   } catch (err) {
     console.error(err);
   }

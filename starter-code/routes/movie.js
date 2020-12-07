@@ -41,7 +41,7 @@ const deleteOne = async (req, res) => {
     const { movieId } = req.params;
     const removedOne = await Movies.findByIdAndRemove(movieId);
     console.log("Removed movie", removedOne);
-    res.redirect("movies/index.hbs");
+    res.redirect("/movies");
   } catch (err) {
     console.error(err);
   }
