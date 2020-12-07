@@ -8,10 +8,13 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const connectDb = require("./config/connectDb");
+const celebritiesRoutes = require("./routes/celebrities.route");
 
+connectDb();
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect(process.env.MONGO_URL, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -32,11 +35,11 @@ app.use(cookieParser());
 
 // Express View engine setup
 
-app.use(require('node-sass-middleware')({
+/* app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
-}));
+})); */
       
 
 app.set('views', path.join(__dirname, 'views'));
@@ -50,9 +53,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
+// ROUTES
 const index = require('./routes/index');
 app.use('/', index);
+app.use('/celebrities', celebritiesRoutes)
+//app.use('/movies', moviesRoutes)
 
 
 module.exports = app;
+
+
+

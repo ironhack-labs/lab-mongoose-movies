@@ -1,0 +1,15 @@
+{{!-- <div>
+    <input type="text" name="name" id="name">
+    <input type="text" name="occupation" id="occupation">
+    <input type="text" name="catchPhrase" id="catchPhrase">
+        <a href="/celebrities/{{_id}}">view more</a>
+</div> --}}
+
+
+<div>
+    <h4>{{name}}</h4>
+    <p>{{occupation}}</p>
+    <p>Catch phrase: {{catchPhrase}}</p>
+    <a href="/celebrities/{{_id}}">view more</a>
+    {{> deleteBtn}}
+</div>
