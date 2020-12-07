@@ -41,5 +41,5 @@ async function seedDb(){
 }
 seedDb()
 
-//5.Run the seed file with node to seed your database.node bin/seeds.js
+//5.Run the seed file with node to seed your database. node bin/seeds.js
 
