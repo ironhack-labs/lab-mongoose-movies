@@ -1,0 +1,17 @@
+<h2>Update {{title}}'s page</h2>
+
+
+<form method="POST" action="/movies/{{_id}}">
+
+    <label for="title"></label>
+    <input id="title" type="text" name="title" value="{{title}}">
+
+    <label for="genre"></label>
+    <input id="genre" type="text" name="genre" value="{{genre}}">
+
+    <label for="plot"></label>
+    <input id="plot" type="text" name="plot" value="{{plot}}">
+
+    <button>Update</button>
+    
+</form>
