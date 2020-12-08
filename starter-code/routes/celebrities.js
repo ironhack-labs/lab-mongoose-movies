@@ -25,6 +25,15 @@ router.get("/new", async (req, res, next) => {
     }
   });
 
+//// GET - /celebrities/:id/edit (UPDATE)
+router.get("/:id/edit", async (req, res, next) => {
+    try {
+      const celebsToUpdate = await CelebrityModel.findById(req.params.id);
+      res.render("celebrities/edit", celebsToUpdate ); 
+    } catch (err) {
+      next(err);
+    }
+  });
 
 // GET - /celebrities/:id (READ / SHOW DETAILS)
 router.get("/:id", async (req, res, next) => {
@@ -39,17 +48,17 @@ router.get("/:id", async (req, res, next) => {
 
 // // POST - /celebrities (CREATE)
 router.post("/new", async (req, res, next) => {
-    const celebToUpdate = { ...req.body };
+    const celebToCreate = { ...req.body };
     console.log
     try {
-        await CelebrityModel.create(celebToUpdate);
+        await CelebrityModel.create(celebToCreate);
         res.redirect("/celebrities");
       } catch (err) {
         next(err); 
       }
     });
 
- // POST - (DELETE)   
+ // POST - /celebrities/:id/delete (DELETE)   
 router.post("/:id/delete", async (req, res) => {
     try {
       await CelebrityModel.findByIdAndRemove(req.params.id);
@@ -58,5 +67,23 @@ router.post("/:id/delete", async (req, res) => {
       console.error(err);
     }
 });
+
+
+
+// POST - /celebrities/:id (UPDATE)
+router.post("/:id", async (req, res) => {
+    const celebInputToUpdate = { ...req.body };
+    try {
+      const updatedCeleb = await CelebrityModel.findByIdAndUpdate(
+        req.params.id,
+        celebInputToUpdate,
+        { new: true } // true: give me the updated documebnt back (default: false)
+      );
+      console.log(updatedCeleb);
+      res.redirect("/celebrities");
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
 module.exports = router;
