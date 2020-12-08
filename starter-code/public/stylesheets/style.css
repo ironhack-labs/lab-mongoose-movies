@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 14px; }
+
+body {
+  padding: 4rem;
+  font: 1rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: #220622; }
+
+a {
+  color: #00B7FF;
+  text-decoration: none; }
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 3rem; }
+
+.btn {
+  padding: 1rem 3rem;
+  background-color: #ffff68;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 1px purple;
+  color: #220622;
+  font-weight: bold; }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem; }
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-start; }
+  form label {
+    color: #00B7FF;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem; }
+  form input {
+    width: 20rem;
+    height: 2rem; }
+  form button {
+    margin-top: 3rem; }
+
+form .btn-delete {
+  background-color: transparent;
+  border: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 3rem;
+  margin-top: 0; }
+  form .btn-delete i {
+    color: #00B7FF; }
+
+.home-page > div {
+  margin-top: 3rem; }
+  .home-page > div a:hover {
+    background-color: #70700a; }
+
+.detail-page h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem; }
+
+.detail-page p {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  color: #00B7FF; }
+  .detail-page p span {
+    color: white; }
+
+@media (max-width: 450px) {
+  html {
+    font-size: 10px; } }
+
+/*# sourceMappingURL=style.css.map */

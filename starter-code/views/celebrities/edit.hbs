@@ -1,0 +1,17 @@
+<section class="edit-page page">
+        <h2>Edit existing celebrity</h2>
+
+        <form action="/celebrities/{{_id}}" method="post">
+                <label for="name">Name</label>
+                <input name="name" id="name" value="{{name}}" type="text">
+
+                <label for="occupation">occupation</label>
+                <input name="occupation" id="occupation" value="{{occupation}}" type="text">
+
+                <label for="catchPhrase">Catch Phrase</label>
+                <input name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}" type="text">
+
+                <button class="btn">Edit</button>
+        </form>
+
+</section>

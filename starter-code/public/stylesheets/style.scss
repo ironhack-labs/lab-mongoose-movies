@@ -1,8 +1,118 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 14px;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 4rem;
+  font: 1rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: #220622;
+  
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+h1{
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.btn{
+  padding: 1rem 3rem;
+  background-color: rgb(255, 255, 104);
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 1px purple;
+  color: #220622;
+  font-weight: bold;
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 3rem;
+
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-start;
+  & label{
+    color:#00B7FF ;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  & input{
+    width: 20rem;
+    height: 2rem;
+  }
+  & button{
+    margin-top: 3rem;
+  }
+}
+
+form .btn-delete{
+  background-color: transparent;
+  border: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 3rem ;
+  margin-top: 0;
+
+  & i{
+    color: #00B7FF;
+  }
+}
+
+.home-page{
+
+  & > div {
+    margin-top: 3rem;
+
+    & a:hover{
+        background-color: rgb(112, 112, 10);
+      }
+    
+  }
+  
+}
+
+.detail-page{
+  & h2{
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  & p{
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    color: #00B7FF;
+
+    & span{
+      color: white;
+    }
+  }
+}
+
+.add-page{
+  form{
+
+  }
+}
+
+@media (max-width:450px){
+  html{
+font-size: 10px;
+  }
 }

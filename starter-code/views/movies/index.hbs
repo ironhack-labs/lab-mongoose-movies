@@ -1,0 +1,19 @@
+<section class="list-page page">
+        <h1>Movies List</h1>
+        {{#each listMovies}}
+        <div class="item">
+                <a href="/movies/{{this._id}}">
+                        <h2>{{this.title}}</h2>
+                </a>
+                <form action="/movies/{{this._id}}/delete" method="post">
+                        <button class="btn-delete"><i class="fas fa-trash-alt"></i></button>
+                </form>
+                <a href="/movies/{{this._id}}/edit"><i class="fas fa-edit"></i></a>
+        </div>
+        {{/each}}
+
+        <a href="/movies/new" class="btn">Add a new movie</a>
+
+
+
+</section>
