@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router  = require('./celebrities');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
