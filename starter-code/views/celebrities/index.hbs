@@ -1,0 +1,12 @@
+<h2>Celebrities</h2>
+<ul>
+    {{#each celebrities}}
+    <li>
+        {{log this}}
+        <p>{{this.name}}</p>
+        <a href="/celebrities/{{this._id}}">Details</a>
+    </li>
+    <form method="post" action="/celebrities/{{this._id}}/delete" enctype="application/json" class="form">
+    <button class="btn">delete</button>
+    {{/each}}
+</ul>
