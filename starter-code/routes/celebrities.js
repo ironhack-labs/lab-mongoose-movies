@@ -4,7 +4,7 @@ const CelebrityModel = require("./../models/celebrity");
 
 
 // GET - /views/celebrities/index
-router.get("/celebrities", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     // Call the Celebrity model's find method to retrieve all the celebrities.
     const celebs = await CelebrityModel.find();
@@ -14,3 +14,5 @@ router.get("/celebrities", async (req, res, next) => {
     next(err);
   }
 });
+
+module.exports = router;
