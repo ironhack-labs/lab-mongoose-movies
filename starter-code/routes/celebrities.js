@@ -44,7 +44,7 @@ router.get("/celebrities/:id", async (req, res, next) =>{
     }
 });
 //delete
-router.post("/delete/:id", async (req, res, next) =>{
+router.post("/celebrities/delete/:id", async (req, res, next) =>{
     try {
         await CelebrityModel.findByIdAndRemove(req.params.id);
         res.redirect("/celebrities");
