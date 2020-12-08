@@ -3,7 +3,7 @@ const router = new express.Router();
 const CelebrityModel = require("./../models/celebrity");
 
 
-// GET - /views/celebrities/index
+// GET - /celebrities/
 router.get("/", async (req, res, next) => {
   try {
     // Call the Celebrity model's find method to retrieve all the celebrities.
@@ -15,4 +15,39 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// // GET - /celebrities/new (CREATE)
+router.get("/new", async (req, res, next) => {
+    try {
+      await CelebrityModel.findById(req.params.id); // fetch the celeb to update
+      res.render("celebrities/new"); // pass the found celeb to the view
+    } catch (err) {
+      next(err); 
+    }
+  });
+
+
+// GET - /celebrities/:id
+router.get("/:id", async (req, res, next) => {
+    try {
+      
+      const celebsid = await CelebrityModel.findById(req.params.id);
+      res.render("celebrities/show", celebsid ); 
+    } catch (err) {
+      next(err);
+    }
+  });
+
+// // POST - /celebrities (CREATE)
+router.post("/new", async (req, res, next) => {
+    const celebToUpdate = { ...req.body };
+    console.log
+    try {
+        await CelebrityModel.create(celebToUpdate);
+        res.redirect("/celebrities");
+      } catch (err) {
+        next(err); 
+      }
+    });
+  
+  
 module.exports = router;
