@@ -3,7 +3,7 @@ const router = new express.Router();
 const CelebrityModel = require("./../models/celebrity");
 
 
-// GET - /celebrities/
+// GET - /celebrities/  (READ ALL CELEBS)
 router.get("/", async (req, res, next) => {
   try {
     // Call the Celebrity model's find method to retrieve all the celebrities.
@@ -26,7 +26,7 @@ router.get("/new", async (req, res, next) => {
   });
 
 
-// GET - /celebrities/:id
+// GET - /celebrities/:id (READ / SHOW DETAILS)
 router.get("/:id", async (req, res, next) => {
     try {
       
@@ -48,6 +48,15 @@ router.post("/new", async (req, res, next) => {
         next(err); 
       }
     });
-  
-  
+
+ // POST - (DELETE)   
+router.post("/:id/delete", async (req, res) => {
+    try {
+      await CelebrityModel.findByIdAndRemove(req.params.id);
+      res.redirect("/celebrities");
+    } catch (err) {
+      console.error(err);
+    }
+});
+
 module.exports = router;
