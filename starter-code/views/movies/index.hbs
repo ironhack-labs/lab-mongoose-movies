@@ -1,0 +1,17 @@
+<h2>Allmovies</h2>
+
+{{#each movie}}
+
+<div class="movie">
+    <a href="/movies/{{this._id}}">{{this.tile}}</a>
+</div>
+
+<a href="/movies/{{this._id}}/edit">Update</a>
+
+<button><a href="/movies/{{this._id}}/delete">Delete</a></button>
+
+</form>
+
+{{/each}}
+<br>
+<a href="/movies/new">Create</a>
