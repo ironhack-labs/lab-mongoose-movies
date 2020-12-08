@@ -1,0 +1,37 @@
+.form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form .input {
+    height: 32px;
+    margin-bottom: 20px;
+    border: 1px solid;
+  }
+  
+  .form .icon {
+    margin-bottom: 20px;
+  }
+  
+  .form .label {
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .form .btn {
+    height: 32px;
+    max-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: whitesmoke;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .form .btn:hover {
+    background: whitesmoke;
+    color: black;
+    border: 1px solid;
+  }
