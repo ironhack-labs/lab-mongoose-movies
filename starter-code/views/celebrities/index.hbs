@@ -1,0 +1,19 @@
+<section class="list-page page">
+        <h1>Celebrities List</h1>
+
+        {{#each listCelebrities}}
+        <div class="item">
+                <a href="/celebrities/{{this._id}}">
+                        <h2>{{this.name}}</h2>
+                </a>
+                <form action="/celebrities/{{this._id}}/delete" method="post">
+                        <button class="btn-delete"><i class="fas fa-trash-alt"></i></button>
+                </form>
+                <a href="/celebrities/{{this._id}}/edit"><i class="fas fa-edit"></i></a>
+        </div>
+        {{/each}}
+
+        <a href="/celebrities/new" class="btn">Add a new celebrity</a>
+
+
+</section>
