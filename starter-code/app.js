@@ -9,6 +9,8 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+//connect routers
+
 
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
@@ -50,9 +52,13 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-
+//Route to index page
 const index = require('./routes/index');
 app.use('/', index);
+
+//Route to celebrites page
+const celebRouter = require("./routes/celebrities");
+app.use("/", celebRouter);
 
 
 module.exports = app;
