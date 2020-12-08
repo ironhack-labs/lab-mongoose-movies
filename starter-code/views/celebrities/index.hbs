@@ -1,0 +1,16 @@
+<h2 class="title">
+    <span>All celebrities</span>
+</h2>
+<hr />
+{{#unless celebrities.length}}
+<p>sorry, no celebrities yet</p>
+{{/unless}}
+{{#each celebrities}}
+<div>
+    <div>
+        <a href="/celebrities/{{ this._id }}">
+            <h4>{{ this.name }}</h4>
+        </a>
+    </div>
+</div>
+{{/each}}
