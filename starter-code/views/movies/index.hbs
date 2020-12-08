@@ -1,0 +1,15 @@
+<h2>Movies </h2>
+<ul class="list">
+    {{#each mov}}
+    <li class="item card">
+        <div class="icons">
+            <h3>{{this.titre}}</h3>
+            <a href="/movies/show/{{this._id}}">details</a>
+            <form method="post" action="/movies/{{_id}}/delete" class="form" enctype="multipart/form-data">
+                <button>Delete</button>
+            </form>
+        </div>
+    </li>
+    {{/each}}
+    <a href="/movies/new">Create</a>
+</ul>
