@@ -1,0 +1,17 @@
+<h2>Celebrity Home Page</h2>
+
+<nav>
+
+  <a href="/celebrities/new">Make New Celebrity</a>
+
+</nav>
+<ul>
+  {{#each celebrityArray}}
+  <li>
+    {{this.name}}
+  </li>
+  <li>
+    <a href="/celebrities/{{this._id}}">Celebrity Details!</a>
+  </li>
+  {{/each}}
+</ul>
