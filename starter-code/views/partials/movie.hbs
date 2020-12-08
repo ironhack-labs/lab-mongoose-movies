@@ -1,7 +1,8 @@
 <article>
-    <h2>{{title}}</h2>
-    <h4>{{genre}}</h4>
-    <p>{{plot}}</p>
+    <h2>{{movie.title}}</h2>
+    <h4>{{movie.genre}}</h4>
+    <p>{{movie.plot}}</p>
+    <p>Star: {{#each movie.stars}}{{name}}{{/each}}</p>
     <form action="/movies/{{_id}}/edit" method="GET">
         <button type="submit">Edit</button>
     </form>

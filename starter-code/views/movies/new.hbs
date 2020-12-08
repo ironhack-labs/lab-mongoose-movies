@@ -6,5 +6,11 @@
     <input type="text" name="genre" id="genre">
     <label for="plot">Plot</label>
     <input type="text" name="plot" id="plot">
+    <select name="actor" id="actor">
+        <option disabled selected value> -- select an option -- </option>
+        {{#each actors}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
     <button type="submit">Save</button>
 </form>

@@ -1,4 +1,5 @@
 const Movie = require("../models/Movie.model")
+const Celebrity = require("../models/Celebrity.model")
 
 const getMovies = async (req, res) => {
     try {
@@ -12,8 +13,12 @@ const getMovies = async (req, res) => {
 const getMovie = async (req, res) => {
     try{
     const { id } = req.params;
-    const movie = await Movie.findById(id);
-    res.render("movies/show", movie)
+    const movie = await Movie.findById(id).populate(
+      "stars",
+      "name"
+    );
+        const star = movie.stars
+    res.render("movies/show", {movie} )
     } catch (e) {
         console.error(e)
     }
@@ -21,7 +26,8 @@ const getMovie = async (req, res) => {
 
 const newMovie = async (req, res) => {
     try {
-        res.render("movies/new")
+        const actors = await Celebrity.find()
+        res.render("movies/new", {actors})
     } catch(err){
         console.error(err)
     }
@@ -29,10 +35,10 @@ const newMovie = async (req, res) => {
 
 const addMovie = async (req, res) => {
     try {
-        const { title, genre, plot } = req.body;
-        const addMovies = await Movie.create({ title, genre, plot })
+        const { title, genre, plot, actor } = req.body;
+        const addMovies = await Movie.create({ title, genre, plot, stars: actor})
+        console.log(addMovies)
         const movies = await Movie.find()
-        console
         res.render("./movies/index", {movies})
     } catch(err){
         console.error(err)

@@ -9,7 +9,13 @@ const movieSchema = new mongoose.Schema({
     },
     plot: {
         type: String
-    }
+    },
+    stars: [
+        {
+        type: mongoose.Types.ObjectId,
+        ref: "Celebrity",
+        },
+    ],
 })
 
 module.exports = mongoose.model("Movie", movieSchema)
