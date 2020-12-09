@@ -21,6 +21,25 @@ router.get("/celebrities/new", async (req, res, next) =>{
         next(err);
     }
 });
+router.get("/celebrities/:id/edit", async (req, res, next) =>{
+    try {
+        const editCeleb = await CelebrityModel.findById(req.params.id);
+        res.render("./celebrities/edit", editCeleb);
+    } catch (err) {
+        next(err);
+    }
+});
+router.post("/celebrities/edit", async (req, res, next) =>{
+    const newCelebPostUp = { ...req.body };
+    try {
+        await CelebrityModel.findByIdAndUpdate(newCelebPostUp, { new: true });
+        res.redirect("./celebrities");
+    } catch (error) {
+        next(error);
+    }
+});
+
+
 
 router.post("/celebrities/new", async (req, res, next) =>{
     const newCelebPost = { ...req.body };
@@ -43,6 +62,16 @@ router.get("/celebrities/:id", async (req, res, next) =>{
         next(err);
     }
 });
+// //update
+// router.post("/update/:id", async (req, res, next) =>{
+//     try {
+//         await CelebrityModel.findByIdAndUpdate(req.params.id);
+//         res.render("/updateCelebritiy");
+//     } catch (error) {
+//         next(error);
+//     }
+// });
+
 //delete
 router.post("/celebrities/delete/:id", async (req, res, next) =>{
     try {
