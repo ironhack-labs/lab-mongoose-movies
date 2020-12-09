@@ -1,22 +1,47 @@
 require("dotenv").config();
 require(".././app");
 
-const CelebritieModel = require("../models/Celebrity");
+// const CelebritieModel = require("../models/Celebrity");
 
-const celebrities = [
+// const celebrities = [
+//   {
+//     name: "Arnold schwarzenegger",
+//     occupation: "Actor",
+//     catchPhrase: "I will be back",
+//   },
+//   {
+//     name: "Sylvester Stallone",
+//     occupation: "Actor",
+//     catchPhrase: "It wasnt my war",
+//   },
+//   { name: "Jessica Alba", occupation: "Actress", catchPhrase: "" },
+// ];
+
+// CelebritieModel.insertMany(celebrities)
+//   .then((dbRes) => console.log(dbRes))
+//   .catch((err) => console.log(err));
+
+const MovieModel = require("../models/Movie");
+
+const movies = [
   {
-    name: "Arnold schwarzenegger",
-    occupation: "Actor",
-    catchPhrase: "I will be back",
+    title: "Predator",
+    genre: "Action",
+    plot:
+      "Le major Dutch Schaeffer prend la tête d'un commando chargé de délivrer un groupe de civils américains prisonniers de guérilleros en Amérique centrale. Largués en hélicoptère dans une jungle hostile, ses hommes et lui découvrent des corps de soldats écorchés vifs... avant d'être pris en chasse par une mystérieuse créature.",
   },
   {
-    name: "Sylvester Stallone",
-    occupation: "Actor",
-    catchPhrase: "It wasnt my war",
+    title: "Rocky",
+    genre: "Drama",
+    plot: "Boxe",
   },
-  { name: "Jessica Alba", occupation: "Actress", catchPhrase: "" },
+  {
+    title: "Akira",
+    genre: "Anime",
+    plot: "end of the world",
+  },
 ];
 
-CelebritieModel.insertMany(celebrities)
+MovieModel.insertMany(movies)
   .then((dbRes) => console.log(dbRes))
   .catch((err) => console.log(err));
