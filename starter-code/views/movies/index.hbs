@@ -1,0 +1,10 @@
+<h2>Page's heading</h2>
+{{#each movs}}
+<p>{{this.title}}</p>
+<a href="/movies/{{this._id}}">Go to details</a>
+<form method="post" action="/movies/{{this._id}}/delete" >
+    <button class="btn">delete</button>
+</form>
+<a href="/movies/{{this._id}}/edit">Update</a>
+{{/each}}
+<a href="/movies/new">Create a new movie</a>

@@ -60,6 +60,9 @@ app.use(index);
 const celebritiesprefix = require('./routes/celebrities');
 app.use("/celebrities", celebritiesprefix);
 
+const movieprefix = require('./routes/movies');
+app.use("/movies", movieprefix);
+
 
 module.exports = app;
 

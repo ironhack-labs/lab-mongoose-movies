@@ -1,0 +1,15 @@
+<h2>Page's heading</h2>
+
+<form method="post" action="/movies/{{this._id}}" > 
+
+ <label class="label" for="title">TITLE</label>
+ <input class="input" id="title" type="text" value="{{this.title}}" name="title">
+
+ <label class="label" for="genre">GENRE</label>
+ <input class="input" id="genre" type="text" value="{{this.genre}}" name="genre">
+
+ <label class="label" for="plot">PLOT</label>
+ <input class="input" id="plot" type="text" value="{{this.plot}}" name="plot">
+
+    <button class="btn">Update</button>
+</form>
