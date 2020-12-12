@@ -1,0 +1,15 @@
+<h2>All Celebrities</h2>
+<a href="/celebrities/new">Create a new Celebrity</a>
+{{#unless allCelebrities.length}}
+<p>Please create a new celebrity</p>
+{{/unless}}
+<ul>
+    {{#each allCelebrities}}
+    <li>{{this.name}}</li>
+    <a href="/celebrities/{{this._id}}">More about Me</a> <br>
+    <a href="/celebrities/{{this._id}}/edit">update Me</a> <br>
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+        <button>Delete</button>
+    </form>
+    {{/each}}
+</ul>
