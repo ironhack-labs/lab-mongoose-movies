@@ -5,17 +5,17 @@ require("./../app");
 const celebrities = [
     {
         name: "Tom Hanks",
-        occupation: "Actor",
+        ocupation: "Actor",
         catchPhrase: "Run Forrest, run!"
     },
     {
         name: "Cyndi Lauper",
-        occupation: "Singer",
+        ocupation: "Singer",
         catchPhrase: "Girls Just Want to Have Fun"
     },
     {
         name: "Pajares y Esteso",
-        occupation: "Actores",
+        ocupation: "Actores",
         catchPhrase: "Corre Manolo, que te van a pillar"
     },
 ]
