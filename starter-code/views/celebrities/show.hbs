@@ -1,0 +1,26 @@
+
+<div class="container mb-3">
+    <h2 class="mb-3 text-primary">Celebrity Details</h2>
+    <div class="card mb-3 w-75">
+        <div class="card-top">
+            <h2>{{ celebrity.name }}</h2>
+        </div>
+        <div class="card-body">
+            <h3>Occupation: {{ celebrity.occupation }}</h3>
+            <h3>Catch Phrase: {{ celebrity.catchPhrase }}</h3>
+        </div>
+    </div>
+    <div class="container"> 
+        <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+            <a href="/celebrities" class="btn btn-primary">Back</a>
+            <a href="/celebrities/{{ celebrity.id}}/edit" class="btn btn-primary">Edit</a>
+            <button type="submit" class="btn btn-danger"><i class="fa fa-trash mr-2"></i> Delete</button>
+
+        </form>
+    </div>
+    
+</div>
+
+
+
+

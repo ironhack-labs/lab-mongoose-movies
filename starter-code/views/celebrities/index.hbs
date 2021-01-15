@@ -1,0 +1,11 @@
+<div class="container mb-3">
+    <h2>Celebrities</h2>
+    {{#each celebrities as | celebrity |}}
+        <h3><a href="/celebrities/{{ celebrity.id }}" >{{ celebrity.name }}</a></h3>
+    {{/each}}
+</div>
+
+<div class="container">
+    <a href="/" class="btn btn-danger">Home</a>
+    <a href="/celebrities/new" class="btn btn-primary">Add Celebrity</a>
+</div>
