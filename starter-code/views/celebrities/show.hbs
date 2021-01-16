@@ -1,0 +1,17 @@
+<h2>{{celebrity.name}}</h2>
+
+
+<hr class="mt-0" />
+
+
+<div class="m-5">
+
+    <h1>Name: {{celebrity.name}}</h1>
+    <h2>Ocupation: {{celebrity.ocupation}}</h2>
+    <h2>Catch Phrase: {{celebrity.catchPhrase}}</h2>
+<h1>{{celebrity.id}} </h1>
+</div>
+
+<form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+    <button type="submit" class="btn btn-danger"><i class="fa fa-trash mr-2"></i>Delete</button>
+</form>

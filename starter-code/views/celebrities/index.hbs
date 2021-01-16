@@ -1,0 +1,25 @@
+<h2>Celebrities list</h2>
+
+
+<hr class="mt-0" />
+
+{{#if celebrities}}
+
+<div class="card-columns">
+
+    <div class="card-group mt-5">
+        <div class="ml-5">
+            <ul>
+                {{#each celebrities as |celebrity| }}
+                <a class="btn btn-primary" href="/celebrities/{{ celebrity.id }}">{{celebrity.name}}</a>
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+    {{/if}}
+
+    <div class="m-5">
+        <a class="btn btn-outline-success pl-4 pr-4" href="/celebrities/new">NEW CELEBRITY</a>
+    </div>
