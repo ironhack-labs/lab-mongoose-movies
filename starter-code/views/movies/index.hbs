@@ -1,0 +1,25 @@
+<h2>Movies list</h2>
+
+
+<hr class="mt-0" />
+
+{{#if movies}}
+
+<div class="card-columns">
+
+    <div class="card-group mt-5">
+        <div class="ml-5">
+            <ul>
+                {{#each movies as |movie| }}
+                <a class="btn btn-primary" href="/movies/{{ movie.id }}">{{movie.title}}</a>
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+    {{/if}}
+
+    <div class="m-5">
+        <a class="btn btn-outline-success pl-4 pr-4" href="/movies/new">NEW MOVIE</a>
+    </div>
