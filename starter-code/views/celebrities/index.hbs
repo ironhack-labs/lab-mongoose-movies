@@ -1,0 +1,23 @@
+<section>
+  <h1>Celebrities list</h1>
+  <hr class="mt-0" />
+     {{#each celebrities as |celebrity| }}
+    <div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <a class="card-title" href="/celebrities/{{this.id}}" >{{ this.name }}</a>
+        </div>
+      </div>
+
+      <form action="/celebrities/{{this.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button>
+      </form>
+
+      <form action="/celebrities/{{this.id}}/edit" method="GET">
+        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> Edit</button>
+      </form>
+      {{/each}}
+    </div>
+   
+
+</section>

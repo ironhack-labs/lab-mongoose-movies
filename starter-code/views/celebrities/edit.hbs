@@ -1,0 +1,26 @@
+<h1>EDIT CELEBRITY</h1>
+<section>
+  <hr class="mt-0" />
+
+  <form action="/celebrities/{{celebritiesFromDB.id}}/edit" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input name="name" type="text" class="form-control" id="title" placeholder="Enter name"
+        value="{{ celebritiesFromDB.name }}">
+    </div>
+
+    <div class="form-group">
+      <label for="occupation">Occupation</label>
+      <input name="occupation" type="text" class="form-control" id="occupation" placeholder="Enter occupation"
+        value="{{ celebritiesFromDB.occupation }}">
+    </div>
+
+    <div class="form-group">
+      <label for="catchPhrase">CatchPhrase</label>
+      <input name="catchPhrase" type="text" class="form-control" id="catchPhrase" placeholder="Enter catchPhrase"
+        value="{{ celebritiesFromDB.catchPhrase }}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit Celebrity</button>
+  </form>
+</section>
