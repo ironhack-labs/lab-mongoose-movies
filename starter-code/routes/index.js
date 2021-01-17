@@ -10,9 +10,10 @@ router.get('/celebrities', celebrityController.list);
 router.get('/celebrities/create', celebrityController.create); 
 router.post('/celebrities/create', celebrityController.doCreate);
 router.get('/celebrities/:id', celebrityController.show); 
+
+
+router.get('/celebrities/:id/edit', celebrityController.edit); 
+router.post('/celebrities/:id/edit', celebrityController.doEdit); 
 router.post('/celebrities/:id/delete', celebrityController.delete); 
-
-
-
 
 module.exports = router;

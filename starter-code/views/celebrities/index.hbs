@@ -12,6 +12,10 @@
       <form action="/celebrities/{{this.id}}/delete" method="POST">
         <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button>
       </form>
+
+      <form action="/celebrities/{{this.id}}/edit" method="GET">
+        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> Edit</button>
+      </form>
       {{/each}}
     </div>
    
