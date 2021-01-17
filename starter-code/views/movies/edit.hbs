@@ -1,0 +1,28 @@
+<section>
+  <h1>Edit Movie</h1>
+
+  <hr class="mt-0" />
+
+  <form action="/movies/{{ movie.id }}/edit" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input name="title" type="text" class="form-control {{ isInvalid errors.title }}" placeholder="Enter title" value="{{ movie.title }}">
+      {{ formError errors.title}}
+    </div>
+
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <input name="genre" type="text" class="form-control {{ isInvalid errors.genre }}" placeholder="Enter genre" value="{{ movie.genre }}">
+      {{ formError errors.genre}}
+    </div>
+
+    <div class="form-group">
+      <label for="plot">Plot</label>
+      <textarea name="plot" type="text" class="form-control {{ isInvalid errors.plot }}" placeholder="Enter plot" rows="10">{{ movie.plot }}</textarea>
+      {{ formError errors.plot}}
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Edit Movie</button>
+    <a href="/movies" class="btn btn-danger mt-3">Back</a>
+  </form>
+</section>

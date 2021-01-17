@@ -1,0 +1,11 @@
+<div class="container mb-3">
+    <h2><b>Movies</b></h2>
+    {{#each movies as | movie |}}
+        <h3><a href="/movies/{{ movie.id }}" >{{ movie.title }}</a></h3>
+    {{/each}}
+</div>
+
+<div class="container">
+    <a href="/" class="btn btn-danger">Home</a>
+    <a href="/movies/new" class="btn btn-primary">Add Movie</a>
+</div>

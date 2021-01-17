@@ -1,0 +1,28 @@
+<section>
+  <h1>New Celebrity</h1>
+
+  <hr class="mt-0" />
+
+  <form action="/celebrities" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input name="name" type="text" class="form-control {{ isInvalid errors.name }}" placeholder="Enter Name" value="{{ celebrity.name }}">
+      {{ formError errors.name}}
+    </div>
+
+    <div class="form-group">
+      <label for="occupation">Occupation</label>
+      <input name="occupation" type="text" class="form-control {{ isInvalid errors.occupation }}" placeholder="Enter Occupation" value="{{ celebrity.occupation }}">
+      {{ formError errors.occupation}}
+    </div>
+
+    <div class="form-group">
+      <label for="catchPhrase">Catch Phrase</label>
+      <textarea name="catchPhrase" type="text" class="form-control {{ isInvalid errors.catchPhrase }}" placeholder="Enter catch phrase" rows="10">{{ celebrity.catchPhrase }}</textarea>
+      {{ formError errors.catchPhrase}}
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Add Celebrity</button>
+    <a href="/celebrities" class="btn btn-danger mt-3">Back</a>
+  </form>
+</section>

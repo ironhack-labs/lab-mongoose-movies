@@ -1,0 +1,21 @@
+<div class="container mb-3">
+    <h2 class="mb-3 text-primary">Movie Details</h2>
+    <div class="card mb-3 w-75">
+        <div class="card-top">
+            <h2><b>{{ movie.title }}</b></h2>
+        </div>
+        <div class="card-body">
+            <h3><b>Genre:</b> {{ movie.genre }}</h3>
+            <h3><b>Plot:</b> {{ movie.plot }}</h3>
+        </div>
+    </div>
+    <div class="container"> 
+        <form action="/movies/{{movie.id}}/delete" method="POST">
+            <a href="/movies" class="btn btn-primary">Back</a>
+            <a href="/movies/{{ movie.id}}/edit" class="btn btn-primary">Edit</a>
+            <button type="submit" class="btn btn-danger"><i class="fa fa-trash mr-2"></i> Delete</button>
+
+        </form>
+    </div>
+    
+</div>
