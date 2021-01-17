@@ -1,0 +1,21 @@
+<h2>{{movie.name}}</h2>
+
+
+<hr class="mt-0" />
+
+
+<div class="m-5">
+    <h1>Title: {{movie.title}}</h1>
+    <h3>Genre: {{movie.genre}}</h2>
+    <h5>Plot: {{movie.plot}}</h2>
+</div>
+
+<div class="d-flex justify-content-start">
+    <form action="/movies/{{movie.id}}/delete" method="POST" class="m-5">
+        <button type="submit" class="btn btn-outline-danger pl-4 pr-4">DELETE MOVIE</button>
+    </form>
+
+    <form action="/movies/{{movie.id}}/edit" method="GET" class="m-5">
+        <button type="submit" class="btn btn-outline-info pl-4 pr-4">EDIT MOVIE FILE</button>
+    </form>
+</div>

@@ -42,6 +42,42 @@ module.exports.doCreate = (req, res, next) => {
       });
   };
 
+  module.exports.edit = (req, res, next) => {
+    Celebrity.findById(req.params.id)
+    .then((celeb) => {
+      if (celeb) {
+        res.render('celebrities/edit', { celeb });
+      } else {
+        next(createError(404, 'Celebrity does not exists'));
+      }
+    }).catch(next);
+};
+    
+
+    module.exports.doEdit = (req, res, next) => {
+      console.log("editant ////////////////////////////////////")
+      Celebrity.findByIdAndUpdate(req.params.id, req.body)
+        .then(celeb => {
+          if (celeb) {
+            //            res.render('celebrities/index', { celeb });
+            res.redirect('/celebrities');
+
+          } else {
+            next(createError(404, 'Celebrity does not exists'));
+          }
+        }).catch(error => {
+          if (error instanceof mongoose.Error.ValidationError) {
+            res.render('celebrities/edit', { 
+              errors: error.errors,
+              celeb: req.body 
+            });
+          } else {
+            next(error);
+          }
+        });
+    };
+
+
   module.exports.delete = (req, res, next) => {
     console.log(req.params.id)
     Celebrity.findByIdAndDelete(req.params.id)

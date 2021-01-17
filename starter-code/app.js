@@ -31,6 +31,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
+
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+
+
+// default value for title local
+app.locals.title = 'Express - Generated with IronGenerator';
+
+
+
+
 // Express View engine setup
 
 // app.use(require('node-sass-middleware')({
@@ -44,32 +59,22 @@ app.use(cookieParser());
 const router = require('./config/routes.config');
 app.use('/', router);
 
-app.use((req, res, next) => {
-  next(createError(404, 'Page not found'))
-})
+// app.use((req, res, next) => {
+//   next(createError(404, 'Page not found'))
+// })
 
-app.use((error, req, res, next) => {
-  console.error(error);
-  let status = error.status || 500;
+// app.use((error, req, res, next) => {
+//   console.error(error);
+//   let status = error.status || 500;
 
-  res.status(status)
-    .render('error', {
-      message: error.message,
-      error: req.app.get('env') === 'development' ? error : {}
-    })
-})
-
-
+//   res.status(status)
+//     .render('error', {
+//       message: error.message,
+//       error: req.app.get('env') === 'development' ? error : {}
+//     })
+// })
 
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
-
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
 
 
 module.exports = app;

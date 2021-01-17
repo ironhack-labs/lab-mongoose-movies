@@ -7,11 +7,18 @@
 <div class="m-5">
 
     <h1>Name: {{celebrity.name}}</h1>
-    <h2>Ocupation: {{celebrity.ocupation}}</h2>
-    <h2>Catch Phrase: {{celebrity.catchPhrase}}</h2>
-<h1>{{celebrity.id}} </h1>
+    <h3>occupation: {{celebrity.occupation}}</h3>
+    <h5>Catch Phrase: {{celebrity.catchPhrase}}</h5>
 </div>
 
-<form action="/celebrities/{{celebrity.id}}/delete" method="POST">
-    <button type="submit" class="btn btn-danger"><i class="fa fa-trash mr-2"></i>Delete</button>
-</form>
+<div class="d-flex justify-content-start">
+    <form action="/celebrities/{{celebrity.id}}/delete" method="POST" class="m-5">
+        <button type="submit" class="btn btn-outline-danger pl-4 pr-4">DELETE CELEBRITY</button>
+    </form>
+
+    <form action="/celebrities/{{celebrity.id}}/edit" method="GET" class="m-5">
+        <button type="submit" class="btn btn-outline-info pl-4 pr-4">EDIT CELEBRITY FILE</button>
+    </form>
+
+
+</div>

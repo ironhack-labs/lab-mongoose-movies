@@ -1,0 +1,44 @@
+<h2>Edit Celebrity</h2>
+
+
+<hr class="mt-0" />
+
+
+
+<div class="row">
+    <div class="col-15 col-sm-12">
+        <form action="/celebrities/{{celeb.id}}/edit" method="post" class="mt-3 mb-3 mx-auto">
+
+
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" placeholder="Celebrity name" name="name"
+                    value="{{celeb.name}}">
+                <label for="floatingInput">CELEBRITY NAME</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="occupation" placeholder="Celebrity occupation"
+                    name="occupation" value="{{celeb.occupation}}">
+                <label for="floatingPassword">CELEBRITY occupation</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="catchPhrase" placeholder="Celebrity catch phrase"
+                    name="catchPhrase" value="{{celeb.catchPhrase}}">
+                <label for="floatingPassword">CELEBRITY CATCH PHRASE</label>
+            </div>
+
+            <div>
+                <div class="m-5">
+                    <button type="submit" class="btn btn-outline-success pl-4 pr-4">SAVE EDITED RECORD</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+</div>
