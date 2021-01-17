@@ -71,7 +71,7 @@ module.exports.edit = (req, res, next) => {
 }
 
 module.exports.doEdit = (req, res, next) => {
-    Celebrity.findByIdAndUpdate(req.params.id, { $set: req.body }, { runValidators: true })
+    Celebrity.findByIdAndUpdate(req.params.id, { $set: req.body }, { runValidators: true, new: true})
     .then(celebrity => {
         if (celebrity) {
             res.render('celebrities/show', { celebrity });
