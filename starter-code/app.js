@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./config/db.config');
 
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -8,8 +9,6 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
-require('../config/db.config');
 
 
 const app_name = require('./package.json').name;
@@ -44,8 +43,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const router = require('./config/router.config');
+app.use('/', router);
 
 
 module.exports = app;
