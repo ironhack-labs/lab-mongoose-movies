@@ -7,5 +7,6 @@ const celebritiesController = require('../controllers/celebrities.controller');
 /* GET home page */
 router.get('/', commonController.home);
 router.get('/celebrities', celebritiesController.list);
+router.get('/celebrities/:id', celebritiesController.details);
 
 module.exports = router;

@@ -8,4 +8,13 @@ module.exports.list = (req, res, next) => {
             })
         })
         .catch(next);
-}
+};
+
+module.exports.details = (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findOne({_id: id})
+        .then(celebrity => {
+            res.render('celebrities/show', { celebrity });
+        })
+        .catch(error => console.log(error))
+};
