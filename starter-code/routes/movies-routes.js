@@ -50,18 +50,19 @@ router.get("/movies/:id/edit", (req, res, next)=>{
     
       Movie.findById(req.params.id)
       .populate("cast")
-      .then(movieToEdit => {
+      .then(foundMovie => {
        
 
         Celebrity.find()
-        .then((AllCelebritiesFromDB) => { 
-          
-
-            const allTheOtherCelebrities = AllCelebritiesFromDB.filter(
-                (oneCelebrity) => !oneCelebrity._id.equals(movieToEdit.cast)
-            );
-            console.log('all other celebs', allTheOtherCelebrities, 'movies to edit>>>>>>', movieToEdit.cast)
-            res.render('movies/edit-movie', { movieToEdit, allTheOtherCelebrities}) 
+        .then((allCelebritiesFromDB) => { 
+          allCelebritiesFromDB.forEach(oneCeleb => {
+            foundMovie.cast.forEach(element => {
+                if(oneCeleb._id.equals(element._id)){
+                    oneCeleb.isInCast=true;
+                }
+            })
+          })
+            res.render('movies/edit-movie', { foundMovie, allCelebritiesFromDB});
         });
       })
       .catch(err => console.log(`Something went wrhong while finding movie to edit ${err}`))
@@ -74,7 +75,7 @@ router.post('/movies/:id/edit', (req, res, next) =>{
     Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, cast}, {new: true})
     .then(editedMovie => {
         console.log(editedMovie);
-        res.redirect('/movies')
+        res.redirect(`/movies/${editedMovie.id}`)
 
     })
     .catch(err => `Error occured while saving updated movie ${err}`)

@@ -9,8 +9,22 @@ router.get('/celebrities/new', (req, res, next) => {
 });
 
 router.post('/celebrities/create', (req, res, next) =>{
+
 const {name, occupation, catchPhrase} = req.body;
 
+// const student = {
+//   name: 'ida',
+//   campus: 'miami'
+// }
+
+// Student.create({ 
+//   name,
+//   // name: name, 
+//   campus,
+//   // campus: campus 
+// })
+
+// Celebrity.create(req.body)
     Celebrity.create({name, occupation, catchPhrase})
     .then(newCelebrity => {
         console.log(newCelebrity);

@@ -1,30 +1,32 @@
-<h2>Edit {{movieToEdit.title}}</h2>
+<h2>Edit {{foundMovie.title}}</h2>
 
-<form action="/movies/{{movieToEdit.id}}/edit" method="POST">
+<form action="/movies/{{foundMovie.id}}/edit" method="POST">
 
 <label> Title:
-    <input type="text" name="title" value="{{movieToEdit.title}}">
+    <input type="text" name="title" value="{{foundMovie.title}}">
 </label>
 <br>
 <label> Genre:
-    <input type="text" name="genre" value="{{movieToEdit.genre}}">
+    <input type="text" name="genre" value="{{foundMovie.genre}}">
 </label>
 <br>
 <label> Plot:
-     <textarea cols="30" rows="10" name="plot">{{movieToEdit.plot}}</textarea>
+     <textarea cols="30" rows="10" name="plot">{{foundMovie.plot}}</textarea>
 </label>
 <br>
-<label> Cast:</label>
+<label> Cast:
     <select  multiple name="cast">
-        {{#each movieToEdit.cast}}
-        <option selected value="{{id}}">{{name}}</option>
+        {{#each allCelebritiesFromDB}}
+        {{#if isInCast}}
+        <option selected value="{{_id}}">{{name}}</option>
+        {{else}}
+        <option  value="{{_id}}">{{name}}</option>
+        {{/if}}
         {{/each}}
         
-        {{#each allTheOtherCelebrities}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
     </select>
-
+</label>
+<br>
     
 
 <button type='submit'>Save changes:</button>
