@@ -31,4 +31,24 @@ router.get('/celebrities/:id', async(req, res, next) => {
     });
 });
 
+router.get('/celebrities/new', async(req, res, next) => { res.render('../views/celebrities/new') });
+
+router.post('/celebrities', async(req, res, next) => {
+    console.log('req data => ', req);
+    debugger
+    CelebritiesSchema.create({...req.body })
+        .then((post) => res.redirect('/celebrities'))
+        .catch((error) => res.render('/celebrities/new', { errors: error.errors }));
+});
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+    CelebritiesSchema.findByIdAndRemove(req.params.id)
+        .then((post) => res.redirect('/celebrities'))
+        .catch((error) => {
+            next();
+            res.render('/celebrities', { errors: error.errors });
+        });
+
+});
+
 module.exports = router;
