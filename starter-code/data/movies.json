@@ -1,0 +1,17 @@
+[
+  {
+    "title": "La historia Interminable",
+    "genre": "Aventuras",
+    "plot": "la historia de un niño que se lee un libro y se introduce en el y decide el destino de la historia"
+  },
+    {
+      "title": "Piratas del Caribe, La Maldición de la Perla Negra",
+      "genre": "Accion/Aventura",
+      "plot": "Jack Sparrow capitan de la Perla Negra tiene muchos secretos y enemigos "
+    },
+      {
+        "title": "Love Actually",
+        "genre": "Romantica",
+        "plot": "varias historias sobre el armor en navidad en londres"
+      }
+]

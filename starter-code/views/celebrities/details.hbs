@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center m-3">
+  <h1 class="text-secondary">Vista de detalle de {{celebrity.name}}</h1> 
+</div>
+<div class="card card-body">
+  <p>The name of this celebrity is <strong>{{celebrity.name}}</strong> and is famous because works as <strong>{{celebrity.occupation}}</strong></p>
+  <p>The most particular phrase attached to this person is <strong>"{{celebrity.catchPhrase}}"</strong></p>
+</div>
+<form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+  <button type="submit" class="btn btn-danger mt-2">Delete</button>
+</form>
+<form action="/celebrities/{{celebrity.id}}/edit">
+  <button type="submit" class="btn btn-primary mt-2">Edit</button>
+</form>
+
+
+
+

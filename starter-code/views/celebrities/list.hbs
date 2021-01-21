@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center m-3">
+  <h1 class="text-secondary">Lista de las Celebrities</h1>
+</div>
+
+<div class="d-flex flex-row justify-content-center mb-3">
+  <a class="text-decoration-none text-white text-center p-2 btn-success rounded" href="celebrities/new">Register New
+    Celebrity</a>
+</div>
+
+{{#if celebrityList}}
+<div class="row justify-content-center">
+    {{#each celebrityList as |celebrity|}}
+    <div class="card col-3 m-1">
+      <div class="card-body d-flex flex-column align-items-center">
+        <h4 class="card-title">{{celebrity.name}}</h4>
+        <p>{{celebrity.occupation}}</p>
+        <p class="card-text text-center card">{{celebrity.catchPhrase}}</p>
+        <div>
+            <a href="/celebrities/{{celebrity.id}}" class="btn btn-secondary" >Details</a>
+            
+        </div>
+       
+      </div>
+      
+    </div>
+    {{/each}}
+</div>
+{{/if}}
