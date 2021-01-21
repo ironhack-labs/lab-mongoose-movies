@@ -1,0 +1,23 @@
+<div class="d-flex flex-column align-items-center m-3">
+  <h1 class="text-secondary">Edit view of {{movie.title}}</h1>
+</div>
+
+<div class="container card mt-4 pt-3 bg-secondary">
+  <form method="post" action="/movies/{{movie.id}}/edit">
+    <div class="mb-3">
+      <label class="form-label text-white">Nombre Anterior: {{movie.title}}</label>
+      <input class="form-control" name="title" value="{{movie.title}}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label text-white">Occupation Anterior: {{movie.genre}}</label>
+      <input class="form-control" name="genre" value="{{movie.genre}}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label text-white">Plot</label>
+      <textarea class="form-control" name="plot">{{movie.plot}}</textarea>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-success m-3">Save Changes</button>
+    </div>
+  </form>
+</div>

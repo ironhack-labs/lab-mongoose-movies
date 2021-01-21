@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center m-3">
+  <h1 class="text-secondary">Vista de detalle de {{movie.title}}</h1>
+</div>
+<div class="card card-body">
+  <p>The title of this movie is <strong>{{movie.title}}</strong> and it's genre is
+    <strong>{{movie.genre}}</strong></p>
+  <p>Plot: <strong>"{{movie.plot}}"</strong></p>
+</div>
+</form>
+
+
+<form action="/movies/{{movie.id}}/delete" method="POST">
+  <button type="submit" class="btn btn-danger mt-2">Delete</button>
+</form>
+
+<form action="/movies/{{movie.id}}/edit">
+  <button type="submit" class="btn btn-primary mt-2">Edit</button>
+
+ 
