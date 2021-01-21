@@ -1,0 +1,16 @@
+<h2>Movies</h2>
+<a href="/celebrities/new">List a movie</a>
+
+<div style="display: flex; flex-direction: column; margin-top: 50px;">
+    {{#each movie as |movie|}}
+    <div class="card text-center mb-3" style="width: 18rem;">
+        <div class="card-body">
+            <a href="/celebrity/{{movie.id}}"><h5 class="card-title">{{ movie.title }}</h5></a>
+            <a href="/celebrity/{{movie.id}}/edit"><button class="btn btn-primary">Edit</button></a>
+            <form action="/celebrity/{{movie.id}}/delete" method="POST">
+                <button class="btn btn-primary">Delete</button>
+            </form>
+        </div>  
+    </div>
+    {{/each}}
+</div>
