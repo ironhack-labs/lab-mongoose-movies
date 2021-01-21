@@ -1,0 +1,20 @@
+<h2>New movie</h2>
+
+<form method="POST" action="/movies/new">
+  <div class="mb-3">
+    <label for="titleInput" class="form-label">Title</label>
+    <input name="title" value="{{movie.title}}" type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" id="titleInput">
+    {{#if errors.title}}<div class="invalid-feedback">{{errors.title}}</div>{{/if}}
+  </div>
+  <div class="mb-3">
+    <label for="genreInput" class="form-label">Genre</label>
+    <input name="genre" value="{{movie.genre}}" type="text" class="form-control {{#if errors.genre}}is-invalid{{/if}}" id="genreInput">
+    {{#if errors.genre}}<div class="invalid-feedback">{{errors.genre}}</div>{{/if}}
+  </div>
+  <div class="mb-3">
+    <label for="plotInput" class="form-label">Plot</label>
+    <input name="plot" value="{{movie.plot}}" type="text" class="form-control {{#if errors.plot}}is-invalid{{/if}}" id="plotInput">
+    {{#if errors.plot}}<div class="invalid-feedback">{{errors.plot}}</div>{{/if}}
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
