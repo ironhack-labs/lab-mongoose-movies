@@ -62,9 +62,19 @@ module.exports.edit = (req, res, next) => {
 };
 
 module.exports.doEdit = (req, res, next) => {
-    const { name, occupation, catchPhrase } = req.body;
     const { id } = req.params;
-    Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase })
-        .then(res.redirect('/celebrities'))
-        .catch(next)
+    Celebrity.findByIdAndUpdate(id, { $set: req.body }, { runValidators: true })
+        .then(celebrity => res.redirect('/celebrities'))
+        .catch(error => {
+            if (error instanceof mongoose.Error.ValidationError) {
+                const celebrity = req.body;
+                celebrity.id = req.params.id;
+                res.render('celebrities/edit', {
+                    errors: error.errors,
+                    celebrity
+                })
+            } else {
+                next(error);
+            }
+        })
 }

@@ -18,7 +18,11 @@ router.post('/celebrity/:id', celebritiesController.doEdit);
 
 router.get('/movies', moviesController.list);
 router.get('/movie/:id', moviesController.detail);
-
+router.get('/movies/new', moviesController.create);
+router.post('/movies/new', moviesController.doCreate);
+router.post('/movie/:id/delete', moviesController.delete);
+router.get('/movie/:id/edit', moviesController.edit);
+router.post('/movie/:id', moviesController.doEdit);
 
 
 module.exports = router;
