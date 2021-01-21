@@ -6,6 +6,7 @@
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
             <a href="/celebrity/{{celebrity.id}}"><h5 class="card-title">{{ celebrity.name }}</h5></a>
+            <a href="/celebrity/{{celebrity.id}}/edit"><button class="btn btn-primary">Edit</button></a>
             <form action="/celebrity/{{celebrity.id}}/delete" method="POST">
                 <button class="btn btn-primary">Delete</button>
             </form>

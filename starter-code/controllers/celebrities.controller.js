@@ -50,3 +50,21 @@ module.exports.delete = (req, res, next) => {
         .then(() => res.redirect('/celebrities'))
         .catch(next);
 }
+
+module.exports.edit = (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findById(id)
+        .then(celebrity => {
+            console.log(celebrity.name);
+            res.render('celebrities/edit', { celebrity })
+        })
+        .catch(err => console.log(err));
+};
+
+module.exports.doEdit = (req, res, next) => {
+    const { name, occupation, catchPhrase } = req.body;
+    const { id } = req.params;
+    Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase })
+        .then(res.redirect('/celebrities'))
+        .catch(next)
+}
