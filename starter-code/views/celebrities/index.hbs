@@ -1,10 +1,15 @@
 <h2>Celebrities</h2>
 <a href="/celebrities/new">List a celebrity</a>
 
-<ul>
-{{#each celebrities as |celebrity|}}
-<li>
-<a href="/celebrity/{{celebrity.id}}">{{celebrity.name}}</a>
-</li>
-{{/each}}
-</ul>
+<div style="display: flex; flex-direction: column; margin-top: 50px;">
+    {{#each celebrities as |celebrity|}}
+    <div class="card text-center mb-3" style="width: 18rem;">
+        <div class="card-body">
+            <a href="/celebrity/{{celebrity.id}}"><h5 class="card-title">{{ celebrity.name }}</h5></a>
+            <form action="/celebrity/{{celebrity.id}}/delete" method="POST">
+                <button class="btn btn-primary">Delete</button>
+            </form>
+        </div>  
+    </div>
+    {{/each}}
+</div>

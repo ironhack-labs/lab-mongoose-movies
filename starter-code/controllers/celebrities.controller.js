@@ -43,3 +43,10 @@ module.exports.doCreate = (req, res, next) => {
             };
         });
 }
+
+module.exports.delete = (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findByIdAndRemove(id)
+        .then(() => res.redirect('/celebrities'))
+        .catch(next);
+}

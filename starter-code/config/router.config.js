@@ -12,4 +12,8 @@ router.get('/celebrity/:id', celebritiesController.details);
 router.get('/celebrities/new', celebritiesController.create);
 router.post('/celebrities/new', celebritiesController.doCreate);
 
+router.post('/celebrity/:id/delete', celebritiesController.delete);
+
+
+
 module.exports = router;
