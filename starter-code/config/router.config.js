@@ -17,6 +17,7 @@ router.get('/celebrity/:id/edit', celebritiesController.edit);
 router.post('/celebrity/:id', celebritiesController.doEdit);
 
 router.get('/movies', moviesController.list);
+router.get('/movie/:id', moviesController.detail);
 
 
 

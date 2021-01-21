@@ -8,3 +8,12 @@ module.exports.list = (req, res, next) => {
         })
         .catch(next)
 }
+
+module.exports.detail = (req, res, next) => {
+    const { id } = req.params;
+    Movie.findOne({ _id: id })
+        .then(movie => {
+            res.render('movies/show', { movie })
+        })
+        .catch(next)
+}
