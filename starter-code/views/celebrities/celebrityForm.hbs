@@ -1,0 +1,22 @@
+<div class="col">
+    <div class="row">
+        <h2>{{#if name}}Edit celebrity: <b>{{name}}</b>{{else}}Create celebrity{{/if}}</h2>
+    </div>
+    <div class="row">
+        <form action="/celebrities/{{#if name}}{{id}}/edit{{else}}celebrityForm{{/if}}" method="post">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" value="{{name}}" required>
+            </div>
+            <div class="form-group">
+                <label for="ocupation">Ocupation: </label>
+                <input type="text" name="ocupation" id="ocupation" value="{{ocupation}}" required>
+            </div>
+            <div class="form-group">
+                <label for="catchPhrase">Catch Phrase: </label>
+                <input type="text" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">{{#if name}}Edit{{else}}Create{{/if}}</button>
+        </form>
+    </div>
+</div>

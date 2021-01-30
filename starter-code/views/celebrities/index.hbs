@@ -13,11 +13,11 @@
     <tbody >
         {{#each celebrities}}
         <tr>
-            <th scope="row">{{name}}</th>
+            <th scope="row"><a class="" href="/celebrities/{{id}}">{{name}}</a></th>
             {{!-- <td>{{ocupation}}</td>
             <td>{{catchPhrase}}</td> --}}
             <td>
-                <a class="btn btn-success" href="/celebrities/{{id}}">Details</a>
+                <a class="btn btn-success" href="/celebrities/{{id}}/edit">Edit</a>
             </td>
             <td>
                 <form class="delete-form" action="/celebrities/{{id}}/delete" method="post">
