@@ -17,13 +17,13 @@ const celebrities = [
 ]
 
 require('../app')
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 const Celebrity = require('../models/Celebrity.model')
 
 Celebrity.create(celebrities)
     .then(createdCelebs => {
         console.log(`${createdCelebs.length} celebrities created!`)
-        // mongoose.connection.close()
+        
     })
     .catch(error => console.log(`Error while creating a new celebrity: ${error}`))
-    .finally()
+    //.finally(mongoose.connection.close())
