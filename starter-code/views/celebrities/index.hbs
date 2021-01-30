@@ -4,26 +4,26 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">Ocupation</th>
-            <th scope="col">Catch Phrase</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Remove</th>
+            {{!-- <th scope="col">Ocupation</th>
+            <th scope="col">Catch Phrase</th> --}}
+            <th scope="col">Details</th>
+            {{!-- <th scope="col">Remove</th> --}}
         </tr>
     </thead>
     <tbody >
         {{#each celebrities}}
         <tr>
             <th scope="row">{{name}}</th>
-            <td>{{ocupation}}</td>
-            <td>{{catchPhrase}}</td>
+            {{!-- <td>{{ocupation}}</td>
+            <td>{{catchPhrase}}</td> --}}
             <td>
-                <a class="btn btn-primary" href="/drones/{{id}}/edit">Edit</a>
+                <a class="btn btn-success" href="/celebrities/{{id}}">Details</a>
             </td>
-            <td>
-                <form class="delete-form" action="/drones/{{id}}/delete" method="post">
+            {{!-- <td>
+                <form class="delete-form" action="/celebrities/{{id}}/delete" method="post">
                     <button type="submit" class="btn btn-danger" onclick="return clicked()">Remove</button>
                 </form>
-            </td>
+            </td> --}}
         </tr>
         {{/each}}
     </tbody>
