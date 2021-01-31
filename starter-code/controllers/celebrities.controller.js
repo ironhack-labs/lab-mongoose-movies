@@ -46,4 +46,20 @@ module.exports.delete = (req, res, next) => {
         .catch((e) => next(e))
 };
 
+// Iteration 6
+
+module.exports.edit = (req,res,next) => {
+    Celebrity.findById(req.params.id)
+    .then ((celebrity) => res.render('celebrities/edit',{celebrity}))
+    .catch((e) => next(e))
+};
+
+module.exports.doEdit = (req,res,next) => {
+   // const celebrity = new Celebrity(req.body);
+    Celebrity.findByIdAndUpdate(req.params.id,req.body)
+    .then (() => res.redirect('/celebrities'))
+    .catch((e) => next(e))
+    
+}
+
 
