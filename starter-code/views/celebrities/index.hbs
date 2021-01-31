@@ -1,6 +1,14 @@
+<div>
+ <a class="btn btn-primary" href="/" role="button">Home</a>
+ <a class="btn btn-primary" href="/celebrities/new" role="button">Add celebrity</a>
+</div>
 <h2>Celebrities list</h2>
 {{#each celebrities as |celebrity|}}
 <h3>Name:{{celebrity.name}}</h3>
 <a class="btn btn-primary" href="/celebrities/{{celebrity.id}}" role="button">Details</a>
+
+<form action="/celebrities/{{celebrity.id}}/delete" method="POST"><button type="submit"
+        class="btn btn-primary">Delete</button>
+</form>
 
 {{/each}}
