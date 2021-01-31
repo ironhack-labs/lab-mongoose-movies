@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-
-const celebritySchema = new mongoose.Schema({
+const celebritySchema = new Schema({
   // TODO: write the schema
   name: {
     type:String,
@@ -21,7 +21,7 @@ const celebritySchema = new mongoose.Schema({
 
 });
 
-const Celebrity= mongoose.model('Celibrity', celebritySchema);
+const Celebrity= mongoose.model('Celebrity', celebritySchema);
 
 module.exports = Celebrity;
 

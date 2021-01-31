@@ -18,3 +18,17 @@ module.exports.detail = (req,res,next) => {
     .catch ((e) => next(e))
 
 }
+
+//Iteration 4
+
+module.exports.create = (req,res,next) =>   res.render('celebrities/new');
+
+module.exports.doCreate = (req,res,next) => {
+    const newCelebrity = new Celebrity(req.body);
+
+    newCelebrity.save()
+    .then(() => res.redirect('celebrities'))
+    .catch((e) => { 
+        console.log(e);
+        res.render('celebrities/new')});
+};
