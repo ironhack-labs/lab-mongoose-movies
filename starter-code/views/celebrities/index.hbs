@@ -1,7 +1,6 @@
 <h2>Celebrities list</h2>
 {{#each celebrities as |celebrity|}}
 <h3>Name:{{celebrity.name}}</h3>
-<p>Drone propellers: {{celebrity.occupation}}</p>
-<p>Drone max speed: {{celebrity.catchPhrase}}</p>
+<a class="btn btn-primary" href="/celebrities/{{celebrity.id}}" role="button">Details</a>
 
 {{/each}}
