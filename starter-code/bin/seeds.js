@@ -44,5 +44,5 @@ Celebrity.deleteMany()
   .catch(error => { console.error('Error saving celebrities', error); })
 }
 )
-.catch(e => console.log (`Error al borrar Drone collection: ${e}`))
+.catch(e => console.log (`Error al borrar celebrities collection: ${e}`))
 
