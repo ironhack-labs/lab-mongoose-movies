@@ -1,4 +1,5 @@
 const Movie = require("../models/movie.model");
+const Celebrity = require("../models/celebrity.model")
 
 
 // Iteration 8
@@ -21,7 +22,13 @@ module.exports.detail = (req, res, next) => {
 
 //Iteration 10
 
-module.exports.create = (req, res, next) => res.render('movies/new');
+module.exports.create = (req, res, next) => {
+     Celebrity.find()
+     .then((celebrities) => res.render('movies/new',{celebrities}))
+     .catch((e) => next(e))
+
+   
+};
 
 module.exports.doCreate = (req, res, next) => {
     const newMovie = new Movie(req.body);

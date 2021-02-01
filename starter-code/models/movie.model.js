@@ -17,7 +17,8 @@ const movieSchema = new Schema({
     type:String,
     required:true
   
-  }
+  },  
+  cast: [{type:Schema.Types.ObjectId, ref:'celebrities'}]
 
 });
 
