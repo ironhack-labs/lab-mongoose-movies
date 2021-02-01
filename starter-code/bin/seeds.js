@@ -17,24 +17,46 @@
 // ]
 
 require("dotenv").config();
-
 require('../app');
-//const mongoose = require('mongoose')
-// const Celebrity = require('../models/Celebrity.model')
-const Movie = require('../models/Movie.model');
 const faker = require('faker');
-const Celebrity = require("../../models/Celebrity.model");
+const mongoose = require('mongoose');
+
+// Create Celebrities
+const Celebrity = require('../models/Celebrity.model')
 
 Celebrity.deleteMany()
     .then(() => {
-        for (let i = 0; i < 10; i++) {
-            Movie.create({
-                    title: faker.lorem.words(),
-                    genre: faker.lorem.word(),
-                    plot: faker.lorem.paragraphs(2)
+        for (let i = 0; i < 20; i++) {
+            Celebrity.create({
+                    name: faker.name.firstName(),
+                    lastName: getRandom(["", faker.name.lastName()]),
+                    ocupation: getRandom(["artist", "athlete", "actor", "politician", "public figure", "unknown"]),
+                    catchPhrase: faker.lorem.sentence()
                 })
-                .then(createdMovie => console.log(`Created movie: ${createdMovie.title}`))
-                .catch(error => console.log(`Error while creating a new movie: ${error}`))
+                .then(createdCeleb => console.log(`Created celebrity: ${createdCeleb.name}${createdCeleb.lastName}`))
+                .catch(error => console.log(`Error while creating a new celebrity: ${error}`))
                 .finally(() => mongoose.connection.close())
         }
     });
+
+// Create Movies
+// const Movie = require('../models/Movie.model');
+
+// Movie.deleteMany()
+//     .then(() => {
+//         for (let i = 0; i < 10; i++) {
+//             Movie.create({
+//                     title: faker.lorem.words(),
+//                     genre: faker.lorem.word(),
+//                     plot: faker.lorem.paragraphs(2)
+//                 })
+//                 .then(createdMovie => console.log(`Created movie: ${createdMovie.title}`))
+//                 .catch(error => console.log(`Error while creating a new movie: ${error}`))
+//                 .finally(() => mongoose.connection.close())
+//         }
+//     });
+
+// Get Random function
+function getRandom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+}
