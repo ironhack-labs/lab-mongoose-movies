@@ -50,7 +50,7 @@ module.exports.delete = (req, res, next) => {
 
 module.exports.edit = (req,res,next) => {
     Celebrity.findById(req.params.id)
-    .then ((celebrity) => res.render('celebrities/edit',{celebrity}))
+    .then ((celebrity) => res.render('celebrities/edit',celebrity))
     .catch((e) => next(e))
 };
 
