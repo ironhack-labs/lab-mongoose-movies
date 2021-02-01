@@ -22,22 +22,22 @@ const faker = require('faker');
 const mongoose = require('mongoose');
 
 // Create Celebrities
-const Celebrity = require('../models/Celebrity.model')
+// const Celebrity = require('../models/Celebrity.model')
 
-Celebrity.deleteMany()
-    .then(() => {
-        for (let i = 0; i < 20; i++) {
-            Celebrity.create({
-                    name: faker.name.firstName(),
-                    lastName: getRandom(["", faker.name.lastName()]),
-                    ocupation: getRandom(["artist", "athlete", "actor", "politician", "public figure", "unknown"]),
-                    catchPhrase: faker.lorem.sentence()
-                })
-                .then(createdCeleb => console.log(`Created celebrity: ${createdCeleb.name}${createdCeleb.lastName}`))
-                .catch(error => console.log(`Error while creating a new celebrity: ${error}`))
-                .finally(() => mongoose.connection.close())
-        }
-    });
+// Celebrity.deleteMany()
+//     .then(() => {
+//         for (let i = 0; i < 20; i++) {
+//             Celebrity.create({
+//                     name: faker.name.firstName(),
+//                     lastName: getRandom(["", faker.name.lastName()]),
+//                     ocupation: getRandom(["artist", "athlete", "actor", "politician", "public figure", "unknown"]),
+//                     catchPhrase: faker.lorem.sentence()
+//                 })
+//                 .then(createdCeleb => console.log(`Created celebrity: ${createdCeleb.name}${createdCeleb.lastName}`))
+//                 .catch(error => console.log(`Error while creating a new celebrity: ${error}`))
+//                 .finally(() => mongoose.connection.close())
+//         }
+//     });
 
 // Create Movies
 // const Movie = require('../models/Movie.model');

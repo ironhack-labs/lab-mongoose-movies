@@ -4,8 +4,6 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            {{!-- <th scope="col">Ocupation</th>
-            <th scope="col">Catch Phrase</th> --}}
             <th scope="col">Details</th>
             <th scope="col">Remove</th>
         </tr>
@@ -14,8 +12,6 @@
         {{#each celebrities}}
         <tr>
             <th scope="row"><a class="" href="/celebrities/{{id}}">{{name}} {{lastName}}</a></th>
-            {{!-- <td>{{ocupation}}</td>
-            <td>{{catchPhrase}}</td> --}}
             <td>
                 <a class="btn btn-success" href="/celebrities/{{id}}/edit">Edit</a>
             </td>
