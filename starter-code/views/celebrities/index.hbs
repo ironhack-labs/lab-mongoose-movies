@@ -1,0 +1,29 @@
+<div class="container py-3">
+    <h2 class="py-3">Celebrity list</h2>
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each celebrities}}
+    <div class="col">
+        <div class="card">
+            <div class="card-header fw-bold fs-4">
+                {{name}}
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                <p>"{{catchPhrase}}"</p>
+                <footer class="blockquote-footer"><cite title="Source Title">{{occupation}}</cite></footer>
+                </blockquote>
+                <a href="/celebrities/{{_id}}"><button type="button" class="btn btn-secondary mt-3">View details</button></a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+    <div class="fixed-bottom container">
+        <p class="text-end">
+            <a href="/celebrities/new"><button type="button" class="btn btn-success">[+] Add Celebrity</button></a>
+        </p>
+    </div> 
+</div>
+
+
