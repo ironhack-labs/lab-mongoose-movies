@@ -6,19 +6,19 @@ const data = [
   {
     name: "Elon Musk",
     occupation: "Entrepeneur",
-    catchPrase:
+    catchPhrase:
       "When something is important enough, you do it even if the odds are not in your favor.",
   },
   {
     name: "Jeff Bezos",
     occupation: "Entrepeneur",
-    catchPrase:
+    catchPhrase:
       "If you double the number of experiments you do per year you're going to double your inventiveness.",
   },
   {
     name:"Robert Downey Jr",
     occupation:"Actor",
-    catchPrase:
+    catchPhrase:
       "Worrying is like praying for something that you dont want to happen.",
   },
 ];
@@ -28,7 +28,7 @@ Celebrity.deleteMany()
         Celebrity
             .create(data)
                 .then((celebrities) => console.log(`Created: ${celebrities}`))
-                .then(() => {
+                .finally(() => {
                     mongoose.connection.close()
                     .then(() => console.log("Disconected"))
                 })
