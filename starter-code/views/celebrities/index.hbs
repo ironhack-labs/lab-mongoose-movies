@@ -1,7 +1,7 @@
 <div class="container py-3">
-    <h2 class="py-3">Celebrity list</h2>
-    
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <h2 class="py-3">Celebrities list{{#if celebrity_search}} matching name '{{celebrity_search}}' {{/if}}</h2>
+    {{#if results}}<h5 class="mb-3">({{results}} celebrities){{else}}No results</h5> {{/if}}
+    <div class="row row-cols-1 row-cols-md-3 g-4 pt-3">
     {{#each celebrities}}
     <div class="col">
         <div class="card">

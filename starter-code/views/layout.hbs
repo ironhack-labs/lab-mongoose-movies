@@ -27,11 +27,23 @@
         <li class="nav-item">
           <a class="nav-link" href="/celebrities/new"><small>[+] </small>Add Celebrity</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/movies">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/movies/new"><small>[+] </small>Add Movie</a>
+        </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit">Search</button>
-      </form>
+      <div>
+        <form class="d-flex" action="/celebrities/">
+          <input class="form-control me-2" type="search" placeholder="Search celebrities" aria-label="Search" name="name" value="{{#if celebrity_search}}{{celebrity_search}}{{/if}}">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+        <form class="d-flex mt-1" action="/movies/">
+          <input class="form-control me-2" type="search" placeholder="Search movies" aria-label="Search" name="title" value="{{#if movie_search}}{{movie_search}}{{/if}}">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
     </div>
   </div>
 </nav>
