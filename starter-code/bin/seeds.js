@@ -22,5 +22,5 @@ const firstsCelebrities = [
 ]
 
 Celebrity.create(firstsCelebrities)
-.then(succ => console.log(`Success seeding initialCelebrities `))
-.catch(error => console.log(`Error seeding initialCelebrities `))
+    .then(succ => console.log(`Success seeding initialCelebrities `))
+    .catch(error => console.log(`Error seeding initialCelebrities `))
