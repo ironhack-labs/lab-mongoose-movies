@@ -1,0 +1,20 @@
+<div class="container py-3">
+    <h2 class="py-3">Edit {{movie.title}}'s profile</h2>
+    <form action="/movies/{{movie._id}}" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{movie.title}}">
+    </div>
+    <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}">
+    </div>
+    <div class="mb-3">
+        <label for="plot" class="form-label">Plot</label>
+        <input type="text" class="form-control" id="plot" name="plot" value="{{movie.plot}}">
+    </div>
+    <input type="text" class="form-control" id="_id" name="_id" value="{{movie._id}}" hidden>
+    <button type="submit" class="btn btn-dark">Confirm edition</button>
+    </form>
+    <a href="/movies/{{movie._id}}"><button class="btn btn-outline-dark mt-3">Go back to {{movie.title}}'s profile</button></a>
+</div>

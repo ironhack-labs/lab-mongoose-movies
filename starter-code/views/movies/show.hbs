@@ -1,0 +1,46 @@
+<div class="container py-3">
+    <h2 class="py-3">{{movie.title}}'s details</h2>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img src="https://lh3.googleusercontent.com/proxy/oYuX4_ye1rr6MGWcAscDQqMS2tzxQUL7vImp7ggd0yRqxdEHfHYlL75cj92hG5O0subVDZS0nM2G6OGGpCnwqkyplkzXTZkEXuVZkuPeOIjAfL5-0F6fawnF" class="img-thumbnail" alt="{{celebrity.name}}">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title pb-2">{{movie.title}}</h3>
+                <p class="card-text">Genre: <strong>{{movie.genre}}</strong></p>
+                <p class="card-text">Director: <strong>unknown</strong> / Release date: <strong>unknown</strong></p>
+                <p class="card-text">Plot: <strong><i>"{{movie.plot}}"</i></strong></p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <a href="/movies" class="btn btn-secondary">Go back to movies list</a>
+    <a href="/movies/{{movie._id}}/edit" class="btn btn-primary">Edit profile</a>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete profile</button>
+    
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete {{movie.title}}'s profile? This action can't be reverted.
+      </div>
+      <div class="modal-footer">
+        <form method="POST" action="/movies/{{movie._id}}/delete">
+            <input type="text" class="form-control" id="_id" name="_id" value="{{movie._id}}" hidden>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger">Confirm delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
