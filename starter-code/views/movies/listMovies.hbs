@@ -1,0 +1,13 @@
+<a href="/">Back to LISTS</a>
+
+<h1>All movies</h1>
+{{#each m}}
+    <b>{{title}}</b>
+    <p>{{stars}}</p>
+    <p>{{plot}} <a href="/movies/{{_id}}">See detail</a></p>
+    <form action="/movies/{{_id}}/delete" method="POST">
+        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+    </form><br><br>
+{{/each}}
+
+<a href="/movies/create">Create movie +</a>
