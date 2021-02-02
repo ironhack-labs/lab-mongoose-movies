@@ -4,7 +4,7 @@ const Celebrity = require('../models/Celebrity.model')
 module.exports.list = ((req, res, next) => {
     Movie
         .find({})
-        .populate("celebrity") // -> en la vista me debería coger celebrity.name
+        // .populate("celebrity") // -> en la vista me debería coger celebrity.name
         .then((m) => {
             res.render('movies/listMovies', { m })
         })
@@ -12,10 +12,12 @@ module.exports.list = ((req, res, next) => {
 
 module.exports.detail = ((req, res, next) => {
     Movie
-        .findById(req.params.id)
+    .findById(req.params.id)
+    //.populate("celebrity")
         .then((m) => {
             res.render('movies/detailMovie', { m })
         })
+        .catch(e => console.log(e))
 })
 
 module.exports.createView = ((req, res, next) => {
@@ -28,6 +30,7 @@ module.exports.create = ((req, res, next) => {
     .then((m) => {
         res.redirect('../movies')
     })
+    .catch(e => console.log(e))
 })
 
 module.exports.editView = ((req, res, next) => {
@@ -50,4 +53,5 @@ module.exports.delete = ((req, res, next) => {
     Movie
     .findByIdAndDelete(req.params.id)
     .then(() => res.redirect('../../movies'))
+    .catch(e => console.log(e))
 })

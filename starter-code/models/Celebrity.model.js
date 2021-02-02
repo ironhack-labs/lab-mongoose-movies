@@ -12,6 +12,17 @@ const celebritySchema = new mongoose.Schema({
     catchPhrase: {
         type: String
     }
+}, 
+{
+    toJSON: {
+        virtuals: true
+    }
+})
+
+celebritySchema.virtual('movies', {
+    ref: "Movie",
+    foreignField: "stars",
+    localField: "_id"
 })
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema) // => celebritys

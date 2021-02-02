@@ -12,8 +12,10 @@ module.exports.list = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
     Celebrity
+        //.populate("movies")
         .findById(req.params.id)
         .then((celeb) => {
+            console.log(celeb)
             res.render('celebs/detailCelebs', { celeb })
         })
         .catch(e => console.log(e))
@@ -39,6 +41,7 @@ module.exports.updateView = (req, res, next) => {
     .then((celeb) => {
         res.render('celebs/update-form', { celeb })
     })
+    .catch(e => console.log(e))
 }
 
 module.exports.update = (req, res, next) => {
