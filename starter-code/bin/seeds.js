@@ -1,10 +1,12 @@
+
+require('../app')
 const mongoose = require('mongoose')
 
 const Celebrity = require('../models/celebrity')
 
-require('../app')
 
-const celebrity = [
+
+const celebrities = [
     
     {name:'Joaquin Reyes', occupation:'comedian',catchPhrase:'¿Donde vas pataliebre'},
     
@@ -14,12 +16,12 @@ const celebrity = [
 
 ]
 
-Celebrity.create(celebrity)
+Celebrity.create(celebrities)
 
 .then(celebritiesFromDB =>{
     console.log(celebritiesFromDB)
     console.log(celebritiesFromDB.length)
-    mongoose.connection.close()
+    //mongoose.connection.close()
 })
 
 .catch(error => console.log(`Error while creating a new celebrity ${error}`))
