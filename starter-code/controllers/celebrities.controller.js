@@ -32,3 +32,29 @@ module.exports.create = (req, res, next) => {
         })
         .catch(e => console.log(e))
 }
+
+module.exports.updateView = (req, res, next) => {
+  Celebrity
+    .findById(req.params.id)
+    .then((celeb) => {
+        res.render('celebs/update-form', { celeb })
+    })
+}
+
+module.exports.update = (req, res, next) => {
+    const celebData = req.body
+    Celebrity
+        .findByIdAndUpdate(req.params.id, celebData, { new: true })
+        .then((celeb) => {
+            res.redirect('../../celebrities')
+            console.log(celeb)
+        })
+        .catch(e => console.log(e))
+}
+
+module.exports.delete = (req, res, next) => {
+    Celebrity
+    .findByIdAndDelete(req.params.id)
+    .then(() => res.redirect('../../celebrities'))
+    .catch(e => console.log(e))
+}
