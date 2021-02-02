@@ -19,6 +19,14 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+
+  process.on("SIGINT",()=>{
+    mongoose.connection.close()
+    .then(()=> console.log("Succesfully disconnected from the DB"))
+    .catch((error) => console.log("Error disconnecting from the DB", e))
+    .finally(()=> process.exit())
+  });
+
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
