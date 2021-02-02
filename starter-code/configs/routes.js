@@ -49,6 +49,11 @@ router.post('/movies/:id/edit', moviesController.doEdit);
 // Read - Users list
 router.get('/users', usersController.list)
 
+// Create - User
+router.get('/users/userForm', usersController.create);
+router.post('/users/userForm', usersController.doCreate);
+
+// Read - User detail
 router.get("/users/:id", usersController.profile);
 
 module.exports = router;

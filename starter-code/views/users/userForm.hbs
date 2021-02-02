@@ -1,0 +1,34 @@
+<h2>Registration</h2>
+
+<div class="col">
+    <div class="row">
+        <form action="/users/userForm" method="POST">
+            <div class="form-group">
+                <label for="name-input"> Name: </label>
+                <input class="form-control"type="text" name="name" id="name-input" required>
+            </div>
+            <div class="form-group">
+                <label for="username-input"> Username: </label>
+                <input class="form-control"type="text" name="userName" id="username-input" required>
+            </div>
+            <div class="form-group">
+                <label for="email-input"> Email: </label>
+                <input class="form-control" type="email" name="email" id="email-input" required>
+            </div>
+            <div class="form-group">
+                <label for="username-input"> Age: </label>
+                <input class="form-control" type="number" name="age" min="18" max="120" id="username-input" required>
+                <p class="mt-2 text-secondary">You must be at leat 18 years old.</p>
+            </div>
+
+            <button class="btn btn-primary mt-3" type="submit"> Register</button>
+        </form>
+    </div>
+</div>
+
+
+{{!-- <div>
+    {{#if message}}
+    <p><b>{{message}}</b></p>
+    {{/if}}
+</div> --}}

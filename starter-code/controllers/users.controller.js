@@ -23,7 +23,26 @@ module.exports.profile = (req, res, next) => {
         path: "user"
       }
     })
-    .then(user => res.render("users/user", user))
+    .then(user => res.render("users/profile", user))
 		.catch(error => next(error));
 };
 
+// CREATE
+// Get Form
+module.exports.create = (req, res, next) => res.render('users/userForm')
+
+// Post Form
+module.exports.doCreate = (req, res, next) => {
+  const newUser = new User(req.body)
+  newUser.save()
+      .then(user => {
+          res.redirect(`/users/${user._id}`)
+          console.log(`The user ${user.userName} was added`);
+      })
+      .catch( err => {
+          console.log(`An error occurred while creating the new user: ${err}`)
+          res.redirect('users/userForm')
+      });
+}
+
+// DELETE

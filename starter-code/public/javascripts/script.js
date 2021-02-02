@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
-function clicked() {
-  return confirm('Are you sure you want to remove the drone?');
+function clicked(input) {
+  return confirm(`Are you sure you want to remove it?`);
 }
