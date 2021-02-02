@@ -1,58 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const Celebrity = require("../models/Celebrity.model")
+const celebritiesController = require("../controllers/celebrities.controller")
 
 /* Celebrities */
-router.get('/celebrities/index', (req, res, next) => {
-  Celebrity.find()
-   .then((celebrities) => {
-      res.render("celebrities/index", { celebrities });
-    })
-    .catch((e) => next(e));
-})
+router.get('/celebrities/index', celebritiesController.list)
 
 /* Add celebrities */
-router.get('/celebrities/new', (req, res, next) => {
-  res.render("celebrities/new")
-})
+router.get('/celebrities/new', celebritiesController.create)
 
-router.post('/celebrities/new', (req, res, next) => {
-  const celebrity = new Celebrity (req.body)
-  celebrity.save()
-  .then(c => res.redirect("/celebrities/index"))
-  .catch(e => res.redirect("/celebrities/new"))
-})
+router.post('/celebrities/new', celebritiesController.doCreate)
 
 /* Edit celebrities */
-router.get('/celebrities/:id/edit', (req, res, next) => {
-  Celebrity.findById(req.params.id)
-  .then((celebrity) => {
-    res.render ('celebrities/new', celebrity)
-  })
-  .catch((e) => next(e))
-})
+router.get('/celebrities/:id/edit', celebritiesController.edit)
 
-router.post('/celebrities/:id/edit', (req, res, next) => {
-  const celebrity = req.body
-  Celebrity.findByIdAndUpdate(req.params.id, celebrity, { new: true })
-  .then((c) => res.render('celebrities/show', c))
-  .catch((e) => next(e))
-})
+router.post('/celebrities/:id/edit', celebritiesController.doEdit)
 
 /* Delete celebrities */
-router.post('/celebrities/:id/delete', (req, res, next) => {
-  Celebrity.findByIdAndDelete(req.params.id)
-    .then(() => res.redirect("/celebrities/index"))
-    .catch((e) => next(e))
-})
+router.post('/celebrities/:id/delete', celebritiesController.delete)
 
 /* Celebrities details */
-router.get('/celebrities/:id', (req, res, next) => {
-  Celebrity.findById(req.params.id)
-    .then((celebrity) => {
-    res.render ("celebrities/show", celebrity)
-    })
-    .catch((e) => next(e))
-})
+router.get('/celebrities/:id', celebritiesController.details)
 
 module.exports = router;
