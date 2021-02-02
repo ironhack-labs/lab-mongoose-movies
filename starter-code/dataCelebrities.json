@@ -1,0 +1,17 @@
+[
+  {
+    "name":"Tom Cruise",
+    "occupation": "actor",
+    "catchPhrase": "Scientology is cool"
+  },
+  {
+    "name":"Bratt Pitt",
+    "occupation": "actor",
+    "catchPhrase": "You can also call me MR. Smith"
+  },
+  {
+    "name":"Antonio Banderas",
+    "occupation": "actor",
+    "catchPhrase": "I'm desperado"
+  }
+]
