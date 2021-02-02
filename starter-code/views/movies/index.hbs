@@ -4,9 +4,8 @@
     <thead>
         <tr>
             <th scope="col">Title</th>
-            {{!-- <th scope="col">Ocupation</th>
-            <th scope="col">Catch Phrase</th> --}}
-            <th scope="col">Details</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Edit</th>
             <th scope="col">Remove</th>
         </tr>
     </thead>
@@ -14,8 +13,7 @@
         {{#each movies}}
         <tr>
             <th scope="row"><a class="" href="/movies/{{id}}">{{title}}</a></th>
-            {{!-- <td>{{ocupation}}</td>
-            <td>{{catchPhrase}}</td> --}}
+            <th scope="row"><a class="" href="/users/{{user._id}}">{{user.userName}}</a></th>
             <td>
                 <a class="btn btn-success" href="/movies/{{id}}/edit">Edit</a>
             </td>

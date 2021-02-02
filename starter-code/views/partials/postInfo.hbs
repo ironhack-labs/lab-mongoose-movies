@@ -1,0 +1,13 @@
+<div class="post">
+	<h3>
+		<a class="post__title" href="/posts/{{_id}}">{{title}}</a>, by <a class="post__author"
+			href="/users/{{user._id}}">{{user.userName}}</a>
+	</h3>
+	<p class="post__description">{{description}}</p>
+	<img class="post__image" alt="Post image" src="{{image}}">
+	<div class="post__tags">
+		{{#each tags as |tag|}}
+		<p class="post__tag">{{tag}}</p>
+		{{/each}}
+	</div>
+</div>

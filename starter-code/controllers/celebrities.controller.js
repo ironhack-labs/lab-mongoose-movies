@@ -1,16 +1,22 @@
 const Celebrity = require('../models/Celebrity.model')
+const User = require('../models/User.model')
 
 // CREATE
 // Get form
-module.exports.create = (req, res, next) => res.render('celebrities/celebrityForm');
+module.exports.create = (req, res, next) => {
+    User.find()
+        .then(dbUsers => res.render('celebrities/celebrityForm', { users: dbUsers }))
+        .catch(err => next(err));
+};
 
 // Post form
 module.exports.doCreate = (req, res) => {
     const newCelebrity = new Celebrity(req.body)
     newCelebrity.save()
-        .then(user => {
+        .populate('user')
+        .then(celebrity => {
             res.redirect('/celebrities')
-            console.log(`The celebrity ${user.name} was added`);
+            console.log(`The celebrity ${celebrity.name} was added`);
         })
         .catch(err => {
             console.log(`An error occurred while creating the new celebrity: ${err}`)
@@ -21,31 +27,31 @@ module.exports.doCreate = (req, res) => {
 // READ - list
 module.exports.list = (req, res, next) => {
     Celebrity.find()
-        .then(celebsFound => res.render('celebrities/index', {
-            celebrities: celebsFound
-        }))
-        .catch(err => next(err))
+        .populate('user')
+        .then(celebsFound => res.render('celebrities/index', { celebrities: celebsFound }))
+        .catch(err => next(err));
 }
 
 module.exports.detail = (req, res, next) => {
     Celebrity.findById(req.params.id)
-      .then(celebrityFound => res.render('celebrities/show', celebrityFound))
-      .catch(err => next(err));
+        .populate('user')
+        .then(celebrityFound => res.render('celebrities/show', celebrityFound))
+        .catch(err => next(err));
   }
 
 // UPDATE
 // Get form
 module.exports.edit = (req, res, next) => {
     Celebrity.findById(req.params.id)
-      .then(foundCeleb => res.render('celebrities/celebrityForm', foundCeleb))
-      .catch(err => next(err));
+        .populate('user')
+        //.then(foundCeleb => console.log(foundCeleb))
+        .then(celebToEdit => res.render('celebrities/celebrityForm', celebToEdit))
+        .catch(err => next(err));
   }
 
 // Post form
 module.exports.doEdit = (req, res, next) => {
-    Celebrity.findByIdAndUpdate(req.params.id, req.body, {
-        new: true
-      })
+    Celebrity.findByIdAndUpdate(req.params.id, req.body, { new: true })
       .then(() => res.redirect('/celebrities'))
       .catch(err => next(err));
   }

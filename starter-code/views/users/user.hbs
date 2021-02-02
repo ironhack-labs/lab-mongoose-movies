@@ -1,0 +1,31 @@
+<div class="">
+	<section id="user">
+		<h2><span class="fw-bold">{{userName}}</span>'s profile</h2>
+		<p>Age: {{age}}</p>
+		<p>Name: {{name}}</p>
+		<p>Email: {{email}}</p>
+	</section>
+	<hr>
+	<section id="celebrities" class="pt-3">
+		<h3 class="fw-bold mt-3">Added Celebrities</h3>
+		{{#each celebrities}}
+		<h4><a href="/celebrities/{{_id}}">{{name}} {{lastName}}</a></h4>
+		<p>Ocupation: {{ocupation}}</p>
+		<p>catchPhrase: {{catchPhrase}}</p>
+		<p>by: {{user.userName}}</p>
+		{{/each}}
+	</section>
+	<hr>
+	<section id="movies" class="pt-3">
+		<h3 class="fw-bold mt-3">Added Movies</h3>
+		{{#each movies}}
+		<h4><a href="/movies/{{_id}}">{{title}}</a></h4>
+		<p>Gentre: {{genre}}</p>
+		<p>Cast: {{cast}}</p>
+		<p>Cast: {{#each cast}}{{this}} |{{/each}}</p>
+		<p>Plot: {{plot}}</p>
+		<p>by: {{user.userName}}</p>
+		{{/each}}
+	</section>
+</div>
+

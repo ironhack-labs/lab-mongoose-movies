@@ -14,8 +14,33 @@
             </div>
             <div class="form-group">
                 <label for="plot">Plot: </label>
-                <textarea class="form-control" type="text" id="plot" name="plot" value="{{plot}}" rows="4" cols="50" required>{{plot}}</textarea>
+                <textarea class="form-control" type="text" id="plot" name="plot" value="{{plot}}" rows="4" cols="50"
+                    required>{{plot}}</textarea>
             </div>
+            {{#unless title}}
+            <div class="form-group">
+                <label for="userName-select">Created by</label>
+                <select class="form-control" name="userName" id="userName-select">
+                    <option disable selected value=""></option>
+                    {{#each users}}
+                    <option value="{{this._id}}"> {{this.userName}} </option>
+                    {{/each}}
+                </select>
+            </div>
+            {{else}}
+            <div class="form-group">
+                <p>Created by: <a href="/users/{{user._id}}"><b>{{user.userName}}</b></a></p>
+            </div>
+            {{!-- <div class="form-group">
+                <label for="author-select"> Edited by </label>
+                <select class="form-control" name="userName" id="userName-select">
+                    <option disable selected value=""></option>
+                    {{#each users}}
+                    <option value="{{this._id}}"> {{this.userName}}</option>
+                    {{/each}}
+                </select>
+            </div> --}}
+            {{/unless}}
             <button type="submit" class="btn btn-primary mt-3">{{#if title}}Edit{{else}}Create{{/if}}</button>
         </form>
     </div>

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const celebritiesController = require("../controllers/celebrities.controller");
 const moviesController = require("../controllers/movies.controller")
 const miscController = require("../controllers/misc.controller");
+const usersController = require("../controllers/users.controller")
 
 // HOME PAGE
 router.get("/", miscController.home);
@@ -35,7 +36,7 @@ router.get('/movies/movieForm', moviesController.create);
 router.post('/movies/movieForm', moviesController.doCreate);
 
 // Read - Movie detail
-router.get('/movies/:id', moviesController.list);
+router.get('/movies/:id', moviesController.detail);
 
 // Remove - Movie
 router.post('/movies/:id/delete', moviesController.delete);
@@ -43,5 +44,11 @@ router.post('/movies/:id/delete', moviesController.delete);
 // Update - Movie
 router.get('/movies/:id/edit', moviesController.edit);
 router.post('/movies/:id/edit', moviesController.doEdit);
+
+// USERS
+// Read - Users list
+router.get('/users', usersController.list)
+
+router.get("/users/:id", usersController.profile);
 
 module.exports = router;

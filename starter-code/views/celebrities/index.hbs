@@ -4,7 +4,8 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">Details</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Edit</th>
             <th scope="col">Remove</th>
         </tr>
     </thead>
@@ -12,6 +13,7 @@
         {{#each celebrities}}
         <tr>
             <th scope="row"><a class="" href="/celebrities/{{id}}">{{name}} {{lastName}}</a></th>
+            <th scope="row"><a class="" href="/users/{{user._id}}">{{user.userName}}</a></th>
             <td>
                 <a class="btn btn-success" href="/celebrities/{{id}}/edit">Edit</a>
             </td>

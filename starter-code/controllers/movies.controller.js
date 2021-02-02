@@ -1,8 +1,13 @@
-const Movie = require('../models/Movie.model')
+const Movie = require('../models/Movie.model');
+const User = require('../models/User.model');
 
 // CREATE
 // Get form
-module.exports.create = (req, res, next) => res.render('movies/movieForm');
+module.exports.create = (req, res, next) => {
+    User.find()
+        .then(dbUsers => res.render('movies/movieForm', {users: dbUsers}))
+        .catch(err => next(err));
+};
 
 // Post form
 module.exports.doCreate = (req, res, next) => {
@@ -21,14 +26,14 @@ module.exports.doCreate = (req, res, next) => {
 // READ - list
 module.exports.list = (req, res, next) => {
     Movie.find()
-        .then(moviesFound => res.render('movies/index', {
-            movies: moviesFound
-        }))
+        .populate('user')
+        .then(moviesFound => res.render('movies/index', { movies: moviesFound }))
         .catch(err => next(err))
 }
 
 module.exports.detail = (req, res, next) => {
     Movie.findById(req.params.id)
+        .populate('user')
         .then(movieFound => res.render('movies/show', movieFound))
         .catch(err => next(err));
 }
@@ -37,6 +42,7 @@ module.exports.detail = (req, res, next) => {
 // Get form
 module.exports.edit = (req, res, next) => {
     Movie.findById(req.params.id)
+        .populate('user')
         .then(movieToEdit => res.render('movies/movieForm', movieToEdit))
         .catch(err => next(err));
 }
