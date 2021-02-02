@@ -15,7 +15,12 @@ module.exports.list = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
     Movie.findById(req.params.id)
-        .then((movie) => res.render('movies/show',  movie ))
+        .populate('cast')
+        .then((movie) => {
+
+             
+            res.render('movies/show',  movie )
+        })
         .catch((e) => next(e))
 
 }
