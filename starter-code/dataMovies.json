@@ -1,0 +1,17 @@
+[
+  {
+    "title":"Billy Elliot",
+    "genre": "dance drama",
+    "plot": "The film is about a working-class boy who discovers his passion for ballet."
+  },
+  {
+    "title":"Harry potter and the philosopher's stone",
+    "genre": "fantasy",
+    "plot": "The first novel in the Harry Potter series."
+  },
+  {
+    "title":"Bad Boys",
+    "genre": "comedy",
+    "plot": "The film is about two Miami narcotics detectives."
+  }
+]

@@ -1,0 +1,22 @@
+<div class="col">
+  <div class="row">
+    <h1>{{#if title}}Edit{{else}}Create{{/if}} celebrity</h1>
+  </div>
+  <div class="row">
+    <form action="/movies{{#if title}}/{{_id}}/edit{{else}}/new{{/if}}" method="POST">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" id="title" name="title" value="{{title}}">
+      </div>
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <input class="form-control" type="text" id="genre" name="genre" value="{{genre}}">
+      </div>
+      <div class="form-group">
+        <label for="plot">Plot</label>
+        <input class="form-control" type="text" id="plot" name="plot" value="{{plot}}">
+      </div>
+      <button type="submit">{{#if title}}Edit{{else}}Create{{/if}}</button>
+    </form>
+  </div>
+</div>
