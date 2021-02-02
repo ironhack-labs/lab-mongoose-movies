@@ -1,6 +1,7 @@
 <h2>All Celebrities</h2>
 {{#each celebrities }} 
-    <h4>{{name}}</h4>
-    <h4>{{occupation}}</h4>
-    <h4>"{{catchPhrase}}"</h4>
+    <a href="/celebrities/{{_id}}">
+        <h4>{{name}}</h4>
+    </a>
 {{/each}}
+
