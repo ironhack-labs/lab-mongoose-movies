@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const User = require('../models/Celebrity.model');
+const Celebrities = require('../models/Celebrity-model');
 
 require('../configs/db.config');
 
-const celebrityUsers = [
+const celebrities = [
   {
     name: 'Katarina',
     occupation: 'actress',
@@ -21,9 +21,9 @@ const celebrityUsers = [
   }
 ];
 
-User.create(celebrityUsers)
-  .then(dbUsers => {
-    console.log(`Created ${dbUsers.length} users`);
+Celebrities.create(celebrities)
+  .then(result => {
+    console.log(`Created ${result.length} celebrities`);
     mongoose.connection.close()
   })
-  .catch(err => console.log(`An error occurred while creating fake users in the DB: ${err}`));
+  .catch(err => console.log(`An error occurred while creating celebrities in the DB: ${err}`));

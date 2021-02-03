@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
-const celebritySchema = new Schema(
+const celebritiesSchema = new Schema(
   {
     name: String,
     occupation: String,
@@ -12,4 +12,4 @@ const celebritySchema = new Schema(
   }
 );
 
-module.exports = model('Celebrity', celebritySchema);
+module.exports = model('Celebrity', celebritesSchema);
