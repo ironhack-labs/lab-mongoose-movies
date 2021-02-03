@@ -33,7 +33,7 @@ router.post("/celebrities/new", (req, res, next) => {
      .then(() => res.redirect("/celebrities"))
      .catch((error) => `Error while creating a new celebrity: ${error}`);  
 })
-//=========================Create=======================================
+//=========================Create alternative=======================================
 /* router.get("/celebrities/new", (req, res, next) => {
   res.render("celebrities/new");
   
@@ -60,9 +60,21 @@ router.get("/celebrities/:id", (req, res, next) => {
     })
     .catch((e) => next(e));
   });
-  
+//=============== DELETE ========================================
+
+router.post("/celebrities/:id/delete", (req, res, next) => {
+  const id = req.params.id
+  Celebrity.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect("/celebrities" );
+    })
+    .catch((e) => next(e));
+});
+//==================================================================
   
   module.exports = router;
+
+
   
   // ===========================================================
   /* router.get('/drones/create', (req, res, next) => {
