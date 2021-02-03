@@ -1,20 +1,3 @@
 <h2>New Celebrity</h2>
 
-<form method="POST" action="/celebrities/new">
-  <div class="mb-3">
-    <label for="name-input" class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" id="name-input" value="{{name}}">
-  </div>
-  
-  <div class="mb-3">
-    <label for="occupation-input" class="form-label">Occupation</label>
-    <input type="text" name="occupation"class="form-control" id="occupation-input" value="{{occupation}}">
-  </div>
-
-    <div class="mb-3">
-    <label for="catchPhrase-input" class="form-label">CatchPhrase</label>
-    <input type="text" name="catchPhrase"class="form-control" id="catchphrase-input" value="{{catchPhrase}}">
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Create</button>
-</form>
+{{>form}}

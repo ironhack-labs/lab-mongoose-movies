@@ -18,7 +18,7 @@ router.get("/celebrities", (req, res, next) => {
 
 })
 
-//==================================================================
+//============================Create======================================
 
 router.get("/celebrities/new", (req, res, next) => {
   res.render("celebrities/new");
@@ -71,7 +71,31 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
     .catch((e) => next(e));
 });
 //==================================================================
-  
+
+//======================EDIT============================================
+
+router.get("/celebrities/:id/edit", (req, res, next) =>{
+  const id = req.params.id
+  Celebrity.findById(id)
+    .then((celebrity) => {
+      res.render("celebrities/edit", celebrity)
+    })
+    .catch((e) => next(e));
+});
+
+router.post("/celebrities/:id/edit", (req, res, next) => {
+  const id = req.params.id
+  const celebrity = req.body;
+
+  Celebrity.findByIdAndUpdate(id, celebrity, {new: true})
+    .then(() => {
+      console.log("actualizando info")
+      res.redirect("/celebrities")
+    })
+    .catch((e) => next(e));
+  });
+//==================================================================
+
   module.exports = router;
 
 
