@@ -1,0 +1,14 @@
+<ul style='list-style: none;'>
+    {{#each celebrities}}
+    <li>
+        <h4>{{this.name}}</h4>
+        <a href="/celebrities/{{id}}">See Details</a>
+    </li>
+    <form action="/celebrities/{{id}}/delete" method='post'>
+        <button type="submit">Delete</button>
+    </form>
+    <a href="/celebrities/{{id}}/edit">Edit</a>
+    {{/each}}
+</ul>
+
+<a href="/celebrities/new"><button>Add Celeb</button></a>
