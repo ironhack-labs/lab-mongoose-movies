@@ -5,10 +5,12 @@ const movieSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    plot: String,
+    plot: {
+        type: String
+    },
     stars: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Movie"
+        ref: "Celebrity"
     }
 })
 

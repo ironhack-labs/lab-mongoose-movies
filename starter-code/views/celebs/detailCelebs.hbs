@@ -1,3 +1,8 @@
 {{celeb.name}}
 {{celeb.occupation}}
 {{celeb.catchPhrase}}
+<br> 
+Movies: 
+{{#each celeb.movies as |movie|}}
+  {{movie.title}}
+{{/each}}

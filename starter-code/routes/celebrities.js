@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity.model')
+const Movie = require('../models/Movie.model')
 const celebritiesController = require('../controllers/celebrities.controller');
 
 router.post('/celebrities/:id/edit', celebritiesController.update)

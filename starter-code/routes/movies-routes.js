@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const Movie = require('../models/Movie.model')
+const Celebrity = require('../models/Celebrity.model')
 const moviesController = require('../controllers/movies.controller');
 
 router.post('/movies/:id/delete', moviesController.delete)

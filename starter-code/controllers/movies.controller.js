@@ -1,19 +1,22 @@
 const Movie = require('../models/Movie.model')
 const Celebrity = require('../models/Celebrity.model')
+const mongoose = require('mongoose');
 
 module.exports.list = ((req, res, next) => {
     Movie
-        .find({})
-        // .populate("celebrity") // -> en la vista me debería coger celebrity.name
+        .find()
+        .populate("stars") // -> en la vista me debería coger celebrity.name
         .then((m) => {
+            console.log(m)
             res.render('movies/listMovies', { m })
         })
+        .catch(e => console.log(e))
 })
 
 module.exports.detail = ((req, res, next) => {
     Movie
-    .findById(req.params.id)
-    //.populate("celebrity")
+        .findById(req.params.id)
+        .populate("stars")
         .then((m) => {
             res.render('movies/detailMovie', { m })
         })

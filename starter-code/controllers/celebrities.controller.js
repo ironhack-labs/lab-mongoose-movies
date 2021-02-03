@@ -1,19 +1,20 @@
+const Movie = require('../models/Movie.model')
 const Celebrity = require('../models/Celebrity.model')
 
 module.exports.list = (req, res, next) => {
     Celebrity
         .find({})
         .then((celebs) => {
-        console.log('Celebs:' + celebs)
-        res.render('celebs/listCelebs', { celebs })
+            console.log('Celebs:' + celebs)
+            res.render('celebs/listCelebs', { celebs })
         })
         .catch(e => console.log(e))
 }
 
 module.exports.detail = (req, res, next) => {
     Celebrity
-        //.populate("movies")
         .findById(req.params.id)
+        .populate("movies")
         .then((celeb) => {
             console.log(celeb)
             res.render('celebs/detailCelebs', { celeb })
