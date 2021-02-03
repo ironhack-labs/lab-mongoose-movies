@@ -1,5 +1,7 @@
 const mongoose  = require("mongoose");
 const Celebrity = require("../models/Celebrity.model");
+const Movie = require("../models/Movie.model");
+
 require("../config/db.config")
 
 const data = [
@@ -23,15 +25,42 @@ const data = [
   },
 ];
 
+const movies = [
+  {
+    title: "Conqueror Mars",
+    genre: "Biography",
+    plot: "The bigger proyect that Elon Musk want to do.",
+  },
+  {
+    title: "Everything store",
+    genre: "Biography",
+    plot: "Success history",
+  },
+  {
+    title: "Iron Man",
+    genre: "Sci-fi",
+    plot: "Super hero movie",
+  },
+];
+//=========================add Celebritie at DB=============================================
+
 Celebrity.deleteMany()
     .then(() =>{
-        Celebrity
-            .create(data)
-                .then((celebrities) => console.log(`Created: ${celebrities}`))
-                .finally(() => {
-                    mongoose.connection.close()
-                    .then(() => console.log("Disconected"))
-                })
+        Celebrity.create(data)
+          .then((celebrities) => console.log(`Created: ${celebrities}`))
+          // .finally(() => {
+          //     //mongoose.connection.close()
+          //     .then(() => console.log("Disconected"))
+          // })
+          .catch((e) => next(e));
             
     })
-
+//=========================add Movies at DB=============================================
+  Movie.deleteMany().then(() => {
+    Movie.create(movies)
+      .then((movies) => console.log(`Created: ${movies}`))
+      .finally(() => {
+        mongoose.connection.close().then(() => console.log("Disconected"));
+      })
+      .catch((e) => next(e));
+  });
