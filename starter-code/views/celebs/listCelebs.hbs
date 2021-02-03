@@ -1,16 +1,18 @@
-<a href="/">Back to LISTS</a>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">All celebrities</li>
+  </ol>
+</nav>
 
-<h1>All elebrities</h1>
+<h1>All celebrities</h1>
+<hr>
 {{#each celebs}}
-    {{this.name}}
-    {{this.occupation}}
-    {{this.catchPhrase}}
-    <a href="/celebrities/{{_id}}">See details</a>
-    <a href="/celebrities/{{_id}}/edit">Update</a>
-    <form action="/celebrities/{{_id}}/delete" method="POST">
-        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-    </form>
-    <br><br>
+    <a href="/celebrities/{{_id}}" class="card p-3 mb-2">
+        <h5>{{this.name}}</h5>
+        {{this.occupation}}
+        {{this.catchPhrase}}
+    </a>
 {{/each}}
 
- <b><a href="/celebrities/create">Create your celebrity</a></b>
+<a href="/celebrities/create" class="btn btn-dark mt-2">+ Create your celebrity</a>

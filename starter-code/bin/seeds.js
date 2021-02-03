@@ -36,6 +36,10 @@ Promise.all([Celebrity.deleteMany(), Movie.deleteMany()])
                             title: 'Gone with the wind',
                             plot:'Girl is in love during the american independance war in 1967',
                             stars: celeb._id
+                        },{
+                            title: 'The longest day',
+                            plot:'Accurate film about Normandy\'s landing during the IIWW',
+                            stars: celeb._id
                         })
                 })
         })

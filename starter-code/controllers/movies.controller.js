@@ -24,7 +24,12 @@ module.exports.detail = ((req, res, next) => {
 })
 
 module.exports.createView = ((req, res, next) => {
-    res.render('movies/create-movie')
+    Celebrity
+        .find()
+        .then(celebs => {
+            res.render('movies/create-movie', { celebs })
+        })
+        .catch(e => console.log(e))
 })
 
 module.exports.create = ((req, res, next) => {

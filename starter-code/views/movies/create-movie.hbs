@@ -1,6 +1,14 @@
 <form action="/movies/create" method="POST">
     <input name="title" placeholder="Name of the movie"/>
     <input name="plot" placeholder="Describe the plot"/>
-    
+
+    <select class="form-select" name="stars" aria-label="Default select example">
+        <option>Open this select menu</option>
+        {{#each celebs}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+
+    </select>
+
     <button type="submit" class="btn btn-success">Create</button>
 </form>

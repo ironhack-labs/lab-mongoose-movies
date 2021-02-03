@@ -1,13 +1,24 @@
-<a href="/">Back to LISTS</a>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">All movies</li>
+  </ol>
+</nav>
 
 <h1>All movies</h1>
-{{#each m}}
-    <b>{{title}}</b>
-    <p>Name: {{stars.name}}</p>
-    <p>{{plot}} <a href="/movies/{{_id}}">See detail</a></p>
-    <form action="/movies/{{_id}}/delete" method="POST">
-        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-    </form><br><br>
-{{/each}}
+<hr>
 
-<a href="/movies/create">Create movie +</a>
+<div class="row">
+    {{#each m}}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card p-3 mb-3">
+                <h3>{{title}}</h3>
+                <small>{{stars.name}}</small>
+                <p>{{plot}}</p>
+                <a href="/movies/{{_id}}" class="btn btn-light border">See detail</a>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<a href="/movies/create" class="btn btn-primary">Create movie +</a>

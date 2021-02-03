@@ -1,5 +1,12 @@
-<b>{{m.title}}</b>
-<p>stars: {{m.stars.name}}</p>
-<p>{{m.plot}}</p><br>
+<h1>{{m.title}}</h1>
+<hr>
+<p>{{m.plot}}</p>
+<p><b>Celebrities:</b> 
+<a href="/celebrities/{{m.stars._id}}">{{m.stars.name}}</a>
+</p><br>
+
+<form action="/movies/{{_id}}/delete" method="POST">
+    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+</form>
 <a href="/movies/{{m._id}}/edit">Edit movie</a><br>
 <a href="/movies">Back to all Movies</a><br>
