@@ -5,6 +5,12 @@
 		<p>Name: {{name}}</p>
 		<p>Email: {{email}}</p>
 	</section>
+	<section>
+		<a class="btn btn-success" href="/users/{{id}}/edit">Edit Profile</a>
+		<form class="delete-form pt-2" action="/users/{{id}}/delete" method="post">
+			<button type="submit" class="btn btn-danger" onclick="return clicked()">Remove Account</button>
+		</form>
+	</section>
 	<hr>
 	<section id="celebrities" class="pt-3">
 		<h3 class="fw-bold mt-3">Added Celebrities</h3>
@@ -28,4 +34,3 @@
 		{{/each}}
 	</section>
 </div>
-

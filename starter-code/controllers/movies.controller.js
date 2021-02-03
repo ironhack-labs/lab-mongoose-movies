@@ -5,6 +5,7 @@ const User = require('../models/User.model');
 // Get form
 module.exports.create = (req, res, next) => {
     User.find()
+        .populate('user movies')
         .then(dbUsers => res.render('movies/movieForm', {users: dbUsers}))
         .catch(err => next(err));
 };

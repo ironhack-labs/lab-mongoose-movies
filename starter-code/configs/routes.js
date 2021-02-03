@@ -56,4 +56,11 @@ router.post('/users/userForm', usersController.doCreate);
 // Read - User detail
 router.get("/users/:id", usersController.profile);
 
+// Update - User
+router.get('/users/:id/edit', usersController.edit);
+router.post('/users/:id/edit', usersController.doEdit);
+
+// Remove - User
+router.post('users/:id/delete', usersController.delete);
+
 module.exports = router;

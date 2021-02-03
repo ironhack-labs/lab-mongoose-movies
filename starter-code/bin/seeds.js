@@ -94,18 +94,9 @@ const Movie = require('../models/Movie.model');
 Movie.deleteMany()
     .then(() => {
         for (let i = 0; i < 10; i++) {
-            User.find({
-                    // name: faker.name.findName(),
-                    // userName: faker.internet.userName(),
-                    // email: faker.internet.email(),
-                    // age: Math.ceil(Math.random() * 101) + 18,
-                })
+            User.find({})
+                .then(usersFromDb => usersFromDb.forEach(user => user))
                 .then(user => {
-                    randomUser = getRandom(user);
-                    console.log(randomUser)
-                    return randomUser;
-                })
-                .then( randomUser => {
                     let n = randomNumber(10);
                     console.log(n)
                     for (let i = 0; i < n; i++) {
@@ -114,7 +105,7 @@ Movie.deleteMany()
                                 genre: getRandom(["drama", "comedy", "action", "fantasy", "horror/thriller", "romance"]),
                                 plot: faker.lorem.paragraphs(),
                                 //cast: [celebrity._id],
-                                user: randomUser._id
+                                user: user._id
                             })
                             .then(createdMovie => console.log(`Created movie: ${createdMovie.title}`))
                             .catch(error => console.log(`Error while creating a new movie: ${error}`))
