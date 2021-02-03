@@ -1,6 +1,7 @@
 require('dotenv').config();
 require("./config/db.config")
 
+const createError = require("http-errors");
 const routes = require("./config/routes")
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -48,6 +49,19 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 app.use('/', routes);
+
+// app.use((req, res, next) => {
+//   next(createError(404));
+// });
+
+// app.use((error, req, res, next) => {
+//   console.log(error);
+//   if (!error.status) {
+//     error = createError(500);
+//   }
+//   res.status(error.status);
+//   res.render("error", error);
+// });
 
 
 module.exports = app;
