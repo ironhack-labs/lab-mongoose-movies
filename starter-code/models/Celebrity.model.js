@@ -13,6 +13,10 @@ const celebritySchema = new Schema({
   catchPhrase:{
     type: String,
     required: true
+  },
+  image:{
+    type: String,
+    required: true
   }
 
 });

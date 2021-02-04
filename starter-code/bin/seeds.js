@@ -5,13 +5,15 @@ const faker = require('faker');
 const Celebrity = require("../models/Celebrity.model");
 const mongoose = require('mongoose');
 
+
 const celebrities = []
 
 for(let i=0; i<50; i++){
     celebrities.push({
         name: faker.name.findName(),
         occupation: faker.name.jobTitle(),
-        catchPhrase: faker.company.catchPhrase()
+        catchPhrase: faker.company.catchPhrase(),
+        image: faker.image.people()
     })
 }
 

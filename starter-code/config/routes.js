@@ -8,6 +8,8 @@ router.get("/", miscController.index);
 
 //celebrities
 router.get("/celebrities", celebritiesController.list);
+router.get("/celebrities/:id", celebritiesController.show);
+
 
 
 

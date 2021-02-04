@@ -14,3 +14,11 @@ module.exports.list = (req,res,next) =>{
         })
         .catch (e => next(e))
 }
+
+module.exports.show = (req,res,next) =>{
+    Celebrity.findById(req.params.id)
+        .then(data => {
+            res.render('celebrities/show', { ...data.toJSON(), delete: false })
+        })
+        .catch(e => next(e))
+}
