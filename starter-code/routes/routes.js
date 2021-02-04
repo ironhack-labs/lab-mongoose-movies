@@ -10,7 +10,14 @@ router.get('/', miscController.index);
 
 router.get('/celebrities', celebsController.list)
 
+//Create new celebritie
+
+router.get('/celebrities/new', celebsController.new)
+router.post('/celebrities', celebsController.newP)
+
+
 //Celebritie details page
 
 router.get('/celebrities/:id', celebsController.detail)
 module.exports = router;
+
