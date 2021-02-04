@@ -14,6 +14,8 @@ router.post("/celebrities/new", celebritiesController.addNew);
 
 router.get("/celebrities/:id", celebritiesController.show);
 
+router.post("/celebrities/:id/delete", celebritiesController.delete);
+
 
 
 

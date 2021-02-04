@@ -41,3 +41,15 @@ module.exports.addNew = (req,res,next) =>{
     }
 )}
     
+
+module.exports.delete = (req,res,next) =>{
+    Celebrity.findByIdAndDelete(req.params.id)
+    .then(() => {
+        console.log(`Celebrity ${req.params.id} deleted`)
+        res.redirect('/celebrities')
+      })
+    .catch(error => console.log(`Error deleting celebrity: ${error}`))
+}
+
+    
+
