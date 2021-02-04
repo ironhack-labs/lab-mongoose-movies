@@ -1,12 +1,14 @@
 const express = require("express");
 const Celebrity = require("../models/Celebrity.model");
 const router = express.Router();
+const Movie = require("../models/Movie.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+//================list celebrities=======================================
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
   .then((celebrities) => {
@@ -49,7 +51,7 @@ router.post("/celebrities/new", (req, res, next) => {
     .catch(error => `Error while creating a new celebrity: ${error}`);  
 })
  */
-//==================================================
+//=====================DETAILS=============================
 
 
 router.get("/celebrities/:id", (req, res, next) => {
@@ -94,34 +96,81 @@ router.post("/celebrities/:id/edit", (req, res, next) => {
     })
     .catch((e) => next(e));
   });
+//=======================================================================
+//================list Movies=======================================
+router.get("/movies", (req, res, next) => {
+  Movie.find()
+  .then((movies) => {
+    res.render("movies/index", {
+      movies
+    });
+  })
+  .catch((e) => next(e));
+
+})
+//============================Create======================================
+
+router.get("/movies/new", (req, res, next) => {
+  res.render("movies/new");
+  
+})
+
+router.post("/movies/new", (req, res, next) => {
+
+  const movie = req.body
+ 
+   Movie.create(movie)
+     .then(() => res.redirect("/movies"))
+     .catch((error) => `Error while creating a new movie: ${error}`);  
+})
+//=====================Movie details=============================
+
+
+router.get("/movies/:id", (req, res, next) => {
+  const id = req.params.id
+  Movie.findById(id)
+    .then(movie => {
+      res.render("movies/show", movie);
+    })
+    .catch((e) => next(e));
+  });
+//============================================================
+
+//====================== Movie edit============================================
+
+router.get("/movies/:id/edit", (req, res, next) =>{
+  const id = req.params.id
+  Movie.findById(id)
+    .then((movie) => {
+      res.render("movies/edit", movie)
+    })
+    .catch((e) => next(e));
+});
+
+router.post("/movies/:id/edit", (req, res, next) => {
+  const id = req.params.id
+  const movie = req.body;
+
+  Movie.findByIdAndUpdate(id, movie, {new: true})
+    .then(() => {
+      console.log("actualizando info")
+      res.redirect("/movies")
+    })
+    .catch((e) => next(e));
+  });
+//=============== DELETE ========================================
+
+router.post("/movies/:id/delete", (req, res, next) => {
+  const id = req.params.id
+  Movie.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect("/movies" );
+    })
+    .catch((e) => next(e));
+});
 //==================================================================
 
   module.exports = router;
 
 
   
-  // ===========================================================
-  /* router.get('/drones/create', (req, res, next) => {
-    // Iteration #3: Add a new drone
-    res.render("drones/create-form");
-    // ... your code here
-  });
-  
-  router.post('/drones/create', (req, res, next) => {
-    // Iteration #3: Add a new drone
-    const drone = req.body
-
-    Drone.create(drone)
-    .then(() => res.redirect("/drones"))
-    .catch((e) => next(e));
-    
-  })
- */
-//======================================================== Learning unit
-/* router.post('/books/create', (req, res) => {
-  const { title, author, description, rating } = req.body;
- 
-  Book.create({ title, author, description, rating })
-    .then(() => res.redirect('/books'))
-    .catch(error => `Error while creating a new book: ${error}`);
-}); */
