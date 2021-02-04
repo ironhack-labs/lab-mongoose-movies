@@ -1,0 +1,28 @@
+{{> navBar_movies}}
+
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-3 p-2">Update movie</h2>
+            <form class="border" action="/movies/{{movie.id}}/update" method="POST" style="width: 20rem;">
+                <div class="mb-3 p-2">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input name="title" type="text" class="form-control mb-1" value="{{movie.title}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Genre</label>
+                        <input name="genre" type="text" class="form-control mb-1" value="{{movie.genre}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Plot</label>
+                        <input name="plot" type="text" class="form-control mb-1" value="{{movie.plot}}">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark m-1">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

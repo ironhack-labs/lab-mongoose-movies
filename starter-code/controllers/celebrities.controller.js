@@ -41,7 +41,7 @@ module.exports.addNew = (req,res,next) =>{
     }
 )}
     
-
+//delete celebrities
 module.exports.delete = (req,res,next) =>{
     Celebrity.findByIdAndDelete(req.params.id)
     .then(() => {
@@ -51,7 +51,7 @@ module.exports.delete = (req,res,next) =>{
     .catch(error => console.log(`Error deleting celebrity: ${error}`))
 }
 
-    
+//Update celebrities
 module.exports.update = (req, res, next) => {
     Celebrity.findById(req.params.id)
       .then(celebrity => res.render('celebrities/update',{celebrity}))

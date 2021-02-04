@@ -45,7 +45,6 @@ module.exports.addNew = (req,res,next) =>{
 )}
 
 //delete movies
-
 module.exports.delete = (req,res,next) =>{
     Movie.findByIdAndDelete(req.params.id)
     .then(() => {
@@ -55,3 +54,25 @@ module.exports.delete = (req,res,next) =>{
     .catch(error => console.log(`Error deleting movie: ${error}`))
 }
     
+
+//Update movies
+module.exports.update = (req, res, next) => {
+    Movie.findById(req.params.id)
+      .then(movie => res.render('movies/update_movie',{movie}))
+      .catch(error => {
+        console.log(`Error updating movie: ${error}`)
+        res.redirect('/movies')
+      });
+  }
+
+  module.exports.doUpdate =  (req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      .then(() => {
+        console.log(`Movie ${req.params.id} updated`)
+        res.redirect('/movies')
+      })
+      .catch(error => {
+        console.log(`Error updating movie: ${error}`)
+        res.redirect('/movies/update')
+      });
+  }
