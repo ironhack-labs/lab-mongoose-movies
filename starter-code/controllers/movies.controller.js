@@ -14,3 +14,12 @@ module.exports.list = (req,res,next) =>{
         })
         .catch (e => next(e))
 }
+
+
+module.exports.show = (req,res,next) =>{
+    Movie.findById(req.params.id)
+        .then(data => {
+            res.render('movies/movie_detail', { ...data.toJSON(), delete: false })
+        })
+        .catch(e => next(e))
+}

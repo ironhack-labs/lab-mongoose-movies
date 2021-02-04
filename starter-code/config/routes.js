@@ -25,6 +25,7 @@ router.post("/celebrities/:id/update", celebritiesController.doUpdate);
 //movies
 router.get("/movies", moviesController.list);
 
+router.get("/movies/:id", moviesController.show);
 
 
 
