@@ -44,6 +44,27 @@ module.exports.detail = (req, res, next) => {
     
   }   
 
+  //Edit a Celebritie
+
+  module.exports.edit = (req, res, next) => {
+    Celebrity.findById(req.params.id)
+    .then((celebritieToEdit) => {
+        res.render('celebrities/edit', {celebrities: celebritieToEdit})
+    })
+    .catch((e) => next(e))
+  }
+
+  module.exports.editP = (req, res, next) => {
+    const {name, occupation, catchPhrase, image} = req.body
+
+    Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase, image}, {new: true})
+    .then((editedCeleb) => {
+        console.log(`The celebritie has been updated sucessfully`)
+        res.redirect('/celebrities')
+    })
+    .catch((e) => next(e))
+  }
+
   //Delete a Celebritie
 
   module.exports.delete = (req, res, next) => {

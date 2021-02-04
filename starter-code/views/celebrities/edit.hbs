@@ -1,0 +1,20 @@
+<h2 class='heading__title'>Edit a celebritie</h2>
+<form action="/celebrities/{{celebrities.id}}" method="POST">
+  <div class="mb-3">
+    <label for="nameInput" class="form-label">Name</label>
+    <input type="text" class="form-control" id="nameInput" name="name" aria-describedby="emailHelp" value="{{celebrities.name}}">
+  </div>
+  <div class="mb-3">
+    <label for="occupationInput" class="form-label">Occupation</label>
+    <input type="text" class="form-control" id="occupationInput" name="occupation" aria-describedby="emailHelp" value="{{celebrities.occupation}}">
+  </div>
+  <div class="mb-3">
+    <label for="catchPhraseInput" class="form-label">catchPhrase</label>
+    <input type="text" class="form-control" id="catchPhraseInput" name="catchPhrase" aria-describedby="emailHelp" value="{{celebrities.catchPhrase}}">
+  </div>
+  <div class="mb-3">
+    <label for="imageInput" class="form-label">Image link</label>
+    <input type="text" class="form-control" id="imageInput" name="image" aria-describedby="emailHelp" value="{{celebrities.image}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
