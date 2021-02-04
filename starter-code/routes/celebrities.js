@@ -10,7 +10,10 @@ router.get('/celebrities', (req, res, next) => {
   .then(allCelebrities => {
     res.render('celebrities/index.hbs', { celebritiesList: allCelebrities })
   })
-  .catch(error => console.log(error));
+  .catch(error => {
+    console.log(error);
+    next();
+  });
 });
 
 

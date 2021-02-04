@@ -1,0 +1,13 @@
+<h1> All Movies From database</h1>
+<a href="/movies/new">CREATE A NEW MOVIE</a>
+<p>
+    <ul>
+        {{#each movieslist}}
+        <li>{{this.name}}</li>
+        <p> <a href="/movies/{{this.id}}">Details</a>
+        <br>
+        <a href="/movies/{{this.id}}/edit">EDIT</a>
+        
+        {{/each}}
+    </ul>
+</p>
