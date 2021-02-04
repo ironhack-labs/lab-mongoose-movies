@@ -23,3 +23,24 @@ module.exports.show = (req,res,next) =>{
         })
         .catch(e => next(e))
 }
+
+
+
+//Add movies
+module.exports.new = (req,res,next) =>{
+    res.render('movies/new_movie')
+}
+    
+
+module.exports.addNew = (req,res,next) =>{
+    Movie.create(req.body)
+    .then(data => {
+        console.log(`Movie added: ${data.name}`)
+        res.redirect('/movies')
+    })
+    .catch(error => {
+        console.log(`Error adding movie: ${error}`)
+        res.redirect('/movies/new')
+    }
+)}
+    

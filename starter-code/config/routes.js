@@ -25,8 +25,11 @@ router.post("/celebrities/:id/update", celebritiesController.doUpdate);
 //movies
 router.get("/movies", moviesController.list);
 
-router.get("/movies/:id", moviesController.show);
 
+router.get("/movies/new", moviesController.new); //Ubicar antes de "/movies/:id" porque sino hay problema con las rutas
+router.post("/movies/new", moviesController.addNew);
+
+router.get("/movies/:id", moviesController.show);
 
 
 module.exports = router;

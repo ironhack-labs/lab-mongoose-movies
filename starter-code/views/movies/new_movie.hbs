@@ -1,0 +1,28 @@
+{{> navBar_movies}}
+
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-3 p-2">Add new movie</h2>
+            <form class="border" action="/movies/new" method="POST" style="width: 20rem;">
+                <div class="mb-3 p-2 form__style" >
+                    <div class="form-group">
+                        <label>title</label>
+                        <input name="title" type="text" class="form-control mb-1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Genre</label>
+                        <input name="genre" type="text" class="form-control mb-1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Plot</label>
+                        <input name="plot" type="text" class="form-control mb-3" placeholder="">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark m-1">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
