@@ -10,4 +10,7 @@ router.get('/', miscController.index);
 
 router.get('/celebrities', celebsController.list)
 
+//Celebritie details page
+
+router.get('/celebrities/:id', celebsController.detail)
 module.exports = router;

@@ -13,6 +13,11 @@ const celebritySchema = new mongoose.Schema({
       catchPhrase:{
         type: String,
         required: true
+      },
+      image: {
+        type: String,
+        required: false,
+        default: 'https://www.searchpng.com/wp-content/uploads/2019/02/Profile-PNG-Icon-715x715.png'
       }
    
 })
