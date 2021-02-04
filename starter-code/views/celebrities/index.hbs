@@ -5,9 +5,11 @@
                 <div class="card text-center m-1" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title mb-2"><strong><a href="/celebrities/{{_id}}">{{name}}</a></strong></h5>
+                        <button type="submit" class="btn-sm btn-dark mb-2"><a class="none__style" href="/celebrities/{{_id}}/update">Update</a></button>
                         <form action="/celebrities/{{_id}}/delete" method="post">
                              <button type="submit" class="btn-sm btn-dark mb-2">Remove</button>
                         </form>
+                        
                     </div>
                 </div>
         {{/each}}

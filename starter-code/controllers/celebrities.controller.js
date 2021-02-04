@@ -52,4 +52,23 @@ module.exports.delete = (req,res,next) =>{
 }
 
     
+module.exports.update = (req, res, next) => {
+    Celebrity.findById(req.params.id)
+      .then(celebrity => res.render('celebrities/update',{celebrity}))
+      .catch(error => {
+        console.log(`Error updating celebrity: ${error}`)
+        res.redirect('/celebrities')
+      });
+  }
 
+  module.exports.doUpdate =  (req, res, next) => {
+    Celebrity.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      .then(() => {
+        console.log(`Celebrity ${req.params.id} updated`)
+        res.redirect('/celebrities')
+      })
+      .catch(error => {
+        console.log(`Error updating celebrity: ${error}`)
+        res.redirect('/celebrities/update')
+      });
+  }

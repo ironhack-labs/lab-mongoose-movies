@@ -9,6 +9,11 @@ a {
   color: #00B7FF; 
 }
 
+button > a{
+  text-decoration:none!important;
+  color: white!important;
+}
+
 #page__container {
   position: relative;
   min-height: 100vh;

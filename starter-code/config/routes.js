@@ -16,7 +16,8 @@ router.get("/celebrities/:id", celebritiesController.show);
 
 router.post("/celebrities/:id/delete", celebritiesController.delete);
 
-
+router.get("/celebrities/:id/update", celebritiesController.update);
+router.post("/celebrities/:id/update", celebritiesController.doUpdate);
 
 
 module.exports = router;
