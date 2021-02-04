@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 const celebrities = []
 
-for(let i=0; i<50; i++){
+for(let i=0; i<40; i++){
     celebrities.push({
         name: faker.name.findName(),
         occupation: faker.name.jobTitle(),

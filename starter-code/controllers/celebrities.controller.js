@@ -1,7 +1,7 @@
 //require model
 const Celebrity = require("../models/Celebrity.model")
 
-
+//Show celebrities
 module.exports.list = (req,res,next) =>{
     Celebrity.find(
         req.query.name ? {name: { $regex: req.query.name, $options: "i" }} : {}
@@ -22,3 +22,22 @@ module.exports.show = (req,res,next) =>{
         })
         .catch(e => next(e))
 }
+
+//Add celebrities
+module.exports.new = (req,res,next) =>{
+res.render('celebrities/new')
+}
+
+
+module.exports.addNew = (req,res,next) =>{
+    Celebrity.create(req.body)
+    .then(data => {
+        console.log(`Celebrity added: ${data.name}`)
+        res.redirect('/celebrities')
+    })
+    .catch(error => {
+        console.log(`Error adding celebrity: ${error}`)
+        res.redirect('/celebrities/new')
+    }
+)}
+    

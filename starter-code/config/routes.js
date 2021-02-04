@@ -8,9 +8,11 @@ router.get("/", miscController.index);
 
 //celebrities
 router.get("/celebrities", celebritiesController.list);
+
+router.get("/celebrities/new", celebritiesController.new); //Ubicar antes de "/celebrities/:id" porque sino hay problema con las rutas
+router.post("/celebrities/new", celebritiesController.addNew);
+
 router.get("/celebrities/:id", celebritiesController.show);
-
-
 
 
 
