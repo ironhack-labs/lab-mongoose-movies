@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Mongoose Movies</a>
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/movies">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/movies/new">Add Movie</a>
+                </li>
+            </ul>
+            <form class="d-flex mt-1" action="/movies/">
+                <input class="form-control me-2" type="search" placeholder="Search movies" aria-label="Search" name="title" value="{{#if movie_search}}{{movie_search}}{{/if}}">
+                <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+

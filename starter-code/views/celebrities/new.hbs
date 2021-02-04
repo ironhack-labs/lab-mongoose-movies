@@ -1,0 +1,28 @@
+{{> navBar_celebrities}}
+
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-3 p-2">Add new celebrity</h2>
+            <form class="border" action="/celebrities/new" method="POST" style="width: 20rem;">
+                <div class="mb-3 p-2 form__style" >
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input name="name" type="text" class="form-control mb-1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Occupation</label>
+                        <input name="occupation" type="text" class="form-control mb-1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Catch Phrase</label>
+                        <input name="catchPhrase" type="text" class="form-control mb-3" placeholder="">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark m-1">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
