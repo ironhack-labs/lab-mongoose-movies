@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+
 mongoose
   .connect(process.env.MONGODB_URI, {
     useCreateIndex: true,
@@ -17,4 +18,4 @@ mongoose
       .then(() => console.log('Mongoose default connection disconnected through app termination'))
       .catch(error => console.log('Error disconnecting from the database', error))
       .finally(() => process.exit());
-  }) 
+}) 
