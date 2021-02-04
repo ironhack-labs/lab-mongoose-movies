@@ -1,0 +1,16 @@
+{{> navBar_movies}}
+<div class="container">
+    <div class="row justify-content-center">
+        {{#each movies}}
+                <div class="card text-center m-1" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title mb-2"><strong><a href="/movies/{{_id}}">{{title}}</a></strong></h5>
+                        <button type="submit" class="btn-sm btn-dark mb-2"><a class="none__style" href="/movies/{{_id}}/update">Update</a></button>
+                        <form action="/movies/{{_id}}/delete" method="post">
+                             <button type="submit" class="btn-sm btn-dark mb-2">Remove</button>
+                        </form>
+                    </div>
+                </div>
+        {{/each}}
+    </div>
+</div>

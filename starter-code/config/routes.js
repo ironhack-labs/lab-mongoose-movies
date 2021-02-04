@@ -1,7 +1,9 @@
 const router = require("express").Router();
 
-const celebritiesController = require("../controllers/celebrities.controller");
+//require controllers
 const miscController = require("../controllers/misc.controller");
+const celebritiesController = require("../controllers/celebrities.controller");
+const moviesController = require("../controllers/movies.controller");
 
 // home
 router.get("/", miscController.index);
@@ -18,6 +20,12 @@ router.post("/celebrities/:id/delete", celebritiesController.delete);
 
 router.get("/celebrities/:id/update", celebritiesController.update);
 router.post("/celebrities/:id/update", celebritiesController.doUpdate);
+
+
+//movies
+router.get("/movies", moviesController.list);
+
+
 
 
 module.exports = router;
