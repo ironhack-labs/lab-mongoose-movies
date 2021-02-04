@@ -2,14 +2,14 @@
 
 <form action="/celebrities/new" method="post">
 
-  <label for="title-input">Name:</label>
-  <input type="text" name="name" id="title-input" />
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" value="{{name}}"/>
 
-  <label for="occupation-input">Occupation:</label>
-  <input type="text" name="occupation" id="occupation-input" />
+  <label for="occupation">Occupation:</label>
+  <input type="text" name="occupation"  id="occupation" value="{{occupation}}"/>
 
-  <label for="quote-input">Quote:</label>
-  <input type="text" name="catchPhrase" id="quote-input" />
+  <label for="catchPhrase">Quote:</label>
+  <input type="text" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}" />
 
 
   <button type="submit">Create</button>
