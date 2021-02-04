@@ -15,6 +15,9 @@ router.get('/celebrities', celebsController.list)
 router.get('/celebrities/new', celebsController.new)
 router.post('/celebrities', celebsController.newP)
 
+//Delete a celebritie
+
+router.post('/celebrities/:id/delete', celebsController.delete)
 
 //Celebritie details page
 
