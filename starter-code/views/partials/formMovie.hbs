@@ -1,0 +1,19 @@
+<form method="POST" action="{{#if _id}}/movies/{{_id}}/edit{{else}}/movies/new{{/if}}">
+  <div class="mb-3">
+    <label for="title-input" class="form-label">Title</label>
+    <input type="text" name="title" class="form-control" id="title-input" value="{{title}}">
+  </div>
+  
+  <div class="mb-3">
+    <label for="genre-input" class="form-label">Genre</label>
+    <input type="text" name="genre" class="form-control" id="genre-input" value="{{genre}}">
+  </div>
+
+    <div class="mb-3">
+    <label for="plot-input" class="form-label">Plot</label>
+    <input type="text" name="plot"class="form-control" id="plot-input" value="{{plot}}">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">{{#if _id}}Edit{{else}}Create{{/if}}</button>
+</form>
+
