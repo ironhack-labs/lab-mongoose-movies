@@ -10,7 +10,7 @@ router.get('/celebrities',(req,res)=>{
   .catch(err=> console.log(`Error while displaying celebrities: ${err}`))
 })
 
-router.get('celebrities/:id',(req,res,next)=>{
+router.get('/celebrities/:id',(req,res,next)=>{
   Celebrity.findById(req.params.id)
   .then((celebrity)=>{
     res.render('celebrities/show',celebrity)
@@ -19,5 +19,20 @@ router.get('celebrities/:id',(req,res,next)=>{
   .catch((e)=> next(e))
   
 })
+
+router.get('/celebrities/new',(req,res,next)=>{
+  res.render('celebrities/new')
+
+})
+
+router.post('/celebrities/new', (req, res, next) => {
+  const celebrity = new Celebrity (req.body)
+  celebrity.save()
+  .then(c => res.redirect("/celebrities/index"))
+  .catch(e => res.redirect("/celebrities/new"))
+})
+
+
+
 
 module.exports = router
