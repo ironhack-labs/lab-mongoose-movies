@@ -3,8 +3,8 @@
   {{#each allMovies}}
   <li>{{this.title}}</li>
   <li><a href="/movies/{{this._id}}">Details</a></li>
-  <li><a href="/movies/{{this.id}}/edit">Edit</a></li>
-  <form action="/movies/{{this._id}}" method="POST">
+  <li><a href="/movies/{{this._id}}/edit">Edit</a></li>
+  <form action="/movies/{{this._id}}/delete" method="POST">
     <button type="submit">DELETE</button>
   </form>
   {{/each}}

@@ -39,12 +39,12 @@ router.get('/movies/:id/edit', (req, res, next) => {
   const { id } = req.params;
   Movie.findById(id)
     .then(movieUpdate => {
-      res.render('/movies/edit.hbs', movieUpdate);
+      res.render('movies/edit', movieUpdate);
     })
     .catch(err => console.log(err));
 });
 
-router.post('/movies/:id/edit', (req, res, next) => {
+router.post('/movies/:id', (req, res, next) => {
   const { id } = req.params;
   const { title, genre, plot } = req.body;
   Movie.findByIdAndUpdate(id, {

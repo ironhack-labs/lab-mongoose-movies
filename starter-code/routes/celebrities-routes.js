@@ -52,7 +52,7 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
     .catch(err => console.log(err));
 });
 
-router.post('/celebrities/:id/edit', (req, res, next) => {
+router.post('/celebrities/:id', (req, res, next) => {
   const { id } = req.params;
   const { name, occupation, catchPhrase } = req.body;
   Celebrity.findByIdAndUpdate(id, {

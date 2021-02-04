@@ -1,4 +1,4 @@
-<h2>Create a new movie</h2>
+<h2>Edit a movie</h2>
 <form action="/movies/{{_id}}" method="POST">
   <label for="title">Movie name</label>
   <input id="title" name="title" type="text" value="{{title}}">
@@ -6,6 +6,6 @@
   <input id="genre" name="genre" type="text" value="{{genre}}">
   <label for="plot">plot</label>
   <input name="plot" type="text" value="{{plot}}">
-  <button type="submit">Send</button>
-  <button><a href="/movies">Back to preview page</a></button>
+  <button type="submit">Save</button>
+  <button><a href="/movies">Back</a></button>
 </form>
