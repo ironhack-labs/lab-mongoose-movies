@@ -31,5 +31,7 @@ router.post("/movies/new", moviesController.addNew);
 
 router.get("/movies/:id", moviesController.show);
 
+router.post("/movies/:id/delete", moviesController.delete);
+
 
 module.exports = router;

@@ -43,4 +43,15 @@ module.exports.addNew = (req,res,next) =>{
         res.redirect('/movies/new')
     }
 )}
+
+//delete movies
+
+module.exports.delete = (req,res,next) =>{
+    Movie.findByIdAndDelete(req.params.id)
+    .then(() => {
+        console.log(`Movie ${req.params.id} deleted`)
+        res.redirect('/movies')
+      })
+    .catch(error => console.log(`Error deleting movie: ${error}`))
+}
     
