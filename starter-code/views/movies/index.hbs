@@ -3,6 +3,11 @@
 <p>{{title}}</p>
 <a href="/movies/{{_id}}">View more information</a>
 </br>
+<a href="/movies/new">Create new movie</a>
+
+ <form action="/movies/{{id}}/delete" method="post">
+  <button type="submit"> Remove</button>
+  </form>
 {{/each}}
 
 </br>
