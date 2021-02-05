@@ -1,5 +1,6 @@
-const Celebrity = require('../models/Celebrity.model')
-const User = require('../models/User.model')
+const Celebrity = require('../models/Celebrity.model');
+const User = require('../models/User.model');
+const Movie = require('../models/Movie.model');
 
 // CREATE
 // Get form
@@ -11,16 +12,17 @@ module.exports.create = (req, res, next) => {
 
 // Post form
 module.exports.doCreate = (req, res) => {
+    console.log(req.body)
     const newCelebrity = new Celebrity(req.body)
     newCelebrity.save()
         .populate('user')
         .then(celebrity => {
             res.redirect('/celebrities')
-            console.log(`The celebrity ${celebrity.name} was added`);
+            //console.log(`The celebrity ${celebrity.name} was added`);
         })
         .catch(err => {
             console.log(`An error occurred while creating the new celebrity: ${err}`)
-            res.redirect('/celebrities/celebrityForm');
+            //res.redirect('/celebrities/celebrityForm');
         });
 }
 

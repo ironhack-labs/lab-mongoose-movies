@@ -13,11 +13,11 @@ const celebritySchema = new Schema ({
 }
 );
 
-celebritySchema.virtual("movies", {
-    ref: "Movie",
-    foreignField: "celebrity",
-    localField: "_id",
-  });
+// celebritySchema.virtual("movies", {
+//     ref: "Movie",
+//     foreignField: "celebrity",
+//     localField: "_id",
+//   });
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema)
 

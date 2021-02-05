@@ -1,11 +1,12 @@
 const Movie = require('../models/Movie.model');
 const User = require('../models/User.model');
+const Celebrity = require('../models/Celebrity.model');
 
 // CREATE
 // Get form
 module.exports.create = (req, res, next) => {
     User.find()
-        .populate('user movies')
+        .populate('user')
         .then(dbUsers => res.render('movies/movieForm', {users: dbUsers}))
         .catch(err => next(err));
 };
@@ -28,6 +29,7 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.list = (req, res, next) => {
     Movie.find()
         .populate('user')
+        //.populate('celebrity')
         .then(moviesFound => res.render('movies/index', { movies: moviesFound }))
         .catch(err => next(err))
 }
@@ -35,6 +37,7 @@ module.exports.list = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
     Movie.findById(req.params.id)
         .populate('user')
+        //.populate('celebrity')
         .then(movieFound => res.render('movies/show', movieFound))
         .catch(err => next(err));
 }

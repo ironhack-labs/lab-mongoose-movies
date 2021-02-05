@@ -93,27 +93,65 @@ const Movie = require('../models/Movie.model');
 
 Movie.deleteMany()
     .then(() => {
-        for (let i = 0; i < 10; i++) {
-            User.find({})
-                .then(usersFromDb => usersFromDb.forEach(user => user))
-                .then(user => {
-                    let n = randomNumber(10);
-                    console.log(n)
-                    for (let i = 0; i < n; i++) {
-                        Movie.create({
-                                title: faker.name.title(),
-                                genre: getRandom(["drama", "comedy", "action", "fantasy", "horror/thriller", "romance"]),
-                                plot: faker.lorem.paragraphs(),
-                                //cast: [celebrity._id],
-                                user: user._id
-                            })
-                            .then(createdMovie => console.log(`Created movie: ${createdMovie.title}`))
-                            .catch(error => console.log(`Error while creating a new movie: ${error}`))
-                            .finally(() => mongoose.connection.close())
-                    }
+        User.find({})
+            .then(usersFromDB => {
+                console.log(usersFromDB);
+                usersFromDB.forEach(user => {
+                    let n = randomNumber(3);
+                    const movies = new Array(n).fill().map(() => ({
+                        title: faker.lorem.words(),
+                        genre: getRandom(["drama", "comedy", "action", "fantasy", "horror/thriller", "romance"]),
+                        plot: faker.lorem.paragraphs(),
+                        //cast: [celebrity._id],
+                        user: user._id
+                    }))
+                    Movie.insertMany(movies)
+                        .then(createdMovies => {
+                            console.log(`Created movie: ${createdMovies}`)
+                        })
+                        .catch(error => console.log(`Error while creating a new movie: ${error}`))
+                        .finally(() => mongoose.connection.close())
                 })
-        }
+            })
+            .catch(error => console.log(`Error while creating a new movie: ${error}`))
+            // .finally(() => mongoose.connection.close())
     });
+
+// Movie.deleteMany()
+//     .then(() => {
+//         // for (let i = 0; i < 10; i++) {
+//         Celebrity.find({
+//             // name: faker.name.findName(),
+//             // userName: faker.internet.userName(),
+//             // email: faker.internet.email(),
+//             // age: Math.ceil(Math.random() * 101) + 18,
+//         })
+//         .then(celebritiesFromDB => {
+//                 randomCelebrities = getRandom(celebritiesFromDB);
+//                 console.log(randomCelebrities)
+//                 return randomCelebrities;
+//             })
+//             .then(randomCelebrities => {
+//                 //console.log(users)
+//                 let n = randomNumber(10);
+//                 // return randomCelebrities.map(celebrity => {
+//                     for (let i = 0; i < n; i++) {
+//                         Movie.create({
+//                                 title: faker.lorem.words(),
+//                                 genre: getRandom(["drama", "comedy", "action", "fantasy", "horror/thriller", "romance"]),
+//                                 plot: faker.lorem.paragraphs(),
+//                                 cast: [randomCelebrities._id],
+//                                 //user: user._id
+//                             })
+//                             .then(createdMovie => console.log(`Created movie: ${createdMovie.title}`))
+//                             .catch(error => console.log(`Error while creating a new movie: ${error}`))
+//                             .finally(() => mongoose.connection.close())
+//                     }
+//                 // })
+
+//             })
+//         // }
+//     });
 
 // Get Random function
 function getRandom(arr) {
