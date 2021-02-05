@@ -55,7 +55,7 @@ module.exports.detail = (req, res, next) => {
     .catch((e) => next(e))
   }
 
-  module.exports.editP = (req, res, next) => {
+  module.exports.doEdit = (req, res, next) => {
     const {name, occupation, catchPhrase, image} = req.body
 
     Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase, image}, {new: true})

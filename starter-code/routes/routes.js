@@ -19,7 +19,7 @@ router.post('/celebrities/new', celebsController.newP)
 //Edit a celebritie
 
 router.get('/celebrities/:id/edit', celebsController.edit)
-router.post('/celebrities/:id',celebsController.editP)
+router.post('/celebrities/:id',celebsController.doEdit)
 
 //Delete a celebritie
 
@@ -42,14 +42,22 @@ router.get('/movies', moviesController.list)
 router.get('/movies/new', moviesController.new)
 router.post('/movies/new', moviesController.doNew)
 
-//Movie details page
-
-router.get('/movies/:id', moviesController.detail)
-module.exports = router;
-
 //Delete a movie
 
 router.post('/movies/:id/delete', moviesController.delete)
+
+//Edit a movie
+
+router.get('/movies/:id/edit', moviesController.edit)
+router.post('/movies/:id/edit',moviesController.doEdit)
+
+//Movie details page
+
+router.get('/movies/:id', moviesController.detail)
+
+module.exports = router;
+
+
 
 
 

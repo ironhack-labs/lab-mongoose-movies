@@ -45,6 +45,26 @@ module.exports.doNew = (req, res, next) => {
         res.redirect('/movies/new')
     })
 }   
+//Edit a movie
+
+module.exports.edit = (req, res, next) => {
+    Movie.findById(req.params.id)
+    .then((movieToEdit) => {
+        res.render('movies/edit', {movies: movieToEdit})
+    })
+    .catch((e) => next(e))
+  }
+
+  module.exports.doEdit = (req, res, next) => {
+    const {title, genre, plot} = req.body
+
+    Movie.findByIdAndUpdate(req.params.id, {title, genre, plot}, {new: true})
+    .then((editedMovie) => {
+      console.log(`The movie has been updated sucessfully`)
+      res.redirect('/movies')
+    })
+    .catch((e) => next(e))
+  }
 
 //Delete
 
@@ -56,3 +76,4 @@ module.exports.delete = (req, res, next) => {
     })
     .catch((e) => next (e))
 }
+
