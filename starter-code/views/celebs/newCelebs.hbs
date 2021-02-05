@@ -1,6 +1,19 @@
+<h4 class="display-6 mb-4">Add a celebrity</h4>
 <form action='/celebrities/create' method='POST'>
-    <input name="name" placeholder="Name of the celebrity"/>
-    <input name="occupation" placeholder="Occupation"/>
-    <input name="catchPhrase" placeholder="Catch phrase"/>
-    <button class="btn btn-success" type="submit">Create</button>
+    <div class="mb-3">
+        <label for="Input1" class="form-label">Name or nickname, your pick!</label>
+        <input type="text" name="name" class="form-control" id="Input1" placeholder="They call him/her...">
+    </div>
+    <div class="mb-3">
+        <label for="Input1" class="form-label">Occupation</label>
+        <input type="text" name="occupation" class="form-control" id="Input1" placeholder="He/she is...">
+    </div>
+    <div class="mb-3">
+        <label for="Input1" class="form-label">Catch phrase</label>
+        <input type="text" name="catchPhrase" class="form-control" id="Input1" placeholder="He/she is known for saying...">
+    </div>
+   
+    <div class="d-flex flex-row-reverse">
+        <button type="submit" class="orange-background mt-4"><i class="las la-plus-circle"></i> Add</button>
+    </div>
 </form>

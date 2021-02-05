@@ -5,10 +5,13 @@ module.exports.list = (req, res, next) => {
     Celebrity
         .find({})
         .then((celebs) => {
-            console.log('Celebs:' + celebs)
-            res.render('celebs/listCelebs', { celebs })
+            if(celebs){
+                res.render('celebs/listCelebs', { celebs })
+            } else {
+                next()
+            }
         })
-        .catch(e => console.log(e))
+        .catch(e => next(e))
 }
 
 module.exports.detail = (req, res, next) => {
@@ -16,10 +19,13 @@ module.exports.detail = (req, res, next) => {
         .findById(req.params.id)
         .populate("movies")
         .then((celeb) => {
-            console.log(celeb)
-            res.render('celebs/detailCelebs', { celeb })
+            if(celeb){
+                res.render('celebs/detailCelebs', { celeb })
+            } else {
+                next()
+            }
         })
-        .catch(e => console.log(e))
+        .catch(e => next(e))
 }
 
 module.exports.createView = (req, res, next) => {
@@ -30,10 +36,9 @@ module.exports.create = (req, res, next) => {
     Celebrity
         .create(req.body)
         .then((celeb) => {
-            console.log(celeb)
             res.redirect('../celebrities') // .. para niveles de anidación en la url
         })
-        .catch(e => console.log(e))
+        .catch(e => next(e))
 }
 
 module.exports.updateView = (req, res, next) => {
@@ -42,7 +47,7 @@ module.exports.updateView = (req, res, next) => {
     .then((celeb) => {
         res.render('celebs/update-form', { celeb })
     })
-    .catch(e => console.log(e))
+    .catch(e => next(e))
 }
 
 module.exports.update = (req, res, next) => {
@@ -51,14 +56,13 @@ module.exports.update = (req, res, next) => {
         .findByIdAndUpdate(req.params.id, celebData, { new: true })
         .then((celeb) => {
             res.redirect('../../celebrities')
-            console.log(celeb)
         })
-        .catch(e => console.log(e))
+        .catch(e => next(e))
 }
 
 module.exports.delete = (req, res, next) => {
     Celebrity
     .findByIdAndDelete(req.params.id)
     .then(() => res.redirect('../../celebrities'))
-    .catch(e => console.log(e))
+    .catch(e => next(e))
 }

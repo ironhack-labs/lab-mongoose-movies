@@ -66,3 +66,19 @@
   background-color: orange;
   
 }
+
+.hero-img{
+  max-width: 250px;
+}
+
+@media (min-width: 400px) {
+  .hero-img{
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 700px) {
+  .hero-img{
+    max-width: 450px;
+  }
+}
