@@ -12,3 +12,5 @@ router.get('/celebrities', (req, res, next) => {
         return err
     })
 });
+
+module.exports = router
