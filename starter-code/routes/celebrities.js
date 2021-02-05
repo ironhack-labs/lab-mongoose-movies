@@ -21,4 +21,20 @@ router.get('/celebrities', (req, res, next) => {
         })
 })
 
+router.get('/celebrities/new',(req, res, next) => {
+    res.render('/celebrities/new')
+})
+
+router.post('/celebrities/new',(req, res, next)=>{
+    const newCeleb = req.body
+    Celebrity.create(newCeleb)
+    .then(() => {
+        res.redirect('/celebrities')
+    })
+    .catch(err => {
+        console.log('Error while creating the new instance')
+        res.render('/celebrities/new')
+    })
+})
+
 module.exports = router;
