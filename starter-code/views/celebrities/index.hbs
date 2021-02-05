@@ -1,0 +1,22 @@
+<h2 class='heading__title'>Celebrities List</h2>
+<div class='container'>
+    <div class='row pt-5 '>
+        {{#each celebrities as |celebritie|}}
+            <div class='col-3'>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{celebritie.name}}</h5>
+                        <a class="btn btn-primary" href="/celebrities/{{_id}}" role="button">Details</a>
+                        <a class="btn btn-secondary " href="/celebrities/{{_id}}/edit" role="button">Edit</a>
+                        <form class='d-inline' action="/celebrities/{{_id}}/delete" method='POST'>
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>   
+            </div>
+        {{/each}}
+        <div class='row mt-4'>
+            <a class="btn btn-primary" href="/celebrities/new" role="button">Create a new Celebritie</a>
+        </div>
+    </div>
+</div>
