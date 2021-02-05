@@ -14,7 +14,7 @@ router.get('/celebrities', celebsController.list)
 //Create new celebritie
 
 router.get('/celebrities/new', celebsController.new)
-router.post('/celebrities', celebsController.newP)
+router.post('/celebrities/new', celebsController.newP)
 
 //Edit a celebritie
 
@@ -36,6 +36,11 @@ router.get('/celebrities/:id', celebsController.detail)
 //Movies list
 
 router.get('/movies', moviesController.list)
+
+//Create new movie
+
+router.get('/movies/new', moviesController.new)
+router.post('/movies/new', moviesController.doNew)
 
 //Movie details page
 
