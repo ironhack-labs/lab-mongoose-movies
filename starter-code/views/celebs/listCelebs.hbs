@@ -8,11 +8,13 @@
 <h1>All celebrities</h1>
 <hr>
 {{#each celebs}}
-    <a href="/celebrities/{{_id}}" class="card p-3 mb-2">
+    <a href="/celebrities/{{_id}}" class="no-no card p-3 mb-2">
         <h5>{{this.name}}</h5>
         {{this.occupation}}
         {{this.catchPhrase}}
     </a>
 {{/each}}
 
-<a href="/celebrities/create" class="btn btn-dark mt-2">+ Create your celebrity</a>
+<div class="d-flex flex-row-reverse">
+  <a href="/celebrities/create" class="orange-background">Add a celebrity</a> 
+</div>

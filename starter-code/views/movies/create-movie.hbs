@@ -1,14 +1,24 @@
+<h4 class="display-6 mb-4">Add a movie</h4>
 <form action="/movies/create" method="POST">
-    <input name="title" placeholder="Name of the movie"/>
-    <input name="plot" placeholder="Describe the plot"/>
-
-    <select class="form-select" name="stars" aria-label="Default select example">
-        <option>Open this select menu</option>
-        {{#each celebs}}
-            <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-
-    </select>
-
-    <button type="submit" class="btn btn-success">Create</button>
+    <div class="mb-3">
+        <label for="Input1" class="form-label">Original title</label>
+        <input type="text" name="title" class="form-control" id="Input1" placeholder="Title...">
+    </div>
+    <div class="mb-3">
+        <label for="Textarea" class="form-label">Description</label>
+        <textarea class="form-control" name="plot" id="Textarea" placeholder="Plot..." rows="3"></textarea>
+    </div>
+    <div>
+        <label for="selection" class="form-label">Cast</label>
+        <select class="form-select" id="selection" name="stars" aria-label="Default select example">
+            
+            {{#each celebs}}
+                <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <div id="emailHelp" class="form-text">* If no main character is choseen, Rafa Nadal will be the star because he is awsome.</div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+        <button type="submit" class="orange-background mt-4">Add</button>
+    </div>
 </form>

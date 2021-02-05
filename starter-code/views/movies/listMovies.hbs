@@ -8,7 +8,7 @@
 <h1>All movies</h1>
 <hr>
 
-<div class="row">
+<div class="row mt-3">
     {{#each m}}
         <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card p-3 mb-3">
@@ -21,4 +21,6 @@
     {{/each}}
 </div>
 
-<a href="/movies/create" class="btn btn-primary">Create movie +</a>
+<div class="d-flex flex-row-reverse">
+  <a href="/movies/create" class="orange-background">Add a movie</a>
+</div>
