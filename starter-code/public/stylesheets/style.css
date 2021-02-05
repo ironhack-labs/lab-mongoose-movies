@@ -5,4 +5,9 @@ body {
 a {
   color: #00B7FF; }
 
+  .heading__title{
+    text-align: center;
+    padding-bottom: 7%;
+  }
+
 /*# sourceMappingURL=style.css.map */

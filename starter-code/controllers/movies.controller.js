@@ -7,3 +7,13 @@ module.exports.list = (req, res, next) => {
         res.render('movies/index', {movies: foundMovie})})
     .catch((e) => next(e));
   }
+
+  //Movies detail
+
+  module.exports.detail = (req, res, next) => {
+    Movie.findById(req.params.id)
+    .then((foundMovie) => {
+      res.render('movies/show', {movies: foundMovie})
+    })
+    .catch((e) => next(e));
+  }

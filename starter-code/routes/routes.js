@@ -37,5 +37,10 @@ router.get('/celebrities/:id', celebsController.detail)
 
 router.get('/movies', moviesController.list)
 
+//Movie details page
+
+router.get('/movies/:id', moviesController.detail)
 module.exports = router;
+
+
 
