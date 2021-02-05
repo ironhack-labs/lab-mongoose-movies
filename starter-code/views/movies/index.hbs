@@ -1,0 +1,22 @@
+<h2 class='heading__title'>Movies List</h2>
+<div class='container'>
+    <div class='row pt-5 '>
+        {{#each movies as |movie|}}
+            <div class='col-3'>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movie.title}}</h5>
+                        <a class="btn btn-primary" href="/movies/{{_id}}" role="button">Details</a>
+                        <a class="btn btn-secondary " href="/movies/{{_id}}/edit" role="button">Edit</a>
+                        <form class='d-inline' action="/movies/{{_id}}/delete" method='POST'>
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>   
+            </div>
+        {{/each}}
+        <div class='row mt-4'>
+            <a class="btn btn-primary" href="/movies/new" role="button">Create a new Movie</a>
+        </div>
+    </div>
+</div>
