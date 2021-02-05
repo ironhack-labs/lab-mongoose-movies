@@ -8,6 +8,7 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const process      = require('process')
 
 
 mongoose
@@ -17,6 +18,14 @@ mongoose
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
+  });
+
+  process.on("SIGINT", () => {
+    mongoose.connection
+      .close()
+      .then(() => console.log("Successfully disconnected from the DB"))
+      .catch((e) => console.error("Errro disconnecting from the DB", e))
+      .finally(() => process.exit());
   });
 
 const app_name = require('./package.json').name;
@@ -53,6 +62,13 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const movieRoute = require('./routes/movies')
+app.use('/', movieRoute);
+
+const celebritiesRoute = require('./routes/celebrities')
+app.use('/', celebritiesRoute);
+
 
 
 module.exports = app;
