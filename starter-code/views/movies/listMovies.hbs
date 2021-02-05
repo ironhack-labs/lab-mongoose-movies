@@ -1,0 +1,26 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">All movies</li>
+  </ol>
+</nav>
+
+<h1>All movies</h1>
+<hr>
+
+<div class="row mt-3">
+    {{#each m}}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card p-3 mb-3">
+                <h3>{{title}}</h3>
+                <small>{{stars.name}}</small>
+                <p>{{plot}}</p>
+                <a href="/movies/{{_id}}" class="btn btn-light border"><i class="las la-eye"></i> See detail</a>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<div class="d-flex flex-row-reverse">
+  <a href="/movies/create" class="orange-background"><i class="las la-plus-circle"></i> Add a movie</a>
+</div>

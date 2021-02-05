@@ -1,0 +1,34 @@
+<h4 class="display-6 mb-4"><i>{{m.title}}</i> - Update</h4>
+<form action="/movies/{{m._id}}/edit" method="POST">
+    <div class="mb-3">
+        <label for="Input1" class="form-label">Original title</label>
+        <input type="text" name="title" class="form-control" id="Input1" <input name="plot" value="{{m.title}}"/>
+    </div>
+    <div class="mb-3">
+        <label for="Textarea" class="form-label">Description</label>
+        <textarea name="plot" id="Textarea" class="form-control" >{{m.plot}}</textarea>
+    </div>
+    
+        <div id="emailHelp" class="form-text">* The star cannot be changed. The star is always the star.</div>
+    
+    <div class="d-flex flex-row-reverse">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#modalUpdate" class="orange-background mt-4"><i class="las la-pen"></i> Update</button>
+    </div>
+
+    <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Should we proceed with the changes?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            The movie will be updated. 
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-warning"><i class="las la-pen"></i> Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>

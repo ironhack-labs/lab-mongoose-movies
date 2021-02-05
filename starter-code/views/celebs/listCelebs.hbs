@@ -1,0 +1,20 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">All celebrities</li>
+  </ol>
+</nav>
+
+<h1>All celebrities</h1>
+<hr>
+{{#each celebs}}
+    <a href="/celebrities/{{_id}}" class="no-no card p-3 mb-2">
+        <h5>{{this.name}}</h5>
+        {{this.occupation}}
+        {{this.catchPhrase}}
+    </a>
+{{/each}}
+
+<div class="d-flex flex-row-reverse">
+  <a href="/celebrities/create" class="orange-background"><i class="las la-plus-circle"></i> Add a celebrity</a> 
+</div>

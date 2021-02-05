@@ -1,0 +1,48 @@
+<div class="container mb-3">
+  <div class="row">
+    <div class="col-1 p-2">
+      <a href="/celebrities" class="btn btn-light mb-4"> ← </a><br>
+    </div>
+    <div class="p-2 col-auto">
+      <h1>{{celeb.name}}</h1>
+    </div>
+    <div class="col-1">
+
+    </div>
+    <div class="col p-2 pt-4">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><p><b>Occupation </b>{{celeb.occupation}}</p></li>
+        <li class="list-group-item"><p><b>Catch Phrase </b>{{celeb.catchPhrase}}</p></li>
+        <li class="list-group-item"><p><b>Movies </b> <br>{{#each celeb.movies as |movie|}}
+        <a class="no" href='/movies/{{movie._id}}' >{{movie.title}} </a><br>{{/each}}</p></li>
+      </ul>
+
+    </div>
+   
+  </div>
+</div>
+
+ <div class="d-flex flex-row-reverse">
+        <button type="button" class="btn btn-danger btn-circle btn-xl" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="las la-trash-alt"></i></button><br>
+        <a class="text-white">s</a>
+        <a href="/celebrities/{{celeb._id}}/edit" class="btn btn-secondary btn-circle btn-xl"><i class="las la-pen"></i></a>
+      </div>
+
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete <b>{{celeb.name}}</b>?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        The star will be deleted from all data bases and will no longer exist. 
+      </div>
+      <div class="modal-footer">
+        <form action="/celebrities/{{celeb._id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

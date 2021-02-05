@@ -1,0 +1,31 @@
+<a href="/movies" class="btn btn-light mb-4"> ← </a><br>
+<h1>{{m.title}}</h1>
+<hr>
+<p>{{m.plot}}</p>
+<p><b>Main character: </b>
+<a class="no" href="/celebrities/{{m.stars._id}}">{{m.stars.name}}</a></p>
+
+<div class="d-flex flex-row-reverse">
+    <button type="button" class="btn btn-danger btn-circle btn-xl" data-bs-toggle="modal" data-bs-target="#modalDelete"><i class="las la-trash-alt"></i></button><br>
+    <button type="button" class="all-w"></button><br>
+    <a href="/movies/{{m._id}}/edit" class="btn btn-secondary btn-circle btn-xl"><i class="las la-pen"></i></a>
+</div>
+
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this movie?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        The movie will be deleted from all data bases and will no longer exist. 
+      </div>
+      <div class="modal-footer">
+        <form action="/movies/{{m._id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

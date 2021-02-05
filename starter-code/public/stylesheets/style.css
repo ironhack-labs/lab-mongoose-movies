@@ -1,0 +1,84 @@
+.card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-circle.btn-xl {
+  width: 40px;
+  height: 40px;
+  padding: 3px 6px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.all-w{
+  background-color: white;
+  border: none;
+}
+
+.back{
+  background-color: rgba(255, 166, 0, 0.404);
+}
+
+.no-no{
+  text-decoration: none;
+  color: black;
+}
+.no-no:hover{
+  color: orange;
+}
+
+.no{
+  text-decoration: none;
+  color: orange;
+}
+.no:hover{
+  color: orange;
+  text-decoration: underline;
+}
+
+.orange-background{
+  background-color:orange;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+}
+
+.orange-background:hover{
+  color: white;
+  background-color:rgb(216, 141, 2);
+}
+
+.or{
+  background-color: orange;
+  
+}
+
+.hero-img{
+  max-width: 250px;
+}
+
+@media (min-width: 400px) {
+  .hero-img{
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 700px) {
+  .hero-img{
+    max-width: 450px;
+  }
+}
