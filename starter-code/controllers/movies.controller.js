@@ -6,16 +6,16 @@ module.exports.list = (req, res, next) => {
     .then((foundMovie) => {
         res.render('movies/index', {movies: foundMovie})})
     .catch((e) => next(e));
-  }
+}
 
 //Movies detail
 
 module.exports.detail = (req, res, next) => {
-Movie.findById(req.params.id)
-.then((foundMovie) => {
-    res.render('movies/show', {movies: foundMovie})
-})
-.catch((e) => next(e));
+    Movie.findById(req.params.id)
+    .then((foundMovie) => {
+        res.render('movies/show', {movies: foundMovie})
+    })
+    .catch((e) => next(e));
 }
 
 //New movie
@@ -30,18 +30,29 @@ module.exports.new = (req, res, next) => {
 //post
 module.exports.doNew = (req, res, next) => {
 
-const {title, genre, plot} = req.body;
+    const {title, genre, plot} = req.body;
 
-const newMovie= new Movie({title, genre, plot})
+    const newMovie= new Movie({title, genre, plot})
 
-newMovie
-.save()
-.then(() => {
-    console.log('Movie added')
-    res.redirect('/movies') 
-})
-.catch(() => {
-    console.log('Error adding the movie')
-    res.redirect('/movies/new')
-})
+    newMovie
+    .save()
+    .then(() => {
+        console.log('Movie added')
+        res.redirect('/movies') 
+    })
+    .catch(() => {
+        console.log('Error adding the movie')
+        res.redirect('/movies/new')
+    })
 }   
+
+//Delete
+
+module.exports.delete = (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+    .then(() => {
+      console.log(`The movie was deleted succesfully`)
+      res.redirect('/movies')
+    })
+    .catch((e) => next (e))
+}

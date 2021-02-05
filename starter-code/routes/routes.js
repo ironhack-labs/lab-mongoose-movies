@@ -47,5 +47,9 @@ router.post('/movies/new', moviesController.doNew)
 router.get('/movies/:id', moviesController.detail)
 module.exports = router;
 
+//Delete a movie
+
+router.post('/movies/:id/delete', moviesController.delete)
+
 
 
