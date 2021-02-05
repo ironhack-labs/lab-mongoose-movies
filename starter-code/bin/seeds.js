@@ -2,7 +2,8 @@ require("../configs/db.config");
 const mongoose = require("mongoose");
 const faker = require("faker");
 
-const Celebrity = require("../models/Celebrity.model")
+const Celebrity = require("../models/celebrity.model")
+const Movie = require("../models/movie.model")
 
 const celebrities = [
     { name: 'Hyun Bin',
@@ -27,11 +28,35 @@ const celebrities = [
     }
   ];
 
+  
+  const movies = [
+   
+    { title: 'The negociation',
+      genre: 'Crime',
+      plot: 'A negotiator confronts a kidnapper of Korean citizens in Thailand. Over the course of 21 hours, she tries to battle with his unusually calm demeanor and force him to reveal his motivations.'
+    },
+    { title: 'A cinderella Story',
+      genre: 'Comedy',
+      plot: 'Sam Montgomery lives under the orders of his self-centered stepmother Fiona and her obnoxious stepsisters, who treat her like a servant. She dreams of going to Princeton, but her social life becomes more complicated when she meets her prince charming on the internet.'
+    },
+    { title: 'Love O20',
+      genre: 'Romance',
+      plot: 'The attraction of a gaming expert to a woman stems from both her appearance and her mastery of an online game.'
+    }
+  ];
 
 Celebrity.deleteMany()
 .then( () => 
     Celebrity.create(celebrities)
     .then(celebrity => celebrity.forEach(celebrity => console.log(`New celebrity added: ${celebrity.name}`)))
+    .catch(error => console.log(error))
+)
+.catch(console.log('An error happened while saving a new celebrity'))
+
+Movie.deleteMany()
+.then( () => 
+    Movie.create(movies)
+    .then(movie => movie.forEach(movie => console.log(`New movie added: ${movie.title}`)))
         .then(() => {
             console.log('Mongoose conection close')
             mongoose.connection.close()
@@ -39,4 +64,4 @@ Celebrity.deleteMany()
         .catch(error => console.log(error))
     .catch(error => console.log(error))
 )
-.catch(console.log('An error happened while saving a new celebrity'))
+.catch(console.log('An error happened while saving a new movie'))
