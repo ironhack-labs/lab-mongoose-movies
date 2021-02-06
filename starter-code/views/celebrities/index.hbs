@@ -1,8 +1,10 @@
+{{#if data.userSession}}
+
 <h1>All Celebs</h1>
 
 <h2><a href="/celebrities/new">Create a new Celeb</a></h2>
 
-{{#each celebritiesList}}
+{{#each data.celebritiesList}}
 
 <div>
     <h3>{{this.name}}</h3>
@@ -15,5 +17,15 @@
       <button>Delete</button>
     </form>
 
+<p>
+  <form id="logout-form" action="/logout" method="POST">
+    <button>Logout</button>
+</form>
+</p>
+
 </div>
 {{/each}}
+
+{{else}}
+LOGIN Expired
+{{/if}}

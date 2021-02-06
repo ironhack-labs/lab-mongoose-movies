@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/celebrities', (req, res, next) => {
   Celebrities.find()
   .then(allCelebrities => {
-    res.render('celebrities/index.hbs', { celebritiesList: allCelebrities })
+    res.render('celebrities/index.hbs', {data: { celebritiesList: allCelebrities, userSession: req.session.currentUser }})
   })
   .catch(error => {
     console.log(error);

@@ -4,10 +4,14 @@ const Movies = require('../models/Movie.model');
 const router = express.Router();
 
 // SHOW ALL MOVIES
+  
+//   userInSession: req.session.currentUser 
+
 router.get('/movies', (req, res, next) => {
     Movies.find()
     .then(allMoviesFromDB => {
-    res.render('movies/index.hbs', { movieslist: allMoviesFromDB })
+  
+    res.render('movies/index.hbs', { data: { movieslist: allMoviesFromDB, userSession: req.session.currentUser }})
     }) 
     .catch(error => console.log(error));
 });
