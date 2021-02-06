@@ -7,8 +7,21 @@ module.exports.list = (req, res, next) => {
   Celebrity
     .find({})
     .then((celebrities) => {
-      console.log(celebrities)
-      res.render('celebrities', { celebrities: celebrities })
+      res.render('celebrities', { celebrities })
+    })
+    .catch(e => next(e))
+}
+
+module.exports.show = (req, res, next) => {
+  console.log("SHOW")
+  Celebrity
+    .findById(req.params.id)
+    .then((celebrity) => {
+      if (celebrity) {
+        res.render('celebrities/show', { celebrity })
+      } else {
+        next()
+      }
     })
     .catch(e => next(e))
 }
