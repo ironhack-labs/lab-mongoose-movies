@@ -1,0 +1,52 @@
+<div class="col">
+    <div class="row">
+        <h2>{{#if name}}Edit celebrity: <b>{{name}}</b>{{else}}Create celebrity{{/if}}</h2>
+    </div>
+    <div class="row">
+        <form action="/celebrities/{{#if name}}{{id}}/edit{{else}}celebrityForm{{/if}}" method="post">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input class="form-control" type="text" name="name" id="name" value="{{name}}" required>
+            </div>
+            <div class="form-group">
+                <label for="ocupation">Ocupation: </label>
+                <input class="form-control" type="text" name="ocupation" id="ocupation" value="{{ocupation}}" required>
+            </div>
+            <div class="form-group">
+                <label for="catchPhrase">Catch Phrase: </label>
+                <input class="form-control" type="text" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}"
+                    required>
+            </div>
+            {{#unless name}}
+            <div class="form-group">
+                <label for="userName-select"> Created by </label>
+                <select class="form-control" name="{{user.userName}}" id="userName-select" required>
+                    <option disable selected value=""></option>
+                    {{#each users}}
+                    <option value="{{this._id}}"> {{this.userName}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Aren't you a member? Register <a href="/users/userForm" target="_blank"><b>here</b></a> for free</p>
+            </div>
+            {{else}}
+            <div class="form-group">
+                <p>Created by: <a href="/users/{{user._id}}"><b>{{user.userName}}</b></a></p>
+            </div>
+            {{!-- <div class="form-group">
+                <label for="author-select"> Edited by </label>
+                <select class="form-control" name="userName" id="userName-select">
+                    <option disable selected value=""></option>
+                    {{#each users}}
+                    <option value="{{this._id}}"> {{this.userName}}</option>
+                    {{/each}}
+                </select>
+            </div> --}}
+            {{/unless}}
+
+            <button type="submit" class="btn btn-primary mt-3">{{#if name}}Edit{{else}}Create{{/if}} Celebrity</button>
+
+        </form>
+    </div>
+</div>

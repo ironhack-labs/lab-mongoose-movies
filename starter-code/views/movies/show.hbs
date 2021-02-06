@@ -1,0 +1,11 @@
+<h2>Movie: <b>{{title}}</b></h2>
+<p>Genre: <i>{{genre}}</i></p>
+{{!-- {{#each this.cast}} --}}
+<h5>Cast: {{cast}}</h5>
+{{!-- {{/cast}} --}}
+<p>Plot: {{plot}}</p>
+<p>Creator: <a href="/users/{{user._id}}"><b>{{user.userName}}</b></a></p>
+<a class="btn btn-success" href="/movies/{{id}}/edit">Edit Movie</a>
+<form class="delete-form pt-2" action="/movies/{{id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger" onclick="return clicked()">Remove Movie</button>
+</form>

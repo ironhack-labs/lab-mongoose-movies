@@ -1,0 +1,8 @@
+<h2>Celebrity: <b>{{name}} {{lastName}}</b></h2>
+<p>Ocupation: {{ocupation}}</p>
+<p>Catch Phrase: {{catchPhrase}}</p>
+<p>Creator:  <a href="/users/{{user._id}}"><b>{{user.userName}}</b></a></p>
+<a class="btn btn-success" href="/celebrities/{{id}}/edit">Edit Celebrity</a>
+<form class="delete-form pt-2" action="/celebrities/{{id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger" onclick="return clicked()">Remove Celebrity</button>
+</form>
