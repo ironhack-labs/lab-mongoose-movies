@@ -25,3 +25,18 @@ module.exports.show = (req, res, next) => {
     })
     .catch(e => next(e))
 }
+
+module.exports.new = (req, res, next) => {
+  console.log("NEW")
+  Celebrity
+    .create(req.body)
+    .then((celeb) => {
+      res.redirect('/celebrities')
+    })
+    .catch(e => next(e))
+}
+
+module.exports.renderNew = (req, res, next) => {
+  console.log("RENDERNEW")
+  res.render('celebrities/new')
+}

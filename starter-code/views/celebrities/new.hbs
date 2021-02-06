@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">Create a new celebrity</h2>
+      <form action="/celebrities/new" method="POST" style="width: 40rem;">
+        <div class="mb-3 p-2">
+          <div class="form-group">
+            <label>Name</label>
+            <input name="name" type="text" class="form-control mb-1" placeholder="Celebrity name">
+          </div>
+          <div class="form-group">
+            <label>Ocupation</label>
+            <input name="ocupation" type="text" class="form-control mb-1" placeholder="Ocupation (optional)">
+          </div>
+          <div class="form-group">
+            <label>Catch phrase</label>
+            <input name="catchPhrase" type="text" class="form-control mb-3" placeholder="Catch phrase">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-outline-info m-1">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

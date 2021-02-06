@@ -5,6 +5,8 @@ const celebritiesController = require('../controllers/celebrities.controller');
 
 console.log('CELEB ROUTES')
 
+router.post('/celebrities/new', celebritiesController.new)
+router.get('/celebrities/new', celebritiesController.renderNew)
 router.get('/celebrities/:id', celebritiesController.show)
 router.get('/celebrities', celebritiesController.list)
 
