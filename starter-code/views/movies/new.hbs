@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">Create a new movie</h2>
+      <form action="/movies/new" method="POST" style="width: 40rem;">
+        <div class="mb-3 p-2">
+          <div class="form-group">
+            <label>Title</label>
+            <input name="title" type="text" class="form-control mb-1" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <label>Genre</label>
+            <input name="genre" type="text" class="form-control mb-1" placeholder="Genre">
+          </div>
+          <div class="form-group">
+            <label>plot</label>
+            <input name="plot" type="text" class="form-control mb-3" placeholder="Plot">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-outline-info m-1">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
