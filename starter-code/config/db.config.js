@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const process = require('process');
 
 mongoose
-  .connect('mongodb://localhost/celeb-movies', {
+  .connect('mongodb://localhost/starter-code', {
     useNewUrlParser: true
   })
   .then(x => {

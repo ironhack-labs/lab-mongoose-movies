@@ -1,0 +1,12 @@
+<div class="row text-center">
+  <h2 class="text-center">Celebrities</h2>
+  {{#each celebrities as |celebrity|}}
+  <div class="card text-center m-1" style="width: 20rem;">
+    <div class="card-body">
+      <h5 class="card-title m-2">{{name}}</h5>
+      <p class="card-title m-2">{{occupation}}</p>
+      <p class="card-title m-2">{{catchPhrase}}</p>
+    </div>
+  </div>
+  {{/each}}
+</div>
