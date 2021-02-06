@@ -1,0 +1,27 @@
+{{#if data.userSession}}
+
+<h1> All Movies From database</h1>
+
+<a href="/movies/new">CREATE A NEW MOVIE</a>
+<p>
+    <ul>
+        {{#each data.movieslist}}
+        <li>{{this.name}}</li>
+        <p> <a href="/movies/{{this.id}}">Details</a>
+        <br>
+        <a href="/movies/{{this.id}}/edit">EDIT</a>
+        
+        {{/each}}
+    </ul>
+</p>
+
+<p>
+  <form id="logout-form" action="/logout" method="POST">
+    <button>Logout</button>
+</form>
+</p>
+
+{{else}}
+
+Session Expired - please Login. 
+{{/if}}
