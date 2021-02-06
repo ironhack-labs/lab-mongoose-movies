@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2>Celebrities</h2>
+      <hr>
+      <a class="btn btn-dark" href="/celebrities/new">New</a>
+      <hr>
+      <ul>
+        {{#each celebs}}
+        <li>
+          {{this.name}}
+          <a class="btn btn-dark" href="/celebrity/{{id}}">See more</a>
+          <a class="btn btn-dark" href="/celebrities/{{id}}/edit">Edit</a>
+          <form method="POST" action="celebrities/{{id}}/delete">
+            <button type="submit" class="btn btn-dark">Delete</button>
+          </form>
+          <hr>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

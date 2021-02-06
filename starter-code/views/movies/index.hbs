@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2>Movies
+      </h2>
+      <hr>
+      <a class="btn btn-dark" href="/movies/new">New</a>
+      <hr>
+      <ul>
+        {{#each movies}}
+        <li>
+          {{this.title}}
+          <a class="btn btn-dark" href="/movie/{{id}}">See more</a>
+          <a class="btn btn-dark" href="/movies/{{id}}/edit">Edit</a>
+          <form method="POST" action="movies/{{id}}/delete">
+            <button type="submit" class="btn btn-dark">Delete</button>
+          </form>
+          <hr>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
