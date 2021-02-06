@@ -9,6 +9,13 @@
       <p class="card-title m-2">{{occupation}}</p>
       <p class="card-title m-2">{{catchPhrase}}</p>
     </div>
+    <div>
+      <button type="submit" class="btn btn-outline-secondary mb-2"><a class="text-reset text-decoration-none"
+          href="/celebrities/{{_id}}/edit">Edit</a></button>
+      <form action="/celebrities/{{id}}/delete" method="POST">
+        <button type="submit" class="btn btn-outline-danger mb-2">Remove</button>
+      </form>
+    </div>
   </div>
   {{/each}}
 </div>

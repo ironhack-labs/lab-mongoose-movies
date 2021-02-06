@@ -40,3 +40,10 @@ module.exports.renderNew = (req, res, next) => {
   console.log("RENDERNEW")
   res.render('celebrities/new')
 }
+
+module.exports.delete = (req, res, next) => {
+  Celebrity
+    .findByIdAndDelete(req.params.id)
+    .then(() => res.redirect('/celebrities'))
+    .catch(e => next(e))
+} 
