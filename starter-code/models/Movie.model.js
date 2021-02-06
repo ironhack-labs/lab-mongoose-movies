@@ -11,10 +11,6 @@ const movieSchema = new mongoose.Schema({
   plot: {
     type: String
   }
-  //  stars: {
-  //    type: mongoose.SchemaTypes.ObjectId,
-  //    ref: "Celebrity"
-  //  }
 })
 
 const Movie = mongoose.model("Movie", movieSchema)
