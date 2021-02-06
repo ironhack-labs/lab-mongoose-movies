@@ -1,0 +1,24 @@
+<div class="row text-center">
+  <h2 class="text-center">Celebrities</h2>
+  {{#each celebrities as |celebrity|}}
+  <div class="card text-center m-1" style="width: 20rem;">
+    <div class="card-body">
+      <a class="text-decoration-none" href="/celebrities/{{_id}}">
+        <h5 class="card-title m-2">{{name}}</h5>
+      </a>
+      <p class="card-title m-2">{{occupation}}</p>
+      <p class="card-title m-2">{{catchPhrase}}</p>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-outline-secondary mb-2"><a class="text-reset text-decoration-none"
+          href="/celebrities/{{_id}}/edit">Edit</a></button>
+      <form action="/celebrities/{{id}}/delete" method="POST">
+        <button type="submit" class="btn btn-outline-danger mb-2">Remove</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>
+<div class="text-center m-4">
+  <a href="/celebrities/new" class="btn btn-outline-info btn-lg">Create celebrity</a>
+</div>
