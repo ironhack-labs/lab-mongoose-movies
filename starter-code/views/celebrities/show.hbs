@@ -1,0 +1,20 @@
+<div class="row">
+    {{#with celeb}}
+    <div class="col-2 text-right">
+        <img src="{{image}}" class="border border-warning rounded" alt="{{name}}" height="125px" width="100px">
+    </div>
+    <div class="col-9">
+        <div class="row align-items-end">
+            <div class="col-6">
+                <h4>{{name}}</h4>
+            </div>
+            <div class="col-6 text-right">
+                <a class="back" href="/celebrities">Back to my Celebrities</a>
+            </div>
+        </div>
+        <hr>
+        <h5><small>occupation: </small>{{occupation}}</h5>
+        <h6><small>catchphrase: </small>"{{catchPhrase}}"</h6>
+    </div>
+    {{/with}}
+</div>

@@ -1,0 +1,18 @@
+{{#with movie}}
+<div class="row">
+    <div class="col-6">
+        <h4>{{title}}</h4>
+    </div>
+    <div class="col-6 text-right">
+        <a class="back" href="/movies">Back to my Movies</a>
+    </div>
+</div>
+<hr>
+<p>&#x21AA genre: &nbsp{{genre}}</p>
+<p>&#x21AA cast:
+    {{#each cast}}
+    <span>&nbsp&#x2B50 <a href="/movies/{{this}}">{{this}}</a></span>
+    {{/each}}
+</p>
+<p>&#x21AA plot: &nbsp"{{plot}}"</p>
+{{/with}}
