@@ -10,4 +10,9 @@
             <a href="/celebrities" class="btn btn-back">Go back</a>
         </div>
     </div>
+    <a class="edit__post" href="/celebrity/{{_id}}/edit">Edit</a>
+
+    <form action="/celebrity/{{_id}}/delete" method="POST">
+        <button class="btn btn__delete mt-3">Delete</button>
+    </form>
 </div>
