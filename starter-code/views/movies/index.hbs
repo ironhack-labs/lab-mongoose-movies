@@ -1,0 +1,35 @@
+<div class="row align-items-end">
+    <div class="col-6">
+        <h2>These are my Movies</h2>
+    </div>
+    <div class="col-4 text-right">
+        <a class="back" href="/movies/new">Add a Movie!</a>
+    </div>
+    <div class="col-2 text-right">
+        <a class="back" href="/">Back to home</a>
+    </div>
+</div>
+
+<hr style="border: 1px solid rgb(138, 138, 138);">
+
+<div class="row">
+    {{#each movies}}
+    <div class="col-4 text-center">
+        <a href="/movies/{{id}}/{{title}}">
+            <h3>{{title}}</h3>
+        </a>
+        <hr width="45%">
+        <div class="d-flex justify-content-center">
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+            </form>
+            <span class="mx-3">
+                <p class="mt-2" style="color: rgb(138, 138, 138);">or</p>
+            </span>
+            <form action="/movies/{{id}}/{{title}}/edit">
+                <button type="submit" class="btn btn-outline-warning btn-sm">Edit</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>

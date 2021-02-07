@@ -1,0 +1,25 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+h3 {
+  margin-top: 50px; }
+
+h2, h4 {
+  margin-bottom: 0; }
+
+h5 {
+  margin-top: 20px; }
+
+hr {
+  margin: .6rem auto; }
+
+a {
+  color: #00B7FF; }
+
+.navbar {
+  margin-bottom: 50px; }
+
+img {
+  object-fit: cover; }
+
+/*# sourceMappingURL=style.css.map */
