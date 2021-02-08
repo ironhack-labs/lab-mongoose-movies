@@ -54,4 +54,27 @@ router.post("/write", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+// GET     /celebrities/edit/:id
+router.get("/edit/:id", (req, res, next) => {
+  const celebrityId = req.params.id;
+  Celebrity.findById(celebrityId)
+    .then((celebrity) => {
+      console.log("celebrity data -->>>", celebrity);
+      res.render("celebrities/edit", celebrity);
+    })
+    .catch((err) => next(err));
+});
+
+// POST /celebrities/update_write/:id
+router.post("/update_write/:id", (req, res, next) => {
+  const data = req.body;
+  console.log(data);
+  Celebrity.findOneAndUpdate({ _id: req.params.id }, data)
+    .then((celebrity) => {
+      console.log("modified: ", celebrity);
+      res.redirect("/celebrities");
+    })
+    .catch((err) => next(err));
+});
+
 module.exports = router;

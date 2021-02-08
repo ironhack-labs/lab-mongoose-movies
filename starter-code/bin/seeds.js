@@ -50,5 +50,3 @@ const dbRestart = function () {
 };
 
 dbRestart();
-
-module.exports = seed;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Movies</title>
+</head>
+<body>
+
+  <h2>All Movies</h2>
+  
+  {{#each allMovies}}
+    <p>
+      <a href="/movies/{{this._id}}/get"> {{this.title}}</a>
+      <form action="/movies/{{this._id}}/delete" method="post">
+      <button type="submit">DELETE</button>
+      </form>
+    </p>
+  {{/each}}
+
+
+  <a href="/movies/add">Add a Movie!</a> 
+
+</body>
+</html>
