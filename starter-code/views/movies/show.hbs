@@ -1,0 +1,10 @@
+<h2>Movie details</h2>
+{{#each foundMovie}}
+<p>{{this.title}}</p>
+<p>{{this.genre}}</p>
+<p>{{this.plot}}</p>
+{{/each}}
+
+<a href="/movies/{{this.foundMovie._id}}/edit">
+  <button>Edit details</button>
+</a>
