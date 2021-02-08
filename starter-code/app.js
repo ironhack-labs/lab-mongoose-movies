@@ -8,6 +8,7 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const dbRestart = require("./bin/seeds");
 
 mongoose
   .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
@@ -26,6 +27,8 @@ const debug = require("debug")(
 );
 
 const app = express();
+
+// dbRestart();
 
 // Middleware Setup
 app.use(logger("dev"));
