@@ -8,14 +8,17 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-const dbRestart = require("./bin/seeds");
 
 mongoose
-  .connect("mongodb://localhost/starter-code", { useNewUrlParser: true })
+  .connect("mongodb://localhost/starter-code", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
     );
+    return x;
   })
   .catch((err) => {
     console.error("Error connecting to mongo", err);
@@ -27,8 +30,6 @@ const debug = require("debug")(
 );
 
 const app = express();
-
-// dbRestart();
 
 // Middleware Setup
 app.use(logger("dev"));

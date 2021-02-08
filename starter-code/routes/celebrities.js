@@ -1,9 +1,9 @@
 var express = require("express");
-var celebrityRouter = express.Router();
+var router = express.Router();
 const Celebrity = require("./../models/celebrity");
 
 // GET     /celebrity
-celebrityRouter.get("/", (req, res, next) => {
+router.get("/", (req, res, next) => {
   Celebrity.find()
     .then((allCelebrities) => {
       const data = {
@@ -16,7 +16,7 @@ celebrityRouter.get("/", (req, res, next) => {
 });
 
 // GET     /celebrities/:id
-celebrityRouter.get("/:id", (req, res, next) => {
+router.get("/:id/get", (req, res, next) => {
   const celebrityId = req.params.id;
   Celebrity.findById(celebrityId)
     .then((celebrity) => {
@@ -27,20 +27,31 @@ celebrityRouter.get("/:id", (req, res, next) => {
 });
 
 // POST     /celebrities/:id/delete
-celebrityRouter.post("/:id/delete", (req, res, next) => {
+router.post("/:id/delete", (req, res, next) => {
   const celebrityId = req.params.id;
   Celebrity.findByIdAndRemove(celebrityId)
     .then((celebrity) => {
-      console.log("deleted!");
-      // res.redirect("/");
+      console.log("deleted!", celebrity);
+      res.redirect("/celebrities");
     })
     .catch((err) => next(err));
 });
 
-// GET /celebrities/new
-celebrityRouter.get("/new", (req, res, next) => {
-  console.log("========== at adding new celebs");
-  // res.render("new");
+// GET /celebrities/add
+router.get("/add", (req, res, next) => {
+  res.render("celebrities/add");
 });
 
-module.exports = celebrityRouter;
+// POST     /celebrities/write
+router.post("/write", (req, res, next) => {
+  const data = req.body;
+  console.log(data);
+  Celebrity.create(data)
+    .then((celebrity) => {
+      console.log("added: ", celebrity);
+      res.redirect("/celebrities");
+    })
+    .catch((err) => next(err));
+});
+
+module.exports = router;

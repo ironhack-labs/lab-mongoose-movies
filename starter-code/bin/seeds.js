@@ -7,7 +7,7 @@ const seed = [
   {
     name: "Freddy Mercury",
     occupation: "rock star",
-    catchPhrase: "Sometimes the human condition requires some anaesthesy",
+    catchPhrase: "Sometimes the human condition requires some anaesthesia",
   },
   {
     name: "Lady Gaga",
@@ -26,7 +26,7 @@ const seed = [
 
 const dbRestart = function () {
   mongoose
-    .connect(`mongodb://localhost:27017/starter-code`, {
+    .connect(`mongodb://localhost/starter-code`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
@@ -49,4 +49,6 @@ const dbRestart = function () {
     .catch((err) => console.log("Error connection to the DB", err));
 };
 
-module.exports = dbRestart;
+dbRestart();
+
+module.exports = seed;
