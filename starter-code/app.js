@@ -58,5 +58,7 @@ app.use('/', require('./routes/celebrities-routes'));
 
 app.use('/', require('./routes/movies.routes'));
 
+app.use('/', require('./routes/auth-routes'));
+
 
 module.exports = app;
