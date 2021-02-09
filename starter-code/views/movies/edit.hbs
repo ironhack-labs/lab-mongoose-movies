@@ -1,0 +1,23 @@
+<h2>Edit a movie</h2>
+<a href="/">Home</a>
+
+<form action="/movies/{{this.id}}/edit" method="POST">
+
+    <div>
+        <label>Title:</label>
+        <input value="{{this.title}}" name="title" type="text">
+    </div>
+    </br>
+    <div>
+        <label>Genre:</label>
+        <input value="{{this.genre}}"name="genre" type="text">
+    </div>
+    </br>
+    <div>
+        <label>Plot:</label>
+        <textarea name="plot" cols="30" rows="4">{{this.plot}}</textarea>
+    </div>
+    </br>
+    <button type="submit">Save changes</button>
+
+</form>
