@@ -7,7 +7,7 @@ const seed = [
   {
     name: "Freddy Mercury",
     occupation: "rock star",
-    catchPhrase: "Sometimes the human condition requires some anaesthesia",
+    catchPhrase: "Being human is a condition that requires a little anesthesia",
   },
   {
     name: "Lady Gaga",
