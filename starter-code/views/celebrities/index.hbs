@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Celebrities</title>
+</head>
+<body>
+
+  <h2>All Celebrities</h2>
+  
+  {{#each allCelebrities}}
+    <p>
+      <a href="/celebrities/{{this._id}}/get"> {{this.name}}</a>
+      <form action="/celebrities/{{this._id}}/delete" method="post">
+      <button type="submit">DELETE</button>
+      </form>
+    </p>
+  {{/each}}
+
+
+  <a href="/celebrities/add">Add a Celebrity!</a> 
+
+</body>
+</html>

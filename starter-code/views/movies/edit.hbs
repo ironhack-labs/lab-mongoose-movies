@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>movies</title>
+</head>
+  <body>
+<form action="/movies/update_write/{{_id}}" method="POST">
+  <label for="title">title:</label> 
+  <input type="text" id="title" value="{{title}}" name="title"><br><br>
+ 
+  <label for="genre">Genre:</label>
+  <input type="text" id="genre" value="{{genre}}" name="genre"><br><br>
+  
+  <label for="plot">Plot:</label> 
+  <input type="text" id="plot" value="{{plot}}" name="plot"><br><br>
+ 
+  <button type="submit">CHANGE</button>  
+</form>
+
+
+  </body>
+</html>
