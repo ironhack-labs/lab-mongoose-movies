@@ -2,12 +2,13 @@
 
 <a href="/">Home</a><br>
 
-<a href="/new">Add a new celebrity</a>
+<a href="/celebrities/add-celebrity">Add a new celebrity</a>
 
 {{#each theCelebrities}}
 
 
-<h3>{{name}}</h3>
+<h3>{{this.name}}</h3>
+<h3>{{this.id}}</h3>
 
 <hr>
 <a href="/celebrities/{{id}}">Details</a>
@@ -16,6 +17,7 @@
 
 <hr>
 <form action="/celebrities/delete/{{id}}" method="POST">
-<button type="submit">Delete</button>
+    <button type="submit">Delete celebrity</button>
+</form>
 
 {{/each}}
