@@ -1,0 +1,25 @@
+<a href="/movies">Inicio</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <h2 class="mb-5">Crea una nueva pelicula</h2>
+            <form action="/movie/create" method="POST">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" name="title" placeholder="Nombre">
+                    <label for="floatingInput">Title</label>
+                </div>
+                <div class="form-floating">
+                    <input  type="text" class="form-control" id="floatingPassword" name="genre" placeholder="Especialidad">
+                    <label for="floatingPassword">Genre</label>
+                </div>
+                <div class="form-floating">
+                    <input max="18" type="text" class="form-control" id="floatingPassword" name="plot" placeholder="Frase">
+                    <label for="floatingPassword">Plot</label>
+                </div>
+                    <div class="d-grid gap-2">
+                    <button class="btn btn-warning" type="submit">Crear pelicula</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

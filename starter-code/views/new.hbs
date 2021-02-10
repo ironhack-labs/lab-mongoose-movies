@@ -1,0 +1,27 @@
+<a href="/celebrities">Inicio</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <h2 class="mb-5">Crea un nuevo artista</h2>
+            <form action="/create" method="POST">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" name="name" placeholder="Nombre">
+                    <label for="floatingInput">Nombre</label>
+                </div>
+                <div class="form-floating">
+                    <input  type="text" class="form-control" id="floatingPassword" name="occupation" placeholder="Especialidad">
+                    <label for="floatingPassword">Especialidad</label>
+                </div>
+                <div class="form-floating">
+                    <input max="18" type="text" class="form-control" id="floatingPassword" name="catchPhrase" placeholder="Frase">
+                    <label for="floatingPassword">Frase</label>
+                </div>
+                    <div class="d-grid gap-2">
+                    <button class="btn btn-warning" type="submit">Crear artista</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{!-- //en los forms se NECESITA OBLIGATORIAMENTE PONERLE NAME a los inputs Y TIENE QUE TENER EL NAME DE LOS SCHEMAS --}}
