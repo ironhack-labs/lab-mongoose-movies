@@ -1,0 +1,55 @@
+
+
+<table class="table table-striped text-center mt-5">
+    <thead>
+        <tr>
+            <th scope="col">{{#if moviesO}} Movie {{else}} Name {{/if}}</th>
+            <th scope="col">{{#if moviesO}} Genre {{else}} Occupation {{/if}}</th>
+            {{!-- <th scope="col">catchPhrase</th> --}}
+            <th scope="col">{{#if moviesO}} Actors {{else}} Movies {{/if}}</th>
+            <th scope="col">-</th>
+            <th scope="col">-</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if moviesO}}
+        {{#each movies as |movie|}}
+        <tr>
+            <td><a href="movie/{{id}}">{{this.title}}</a></td>
+            <td>{{this.genre}}</td>
+            <td>{{#each castings}}{{celebrity.name}}{{/each}}</td>
+            <td><a href="/movie/{{_id}}/edit">Edit</a></td>
+            <td><a href="/movie/{{_id}}/delete">Delete</a></td>
+        </tr>
+        {{/each}}
+
+        {{else}} 
+        {{#each celebrities as |celebrity|}}
+        <tr>
+            <td><a href="celebrity/{{id}}">{{this.name}}</a></td>
+            <td>{{this.occupation}}</td>
+            {{!-- <td>"{{this.catchPhrase}}"</td> --}}
+            <td>{{#each castings}}{{movie.title}}{{/each}}</td>
+            <td><a href="/celebrity/{{_id}}/edit">Edit</a></td>
+            <td><a href="/celebrity/{{_id}}/delete">Delete</a></td>
+        </tr>
+        {{/each}}
+        {{/if}}
+    </tbody>
+</table>
+
+{{#if delete}}
+<div class="container">
+    <div class="modal-content">
+        <div class="modal-body">
+            <p>Are you sure you want to delete?</p>
+        </div>
+        <div class="modal-footer">
+            <form action="/{{#if movieD}}movie{{else}}celebrity{{/if}}/{{_id}}/delete" method="POST"><button type="submit"
+                    class="btn btn-primary">Yes</button>
+            </form>
+            <a href="/{{#if movieD}}movies{{else}}celebrities{{/if}}" type="submit" class="btn btn-danger">No</a>
+        </div>
+    </div>
+</div>
+{{/if}}
