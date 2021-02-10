@@ -1,0 +1,23 @@
+<h2>Editaaar</h2>
+<a href="/">Inicio</a>
+
+<form action="/movies/edit/{{movies.id}}" method="POST">
+
+    <div>
+        <label>TITULO:</label>
+        <input value="{{movies.title}}" name="name" type="text">
+    </div>
+    </br>
+    <div>
+        <label>GENERO:</label>
+        <input value="{{movies.genre}}"name="occupation" type="text">
+    </div>
+    </br>
+    <div>
+        <label>TRAMA:</label>
+        <textarea name="catchPhrase" cols="30" rows="4">{{movies.plot}}</textarea>
+    </div>
+    </br>
+    <button type="submit">Guardar cambios</button>
+
+</form>

@@ -1,0 +1,15 @@
+<h2>Peronas Famosas c: </h2>
+
+{{#each cele}}
+{{this.name}}
+<a href="/celebrities/detail/{{this.id}}">Detalles</a>
+<a href="/celebrities/edit/{{this.id}}">Editar</a>
+
+<form action="/celebrities/delete/{{this.id}}" method="POST"> 
+    <button type="submit">Borrar</button>
+    </form>
+{{/each}}
+
+
+<h4>Agrega una celebridad</h4>
+    <a href="/celebrities/new">AGREGAR</a>

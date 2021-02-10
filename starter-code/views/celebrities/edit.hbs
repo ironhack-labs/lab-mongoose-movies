@@ -1,0 +1,23 @@
+<h2>Editaaar</h2>
+<a href="/">Inicio</a>
+
+<form action="/celebrities/edit/{{celebrities.id}}" method="POST">
+
+    <div>
+        <label>Name:</label>
+        <input value="{{celebrities.name}}" name="name" type="text">
+    </div>
+    </br>
+    <div>
+        <label>Occupation:</label>
+        <input value="{{celebrities.occupation}}"name="occupation" type="text">
+    </div>
+    </br>
+    <div>
+        <label>Catch phrase:</label>
+        <textarea name="catchPhrase" cols="30" rows="4">{{celebrities.catchPhrase}}</textarea>
+    </div>
+    </br>
+    <button type="submit">Save changes</button>
+
+</form>
