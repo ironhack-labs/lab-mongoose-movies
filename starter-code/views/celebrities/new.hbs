@@ -1,0 +1,43 @@
+<div class="col">
+    <div class="container">
+        <div class="row">
+            <h1 class="my-4">
+                {{#if moviesC}}
+                {{#if movie.plot}}Edit{{else}}Create a new{{/if}} movie
+                {{else}}
+                {{#if name}}Edit{{else}}Create a new{{/if}} celebrity {{/if}}
+            </h1>
+        </div>
+        <div class="row">
+            {{#if moviesC}}
+            <form action="/movie{{#if movie.plot }}/{{movie._id}}/edit{{else}}/create{{/if}}" method="POST">
+                {{else}}
+                <form action="/celebrity{{#if name }}/{{_id}}/edit{{else}}/create{{/if}}" method="POST">
+                    {{/if}}
+                    <div class="form-group">
+                        <label for="inputName">{{#if moviesC}} Title {{else}}Name {{/if}}:</label>
+                        <input type="text" class="form-control" name={{#if moviesC}} "title" value="{{movie.title}}"
+                            {{else}}"name" value="{{name}}" {{/if}} id="inputName">
+                    </div>
+                    <div class="form-group">
+                        <label for="occupation">{{#if moviesC}} Genre {{else}}Occupation {{/if}}:</label>
+                        <input type="text" class="form-control" name={{#if moviesC}} "genre" value="{{movie.genre}}"
+                            {{else}}"occupation" value="{{occupation}}" {{/if}} id="occupation">
+                    </div>
+                    <div class="form-group">
+                        <label for="catchPhrase">{{#if moviesC}} Plot {{else}}CatchPhrase {{/if}}:</label>
+                        <input type="text" class="form-control" name={{#if moviesC}} "plot" value="{{movie.plot}}"
+                            {{else}}"catchPhrase" value="{{catchPhrase}}" {{/if}} id="catchPhrase">
+                    </div>
+                    <div class="form-group">
+                        <label for="casting">{{#if moviesC}} Celebrities {{else}}Movies {{/if}}:</label>
+                        <input type="text" class="form-control" name={{#if moviesC}} "celebrity" value="{{#each movie.castings}}{{celebrity.name}}{{/each}}"
+                            {{else}}"movie" value="{{#each castings}}{{movie.title}}{{/each}}" {{/if}} id="casting">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        {{#if moviesC}}{{#if movie.plot}}Edit{{else}}Create{{/if}}
+                        {{else}}{{#if name}}Edit{{else}}Create{{/if}}</button>{{/if}}
+                </form>
+        </div>
+    </div>
+</div>

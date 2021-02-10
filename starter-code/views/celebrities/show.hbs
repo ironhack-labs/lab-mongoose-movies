@@ -1,0 +1,18 @@
+<h1 class="mt-5 pt-2 mb-5 text-center">{{#if name}} Celebrity  {{else}} Movie  {{/if}}</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">{{#if name}} Name  {{else}} Movie {{/if}}</th>
+            <th scope="col">{{#if name}} Occupation  {{else}} Genre {{/if}}</th>
+            <th scope="col">{{#if name}} CatchPhrase {{else}} Plot {{/if}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{#if name}} {{name}}  {{else}} {{this.title}} {{/if}}</td>
+            <td>{{#if name}} {{this.occupation}} {{else}} {{genre}} {{/if}}</td>
+            <td>{{#if name}} "{{this.catchPhrase}}" {{else}} {{plot}} {{/if}}</td>
+        </tr>
+    </tbody>
+</table>
