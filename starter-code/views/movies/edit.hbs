@@ -1,0 +1,13 @@
+<h2>You are editing {{movieToEdit.title}}</h2>
+
+<form action="/movies/{{movieToEdit.id}}/edit" method="POST">
+     <div>
+        <label for="title">Title: <input type="text" value="{{movieToEdit.title}}" name="title"></label>
+        <br>
+        <label for="genre">Genre: <input type="text" value="{{movieToEdit.genre}}" name="genre"</label>
+        <br>|
+        <label for="plot">Plot: <input type="text" value="{{movieToEdit.plot}}" name="plot"></label>
+    </div>
+
+    <button type="submit">Update information</button>
+</form>
