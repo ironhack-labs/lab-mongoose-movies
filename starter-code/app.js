@@ -23,6 +23,7 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+require('./configs/session.config')(app);
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -47,12 +48,20 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Mongoose - movies - Generated with IronGenerator';
 
 
 
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrities = require('./routes/celebrity');
+app.use('/', celebrities)
+
+const movies = require('./routes/movie');
+app.use('/', movies)
+
+const auth = require('./routes/auth.routes');
+app.use('/', auth)
 
 module.exports = app;
