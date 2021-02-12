@@ -1,14 +1,22 @@
 <h2>Listed Celebrities</h2>
-
+<br>
 {{#each this.listedCelebrities}}
 <div>
-    <p>{{name}}</p>
-    <a href="/celebrities/{{id}}">See more</a>
-    <form action="/celebrities/{{id}}/delete" method="POST">
-        <button type="submit">Delete</button>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <a  href="/celebrities/{{id}}" class="btn btn-info">See more</a>
+    <hr>
+      <form action="/celebrities/{{id}}/delete" method="POST">
+        <button  class="btn btn-danger" type="submit">Delete</button>
     </form>
+  </div>
+</div>
 </div>
 {{/each}}
+<br>
+<hr>
+<a class="btn btn-info"  href="/celebrities/new-celeb">Add a celebrity</a>
+<a class="btn btn-info"  href="/">Go home</a>
+<br>
 
-<a href="/celebrities/new-celeb">Add a celebrity</a>
-<a href="/">Go home</a>

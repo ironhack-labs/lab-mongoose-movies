@@ -23,6 +23,7 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+require('./confings/session.config')(app)
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -61,6 +62,9 @@ app.use('/', celebritiesRoutes);
 
 const moviesRoutes = require('./routes/movies');
 app.use('/', moviesRoutes);
+
+const userRoutes = require('./routes/user');
+app.use('/', userRoutes);
 
 
 module.exports = app;
