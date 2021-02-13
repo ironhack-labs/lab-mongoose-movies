@@ -1,5 +1,7 @@
+
+
 {{#if userInSession}}
-<h1>Bienvendo , no es necesario registrarse ya estas dentro {{userInSession.name}}</h1>
+<h1>Bienvendo{{userInSession.name}}</h1>
 {{/if}}
 
 {{#unless userInSession}}
@@ -7,21 +9,20 @@
 <div class="container">
     <div class="row  justify-content-center">
         <div class="col-2">
-        <form action="/signup" method="POST">
-        <label for="input-name">Name: </label>
-        <input required type="text" name="name" placeholder="Your name"/>
+        <form action="/login" method="POST">
+   
         <label for="input-email">Email: </label>
         <input required type="email" name="email" placeholder="Your email"/>
+
         <label for="input-password">Password: </label>
         <input required type="password" name="password" id="input-password" placeholder="********"/>
-        <button class="btn btn-warning" type="submit">Sign-up!</button>
+
+        <button class="btn btn-warning" type="submit">LOGIN!</button>
     </form>
-     {{#if errorMessage}}
+    {{#if errorMessage}}
     <p class="error">{{errorMessage}}</p>
     {{/if}}
         </div>
     </div>
 </div>
 {{/unless}}
-
-

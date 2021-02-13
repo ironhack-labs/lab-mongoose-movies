@@ -23,6 +23,7 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+require('./config/session.config')(app);
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -52,9 +53,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
-const user = require('./routes/user');
-
 app.use('/', index);
-app.use('/', user);
+
+const newUserRoute = require('./routes/user');
+app.use('/', newUserRoute);
 
 module.exports = app;
