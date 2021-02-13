@@ -1,0 +1,25 @@
+<a href="/celebrities">Inicio</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <h2 class="mb-5">Editar un artista</h2>
+            <form action="/edit/{{info.id}}" method="POST">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" value="{{info.name}}" name="name" placeholder="Nombre">
+                    <label for="floatingInput">Nombre</label>
+                </div>
+                <div class="form-floating">
+                    <input  type="text" class="form-control" id="floatingPassword" value="{{info.occupation}}" name="occupation" placeholder="Especialidad">
+                    <label for="floatingPassword">Especialidad</label>
+                </div>
+                <div class="form-floating">
+                    <input max="18" type="text" class="form-control" id="floatingPassword" value="{{info.catchPhrase}}" name="catchPhrase" placeholder="Frase">
+                    <label for="floatingPassword">Frase</label>
+                </div>
+                    <div class="d-grid gap-2">
+                    <button class="btn btn-warning" type="submit">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

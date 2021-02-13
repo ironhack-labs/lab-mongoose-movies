@@ -1,0 +1,21 @@
+{{#each this.celeb}}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{occupation}}</p>
+        <p class="card-text">{{catchPhrase}}</p>
+        <a class="btn btn-primary" href="celebrities/{{_id}}">Ver más</a>
+        <a class="btn btn-secondary" href="edit/{{_id}}">Editar</a>
+        <a class="btn btn-danger" href="delete/{{_id}}">Borrar</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+<a class="btn btn-success" href="/new">Crear artista</a>
+
+
+    
+    

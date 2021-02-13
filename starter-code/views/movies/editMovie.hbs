@@ -1,0 +1,25 @@
+<a href="/">Inicio</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <h2 class="mb-5">Editar una pelicula</h2>
+            <form action="/movie/edit/{{info.id}}" method="POST">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" value="{{info.title}}" name="title" placeholder="Nombre">
+                    <label for="floatingInput">Titulo</label>
+                </div>
+                <div class="form-floating">
+                    <input  type="text" class="form-control" id="floatingPassword" value="{{info.genre}}" name="genre" placeholder="Especialidad">
+                    <label for="floatingPassword">Genre</label>
+                </div>
+                <div class="form-floating">
+                    <input max="18" type="text" class="form-control" id="floatingPassword" value="{{info.plot}}" name="plot" placeholder="Frase">
+                    <label for="floatingPassword">Plor</label>
+                </div>
+                    <div class="d-grid gap-2">
+                    <button class="btn btn-warning" type="submit">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
