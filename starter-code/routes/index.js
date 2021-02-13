@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const router  = express.Router();
+
 const Celebrities = require("../models/Celebrity.model.js")
 const Movies = require("../models/Movies.model.js")
 
