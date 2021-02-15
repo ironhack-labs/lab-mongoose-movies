@@ -6,3 +6,95 @@ body {
 a {
   color: #00B7FF;
 }
+
+h1,h2{
+  color: #EF6866;
+}
+
+.card{
+    color: white;
+    background-color: #4D4D4D;
+    border: none;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.img-fluid{
+    height: 21rem;
+    width: 24rem;
+}
+
+.btn-celebrity{
+    background-color: #EF6866;
+    color: white;
+    border-radius: 50px;
+    display: block;
+}
+
+.image__movie{
+  height: 25em;
+  width: 24rem;
+}
+
+.des__movie{
+  margin-left: 15rem ;
+}
+
+.btn-back{
+    background-color: #EF6866;
+    color: white;
+    margin-top: 20px;
+    border-radius: 50px;
+    width: 10em;
+}
+
+#create__drone{
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  line-height: 40px;
+  background-color: lightblue;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-control{
+  width: 70%;
+}
+
+.btn__delete {
+  position: fixed;
+  right: 130px;
+  bottom: 10px;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  line-height: 30px;
+  background-color:  #EF6866;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.edit__post {
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  line-height: 50px;
+  background-color: rgb(173, 230, 213);
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}

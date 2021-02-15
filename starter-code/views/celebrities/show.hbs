@@ -1,0 +1,18 @@
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-2">
+            <img src="{{image}}" class="image__movie" alt="{{name}}">
+        </div>
+        <div class="col des__movie">
+            <h1>{{name}}</h1>
+            <h5>{{occupation}}</h5>
+            <p class="mt-4">{{catchPhrase}}</p>
+            <a href="/celebrities" class="btn btn-back">Go back</a>
+        </div>
+    </div>
+    <a class="edit__post" href="/celebrity/{{_id}}/edit">Edit</a>
+
+    <form action="/celebrity/{{_id}}/delete" method="POST">
+        <button class="btn btn__delete mt-3">Delete</button>
+    </form>
+</div>
