@@ -82,9 +82,9 @@ router.post('/logout', (req,res,next)=>{
 
 //ir a perfil del usuario
 router.get('/userProfile', (req,res)=>{
-    console.log(req.session)
+    console.log(req.session.currentUser)
     res.render('users/userProfile', {
-        valorCookie:req.session
+        valorCookie:req.session.currentUser
     })
 })
 

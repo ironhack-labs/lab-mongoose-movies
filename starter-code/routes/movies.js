@@ -56,11 +56,14 @@ router.post('/movies/:id/edit', (req,res,next)=>{
 })
 
 router.get('/movies', (req,res,next)=>{
-    Movie.find({})
+    if(req.session.currentUser) {
+        console.log(req.session.currentUser)
+    return Movie.find({})
     .then((listedMovies)=>{
         res.render('movies/index',{listedMovies})
     }).catch((err)=>{console.log(`You have an error: ${err}`)
-         next(error)   })
+         next(error)   })}
+    res.send('no estas logeado, esto es un area privada')
 })
 
 

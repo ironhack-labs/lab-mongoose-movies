@@ -11,7 +11,7 @@ module.exports = app => {
       resave:true,
       saveUninitialized:false,
       cookie:{
-        sameSite:'none',
+        sameSite:false,
         httpOnly:true,
         maxAge:60000
       },
