@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/celebitiesAndMovies', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -23,6 +23,7 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+require('./confings/session.config')(app)
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -30,13 +31,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Express View engine setup
 
+//npm install i- node-sass-middleware
+// Express View engine setup
+/*
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
-}));
+}));*/
       
 
 app.set('views', path.join(__dirname, 'views'));
@@ -53,6 +56,15 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebritiesRoutes = require('./routes/celebrities');
+app.use('/', celebritiesRoutes);
+
+const moviesRoutes = require('./routes/movies');
+app.use('/', moviesRoutes);
+
+const userRoutes = require('./routes/user');
+app.use('/', userRoutes);
 
 
 module.exports = app;

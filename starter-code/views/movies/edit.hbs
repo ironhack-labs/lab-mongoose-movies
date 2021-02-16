@@ -1,0 +1,18 @@
+<h2>You are editing {{movieToEdit.title}}</h2>
+
+<form action="/movies/{{movieToEdit.id}}/edit" method="POST">
+     <div class="form-group">
+        <label for="title">Title: <input class="form-control"type="text" value="{{movieToEdit.title}}" name="title"></label>
+    </div>
+
+         <div class="form-group">
+        <label for="genre">Genre: <input class="form-control"type="text" value="{{movieToEdit.genre}}" name="genre"</label>
+        </div>
+
+         <div class="form-group">
+        <label for="plot">Plot: <input class="form-control"type="text" value="{{movieToEdit.plot}}" name="plot"></label>
+        </div>
+    </div>
+
+    <button class="btn btn-warning" type="submit">Update information</button>
+</form>
