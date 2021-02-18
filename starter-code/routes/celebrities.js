@@ -9,6 +9,19 @@ router.get('/celebrities', (req, res, next) => {
        });
   });
 
+  router.get('/celebrities/new', (req, res, next) => {
+    res.render('celebrities/new')
+  
+  })
+
+  router.post('/celebrities/new', (req, res, ) => {
+    const celebrity = new Celebrity (req.body)
+    celebrity.save()
+    .then(c => res.redirect("/celebrities"))
+  .catch(e => res.redirect("/celebrities/new"))
+})
+
+
   router.get('/celebrities/:id', (req, res, next)=>{
     const id = req.params.id
     Celebrity.findById(id)
@@ -21,16 +34,17 @@ router.get('/celebrities', (req, res, next) => {
         })
 })
 
-router.get('/celebrities/new', (req, res, next) => {
-    res.render('celebrities/new')
-  
-  })
 
-  router.post('/celebrities/new', (req, res, ) => {
-    const celebrity = new Celebrity (req.body)
-    celebrity.save()
-    then(c => res.redirect("/celebrities"))
-  .catch(e => res.redirect("/celebrities/new"))
-})
+router.post("/celebrities/:id/delete", (req, res, next) => {
+  const id = req.params.id
+  Celebrity.findByIdAndRemove(id)
+  .then(() => {
+   res.redirect("/celebrities");
+  }) 
+  .catch((e)=> next(e));
+});
+  
+
+
 
 module.exports = router;
