@@ -46,5 +46,4 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
   
 
 
-
 module.exports = router;
