@@ -1,10 +1,15 @@
 <h2><strong>Movies</strong></h2>
+<a class="btn btn-primary" href="/">Home</a>
 {{#each movies}}
-<a href="/movies/{{_id}}"><p>{{this.name}}</p></a>
-
-<form action= "/movies/{{_id}}/delete" method="POST">
-<button type="submit">Delete</button>
-</form>
+<div class="card text-center" style="width: 12rem; background-color: rgba(4, 93, 226, 0) !important; ">
+  <div class="card-body">
+    <a href="/movies/{{_id}}" class="btn btn-success">
+      <p>{{this.title}}</p>
+    </a>
+    <form action= "/movies/{{_id}}/delete" method="POST">
+      <button type="submit" class="btn btn-danger" >Delete</button>
+    </form>
+  </div>
+</div>
 {{/each}}
-
-<a href="/movies/new">Create a new movie</a>
+<a class="btn btn-primary" href="/movies/new">Create a new movie</a>

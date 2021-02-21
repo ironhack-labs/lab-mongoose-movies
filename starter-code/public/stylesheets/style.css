@@ -1,8 +1,29 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('./images/por-que-se-comen-palomitas-en-el-cine-en-vez-de-otros-snacks.jpg');
+  
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 , h2 , p {
+color: black;
+text-align: center;
+
+}
+
+.nav-link {
+  color: black;
+  
+}
+
+.card-body{
+  background-color: rgba(245, 245, 245, 0.4);
+}
+
+.add {
+ color: white; 
 }

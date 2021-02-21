@@ -1,22 +1,23 @@
 <h2>New Movies:</h2>
+<a class="btn btn-primary" href="/">Home</a>
 
 <form action="/movies/new" method="POST">
-    <label for="title">Title</label>
-  <input type="text" name="title" id="title" value="{{Title}}"/>
+    <label class="add" for="title">Title</label>
+  <input class="form-control" type="text" name="title" id="title" value="{{title}}"/>
 
     <br >
 
-    <label for="genre">Genre:</label>
-  <input type="text" name="genre"  id="genre" value="{{genre}}"/>
+    <label class="add" for="genre">Genre:</label>
+  <input class="form-control" type="text" name="genre"  id="genre" value="{{genre}}"/>
 
     <br >
 
-    <label for="plot">Plot</label>
-  <input type="text" name="plot" id="plot" value="{{plot}}" />
+    <label class="add" for="plot">Plot</label>
+  <input class="form-control" type="text" name="plot" id="plot" value="{{plot}}" />
 
     <br >
     <br >
 
-    <button type="submit" class="button is-black">Add New Movie</button>
+    <button type="submit" class="btn btn-success">Add New Movie</button>
 
 </form> 
