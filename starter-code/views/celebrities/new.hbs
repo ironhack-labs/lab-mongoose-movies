@@ -1,0 +1,24 @@
+<h2>New Celebrity:</h2>
+<a class="btn btn-primary" href="/">Home</a>
+
+
+<form action="/celebrities/new" method="POST">
+    <label class="add" for="name">Name:</label>
+  <input class="form-control" type="text" name="name" id="name" value="{{name}}"/>
+
+    <br >
+
+    <label class="add" for="occupation">Occupation:</label>
+  <input class="form-control" type="text" name="occupation"  id="occupation" value="{{occupation}}"/>
+
+    <br >
+
+    <label class="add" for="catchPhrase">Catchphrase:</label>
+  <input class="form-control" type="text" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}" />
+
+    <br >
+    <br >
+
+    <button type="submit" class="btn btn-success">Add New Celebrity</button>
+
+</form> 

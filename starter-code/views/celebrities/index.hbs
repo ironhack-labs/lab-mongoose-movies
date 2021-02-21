@@ -1,0 +1,15 @@
+<h2><strong>Celebrities</strong></h2>
+<a class="btn btn-primary" href="/">Home</a>
+{{#each celebrities}}
+<div class="card text-center" style="width: 12rem; background-color: rgba(4, 93, 226, 0) !important; ">
+  <div class="card-body">
+    <a href="/celebrities/{{_id}}" class="btn btn-success">
+      <p>{{this.name}}</p>
+    </a>
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+      <button type="submit" class="btn btn-danger" >Delete</button>
+    </form>
+  </div>
+</div>
+{{/each}}
+<a class="btn btn-primary" href="/celebrities/new">Create a new celebrity</a>

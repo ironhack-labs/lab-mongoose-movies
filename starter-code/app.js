@@ -19,6 +19,14 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+
+  process.on("SIGINT",()=>{
+    mongoose.connection.close()
+    .then(()=> console.log("Succesfully disconnected from the DB"))
+    .catch((error) => console.log("Error disconnecting from the DB", e))
+    .finally(()=> process.exit())
+  });
+
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
@@ -47,12 +55,16 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+//app.locals.title = 'The celebrities page';
 
 
 
 const index = require('./routes/index');
+const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 app.use('/', index);
+app.use('/', celebrities);
+app.use('/', movies);
 
 
 module.exports = app;
