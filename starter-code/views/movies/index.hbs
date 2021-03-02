@@ -1,0 +1,16 @@
+<h1>Movies page</h1>
+
+
+<div class="grid">
+{{#each movies}}
+<div class="box">
+    <h1><a class="link" href="/movies/{{this._id}}">{{this.title}}</a></h1>
+    <div class="button-box">
+        <a class="little-btn" href="/movies/{{this._id}}/edit">edit</a>
+        <a class="little-btn" href="/movies/{{this._id}}/delete">delete</a>
+    </div>
+</div>
+{{/each}}
+</div>
+
+<a class="btn" href="/movies/add">Add a movie</a>
