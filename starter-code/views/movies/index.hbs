@@ -1,6 +1,5 @@
 <h2>Celebrities</h2>
-<ul>
-    {{#each movies}}
-    <p><a href="/movies/{{this._id}}/show">{{this.title}}</a></p>
-    {{/each}}
-</ul>
+{{#each movies}}
+<p><a href="/movies/{{this._id}}/show">{{this.title}}</a></p>
+{{/each}}
+<a href="/movies/addnew">add a new movie</a>

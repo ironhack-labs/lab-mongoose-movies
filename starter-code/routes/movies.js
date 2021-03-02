@@ -15,4 +15,18 @@ router.get('/:id([a-z0-9]{24})/show', (req, res, next) => {
   .then((movie) => res.render("../views/movies/show.hbs", {movie}));
 });
 
+router.get('/addnew', (req, res, next) => {
+  res.render("../views/movies/new.hbs")
+})
+
+router.post('/new', (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  MovieModel.create({ title, genre, plot })
+  .then((movie) => {
+    console.log(movie);
+    res.redirect('/movies')
+  })
+  .catch((err) => next(err));
+})
+
 module.exports = router;
