@@ -1,0 +1,14 @@
+<form action="/movies/create" method="post">
+<label for="title">Title of the movie</label>
+<input type="text" id="title" value="Titanic" name="title">
+<label for="genre">Genre</label>
+<input type="text" id="genre" value="Romance" name="genre">
+<label for="plot">Plot</label>
+<input type="text" id="plot" value="The brandy new Titanic boat is sinking" name="plot">
+<label for="cast">Casting</label>
+<select id="cast" name="cast" multiple>
+    {{#each celebrities}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+</select>
+</form>
