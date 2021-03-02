@@ -1,0 +1,20 @@
+<h2>Your new Movie</h2>
+<form action="/movies/create" method="POST">
+<label>Title</label>
+<input type="text" name="title" id="title"></input>
+<label>Genre</label>
+<input type="text" name="genre" id="genre"></input>
+<label>Plot</label>
+<input type="text" name="plot" id="plot"></input>
+<label>Choose your Cast</label>
+
+
+<select name="cast" id="cast" >
+  <option value="{{movies.cast}}">{{movies.cast}}</option>
+  <option value="cast"></option>
+  <option value="cast"></option>
+  <option value="cast"></option>
+</select>
+
+<button class="btn">Submit</button>
+</form>
