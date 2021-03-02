@@ -1,5 +1,9 @@
 <h2>Celebrities</h2>
 {{#each movies}}
 <p><a href="/movies/{{this._id}}/show">{{this.title}}</a></p>
+<button><a href="/movies/{{this._id}}/edit">edit</a></button>
+<form method="post" action="/movies/{{this.id}}/delete">
+<button type="submit">delete</button>
+</form>
 {{/each}}
 <a href="/movies/addnew">add a new movie</a>

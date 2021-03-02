@@ -29,4 +29,10 @@ router.post('/new', (req, res, next) => {
   .catch((err) => next(err));
 })
 
+router.post('/:id([a-z0-9]{24})/delete', (req, res, next) => {
+  MovieModel.findByIdAndDelete(req.params.id)
+  .then(() => res.redirect('/movies'))
+  .catch((err) => next(err));
+})
+
 module.exports = router;
