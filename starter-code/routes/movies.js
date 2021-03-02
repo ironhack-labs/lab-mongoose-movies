@@ -35,4 +35,17 @@ router.post('/:id([a-z0-9]{24})/delete', (req, res, next) => {
   .catch((err) => next(err));
 })
 
+router.get('/:id([a-z0-9]{24})/edit', (req, res, next) => {
+  MovieModel.findById(req.params.id)
+  .then((movie) => res.render("../views/movies/edit.hbs", {movie}))
+  .catch((err) => next(err))
+})
+
+router.post('/:id([a-z0-9]{24})/edited', (req, res, next) => {
+  const {title, genre, plot} = req.body;
+  MovieModel.create({title, genre, plot})
+  .then(() => res.redirect('/movies'))
+  .catch((err) => next(err))
+})
+
 module.exports = router;
