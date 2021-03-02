@@ -1,15 +1,15 @@
 <h2>Add a celebrity</h2>
 
-<form method="post" action="/celebrities/create" enctype="multipart/form-data">
+<form method="post" action="/celebrities/create">
 
     <label for="name">Name</label>
-    <input type="text">
+    <input type="text" id="name" name="name" >
 
     <label for="occupation">Occupation</label>
-    <input type="text">
+    <input type="text" id="occupation" name="occupation" >
 
-    <label for="catchphrase">Catchphrase</label>
-    <input type="text">
+    <label for="catchPhrase">Catchphrase</label>
+    <input type="text" name="catchPhrase" id="catchPhrase" >
 
     <button type="submit">Create your celebrity</button>
     
