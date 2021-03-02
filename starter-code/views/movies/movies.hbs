@@ -3,11 +3,11 @@
 {{#each movies}}
 <div>
     <h3>{{this.title}}</h3>
-    {{!-- <p>{{this.genre}}</p>
+<p>{{this.genre}}</p>
     <p>{{this.plot}}</p>
     {{#each this.cast}}
     <p>{{name}}</p>
-    {{/each}} --}}
+    {{/each}}
     <a href="/movies/{{this._id}}">more about {{this.title}}</a>
 
 </div>
