@@ -48,21 +48,21 @@ router.post("/:id/delete", (req, res, next) => {
 
 // edit movie:
 
-router.get("/:id/edit", (req, res, next) => {
-    MovieModel.findById(req.params.id)
-    .populate("cast")
-    .then((movie) => {
-        res.render("movies/edit-movie", {movie})
-    })
-    .catch(next)
+router.get("/:id/edit", async (req, res, next) => {
+    const celeb = await CelebrityModel.find()
+    const movie = await MovieModel.findById(req.params.id)
+        res.render("movies/edit-movie", {celeb, movie})
 })
 
 router.post("/:id", (req, res, next) => {
     const {title, genre, plot, cast}= req.body
-    MovieModel.findByIdAndUpdate(req.params.id, {title, genre, plot, cast})
-    .then((movie)=>res.redirect("/movies/:id", {movie}))
+    MovieModel.findByIdAndUpdate(req.params.id, {title, genre, plot, cast}, {new:true})
+    .populate("cast")
+    .then((movie)=>{
+        console.log(movie)
+     res.render("movies/movie-details", {movie})
+    })
     .catch(next)
 })
-//res.render("movies/movie-detail", {movie})
 
 module.exports = router

@@ -9,7 +9,7 @@
 <input type="text" id="plot" value="{{movie.plot}}" name="plot">
 <label for="cast">Casting</label>
 <select id="cast" name="cast" multiple>
-    {{#each movie.cast }}
+    {{#each celeb}}
     <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
 </select>
