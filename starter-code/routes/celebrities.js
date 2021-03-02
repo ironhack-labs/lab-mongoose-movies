@@ -1,4 +1,5 @@
 const express = require("express");
+const { findByIdAndRemove } = require("../models/Celebrity");
 const router = express.Router();
 const CelebrityModel = require("../models/Celebrity");
 
@@ -30,6 +31,13 @@ router.post('/new', (req, res, next) => {
     res.redirect("/celebrities")
   })
   .catch(() => res.redirect("/celebrities/new"));
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  console.log(req.params.id)
+  CelebrityModel.findByIdAndRemove(req.params.id)
+  .then(() => res.redirect("/celebrities"))
+  .catch((err) => next(err))
 });
 
 module.exports = router;
