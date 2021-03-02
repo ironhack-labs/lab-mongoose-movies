@@ -13,10 +13,10 @@ const path         = require('path');
 mongoose
   .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -32,11 +32,11 @@ app.use(cookieParser());
 
 // Express View engine setup
 
-app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
+/*app.use(require('node-sass-middleware')({
+ src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
-  sourceMap: true
-}));
+ sourceMap: true
+}));*/
       
 
 app.set('views', path.join(__dirname, 'views'));
@@ -47,12 +47,17 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+//app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrityRoute = require('./routes/celebrities-routes');
+app.use('/', celebrityRoute);
+
+const movieRoute = require('./routes/movies-routes');
+app.use('/', movieRoute);
 
 module.exports = app;
