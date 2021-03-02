@@ -52,7 +52,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const celebritiesRouter = require('./routes/celebritiesRoutes');
+const moviesRouter = require('./routes/moviesRoutes');
 app.use('/', index);
-
+app.use('/celebrities', celebritiesRouter);
+app.use('/movies', moviesRouter);
 
 module.exports = app;

@@ -1,0 +1,28 @@
+<h2>New Movie</h2>
+
+<form method="post" action="/movies/create" class="form" enctype="multipart/form-data">
+    <div>
+    <label for="title">Title</label>
+    <input class="input" type="text" id="title" name="title" value="test movie">
+    </div>
+    <div>
+    <label for="genre">Genre</label>
+    <input id="genre" class="input" type="text" name="genre" value="Drama">
+    </div>
+    <div>
+    <label for="plot">Plot</label>
+    <input class="input" name="plot" id="plot" value="Who'll die first?">
+    </div>
+    <div>
+      <label for="cast">Cast</label>
+          <select class="input" name="cast" id="cast">
+            <option value="js"></option>
+            <option value="php"></option>
+            <option value="python"></option>
+            <option value="java"></option>
+          </select>
+    </div>
+    <div>
+    <button class="btn">Submit new movie</button>
+    </div>
+</form>
