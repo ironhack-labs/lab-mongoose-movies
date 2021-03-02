@@ -1,0 +1,19 @@
+<h1>Celebrities</h1>
+
+
+<div class="grid">
+{{#each celebs}}
+<div class="box">
+    <h1><a class="link" href="/celebrities/{{this._id}}">{{this.name}}</a></h1>
+ <div class="button-box">
+        <a class="little-btn" href="/celebrities/{{this._id}}/edit">edit</a>
+        <a class="little-btn" href="/celebrities/{{this._id}}/delete">delete</a>
+    </div>
+    
+</div>
+{{/each}}
+
+</div>
+
+
+<a class="btn"  href="/celebrities/add">Add a celebrity</a>
