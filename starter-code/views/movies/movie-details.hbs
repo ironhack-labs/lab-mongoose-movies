@@ -1,0 +1,18 @@
+<h1>{{movie.title}}</h1>
+
+<a href="/movies/{{movie._id}}/edit">Edit</a>
+
+<h3>Genre:</h3>
+<p>{{movie.genre}}</p>
+
+<h3>Plot:</h3>
+<p>{{movie.plot}}</p>
+
+<h3>Cast:</h3>
+{{#each movie.cast}}
+<p>{{this.name}}</p>
+{{/each}}
+
+<form method="post" action="/movies/{{movie._id}}/delete">
+<button>Delete</button>
+</form>
