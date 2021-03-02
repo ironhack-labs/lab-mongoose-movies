@@ -45,14 +45,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Celebrities editor';
 
 
 
 const index = require('./routes/index');
+const celebrityIndex = require('./routes/celebrities')
+const movieIndex = require('./routes/movies')
+
 app.use('/', index);
+app.use('/celebrities', celebrityIndex)
+app.use('/movies', movieIndex)
+
+
+
+hbs.registerHelper('ifCond', function(v1, v2) {
+  if(v1 === v2) {
+    return true;
+  }
+  return false;
+});
 
 
 module.exports = app;
