@@ -10,31 +10,24 @@ const CelebrityModel = require("../models/Celebrity");
 
 router.get("/new", (req, res) => {
     console.log('yo');
-    // CelebrityModel.find()
-    // .then((dbRes) => {
-        res.render("celebrities/new-celebrity.hbs");
-        
-    // })
-    // .catch(err => console.log(err));
+    res.render("celebrities/new-celebrity.hbs");
 });
 
-router.post("/celebrities/create", async (req, res, next) => {
-    const {name, occupation, catchPhrase} = req.body;
-
-    try { 
-       const awaitCelebModel = await CelebrityModel.create({
+router.post("/create", async (req, res, next) => {
+    const { name, occupation, catchPhrase } = req.body;
+    console.log('------------- entrée dans router post create yayyyy ---------------');
+    try {
+        console.log('------------- entrée dans TRYYYYYY ---------------');
+        await CelebrityModel.create({
             name,
             occupation,
             catchPhrase
         })
-        res.redirect('/celebrities');
+        console.log('------------- entrée dans MODEL.CREATE ---------------');
+        res.redirect('/');
     } catch (err) {
         next(err);
     }
-
-    
-    
-
-})
+});
 
 module.exports = router;
