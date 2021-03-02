@@ -1,0 +1,17 @@
+<h1>All movies</h1>
+
+{{#each movies}}
+
+<p>-----------------</p>
+
+<h3>Title</h3>
+{{this.title}} <br><br>
+{{!-- <h3>Genre</h3>
+{{this.genre}} <br><br>
+<h3>Plot</h3>
+{{this.plot}} <br><br>
+<h3>Actors</h3>
+{{this.cast}} --}}
+<a href="/movies/{{this._id}}">See details</a>
+
+{{/each}}
