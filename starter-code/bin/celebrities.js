@@ -1,3 +1,5 @@
+
+require('../app')
 const CelebrityModel = require('./../models/Celebrity');
 
 const seedCelebrities =  [
