@@ -44,9 +44,17 @@ router.get("/:id/delete", async (req, res, next) => {
 
 router.get("/:id/edit", async (req, res, next) => {
     try {
-        const movie = (await movieModel.findById(req.params.id)).populate("cast") ;
-        const celeb = await celebModel.find() ;
-        res.render("movies/edit-movie", {movie, celeb})
+        const movie = await movieModel.findById(req.params.id).populate("cast") ;
+        const celebs = await celebModel.find() ;
+
+        for (let celeb of celebs) {
+            celeb["inMovie"] = movie.cast.map(celeb => celeb._id).includes(celeb._id) ;
+        }
+        console.log(celebs)
+        console.log(celebs.map(celeb => celeb.inMovie))
+
+
+        res.render("movies/edit-movie", {movie, celebs})
     } catch(err) {
         next(err)
     }

@@ -7,8 +7,8 @@
 <label for="plot">Plot</label>
 <input type="text" name="plot" id="plot" value="{{movie.plot}}">
 <select name="cast" id="cast" multiple>
-  {{#each celeb}}
-    <option value="{{this._id}}">{{this.name}}</option>
+  {{#each celebs}}
+    <option value="{{this._id}}", {{#if this.inMovie}}selected{{/if}}>{{this.name}}</option>
   {{/each}}
 </select>
 <button>Update !</button>
