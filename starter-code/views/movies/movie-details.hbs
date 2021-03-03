@@ -1,0 +1,11 @@
+
+{{#each movie}}
+<h2>{{this.title}}</h2>
+<strong>{{this.genre}}</strong>
+<br>
+<p>{{this.plot}}</p>
+<br>
+<p>{{this.cast.name}}</p>
+<br>
+<a href="/movies/delete/{{this.id}}">Delete</a>
+{{/each}}
