@@ -1,0 +1,17 @@
+<h2></h2>
+
+
+{{#each movies}}
+
+    <p>{{this.title}}</p>
+    <p>{{this.genre}}</p>
+    <p>{{Celebrity.name}}</p>
+    <a href="/movies/{{this._id}}">See Details</a>
+    <a href="/movies/delete/{{this._id}}">Delete this movie</a>
+    
+    
+{{/each}}
+
+
+<a href="/movies/new">Add a movie!</a>
+
