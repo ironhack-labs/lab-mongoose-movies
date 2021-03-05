@@ -7,7 +7,7 @@ const movieSchema = new Schema({
     plot: String,
     cast: [{
             type: Schema.Types.ObjectId,
-            ref: "celebrity",
+            ref: "celebrity"
         }]
 })
 

@@ -16,8 +16,8 @@
 <br>
 <label for="cast-input">Cast</label>
 <br>
-    <select class="input" name="cohort" id="cohort" multiple>
-        {{#each cast}}
+    <select class="input" name="cast" id="cast-input" multiple>
+        {{#each celebrity}}
         <option value="{{this.id}}">{{this.name}}</option>
         {{/each}}
     </select>
