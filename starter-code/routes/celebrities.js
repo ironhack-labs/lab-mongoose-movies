@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const CelebrityModel = require("./../models/Celebrity.model");
+const CelebrityModel = require("../models/Celebrity.model");
 
 
 /* GET celebrities page */
@@ -58,6 +58,27 @@ router.get('/celebrities', (req, res, next) => {
       res.redirect("/celebrities");
     } catch (err) {
       next(err); 
+    }
+  });
+
+  router.get('/celebrities/edit/:id', (req, res, next) => {
+    CelebrityModel.findById(req.params.id)
+    .then((celebrity) => res.render("celebrities/edit", { celebrity }))
+    .catch(next);
+  });
+  
+  
+  router.post('/celebrities/edit/:id', async (req, res, next) => {
+    const { name, occupation, catchPhrase } = req.body;
+    try {
+      await CelebrityModel.findByIdAndUpdate(req.params.id, {
+        name,
+        occupation,
+        catchPhrase
+      });
+      res.redirect("/celebrities");
+    } catch (err) {
+      next(err);
     }
   });
 
