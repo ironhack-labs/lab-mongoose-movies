@@ -9,7 +9,7 @@ const CelebrityModel = require("../models/Celebrity");
 //Celeb get
 
 router.get("/new", (req, res) => {
-  console.log("yo");
+  // console.log("yo");
   res.render("celebrities/new-celebrity.hbs");
 });
 
