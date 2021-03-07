@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+label, input, select {
+  margin : 1.5em 0;
+}
+

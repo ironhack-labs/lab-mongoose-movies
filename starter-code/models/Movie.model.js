@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const CelebrityModel = require('../models/Celebrity')
+// const CelebrityModel = require('../models/Celebrity')
 
 const Schema = mongoose.Schema;
 
