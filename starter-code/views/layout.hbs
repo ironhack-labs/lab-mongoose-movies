@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend+Peta&display=swap');
+  </style>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  {{#each style}}
+  <link rel="stylesheet" href="/stylesheets/{{this}}">
+  {{/each}}
 </head>
-<body>
 
-  {{{body}}}
+<body>
+  <div id="main-bar">
+    <h2>This is mongoose-movies lab</h2>
+  </div>
+  <section>
+    {{{body}}}
+  </section>
 
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>
