@@ -3,12 +3,17 @@
 <div>
     {{!-- {{myMovies}} --}}
     {{#each myMovies}}
-       <p><a href='/movies/{{this._id}}'>{{this.title}}</a></p>
-       <p>{{this.genre}}</p>
-       <p>{{this.plot}}</p>
-       <p>{{this.cast}}</p>
-       <p>_______________</p>
+    <p class="title"><a href='/movies/{{this._id}}'>{{this.title}}</a></p>
+    <p class="title">Genre : {{this.genre}}</p>
+    <p class="title">Plot : {{this.plot}}</p>
+    <p class="title">Actors</p>
+    {{#each this.cast}}
+    <ul>
+        <li>{{name}}</li>
+    </ul>
+    {{/each}}
+    <p>_______________</p>
     {{/each}}
 </div>
 
-<p> <a href="/movies/new">Create a movie</a> </p>
+<button> <a href="/movies/new">Create a movie</a> </button>

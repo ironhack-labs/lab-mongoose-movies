@@ -1,0 +1,60 @@
+#all-celeb {
+    width: 100%;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.562) -1px 0.5px 1px;
+    background-color: rgb(255, 196, 0);
+    margin: 2vh;
+    padding: 4vh;
+    border-top-left-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.3vh;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 2vh;
+}
+
+.info {
+    width: 20vh;
+    margin: 2vh;
+}
+
+
+/*BUTTON*/
+
+button {
+    color: rgb(255, 196, 0) ;
+    font-size: 2vh;
+    text-decoration: none;
+    display:flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+} button:hover {
+    color: black;
+}
+
+a {
+   color: rgb(255, 196, 0) ;
+   font-size: 2vh;
+   text-decoration: underline 2px;
+}
+
+button a {
+    text-decoration: none;
+} button a:hover {
+    color: black;
+}
+
+button > .del-mov {
+    font-size: 1vh;
+    width: 7vh;
+}
+
+/*LIST*/
+li {
+    font-size: 1.2vh;;
+}

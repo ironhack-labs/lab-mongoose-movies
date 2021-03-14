@@ -1,10 +1,10 @@
 <h2>Celebrities</h2>
 
-<div>
-    {{#each myCelebrities}}
-       <p>{{this.name}}</p>
-       <p>{{this.occupation}}</p>
-       <p>{{this.catchPhrase}}</p>
-       <p>_______________</p>
-    {{/each}}
+
+{{#each myCelebrities}}
+<div id="all-celeb">
+<p class="title">I'm </p><p class="info">{{this.name}}</p>
+<p class="title">What I do </p><p class="info">{{this.occupation}}</p>
+<p class="title">My catchphrase</p><p class="info">{{this.catchPhrase}}</p>
 </div>
+{{/each}}

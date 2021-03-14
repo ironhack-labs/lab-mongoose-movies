@@ -4,7 +4,9 @@
   <p>{{movie.title}}</p>
   <p>{{movie.genre}}</p>
   <p>{{movie.plot}}</p>
-  <p>{{movie.cast}} hey</p>
+  {{#each movie.cast}}
+  <p>{{name}}</p>
+  {{/each}}
   <form method="post" action="/movies/{{movie.id}}/delete">
     <button>Delete</button>
   </form>
@@ -12,3 +14,4 @@
 </div>
 
 <p> <a href="/movies">All movie</a> </p>
+<p> <a href="{{movie._id}}/edit">Edit movie</a> </p>

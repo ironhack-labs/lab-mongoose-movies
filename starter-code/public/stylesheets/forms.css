@@ -1,0 +1,37 @@
+body {
+    /* background-color: brown; */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid rgb(255, 208, 0);
+    border-top-left-radius: 15px;
+    margin: 2vh;
+    padding: 2vh;
+}
+
+
+button {
+    color: rgb(255, 196, 0) ;
+    font-size: 2vh;
+    text-decoration: none;
+    display:flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+} button:hover {
+    color: black;
+}
+
+li {
+    font-size: 1.2vh;;
+}
+
+input {
+    border-radius: 10px;
+    padding: 0.5vh;
+}
+input:hover {
+    border: 2px solid rgb(255, 208, 0);
+}

@@ -9,18 +9,16 @@ const CelebrityModel = require("../models/Celebrity");
 //Celeb get
 
 router.get("/new", (req, res) => {
-  // console.log("yo");
-  res.render("celebrities/new-celebrity.hbs");
+  res.render("celebrities/new-celebrity.hbs", { style: ["forms.css"] });
 });
 
 router.post("/create", async (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
-  console.log(req.body)
   try {
     await CelebrityModel.create({
       name,
       occupation,
-      catchPhrase
+      catchPhrase,
     });
     res.redirect("/");
   } catch (err) {
@@ -33,9 +31,10 @@ router.post("/create", async (req, res, next) => {
 router.get("/", (req, res) => {
   CelebrityModel.find()
     .then((dbRes) => {
-      console.log(dbRes);
-      res.render("celebrities/celebrities.hbs", { myCelebrities: dbRes });
-      // console.log(myCelebrities);
+      res.render("celebrities/celebrities.hbs", {
+        myCelebrities: dbRes,
+        style: ["list.css"],
+      });
     })
     .catch((err) => res.send(err));
 });

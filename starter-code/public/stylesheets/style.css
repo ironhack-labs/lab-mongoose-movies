@@ -1,13 +1,57 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Lexend Peta', sans-serif;}
+
+h2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: white;
+  text-decoration: none;
 }
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: 'Lexend Peta', sans-serif;
+  font-size: 0.7em;
+  background-color: black;
+  width: 20vh;
+  height : 10vh;
+  border: none;
+  box-shadow: grey 1px 1px 1px;
+  padding: 1.2vh;
+  margin: 1vh;
+  border-radius: 5%;
+  transition-duration: 0.5s;
+} button:hover {
+  cursor: pointer;
+  background-color: rgb(223, 182, 0);
+}
+#main-btn{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#main-bar {
+  background-color:  rgb(255, 208, 0);
+}
+
+/* div {
+  margin-left: 5vh;
+} */
 
 label, input, select {
   margin : 1.5em 0;
 }
 
+/*ALL*/
+
+p {
+  font-weight: bold;
+}

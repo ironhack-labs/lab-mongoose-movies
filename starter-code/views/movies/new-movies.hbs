@@ -1,6 +1,6 @@
 <h1>Add a movie</h1>
 
-<form method="post" action="/movies/create">
+<form class="form" method="post" action="/movies/create">
 
   <label for="title">Title</label><br>
   <input type="text" id="title" name="title" value="test"><br>
@@ -14,9 +14,9 @@
   <label for="cast">Cast</label><br>
   <select type="text" name="cast" id="cast" multiple><br>
     {{#each myCelebrities}}
-    <option>{{this.name}}</option>
+    <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
   </select><br>
-  <button type="submit">Create a movie</button>
+  <button class="del-mov" type="submit">Create a movie</button>
 
 </form>
