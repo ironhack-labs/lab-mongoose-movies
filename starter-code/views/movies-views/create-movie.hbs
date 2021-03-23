@@ -1,0 +1,23 @@
+
+<form action="/movies" method="post">
+
+  <div>
+    <label for="title">Movie Title</label>
+    <input type="text" name="title" id="title" placeholder="New movie title">
+  </div>
+
+  <div>
+    <label for="genre">Movie Genre</label>
+    <input type="text" name="genre" id="genre" placeholder="New movie genre">
+  </div>
+
+  <div>
+    <label for="plot">Movie Plot</label>
+    <input type="text" name="plot" id="plot" placeholder="New movie plot">
+  </div>
+
+  {{#if errorMessage}}
+    <span>{{errorMessage}}</span>
+  {{/if}}
+    <button type="submit">Create</button>
+</form>
