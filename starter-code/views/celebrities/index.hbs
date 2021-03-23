@@ -1,0 +1,10 @@
+<div>
+    Teste
+    {{#each celebrities}}
+    <div>
+        <img src="{{this.image}}" alt="image-celebrities">
+        <h1>{{this.name}}</h1> Teste
+        <a href="/celebrities/{{this.id}}">+++</a>
+    </div>
+    {{/each}}
+</div>
