@@ -1,20 +1,31 @@
 <h2>Create Celebrity</h2>
 
-{{!-- <div>
+<a href="/">Home</a>
+<a href="/celebrities">Back</a>
+
+<div>
 
     <form action="/create-celebrity" method="POST">
 
         <label>Name:</label>
         <input type="text" name="name">
 
-        <label>Occupation:</label>
-        <input type="text" name="occupation">
+        {{!-- <label>Occupation:</label>
+        <input type="text" name="occupation"> --}}
+
+        <label for="jobs">Occupation:</label>
+        <select name="occupation">
+        <option value="actor">Actor</option>
+        <option value="singer">Singer</option>
+        <option value="comedian">Comedian</option>
+        <option value="unknown">Unknown</option>
+        </select>
 
         <label>Catch Phrase:</label>
         <input type="text" name="catchPhrase">
 
-        <button type="submit">Save Celebrity!</button>
+        <button type="submit">Create Celebrity!</button>
 
     </form>
 
-</div> --}}
+</div>

@@ -38,19 +38,18 @@ router.get("/new", (req, res, next) => {
   res.render("celebrities/new");
 });
 
-// router.post("/create-celebrity", (req, res, next) => {
-//   Celebrity.create({
-//     name: req.body.name,
-//     occupation: req.body.occupation,
-//     catchPhrase: req.body.catchPhrase,
-//   })
-//     .save()
-//     .then(() => {
-//       res.redirect("/celebrities");
-//     })
-//     .catch((error) => {
-//       next(error);
-//     });
-// });
+router.post("/create-celebrity", (req, res, next) => {
+  Celebrity.create({
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  })
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 module.exports = router;
