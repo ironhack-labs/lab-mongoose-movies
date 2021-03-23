@@ -1,0 +1,20 @@
+<h2>Celebrities</h2>
+<a href="/">Home</a>
+
+{{#each celebrities}}
+
+<div>
+
+    <h4>{{name}}</h4>
+
+    <a href="/celebrities/{{id}}">Details</a>
+
+</div>
+
+<hr>
+
+{{/each}}
+
+<br>
+
+<a href="/celebrities/new">Create A Celebrity!</a>
