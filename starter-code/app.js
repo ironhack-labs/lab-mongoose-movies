@@ -44,7 +44,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 //build routes
 app.use('/', index);
-app.use('/celebrity', celebrityRoute);
+app.use('/celebrities', celebrityRoute);
 
 
 module.exports = app;

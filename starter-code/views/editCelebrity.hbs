@@ -1,0 +1,13 @@
+<section>
+  {{#if celebrity}}
+  <form action="/celebrities/celebrity/{{celebrity._id}}" method="post">
+    <input type="text" name="celebrityName" placeholder="Name" value="{{celebrity.name}}">
+    <input type="text" name="celebrityOccupation" placeholder="Occupation" value="{{celebrity.occupation}}">
+    <input type="text" name="celebrityCatchPhrase" placeholder="CatchPhrase" value="{{celebrity.catchPhrase}}">
+
+    <button type="submit">Edit celebrity!</button>
+  </form>
+  {{else}}
+  <h1>Errowwww!!!!</h1>
+  {{/if}}
+</section>

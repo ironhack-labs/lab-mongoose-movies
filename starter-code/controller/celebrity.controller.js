@@ -19,7 +19,7 @@ class CelebrityController {
 
       const results = await CelebrityModel.findById(celebrityId)
 
-      res.send(results);
+      return req.options ? { ...results._doc } : res.send(results);
     } catch (error) {
       console.log({ errorGetCelebrityById: error })
     }
@@ -45,7 +45,7 @@ class CelebrityController {
     try {
       await CelebrityModel.create(newCelebrity);
 
-      res.redirect('/celebrity');
+      res.redirect('/celebrities');
     } catch (error) {
       console.log({ errorPostNewCelebrity: error })
     }
@@ -57,9 +57,40 @@ class CelebrityController {
     try {
       await CelebrityModel.findByIdAndRemove(celebrityId);
 
-      res.redirect('/celebrity')
+      res.redirect('/celebrities')
     } catch (error) {
       console.log({ errorDeleteCelebritybyId: error })
+    }
+  }
+
+  static async getEditCelebrity(req, res) {
+    req.options = {
+      ...req.params
+    };
+
+    try {
+      const response = await CelebrityController.getCelebrityById(req);
+
+      res.render('editCelebrity', { celebrity: response })
+    } catch (error) {
+      console.log({ errorGetEditCelebrity: error })
+    }
+  }
+
+  static async postEditCelebrity(req, res) {
+    const { celebrityId } = req.params;
+    const { celebrityName, celebrityOccupation, celebrityCatchPhrase } = req.body;
+
+    try {
+      await CelebrityModel.findByIdAndUpdate(celebrityId, {
+        name: celebrityName,
+        occupation: celebrityOccupation,
+        catchPhrase: celebrityCatchPhrase
+      })
+
+      res.redirect(`/celebrities/${celebrityId}`)
+    } catch (error) {
+      console.log({ errorPostEditCelebrity: error })
     }
   }
 }
