@@ -1,0 +1,18 @@
+<form action="/celebrities/{{this._id}}" method="post">
+  <div>
+    <label for="name">Celeb Name</label>
+    <input type="text" name="name" id="name" placeholder="New celebrity name" value="{{this.name}}">
+  </div>
+
+  <div>
+    <label for="occupation">Celeb Occupation</label>
+    <input type="text" name="occupation" id="occupation" placeholder="New celebrity occupation" value="{{this.occupation}}">
+  </div>
+
+  <div>
+    <label for="catchPhrase">Celeb Catch Phrase</label>
+    <input type="text" name="catchPhrase" id="catchPhrase" placeholder="New celebrity catchPhrase" value="{{this.catchPhrase}}">
+  </div>
+
+  <button type="submit">Edit</button>
+</form>

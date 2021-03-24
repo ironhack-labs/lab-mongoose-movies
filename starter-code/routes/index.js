@@ -65,4 +65,30 @@ router.post("/celebrities/:celebId/delete", async (req, res, next) => {
   }
 });
 
+router.get("/celebrities/:celebId/edit", async (req, res, next) => {
+  try {
+    const { celebId } = req.params;
+    const celebrity = await Celebrity.findById(celebId);
+    res.render("celebrities-edit", celebrity);
+  } catch (error) {
+    next(error);
+    return error;
+  }
+});
+
+router.post("/celebrities/:celebId", async (req, res) => {
+  try {
+    const { celebId } = req.params;
+    const { name, occupation, catchPhrase } = req.body;
+    await Celebrity.findByIdAndUpdate(celebId, {
+      $set: { name, occupation, catchPhrase },
+    });
+    res.redirect("/celebrities");
+  } catch (error) {
+    res.render("create-celebrity", {
+      errorMessage: "Ocorreu algum erro. Tente novamente",
+    });
+  }
+});
+
 module.exports = router;
