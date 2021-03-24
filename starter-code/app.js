@@ -29,19 +29,11 @@ const app = express();
 
 // Middleware Setup
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
-app.use(
-  require("node-sass-middleware")({
-    src: path.join(__dirname, "public"),
-    dest: path.join(__dirname, "public"),
-    sourceMap: true,
-  })
-);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -52,19 +44,11 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
-// const celebs = require("./routes/celebs");
+const celebrities = require("./routes/celebrities");
 
-const create = require("./routes/create");
-// const update = require("./routes/update");
-const read = require("./routes/read");
-// const del = require("./routes/del");
 
 app.use("/", index);
-// app.use("/celebrities", celebs);
+app.use("/celebrities", celebrities);
 
-app.use("/create", create);
-app.use("/read", read);
-// app.use("/update", update);
-// app.use("/delete", del);
 
 module.exports = app;
