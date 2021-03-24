@@ -1,8 +1,11 @@
 <h2 class="page-title">Add a new celebrity</h2>
 
 <form action="/celebrities" method="post">
+    <label for="celebName">Name:</label>
     <input type="text" name="celebName" placeholder="Celebrity name">
+    <label for="celebOccupation">Occupation:</label>
     <input type="text" name="celebOccupation" placeholder="Occupation">
-    <input type="text" name="celebCatchPhrase" placeholder="Catch Phrase">
+    <label for="celebCatchPhrase">Catch Phrase:</label>
+    <input class="description-type" type="text" name="celebCatchPhrase" placeholder="Catch Phrase">
     <button type="submit">Add celebrity</button>
 </form>

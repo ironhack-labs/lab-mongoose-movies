@@ -1,0 +1,14 @@
+
+    <h2 class="page-title">Movies' list</h2>
+
+    <a href="/movies/new">Add new movie</a>
+
+    {{#each movies}}
+        <div class="entity-container">
+            <h3>{{this.title}}</h3>
+            <a href="/movies/{{this._id}}">View detail</a>
+            <form action="/movies/{{this._id}}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    {{/each}}
