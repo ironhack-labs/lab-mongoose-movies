@@ -1,0 +1,124 @@
+body {
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #7e1616;
+  margin-left: 5vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h3 span {
+  font-weight: normal;
+}
+
+nav {
+  height: 7vh;
+  background-color: #7e1616;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin: 0 5vw;
+}
+
+#start-screen {
+  height: 93vh;
+  background-image: url('../images/theater.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#start-screen h1 {
+  color: white;
+  font-size: 4rem;
+  margin: 50px 20px 10px;
+}
+
+#start-screen p {
+  color: white;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #7e1616;
+  padding: 5px 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+}
+
+#start-screen button {
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  margin: 60px 30px 0;
+}
+
+.entity-container {
+  border-radius: 12px;
+  border: 1px lightgray solid;
+  box-shadow: 2px 8px 8px lightgray;
+  padding: 10px;
+  width: 60vw;
+  margin: 20px 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entity-container h3 {
+  width: 400px;
+}
+
+.page-title {
+  color: #7e1616;
+  margin: 30px;
+  font-size: 2.5rem;
+}
+
+.entity-detail {
+  font-size: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 12px;
+  border: 1px solid lightgray;
+  width: 300px;
+}
+
+form label {
+  font-weight: bold;
+  color: #7e1616;
+  width: 300px;
+  text-align: start;
+}
+
+.description-type {
+  height: 150px;
+  text-align: start;
+}

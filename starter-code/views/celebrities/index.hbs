@@ -1,0 +1,14 @@
+
+    <h2 class="page-title">Celebrities' list</h2>
+
+    <a href="/celebrities/new">Add new celebrity</a>
+
+    {{#each celebs}}
+        <div class="entity-container">
+            <h3>{{this.name}}</h3>
+            <a href="/celebrities/{{this._id}}">View detail</a>
+            <form action="/celebrities/{{this._id}}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    {{/each}}
