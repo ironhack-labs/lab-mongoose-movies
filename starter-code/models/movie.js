@@ -6,6 +6,6 @@ const movieSchema = new Schema ({
     plot: { type: String },
 })
 
-const Celebrity = model('celebrity', celebritySchema)
+const Movies = model('movies', movieSchema)
 
-module.exports = Celebrity
+module.exports = Movies
