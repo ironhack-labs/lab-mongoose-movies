@@ -1,0 +1,13 @@
+<div>
+    <h1>MOOOOVIIIIEEEEESSS</h1>
+    <a href="/movies/new">Make a new movie</a>
+    {{#each this}}
+    {{#if this.title}}
+    <a href="/movies/{{this.id}}">
+        <h1>{{this.title}}</h1>
+        <p>{{this.genre}}</p>
+        <p>{{this.plot}}</p>
+    </a>
+    {{/if}}
+    {{/each}}
+</div>

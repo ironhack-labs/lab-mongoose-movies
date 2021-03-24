@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<a href="/celebrities/new">Make a new celebrity</a>
+{{#each this}}
+{{#if this.name}}
+<a href="/celebrities/{{this.id}}">
+    <div>
+        <h1>Name: {{this.name}}</h1>
+        <p>Occupation: {{this.occupation}}</p>
+        <p>Catchphrase: {{this.catchPhrase}}</p>
+    </div>
+</a>
+{{/if}}
+{{/each}}
