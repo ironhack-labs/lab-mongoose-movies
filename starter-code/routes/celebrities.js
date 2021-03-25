@@ -35,7 +35,7 @@ router.post('/:id', (req, res, next) => {
     const { id } = req.params;
 
     Celebrity.findByIdAndUpdate(id, req.body)
-    .then(() => res.redirect('/celebrities'))
+    .then(() => res.redirect(`/celebrities/${id}`))
     .catch(error => next(error))
 })
 
