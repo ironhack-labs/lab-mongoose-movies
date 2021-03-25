@@ -14,8 +14,8 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.get("/newb", (req, res, next) => {
-  res.render("./celebrities/newb");
+router.get("/new", (req, res, next) => {
+  res.render("./celebrities/new");
 });
 
 router.get("/:id/edit", (req, res, next) => {
@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.render("./celebrities/newb");
+      res.render("./celebrities/new");
     });
 });
 

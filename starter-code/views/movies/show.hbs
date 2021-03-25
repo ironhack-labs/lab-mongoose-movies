@@ -1,0 +1,15 @@
+<h2>{{this.title}}'s Details</h2>
+
+<ul>
+    <li>Title : {{this.title}}</li>
+    <li>Genre : {{this.genre}} </li>
+    <li>Plot : {{this.plot}}</li>
+</ul>
+
+<form action="./{{this.id}}/delete" method="post">
+    <button type="submit">Delete Movie</button>
+</form>
+
+<form action="./{{this.id}}/edit" method="get">
+    <button type="submit">Edit Entry</button>
+</form>
