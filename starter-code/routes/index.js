@@ -19,6 +19,10 @@ router.get('/celebrities', async (req, res, next) => {
   }
 });
 
+router.get('/celebrities/new', (req, res, next) => {
+  res.render('create-celebrity');
+})
+
 router.get('/celebrities/:celebrityId', async (req, res, next) => {
   try {
     const { celebrityId } = req.params;
@@ -33,6 +37,24 @@ router.get('/celebrities/:celebrityId', async (req, res, next) => {
   }
 });
 
+router.post('/celebrities', async(req, res, next) => {
+  try {
+    const { name, occupation, catchPhrase} = req.body;
 
+    const newCelebrity = new Celebrity({
+      name,
+      occupation,
+      catchPhrase,
+    })
+
+    await newCelebrity.save();
+
+    res.redirect('/celebrities');
+  } catch (error) {
+    next(error);
+
+    return error;
+  }
+})
 
 module.exports = router;
