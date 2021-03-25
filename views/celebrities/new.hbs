@@ -5,20 +5,17 @@
 
 <div>
 
-    <form action="/create-celebrity" method="POST">
+    <form action="/celebrities" method="POST">
 
         <label>Name:</label>
         <input type="text" name="name">
 
-        {{!-- <label>Occupation:</label>
-        <input type="text" name="occupation"> --}}
-
         <label for="jobs">Occupation:</label>
         <select name="occupation">
-        <option value="actor">Actor</option>
-        <option value="singer">Singer</option>
-        <option value="comedian">Comedian</option>
-        <option value="unknown">Unknown</option>
+            <option value="actor">Actor</option>
+            <option value="singer">Singer</option>
+            <option value="comedian">Comedian</option>
+            <option value="unknown">Unknown</option>
         </select>
 
         <label>Catch Phrase:</label>

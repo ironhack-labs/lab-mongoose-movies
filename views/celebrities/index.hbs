@@ -9,6 +9,15 @@
 
     <a href="/celebrities/{{id}}">Details</a>
 
+    <br>
+    <br>
+
+    <form action="/celebrities/{{id}}/delete" method="POST">
+
+        <button type="submit">Delete Celebrity</button>
+
+    </form>
+
 </div>
 
 <hr>
@@ -17,4 +26,4 @@
 
 <br>
 
-<a href="/new">Create A Celebrity!</a>
+<a href="/celebrities/new">Create A Celebrity!</a>
