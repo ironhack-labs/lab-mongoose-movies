@@ -1,0 +1,14 @@
+<main>
+  <a href="/movies/{{movieDetail._id}}">Go Back</a>
+
+  <h2> Edit movie</h2>
+
+  <form action="/movies/{{movieDetail._id}}/edit" method="post">
+  <input type="text" name="title" value="{{movieDetail.title}}" placeholder="Movie">
+  <input type="text" name="genre" value="{{movieDetail.genre}}" placeholder="Genre">
+  <input type="text" name="plot" value="{{movieDetail.plot}}" placeholder="Plot">
+
+  <button type="submit">Submit</button>
+  </form>
+  
+</main>

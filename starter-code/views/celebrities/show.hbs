@@ -1,0 +1,12 @@
+<main>
+    <a href="/celebrities/index">Go Back</a>
+
+    <h2>{{celebDetail.name}}</h2>
+    <h4>{{celebDetail.occupation}}</h4>
+    <p><i>{{celebDetail.cathPhrase}}</i></p>
+
+    <a href="/celebrities/{{celebDetail._id}}/edit"><button>Edit</button></a>
+    <form action="/celebrities/{{celebDetail._id}}/delet" method="POST"><button>Delete</button></form>    
+
+   
+</main>
