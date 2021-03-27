@@ -1,0 +1,5 @@
+Movies Index
+<a href="/movies/new">Add a new Movie</a>
+{{#each this}}
+<br> <a href="/movies/{{this.id}}"> {{this.title}}</a>
+{{/each}}

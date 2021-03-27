@@ -1,0 +1,11 @@
+<h2>Edit {{this.title}}'s info</h2>
+
+<form action="/movies/{{this.id}}" method="post">
+    <h4>Title:</h4>
+    <input type="text" name="title" id="title" value="{{this.title}}">
+    <h4>genre:</h4>
+    <input type="text" name="genre" id="genre" value="{{this.genre}}">
+    <h4>plot:</h4>
+    <input type="text" name="plot" id="catchprase" value="{{this.plot}}">
+    <button type="submit">Submit</button>
+</form>

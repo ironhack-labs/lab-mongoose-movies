@@ -1,0 +1,15 @@
+<h2>{{this.name}}'s Details</h2>
+
+<ul>
+    <li>Name : {{this.name}}</li>
+    <li>Occupation: {{this.occupation}} </li>
+    <li>Catchphrase: {{this.catchphrase}}</li>
+</ul>
+
+<form action="./{{this.id}}/delete" method="post">
+    <button type="submit">Delete Celebrity</button>
+</form>
+
+<form action="./{{this.id}}/edit" method="get">
+    <button type="submit">Edit Entry</button>
+</form>
