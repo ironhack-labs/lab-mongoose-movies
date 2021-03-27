@@ -12,10 +12,10 @@ const path = require("path");
 const DB_NAME = "lab-mongoose-movies";
 
 mongoose
-  .connect(`mongodb://localhost/${DB_NAME}`, { 
+  .connect(`mongodb://localhost/${DB_NAME}`, {
     useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true, 
+    useUnifiedTopology: true,
   })
   .then((x) => {
     console.log(
@@ -65,5 +65,8 @@ app.use("/", celebrityRoutes);
 
 const movieRoutes = require("./routes/movie");
 app.use("/", movieRoutes);
+
+const authRoutes = require("./routes/auth");
+app.use("/", authRoutes);
 
 module.exports = app;
