@@ -1,0 +1,12 @@
+<main>
+    <a href="/movies/index">Go Back</a>
+
+    <h2>{{movieDetail.title}}</h2>
+    <h4>{{movieDetail.genre}}</h4>
+    <p><i>{{movieDetail.plot}}</i></p>
+
+    <a href="/movies/{{movieDetail._id}}/edit"><button>Edit</button></a>
+    <form action="/movies/{{movieDetail._id}}/delet" method="POST"><button>Delete</button></form>    
+
+   
+</main>

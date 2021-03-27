@@ -1,0 +1,14 @@
+<main>
+  <a href="/celebrities/{{celebDetail._id}}">Go Back</a>
+
+  <h2> Edit Celebrity</h2>
+
+  <form action="/celebrities/{{celebDetail._id}}/edit" method="post">
+  <input type="text" name="name" value="{{celebDetail.name}}" placeholder="Celebrity's name">
+  <input type="text" name="occupation" value="{{celebDetail.occupation}}" placeholder="Celebrity's occupation">
+  <input type="text" name="cathPhrase" value="{{celebDetail.cathPhrase}}" placeholder="Cath phrase">
+
+  <button type="submit">Submit</button>
+  </form>
+  
+</main>
