@@ -60,4 +60,7 @@ app.use("/", celebrities);
 const movies = require("./routes/movies");
 app.use("/", movies);
 
+const auth = require("./routes/auth");
+app.use("/", auth);
+
 module.exports = app;
