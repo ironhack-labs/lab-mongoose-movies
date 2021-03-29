@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
 const Celebrity = require("../models/Celebrity");
+const Movie = require("../models/Movie");
 
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
@@ -16,7 +16,9 @@ router.get("/celebrities", (req, res, next) => {
 });
 
 router.get("/celebrities/new", (req, res, next) => {
-  res.render("celebrities/new");
+  Movie.find().then((moviesFromDB) => {
+    res.render("celebrities/new", { movies: moviesFromDB });
+  });
 });
 
 router.get("/celebrities/:id", (req, res) => {
@@ -24,6 +26,7 @@ router.get("/celebrities/:id", (req, res) => {
 
   Celebrity.findById(id)
     //   Celebrity.find({ _id: id }) same as above
+    .populate("movies")
     .then((theCelebrity) =>
       res.render("celebrities/show", { celebrity: theCelebrity })
     )

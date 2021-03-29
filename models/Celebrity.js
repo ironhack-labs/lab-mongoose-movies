@@ -8,6 +8,10 @@ const celebritySchema = new Schema({
     enum: ["actor", "singer", "comedian", "unknown"],
   },
   catchPhrase: String,
+  movies: {
+    type: [Schema.Types.ObjectId],
+    ref: "Movie",
+  },
 });
 
 module.exports = model("Celebrity", celebritySchema);

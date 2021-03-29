@@ -1,9 +1,8 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const Celebrity = require("../models/Celebrity");
-const Movie = require('../models/Movie');
-
-// Establish a connection
-const DB_NAME = "lab-mongoose-movies";
+const Movie = require("../models/Movie");
 
 // const celebrities = [
 //   {
@@ -43,28 +42,20 @@ const movies = [
   },
 ];
 
-mongoose
-  .connect(`mongodb://localhost/${DB_NAME}`, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then((x) => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
-    // Celebrity.create(celebrities)
-    // .then((celebritiesFromDB) => {
-    //   console.log(`Yay, ${celebritiesFromDB.length} celebrities have been added!`);
-    Movie.create(movies)
-      .then((moviesFromDB) => {
-        console.log(`Yay, ${moviesFromDB.length} movies have been added!`);
-        mongoose.connection.close();
-      })
-      .catch((err) => {
-        console.log("It did not work. :'(", err);
-      });
-  })
-  .catch((err) => {
-    console.error("Error connecting to mongo", err);
-  });
+// Async method
+async function seedTheDB() {
+  await require('../configs/mongoose.config');
+  // Celebrity.create(celebrities)
+  // .then((celebritiesFromDB) => {
+  //   console.log(`Yay, ${celebritiesFromDB.length} celebrities have been added!`);
+  Movie.create(movies)
+    .then((moviesFromDB) => {
+      console.log(`Yay, ${moviesFromDB.length} movies have been added!`);
+      mongoose.connection.close();
+    })
+    .catch((err) => {
+      console.log("It did not work. :'(", err);
+    });
+}
+
+seedTheDB();

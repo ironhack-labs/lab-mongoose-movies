@@ -1,30 +1,13 @@
 require("dotenv").config();
 
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
 const express = require("express");
 const favicon = require("serve-favicon");
 const hbs = require("hbs");
-const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+var cors = require("cors");
 
-const DB_NAME = "lab-mongoose-movies";
-
-mongoose
-  .connect(`mongodb://localhost/${DB_NAME}`, {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then((x) => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
-  })
-  .catch((err) => {
-    console.error("Error connecting to mongo", err);
-  });
+require("./configs/mongoose.config");
 
 const app_name = require("./package.json").name;
 const debug = require("debug")(
@@ -32,22 +15,16 @@ const debug = require("debug")(
 );
 
 const app = express();
+app.use(cors());
+// require session
+require("./configs/session.config")(app);
 
 // Middleware Setup
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Express View engine setup
-
-// app.use(
-//   require("node-sass-middleware")({
-//     src: path.join(__dirname, "public"),
-//     dest: path.join(__dirname, "public"),
-//     sourceMap: true,
-//   })
-// );
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -60,7 +37,9 @@ app.locals.title = "Express - Generated with IronGenerator";
 const index = require("./routes/index");
 app.use("/", index);
 
+// require the routes from module/file
 const celebrityRoutes = require("./routes/celebrity");
+// tell app to use the routes found in the module
 app.use("/", celebrityRoutes);
 
 const movieRoutes = require("./routes/movie");

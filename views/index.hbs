@@ -5,4 +5,12 @@
 <br><br>
 <a href="/movies">See the movies!</a>
 <br><br>
+<a href="/login">Login</a>
+<p>or</p>
 <a href="/signup">Sign Up!</a>
+
+{{#if user}}
+
+<h2>{{user.email}}</h2>
+
+{{/if}}
