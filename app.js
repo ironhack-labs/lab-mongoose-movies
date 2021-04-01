@@ -37,6 +37,11 @@ app.locals.title = "Express - Generated with IronGenerator";
 const index = require("./routes/index");
 app.use("/", index);
 
+const authRoutes = require("./routes/auth");
+app.use("/", authRoutes);
+
+// app.use(require('./configs/user-check.config'));
+
 // require the routes from module/file
 const celebrityRoutes = require("./routes/celebrity");
 // tell app to use the routes found in the module
@@ -44,8 +49,5 @@ app.use("/", celebrityRoutes);
 
 const movieRoutes = require("./routes/movie");
 app.use("/", movieRoutes);
-
-const authRoutes = require("./routes/auth");
-app.use("/", authRoutes);
 
 module.exports = app;

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
-const userSchema = Schema({
+const userSchema = new Schema({
   email: {
     type: String,
     required: true,
@@ -12,7 +12,7 @@ const userSchema = Schema({
     type: String,
     required: true,
     // match: [
-    //   /(?=.*[a-zA-Z])(?=.*[\\d~!@#$%^&*()_+{}\\[\\]?<>|]).{6,50}/,
+    //   /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
     //   "Password must include one alphabetic character, one number, and one special character.",
     // ],
   },

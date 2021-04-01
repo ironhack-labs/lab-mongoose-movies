@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Celebrity = require("../models/Celebrity");
 const Movie = require("../models/Movie");
+const userCheck = require("../configs/user-check.config");
 
 router.get("/celebrities", (req, res, next) => {
+  // console.log('query', req.query);
   Celebrity.find()
     .then((allTheCelebrities) => {
       console.log("Retrieved celebrities from DB: ", allTheCelebrities);
@@ -16,7 +18,7 @@ router.get("/celebrities", (req, res, next) => {
 });
 
 router.get("/celebrities/new", (req, res, next) => {
-  Movie.find().then((moviesFromDB) => {
+  Movie.find({}).then((moviesFromDB) => {
     res.render("celebrities/new", { movies: moviesFromDB });
   });
 });
@@ -46,7 +48,7 @@ router.post("/celebrities", (req, res, next) => {
     });
 });
 
-router.post("/celebrities/:id/delete", (req, res, next) => {
+router.post("/celebrities/:id/delete", userCheck, (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.id)
     .then(() => {
       res.redirect("/celebrities");
@@ -56,7 +58,7 @@ router.post("/celebrities/:id/delete", (req, res, next) => {
     });
 });
 
-router.get("/celebrities/:id/edit", (req, res, next) => {
+router.get("/celebrities/:id/edit", userCheck, (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then((celebrityFromDB) => {
       res.render("celebrities/edit", celebrityFromDB);
@@ -66,7 +68,7 @@ router.get("/celebrities/:id/edit", (req, res, next) => {
     });
 });
 
-router.post("/celebrities/:id/edit", (req, res, next) => {
+router.post("/celebrities/:id/edit", userCheck, (req, res, next) => {
   Celebrity.findByIdAndUpdate(req.params.id, req.body)
     .then((response) => {
       console.log("response", response);
