@@ -1,0 +1,8 @@
+<h2>Animes</h2>
+
+{{#each animes}}
+    <p><a href="/animes/{{this.id}}">{{this.title}}</a></p>
+    <form action="/animes/{{this.id}}/delete" method="POST">
+    <button type="submit">Delete celebrity</button>
+    </form>
+{{/each}}

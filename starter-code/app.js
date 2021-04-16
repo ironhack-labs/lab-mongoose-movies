@@ -10,19 +10,16 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
-mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+require('./configs/mongodb.config')
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+//Session initialization
+const session = require('./configs/session.config')
+session(app)
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -54,5 +51,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebrities = require('./routes/celebrities')
+app.use('/celebrities', celebrities)
+
+const animes = require('./routes/animes')
+app.use('/animes', animes)
 
 module.exports = app;

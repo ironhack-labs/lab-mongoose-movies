@@ -1,0 +1,14 @@
+<h2>Add a new anime</h2>
+
+<form action="/animes/new" method="POST">
+    <label for="title-input">Title</label>
+    <input id="title-input" type="text" name="title" required>
+
+    <label for="genre-input">Genre</label>
+    <input id="genre-input" type="text" name="genre" required>
+
+    <label for="plot-input">Plot</label>
+    <textarea id="plot-input" type="text" name="plot" cols="30" rows="5" placeholder="Add a brief sinopsis" required></textarea>
+
+    <button type="submit">Submit</button>
+</form>
