@@ -1,0 +1,16 @@
+<a href="/movies">Back</a>
+<form action="/movies/{{id}}" method="POST">
+    <div>
+        <label>Title: </label>
+        <input type="text" name="title" placeholder={{title}}>
+    </div>
+    <div>
+        <label>Genre: </label>
+        <input type="text" name="genre" placeholder={{genre}}>
+    </div>
+    <div>
+        <label>Plot: </label>
+        <input type="text" name="plot" placeholder={{plot}}>
+    </div>
+    <button>Update</button>
+</form>
