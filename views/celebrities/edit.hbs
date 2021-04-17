@@ -1,0 +1,32 @@
+<h2>Edit Celebrity</h2>
+
+<a href="/">Home</a>
+<br><br>
+<a href="/celebrities">All Celebrities</a>
+<br><br>
+<a href="/celebrities/{{id}}">Back</a>
+<br><br>
+
+<div>
+
+    <form action="/celebrities/{{id}}/edit" method="POST">
+
+        <label>Name:</label>
+        <input type="text" name="name" value='{{name}}'>
+
+        <label for="jobs">Occupation:</label>
+        <select name="occupation" value={{occupation}}>
+            <option value="actor">Actor</option>
+            <option value="singer">Singer</option>
+            <option value="comedian">Comedian</option>
+            <option value="unknown">Unknown</option>
+        </select>
+
+        <label>Catch Phrase:</label>
+        <input type="text" name="catchPhrase" value='{{catchPrase}}'>
+
+        <button type="submit">Update Celebrity!</button>
+
+    </form>
+
+</div>

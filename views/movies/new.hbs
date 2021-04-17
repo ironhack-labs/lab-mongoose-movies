@@ -1,0 +1,31 @@
+<h2>Create Movie</h2>
+
+<a href="/">Home</a>
+<br><br>
+<a href="/movies">Back</a>
+<br><br>
+
+<div>
+
+    <form action="/movies" method="POST">
+
+        <label>Name:</label>
+        <input type="text" name="name">
+
+        <label for="jobs">Genre:</label>
+        <select name="genre">
+            <option value="drama">Drama</option>
+            <option value="action/adventure">Action/Adventure</option>
+            <option value="comedy">Comedy</option>
+            <option value="romance">Romance</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label>Plot:</label>
+        <input type="text" name="plot">
+
+        <button type="submit">Create Movie!</button>
+
+    </form>
+
+</div>

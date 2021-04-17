@@ -1,0 +1,28 @@
+<h2>Create Celebrity</h2>
+
+<a href="/">Home</a>
+<a href="/celebrities">Back</a>
+
+<div>
+
+    <form action="/celebrities" method="POST">
+
+        <label>Name:</label>
+        <input type="text" name="name">
+
+        <label for="jobs">Occupation:</label>
+        <select name="occupation">
+            <option value="actor">Actor</option>
+            <option value="singer">Singer</option>
+            <option value="comedian">Comedian</option>
+            <option value="unknown">Unknown</option>
+        </select>
+
+        <label>Catch Phrase:</label>
+        <input type="text" name="catchPhrase">
+
+        <button type="submit">Create Celebrity!</button>
+
+    </form>
+
+</div>
