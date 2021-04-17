@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", (req, res, next) => {
 	Celebrity.find({})
 		.then((celebrities) => {
-			res.render("celebrities/index", { celebrities });
+			res.render("celebrities/inde", { celebrities });
 		})
 		.catch((err) => {
 			next("error"); //Ask about it.
@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
 //Rendering the "new celebrity" view
 router.get("/new", (req, res, next) => {
 	const occupation = ["Actor", "Singer", "Comedian", "Unknown"];
-	res.render("celebrities/new", {occupation});
+	res.render("celebrities/new", { occupation });
 });
 
 //Getting the "new celebrity" values
@@ -29,6 +29,18 @@ router.post("/new", (req, res, next) => {
 		})
 		.catch((err) => {
 			res.render("celebrities/new", { err });
+			console.error(err);
+		});
+});
+
+//Deleting the "selected celebrity"
+router.post("/:id/delete", (req, res, next) => {
+	Celebrity.findByIdAndRemove(req.params.id)
+		.then(() => {
+			res.redirect("/celebrities");
+		})
+		.catch((err) => {
+			next("error"); //Ask about it.
 			console.error(err);
 		});
 });
