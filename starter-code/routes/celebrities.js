@@ -1,12 +1,13 @@
 const express = require("express");
 const Celebrity = require("../models/Celebrity.model");
 const router = express.Router();
+const occupations = ["Actor", "Singer", "Comedian", "Unknown"];
 
 //Rendering the "celebrities list" view
 router.get("/", (req, res, next) => {
 	Celebrity.find({})
 		.then((celebrities) => {
-			res.render("celebrities/inde", { celebrities });
+			res.render("celebrities/index", { celebrities });
 		})
 		.catch((err) => {
 			next("error"); //Ask about it.
@@ -16,19 +17,18 @@ router.get("/", (req, res, next) => {
 
 //Rendering the "new celebrity" view
 router.get("/new", (req, res, next) => {
-	const occupation = ["Actor", "Singer", "Comedian", "Unknown"];
-	res.render("celebrities/new", { occupation });
+	res.render("celebrities/new", { occupations });
 });
 
 //Getting the "new celebrity" values
 router.post("/new", (req, res, next) => {
 	const { name, occupation, catchPhrase } = req.body;
 	Celebrity.create({ name, occupation, catchPhrase })
-		.then(() => {
+		.then(() => {			
 			res.redirect("/celebrities");
 		})
 		.catch((err) => {
-			res.render("celebrities/new", { err });
+			res.render("celebrities/new", { err, occupations });
 			console.error(err);
 		});
 });

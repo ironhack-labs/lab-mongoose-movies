@@ -5,7 +5,7 @@
   
   <label for="celebrity-occupation">Occupation:</label>
   <select name="occupation">
-    {{#each occupation}}
+    {{#each occupations}}
       <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
@@ -15,5 +15,5 @@
   <button type="submit">Create</button>
 </form>
 {{#if err}}
-  <p>Error de validación de formulario</p>
+  <p>{{err}}</p>
 {{/if}}
