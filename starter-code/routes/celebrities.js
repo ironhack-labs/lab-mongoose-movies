@@ -1,8 +1,8 @@
 const express = require("express");
-const { render } = require("../app");
 const Celebrity = require("../models/Celebrity.model");
 const router = express.Router();
 
+//Rendering the "celebrities list" view
 router.get("/", (req, res, next) => {
 	Celebrity.find({})
 		.then((celebrities) => {
@@ -14,10 +14,13 @@ router.get("/", (req, res, next) => {
 		});
 });
 
+//Rendering the "new celebrity" view
 router.get("/new", (req, res, next) => {
-	res.render("celebrities/new");
+	const occupation = ["Actor", "Singer", "Comedian", "Unknown"];
+	res.render("celebrities/new", {occupation});
 });
 
+//Getting the "new celebrity" values
 router.post("/new", (req, res, next) => {
 	const { name, occupation, catchPhrase } = req.body;
 	Celebrity.create({ name, occupation, catchPhrase })
@@ -25,12 +28,12 @@ router.post("/new", (req, res, next) => {
 			res.redirect("/celebrities");
 		})
 		.catch((err) => {
-      //todo: fix error show at hbs
 			res.render("celebrities/new", { err });
 			console.error(err);
 		});
 });
 
+//Rendering the "Celebrity" view
 router.get("/:id", (req, res, next) => {
 	Celebrity.findById(req.params.id)
 		.then((celebrity) => {

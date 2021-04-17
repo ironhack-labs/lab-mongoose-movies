@@ -4,12 +4,16 @@
   <input type="text" name="name">
   
   <label for="celebrity-occupation">Occupation:</label>
-  <input type="text" name="occupation">
+  <select name="occupation">
+    {{#each occupation}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
   
   <label for="celebrity-catchPhrase">Catch Phrase</label>
   <input type="text" name="catchPhrase">
   <button type="submit">Create</button>
 </form>
-{{#if error}}
-  <p>Ha ocurrido un error</p>
+{{#if err}}
+  <p>Error de validación de formulario</p>
 {{/if}}
