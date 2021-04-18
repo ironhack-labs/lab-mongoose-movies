@@ -21,18 +21,18 @@ let newCelebrities = [
         catchPhrase: `Life is what happens when you're busy making other plans`
 
     }
-]
+];
 
 mongoose.connect(`mongodb://localhost/${DB_NAME}`)
-    .then(() => {
+.then(() => {
         console.log('Connected to database to create 1st info');
 
         Celebrity.insertMany(newCelebrities)
             .then(celebrities => {
                 console.log(`${celebrities.length} inserted.`);
             })
-    })
-    .catch(error => console.error(error));
+})
+.catch(error => console.error(error));
     
   
     
