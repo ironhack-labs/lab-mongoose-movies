@@ -1,13 +1,31 @@
-<h2>Edit celebrity</h2>
-<form action="/celebrities/{{id}}" method="POST">
-    <label for="celebrity-name">Name:</label>
-    <input type="text" name="name" value="{{name}}">
+<main class="bg-light bg-gradient d-flex flex-column align-items-center pt-5">
+    <div class="container-sm">
+        <h2 class="pe-3 mb-3">Edit celebrity</h2>
+        <div class="w-50 m-auto">
+            {{#if error}}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {{/if}}
+            <form action="/celebrities/{{id}}" method="POST">
+                <div class="mb-3">
+                    <label for="celebrity-name" class="form-label">Name:</label>
+                    <input type="text" name="name" class="form-control" id="celebrity-name" value="{{name}}">
+                </div>
 
-    <label for="celebrity-occupation">Occupation:</label>
-    <input type="text" name="occupation" value="{{occupation}}">
+                <div class="mb-3">
+                    <label for="celebrity-occupation" class="form-label">Occupation:</label>
+                    <input type="text" name="occupation" class="form-control" id="celebrity-occupation" value="{{occupation}}">
+                </div>
 
-    <label for="celebrity-catchPhrase">Catch phrase:</label>
-    <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+                <div class="mb-3">
+                    <label for="celebrity-catchPhrase" class="form-label">Catch phrase:</label>
+                    <textarea type="text" name="catchPhrase" class="form-control" id="celebrity-catchPhrase"
+                        rows="3">{{catchPhrase}}</textarea>
+                </div>
 
-    <button type="submit">Submit</button>
-</form>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>
