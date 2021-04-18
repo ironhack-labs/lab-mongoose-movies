@@ -20,7 +20,7 @@ router.post('/', (req, res, next) => {
   // const age = req.body.age
   //...
   const { title, genre, plot } = req.body;
-  Movie.create({ title, genre, plot })
+  Movies.create({ title, genre, plot })
   // .save()
   .then(() => {
     console.log(req.body)
@@ -33,7 +33,7 @@ router.post('/', (req, res, next) => {
 
 router.get('/:id/edit', (req, res, next) => {
   const { id } = req.params;
-  Movie.findOne({ _id: id })
+  Movies.findOne({ _id: id })
   .then(movie => {
     res.render('movies/edit', { movie });
   })
@@ -44,7 +44,7 @@ router.post('/:id/edit', (req, res, next) => {
   const { title, genre, plot } = req.body;
   const { id } = req.params;
   
-  Movie.findOneAndUpdate({ _id: id }, { title, genre, plot })
+  Movies.findOneAndUpdate({ _id: id }, { title, genre, plot })
   .then(() => { 
     res.redirect('/movies/');
   })
@@ -53,7 +53,7 @@ router.post('/:id/edit', (req, res, next) => {
 
 router.post('/:id/delete', (req, res, next) => {
   const { id } = req.params;
-  Movie.findByIdAndRemove({ _id: id })
+  Movies.findByIdAndRemove({ _id: id })
   .then(() => {
     res.redirect('/movies/');
   })
@@ -65,7 +65,7 @@ router.get('/:id', (req, res, next) => {
   // const id = req.params.id;
   const { id } = req.params;
   // this CONTROLLER is...
-  Movie.findOne({ _id: id }) // ... asking for data from the Celebrity MODEL and ...
+  Movies.findOne({ _id: id }) // ... asking for data from the Celebrity MODEL and ...
     .then(movie => {
       res.render('movies/show', { movie }); // ... sending a VIEW to the client
     })
