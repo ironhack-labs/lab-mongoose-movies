@@ -63,6 +63,7 @@ router.post("/:id", (req, res, next) => {
   const { id } = req.params;
 	Celebrity.findByIdAndUpdate(id, {name, occupation, catchPhrase})
 		.then(()=>{
+			console.log("-------------------");
 			res.redirect(`/celebrities/${id}`);
 		})
 		.catch((err) =>{

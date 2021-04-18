@@ -1,6 +1,6 @@
 <div class="container w-50">
   <h2>Edit a movie</h2>
-  <form action="/movies/{{_id}}" method="POST">
+  <form action="/movies/{{movie._id}}" method="POST">
     <div class="mb-3">
       <label for="movie-title" class="form-label">Title:</label>
       <input type="text" name="title" class="form-control" value="{{movie.title}}">
@@ -20,7 +20,7 @@
       <input type="text" name="plot" class="form-control" value="{{movie.plot}}">
     </div>    
 
-    <button type="submit" class="btn btn-outline-success px-3 py-1 my-3">Edit</button>
+    <button type="submit" class="btn btn-outline-success px-3 py-1 my-3">Save</button>
     <a href="/movies">
       <button type="button" class="btn btn-outline-danger px-3 py-1 my-3">Cancel</button>
     </a>
