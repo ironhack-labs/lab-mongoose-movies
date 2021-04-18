@@ -10,5 +10,3 @@ package-lock.json
 
 # Environment Variables should NEVER be published
 .env
-
-.history

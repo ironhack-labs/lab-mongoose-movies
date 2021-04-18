@@ -20,7 +20,7 @@ const testCelebrity = [ //sample celebrities
 ];
 
 mongoose
-    .connect('mongodb://localhost/lab-celebrity', { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect('mongodb://localhost/starter-code', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
         return Celebrity.insertMany(testCelebrity)
