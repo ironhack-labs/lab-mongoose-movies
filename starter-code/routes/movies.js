@@ -33,6 +33,18 @@ router.post("/new", (req, res, next) => {
 		});
 });
 
+//Deleting the "selected celebrity"
+router.post("/:id/delete", (req, res, next) => {
+	Movie.findByIdAndRemove(req.params.id)
+		.then(() => {
+			res.redirect("/movies");
+		})
+		.catch((err) => {
+			next("error"); //Ask about it.
+			console.error(err);
+		});
+});
+
 //Rendering the "Movie" view
 router.get("/:id", (req, res, next) => {
 	Movie.findById(req.params.id)
