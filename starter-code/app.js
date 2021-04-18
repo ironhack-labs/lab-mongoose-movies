@@ -54,8 +54,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 //para conectar con las rutas existentes en otros archivos .js
 const index = require('./routes/index');
 const celebrities = require('./routes/celebrities');
+const movies = require('./routes/movies');
 app.use('/', index);
 app.use('/celebrities', celebrities);
+app.use('/movies', movies);
 
 
 module.exports = app;

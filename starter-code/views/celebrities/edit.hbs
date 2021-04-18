@@ -1,8 +1,7 @@
-<h2>New celebrity</h2>
-<h1>Create celebrity</h1>
-<form action="/celebrities/new" method="POST">
+<h2>Edit a celebrity</h2>
+<form action="/celebrities/{{_id}}" method="POST">
   <label for="celebrity-name">Name:</label>
-  <input type="text" name="name">
+  <input type="text" name="name" value= "{{name}}">
 
   <label for="celebrity-occupation">Occupation:</label>
   <select name="occupation" id="celebrity-occupation">
@@ -13,7 +12,7 @@
   </select>
 
   <label for="celebrity-catchPhrase">catchPhrase:</label>
-  <input type="text" name="catchPhrase">
+  <input type="text" name="catchPhrase" value = "{{catchPhrase}}">
   
-  <button type="submit">Create</button>
+  <button type="submit">Edit</button>
 </form>
