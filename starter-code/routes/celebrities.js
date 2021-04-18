@@ -20,9 +20,22 @@ router.get("/new", (req, res) => {
 router.post("/", (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
   Celebrity.create({ name, occupation, catchPhrase })
-    .then(() => res.redirect("/celebrities"))
+    .then(() =>  {
+      res.redirect("/celebrities")
+    })
     .catch((error) => res.render("celebrities/new", { error }));
 });
+
+//DELETE CELEB
+router.post("/:id/delete", (req, res) => {
+  const {id} = req.params;
+  Celebrity.findByIdAndRemove(id)
+  .then (() => {
+    res.redirect("/celebrities")
+  })
+  .catch(error => console.error(error))
+})
+
 
 
 //SHOW CELEB DETAIL
