@@ -1,16 +1,17 @@
 <h2>Celebrities list 🎬</h2>
-{{!-- <a href="/search">Buscar</a>
-<a href="/celebrities/create">Create new celebrity</a> --}}
+{{!-- <a href="/search">Buscar</a> --}}
+
 {{#each celebrities}}
 
   <h3>{{ name }}</h3>
 
   <a href="/celebrities/{{id}}">View details</a>
   
-  {{!-- <a href="/students/{{id}}/edit">Edit student</a>
-  <form action="/students/{{id}}/delete" method="POST">
-    <button type="submit">Eliminar</button>
-  </form>  --}}
+  {{!-- <a href="/students/{{id}}/edit">Edit student</a> --}}
+  <br>  <br>
+  <form action="/celebrities/{{id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+  </form> 
   <hr>
 {{/each}}
 <a href="celebrities/new">Create new celebrity</a>

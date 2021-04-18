@@ -31,6 +31,15 @@ router.post('/', (req, res, next) => {
   })
 })
 
+router.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  Celebrity.findByIdAndRemove({ _id: id })
+  .then(() => {
+    res.redirect('/celebrities/');
+  })
+  .catch(error => next(error))
+})
+
 
 router.get('/:id', (req, res, next) => {
   // const id = req.params.id;
@@ -42,6 +51,7 @@ router.get('/:id', (req, res, next) => {
     })
     .catch(error => next(error))
 })
+
 
 
 
