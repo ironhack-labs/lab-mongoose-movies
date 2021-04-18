@@ -1,0 +1,11 @@
+<h2>Edit {{this.name}}'s info</h2>
+
+<form action="/celebrities/{{this.id}}" method="post">
+    <h4>Celebrity Name:</h4>
+    <input type="text" name="celebName" id="celebName" value="{{this.name}}">
+    <h4>Occupation:</h4>
+    <input type="text" name="occupation" id="occupation" value="{{this.occupation}}">
+    <h4>Catchphrase:</h4>
+    <input type="text" name="catchphrase" id="catchprase" value="{{this.catchphrase}}">
+    <button type="submit">Submit</button>
+</form>
