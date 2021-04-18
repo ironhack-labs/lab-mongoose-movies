@@ -7,7 +7,16 @@ router.get('/', (req, res) => {
         .then(celebrities => {
             res.render('celebrities/index', {celebrities});
     })
-        .catch(error => console.error(error));
+    .catch(error => console.error(error));
 })
+
+router.get('/:id', (req, res) => {
+    const id = req.params.id;
+    Celebrity.findById(id)
+        .then( celebrities => {
+            res.render( 'celebrities/show', celebrities);
+    })
+    .catch(error => console.error(error));
+});
 
 module.exports = router;
