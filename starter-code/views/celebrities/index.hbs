@@ -1,9 +1,28 @@
 <h1>Celebrities List</h1>
-{{#each celebrities}}
-  <a href="/celebrities/{{_id}}">
-    <h2>{{name}}</h2>
-    <form action="/celebrities/{{_id}}/delete" method="post"><button type="submit">Delete</button></form>
-  </a>
-  <hr>
-{{/each}}
-<a href="/celebrities/new">ADD</a>
+<ul class="list-group w-50">
+  {{#each celebrities}}
+    <li class="list-group-item">
+      <a href="/celebrities/{{_id}}" class="text-decoration-none">
+        <h2 class="fs-3 text-secondary">{{name}}</h2>
+      </a>
+      <div class="container">
+        <div class="row">
+          <div class="col-auto">
+            <form action="/celebrities/{{_id}}/delete" method="post">
+              <button type="submit" class="btn btn-outline-danger px-3 py-1">Delete</button>
+            </form>
+          </div>
+          <div class="col-auto">
+            <form action="" method="post"> <!-- todo route -->
+              <button type="submit" class="btn btn-outline-primary px-3 py-1">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/celebrities/new">
+    <button class="btn btn-outline-success px-3 py-1 my-3">Add</button>
+</a>

@@ -1,19 +1,32 @@
-<h2>New celebrity</h2>
-<form action="/celebrities/new" method="POST">
-  <label for="celebrity-name">Name:</label>
-  <input type="text" name="name">
-  
-  <label for="celebrity-occupation">Occupation:</label>
-  <select name="occupation">
-    {{#each occupations}}
-      <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
-  
-  <label for="celebrity-catchPhrase">Catch Phrase</label>
-  <input type="text" name="catchPhrase">
-  <button type="submit">Create</button>
-</form>
-{{#if err}}
-  <p>{{err}}</p>
-{{/if}}
+<div class="container w-50">
+  <h2>Add a new celebrity</h2>
+  <form action="/celebrities/new" method="POST">
+    <div class="mb-3">
+      <label for="celebrity-name" class="form-label">Name:</label>
+      <input type="text" name="name" class="form-control">
+    </div>
+    
+    <div class="mb-3">
+      <label for="celebrity-occupation" class="form-label">Occupation:</label>
+      <select name="occupation" class="form-select">
+        {{#each occupations}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div>
+      <label for="celebrity-catchPhrase" class="form-label">Catch Phrase</label>
+      <input type="text" name="catchPhrase" class="form-control">
+    </div>
+    
+
+    <button type="submit" class="btn btn-outline-success px-3 py-1 my-3">Create</button>
+    <a href="/celebrities">
+      <button type="button" class="btn btn-outline-danger px-3 py-1 my-3">Cancel</button>
+    </a>
+  </form>
+  {{#if err}}
+    <p class="text-danger">{{err}}</p>
+  {{/if}}
+</div>
