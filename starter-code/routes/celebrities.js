@@ -10,6 +10,19 @@ router.get('/', (req, res, next) => {
         .catch(error => next(error))
 });
 
+router.get('/new', (req, res) => {
+    res.render('celebrities/new');
+});
+
+router.post('/new', (req, res, next) => {
+    const {name, occupation, catchPhrase} = req.body;
+    Celebrity.create({name, occupation, catchPhrase})
+        .then(() => {
+            res.redirect('/celebrities')
+        })
+        .catch(error => next(error));
+});
+
 router.get('/:id', (req, res) =>{
     const { id } = req.params;
     Celebrity.findOne({_id: id})
@@ -18,5 +31,7 @@ router.get('/:id', (req, res) =>{
         })
         .catch(error => console.log(error))
 })
+
+
 
 module.exports = router;
