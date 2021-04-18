@@ -35,4 +35,13 @@ router.get('/:id', (req, res) => {
     .catch(error => console.error(error));
 });
 
+router.post('/:id/delete', (req, res) => {
+    const id = req.params.id;
+    Celebrity.findByIdAndDelete(id)
+    .then( () => {
+        res.redirect('/celebrities');
+    })
+    .catch(error => console.error(error));
+});
+
 module.exports = router;
