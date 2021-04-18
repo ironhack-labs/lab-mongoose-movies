@@ -2,11 +2,14 @@
 <ul class="list-group w-50">
   {{#each celebrities}}
     <li class="list-group-item">
-      <a href="/celebrities/{{_id}}" class="text-decoration-none">
-        <h2 class="fs-3 text-secondary">{{name}}</h2>
-      </a>
+      <h2 class="fs-3 text-secondary">{{name}}</h2>
       <div class="container">
         <div class="row">
+          <div class="col-auto">
+            <form action="/celebrities/{{_id}}" method="get">
+              <button type="submit" class="btn btn-outline-secondary px-3 py-1">Details</button>
+            </form>
+          </div>
           <div class="col-auto">
             <form action="/celebrities/{{_id}}/delete" method="post">
               <button type="submit" class="btn btn-outline-danger px-3 py-1">Delete</button>
@@ -24,5 +27,8 @@
 </ul>
 
 <a href="/celebrities/new">
-    <button class="btn btn-outline-success px-3 py-1 my-3">Add</button>
+  <button class="btn btn-outline-success px-3 py-1 m-3">Add</button>
+</a>
+<a href="/">
+  <button class="btn btn-outline-secondary px-3 py-1 m-3">Back</button>
 </a>
