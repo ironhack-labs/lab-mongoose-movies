@@ -1,0 +1,12 @@
+<h2>Movies</h2>
+{{#each movies}}
+<p>{{title}}</p>
+<a href="/movies/{{id}}">Show details</a>
+<form action="/movies/{{id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+</form>
+{{/each}}
+
+<div>
+    <a href="/movies/new">Add movie</a>
+</div>
