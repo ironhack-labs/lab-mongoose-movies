@@ -1,0 +1,19 @@
+<h2>New movie</h2>
+<h1>Create a movie</h1>
+<form action="/movies/new" method="POST">
+  <label for="movie-title">Title:</label>
+  <input type="text" name="title">
+
+  <label for="movie-genre">Occupation:</label>
+  <select name="genre" id="movie-genre">
+      <option value="drama">drama</option>
+      <option value="action">action</option>
+      <option value="adventure">adventure</option>
+      <option value="fantasy">fantasy</option>
+  </select>
+
+  <label for="movie-plot">Plot:</label>
+  <input type="text" name="plot">
+  
+  <button type="submit">Create</button>
+</form>
