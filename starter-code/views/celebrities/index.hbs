@@ -1,5 +1,5 @@
 <h2>Celebrities list 🎬</h2>
-{{!-- <a href="/search">Buscar</a> --}}
+{{!-- <a href="/search">Search</a> --}}
 
 {{#each celebrities}}
 
@@ -7,7 +7,8 @@
 
   <a href="/celebrities/{{id}}">View details</a>
   
-  {{!-- <a href="/students/{{id}}/edit">Edit student</a> --}}
+  <a href="/celebrities/{{id}}/edit">Edit celebrity</a>
+  
   <br>  <br>
   <form action="/celebrities/{{id}}/delete" method="POST">
     <button type="submit">Delete</button>

@@ -31,6 +31,26 @@ router.post('/', (req, res, next) => {
   })
 })
 
+router.get('/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  Celebrity.findOne({ _id: id })
+  .then(celebrity => {
+    res.render('celebrities/edit', { celebrity });
+  })
+  .catch(error => next(error))
+})
+
+router.post('/:id/edit', (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  const { id } = req.params;
+  
+  Celebrity.findOneAndUpdate({ _id: id }, { name, occupation, catchPhrase })
+  .then(() => { 
+    res.redirect('/celebrities/');
+  })
+  .catch(error => next(error))
+})
+
 router.post('/:id/delete', (req, res, next) => {
   const { id } = req.params;
   Celebrity.findByIdAndRemove({ _id: id })
