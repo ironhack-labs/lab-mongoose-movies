@@ -8,7 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-const DB_NAME      = "celebritiesLab"
+const DB_NAME      = "starter-code"
+const celebRoute = require("./routes/celebrities")
 
 mongoose
   .connect(`mongodb://localhost/${DB_NAME}`, {useNewUrlParser: true})
@@ -46,7 +47,9 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-const index = require('./routes/index');
-app.use('/', index);
+const index = require("./routes/index");
+const celebrities = require("./routes/celebrities");
+app.use("/", index);
+app.use("/celebrities", celebrities);
 
 module.exports = app;
