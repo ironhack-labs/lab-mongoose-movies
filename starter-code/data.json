@@ -1,16 +1,16 @@
 [{
-    "name": "Charles Manson",
-    "occupation": "Cult leader",
-    "catchPhrase": "We`re not in Wonderland anymore, Alice."
-  },
-  {
-    "name": "Mickey Mouse",
-    "occupation": "Being a mouse",
-    "catchPhrase": "Minnie! here I come"
-  },
-  {
-    "name": "Doctor Zoidberg",
-    "occupation": "Doctor",
-    "catchPhrase": "By the way, I took the liberty of fertilizing your caviar."
-  }
+    "title": "Agarralo Como Puedas 66 y medio",
+    "genre": "Absurd Comedy",
+    "plot": "Leslie Nielsen adventures"
+ },
+ {
+    "title": "Fantasy",
+    "genre": "Terror",
+    "plot": "Una escoba que habla"
+ },
+ {
+    "title": "Siento Un Dalmata",
+    "genre": "Mockumentary",
+    "plot": "La influencia de las mariposas en el mercado de Bitcoins"
+ }
 ]
