@@ -45,6 +45,33 @@ router.post("/:id/delete", (req, res, next) => {
 		});
 });
 
+//Rendering the "edit celebrity" view
+router.get("/:id/edit", (req, res, next) => {
+	Celebrity.findById(req.params.id)
+		.then((celebrity) =>{
+			res.render("celebrities/edit", { celebrity, occupations })
+		})
+		.catch((err) => {
+			next("error"); //Ask about it.
+			console.error(err);
+		});
+});
+
+//Updating 'Celebrity' and returning to celebrities list
+router.post("/:id", (req, res, next) => {
+	const { name, occupation, catchPhrase } = req.body;
+  const { id } = req.params;
+	Celebrity.findByIdAndUpdate(id, {name, occupation, catchPhrase})
+		.then(()=>{
+			res.redirect(`/celebrities/${id}`);
+		})
+		.catch((err) =>{
+			next("error"); //Ask about it.
+			console.error(err);			
+		})
+
+})
+
 //Rendering the "Celebrity" view
 router.get("/:id", (req, res, next) => {
 	Celebrity.findById(req.params.id)

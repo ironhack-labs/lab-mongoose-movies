@@ -1,0 +1,31 @@
+<div class="container w-50">
+  <h2>Edit a celebrity</h2>
+  <form action="/celebrities/{{_id}}" method="POST">
+    <div class="mb-3">
+      <label for="celebrity-name" class="form-label">Name:</label>
+      <input type="text" name="name" class="form-control" value="{{celebrity.name}}">
+    </div>
+    
+    <div class="mb-3">
+      <label for="celebrity-occupation" class="form-label">Occupation:</label>
+      <select name="occupation" class="form-select">
+        {{#each occupations}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div>
+      <label for="celebrity-catchPhrase" class="form-label">Catch Phrase</label>
+      <input type="text" name="catchPhrase" class="form-control" value="{{celebrity.catchPhrase}}">
+    </div>    
+
+    <button type="submit" class="btn btn-outline-success px-3 py-1 my-3">Edit</button>
+    <a href="/celebrities">
+      <button type="button" class="btn btn-outline-danger px-3 py-1 my-3">Cancel</button>
+    </a>
+  </form>
+  {{#if err}}
+    <p class="text-danger">{{err}}</p>
+  {{/if}}
+</div>
