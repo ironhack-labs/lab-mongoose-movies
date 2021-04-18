@@ -4,12 +4,33 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
   Celebrity.find({})
-  .then(celebrities => {
-    console.log(celebrities)
+  .then(celebrities => {    
     res.render('celebrities/index', { celebrities });
   })
   .catch(error => next(error))
 })
+
+router.get('/new', (req, res) => {
+  res.render('celebrities/new');
+})
+
+// req.body
+router.post('/', (req, res, next) => {
+  // const name = req.body.name
+  // const age = req.body.age
+  //...
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
+  // .save()
+  .then(() => {
+    console.log(req.body)
+    res.redirect('celebrities')
+  })
+  .catch(error => {
+    res.render('celebrities/new', { error })
+  })
+})
+
 
 router.get('/:id', (req, res, next) => {
   // const id = req.params.id;
@@ -21,6 +42,8 @@ router.get('/:id', (req, res, next) => {
     })
     .catch(error => next(error))
 })
+
+
 
 
 module.exports = router;
