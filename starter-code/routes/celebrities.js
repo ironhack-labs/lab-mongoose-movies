@@ -23,6 +23,13 @@ router.post('/new', (req, res, next) => {
         .catch(error => next(error));
 });
 
+router.post('/:id/delete', (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findByIdAndRemove(id)
+        .then(() => res.redirect('/celebrities'))
+        .catch((error) => next(error));
+});
+
 router.get('/:id', (req, res) =>{
     const { id } = req.params;
     Celebrity.findOne({_id: id})
