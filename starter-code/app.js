@@ -11,7 +11,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {
+  .connect('mongodb://localhost/movies-app', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -54,9 +54,9 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'Express - Generated with IronGenerator 🎬';
 
 
-
+const celebrities = require('./routes/celebrities');
 const index = require('./routes/index');
 app.use('/', index);
-
+app.use('/celebrities', celebrities);
 
 module.exports = app;
