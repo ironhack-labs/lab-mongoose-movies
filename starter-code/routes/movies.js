@@ -10,6 +10,17 @@ router.get('/', (req, res, next) => {
     .catch(error => next(error));
 });
 
+router.get('/new', (req, res, next) => {
+    res.render('movies/new');
+});
+
+router.post('/', (req, res, next) => {
+    const { title, genre, plot } = req.body;
+    Movie.create( { title, genre, plot } )
+    .then(() => res.redirect('/movies'))
+    .catch(error => res.render('movies/new', { error } ));
+});
+
 router.get('/:id', (req, res, next) => {
     const { id } = req.params;
     Movie.findById(id)
