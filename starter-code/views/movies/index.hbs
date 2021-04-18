@@ -1,0 +1,22 @@
+<main class="bg-light bg-gradient text-center d-flex flex-column align-items-center pt-5">
+    <h2 class="pb-3">Movie List</h2>
+    
+    <a class="btn btn-outline-success btn-md mb-3" href="/movies/new">Add</a>
+    
+    <div class="d-flex flex-wrap">
+        {{#each movies}}
+        <div class="card border-secondary text-dark bg-light m-2">
+            <div class="card-body d-flex flex-column">
+                <p class="lead">{{title}}</p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline-secondary btn-md me-3" href="/movies/{{id}}">Show details</a>
+                    <form action="/movies/{{id}}/delete" method="POST">
+                        <button class="btn btn-outline-danger btn-md"  type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    
+</main>

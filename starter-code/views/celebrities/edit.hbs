@@ -1,0 +1,31 @@
+<main class="bg-light bg-gradient d-flex flex-column align-items-center pt-5">
+    <div class="container-sm">
+        <h2 class="pe-3 mb-3">Edit celebrity</h2>
+        <div class="w-50 m-auto">
+            {{#if error}}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {{/if}}
+            <form action="/celebrities/{{id}}" method="POST">
+                <div class="mb-3">
+                    <label for="celebrity-name" class="form-label">Name:</label>
+                    <input type="text" name="name" class="form-control" id="celebrity-name" value="{{name}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="celebrity-occupation" class="form-label">Occupation:</label>
+                    <input type="text" name="occupation" class="form-control" id="celebrity-occupation" value="{{occupation}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="celebrity-catchPhrase" class="form-label">Catch phrase:</label>
+                    <textarea type="text" name="catchPhrase" class="form-control" id="celebrity-catchPhrase"
+                        rows="3">{{catchPhrase}}</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>

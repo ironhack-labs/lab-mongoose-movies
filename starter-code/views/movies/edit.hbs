@@ -1,0 +1,30 @@
+<main class="bg-light bg-gradient d-flex flex-column align-items-center pt-5">
+    <div class="container-sm">
+        <h2 class="pe-3 mb-3">Edit movie</h2>
+        <div class="w-50 m-auto">
+            {{#if error}}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {{/if}}
+            <form action="/movies/{{id}}" method="POST">
+                <div class="mb-3">
+                    <label for="movie-title" class="form-label">Title:</label>
+                    <input type="text" name="title" class="form-control" id="movie-title" value="{{title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="movie-genre" class="form-label">Genre:</label>
+                    <input type="text" name="genre" class="form-control" id="movie-genre" value="{{genre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="movie-plot" class="form-label">Plot:</label>
+                    <textarea type="text" name="plot" class="form-control" id="movie-plot" rows="3">{{plot}}</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>
