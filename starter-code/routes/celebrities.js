@@ -36,7 +36,7 @@ router.get("/:id/edit", (req, res, next) => {
 router.post("/:id", (req, res, next) => {
   const { id } = req.params;
   const { name, occupation, catchPhrase } = req.body;
-  Celebrity.findOneAndUpdate(id, { name, occupation, catchPhrase })
+  Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase })
     .then(() => res.redirect("/celebrities"))
     .catch((error) => res.render("celebrities/edit", { error }));
 });
