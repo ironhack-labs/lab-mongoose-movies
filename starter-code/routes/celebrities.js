@@ -2,12 +2,21 @@ const express = require('express');
 const Celebrity = require('../models/Celebrity.model');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
     Celebrity.find({})
         .then(celebrities => {
             res.render('celebrities/index', {celebrities});
         })
-        .catch(error => console.error(error))
+        .catch(error => next(error))
 });
+
+router.get('/:id', (req, res) =>{
+    const { id } = req.params;
+    Celebrity.findOne({_id: id})
+        .then(celebrities=> {
+            res.render('celebrities/show', {celebrities})
+        })
+        .catch(error => console.log(error))
+})
 
 module.exports = router;
