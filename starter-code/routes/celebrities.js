@@ -8,6 +8,12 @@ router.get("/", (req,res,next) => {
     .catch((error) => next(error));
 });
 
+router.get("/:id", (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findById(id)
+    .then((celebrity) => res.render("celebrities/show", celebrity))
+    .catch((error) => next(error));
+})
 
 
 module.exports = router;

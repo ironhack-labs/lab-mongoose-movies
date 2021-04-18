@@ -1,8 +1,8 @@
 const firstCelebrities = [
     {
     name: "Sylvester Stallone",
-    occupation: "actor",
-    catchPhrase: "Rocky Balboa!"
+    occupation: "Actor",
+    catchPhrase: "I am not the richest, smartest or most talented person in the world, but I succeed because I keep going and going and going."
     }, 
     {  
     name: "Tom Cruise",
