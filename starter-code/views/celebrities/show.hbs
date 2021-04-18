@@ -1,5 +1,10 @@
-<h2>Celebrity details</h2>
-<p>{{name}}</p>
-<p>{{occupation}}</p>
-<p>{{catchPhrase}}</p>
-<a href="/celebrities/{{id}}/edit">Edit</a>
+<main class="bg-light bg-gradient d-flex flex-column pt-5">
+    <div class="container-sm">
+        <div class="d-flex align-items-cente pb-3 justify-content-between">
+            <h3 class="pe-3">{{name}}</h3>
+            <a class="btn btn-outline-primary btn-md mb-3" href="/celebrities/{{id}}/edit">Edit</a>
+        </div>
+        <p class="fs-6"><strong>Occupation:</strong> {{occupation}}</p>
+        <p class="fs-6"><strong>Catch phrase:</strong> {{catchPhrase}}</p>
+    </div>
+</main>

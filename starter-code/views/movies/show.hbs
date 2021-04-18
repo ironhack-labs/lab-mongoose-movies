@@ -1,5 +1,10 @@
-<h2>Movie details</h2>
-<p>{{title}}</p>
-<p>{{genre}}</p>
-<p>{{plot}}</p>
-<a href="/movies/{{id}}/edit">Edit</a>
+<main class="bg-light bg-gradient d-flex flex-column pt-5">
+    <div class="container-sm">
+        <div class="d-flex align-items-cente pb-3 justify-content-between">
+            <h3 class="pe-3">{{title}}</h3>
+            <a class="btn btn-outline-primary btn-md mb-3" href="/movies/{{id}}/edit">Edit</a>
+        </div>
+        <p class="fs-6"><strong>Genre:</strong> {{genre}}</p>
+        <p class="fs-6"><strong>Plot:</strong> {{plot}}</p>
+    </div>
+</main>

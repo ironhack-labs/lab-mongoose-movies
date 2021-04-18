@@ -1,9 +1,23 @@
-<h2>Celebrities</h2>
-<a href="/celebrities/new">Add new celebrity</a>
-{{#each celebrities}}
-    <p>{{name}}</p>
-    <a href="/celebrities/{{id}}">Show details</a>
-    <form action="/celebrities/{{id}}/delete" method="POST">
-        <button type="submit">Delete</button>
-    </form>
-{{/each}}
+<main class="bg-light bg-gradient text-center d-flex flex-column align-items-center pt-5">
+
+    <h2 class="pb-3">Celebrities</h2>
+    
+    <a class="btn btn-outline-success btn-md mb-3" href="/celebrities/new">Add</a>
+
+    <div class="d-flex flex-wrap">
+        {{#each celebrities}}
+        <div class="card border-secondary text-dark bg-light m-2">
+            <div class="card-body d-flex flex-column">
+                <p class="lead">{{name}}</p>
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline-secondary btn-md me-3" href="/celebrities/{{id}}">Show details</a>
+                    <form action="/celebrities/{{id}}/delete" method="POST">
+                        <button class="btn btn-outline-danger btn-md" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</main>
