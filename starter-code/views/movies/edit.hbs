@@ -1,0 +1,31 @@
+<div class="container w-50">
+  <h2>Edit a movie</h2>
+  <form action="/movies/{{_id}}" method="POST">
+    <div class="mb-3">
+      <label for="movie-title" class="form-label">Title:</label>
+      <input type="text" name="title" class="form-control" value="{{movie.title}}">
+    </div>
+    
+    <div class="mb-3">
+      <label for="movie-genre" class="form-label">Genre:</label>
+      <select name="genre" class="form-select">
+        {{#each genres}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div>
+      <label for="movie-plot" class="form-label">Plot:</label>
+      <input type="text" name="plot" class="form-control" value="{{movie.plot}}">
+    </div>    
+
+    <button type="submit" class="btn btn-outline-success px-3 py-1 my-3">Edit</button>
+    <a href="/movies">
+      <button type="button" class="btn btn-outline-danger px-3 py-1 my-3">Cancel</button>
+    </a>
+  </form>
+  {{#if err}}
+    <p class="text-danger">{{err}}</p>
+  {{/if}}
+</div>
