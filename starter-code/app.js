@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const app = express();
 const DB_NAME = "celebrities-app";
 const bodyParser = require("body-parser")
+const path = require("path")
 
 mongoose.connect(`mongodb://localhost/${DB_NAME}`)
 .then (() => {
@@ -15,6 +16,7 @@ app.set("views", __dirname + "/views");//donde estan las views
 app.set("view engine", "hbs");//motor renderizado
 hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}))
 
 //SEARCH AND USE ROUTES
 const index = require("./routes/index");
