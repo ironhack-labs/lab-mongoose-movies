@@ -15,4 +15,16 @@ router.get("/", (req, res, next) => {
 		});
 });
 
+//Rendering the "Celebrity" view
+router.get("/:id", (req, res, next) => {
+	Movie.findById(req.params.id)
+		.then((movie) => {
+			res.render("movies/show", movie);
+		})
+		.catch((err) => {
+			next("error"); //Ask about it.
+			console.error(err);
+		});
+});
+
 module.exports = router;
