@@ -5,6 +5,7 @@
 {{#each movies}}
   <div>
     <a href="/movies/{{id}}">{{name}}</a>
+    <form action="/movies/{{id}}/delete" method="POST"></form>
     <button type="submit">DELETE</button>
   </div>
 {{/each}}
