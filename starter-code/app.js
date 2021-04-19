@@ -8,15 +8,17 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-
+const DB_NAME = "celebrities-app";
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  .connect(`mongodb://localhost/${DB_NAME}`, { useNewUrlParser: true })
+  .then((x) => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
   })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
+  .catch((err) => {
+    console.error("Error connecting to mongo", err);
   });
 
 const app_name = require('./package.json').name;
@@ -52,7 +54,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+const celebrities = require("./routes/celebrities");
+const movies = require("./routes/movies");
 app.use('/', index);
-
+app.use("/celebrities", celebrities);
+app.use("/movies", movies)
 
 module.exports = app;
