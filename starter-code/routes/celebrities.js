@@ -9,6 +9,17 @@ router.get('/', (req, res, next) => {
     .catch((error) => next(error))
 })
 
+router.get('/new', (req, res) => {
+    res.render("celebrities/new");
+})
+
+router.post('/new', (req, res) => {
+   const { name, ocupattion, catchPhrase } = req.body;
+   Celebrity.create({ name, ocupattion, catchPhrase })
+   .then(()=> res.redirect('/celebrities'))
+   .catch(() => res.render('celebrities/new'))
+})
+
 router.get('/:id', (req, res) => {
     const { id } = req.params;
     Celebrity.findById({ _id: id })
