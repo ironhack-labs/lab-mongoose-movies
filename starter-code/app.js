@@ -9,7 +9,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const DB_NAME      = "starter-code"
-const celebRoute = require("./routes/celebrities")
+const celebRoute   = require("./routes/celebrities")
 
 mongoose
   .connect(`mongodb://localhost/${DB_NAME}`, {useNewUrlParser: true})
