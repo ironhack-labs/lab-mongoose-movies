@@ -12,6 +12,20 @@ router.get("/", (req, res, next) => {
   .catch((error) => console.error(error));
 })
 
+//ADD MOVIE
+router.get("/new", (req, res, next) => {
+  res.render("movies/new");
+});
+
+router.post("/", (req, res, next) => {
+  const { name, occupation, catchPhrase } = req.body;
+  Movie.create({ name, occupation, catchPhrase })
+  .then(() => {
+    res.redirect("/movies")
+  })
+  .catch((error) => res.render("/movies/new", { error }))
+})
+
 
 
 //SHOW MOVIE DETAILS
@@ -23,5 +37,4 @@ router.get("/:id", (req, res, next) => {
   })
   .catch((error) => console.error(error))
 })
-
 module.exports = router;
