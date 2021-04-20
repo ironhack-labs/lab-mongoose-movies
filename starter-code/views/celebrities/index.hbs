@@ -1,7 +1,11 @@
 <section>
-<h2>Heading</h2>
-{{#each name}}
-{{/each}}
 
-<a href="/index"> Go back</a>
+ <h2> Celebrities</h2>
+{{#each celebrities}}
+<div>
+      <a href="/celebrities/{{this.id}}">{{this.name}}</a>
+</div>
+
+{{/each}} 
+
 </section>
