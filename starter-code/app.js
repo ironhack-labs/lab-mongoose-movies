@@ -52,7 +52,7 @@ app.locals.title = 'Express Celebs';
 
 
 const index = require('./routes/index');
-app.use('/', index);
 
+app.use('/', index);
 
 module.exports = app;
