@@ -26,8 +26,8 @@ const app = express();
 
 // Middleware Setup
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -53,6 +53,16 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebrities = require('./routes/celebrities');
+app.use('/', celebrities);
+
+const celebid = require('./routes/celebid');
+app.use('/', celebid);
+
+const edidceleb = require('./routes/editceleb');
+app.use('/', edidceleb);
+
 
 
 module.exports = app;
