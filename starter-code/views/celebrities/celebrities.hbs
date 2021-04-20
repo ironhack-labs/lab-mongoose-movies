@@ -1,0 +1,21 @@
+<section>
+  <h2>Show all celebrities</h2>
+  <a href="new">Create new celeb</a>
+  {{#each celebrity}}
+  <ul>
+    <div>
+      <li>{{this.name}}</li>
+      <a href="{{this.id}}">See this celeb</a>
+      <form action="{{this.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <form action="{{this.id}}/editceleb" method="GET">
+        <button type="submit">edit</button>
+      </form>
+      <hr>
+    </div>
+    
+  </ul>
+  {{/each}}
+  
+</section>

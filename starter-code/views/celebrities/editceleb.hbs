@@ -1,0 +1,22 @@
+<section>
+  <h2>Edit Celeb: {{celebrity.title}}</h2>
+ 
+<form action="/editceleb" method="POST">
+  <label>
+    Name:
+    <input type="text" name="name" value="{{celebrity.name}}" />
+  </label>
+  
+  <label>
+    occupation:
+    <input type="text" name="occupation" value="{{celebrity.occupation}}" />
+  </label>
+
+  <label>
+    catchPhrase:
+    <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}" />
+  </label>
+
+  <button>Save changes</button>
+</form>
+</section>

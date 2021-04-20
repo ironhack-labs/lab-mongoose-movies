@@ -1,0 +1,21 @@
+<section>
+  <h2>Show all movies</h2>
+  <a href="/">Create new movie</a>
+  {{#each movies}}
+  <ul>
+    <div>
+      <li>{{this.title}}</li>
+      <a href="{{this.id}}">See this movie</a>
+      <form action="{{this.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <form action="{{this.id}}/editceleb" method="GET">
+        <button type="submit">edit</button>
+      </form>
+      <hr>
+    </div>
+    
+  </ul>
+  {{/each}}
+  
+</section>
