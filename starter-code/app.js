@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
 const favicon      = require('serve-favicon');
@@ -11,7 +10,11 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/starter-code', {useNewUrlParser: true})
+  .connect('mongodb://localhost/lab-mongoose-movies',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -26,8 +29,8 @@ const app = express();
 
 // Middleware Setup
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -47,12 +50,17 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Celebrities & movies';
 
 
 
 const index = require('./routes/index');
+const celebrities = require('./routes/celebrities')
+const movies = require('./routes/movies')
+
 app.use('/', index);
+app.use('/', celebrities)
+app.use('/', movies);
 
 
 module.exports = app;
