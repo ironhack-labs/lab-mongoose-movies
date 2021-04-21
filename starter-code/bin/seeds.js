@@ -1,8 +1,9 @@
 const Celebrity = require('../models/Celebrity.model');
+const Movie = require('../models/Movie.model');
 const mongoose = require('mongoose');
 
 // Data
-const celebrities = [
+/*const celebrities = [
     {
         name: 'Lana Del Rey',
         occupation: 'Singer',
@@ -10,8 +11,8 @@ const celebrities = [
     },
 
     {
-        name: 'The Neighbourhood',
-        occupation: 'Rock Band',
+        name: 'Penélope Cruz',
+        occupation: 'Actress',
         catchPhrase: 'Best',
     },
 
@@ -20,9 +21,29 @@ const celebrities = [
         occupation: 'Actor',
         catchPhrase: 'Oscar',
     },
+];*/
+
+const movies = [
+    {
+        title: 'Tropico',
+        genre: 'Music video',
+        plot: 'Good movie',
+    },
+
+    {
+        title: 'Vicky, Cristina, Barcelona',
+        genre: 'Romantic',
+        plot: 'Funny movie',
+    },
+
+    {
+        title: 'Great Gatsby',
+        genre: 'Drama',
+        plot: 'Sad movie',
+    },
 ];
 
-mongoose.connect('mongodb://localhost/celebrity-app', {useNewUrlParser: true})
+/*mongoose.connect('mongodb://localhost/celebrity-app', {useNewUrlParser: true})
     .then(() => {
         console.log('Connected to database');
         Celebrity.insertMany(celebrities)
@@ -30,5 +51,15 @@ mongoose.connect('mongodb://localhost/celebrity-app', {useNewUrlParser: true})
                 console.log(`${celebrities.length} inserted`)
         })
 })
-    .catch(error => console.error(error));
+    .catch(error => console.error(error));*/
+
+mongoose.connect('mongodb://localhost/celebrity-app', {useNewUrlParser: true})
+.then(() => {
+    console.log('Connected to database');
+    Movie.insertMany(movies)
+    .then((movies) => {
+        console.log(`${movies.length} inserted`)
+    })
+})
+.catch(error => console.error(error));
 
