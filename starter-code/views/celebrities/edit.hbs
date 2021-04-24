@@ -1,0 +1,17 @@
+<h2>Edit {{rslCelebFound.name}}</h2>
+<section class="form-container">
+  <form action="/celebrities/{{rslCelebFound.id}}/edit" method="post">
+    
+    <div>
+      <label>His/Her occupation:</label>
+      <input type="text" name="occupation" placeholder="{{rslCelebFound.occupation}}" id="celeb-occupation">
+    </div>
+    <div>
+      <label>His/Her catch phrase:</label>
+      <input type="text" name="catchPhrase" placeholder="{{rslCelebFound.catchPhrase}}" id="celeb-name">
+    </div>
+    <div>
+      <button type="submit">Save</button>
+    </div>
+  </form>
+</section>

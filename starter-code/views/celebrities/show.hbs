@@ -1,0 +1,11 @@
+<section class="celebCard">
+  <h1>{{celebDetails.name}}</h1>
+  <article >
+    <h4>{{celebDetails.occupation}}</h4>
+    <p>Catch phrase: {{celebDetails.catchPhrase}}</p>
+    <a href="/celebrities">back to Celebrities</a>
+  </article>
+  <form action="/celebrities/{{celebDetails._id}}/edit" method="get">
+      <button type="submit">Edit</button>     
+  </form>
+</section>

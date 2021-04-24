@@ -1,2 +1,14 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+{{#if resCelebCreated}}
+<div>
+  <h2>{{resCelebCreated.name}} is added succefuly!</h2>
+</div>
+{{/if}}
+
+<footer>
+  <a href="./celebrities">See Celebrity list</a>
+  <hr>
+  <a href="./movies">See Movie list</a>
+  <hr>
+</footer>

@@ -1,0 +1,17 @@
+<h1>Celebrity list</h1>
+<section>
+{{#each celebCard}}
+  <article class="celebCard">
+    <h2>{{this.name}}</h2>
+    <a href="/celebrities/{{this.id}}">more details</a><br>
+
+    <form action="/celebrities/{{this.id}}/delete" method="post">
+      <button type="submit">Delete</button>     
+    </form>
+  </article>
+  <hr>
+{{/each}}
+  <div>
+    <a href="/celebrities/new">Add new Celebrity</a>
+  </div>
+</section>
