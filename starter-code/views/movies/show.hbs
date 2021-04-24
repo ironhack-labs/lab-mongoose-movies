@@ -1,0 +1,11 @@
+<section class="movieCard">
+  <h1>{{movieDetails.title}}</h1>
+  <article >
+    <h4>Genre: {{movieDetails.genre}}</h4>
+    <p>Plot: {{movieDetails.plot}}</p>
+    <a href="/movies">back to Movies</a>
+  </article>
+  <form action="/movies/{{movieDetails._id}}/edit" method="get">
+      <button type="submit">Edit</button>     
+  </form>
+</section>
