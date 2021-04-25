@@ -1,0 +1,15 @@
+<h2>Movies</h2>
+<ul>
+    {{#each movies}}
+        <li><a href="/movies/{{this.id}}">{{this.title}}</a></li>
+        <form action="/movies/{{this.id}}/edit" method="get">
+            <button>Edit</button>
+        </form>
+        <form action="/movies/{{this.id}}/delete" method="post">
+            <button>Delete</button>
+        </form>
+    {{/each}}
+    <form action="/movies/new" method="get">
+        <button>Add new movie</button>
+    </form>
+</ul>

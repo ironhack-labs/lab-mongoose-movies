@@ -1,0 +1,28 @@
+<div class="w-50 m-auto">
+<h2>Celebrities</h2>
+    <div class="row">
+        {{#each celebrities}}
+            <div class="col-4 my-3">
+                <div class="card">
+                    <div class="card-body">
+                        <a href="/celebrities/{{this.id}}" class="card-title">{{this.name}}</a>
+                        <div class="row">
+                                <form action="/celebrities/{{this.id}}/edit" method="get" class="my-1">
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </form>
+                                <form action="/celebrities/{{this.id}}/delete" method="post" class="my-1">
+                                    <button type="sumbit" class="btn btn-danger">Delete</button>
+                                </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        {{/each}}
+        <form action="/celebrities/new" method="get">
+            <button>Add new celebrity</button>
+        </form>
+    </div>
+</div>
+
