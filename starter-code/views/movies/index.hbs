@@ -1,15 +1,25 @@
 <h2>Movies</h2>
-<ul>
+<div class="row">
     {{#each movies}}
-        <li><a href="/movies/{{this.id}}">{{this.title}}</a></li>
-        <form action="/movies/{{this.id}}/edit" method="get">
-            <button>Edit</button>
-        </form>
-        <form action="/movies/{{this.id}}/delete" method="post">
-            <button>Delete</button>
-        </form>
+        <div class="col-4 my-3">
+            <div class="card">
+                <div class="card-body">
+                    <a href="/movies/{{this.id}}" class="card-title">{{this.title}}</a>
+                    <div class="row">
+                            <form action="/movies/{{this.id}}/edit" method="get" class="my-1">
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </form>
+                            <form action="/movies/{{this.id}}/delete" method="post" class="my-1">
+                                <button type="sumbit" class="btn btn-danger">Delete</button>
+                            </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     {{/each}}
     <form action="/movies/new" method="get">
-        <button>Add new movie</button>
+        <button class="btn btn-primary">Add new movie</button>
     </form>
-</ul>
+</div>
