@@ -1,0 +1,41 @@
+<div class="layout">
+    <div>
+        <h2>Movies</h2>
+    </div>
+
+    <div>
+
+        <a type="button" href="/movies/new" class="btn btn-dark btn-lg">Crear Movies</a>
+    </div>
+
+</div>
+
+
+{{#each movies}}
+
+<div class="card mt-5">
+    <div class="card-header layout">
+        <div>
+            Movies
+        </div>
+
+        <div>
+
+            <a type="button" href="/movies/{{_id}}/edit" class="btn btn-primary ">Editar Movies</a>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">Genero: {{genre}}</p>
+        <p class="card-text">plot: {{plot}}</p>
+        <div class="layout">
+            <a href="/movies/{{_id}}" style="font-size: 20px;">Ver mas...</a>
+
+
+            <a href="/movies/{{_id}}/delete" style="font-size: 20px;">Eliminar</a>
+
+        </div>
+    </div>
+</div>
+{{/each}}
