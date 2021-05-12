@@ -1,0 +1,14 @@
+<h1>Celebrities</h1>
+
+{{#each celebrities}}
+    <div class="card" style="width: 18rem;">
+    {{!-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+    <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <a href="/celebrities/{{id}}" class="btn btn-primary">Show</a>
+        <form action="/celebrities/{{id}}/delete" method="POST">
+            <button class="btn btn-outline-danger">Delete</button>
+        </form>
+    </div>
+    </div>
+{{/each}}
