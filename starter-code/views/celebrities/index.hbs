@@ -6,6 +6,10 @@
             <h3>{{name}}</h3>
             <a href="/celebrities/{{this._id}}">see celeb</a>
         </div>
+        <form action="/celebrities/{{id}}/delete" method="POST"> 
+            <button class='btn__link'>Delete your account</button>
+        </form>
         {{/each}}
     </section>
+    <a href="/celebrities/new">add celeb</a>
 </main>

@@ -1,0 +1,20 @@
+<div class="form__wrapper">
+        <h1>{{celebrity.name}}</h1>
+        <form class="form"  action="/celebrities/{{celebrity.id}}/edit" method="post">
+            <div class="mb-3 form-check">   
+                <label class="form-label" for="name-input">Name:</label>
+                <input class="form-control" type="text" name="name" id="name-input" value="{{celebrity.name}}"/>
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-label" for="occupation-input">Occupation:</label>
+                <input class="form-control" type="text" name="occupation" id="occupation-input" value="{{celebrity.occupation}}"/>
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-label" for="catchPhrase-input">Catch phrase:</label>
+                <input class="form-control" type="text" name="catchPhrase" id="catchPhrase-input" value="{{celebrity.catchPhrase}}"/>
+            </div>
+            <div class="button__wrapper">
+                <button type="submit">Fix celeb!</button>
+            </div>
+        </form>
+    </div>
