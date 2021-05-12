@@ -1,13 +1,10 @@
 <main class="list__wrapper">
     <h1>celebrities</h1>
-    <section class="drones__wrapper">    
+    <section>    
         {{#each celebrities}}
-        <div class="drone__wrapper">
+        <div>
             <h3>{{name}}</h3>
-            <div class="drones__text">
-                <p>What do: {{occupation}}</p>
-                <p>What say: {{catchPhrase}}</p>
-            </div>
+            <a href="/celebrities/{{this._id}}">see celeb</a>
         </div>
         {{/each}}
     </section>
