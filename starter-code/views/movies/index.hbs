@@ -1,0 +1,15 @@
+<main class="list__wrapper">
+    <h1>movies</h1>
+    <section>    
+        {{#each movies}}
+        <div>
+            <h3>{{title}}</h3>
+            <a href="/movies/{{this._id}}">see movie</a>
+        </div>
+        <form action="/movies/{{id}}/delete" method="POST"> 
+            <button class='btn__link'>Delete your movie</button>
+        </form>
+        {{/each}}
+    </section>
+    <a href="/movies/new">add movie</a>
+</main>

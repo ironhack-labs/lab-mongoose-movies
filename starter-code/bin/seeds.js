@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Celebrity = require('../models/Celebrity.model');
+const Movie = require('../models/Movie.model');
 
 require("../db");
 
@@ -26,4 +27,29 @@ Celebrity.create(seedCelebs)
     console.log(`Created ${dbCelebs.length} celebrities`);
     mongoose.connection.close();
   })
-  .catch(err => console.log(`An error occurred while creating fake users in the DB: ${err}`));
+  .catch(err => console.log(`An error occurred while creating fake actors in the DB: ${err}`));
+
+  const seedMovies = [
+    {
+        title: "cherry pie",
+        genre: "spy",
+        plot: "Dale goes to the place where pies go when they die."
+    },
+    {
+        title: "itchy palms",
+        genre: "western",
+        plot: "audrey gets so flushed that she shoots up a saloon, it gets interesting."
+    },
+    {
+        title: "Lady of the log",
+        genre: "Documentary",
+        plot: "a lady and her log. their deep connection. a world that just can't understand. one terrible night."
+    }
+];
+
+Movie.create(seedMovies)
+  .then(dbMovies => {
+    console.log(`Created ${dbMovies.length} movies`);
+    mongoose.connection.close();
+  })
+  .catch(err => console.log(`An error occurred while creating fake movies in the DB: ${err}`));
