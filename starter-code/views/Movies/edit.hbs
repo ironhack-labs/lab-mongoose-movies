@@ -1,0 +1,27 @@
+<div style="display: flex; justify-content: center;">
+    <h1>Editar una Movies</h1>
+</div>
+
+
+<form action="/movies/{{movies._id}}" method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">title:</label>
+        <input type="text" class="form-control" name="title" value="{{movies.title}}">
+
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Genero:</label>
+        <input type="text" class="form-control" name="genre" value="{{movies.genre}}">
+
+    </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">plot:</label>
+        <input type="text" class="form-control" name="plot" value="{{movies.plot}}">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

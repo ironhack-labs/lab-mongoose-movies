@@ -1,0 +1,41 @@
+<div class="layout">
+    <div>
+        <h2>Celebridades</h2>
+    </div>
+
+    <div>
+
+        <a type="button" href="/celebrities/new" class="btn btn-dark btn-lg">Crear Celebridad</a>
+    </div>
+
+</div>
+
+
+{{#each celebrity}}
+
+<div class="card mt-5">
+    <div class="card-header layout">
+        <div>
+            Celebridades
+        </div>
+
+        <div>
+
+            <a type="button" href="/celebrities/{{_id}}/edit" class="btn btn-primary ">Editar Celebridad</a>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">Ocupacion: {{occupation}}</p>
+        <p class="card-text">Mensaje: {{catchPhrase}}</p>
+        <div class="layout">
+            <a href="/celebrities/{{_id}}" style="font-size: 20px;">Ver mas...</a>
+
+
+            <a href="/celebrities/{{_id}}/delete" style="font-size: 20px;">Eliminar</a>
+
+        </div>
+    </div>
+</div>
+{{/each}}

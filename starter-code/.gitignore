@@ -8,5 +8,3 @@ node_modules
 # as libsass binary downloads might break again in the future
 package-lock.json
 
-# Environment Variables should NEVER be published
-.env

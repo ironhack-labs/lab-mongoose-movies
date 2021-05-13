@@ -1,0 +1,27 @@
+<div style="display: flex; justify-content: center;">
+    <h1>Editar una Celebridad</h1>
+</div>
+
+
+<form action="/celebrities/{{celebridad._id}}" method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" name="name" value="{{celebridad.name}}">
+
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ocupación:</label>
+        <input type="text" class="form-control" name="occupation" value="{{celebridad.occupation}}">
+
+    </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Frase:</label>
+        <input type="text" class="form-control" name="catchPhrase" value="{{celebridad.catchPhrase}}">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
