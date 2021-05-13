@@ -2,11 +2,134 @@ const express = require('express');
 const router = express.Router();
 const Celebrity = require('../models/Celebrity.model');
 const Movies = require('../models/Movies.model');
+const User = require('../models/User.model');
+const bcryptjs = require('bcryptjs');
+const saltRounds = 10 // SALTING;
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
+
+  res.render('index', {
+        user: req.session.currentUser
 });
+});
+
+/* 
+*******************
+login
+*********************
+*/
+//login GET
+router.get('/login', (req, res) => {
+  res.render('auth/login');
+})
+
+
+
+//login post
+router.post('/login', (req, res) => {
+
+  const {
+    username,
+    password
+  } = req.body;
+
+  User.findOne({
+      username
+    })
+    .then(usuario => {
+      if (!usuario) {
+        res.render('auth/login', {
+          error: "el usuario no esta"
+        })
+        return
+      } else if (bcryptjs.compareSync(password, usuario.passwordHash)) {
+
+        req.session.currentUser = usuario
+        res.redirect('/')
+        return
+
+      } else {
+        res.render('index', {
+          error: "pasword incorrecto"
+        })
+        return
+      }
+
+
+
+    }).catch(e => {
+      next(e)
+    })
+
+})
+
+
+/* 
+*******************
+Cierre login
+*********************
+*/
+
+/* 
+***************
+
+registrar
+**************
+
+*/
+
+
+
+
+//Signup GET
+router.get('/signup', (req, res) => {
+  res.render('auth/register');
+})
+
+//Signup Post
+router.post('/signup', (req, res) => {
+  const {
+    username,
+    password
+  } = req.body
+
+
+  bcryptjs.genSalt(saltRounds)
+    .then(salt => bcryptjs.hash(password, salt))
+    .then(hashed => {
+      return User.create({
+        username,
+        passwordHash: hashed
+      })
+    }).then(user => {
+      req.session.currentUser = user
+      res.redirect('/')
+    }).catch(e => {
+      console.log(e);
+    })
+
+
+
+})
+
+
+
+
+
+/* 
+***************
+
+caerrar registrar
+**************
+
+*/
 
 /* 
 *************************************
@@ -16,6 +139,12 @@ Celebridades
 
 
 router.get('/celebrities', (req, res, next) => {
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
 
   Celebrity.find()
     .then(celebridades => {
@@ -49,10 +178,23 @@ router.post('/celebrities', (req, res, next) => {
 
 });
 router.get('/celebrities/new', (req, res, next) => {
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
   res.render("Celebrity/new");
 });
 
 router.get('/celebrities/:id', (req, res, next) => {
+
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
 
   const {
     id
@@ -67,6 +209,12 @@ router.get('/celebrities/:id', (req, res, next) => {
 });
 
 router.post('/celebrities/:id', (req, res, next) => {
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
 
   const {
     name,
@@ -92,6 +240,13 @@ router.post('/celebrities/:id', (req, res, next) => {
 });
 
 router.get('/celebrities/:id/delete', (req, res, next) => {
+
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
 
   const {
     id
@@ -138,6 +293,13 @@ Movies
 
 router.get('/movies', (req, res, next) => {
 
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
+
   Movies.find()
     .then(movies => {
       res.render('Movies/movies-list', {
@@ -149,10 +311,23 @@ router.get('/movies', (req, res, next) => {
 });
 
 router.get('/movies/new', (req, res, next) => {
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
   res.render("Movies/new");
 });
 
 router.post('/movies/:id', (req, res, next) => {
+
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
 
   const {
     title,
@@ -179,6 +354,13 @@ router.post('/movies/:id', (req, res, next) => {
 
 router.get('/movies/:id', (req, res, next) => {
 
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
+
   const {
     id
   } = req.params
@@ -193,6 +375,13 @@ router.get('/movies/:id', (req, res, next) => {
 
 
 router.post('/movies', (req, res, next) => {
+
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
 
   const {
     title,
@@ -221,6 +410,13 @@ router.post('/movies', (req, res, next) => {
 
 router.get('/movies/:id/delete', (req, res, next) => {
 
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
+
   const {
     id
   } = req.params
@@ -233,6 +429,13 @@ router.get('/movies/:id/delete', (req, res, next) => {
 });
 
 router.get('/movies/:id/edit', (req, res, next) => {
+
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.redirect("/login");
+    return
+  }
 
   const {
     id
@@ -250,6 +453,11 @@ router.get('/movies/:id/edit', (req, res, next) => {
 });
 
 
+
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/login');
+});
 
 
 /* 
