@@ -28,7 +28,6 @@ router.get('/celebrities/:id', (req, res, next)=>{
         .then(person => res.render('celebrities/show', {person: person}))
         .catch(err => next(err))
 })
-
 router.post('/celebrities/:id/delete', (req, res, next) => {
     const { id } = req.params;
   
@@ -36,6 +35,23 @@ router.post('/celebrities/:id/delete', (req, res, next) => {
       .then(()=> res.redirect('/celebrities'))
       .catch(err => next(err))
   });
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+    const { id } = req.params;
+    Celeb.findById(id)
+        .then(celeb => res.render('celebrities/edit', {celeb: celeb}))
+        .catch(err => next(err));
+});
+
+router.post('/celebrities/:id/edit', (req, res, next) => {
+    const { id } = req.params;
+    const {name, occupation, catchPhrase} = req.body;
+
+    Celeb.findByIdAndUpdate(id, {name, occupation, catchPhrase}, {new: true})
+         .then(res.redirect('/celebrities') )
+         .catch(err => next(err))
+});
+
 
 
 
