@@ -1,0 +1,15 @@
+<h2>Movie list</h2>
+
+{{#each mov}}
+    <div>
+        <h3>{{this.title}}</h3>
+        <a href="/movies/{{this.id}}">Show</a>
+        
+    </div>
+
+{{/each}}
+
+<br>
+<br>
+
+<a href="/movies/new">Add a movie</a>

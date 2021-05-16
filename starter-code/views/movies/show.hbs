@@ -1,0 +1,15 @@
+<h2>What do you need to know about {{film.title}}</h2>
+
+<ul>
+    <li>Genre: {{film.genre}}</li>
+    <li>Plot: {{film.plot}}</li>
+</ul>
+
+<a href="/movies/{{film.id}}/edit">Edit movie info</a>
+<form action="/movies/{{film.id}}/delete" method="POST">
+    <button type="submit">Delete Movie</button>
+</form>
+
+<br>
+<br>
+<a href="/movies">Go back to list of movies</a>
