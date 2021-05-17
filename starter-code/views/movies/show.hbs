@@ -1,0 +1,9 @@
+<h2>{{movie.title}}</h2>
+<div>
+    <p>What do: {{movie.genre}}</p>
+    <p>What say: {{movie.plot}}</p>
+    <a href="/movies/{{movie.id}}/edit">Edit</a>
+    <form action="/movies/{{movie.id}}/delete" method="POST"> 
+            <button class='btn__link'>Delete your movie</button>
+    </form>
+</div>

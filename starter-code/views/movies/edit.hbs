@@ -1,0 +1,20 @@
+<div class="form__wrapper">
+        <h1>{{movie.title}}</h1>
+        <form class="form"  action="/movies/{{movie.id}}/edit" method="post">
+            <div class="mb-3 form-check">   
+                <label class="form-label" for="title-input">Title:</label>
+                <input class="form-control" type="text" name="title" id="title-input" value="{{movie.title}}"/>
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-label" for="genre-input">Genre:</label>
+                <input class="form-control" type="text" name="genre" id="genre-input" value="{{movie.genre}}"/>
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-label" for="plot-input">Plot:</label>
+                <input class="form-control" type="text" name="plot" id="plot-input" value="{{movie.plot}}"/>
+            </div>
+            <div class="button__wrapper">
+                <button type="submit">Fix movie!</button>
+            </div>
+        </form>
+    </div>

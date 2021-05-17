@@ -1,0 +1,9 @@
+<h2>{{celeb.name}}</h2>
+<div>
+    <p>What do: {{celeb.occupation}}</p>
+    <p>What say: {{celeb.catchPhrase}}</p>
+    <a href="/celebrities/{{celeb.id}}/edit">Edit</a>
+    <form action="/celebrities/{{celeb.id}}/delete" method="POST"> 
+            <button class='btn__link'>Delete your account</button>
+    </form>
+</div>
