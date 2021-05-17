@@ -34,3 +34,4 @@ Celebrity.create(celebs)
     mongoose.connection.close();
   })
   .catch(err => console.log(`An error occurred while creating celebs from the DB: ${err}`));
+  
