@@ -48,7 +48,7 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
     const { name, occupation, catchPhrase } = req.body;
    
     Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase }, { new: true })
-      .then(updatedCeleb => res.redirect('/celebrities'))
+      .then(res.redirect('/celebrities'))
       .catch(error => next(error));
   });
 
