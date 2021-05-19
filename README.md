@@ -2,6 +2,7 @@
 
 # Mongoose Movies
 
+![hollywood](https://images.unsplash.com/photo-1534253893894-10d024888e49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80)
 
 ## Introduction
 Everyone likes celebrities, right? Well, even if you don't, now is your chance to create your own, better, fictional celebrities!
@@ -52,7 +53,7 @@ $ git push origin master
 
 ### Iteration 0 | Initialize the project
 
-After forking and cloning the project, you will have to add a `starter_code/.env` file:
+After forking and cloning the project, you will have to add a `.env` file:
 
 ```
 PORT=3000
@@ -62,7 +63,6 @@ And you have to install all the dependencies:
 
 
 ```sh
-$ cd starter_code
 $ npm install
 ```
 
@@ -190,16 +190,16 @@ Now that we have a list of celebrities, a celebrity details page, and a page to 
 ### Steps we will follow in this iteration:
 
 1. In the `views/celebrities/index.hbs` file:
-    - As part of the loop, add a `<form>` tag that makes a POST request to `celebrities/:id/delete` where the `:id` is replaced by the actual `id` of each celebrity.
+    - As part of the loop, add a `<form>` tag that makes a POST request to `celebrities/:id/delete` where the `:id` is replaced by the actual ID of each celebrity.
     - Add a `<button>` tag inside the form so that it can be submitted.
 2. Create the `/celebrities/:id/delete` POST route in your `routes/celebrities.js` file
 3. In that route's callback:
-    - Use the `Celebrity` model's `findByIdAndRemove` method to delete the celebrity by its `id`.
+    - Use the `Celebrity` model's `findByIdAndRemove` method to delete the celebrity by its ID.
     - If there's an error, call the route's `next` function and return the error
     - If there is no error, redirect to the list of celebrities page.  
 
 
-## Iteration #6 (Bonus): Editing Celebrities
+## Iteration #6 (Bonus): Editing celebrities
 
 Final piece of our CRUD puzzle: **editing existing celebrities**.
 
@@ -238,110 +238,140 @@ Here are the routes we will be using:
 
 At this point, we have implemented all the basic CRUD actions for the Celebrity model in our app.  Nice work!
 
-Now that we've done all this good work, it's time to do it all over again, but for the Movie model.  After all, what's the point of having all these celebrities if we can't make up fake movies to cast them in?
+Now that we've done all this good work, it's time to do it all over again, but for the `Movie` model.  After all, what's the point of having all these celebrities if we can't make up fake movies to cast them in?
 
 We are going to create a `Movie` model and implement all the same CRUD actions for this model as well.  Don't worry, it's really much easier the second time around.  
 
-## Iteration #7: The `Movie` Model
-Let's jump right in.
+## Iteration #7: The `Movie` model
 
-First of all, we'll need to create the `Movie` model.
+Now when we've started all this good work, let's keep up strong and build all the routes for the `Movie` model. But first, let's create the `Movie` model.
+
 
 The `Movie` model should have:
 - `title` - String
 - `genre` - String
 - `plot` - String
+- `cast` - Array of object IDs referencing the *celebrity* model (basically, the array of celebrities' IDs) 
+
+### Steps we will follow in this iteration:
+
+Go back and review what you did to create the `celebrity` model.  You'll need to create a file for the model, and in that file, you'll need to create a schema for the model as well. Don't forget, you have to `module.exports` the `Movie` model.
+
+## Iteration #8: Adding new movies
+
+Okay, the next step is to make it so the user can **add new movies to the database**.
+
+|     Route     | HTTP Verb |          Description          |
+|---------------|-----------|-------------------------------|
+| `/movies/new` |    GET    | Show a form to create a movie |
+|   `/movies`   |   POST    | Send the data from the form to this route to create the movie and save it to the database  |
+
+### Steps we will follow in this iteration:
+
+Review how you did this for the `celebrity` model.
+  - Create 2 new routes, one to render page with the form on it, and one to send the data to after the form is filled out
+    - In the GET route that displays the form to create a new movie (which renders the `movies/new` view), make sure you pass all the celebrities from your database so your users can choose which ones are in the cast of the movie you're just creating (**hint**: You will have to use [select multiple](https://www.w3schools.com/tags/att_select_multiple.asp) tag)
+  - Make sure the form is making a POST request to the other route you just created (`/movies`)
+  - In your post route, create an object with all the info you just received from the form. (Remember, `req.body`)
+  - Use this object to create a new movie in the database and redirect back to the page with your list of all movies
+  - Make sure to add a link to the form on the movies index page so the user can easier navigate
+
+## Iteration #9: Listing our movies
+
+Now that we've got some movies in the database, let's make a page where we list all our movies, just like we did with the `celebrity` model.
+
+Here's the route we will be using:
+
+|   Route   | HTTP Verb |   Description   |
+|-----------|-----------|-----------------|
+| `/movies` |    GET    | Show all movies |
 
 
 ### Steps we will follow in this iteration:
 
-Go back and review what you did to create the `Celebrity` model.  You'll need to create a file for the model, and in that file, you'll need to create a schema for the model as well.
-
-Once you've done that, go to your `seeds.js` file in the `bin/` folder and either delete or comment out the seeds you made before for your celebrities.
-Replace these seeds with seeds for fake movies.  If you don't delete/comment what you had before, when you run the seeds file with the `node` command in the terminal, it will create duplicates of all your celebrities.
-
-Afterward, check the database with the `mongo` command to confirm that your data was saved.
-
-
-## Iteration #8: Listing Our Movies
-
-Now that we've got some movies in the database, let's make a page where we list all our movies, just like we did with the `Celebrity` model.
-
-
-### Steps we will follow in this iteration:
-
-Go back and review how you did this for the `Celebrity` model.  You'll need to
-  - Create a route.
-  - Create a view file (and a folder for all your `movies` view files).
-  - Use a database query to retrieve all the movies in your database and render the view.
-  - Use a `forEach` loop to display all your movies on that page
+Go back and review how you did this for the `celebrity` model.  You'll need to:
+  - Create a GET route that will render the file in which we will display movies (`movies/index` view)
+  - Use a database query to retrieve all the movies from your database and render the view
+  - Use a `{{#each}}` loop to display all your *movie titles* on that page
   - Add a link to the page you just created on the home page so the user can navigate to it.
 
 
+## Iteration #10: The movie details page
 
-## Iteration #9: The Movie Details Page
+We've got a list of all movies that displays each of their *titles*, but what if we want to see the other details? In our `movies/index` view with our list of movies, let's add links so that the user can click on any movie's title, and go to a details page of each movie. On this page, we will show all the details of that movie.
+Here's the route we will be using:
 
-Now that we've got a list of movies,  let's add a details page for each movie just like we did with our celebrities.  
-
-
-
-### Steps we will follow in this iteration:
-
-Go back and review what you did for the `Celebrity` model.  You'll need to:
-  - Create a route
-  - Use a database query to retrive the specific movie that was clicked by the user.
-  - Pass that movie into the view as a variable
-  - Create the view file
-  - In the view, display all the details of the movie.
-  - On the Movies index page, make each movie a link to its own details page.
-
-
-## Iteration #10: Adding New Movies
-
-Okay, the next step is to make it so the user can **add new movies to the database**
-
-### Steps we will follow in this iteration:
-
-Review how you did this for the `Celebrity` model.
-  - Create 2 new routes, one to render page with the form on it, and one to send the data to after the form is filled out.
-  - Create a view file to render the form.
-  - Make sure the form is making a POST request to the other route you just created.
-  - In your post route, create an object with all the info you just received from the form. (Remember, `req.body`)
-  - Use this object to create a new movie and save it to the database and redirect back to the page with your list of movies.
-  - Make sure to add a link to the form on the movies index page.
-
-
-## Iteration #11: Deleting Movies
-
-Okay, only 2 features left, deleting and editing.
+|     Route     | HTTP Verb |      Description      |
+|---------------|-----------|-----------------------|
+| `/movies/:id` |    GET    | Show a specific movie |
 
 
 ### Steps we will follow in this iteration:
-Review how you did this with the `Celebrity` model.
 
-  - Add a button (inside of a form) next to each movie in your movies index page.
-  - Create a route
-  - Use a databse query to retrieve the Movie that was just clicked, and delete it from the database.
+1. We need `/:id` part to change dynamically as we click on different movies' titles. This being said, as part of the loop that displays each movie's title, add a link that goes to the `/movies/:id` route with the `:id` replaced by the actual movie's id 🔑
+2. Create the `/movies/:id` GET route in `routes/movies.js`.
+3. In the route:
+    - On the `Movie` model call `findOne()` or `findById()` method to retrieve the details of a specific movie by its ID
+        - Don't forget you have `cast` as the array of celebrity IDs, and we need to `populate()` in order to get the full data about the celebrities 🎯
+    - If everything is fine (*.then()*), render the `movies/show` view and pass the variable with the movie's details into the view
+    - If there's an error, catch it.
+4. In the `views/movies/show.hbs` view file:
+    - Add an `<h2>` for the page's heading.
+    - Display tags with the movie's `title`, `genre`, `plot` and `cast`.
 
+## Iteration #11: Deleting movies
 
-## Iteration #12 (Bonus): Editing Movies
+Now that we have a list of movies, a movie details page, and a page to create new movies, we only have 2 features left to implement: *editing* celebrities and *deleting* them.  Since deleting is simpler, let's start with that.
+
+|        Route         | HTTP Verb |       Description       |
+|----------------------|-----------|-------------------------|
+| `/movies/:id/delete` |   POST    | Delete a specific movie |
+
+### Steps we will follow in this iteration:
+
+1. In the `views/movies/show.hbs` file:
+    - Add a `<form>` tag that makes a POST request to `/movies/:id/delete` where the `:id` is replaced by the actual ID of the movie.
+    - Add a `<button>` tag inside the form so that it can be submitted.
+2. Create the `/movies/:id/delete` POST route in your `routes/movies.js` file
+3. In the route:
+    - Use the `Movie` model's `findByIdAndRemove()` method to delete the specific movie by its ID.
+    - If everything is good (`.then()`), redirect to the list of movies page  
+    - If there's an error, catch it
+
+## Iteration #12: Editing movies
 
 Final piece of our CRUD puzzle: **editing existing movies**.
 
+Here are the routes we will be using:
+
+|       Route        | HTTP Verb |          Description          |
+|--------------------|-----------|-------------------------------|
+| `/movies/:id/edit` |    GET    | Show a form to edit a movie |
+|   `/movies/:id`    |   POST    | Send the data from the form to this route to update the specific movie         |
 
 ### Steps we will follow in this iteration:
-Review how you did this for the `Celebrity` model.
 
-  - Create 2 routes, one to display a form, and another to receive the data from that form.
-  - Create a view file to display the edit form.
-  - Use a databse query to retrieve one movie from the database and pass that movie into the page with the form on it.
-  - Render the view with the form, and pre-fill all the input fields with the current info about that movie.
-  - Make sure your form is submitting a POST request to the other route you just created.
-  - When the form is submitted, receive the data from the form and create an object with all the info.
-  - Make a databse query to retrieve the movie from the database and update the movie with the object you just created with all the info from the form.
-  - Make sure you add a link to the edit page on your movies index page.
+1. Create the `/:id/edit` GET route in `routes/movies.js`.
+2. In that route:
+    - Call the `Movie` model’s `findOne()` or `findById()` method to retrieve a specific movie by its ID
+    - If everything is good, render the `movies/edit` view
+    - Pass the variable with the movie's details into the view
+3. In the `views/movies/edit.hbs` view file:
+    - Add an `<h2>` tag for the page's heading.
+    - Add a `<form>` tag that makes a POST request to `/movies/:id` with the `:id` replaced by the actual movie's ID.
+    - Add `<input>` tags inside the form for each attribute of the movie.
+      - **Hint**: When you render the edit form, make sure each of the input fields is pre-filled with the current value of the attribute for that movie
+    - Add a `<button>` tag inside the form so that the user can submit the form once they are done editing.
+    - **BONUS**: Make the current cast members *selected* so the user knows who is in the cast currently.
+5. Create `/movies/:id` POST route in the `routes/movies.js` file
+6. In that route:
+    - Create an object with `Movie` model keys and it's values should come from the form submission (which is `req.body`)
+    - Now you can apply different methods - `update()` or `findByIdAndUpdate()` to find the movie and send the updated values to the database.
+    - If there is no error, redirect back to the movie details page.
+
+Now you can come back to the bonus part related to the celebrity model :wink:.
 
 
-# That's it!
+**That's it! 🏆**
 
 Happy Coding! :heart:
