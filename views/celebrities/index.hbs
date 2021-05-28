@@ -1,0 +1,13 @@
+
+
+<div class="contianer">
+<h3>List of celebrities</h3>
+{{#each celeb}}
+<h5> {{ this.name }}</h5>
+<form action="/celebrities/{{this._id}}/delete" method="POST">
+<a class="general-button readMore-button" href="/celebrities/{{this._id}}">Read more</a>
+<button class="general-button delete-button" type="sumbit">Delete</button>
+</form>
+<hr>
+{{/each}}
+</div>

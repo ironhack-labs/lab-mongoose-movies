@@ -1,0 +1,28 @@
+
+<div class="main-container">
+<h5>Add celebrity to database</h5>
+
+<form action='/celebrities' method='POST'>
+<div>
+<label class="form-newline">Name:
+    <input type='text' name='name'>
+</label>
+</div>
+<div>
+<label class="form-newline">occupation:
+  <select name="occupation" id="occupation">
+  <option value="actor">Actor</option>
+  <option value="singer">Singer</option>
+  <option value="comedian">Comedian</option>
+  <option value="unknown">Unknown</option>
+</select>
+</label>
+</div>
+<div>
+<label class="form-newline">catchPhrase:
+    <input type='text' name='catchPhrase'>
+</label>
+</div>
+<button class="form-newline" type='submit' >submit</button>
+</form>
+</div>
