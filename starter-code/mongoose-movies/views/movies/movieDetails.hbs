@@ -1,0 +1,44 @@
+<h2>Welcome to the Movie Details Page for the movie "{{title}}"!</h2>
+<div>
+
+  <div>
+    <h1>{{title}}</h1>
+    <p>
+      <hr/>Genre:{{genre}}
+    </p>
+    <hr/>
+    <p>
+      plot: {{plot}}
+    </p>
+    <hr/>
+  </div>
+
+<!--for here we need to implement an array of celebrities -->
+  <p>Starring: {{celebrity.name}} {{celebrity.lastName}}</p>
+  <p> Birthday: {{celebrity.birthday}}</p>
+  <p> Nationality: {{celebrity.nationality}}</p>
+
+
+  <a href="/movies/edit/{{_id}}">Edit movie!</a></br>
+
+  <form action="/movies/delete/{{_id}}" method="post"></br>
+  <button type="submit">Delete this entry</button> </br></br>
+  </form>
+
+</div>
+
+<a href="/movies/{{_id}}/reviews/new">Add a Review for This Book</a>
+
+<div>
+  <h2>Reviews for this Movie!</h2>
+  {{#each reviews}} <!--get ride of One Movie if this breaks all of a sudden-->
+  <h4>{{this.reviewer}}</h4>
+  <p>{{this.content}}</p>
+  <form action="/movies/{{../_id}}/reviews/delete/{{@index}}" method="post">
+    <button>Delete this Review!</button>
+  </form>
+  <hr />
+  {{/each}}
+</div>
+
+<a href='/movies'>Return Back</a>

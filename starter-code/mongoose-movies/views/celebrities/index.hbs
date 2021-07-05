@@ -1,0 +1,13 @@
+<h2>Welcome to the Celebrities List Page!</h2>
+
+{{#each listOfCelebrities}}
+{{this.name}} {{this.lastName}}<br/>
+<a href='celebrities/{{this._id}}'>Click here for info about {{this.name}} {{this.lastName}}</a><br/>
+<form action="/celebrities/{{this._id}}/delete" method="post"></br>
+<button>Delete this Celebrity</button> </br></br>
+</form>
+{{/each}}
+
+<a href='celebrities/new'>Click here to add a new Celebrity to this database</a><br/>
+
+<a href='/'>Click here to return to the Home Page</a>

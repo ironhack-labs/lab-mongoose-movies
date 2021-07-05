@@ -1,0 +1,14 @@
+<h1> Welcome to the Movie List!</h1>
+<ul>
+  {{#each listOfMovies}}
+  <li>
+    <p>{{this.title}} featuring {{this.celebrity.name}} {{this.celebrity.lastName}} </p></br>
+    <a href='/movies/{{this._id}}'>Click here for more information about {{this.title}}</a><br/>
+  </br/>
+  </li>
+  {{/each}}
+</ul>
+
+<a href="/movies/new">Click here to add a new movie</a></br>
+
+<a href='/'>Click here to return to the Home Page</a>

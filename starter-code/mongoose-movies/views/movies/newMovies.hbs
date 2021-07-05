@@ -1,0 +1,24 @@
+<h2>Add a New Movie to Our Database</h2>
+
+
+<form action="/movies/create" method="post"> {{!--This route corresponds to the Post route in the movies.js our route file --}}
+  <label for="title-input">Title</label>{{!-- IT will connect the forms body to the route and process to mongoDB--}}
+  <input type="text" name="newTitle" id="title-input" />
+
+  <label for="genre-input">Genre</label>
+  <input type="text" name="newGenre" id="genre-input" />
+
+  <label>Celebrity</label>
+  <select name="celebrity" required="true">
+    <option value="null"></option>
+    {{#each allTheCelebrities}}
+    <option value="{{this._id}}">{{this.name}}{{this.lastName}}</option>
+    {{/each}}
+  </select>
+
+
+  <label for="plot-input">Plot</label>
+  <input type="text" name="newPlot" id="plot-input" />
+
+  <button type="submit">Create New Entry!</button>
+</form>
