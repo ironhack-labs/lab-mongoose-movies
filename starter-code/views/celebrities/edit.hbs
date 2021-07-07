@@ -1,0 +1,11 @@
+<h2>Edit {{name}}</h2>
+
+<form action="/celebrities/{{id}}" method="POST">
+  <input type="text" name="name" value="{{name}}" required="true">
+  <input type="text" name="occupation" value="{{occupation}}" required="true">
+  <input type="text" name="catchPhrase" value="{{catchPhrase}}" required="true">
+  <input type="number" name="rating" min="1" max="10" value={{rating}}>
+  <input type="submit" value="Save">
+</form>
+
+<a href="/celebrities/{{id}}">Cancel</a>
