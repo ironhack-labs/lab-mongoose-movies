@@ -1,0 +1,13 @@
+<h2>Edit a celeb</h2>
+
+{{!-- // submitting information to the server - method POST --}}
+<form action="/process-edit/{{celebItem._id}}" method="POST">
+  <input type="text" name="name" placeholder="Name..." value="{{celebItem.name}}">
+  <br />
+  <input type="text" name="occupation" placeholder="occupation..." value="{{celebItem.occupation}}">
+  <br />
+  <input type="text" name="catchPhrase" placeholder="catchPhrase..." value="{{celebItem.catchPhrase}}">
+  <br />
+
+  <button>Save Changes</button>
+</form>
