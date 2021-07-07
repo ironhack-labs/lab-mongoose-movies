@@ -1,0 +1,27 @@
+<div class="celebrities-all">
+
+<div class="all-content">
+
+<h2>Edit the Movie</h2>
+
+
+<form class="forms" action="/movies/{{movie._id}}" method="POST">
+<div class="item-form">
+<label for="title">Title</label>
+<input type="text" name="title" value="{{movie.title}}">
+</div>
+<div class="item-form">
+<label for="genre">Genre</label>
+<input type="text" name="genre" value="{{movie.genre}}">
+</div>
+<div class="item-form">
+<label for="plot">Plot</label>
+<textarea name="plot">{{movie.plot}}</textarea>
+</div>
+<input class="btn submit green" type="submit" value="Edit Movie">
+</form>
+
+<p class="btn"><a href="/movies">Go back</a></p>
+
+</div>
+</div>

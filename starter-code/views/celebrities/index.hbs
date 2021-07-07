@@ -1,0 +1,26 @@
+
+<div class="celebrities-all">
+
+<div class="all-content list">
+
+<h1>Meet the celebrities!</h1>
+
+<p class="btn green"><a href="/celebrities/new">Add a new Celebrtity</a></p>
+
+<div class="list-content">
+
+{{#each celebrities}}
+
+<div class="item">
+<h2>{{this.name}}</h2>
+<p class="btn btn-item"><a href="/celebrities/{{this._id}}">See more about {{this.name}}</a></p>
+</div>
+{{/each}}
+
+</div>
+
+<p class="btn"><a href="/">Go back to home</a></p>
+
+</div>
+
+</div>

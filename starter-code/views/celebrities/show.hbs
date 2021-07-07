@@ -1,0 +1,37 @@
+
+<div class="celebrities-all">
+
+<div class="all-content content-movies">
+
+{{#if edited}}
+<h3>{{star.name}} has been updated!</h3>
+{{/if}}
+
+
+<h2>{{star.name}}</h2>
+
+<h3><i>{{star.catchphrase}}</i></h3>
+
+<h4>Occupation: {{star.occupation}}</h4>
+
+<div class="btn-container">
+
+<p class="btn"><a href="/celebrities">Go back</a></p>
+
+
+<form action="/celebrities/{{star._id}}/delete" method="POST">
+<input class="btn submit red" type="submit" value="Delete celebrity">
+</form>
+
+
+
+<form action="/celebrities/{{star._id}}/edit" method="GET">
+<input class="btn submit green" type="submit" value="Edit celebrity">
+</form>
+
+</div>
+
+
+</div>
+</div>
+

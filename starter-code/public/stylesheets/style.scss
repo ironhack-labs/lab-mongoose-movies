@@ -1,0 +1,149 @@
+body {
+  font: 14px Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  background: url("/images/georgia-vagim-381292-unsplash.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.all-content {
+  margin: 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn {
+  padding: 15px;
+  background-color: rgba(60, 184, 136, 0.7);
+  border-radius: 7px;
+  margin: 10px 10px;
+}
+
+.btn:hover {
+  background-color: rgba(60, 184, 136, 1);
+}
+
+.btn:focus {
+  outline: 0px;
+}
+
+.submit {
+  box-shadow: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.btn-item {
+  width: auto;
+  background-color: rgba(60, 114, 184, 0.7);
+}
+
+.btn-item:hover {
+  background-color: rgba(60, 114, 184, 1);
+}
+
+.green {
+  background-color: rgba(54, 167, 54, 0.7);
+}
+
+.green:hover {
+  background-color: rgba(54, 167, 54, 1);
+}
+
+.red {
+  background-color: rgba(163, 41, 19, 0.7);
+}
+
+.red:hover {
+  background-color: rgba(163, 41, 19, 1);
+}
+
+
+.list {
+  width: 80%;
+  height: auto;
+}
+
+
+.list-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.celebrities-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.item {
+  padding: 30px;
+  width: 40%;
+  text-align: center;
+}
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.item-form input, textarea {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 7px;
+}
+
+.item-form textarea {
+  resize: none;
+  height: 200px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 40vw;
+}
+
+.movies-content {
+  width: 70%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+h3 {
+  color: grey;
+}

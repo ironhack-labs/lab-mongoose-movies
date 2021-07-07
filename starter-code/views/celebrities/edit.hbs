@@ -1,0 +1,27 @@
+
+<div class="celebrities-all">
+
+<div class="all-content">
+
+<h2>Edit the celebrity</h2>
+
+<form class="forms" action="/celebrities/{{star._id}}" method="POST">
+<div class="item-form">
+<label for="name">Name</label>
+<input type="text" name="name" value="{{star.name}}">
+</div>
+<div class="item-form">
+<label for="catchphrase">Catchprase</label>
+<input type="text" name="catchphrase" value="{{star.catchphrase}}">
+</div>
+<div class="item-form">
+<label for="occupation">Occupation</label>
+<input type="text" name="occupation" value="{{star.occupation}}">
+</div>
+<input class="btn submit green" type="submit" value="Edit Celebrity">
+</form>
+
+<p class="btn"><a href="/celebrities">Go back</a></p>
+
+</div>
+</div>
