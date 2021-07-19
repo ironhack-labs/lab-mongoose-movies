@@ -1,0 +1,22 @@
+
+
+<h2>Celebrities LIst</h2>
+
+<ul>
+    {{#each celebrityArray}}
+    <li>
+        <h3> {{this.name}} </h3>
+        
+        <a href="/celebrities/{{this._id}}"> See details</a>
+        <form action="/celebrities/{{this._id}}/delete" method="POST" >
+           <button> Delete </button>
+        </form>
+    </li>
+    {{/each}}
+</ul>
+<a href="/">Back home</a>
+
+
+<a href="/celebrities/new">add New</a>
+
+
