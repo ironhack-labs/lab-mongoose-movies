@@ -1,0 +1,41 @@
+<h2>here is a list of all movies
+
+</h2>
+
+{{#each data.movies}}
+  {{this.name}}
+{{/each}}
+
+<div>
+  <br />
+  <h3>Here you can add new movies!</h3>
+
+
+
+<form action="/movies/new" method="POST">
+  <label> Title:
+    <input type="text" name="title" />
+  </label>
+  <br>
+
+  <label> Genre:
+    <input type="text" name="genre"> </input>
+  </label>
+  <br>
+
+  <label> Plot:
+    <textarea type="text" name="plot"> </textarea>
+  </label>
+ <label for="selectcast"> Cast:</label>
+   <select name="cast" id="selectcast" multiple>
+  {{#each celebs}}
+  <option value="{{name}}">{{name}}</option>
+  hallo
+  {{/each}}
+  
+  </select>
+  <button type="submit"> Create the post </button>
+</form>
+
+
+</div>

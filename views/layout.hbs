@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-<body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
 
-  {{{body}}}
+    <h2>Welcome to a Celebrity-Creator-App... weird</h2>
+    <div class='navbarwrapper'>
 
-  <script src="/javascripts/script.js"></script>
-</body>
+      <nav>
+        <div> <a href='/'>Home</a></div>
+        <div> <a href='/celebrities'>Celebrities</a></div>
+        <div> <a href='/movies/list'>Movies</a></div>
+
+      </nav>
+
+    </div>
+
+    {{{body}}}
+
+    <script src='/javascripts/script.js'></script>
+  </body>
 </html>

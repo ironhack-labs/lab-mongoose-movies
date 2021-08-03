@@ -1,8 +1,16 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.celeblistdiv {
+  margin: 20px 0px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 2px;
+  box-shadow: 12px 12px 0px 1px rgba(0, 0, 255, 0.2);
 }

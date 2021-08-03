@@ -1,0 +1,21 @@
+<h3>this is a list of all celebrities:</h3>
+
+<br />
+
+<div class='celebwrapper'>
+  {{#each celebs}}
+
+    <div class='celeblistdiv'>
+
+      <p>Celebs name:{{name}}</p>
+      <br />
+
+      <div><a href='/celebrities/{{id}}'>More Details!</a></div>
+      <br />
+      <div><form action="/celebrities/delete/{{id}}" method="POST"><button>Delete this Celeb!</button></form></div>
+    </div>
+  {{/each}}
+</div>
+<div class='celeblistdiv'>
+  <button><a href='celebrities/new'>ADD A NEW CELEBRITY! </a></button>
+</div>
