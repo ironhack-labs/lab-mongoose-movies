@@ -2,8 +2,8 @@
 
 </h2>
 
-{{#each data.movies}}
-  {{this.name}}
+{{#each movies}}
+  {{title}}
 {{/each}}
 
 <div>
@@ -29,7 +29,7 @@
  <label for="selectcast"> Cast:</label>
    <select name="cast" id="selectcast" multiple>
   {{#each celebs}}
-  <option value="{{name}}">{{name}}</option>
+  <option value="{{id}}">{{name}}</option>
   hallo
   {{/each}}
   
