@@ -1,0 +1,61 @@
+<h2>here is a list of all movies
+
+</h2>
+
+{{#each movies}}
+  <div class='celeblistdiv'>
+    Title of the Movie:
+    {{title}}
+    <br />
+
+    <br />
+    <button><a href='/movies/{{id}}'>Details!</a>
+    </button>
+    <form action='/movies/delete/{{id}}' method="POST"><button>Delete</button> </form>
+
+    <br />
+
+  </div>
+{{/each}}
+
+<div>
+  <br />
+  <h3>Here you can add new movies!</h3>
+
+  <form action='/movies/new' method='POST'>
+
+    <div class='celeblistdiv'>
+      <label>
+        Title:
+        <input type='text' name='title' />
+      </label>
+    </div>
+
+    <div class='celeblistdiv'>
+      <label>
+        Genre:
+        <input type='text' name='genre' />
+      </label>
+    </div>
+    <div class='celeblistdiv'>
+      <label>
+        Plot:
+        <textarea type='text' name='plot'> </textarea>
+      </label>
+    </div>
+    <div class='celeblistdiv'>
+      <label for='selectcast'> Cast:</label>
+      <select name='cast' id='selectcast' multiple>
+        {{#each celebs}}
+          <option value='{{id}}'>{{name}}</option>
+          hallo
+        {{/each}}
+
+      </select>
+    </div>
+    <div class='celeblistdiv'>
+      <button type='submit'> Create the post </button>
+    </div>
+  </form>
+
+</div>

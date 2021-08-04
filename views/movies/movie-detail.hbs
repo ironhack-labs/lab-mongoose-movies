@@ -1,0 +1,14 @@
+<div class='celeblistdiv'>
+  Title of the Movie:
+  {{movie.title}}
+</div>
+<div class='celeblistdiv'>
+ Genre: {{movie.genre}}</div>
+<div class='celeblistdiv'>
+ Plot: {{movie.plot}}
+</div>
+<div class='celeblistdiv'>
+ Cast: {{#each movie.cast}}
+    {{this.name}}
+  {{/each}}
+</div>
