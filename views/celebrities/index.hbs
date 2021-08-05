@@ -8,6 +8,10 @@
         <a href="/celebrities/{{this._id}}">{{this.name}}</a>
     </h3>
 
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+        <button type="submit">DELETE</button>
+    </form>
+
     {{/each}}
 
    

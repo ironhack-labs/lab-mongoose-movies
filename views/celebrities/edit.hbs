@@ -1,8 +1,9 @@
-<h2>Add a new celebrity</h2>
+<h2>Edit the celebrity information</h2>
 
-<form action="/celebrities" method="post">
+//add prefilled text
+<form action="/celebrities/{{oneCelebrity._id}}" method="post">
     <input type="text" placeholder="Name" name="name" />
     <input type="text" placeholder="Occupation" name="occupation" />
     <input type="text" placeholder="Catch Phrase" name="catchPhrase" />
-    <button type="submit">SAVE CELEBRITY</button>
+    <button type="submit">SAVE</button>
 </form>
