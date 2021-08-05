@@ -3,16 +3,20 @@ const Celebrity = require("../models/Celebrity.model");
 const connectDB = require("../db/index");
 
 const celebrities = [
-  {name: Jimmy Iron, occupation: Actor, catchPhrase: "This is made by Iron!" }, 
-  {name: Lara Hack, occupation: Singer, catchPhrase: "What a hack!" }, 
-  {name: Iron Bard, occupation: Singer, catchPhrase: "Coooooool." }, 
-]
+  {
+    name: "Jimmy Iron",
+    occupation: "Actor",
+    catchPhrase: "This is made by Iron!",
+  },
+  { name: "Lara Hack", occupation: "Singer", catchPhrase: "What a hack!" },
+  { name: "Iron Bard", occupation: "Singer", catchPhrase: "Coooooool." },
+];
 
 connectDB()
   .then(() => {
     Celebrity.deleteMany().then(() => {
       Celebrity.create(celebrities)
-        .then((drone) => {
+        .then((celebrities) => {
           console.log(`Created ${celebrities.length} Celebrities.`);
           mongoose.connection.close();
         })
