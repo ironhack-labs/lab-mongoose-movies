@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Celebrity = require("../models/Celebrity.model");
-const connectDB = require("../db/index");
+const connectDB = require("../db/db");
 
 const celebrities = [
   {

@@ -10,7 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 // ℹ️ Connects to the database
-const connectDB = require("./db/index");
+const connectDB = require("./db/db");
 connectDB();
 
 const app_name = require("./package.json").name;
