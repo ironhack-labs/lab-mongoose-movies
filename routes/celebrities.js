@@ -13,7 +13,7 @@ router.get("/celebrities", (req, res, next) => {
 });
 
 router.get("/celebrities/:id", (req, res, next) => {
-  Drone.findById(req.params.id)
+  Celebrity.findById(req.params.id)
     .then((celebrity) =>
       res.render("celebrities/show", { celebrity: celebrity })
     )

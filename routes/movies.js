@@ -3,10 +3,19 @@ const router = express.Router();
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
-router.get("/moives", (req, res, next) => {
+router.get("/movies", (req, res, next) => {
   Movie.find().then((moives) => {
     res.render("movies/index", { movies: movies });
   });
+});
+
+router.get("/movies/:id", (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then((movie) => res.render("movies/show", { movie: movie }))
+    .catch((err) => {
+      console.log("Error occured while finding the movie", err);
+      res.redirect("/movies");
+    });
 });
 
 router.get("/movies/new", (req, res, next) => {
@@ -20,8 +29,8 @@ router.get("/movies/new", (req, res, next) => {
 });
 
 router.post("/movies", (req, res, next) => {
-  const { name, genre, celebrities } = req.body;
-  Movie.create({ name, genre, celebrities })
+  const { name, genre, plot, cast } = req.body;
+  Movie.create({ name, genre, plot, cast })
     .then(() => {
       Movie.save().then(res.render("/movies"));
     })
