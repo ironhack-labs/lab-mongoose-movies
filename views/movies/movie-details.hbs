@@ -1,0 +1,14 @@
+{{#each movie}}
+  {{this.title}}
+  <br />
+  {{this.genre}}
+  <br />
+  {{this.plot}}
+  <br />
+
+  {{#each this.cast}}
+    <br />
+    {{this.name}}
+    <br />
+  {{/each}}
+{{/each}}
