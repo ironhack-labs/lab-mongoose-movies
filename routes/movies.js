@@ -11,10 +11,9 @@ router.get("/movies", (req, res, next) => {
 
 router.get("/movies/:id", (req, res, next) => {
   Movie.findById(req.params.id)
-    .then((movie) => res.render("movies/show", { movie: movie }))
-    .catch((err) => {
-      console.log("Error occured while finding the movie", err);
-      res.redirect("/movies");
+    .populate("cast")
+    .then((movie) => {
+      res.render("movies/show", { movie: movie });
     });
 });
 
