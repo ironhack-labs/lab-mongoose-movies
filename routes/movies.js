@@ -35,8 +35,8 @@ router.get("/:id/edit", (req, res, next) => {
   let celebrityPromise = Celebrity.find();
   let moviePromise = Movie.findById(req.params.id).populate("cast");
   Promise.all([celebrityPromise, moviePromise]).then((data) => {
-    //res.render("movies/edit", { data: data });
-    res.send(data);
+    res.render("movies/edit", { data: data });
+    //res.send(data);
   });
 });
 

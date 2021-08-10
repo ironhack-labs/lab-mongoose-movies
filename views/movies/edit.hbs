@@ -1,27 +1,27 @@
-<form action="/movies/{{movie.id}}/edit" method="post">
+<form action="/movies/{{data.1.id}}/edit" method="post">
   <input
     type="text"
     name="title"
-    placeholder="{{movie.title}}"
-    value="{{movie.title}}"
+    placeholder="{{data.1.title}}"
+    value="{{data.1.title}}"
   />
   <input
     type="text"
     name="genre"
-    placeholder="{{movie.genre}}"
-    value="{{movie.genre}}"
+    placeholder="{{data.1.genre}}"
+    value="{{data.1.genre}}"
   />
   <input
     type="text"
     name="plot"
-    placeholder="{{movie.plot}}"
-    value="{{movie.plot}}"
+    placeholder="{{data.1.plot}}"
+    value="{{data.1.plot}}"
   />
-  <select name="cast" id="cast" multiple>
-    {{#each movie.cast}}
+  {{!-- <select name="cast" id="cast" multiple>
+    {{#each data.0}}
       <option value="{{this.id}}">{{this.name}}</option>
 
     {{/each}}
-  </select>
-  <a href="/movies/{{this.id}}"><button type="submit">Save</button></a>
+  </select> --}}
+  <a href="/movies/{{data.1.id}}/edit"><button type="submit">Save</button></a>
 </form>
