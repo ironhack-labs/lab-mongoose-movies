@@ -12,9 +12,9 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
 });
 
 const movies = [
-  { title: "Homer Simpson", genre: "cartoon character", plot: "Doh!", cast: "Doh!" },
-  { name: "Homer Simpson", occupation: "cartoon character", catchPhrase: "Doh!" },
-  { name: "Homer Simpson", occupation: "cartoon character", catchPhrase: "Doh!" },
+  { title: "Pi", genre: "Science Thriller", plot: "Man searches for a code to break the stock market and discovers God", cast: "That One Guy" },
+  { title: "Pi", genre: "Science Thriller", plot: "Man searches for a code to break the stock market and discovers God", cast: "That One Guy" },
+  { title: "Pi", genre: "Science Thriller", plot: "Man searches for a code to break the stock market and discovers God", cast: "That One Guy" },
 ];
 
 Movie.create(movies)

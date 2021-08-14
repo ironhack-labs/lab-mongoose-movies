@@ -1,4 +1,5 @@
 const express = require("express");
+const celebrityModel = require("../models/celebrity.model");
 const router = express.Router();
 const Movie = require("../models/movie.model");
 
@@ -29,13 +30,16 @@ router.post("/movies/:theID/edit", (req, res, next) => {
 
 router.get("/movies/create", (req, res, next) => {
   // Iteration #3: Add a new Movie
-  res.render("./movies/addMovie-form.hbs");
+  celebrityModel.find().then((celebArray) => { 
+    res.render("./movies/addMovie-form.hbs", { celebArray: celebArray});
+  });
+  
 });
 
 router.post("/movies/create", (req, res, next) => {
   // Iteration #3: Add a new Movie
   console.log(req.body);
-  Movie.create({ title: req.body.title, genre: req.body.genre, plot: req.body.plot, cast: req.body.cast }).then(() => {
+  Movie.create({ title: req.body.title, genre: req.body.genre, plot: req.body.plot, cast: [req.body.cast] }).then(() => {
     res.redirect("/movies");
   });
 });
@@ -43,7 +47,8 @@ router.post("/movies/create", (req, res, next) => {
 router.get("/movies/:theID", (req, res) => {
   req.params.theID; // ==> 61052265119dbf8593258766
 
-  Movie.findById(req.params.theID).then((oneMovie) => {
+  Movie.findById(req.params.theID).populate('name')
+  .then((oneMovie) => {
     // console.log('Retrieved film from DB:', oneFilm)
     res.render("movies/movieDetails.hbs", { oneMovie: oneMovie });
     // res.send(oneFilm)
