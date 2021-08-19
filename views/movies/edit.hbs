@@ -1,0 +1,27 @@
+<form action="/movies/{{data.1.id}}/edit" method="post">
+  <input
+    type="text"
+    name="title"
+    placeholder="{{data.1.title}}"
+    value="{{data.1.title}}"
+  />
+  <input
+    type="text"
+    name="genre"
+    placeholder="{{data.1.genre}}"
+    value="{{data.1.genre}}"
+  />
+  <input
+    type="text"
+    name="plot"
+    placeholder="{{data.1.plot}}"
+    value="{{data.1.plot}}"
+  />
+  {{!-- <select name="cast" id="cast" multiple>
+    {{#each data.0}}
+      <option value="{{this.id}}">{{this.name}}</option>
+
+    {{/each}}
+  </select> --}}
+  <a href="/movies/{{data.1.id}}/edit"><button type="submit">Save</button></a>
+</form>
