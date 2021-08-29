@@ -1,5 +1,5 @@
 const express = require("express");
-const celebrityModel = require("../models/celebrity.model");
+const celebrityModel = require("../models/locations.model");
 const router = express.Router();
 const Movie = require("../models/movie.model");
 

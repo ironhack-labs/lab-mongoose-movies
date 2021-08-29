@@ -27,7 +27,7 @@ app.use(
     cookie: { maxAge: 600000 }, // 10 minutes
     store: MongoStore.create({
       // <== ADDED !!!
-      mongoUrl: "mongodb://localhost/lab-mongoose-movies",
+      mongoUrl: "mongodb://localhost/MapUrVacation_app",
       //mongooseConnection: mongoose.connection,
       // ttl => time to live
       // ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
@@ -39,7 +39,7 @@ app.use(
 require('./config')(app);
 
 mongoose
-  .connect('mongodb://localhost/lab-mongoose-movies', {useNewUrlParser: true})
+  .connect('mongodb://localhost/MapUrVacation_app', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -81,12 +81,12 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 app.use('/', index);
-const celebrities = require('./routes/celebrities');
+const celebrities = require('./routes/locations');
 app.use('/', celebrities);
 const movies = require('./routes/movies');
 app.use('/', movies);
 const user = require('./routes/userRoutes');
-app.use('/user', user);
+app.use('/', user);
 
 
 module.exports = app;

@@ -1,0 +1,31 @@
+{{! <h1>Profile Test Page</h1> }}
+
+<div class="test">
+  <div class="welcomeText">
+    <h1>Welcome {{theUsername}}</h1>
+  </div>
+</div>
+<div>
+<div id="map" style="width: 90%; height: 600px;left: 80px;"></div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoicmVkZGJpc2N1aXRzIiwiYSI6ImNrc3N2NXc5aDAzYWMyeHNieml3Ym5mZHIifQ.tLy9z9H5Nhqmh4YqcEpFsQ'; 
+  const map = new mapboxgl.Map(
+      { 
+        container: 'map', //container ID 
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL 
+        center: [13.3, 52.5], // starting position [lng, lat] 
+        zoom: 9 // starting zoom
+        }
+   );
+   const marker = new mapboxgl.Marker({
+        draggable: true
+    }).setLngLat([13.4, 52.52])
+    .addTo(map);
+    const nav = new mapboxgl.NavigationControl({visualizePitch: true});
+    map.addControl(nav, 'top-left');
+
+</script>
+</div>
+<div class="welcomeText">
+<h2>Please enter a destination</h2>
+</div>
