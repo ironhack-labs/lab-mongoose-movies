@@ -1,0 +1,15 @@
+<h1>Our celebrities</h1>
+
+<ul>
+    {{#each celebrityList}}
+
+    <li> 
+        <h3>{{this.name}}</h3>
+        <a href="/celebrities/{{this._id}}">
+         <button>See More</button>
+        </a>
+    </li>
+    {{else}}
+    <li>No celebrities</li>
+    {{/each}}
+</ul>
