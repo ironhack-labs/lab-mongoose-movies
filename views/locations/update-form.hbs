@@ -1,0 +1,13 @@
+<h1>Update the celebrity</h1>
+<div class="loginFields">
+  <form action="/celebrities/{{oneCeleb._id}}/edit" method="post">
+    <input type="text" name="name" placeholder="Celebrity Name" value="{{oneCeleb.name}}"/>
+    <input type="text" name="occupation" placeholder="Occupation" id="" value="{{oneCeleb.occupation}}"/>
+    <input type="text" name="catchPhrase" placeholder="Catch Phrase" id="" value="{{oneCeleb.catchPhrase}}"/>
+    {{! <input type="number" name="rating" placeholder="rating" id=""> }}
+    <button type="submit">SAVE</button>
+  </form>
+</div>
+    <ul class="goBack">
+      <li><a href="http://localhost:3000/index"><button type="button" class="btn btn-outline-info">Go Back</button></a></li>
+    </ul>

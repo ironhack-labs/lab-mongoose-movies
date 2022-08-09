@@ -1,0 +1,23 @@
+<h1>List of Movies</h1>
+<a href="/movies/create">Add a new movie</a>
+<br><br>
+{{#each listOfMovies}}
+    <div> 
+    {{title}}
+    </div>
+    <a href="http://localhost:3000/movies/{{_id}}" class="btn btn-primary"><button>Movie Details</button></a>
+    <a href="/movies/{{this._id}}/edit"><button>Edit This Movie</button></a>
+    <form action="/movies/{{this._id}}/delete" method="post"><button>Delete Movie</button></form>
+    {{!-- <form action="/celebrities/{{_id}}/delete" method="post">Delete</form> --}}
+    <br><br>
+
+{{/each}}
+<br><br>
+
+<navbar class="navbar">
+    <ul>
+      <li><a href="http://localhost:3000/index">Go Back</a></li>
+    </ul>
+  </navbar>
+
+  

@@ -1,0 +1,29 @@
+<h1>Update the Movie</h1>
+<div class="loginFields">
+  <form action="/movies/{{oneMovie._id}}/edit" method="post">
+    <input type="text" name="title" placeholder="Movie Title" value="{{oneMovie.name}}"/>
+    <input type="text" name="genre" placeholder="Genre" id="" value="{{oneMovie.occupation}}"/>
+    <input type="text" name="plot" placeholder="Plot Description" id="" value="{{oneMovie.catchPhrase}}"/>
+    <input type="text" name="cast" placeholder="Cast Members" id="">
+    <button type="submit">SAVE</button>
+  </form>
+</div>
+{{!-- <navbar class="navbar">
+    <ul>
+      <li><a href="http://localhost:3000/celebrities">Go Back</a></li>
+    </ul>
+  </navbar> --}}
+
+  {{!-- <h2>Add a new Movie</h2>
+<form action="/movies/create" method="post">
+  <input type="text" name="title" placeholder="Movie Title" />
+  <input type="text" name="genre" placeholder="Genre" id="" />
+  <input type="text" name="plot" placeholder="Plot Description" id="" />
+  <input type="text" name="cast" placeholder="Cast Members" id="">
+  <button type="submit">SAVE</button>
+</form> --}}
+
+    <ul class="goBack">
+      <li><a href="http://localhost:3000/index">Go Back</a></li>
+    </ul>
+    

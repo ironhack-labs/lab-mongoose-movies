@@ -1,0 +1,211 @@
+<h1>DETAILS</h1>
+<div id='map' style='width: 100%; height: 600px;'></div>
+<style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div id='map'></div>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYWhtZWRraGFuMTAzOSIsImEiOiJjam5iZDgwejYwMnlpM3FyNzJvMDZhZHdoIn0.pcOWSRI2xzY_oMX0mVsLjg';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v9',
+        center: [0.11256, 52.201733],
+        zoom: 15
+      });
+
+      // Create a GeoJSON source with an empty lineString.
+      var geojson = {
+        "type": "FeatureCollection",
+        "features": [{
+          "type": "Feature",
+          "geometry": {
+            "type": "LineString",
+            "coordinates": []
+          }
+        }]
+      };
+
+      var startPoint = [0.108266, 52.202758];
+      var endPoint = [0.11556, 52.201733];
+
+      var framesPerSecond = 20;
+      var initialOpacity = 1
+      var opacity = initialOpacity;
+      var initialRadius = 4;
+      var radius = initialRadius;
+      var maxRadius = 15;
+
+      var speedFactor = 100 // number of frames per longitude degree
+      var animation; // to store and cancel the animation
+
+      map.on('load', function() {
+
+        // Point 1
+        map.addSource('point1', {
+          "type": "geojson",
+          "data": {
+            "type": "Point",
+            "coordinates": [
+              startPoint[0], startPoint[1]
+            ]
+          }
+        });
+        map.addLayer({
+          "id": "circle1",
+          "source": "point1",
+          "type": "circle",
+          "paint": {
+            "circle-radius": initialRadius,
+            "circle-radius-transition": {
+              duration: 0
+            },
+            "circle-opacity-transition": {
+              duration: 0
+            },
+            "circle-color": "#007cbf"
+          }
+        });
+        map.addLayer({
+          "id": "point1",
+          "source": "point1",
+          "type": "circle",
+          "paint": {
+            "circle-radius": initialRadius,
+            "circle-color": "#007cbf"
+          }
+        });
+
+        // Point 2
+        map.addSource('point2', {
+          "type": "geojson",
+          "data": {
+            "type": "Point",
+            "coordinates": [
+              endPoint[0], endPoint[1]
+            ]
+          }
+        });
+        map.addLayer({
+          "id": "circle2",
+          "source": "point2",
+          "type": "circle",
+          "paint": {
+            "circle-radius": initialRadius,
+            "circle-radius-transition": {
+              duration: 0
+            },
+            "circle-opacity-transition": {
+              duration: 0
+            },
+            "circle-color": "#007cbf"
+          }
+        });
+        map.addLayer({
+          "id": "point2",
+          "source": "point2",
+          "type": "circle",
+          "paint": {
+            "circle-radius": initialRadius,
+            "circle-color": "#007cbf"
+          }
+        });
+
+        //Line
+        map.addLayer({
+          'id': 'line-animation',
+          'type': 'line',
+          'source': {
+            'type': 'geojson',
+            'data': geojson
+          },
+          'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+          },
+          'paint': {
+            'line-color': '#ffffff',
+            'line-width': 2
+          }
+        });
+
+        var diffX = endPoint[0] - startPoint[0];
+        var diffY = endPoint[1] - startPoint[1];
+
+        var sfX = diffX / speedFactor;
+        var sfY = diffY / speedFactor;
+
+        var i = 0;
+        var j = 0;
+
+        var lineCoordinates = [];
+
+        while (i < diffX || Math.abs(j) < Math.abs(diffY)) {
+          lineCoordinates.push([startPoint[0] + i, startPoint[1] + j]);
+
+          if (i < diffX) {
+            i += sfX;
+          }
+
+          if (Math.abs(j) < Math.abs(diffY)) {
+            j += sfY;
+          }
+        }
+
+        console.log(lineCoordinates);
+
+        var animationCounter = 0;
+
+        function animateLine() {
+          if (animationCounter < lineCoordinates.length) {
+            geojson.features[0].geometry.coordinates.push(lineCoordinates[animationCounter]);
+            map.getSource('line-animation').setData(geojson);
+
+            requestAnimationFrame(animateLine);
+            animationCounter++;
+          } else {
+            var coord = geojson.features[0].geometry.coordinates;
+            coord.shift();
+            console.log(coord);
+
+            if (coord.length > 0) {
+              geojson.features[0].geometry.coordinates = coord;
+              map.getSource('line-animation').setData(geojson);
+
+              //-------------- Point2 Animation End ---------------
+              requestAnimationFrame(animateLine);
+            }
+          }
+
+        }
+
+        animateLine();
+
+
+      });
+
+    </script>
+  </body>
+
+
+  <br /><br /><br />
+    <ul class="goBack">
+      <li><a href="http://localhost:3000/index"><button type="button" class="btn btn-outline-info">Go Back</button></a></li>
+    </ul>
+
+
+</div>
