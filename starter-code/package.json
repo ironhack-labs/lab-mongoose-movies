@@ -1,0 +1,24 @@
+{
+  "name": "starter-code",
+  "version": "1.0.0",
+  "description": "Lab mongoose movies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "author": "Cesar",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "http-errors": "^1.7.1",
+    "mongoose": "^5.3.3",
+    "morgan": "^1.9.1"
+  }
+}

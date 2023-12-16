@@ -1,0 +1,37 @@
+/* ------ Reset --------*/
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+/*-------- Home Page --------*/
+
+.index-link {
+  font-size: 60px;
+  color: white;
+}
+
+.index-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: url('forest_BG.jpg');
+}
+
+/* -------- 

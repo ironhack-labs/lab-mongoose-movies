@@ -1,0 +1,21 @@
+<h2>Celebrity</h2>
+<h3> Name: <%= celebrity.name %> </h3>
+<h3> Occupation: <%= celebrity.occupation %> </h3>
+<h3> Quote: "<%= celebrity.catchPhrase %>" </h3>
+<h3>Favorite Books: 
+  <% book.forEach(item => { %>
+  <p><%= item.title %> </p>
+  <% )} %>
+</h3>
+<form action="<%= celebrity._id %>/favorites" method="post">
+    <% book.forEach(item => { %>
+    <div>
+      <input type="radio"
+            name="book" value="<%= item._id %>" />
+      <label for="<%= item.title %>"><%= item.title %></label>
+    </div>
+    <% }) %>
+    <button>Add a favorite Book</button>
+</form>
+
+<!--celebrity.favoriteBooks.forEach
